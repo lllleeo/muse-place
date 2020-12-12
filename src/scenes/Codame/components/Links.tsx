@@ -5,7 +5,6 @@ import { linkPositions } from "../assets/constants";
 type LinksProps = {
   links: {
     link?: string;
-    desc: string;
     src: string;
   }[];
   color?: string;
@@ -21,7 +20,6 @@ const Links = (props: LinksProps) => {
       <Link
         position={linkPositions[i].p}
         rotY={linkPositions[i].r}
-        text={links[i].desc}
         color={color}
         link={links[i].link}
         src={links[i].src}

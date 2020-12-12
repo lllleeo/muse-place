@@ -9,7 +9,6 @@ import { MeshStandardMaterial } from "three";
 type SpaceProps = {
   linkData: {
     link?: string;
-    desc: string;
     src: string;
   }[];
   position?: [number, number, number];

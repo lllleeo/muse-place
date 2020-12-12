@@ -12,14 +12,7 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const {
-    link = "",
-    position,
-    rotY = 0,
-    text = "",
-    color = "white",
-    src,
-  } = props;
+  const { link = "", position, rotY = 0, color = "white", src } = props;
 
   const handleClick = () => {
     window.location.href = link;
@@ -34,9 +27,6 @@ const Link = (props: LinkProps) => {
           <Image src={src} ratio={[1, 1]} sizeScale={5} framed />
         </Interactable>
       )}
-      <Text color={color} fontSize={0.4} position-y={-2.5}>
-        {text}
-      </Text>
     </group>
   );
 };

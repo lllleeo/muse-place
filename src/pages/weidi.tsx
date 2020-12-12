@@ -4,38 +4,37 @@ import dynamic from "next/dynamic";
 
 const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 
+const ARTIST = {
+  number: 1,
+  name: "Weidei",
+  socials: {
+    instagram: "https://www.instagram.com/musehq/",
+    twitter: "https://twitter.com/musehq_",
+    web: "https://spaces.gallery",
+  },
+};
+
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/codame/ARTISTS`;
 const linkData = [
   {
-    desc: "Spotify (1)",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/1.jpg`,
   },
   {
-    desc: "YouTube (2)",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/2.jpg`,
   },
   {
-    desc: "Apple Music (3)",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/3.jpg`,
   },
   {
-    desc: "Link 4",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/4.jpg`,
   },
   {
-    desc: "Link 5",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/5.jpg`,
   },
   {
-    desc: "Link 6",
-    src: "/assets/gradient2.jpg",
+    src: `${url}/${ARTIST.number}/6.jpg`,
   },
 ];
-
-const socials = {
-  instagram: "https://www.instagram.com/musehq/",
-  twitter: "https://twitter.com/musehq_",
-  web: "spaces.gallery",
-};
 
 const LinkTree: NextPage = () => {
   return (
@@ -49,8 +48,8 @@ const LinkTree: NextPage = () => {
       </Head>
       <Codame
         linkData={linkData}
-        socials={socials}
-        name={"Artist name"}
+        socials={ARTIST.socials}
+        name={ARTIST.name}
         map="city"
         far={100}
         scenePos={[0, -20, 0]}

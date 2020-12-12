@@ -17,7 +17,6 @@ import { keyframes } from "./assets/constants";
 type CodameProps = {
   linkData: {
     link?: string;
-    desc: string;
     src: string;
   }[];
   name?: string;
