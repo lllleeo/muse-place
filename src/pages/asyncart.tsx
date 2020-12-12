@@ -5,10 +5,12 @@ import dynamic from "next/dynamic";
 const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 
 const ARTIST = {
-  number: 52,
-  name: "Weidi Zhang",
+  number: 5,
+  name: "Async Art",
   socials: {
-    instagram: "https://www.instagram.com/w.e.i.d.i/",
+    instagram: "https://www.instagram.com/asyncart",
+    twitter: "https://twitter.com/asyncart",
+    web: "https://async.art/",
   },
 };
 
