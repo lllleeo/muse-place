@@ -6,7 +6,7 @@ const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 
 const ARTIST = {
   number: 20,
-  name: "Jordan Grey",
+  name: "Jordan Gray",
   socials: {
     instagram: "https://www.instagram.com/starpause/",
     twitter: "https://twitter.com/starpause",

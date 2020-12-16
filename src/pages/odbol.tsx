@@ -6,11 +6,11 @@ const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 
 const ARTIST = {
   number: 49,
-  name: "Torin Blankensmith",
+  name: "Tyler Freeman",
   socials: {
-    instagram: "https://www.instagram.com/blankensmithing/",
-    twitter: "https://twitter.com/tBlankensmith",
-    web: "http://torinblankensmith.webflow.io/",
+    instagram: "https://www.instagram.com/odbol",
+    twitter: "https://twitter.com/odbol",
+    web: "http://lsd.odbol.com/",
   },
 };
 
