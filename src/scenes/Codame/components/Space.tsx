@@ -39,7 +39,7 @@ const Space = (props: SpaceProps) => {
         <Structure_00 position-y={0.1155} />
       </Suspense>
       <Suspense fallback={null}>
-        <CodameCollisions />
+        <CodameCollisions position-y={-0.05} />
       </Suspense>
       <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
         <Text
