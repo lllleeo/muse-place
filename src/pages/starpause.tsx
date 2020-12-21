@@ -7,7 +7,7 @@ const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 const ARTIST = {
   number: 20,
   name: "Jordan Gray",
-  socials: {
+  socialLinks: {
     instagram: "https://www.instagram.com/starpause/",
     twitter: "https://twitter.com/starpause",
     web: "http://starpause.com/",
@@ -47,8 +47,9 @@ const LinkTree: NextPage = () => {
         />
       </Head>
       <Codame
-        linkData={linkData}
-        socials={ARTIST.socials}
+        socials={[]}
+        artwork={linkData}
+        socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
         map="city"
         far={100}

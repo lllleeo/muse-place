@@ -1,26 +1,17 @@
-import {
-  StandardEnvironment,
-  KeyframeEnvironment,
-  Fog,
-  Keyframe,
-} from "spacesvr";
+import { Fog, Text } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
-import { isMobile } from "react-device-detect";
 
-import Outside from "./components/Outside";
-import Space from "./components/Space";
-import Lighting from "./components/Lighting";
-import { CanvasProps } from "react-three-fiber";
-import { keyframes } from "./assets/constants";
+import Outside from "themes/Gotham/components/Outside";
+import Lighting from "themes/Gotham/components/Lighting";
+import { keyframes } from "themes/Gotham/assets/constants";
+import { useMemo } from "react";
+import { MeshStandardMaterial } from "three";
+import DualEnvironment from "themes/Gotham/components/DualEnvironment";
+import Gotham, { GothamProps } from "themes/Gotham";
 
 type CodameProps = {
-  linkData: {
-    link?: string;
-    src: string;
-  }[];
-  name?: string;
-  socials?: {
+  socialLinks: {
     instagram?: string;
     twitter?: string;
     web?: string;
@@ -38,12 +29,12 @@ type CodameProps = {
   xzMapScale?: number;
   far?: number;
   lightColor?: string;
-};
+} & GothamProps;
 
 const Codame = (props: CodameProps) => {
   const {
-    linkData,
-    socials,
+    artwork,
+    socialLinks,
     floorColor = 0xbbbbbb,
     sunPos = 1,
     night,
@@ -60,35 +51,28 @@ const Codame = (props: CodameProps) => {
     lightColor,
   } = props;
 
-  const fColor = new THREE.Color(fogColor);
+  const material = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        color: 0xffffff,
+        metalness: 0.2,
+        roughness: 0.1,
+      }),
+    []
+  );
 
-  const Environment = (props: {
-    children: React.ReactNode;
-    keyframes: Keyframe[];
-    canvasProps: Partial<CanvasProps>;
-  }) => {
-    const { keyframes, children, canvasProps } = props;
-
-    if (isMobile) {
-      return (
-        <KeyframeEnvironment keyframes={keyframes} canvasProps={canvasProps}>
-          {children}
-        </KeyframeEnvironment>
-      );
-    } else {
-      return (
-        <StandardEnvironment canvasProps={canvasProps}>
-          {children}
-        </StandardEnvironment>
-      );
-    }
-  };
+  const socials = [];
+  if (socialLinks.instagram) socials.push(socialLinks.instagram);
+  if (socialLinks.twitter) socials.push(socialLinks.twitter);
+  if (socialLinks.web) socials.push(socialLinks.web);
 
   return (
-    <Environment keyframes={keyframes} canvasProps={{ camera: { far } }}>
+    <DualEnvironment keyframes={keyframes} canvasProps={{ camera: { far } }}>
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
-      {fogColor && <Fog color={fColor} near={fogNear} far={fogFar} />}
+      {fogColor && (
+        <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
+      )}
       <Lighting color={lightColor} />
       <Outside
         position={scenePos}
@@ -97,8 +81,35 @@ const Codame = (props: CodameProps) => {
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
-      <Space linkData={linkData} socials={socials} name={name} />
-    </Environment>
+      <Gotham name={name} socials={socials} artwork={artwork} />
+      <group scale={[5, 5, 5]}>
+        <group
+          position={[0.27, 0.195, -0.55]}
+          rotation={[0, -Math.PI / 5, 0]}
+          name="Muse & Codame"
+        >
+          <Text
+            text="Muse"
+            size={1.18}
+            material={material}
+            position={[-0.06, 0, 0]}
+          />
+          <Text
+            text="&"
+            size={1.4}
+            material={material}
+            position={[0.22, -0.01, 0]}
+            rotation={[0, 0, Math.PI / 6.5]}
+          />
+          <Text
+            text="Codame"
+            size={1.18}
+            position={[0, -0.12, 0]}
+            material={material}
+          />
+        </group>
+      </group>
+    </DualEnvironment>
   );
 };
 

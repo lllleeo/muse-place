@@ -2,35 +2,36 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Codame = dynamic(import("scenes/Codame"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  number: 24,
-  name: "Lynette Lee",
-  socialLinks: {
-    web: "http://www.lynettelee.com/",
-  },
+  name: "Kr3wcial",
+  socials: [
+    "https://www.instagram.com/charstiles",
+    "https://twitter.com/charstiles",
+    "http://charstiles.com/",
+  ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/codame/ARTISTS`;
-const linkData = [
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial`;
+const artwork = [
   {
-    src: `${url}/${ARTIST.number}/1.jpg`,
+    src: `${url}/1.jpg`,
   },
   {
-    src: `${url}/${ARTIST.number}/2.jpg`,
+    src: `${url}/2.mp4`,
   },
   {
-    src: `${url}/${ARTIST.number}/3.jpg`,
+    src: `${url}/3.jpg`,
   },
   {
-    src: `${url}/${ARTIST.number}/4.jpg`,
+    src: `${url}/4.mp4`,
   },
   {
-    src: `${url}/${ARTIST.number}/5.jpg`,
+    src: `${url}/5.mp4`,
   },
   {
-    src: `${url}/${ARTIST.number}/6.jpg`,
+    src: `${url}/6.jpg`,
   },
 ];
 
@@ -38,27 +39,26 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Codame</title>
+        <title>Kr3wcial's Muse Place</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Space+Mono&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <Codame
-        socials={[]}
-        artwork={linkData}
-        socialLinks={ARTIST.socialLinks}
+      <Gotham
+        artwork={artwork}
+        socials={ARTIST.socials}
         name={ARTIST.name}
         map="city"
-        far={100}
         scenePos={[0, -20, 0]}
         fogNear={0}
-        fogFar={50}
+        fogFar={200}
         fogColor={"#000000"}
         hMapScale={30}
         xzMapScale={100}
         floorColor="black"
         night
+        stars
       />
     </>
   );
