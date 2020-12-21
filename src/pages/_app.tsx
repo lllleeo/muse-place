@@ -5,6 +5,21 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-9G528VLZNH"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+         window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-9G528VLZNH');
+        `,
+          }}
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"

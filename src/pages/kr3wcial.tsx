@@ -52,7 +52,7 @@ const LinkTree: NextPage = () => {
         map="city"
         scenePos={[0, -20, 0]}
         fogNear={0}
-        fogFar={200}
+        fogFar={150}
         fogColor={"#000000"}
         hMapScale={30}
         xzMapScale={100}

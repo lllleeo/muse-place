@@ -21,9 +21,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  // useTrimeshCollision(
-  //   (nodes.collider.geometry as BufferGeometry).clone().translate(0, -0.1, 0).scale(5, 5, 5)
-  // );
+  useTrimeshCollision(
+    (nodes.collider.geometry as BufferGeometry)
+      .clone()
+      .translate(0, -0.1, 0)
+      .scale(5, 5, 5)
+  );
 
   return (
     <group ref={group} {...props}>
