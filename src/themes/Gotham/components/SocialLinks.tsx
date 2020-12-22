@@ -30,6 +30,15 @@ const SocialLinks = (props: SocialLinksProps) => {
                 position={[x, 0, 0]}
               />
             );
+          } else if (social.includes("spotify")) {
+            return (
+              <Social
+                key={social}
+                type="spotify"
+                link={social}
+                position={[x, 0, 0]}
+              />
+            );
           } else {
             return (
               <Social

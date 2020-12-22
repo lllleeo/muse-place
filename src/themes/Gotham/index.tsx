@@ -41,7 +41,7 @@ const Gotham = (props: GothamProps) => {
           text={(name || "").toUpperCase()}
           size={1.15}
           material={material}
-          position={[0, 0, -0.01]}
+          position={[0, 0, -0.019]}
         />
         <SocialLinks socials={socials} />
       </group>

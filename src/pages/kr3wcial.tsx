@@ -1,15 +1,16 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import DepthImage from "../themes/Gotham/components/DepthImage";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
   name: "Kr3wcial",
   socials: [
-    "https://www.instagram.com/charstiles",
-    "https://twitter.com/charstiles",
-    "http://charstiles.com/",
+    "https://twitter.com/iKr3wcial",
+    "https://open.spotify.com/artist/286zFnBdNwLtIC6Uo4l1t3?si=fv199_S8RZyQG1UVpCow5A",
+    "https://www.instagram.com/ikr3wcial/",
   ],
 };
 
@@ -59,7 +60,14 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-      />
+      >
+        <DepthImage
+          position={[-6, 1, 2.5]}
+          rotation-y={Math.PI / 2}
+          img="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/3.jpg"
+          depth="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/displace.png"
+        />
+      </Gotham>
     </>
   );
 };

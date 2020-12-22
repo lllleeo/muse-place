@@ -7,8 +7,10 @@ import Lighting from "themes/Gotham/components/Lighting";
 import { keyframes } from "themes/Gotham/assets/constants";
 import DualEnvironment from "themes/Gotham/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
+import { ReactNode } from "react";
+import { useLoader } from "react-three-fiber";
 
-type CodameProps = {
+type GothamSceneProps = {
   floorColor?: string;
   sunPos?: number;
   night?: boolean;
@@ -22,10 +24,12 @@ type CodameProps = {
   xzMapScale?: number;
   far?: number;
   lightColor?: string;
+  children?: ReactNode;
 } & GothamProps;
 
-const Codame = (props: CodameProps) => {
+const GothamScene = (props: GothamSceneProps) => {
   const {
+    children,
     floorColor = 0xbbbbbb,
     sunPos = 1,
     night,
@@ -59,8 +63,9 @@ const Codame = (props: CodameProps) => {
         xzScale={xzMapScale}
       />
       <Gotham {...props} />
+      {children}
     </DualEnvironment>
   );
 };
 
-export default Codame;
+export default GothamScene;

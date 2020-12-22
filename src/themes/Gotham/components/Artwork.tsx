@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "./Link";
 import { linkPositions } from "../assets/constants";
 
@@ -14,13 +15,15 @@ const Artwork = (props: ArtworkProps) => {
   return (
     <group scale={[1 / 20, 1 / 20, 1 / 20]}>
       {artwork.map((piece, i) => (
-        <Link
-          position={linkPositions[i].p}
-          rotY={linkPositions[i].r}
-          link={piece.link}
-          src={piece.src}
-          key={i}
-        />
+        <Suspense fallback={null}>
+          <Link
+            position={linkPositions[i].p}
+            rotY={linkPositions[i].r}
+            link={piece.link}
+            src={piece.src}
+            key={i}
+          />
+        </Suspense>
       ))}
     </group>
   );

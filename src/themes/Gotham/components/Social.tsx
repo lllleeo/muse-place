@@ -1,13 +1,14 @@
 import { Interactable } from "spacesvr";
-import { Suspense, useMemo, useRef } from "react";
-import { SpotLight, Vector3 } from "three";
+import { Suspense } from "react";
+import { Vector3 } from "three";
 
 import Instagram from "../models/Instagram";
 import Twitter from "../models/Twitter";
 import Web from "../models/Web";
+import Spotify from "../models/Spotify";
 
 type SocialProps = {
-  type: "instagram" | "twitter" | "web";
+  type: "instagram" | "twitter" | "web" | "spotify";
   link: string;
   position?: [number, number, number];
 };
@@ -20,9 +21,11 @@ const Social = (props: SocialProps) => {
       <Instagram />
     ) : type === "twitter" ? (
       <Twitter />
-    ) : type === "web" ? (
+    ) : type === "spotify" ? (
+      <Spotify />
+    ) : (
       <Web />
-    ) : null;
+    );
 
   const handleClick = () => {
     window.location.href = link;
