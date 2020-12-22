@@ -15,7 +15,7 @@ const DepthImage = (props: DepthImageProps) => {
   return (
     <group {...restProps}>
       <mesh>
-        <planeBufferGeometry args={[2, 2, 100, 100]} />
+        <planeBufferGeometry args={[2, 2, 120, 120]} />
         <meshStandardMaterial
           map={image}
           displacementMap={displace}

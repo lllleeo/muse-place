@@ -28,7 +28,7 @@ export const linkPositions = [
   },
 ];
 
-const DIST = 5;
+const DIST = 7;
 const SCALE = 4; // taken from Space.tsx and Links.tsx
 export const keyframes: Keyframe[] = [
   {

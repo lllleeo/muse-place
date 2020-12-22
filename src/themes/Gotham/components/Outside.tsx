@@ -16,8 +16,8 @@ type SceneProps = {
 const Outside = (props: SceneProps) => {
   const {
     color,
-    wSegments = 700,
-    hSegments = 700,
+    wSegments = 200,
+    hSegments = 200,
     position = [0, 0, 0],
     map = "mountain",
     hScale = 10,
@@ -35,7 +35,7 @@ const Outside = (props: SceneProps) => {
     if (mesh.current && dist) {
       let i = 0;
       for (let z = -dist; z <= dist; z++) {
-        for (let x = -1; x <= 1; x++) {
+        for (let x = 0; x < 1; x++) {
           if (x !== 0 && z == 0) continue;
           dummy.rotation.x = -Math.PI / 2;
           dummy.position.set(x * xzScale, 0, z * xzScale);
@@ -55,7 +55,7 @@ const Outside = (props: SceneProps) => {
   return (
     <group position={position}>
       {/* @ts-ignore */}
-      <instancedMesh ref={mesh} args={[null, null, 1 + dist * 6]}>
+      <instancedMesh ref={mesh} args={[null, null, 1 + dist * 2]}>
         <planeBufferGeometry args={[xzScale, xzScale, wSegments, hSegments]} />
         <meshStandardMaterial
           color={color}
