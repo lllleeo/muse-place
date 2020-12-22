@@ -60,6 +60,9 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
+        audio={
+          "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/loveyou.mp3"
+        }
       >
         <DepthImage
           position={[-6, 1, 2.5]}

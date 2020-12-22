@@ -1,4 +1,4 @@
-import { Fog } from "spacesvr";
+import { Audio, Fog } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
@@ -8,7 +8,7 @@ import { keyframes } from "themes/Gotham/assets/constants";
 import DualEnvironment from "themes/Gotham/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
-import { useLoader } from "react-three-fiber";
+import { Vector3 } from "three";
 
 type GothamSceneProps = {
   floorColor?: string;
@@ -25,11 +25,13 @@ type GothamSceneProps = {
   far?: number;
   lightColor?: string;
   children?: ReactNode;
+  audio?: string;
 } & GothamProps;
 
 const GothamScene = (props: GothamSceneProps) => {
   const {
     children,
+    audio,
     floorColor = 0xbbbbbb,
     sunPos = 1,
     night,
@@ -53,6 +55,9 @@ const GothamScene = (props: GothamSceneProps) => {
       {stars && <Stars count={1500} fade />}
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
+      )}
+      {audio && (
+        <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
       <Lighting color={lightColor} />
       <Outside
