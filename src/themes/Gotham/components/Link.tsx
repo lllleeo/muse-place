@@ -24,10 +24,10 @@ const Link = (props: LinkProps) => {
       <group position={position} rotation={[0, rotY, 0]}>
         {link ? (
           <Interactable onClick={handleClick}>
-            <Video src={src} ratio={[1, 1]} sizeScale={7} framed muted />
+            <Video src={src} size={[6, 6]} framed muted />
           </Interactable>
         ) : (
-          <Video src={src} ratio={[1, 1]} sizeScale={7} framed muted />
+          <Video src={src} size={[6, 6]} framed muted />
         )}
       </group>
     );
@@ -37,10 +37,10 @@ const Link = (props: LinkProps) => {
     <group position={position} rotation={[0, rotY, 0]}>
       {link ? (
         <Interactable onClick={handleClick}>
-          <Image src={src} ratio={[1, 1]} sizeScale={7} framed />
+          <Image src={src} size={[6, 6]} framed />
         </Interactable>
       ) : (
-        <Image src={src} ratio={[1, 1]} sizeScale={7} framed />
+        <Image src={src} size={[6, 6]} framed />
       )}
     </group>
   );
