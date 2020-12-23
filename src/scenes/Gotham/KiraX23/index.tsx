@@ -1,17 +1,19 @@
 import { Suspense, useMemo } from "react";
 import KiraHead from "./KiraHead";
 import { Floating, Text } from "spacesvr";
-import { Color, MeshPhongMaterial, MultiplyOperation } from "three";
+import {
+  MeshPhongMaterial,
+  MeshStandardMaterial,
+  MultiplyOperation,
+} from "three";
 
 const KiraX23 = () => {
-  const chromeMaterial = useMemo(
+  const glowMaterial = useMemo(
     () =>
-      new MeshPhongMaterial({
-        color: 0xcccccc,
-        specular: 0xffffff,
-        shininess: 50,
-        combine: MultiplyOperation,
-        reflectivity: 1,
+      new MeshStandardMaterial({
+        color: 0x2db6bd,
+        transparent: true,
+        opacity: 0.9,
       }),
     []
   );
@@ -43,13 +45,15 @@ const KiraX23 = () => {
       </mesh>
       <group scale={[5, 5, 5]}>
         <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
-          <Text
-            text={"KIRA-X23"}
-            size={1.15}
-            material={chromeMaterial}
-            position={[0, 0, -0.019]}
-            font="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/ethnocentric.json"
-          />
+          <group scale={[1.001, 1.03, 1.001]}>
+            <Text
+              text={"KIRA-X23"}
+              size={1.15}
+              material={glowMaterial}
+              position={[0, 0, -0.019]}
+              font="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/ethnocentric.json"
+            />
+          </group>
         </group>
       </group>
     </group>
