@@ -10,7 +10,7 @@ import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
 
-type GothamSceneProps = {
+export type GothamSceneProps = {
   floorColor?: string;
   sunPos?: number;
   night?: boolean;
@@ -50,6 +50,7 @@ const GothamScene = (props: GothamSceneProps) => {
     <DualEnvironment
       keyframes={keyframes}
       canvasProps={{ camera: { far: 300 } }}
+      player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI }}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}

@@ -3,6 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const KiraX23 = dynamic(import("scenes/Gotham/KiraX23"), { ssr: false });
 
 const ARTIST = {
   name: "KIRA-X23",
@@ -58,8 +59,10 @@ const LinkTree: NextPage = () => {
         xzMapScale={100}
         floorColor="black"
         night
-        stars
-      />
+        audio={`${url}/loseyojob.mp3`}
+      >
+        <KiraX23 />
+      </Gotham>
     </>
   );
 };
