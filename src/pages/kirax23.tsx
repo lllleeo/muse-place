@@ -45,7 +45,7 @@ const LinkTree: NextPage = () => {
       <Gotham
         artwork={artwork}
         socials={ARTIST.socials}
-        name={ARTIST.name}
+        name=""
         map="city"
         scenePos={[0, -20, 0]}
         fogNear={0}
