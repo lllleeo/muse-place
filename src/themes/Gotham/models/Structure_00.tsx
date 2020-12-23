@@ -31,7 +31,10 @@ type GLTFResult = GLTF & {
 const FILE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1607773998/structure_05.glb";
 
-export default function Model(props: JSX.IntrinsicElements["group"]) {
+export default function Model(
+  props: JSX.IntrinsicElements["group"] & { removeWalls?: boolean }
+) {
+  const { removeWalls } = props;
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
@@ -56,11 +59,13 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials.structure}
           geometry={nodes.structure.geometry}
         />
-        <mesh
-          name="middleSupports"
-          material={materials.middleSupports}
-          geometry={nodes.middleSupports.geometry}
-        />
+        {removeWalls && (
+          <mesh
+            name="middleSupports"
+            material={materials.middleSupports}
+            geometry={nodes.middleSupports.geometry}
+          />
+        )}
         <mesh
           name="metal"
           material={materials.metal}
