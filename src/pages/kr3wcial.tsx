@@ -40,7 +40,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Kr3wcial's Muse Place</title>
+        <title>Kr3wcial | Muse Place</title>
       </Head>
       <Gotham
         artwork={artwork}

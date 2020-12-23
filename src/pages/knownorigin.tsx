@@ -38,7 +38,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Codame</title>
+        <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Codame
         socials={[]}
