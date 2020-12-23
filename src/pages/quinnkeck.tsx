@@ -41,10 +41,6 @@ const LinkTree: NextPage = () => {
     <>
       <Head>
         <title>Codame</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Space+Mono&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <Codame
         socials={[]}

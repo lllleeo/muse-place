@@ -37,6 +37,10 @@ const App = ({ Component, pageProps }: AppProps) => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Space+Mono&display=swap"
+          rel="stylesheet"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#11d2db" />
         <meta name="msapplication-TileColor" content="#ffffff" />
