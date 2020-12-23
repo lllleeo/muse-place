@@ -27,7 +27,7 @@ const Outside = (props: SceneProps) => {
   const heightmap = useLoader(THREE.TextureLoader, `/assets/${map}.jpg`);
   const emissiveMap = useLoader(THREE.TextureLoader, "/assets/gradient2.jpg");
 
-  const dist = 2;
+  const dist = 1;
   const mesh = useRef<InstancedMesh>();
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
