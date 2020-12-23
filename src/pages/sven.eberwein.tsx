@@ -7,7 +7,7 @@ const Codame = dynamic(import("scenes/Codame"), { ssr: false });
 const ARTIST = {
   number: 47,
   name: "Sven Eberwein",
-  socials: {
+  socialLinks: {
     instagram: "https://instagram.com/sven.eberwein/",
     twitter: "https://twitter.com/sven_eberwein",
     web: "https://superrare.co/sveneberwein",
@@ -47,8 +47,9 @@ const LinkTree: NextPage = () => {
         />
       </Head>
       <Codame
-        linkData={linkData}
-        socials={ARTIST.socials}
+        socials={[]}
+        artwork={linkData}
+        socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
         map="city"
         far={100}

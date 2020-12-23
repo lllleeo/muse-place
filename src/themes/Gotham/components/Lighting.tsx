@@ -25,7 +25,7 @@ const Lighting = (props: JSX.IntrinsicElements["group"] & LightingProps) => {
 
   return (
     <group {...props}>
-      <ambientLight intensity={0.15} />
+      <ambientLight intensity={0.5} />
       <group position={[2, 2, -10]}>
         <primitive object={spotLight3} {...attrs} />
         <primitive object={spotLight3.target} position={[0, 0.1, 1]} />

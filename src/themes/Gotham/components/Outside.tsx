@@ -16,8 +16,8 @@ type SceneProps = {
 const Outside = (props: SceneProps) => {
   const {
     color,
-    wSegments = 700,
-    hSegments = 700,
+    wSegments = 200,
+    hSegments = 200,
     position = [0, 0, 0],
     map = "mountain",
     hScale = 10,
@@ -27,34 +27,35 @@ const Outside = (props: SceneProps) => {
   const heightmap = useLoader(THREE.TextureLoader, `/assets/${map}.jpg`);
   const emissiveMap = useLoader(THREE.TextureLoader, "/assets/gradient2.jpg");
 
-  const count = 9; // odd perfect square pls (9, 25, 49, ...)
+  const dist = 1;
   const mesh = useRef<InstancedMesh>();
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
   useEffect(() => {
-    if (mesh.current && count) {
-      let len = Math.ceil(Math.sqrt(count));
-      len = len % 2 === 0 ? len + 1 : len;
-      const min = -Math.floor(len / 2);
-      const max = min + (len - 1);
-      for (let x = min; x < max; x++) {
-        for (let z = min; z < max; z++) {
-          dummy.position.set(x * xzScale, 0, z * xzScale);
+    if (mesh.current && dist) {
+      let i = 0;
+      for (let z = -dist; z <= dist; z++) {
+        for (let x = 0; x < 1; x++) {
+          if (x !== 0 && z == 0) continue;
           dummy.rotation.x = -Math.PI / 2;
-          // dummy.rotation.z = (Math.PI / 2) * (x * len + z);
+          dummy.position.set(x * xzScale, 0, z * xzScale);
+          if (x != 0 || z != 0) {
+            dummy.scale.z = Math.random() * 0.3 + 0.85;
+            dummy.rotation.z = (Math.PI / 2) * i;
+          }
           dummy.updateMatrix();
-          mesh.current.setMatrixAt(x * len + z, dummy.matrix);
+          mesh.current.setMatrixAt(i, dummy.matrix);
+          i++;
         }
       }
-      // mesh.current.layers.set(1);
       mesh.current.instanceMatrix.needsUpdate = true;
     }
-  }, [count, mesh]);
+  }, [dist, mesh]);
 
   return (
     <group position={position}>
       {/* @ts-ignore */}
-      <instancedMesh ref={mesh} args={[null, null, count]}>
+      <instancedMesh ref={mesh} args={[null, null, 1 + dist * 2]}>
         <planeBufferGeometry args={[xzScale, xzScale, wSegments, hSegments]} />
         <meshStandardMaterial
           color={color}
@@ -67,6 +68,10 @@ const Outside = (props: SceneProps) => {
           emissiveIntensity={3}
         />
       </instancedMesh>
+      <mesh rotation-x={-Math.PI / 2}>
+        <planeBufferGeometry args={[xzScale * 5, xzScale * 5]} />
+        <meshStandardMaterial color="black" />
+      </mesh>
     </group>
   );
 };
