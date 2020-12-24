@@ -39,6 +39,15 @@ const SocialLinks = (props: SocialLinksProps) => {
                 position={[x, 0, 0]}
               />
             );
+          } else if (social.includes("youtube")) {
+            return (
+              <Social
+                key={social}
+                type="youtube"
+                link={social}
+                position={[x, 0, 0]}
+              />
+            );
           } else {
             return (
               <Social
