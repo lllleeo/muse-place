@@ -60,7 +60,7 @@ const LinkTree: NextPage = () => {
         xzMapScale={100}
         floorColor="black"
         night
-        audio={`${url}/Hottopicmuse.mp3`}
+        audio={`${url}/hottopic-1.mp3`}
       >
         <KiraX23 />
       </Gotham>
