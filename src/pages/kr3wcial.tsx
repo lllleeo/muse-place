@@ -2,34 +2,40 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import DepthImage from "../themes/Gotham/components/DepthImage";
+import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const Kr3wcial = dynamic(import("scenes/Gotham/Kr3wcial"), { ssr: false });
 
 const ARTIST = {
   name: "Kr3wcial",
   socials: [
+    "https://www.ikr3wcial.com",
     "https://twitter.com/iKr3wcial",
-    "https://open.spotify.com/artist/286zFnBdNwLtIC6Uo4l1t3?si=fv199_S8RZyQG1UVpCow5A",
     "https://www.instagram.com/ikr3wcial/",
+    "https://www.youtube.com/OutlanderMusic",
   ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial`;
-const artwork = [
+const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
   },
   {
-    src: `${url}/2.mp4`,
+    src: `${url}/2.jpg`,
+    size: [2406, 1606],
   },
   {
     src: `${url}/3.jpg`,
+    size: [1440, 960],
   },
   {
-    src: `${url}/4.mp4`,
+    src: `${url}/4.jpg`,
   },
   {
-    src: `${url}/5.mp4`,
+    src: `${url}/5.jpg`,
+    size: [1040, 1396],
   },
   {
     src: `${url}/6.jpg`,
@@ -56,16 +62,8 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-        audio={
-          "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/loveyou.mp3"
-        }
       >
-        <DepthImage
-          position={[-6, 1, 2.5]}
-          rotation-y={Math.PI / 2}
-          img="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/3.jpg"
-          depth="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/displace.png"
-        />
+        <Kr3wcial />
       </Gotham>
     </>
   );

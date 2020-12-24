@@ -10,8 +10,9 @@ export type GothamProps = {
   name: string;
   socials: string[];
   artwork: {
-    link?: string;
     src: string;
+    link?: string;
+    size?: [number, number];
   }[];
 };
 

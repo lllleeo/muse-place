@@ -6,6 +6,7 @@ type ArtworkProps = {
   artwork: {
     link?: string;
     src: string;
+    size?: [number, number];
   }[];
 };
 
@@ -20,6 +21,7 @@ const Artwork = (props: ArtworkProps) => {
             position={linkPositions[i].p}
             rotY={linkPositions[i].r}
             link={piece.link}
+            size={piece.size}
             src={piece.src}
             key={i}
           />
