@@ -6,9 +6,10 @@ import Instagram from "../models/Instagram";
 import Twitter from "../models/Twitter";
 import Web from "../models/Web";
 import Spotify from "../models/Spotify";
+import Youtube from "../models/Youtube";
 
 type SocialProps = {
-  type: "instagram" | "twitter" | "web" | "spotify";
+  type: string;
   link: string;
   position?: [number, number, number];
 };
@@ -23,6 +24,8 @@ const Social = (props: SocialProps) => {
       <Twitter />
     ) : type === "spotify" ? (
       <Spotify />
+    ) : type === "youtube" ? (
+      <Youtube />
     ) : (
       <Web />
     );
