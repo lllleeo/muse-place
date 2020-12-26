@@ -12,6 +12,7 @@ export type GothamProps = {
   artwork: {
     src: string;
     link?: string;
+    audio?: boolean;
     size?: [number, number];
   }[];
 };

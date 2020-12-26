@@ -20,6 +20,7 @@ const Artwork = (props: ArtworkProps) => {
           <Link
             position={linkPositions[i].p}
             rotY={linkPositions[i].r}
+            audio={piece.audio}
             link={piece.link}
             size={piece.size}
             src={piece.src}

@@ -2,6 +2,7 @@ import { Vector2, Vector3 } from "three";
 import { Interactable, Image, Video } from "spacesvr";
 
 type LinkProps = {
+  audio?: boolean;
   link?: string;
   size?: [number, number];
   position: Vector3 | [number, number, number];
@@ -12,7 +13,7 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const { link, size = [1, 1], position, rotY = 0, src } = props;
+  const { audio, link, size = [1, 1], position, rotY = 0, src } = props;
 
   const handleClick = () => {
     if (link) {
@@ -30,10 +31,10 @@ const Link = (props: LinkProps) => {
       <group position={position} rotation={[0, rotY, 0]}>
         {link ? (
           <Interactable onClick={handleClick}>
-            <Video src={src} size={imgSize} framed muted />
+            <Video src={src} size={imgSize} framed muted={!audio} />
           </Interactable>
         ) : (
-          <Video src={src} size={imgSize} framed muted />
+          <Video src={src} size={imgSize} framed muted={!audio} />
         )}
       </group>
     );
