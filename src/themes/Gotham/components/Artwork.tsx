@@ -1,13 +1,10 @@
 import { Suspense } from "react";
 import Link from "./Link";
 import { linkPositions } from "../assets/constants";
+import { GothamProps } from "../index";
 
 type ArtworkProps = {
-  artwork: {
-    link?: string;
-    src: string;
-    size?: [number, number];
-  }[];
+  artwork: GothamProps["artwork"];
 };
 
 const Artwork = (props: ArtworkProps) => {
