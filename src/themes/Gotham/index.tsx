@@ -53,30 +53,24 @@ const Gotham = (props: GothamProps) => {
         />
         <SocialLinks socials={socials} />
       </group>
-      <group position={[0.538, 0.08, 0.1]} rotation={[0, -Math.PI / 2, 0]}>
+      <group position={[0.539, 0.033, 0.575]} rotation={[0, -Math.PI / 2, 0]}>
         <Text
           vAlign="center"
-          text={"MADE BY MUSE   |   "}
-          size={0.4}
+          text={"MADE BY MUSE   |"}
+          size={0.55}
           material={material}
         />
         <Interactable
           onClick={() =>
-            (window.location.href =
-              "https://l.instagram.com/?u=https%3A%2F%2Fmusevr.typeform.com%2Fto%2FQwGYwJH2&e=ATP6n0HL1bWIb7h6EexpyQg1QZKKWgW-CT4_rEHD_kSluA0ZMFnogSEpCyeNkyozCUG59zfYh1_Obiw2pRZtfA&s=1")
+            (window.location.href = "https://musevr.typeform.com/to/QwGYwJH2")
           }
         >
-          <group>
+          <group position-x={0.44} position-y={-0.003}>
             <Text
               vAlign="center"
-              text="Want Your Own?"
-              size={0.4}
-              material={material}
-            />
-            <Text
-              vAlign="center"
-              text="Click Here"
-              size={0.4}
+              text="Want Your Own? Click Here"
+              size={0.55}
+              position-y={0}
               material={material}
             />
           </group>
