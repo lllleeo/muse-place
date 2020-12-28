@@ -1,6 +1,7 @@
 import { Suspense, useMemo } from "react";
 import Structure_00 from "./models/Structure_00";
 import CodameCollisions from "./models/CodameCollisions";
+import GothamColliderNowalls from "./models/GothamColliderNowalls";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "./components/Artwork";
 import { MeshStandardMaterial } from "three";
@@ -9,6 +10,7 @@ import SocialLinks from "./components/SocialLinks";
 export type GothamProps = {
   name: string;
   socials: string[];
+  removeWalls?: boolean;
   artwork: {
     src: string;
     link?: string;
@@ -18,7 +20,7 @@ export type GothamProps = {
 };
 
 const Gotham = (props: GothamProps) => {
-  const { name, socials, artwork } = props;
+  const { name, socials, artwork, removeWalls } = props;
 
   const material = useMemo(
     () =>
@@ -36,7 +38,11 @@ const Gotham = (props: GothamProps) => {
         <Structure_00 position-y={0.1155} />
       </Suspense>
       <Suspense fallback={null}>
-        <CodameCollisions position-y={-0.05} />
+        {removeWalls ? (
+          <GothamColliderNowalls position-y={-0.05} />
+        ) : (
+          <CodameCollisions position-y={-0.05} />
+        )}
       </Suspense>
       <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
         <Text

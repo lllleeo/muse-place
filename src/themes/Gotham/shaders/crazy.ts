@@ -46,18 +46,20 @@ const CrazyMaterial = shaderMaterial(
     // vec4 color = texture2D( tDiffuse, vUv );
     
     float KA = PI / NUM_SIDES;
-    float scale = 0.1;
-    float time = time * 50.0;
+    float time = time * 0.7;
+    float scale = 10.0 + 20.0 * sin(time * 0.00008);
     float r1 = 0.4 ; 
     float r2 = 0.9 ; 
     float r3 = 0.29; 
-    float x = gl_FragCoord.x;
-    float y = gl_FragCoord.y;
+    
     float h = resolution.y;
     float w = resolution.x;
     
     vec2 uv = 12.0*(2.0 * vUv.xy  - 1.0);
     koleidoscope(uv);
+    
+    float x = uv.x;
+    float y = uv.y;
 
      float col = 
         sin(distance( vec2(x * r1 + time, y * r2), vec2(w / r3 , h) ) * scale) +
