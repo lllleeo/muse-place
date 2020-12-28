@@ -14,16 +14,7 @@ const Music = (props: MusicProps) => {
   const { camera } = useThree();
 
   const [speaker, setSpeaker] = useState<THREE.PositionalAudio>();
-  const audio = useMemo(() => {
-    const a = document.createElement("audio");
-    a.src = url;
-    a.autoplay = false;
-    a.crossOrigin = "Anonymous";
-    a.preload = "auto";
-    a.loop = true;
-    a.muted = !!muted;
-    return a;
-  }, [muted, url]);
+  const [audio, setAudio] = useState<HTMLAudioElement>();
 
   // audio
   useEffect(() => {
@@ -46,6 +37,20 @@ const Music = (props: MusicProps) => {
 
   useEffect(() => {
     const onClick = () => {
+      if (!audio) {
+        const a = document.createElement("audio");
+        a.src = url;
+        a.autoplay = false;
+        a.crossOrigin = "Anonymous";
+        a.preload = "auto";
+        a.loop = true;
+        a.muted = !!muted;
+        setAudio(a);
+
+        if (!muted) {
+          a.play();
+        }
+      }
       if (audio && !muted) {
         audio.play();
       }
@@ -57,7 +62,7 @@ const Music = (props: MusicProps) => {
     };
   }, [audio, muted]);
 
-  return <>{speaker && <primitive object={speaker}></primitive>}</>;
+  return <>{speaker && <primitive object={speaker} />}</>;
 };
 
 export default Music;
