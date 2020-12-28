@@ -35,7 +35,7 @@ const Gotham = (props: GothamProps) => {
   return (
     <group scale={[5, 5, 5]}>
       <Suspense fallback={null}>
-        <Structure_00 position-y={0.1155} />
+        <Structure_00 position-y={0.1155} removeWalls={removeWalls} />
       </Suspense>
       <Suspense fallback={null}>
         {removeWalls ? (

@@ -70,7 +70,7 @@ const Outside = (props: SceneProps) => {
       </instancedMesh>
       <mesh rotation-x={-Math.PI / 2}>
         <planeBufferGeometry args={[xzScale * 5, xzScale * 5]} />
-        <meshStandardMaterial color="black" />
+        <meshStandardMaterial color={color} />
       </mesh>
     </group>
   );

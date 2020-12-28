@@ -59,7 +59,7 @@ export default function Model(
           material={materials.structure}
           geometry={nodes.structure.geometry}
         />
-        {removeWalls && (
+        {!removeWalls && (
           <mesh
             name="middleSupports"
             material={materials.middleSupports}
