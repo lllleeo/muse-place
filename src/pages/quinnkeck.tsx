@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Codame = dynamic(import("scenes/Codame"), { ssr: false });
+const Codame = dynamic(import("scenes/Gotham/Codame"), { ssr: false });
 
 const ARTIST = {
   number: 36,
