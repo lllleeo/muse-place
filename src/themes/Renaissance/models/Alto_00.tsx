@@ -24,7 +24,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
-  materials["structure.mat"].color = new THREE.Color("0xFF0000");
+  // materials["structure.mat"].color = new THREE.Color("blue");
 
   return (
     <group ref={group} {...props} dispose={null}>

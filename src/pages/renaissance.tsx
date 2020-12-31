@@ -6,7 +6,7 @@ const Standard = dynamic(import("scenes/Renaissance/Standard"), { ssr: false });
 
 const ARTIST = {
   number: 45,
-  name: "Muse",
+  name: "Renaissance",
   socialLinks: {
     instagram: "https://www.instagram.com/musehq/",
     twitter: "https://twitter.com/musehq_",
