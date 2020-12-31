@@ -1,16 +1,20 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { Keyframe } from "spacesvr";
+import { Vector3 } from "three";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const Pachman77 = dynamic(import("scenes/Gotham/Pachman77"), { ssr: false });
+const Pacemorenobongiovanni = dynamic(
+  import("scenes/Gotham/Pacemorenobongiovanni"),
+  { ssr: false }
+);
 
 const ARTIST = {
-  name: "Pachman77",
+  name: "Pace Moreno Bongiovanni",
   socials: [
-    "https://soundcloud.com/experiment23",
-    "https://twitter.com/djkirax23",
-    "https://www.instagram.com/djkirax23/",
+    "https://www.youtube.com/channel/UCE1PjJv7VvBKM9SISWexGIw/featured",
+    "https://www.instagram.com/pachman77/",
   ],
 };
 
@@ -19,21 +23,14 @@ const artwork = [
   {
     src: `${url}/1.jpg`,
   },
-  {
-    src: `${url}/2.jpg`,
-  },
-  {
-    src: `${url}/3.jpg`,
-  },
-  {
-    src: `${url}/4.jpg`,
-  },
-  {
-    src: `${url}/5.jpg`,
-  },
-  {
-    src: `${url}/6.jpg`,
-  },
+];
+
+const keyframes: Keyframe[] = [
+  { position: new Vector3(-4, 1, 5), label: "start" },
+  { position: new Vector3(-2, 1, 5), label: "pedestal" },
+  { position: new Vector3(1.1, 1, 7), label: "screen 1" },
+  { position: new Vector3(-1.1, 1, 0), label: "screen 2" },
+  { position: new Vector3(-2, 1, 5), label: "pedestal" },
 ];
 
 const LinkTree: NextPage = () => {
@@ -44,6 +41,7 @@ const LinkTree: NextPage = () => {
       </Head>
       <Gotham
         artwork={artwork}
+        keyframes={keyframes}
         socials={ARTIST.socials}
         name={ARTIST.name}
         map="city"
@@ -57,7 +55,7 @@ const LinkTree: NextPage = () => {
         removeWalls
         night
       >
-        <Pachman77 />
+        <Pacemorenobongiovanni />
       </Gotham>
     </>
   );

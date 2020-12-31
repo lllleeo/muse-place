@@ -1220,7 +1220,24 @@
   resolved "https://registry.yarnpkg.com/@react-three/cannon/-/cannon-0.5.3.tgz#b1849bf240629b4293155b4e611bf4417b44281c"
   integrity sha512-/Ak6AcY4KfBMSnqOxQ2drQZVXDAAwfnUi2/PxPepz9tSAl6GC5o7H5WnDRJqXClRcw8n4Q+Dm9uSl8L5mvV96A==
 
-"@react-three/drei@^2.2.10", "@react-three/drei@^2.2.2":
+"@react-three/drei@^2.2.10":
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.13.tgz#169d2fb4068caa8ed9df2a1d47fa914e1c72be86"
+  integrity sha512-t1Y2Cm+dSg+Zs1p5eTyAUcm/Fz2zvPEyLp+M7EZt8QVLEZHkr1op1HBYbw0BpaoRuoGBXbD0f3pbyYtC0jDvww==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@react-spring/web" "^9.0.0-rc.3"
+    detect-gpu "^3.0.0"
+    glsl-noise "^0.0.0"
+    lodash.omit "^4.5.0"
+    lodash.pick "^4.4.0"
+    react-merge-refs "^1.0.0"
+    stats.js "^0.17.0"
+    troika-three-text "^0.34.2"
+    utility-types "^3.10.0"
+    zustand "^3.0.3"
+
+"@react-three/drei@^2.2.2":
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.10.tgz#cf2ab0603fa64510f99bd75bbbf585eff011444a"
   integrity sha512-Nc+tk10LuYF1BS3MPUbC6174dPf9RCCpo8UqTRumLQkZbeDcFPXYPhh4q/ThR9qos5uhl1obrx13ka6qofJC5Q==
@@ -1302,7 +1319,12 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@^14.0.13":
+"@types/node@*":
+  version "14.14.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.17.tgz#29fab92f3986c0e379968ad3c2043683d8020dbb"
+  integrity sha512-G0lD1/7qD60TJ/mZmhog76k7NcpLWkPVGgzkRy3CTlnFu4LUQh5v2Wa661z6vnXmD8EQrnALUyf0VRtrACYztw==
+
+"@types/node@^14.0.13":
   version "14.14.12"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.12.tgz#0b1d86f8c40141091285dea02e4940df73bba43f"
   integrity sha512-ASH8OPHMNlkdjrEdmoILmzFfsJICvhBsFfAum4aKZ/9U4B6M6tTmTPh+f3ttWdD74CEGV5XvXWkbyfSdXaTd7g==
@@ -7290,10 +7312,10 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spacesvr@^1.2.13:
-  version "1.2.13"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.13.tgz#a7d4ab8c7cc4b09f177dac5219bb2dbec7154c34"
-  integrity sha512-OG8N3+sCKe8ZepLvhUVH3NEyvnVNAZFo3Pawp9x2IYtWqLwxgEherfX3l3drcAAG5fCnM817Ju0dXHqnRQ7rmg==
+spacesvr@^1.2.15:
+  version "1.2.15"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.15.tgz#3569fa0f843cfdbd4645d2985710780e398c35d9"
+  integrity sha512-ITdUGTGCq71R8wPP6NE7VgkztUDWnskCHFCH1f8Owb7uoiF/TPs6QeRlZevQa/xG0UyDcwU7T9FWbQdGtAevgg==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
