@@ -1,13 +1,11 @@
 import { Suspense, useMemo } from "react";
-import Structure_00 from "./models/Structure_00";
-import CodameCollisions from "./models/CodameCollisions";
-import GothamColliderNowalls from "./models/GothamColliderNowalls";
+import Alto_00 from "./models/Alto_00";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 
-export type GothamProps = {
+export type RenaissanceProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
@@ -19,7 +17,7 @@ export type GothamProps = {
   }[];
 };
 
-const Gotham = (props: GothamProps) => {
+const Renaissance = (props: RenaissanceProps) => {
   const { name, socials, artwork, removeWalls } = props;
 
   const material = useMemo(
@@ -35,14 +33,7 @@ const Gotham = (props: GothamProps) => {
   return (
     <group scale={[5, 5, 5]}>
       <Suspense fallback={null}>
-        <Structure_00 position-y={0.1155} removeWalls={removeWalls} />
-      </Suspense>
-      <Suspense fallback={null}>
-        {removeWalls ? (
-          <GothamColliderNowalls position-y={-0.05} />
-        ) : (
-          <CodameCollisions position-y={-0.05} />
-        )}
+        <Alto_00 position-y={0.1155} rotation-y={Math.PI} />
       </Suspense>
       <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
         <Text
@@ -53,7 +44,7 @@ const Gotham = (props: GothamProps) => {
         />
         <SocialLinks socials={socials} />
       </group>
-      <group position={[0.539, 0.033, 0.575]} rotation={[0, -Math.PI / 2, 0]}>
+      <group position-z={[7]} rotation={[0, -Math.PI / 2, 0]}>
         <Text
           vAlign="center"
           text={"MADE BY MUSE   |"}
@@ -76,9 +67,11 @@ const Gotham = (props: GothamProps) => {
           </group>
         </Interactable>
       </group>
-      <Artwork artwork={artwork} />
+      <Suspense fallback={null}>
+        <Artwork artwork={artwork} />
+      </Suspense>
     </group>
   );
 };
 
-export default Gotham;
+export default Renaissance;

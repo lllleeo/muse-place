@@ -2,11 +2,11 @@ import { Interactable } from "spacesvr";
 import { Suspense } from "react";
 import { Vector3 } from "three";
 
-import Instagram from "../models/Instagram";
-import Twitter from "../models/Twitter";
-import Web from "../models/Web";
-import Spotify from "../models/Spotify";
-import Youtube from "../models/Youtube";
+import Instagram from "../Gotham/models/Instagram";
+import Twitter from "../Gotham/models/Twitter";
+import Web from "../Gotham/models/Web";
+import Spotify from "../Gotham/models/Spotify";
+import Youtube from "../Gotham/models/Youtube";
 
 type SocialProps = {
   type: string;

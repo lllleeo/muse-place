@@ -2,15 +2,13 @@ import { Fog, Text } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
-import Outside from "themes/Gotham/components/Outside";
-import Lighting from "themes/Gotham/components/Lighting";
-import { keyframes } from "themes/Gotham/assets/constants";
+import { keyframes } from "themes/Renaissance/assets/constants";
 import { useMemo } from "react";
 import { MeshStandardMaterial } from "three";
 import DualEnvironment from "themes/components/DualEnvironment";
-import Gotham, { GothamProps } from "themes/Gotham";
+import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 
-type CodameProps = {
+type StandardProps = {
   socialLinks: {
     instagram?: string;
     twitter?: string;
@@ -29,9 +27,9 @@ type CodameProps = {
   xzMapScale?: number;
   far?: number;
   lightColor?: string;
-} & GothamProps;
+} & RenaissanceProps;
 
-const Codame = (props: CodameProps) => {
+const Standard = (props: StandardProps) => {
   const {
     artwork,
     socialLinks,
@@ -73,16 +71,8 @@ const Codame = (props: CodameProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      <Lighting color={lightColor} />
-      <Outside
-        position={scenePos}
-        color={floorColor}
-        map={map}
-        hScale={hMapScale}
-        xzScale={xzMapScale}
-      />
-      <Gotham name={name} socials={socials} artwork={artwork} />
-      <group scale={[5, 5, 5]}>
+      <Renaissance name={name} socials={socials} artwork={artwork} />
+      <group scale={[5, 5, 5]} position-x={25}>
         <group
           position={[0.27, 0.195, -0.55]}
           rotation={[0, -Math.PI / 5, 0]}
@@ -102,7 +92,7 @@ const Codame = (props: CodameProps) => {
             rotation={[0, 0, Math.PI / 6.5]}
           />
           <Text
-            text="Codame"
+            text="Renaissance"
             size={1.18}
             position={[0, -0.12, 0]}
             material={material}
@@ -113,4 +103,4 @@ const Codame = (props: CodameProps) => {
   );
 };
 
-export default Codame;
+export default Standard;

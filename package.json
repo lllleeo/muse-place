@@ -8,7 +8,7 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "process-gltf": "./scripts/process-gltf.sh"
+    "process-gltf": "scripts/process-gltf.sh"
   },
   "husky": {
     "hooks": {
@@ -48,7 +48,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "gltf-pipeline": "^3.0.0",
+    "gltf-pipeline": "^3.0.2",
     "husky": "^4.2.5",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^3.3.0",

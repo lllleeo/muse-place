@@ -2,15 +2,15 @@ import { Audio, Fog } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
-import Outside from "themes/Gotham/components/Outside";
-import Lighting from "themes/Gotham/components/Lighting";
+import Lighting from "../../themes/Renaissance/components/Lighting";
+import Outside from "../../themes/Renaissance/components/Outside";
 import { keyframes } from "themes/Gotham/assets/constants";
 import DualEnvironment from "themes/components/DualEnvironment";
-import Gotham, { GothamProps } from "themes/Gotham";
+import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
 
-export type GothamSceneProps = {
+export type RenaissanceSceneProps = {
   floorColor?: string;
   sunPos?: number;
   night?: boolean;
@@ -26,9 +26,9 @@ export type GothamSceneProps = {
   lightColor?: string;
   children?: ReactNode;
   audio?: string;
-} & GothamProps;
+} & RenaissanceProps;
 
-const GothamScene = (props: GothamSceneProps) => {
+const RenaissanceScene = (props: RenaissanceSceneProps) => {
   const {
     children,
     audio,
@@ -68,10 +68,10 @@ const GothamScene = (props: GothamSceneProps) => {
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
-      <Gotham {...props} />
+      <Renaissance {...props} />
       {children}
     </DualEnvironment>
   );
 };
 
-export default GothamScene;
+export default RenaissanceScene;

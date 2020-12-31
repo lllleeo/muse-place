@@ -4071,7 +4071,7 @@ glslify-deps@^1.2.5:
     map-limit "0.0.1"
     resolve "^1.0.0"
 
-gltf-pipeline@^3.0.0:
+gltf-pipeline@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/gltf-pipeline/-/gltf-pipeline-3.0.2.tgz#2ce54fc543f98b04a3a607c64893493fef1c394f"
   integrity sha512-UnEcXFGycDciXmpQ4aJfbApymd7CZaJB6DuAkyqSCwpDqQy4C8kvdR5Bl0cSV9wYKtzPoaxEeDUcvk5d0ny0nw==
