@@ -28,12 +28,6 @@ const linkData = [
   {
     src: `${url}/${ARTIST.number}/4.jpg`,
   },
-  {
-    src: `${url}/${ARTIST.number}/5.jpg`,
-  },
-  {
-    src: `${url}/${ARTIST.number}/6.jpg`,
-  },
 ];
 
 const LinkTree: NextPage = () => {
@@ -48,10 +42,13 @@ const LinkTree: NextPage = () => {
         socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
         map="canyon"
-        far={100}
-        scenePos={[0, -20, 0]}
-        hMapScale={30}
-        xzMapScale={100}
+        fogColor="white"
+        fogNear={15}
+        fogFar={100}
+        far={300}
+        scenePos={[-15, -3, -10]}
+        hMapScale={3}
+        xzMapScale={200}
         floorColor="black"
       />
     </>

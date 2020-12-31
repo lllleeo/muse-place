@@ -1,14 +1,17 @@
-import { Suspense } from "react";
 import Link from "./Link";
-import { linkPositions } from "../Gotham/assets/constants";
 import { GothamProps } from "../Gotham";
+import { Vector3 } from "three";
 
 type ArtworkProps = {
   artwork: GothamProps["artwork"];
+  linkPositions: {
+    p: Vector3;
+    r: number;
+  }[];
 };
 
 const Artwork = (props: ArtworkProps) => {
-  const { artwork } = props;
+  const { artwork, linkPositions } = props;
 
   return (
     <group scale={[1 / 20, 1 / 20, 1 / 20]}>

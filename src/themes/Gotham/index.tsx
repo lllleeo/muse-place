@@ -4,6 +4,7 @@ import CodameCollisions from "./models/CodameCollisions";
 import GothamColliderNowalls from "./models/GothamColliderNowalls";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "../components/Artwork";
+import { linkPositions } from "./assets/constants";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 
@@ -76,7 +77,7 @@ const Gotham = (props: GothamProps) => {
           </group>
         </Interactable>
       </group>
-      <Artwork artwork={artwork} />
+      <Artwork artwork={artwork} linkPositions={linkPositions} />
     </group>
   );
 };

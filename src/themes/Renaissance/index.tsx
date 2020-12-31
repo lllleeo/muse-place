@@ -1,10 +1,10 @@
 import React, { Suspense, useMemo } from "react";
-import Alto_00 from "./models/Alto_00";
+import Alto_01 from "./models/Alto_01";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import Lighting from "./components/Lighting";
+import { linkPositions } from "../Renaissance/assets/constants";
 
 export type RenaissanceProps = {
   name: string;
@@ -34,20 +34,24 @@ const Renaissance = (props: RenaissanceProps) => {
   return (
     <group scale={[5, 5, 5]}>
       <Suspense fallback={null}>
-        <Alto_00
+        <Alto_01
           position-y={0.5}
           scale={[0.5, 0.5, 0.5]}
           rotation-y={Math.PI}
         />
       </Suspense>
-      <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
+      <group
+        position={[0, -1.5, 2.75]}
+        rotation={[0, Math.PI, 0]}
+        scale={[1.5, 1.5, 1.5]}
+      >
         <Text
           text={(name || "").toUpperCase()}
-          size={1.15}
+          size={1}
           material={material}
-          position={[0, 0, -0.019]}
+          position={[0, 1, 0]}
         />
-        <SocialLinks socials={socials} />
+        <SocialLinks socials={socials} position={[0, 1, 0]} />
       </group>
       <group position-z={[7]} rotation={[0, -Math.PI / 2, 0]}>
         <Text
@@ -72,9 +76,8 @@ const Renaissance = (props: RenaissanceProps) => {
           </group>
         </Interactable>
       </group>
-      <Lighting />
       <Suspense fallback={null}>
-        <Artwork artwork={artwork} />
+        <Artwork artwork={artwork} linkPositions={linkPositions} />
       </Suspense>
     </group>
   );

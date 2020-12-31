@@ -10,7 +10,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    structure1: THREE.Mesh;
+    structure: THREE.Mesh;
   };
   materials: {
     ["structure.mat"]: THREE.MeshStandardMaterial;
@@ -18,20 +18,18 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/alto-1609378760/alto_00.glb";
+  "https://spaces-gallery-assets.s3-us-west-1.amazonaws.com/models/renaissance-1609393927/alto_01.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="structure1"
+          name="structure"
           material={materials["structure.mat"]}
-          geometry={nodes.structure1.geometry}
-          position={[0.0024, 1.643, -1.0387]}
+          geometry={nodes.structure.geometry}
         />
       </group>
     </group>

@@ -3,10 +3,12 @@ import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
 import { keyframes } from "themes/Renaissance/assets/constants";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { MeshStandardMaterial } from "three";
 import DualEnvironment from "themes/components/DualEnvironment";
 import Renaissance, { RenaissanceProps } from "themes/Renaissance";
+import Lighting from "../../../themes/Renaissance/components/Lighting";
+import Outside from "../../../themes/Renaissance/components/Outside";
 
 type StandardProps = {
   socialLinks: {
@@ -72,6 +74,14 @@ const Standard = (props: StandardProps) => {
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
       <Renaissance name={name} socials={socials} artwork={artwork} />
+      <Lighting />
+      <Outside
+        position={scenePos}
+        color={floorColor}
+        map={map}
+        hScale={hMapScale}
+        xzScale={xzMapScale}
+      />
       <group scale={[5, 5, 5]} position-x={25}>
         <group
           position={[0.27, 0.195, -0.55]}
