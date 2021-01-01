@@ -1,4 +1,4 @@
-import { Fog, Text } from "spacesvr";
+import { Fog } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
@@ -91,62 +91,6 @@ const Standard = (props: StandardProps) => {
         baseColor="#0000FF"
         baseColor2="#FF0000"
       />
-      {/*<mesh position={[0, -1.5, 11]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[0, 0, 3]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[-3.75, 0, 0.9]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[-2, 0, -3]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[2, 0, -3]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[3.75, 0, 0.9]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-      {/*<mesh position={[0, 0, 3]}>*/}
-      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-      {/*  <meshStandardMaterial attach="material" color="black" />*/}
-      {/*</mesh>*/}
-
-      {/*<group scale={[5, 5, 5]} position-x={25}>*/}
-      {/*  <group*/}
-      {/*    position={[0.27, 0.195, -0.55]}*/}
-      {/*    rotation={[0, -Math.PI / 5, 0]}*/}
-      {/*    name="Muse & Codame"*/}
-      {/*  >*/}
-      {/*    <Text*/}
-      {/*      text="Muse"*/}
-      {/*      size={1.18}*/}
-      {/*      material={material}*/}
-      {/*      position={[-0.06, 0, 0]}*/}
-      {/*    />*/}
-      {/*    <Text*/}
-      {/*      text="&"*/}
-      {/*      size={1.4}*/}
-      {/*      material={material}*/}
-      {/*      position={[0.22, -0.01, 0]}*/}
-      {/*      rotation={[0, 0, Math.PI / 6.5]}*/}
-      {/*    />*/}
-      {/*    <Text*/}
-      {/*      text="Renaissance"*/}
-      {/*      size={1.18}*/}
-      {/*      position={[0, -0.12, 0]}*/}
-      {/*      material={material}*/}
-      {/*    />*/}
-      {/*  </group>*/}
-      {/*</group>*/}
     </DualEnvironment>
   );
 };

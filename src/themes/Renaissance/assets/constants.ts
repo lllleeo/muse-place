@@ -22,7 +22,7 @@ export const linkPositions = [
 
 export const keyframes: Keyframe[] = [
   {
-    position: new Vector3(0, -1, 11),
+    position: new Vector3(0, -1, 11.5),
     label: "socials",
   },
   {
