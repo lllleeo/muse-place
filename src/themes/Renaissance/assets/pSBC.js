@@ -3,7 +3,7 @@
 // https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)
 
 export function shadeHexColor(color, percent) {
-  var f = parseInt(color.slice(1), 16),
+  let f = parseInt(color.slice(1), 16),
     t = percent < 0 ? 0 : 255,
     p = percent < 0 ? percent * -1 : percent,
     R = f >> 16,
@@ -23,7 +23,7 @@ export function shadeHexColor(color, percent) {
 }
 
 export function blendHexColors(c0, c1, p) {
-  var f = parseInt(c0.slice(1), 16),
+  let f = parseInt(c0.slice(1), 16),
     t = parseInt(c1.slice(1), 16),
     R1 = f >> 16,
     G1 = (f >> 8) & 0x00ff,

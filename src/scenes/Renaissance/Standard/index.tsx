@@ -91,6 +91,35 @@ const Standard = (props: StandardProps) => {
         baseColor="#0000FF"
         baseColor2="#FF0000"
       />
+      {/*<mesh position={[0, -1.5, 11]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[0, 0, 3]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[-3.75, 0, 0.9]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[-2, 0, -3]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[2, 0, -3]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[3.75, 0, 0.9]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+      {/*<mesh position={[0, 0, 3]}>*/}
+      {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+      {/*  <meshStandardMaterial attach="material" color="black" />*/}
+      {/*</mesh>*/}
+
       {/*<group scale={[5, 5, 5]} position-x={25}>*/}
       {/*  <group*/}
       {/*    position={[0.27, 0.195, -0.55]}*/}

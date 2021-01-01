@@ -1,5 +1,6 @@
 import React, { Suspense, useMemo } from "react";
 import Alto_01 from "./models/Alto_01";
+import AltoCollisions from "./models/AltoCollisions";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
@@ -40,6 +41,9 @@ const Renaissance = (props: RenaissanceProps) => {
           rotation-y={Math.PI}
         />
       </Suspense>
+      <Suspense fallback={null}>
+        <AltoCollisions />
+      </Suspense>
       <group
         position={[0, -1.5, 2.75]}
         rotation={[0, Math.PI, 0]}
@@ -53,32 +57,32 @@ const Renaissance = (props: RenaissanceProps) => {
         />
         <SocialLinks socials={socials} position={[0, 1, 0]} />
       </group>
-      <group position-z={[7]} rotation={[0, -Math.PI / 2, 0]}>
-        <Text
-          vAlign="center"
-          text={"MADE BY MUSE   |"}
-          size={0.55}
-          material={material}
-        />
-        <Interactable
-          onClick={() =>
-            (window.location.href = "https://musevr.typeform.com/to/QwGYwJH2")
-          }
-        >
-          <group position-x={0.44} position-y={-0.003}>
-            <Text
-              vAlign="center"
-              text="Want Your Own? Click Here"
-              size={0.55}
-              position-y={0}
-              material={material}
-            />
-          </group>
-        </Interactable>
-      </group>
       <Suspense fallback={null}>
         <Artwork artwork={artwork} linkPositions={linkPositions} />
       </Suspense>
+      {/*<group position-z={[7]} rotation={[0, -Math.PI / 2, 0]}>*/}
+      {/*  <Text*/}
+      {/*    vAlign="center"*/}
+      {/*    text={"MADE BY MUSE   |"}*/}
+      {/*    size={0.55}*/}
+      {/*    material={material}*/}
+      {/*  />*/}
+      {/*  <Interactable*/}
+      {/*    onClick={() =>*/}
+      {/*      (window.location.href = "https://musevr.typeform.com/to/QwGYwJH2")*/}
+      {/*    }*/}
+      {/*  >*/}
+      {/*    <group position-x={0.44} position-y={-0.003}>*/}
+      {/*      <Text*/}
+      {/*        vAlign="center"*/}
+      {/*        text="Want Your Own? Click Here"*/}
+      {/*        size={0.55}*/}
+      {/*        position-y={0}*/}
+      {/*        material={material}*/}
+      {/*      />*/}
+      {/*    </group>*/}
+      {/*  </Interactable>*/}
+      {/*</group>*/}
     </group>
   );
 };
