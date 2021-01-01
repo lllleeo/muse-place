@@ -44,7 +44,7 @@ const LinkTree: NextPage = () => {
         map="canyon"
         fogColor="white"
         fogNear={15}
-        fogFar={100}
+        fogFar={150}
         far={300}
         scenePos={[-15, -3, -10]}
         hMapScale={3}

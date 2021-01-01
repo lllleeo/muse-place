@@ -74,8 +74,10 @@ const Standard = (props: StandardProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      <Renaissance name={name} socials={socials} artwork={artwork} />
-      <Lighting />
+      <group position={[0, 0, 0]}>
+        <Renaissance name={name} socials={socials} artwork={artwork} />
+        <Lighting />
+      </group>
       <Outside
         position={scenePos}
         color={floorColor}
@@ -84,37 +86,38 @@ const Standard = (props: StandardProps) => {
         xzScale={xzMapScale}
       />
       <SkyCubes
-        position={[0, 40, 0]}
+        position={[0, 30, 0]}
         scale={[20, 20, 20]}
-        baseColor="#FFFF00"
+        baseColor="#0000FF"
+        baseColor2="#FF0000"
       />
-      <group scale={[5, 5, 5]} position-x={25}>
-        <group
-          position={[0.27, 0.195, -0.55]}
-          rotation={[0, -Math.PI / 5, 0]}
-          name="Muse & Codame"
-        >
-          <Text
-            text="Muse"
-            size={1.18}
-            material={material}
-            position={[-0.06, 0, 0]}
-          />
-          <Text
-            text="&"
-            size={1.4}
-            material={material}
-            position={[0.22, -0.01, 0]}
-            rotation={[0, 0, Math.PI / 6.5]}
-          />
-          <Text
-            text="Renaissance"
-            size={1.18}
-            position={[0, -0.12, 0]}
-            material={material}
-          />
-        </group>
-      </group>
+      {/*<group scale={[5, 5, 5]} position-x={25}>*/}
+      {/*  <group*/}
+      {/*    position={[0.27, 0.195, -0.55]}*/}
+      {/*    rotation={[0, -Math.PI / 5, 0]}*/}
+      {/*    name="Muse & Codame"*/}
+      {/*  >*/}
+      {/*    <Text*/}
+      {/*      text="Muse"*/}
+      {/*      size={1.18}*/}
+      {/*      material={material}*/}
+      {/*      position={[-0.06, 0, 0]}*/}
+      {/*    />*/}
+      {/*    <Text*/}
+      {/*      text="&"*/}
+      {/*      size={1.4}*/}
+      {/*      material={material}*/}
+      {/*      position={[0.22, -0.01, 0]}*/}
+      {/*      rotation={[0, 0, Math.PI / 6.5]}*/}
+      {/*    />*/}
+      {/*    <Text*/}
+      {/*      text="Renaissance"*/}
+      {/*      size={1.18}*/}
+      {/*      position={[0, -0.12, 0]}*/}
+      {/*      material={material}*/}
+      {/*    />*/}
+      {/*  </group>*/}
+      {/*</group>*/}
     </DualEnvironment>
   );
 };
