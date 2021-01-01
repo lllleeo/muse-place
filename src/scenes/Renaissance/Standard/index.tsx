@@ -9,6 +9,7 @@ import DualEnvironment from "themes/components/DualEnvironment";
 import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import Lighting from "../../../themes/Renaissance/components/Lighting";
 import Outside from "../../../themes/Renaissance/components/Outside";
+import SkyCubes from "../../../themes/Renaissance/components/SkyCubes";
 
 type StandardProps = {
   socialLinks: {
@@ -81,6 +82,11 @@ const Standard = (props: StandardProps) => {
         map={map}
         hScale={hMapScale}
         xzScale={xzMapScale}
+      />
+      <SkyCubes
+        position={[0, 40, 0]}
+        scale={[20, 20, 20]}
+        baseColor="#FFFF00"
       />
       <group scale={[5, 5, 5]} position-x={25}>
         <group
