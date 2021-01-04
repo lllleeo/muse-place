@@ -1,9 +1,13 @@
 import Link from "./Link";
-import { GothamProps } from "../Gotham";
 import { Vector3 } from "three";
 
-type ArtworkProps = {
-  artwork: GothamProps["artwork"];
+export type ArtworkProps = {
+  artwork: {
+    src: string;
+    link?: string;
+    audio?: boolean;
+    size?: [number, number];
+  }[];
   linkPositions: {
     p: Vector3;
     r: number;
@@ -22,6 +26,7 @@ const Artwork = (props: ArtworkProps) => {
           audio={piece.audio}
           link={piece.link}
           size={piece.size}
+          scale={2}
           src={piece.src}
           key={i}
         />

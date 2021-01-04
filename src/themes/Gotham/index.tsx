@@ -4,6 +4,7 @@ import CodameCollisions from "./models/CodameCollisions";
 import GothamColliderNowalls from "./models/GothamColliderNowalls";
 import { Interactable, Text } from "spacesvr";
 import Artwork from "../components/Artwork";
+import { ArtworkProps } from "../components/Artwork";
 import { linkPositions } from "./assets/constants";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
@@ -12,12 +13,7 @@ export type GothamProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
-  artwork: {
-    src: string;
-    link?: string;
-    audio?: boolean;
-    size?: [number, number];
-  }[];
+  artwork: ArtworkProps["artwork"];
 };
 
 const Gotham = (props: GothamProps) => {

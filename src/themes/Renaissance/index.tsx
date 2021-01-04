@@ -3,6 +3,7 @@ import Alto_01 from "./models/Alto_01";
 import AltoCollisions from "./models/AltoCollisions";
 import { Text } from "spacesvr";
 import Artwork from "../components/Artwork";
+import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 import { linkPositions } from "../Renaissance/assets/constants";
@@ -11,12 +12,7 @@ export type RenaissanceProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
-  artwork: {
-    src: string;
-    link?: string;
-    audio?: boolean;
-    size?: [number, number];
-  }[];
+  artwork: ArtworkProps["artwork"];
 };
 
 const Renaissance = (props: RenaissanceProps) => {

@@ -5,6 +5,7 @@ type LinkProps = {
   audio?: boolean;
   link?: string;
   size?: [number, number];
+  scale?: number;
   position: Vector3 | [number, number, number];
   src: string;
   rotY?: number;
@@ -13,7 +14,15 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const { audio, link, size = [1, 1], position, rotY = 0, src } = props;
+  const {
+    audio,
+    link,
+    size = [1, 1],
+    scale = 1,
+    position,
+    rotY = 0,
+    src,
+  } = props;
 
   const handleClick = () => {
     if (link) {
@@ -41,7 +50,11 @@ const Link = (props: LinkProps) => {
   }
 
   return (
-    <group position={position} rotation={[0, rotY, 0]}>
+    <group
+      position={position}
+      rotation={[0, rotY, 0]}
+      scale={[scale, scale, scale]}
+    >
       {link ? (
         <Interactable onClick={handleClick}>
           <Image src={src} size={imgSize} framed />
