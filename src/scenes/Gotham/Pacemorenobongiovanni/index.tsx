@@ -7,6 +7,7 @@ import CrazyMaterial from "themes/Gotham/shaders/crazy";
 import Pedestal from "./Pedestal";
 import Walls from "./Walls";
 import Content from "./Content";
+import BlankAudio from "themes/Gotham/components/BlankAudio";
 
 const Pachman77 = () => {
   const tab = useRef<Group>();
@@ -46,6 +47,7 @@ const Pachman77 = () => {
 
   return (
     <group>
+      <BlankAudio />
       <Walls crazyMaterial={crazyMaterial} drugTaken={drugTaken} />
       <Content drugTaken={drugTaken} />
       <group position={[-1.5, 0, 5]}>

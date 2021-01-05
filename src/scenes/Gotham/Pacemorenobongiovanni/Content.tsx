@@ -1,6 +1,6 @@
 import { Video } from "spacesvr";
 import { useFrame } from "react-three-fiber";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Group } from "three";
 
 type ContentProps = {
@@ -39,7 +39,6 @@ const Content = (props: ContentProps) => {
             <Video
               src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/pach-rap.mp4"
               size={[8, 3]}
-              muted
             />
           )}
         </group>
