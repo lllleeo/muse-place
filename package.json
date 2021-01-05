@@ -27,7 +27,7 @@
     "babel-plugin-macros": "^2.8.0",
     "glsl-noise": "^0.0.0",
     "next": "9.4.4",
-    "react": "17.0.1",
+    "react": "0.0.0-experimental-4ead6b530",
     "react-device-detect": "^1.13.1",
     "react-dom": "16.13.1",
     "react-facebook-pixel": "^1.0.3",
@@ -35,7 +35,7 @@
     "react-spring": "^8.0.27",
     "react-three-fiber": "^5.1.4",
     "simplex-noise": "^2.4.0",
-    "spacesvr": "^1.2.15",
+    "spacesvr": "^1.2.16",
     "three": "^0.122.0"
   },
   "devDependencies": {
