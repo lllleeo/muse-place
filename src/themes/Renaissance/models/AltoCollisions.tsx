@@ -26,13 +26,14 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   useTrimeshCollision(
     (nodes.Tube1.geometry as BufferGeometry)
       .clone()
-      .translate(0, -0.1, 0)
-      .scale(1, 1, 1)
+      .scale(3, 3, 3)
+      .translate(0, 5, 0)
+      .rotateY(Math.PI)
   );
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group>
+      <group rotation-y={Math.PI} scale={[3, 3, 3]} position-y={5}>
         <mesh name="Tube1" geometry={nodes.Tube1.geometry}>
           <meshStandardMaterial attach="material" color="blue" wireframe />
         </mesh>

@@ -4,7 +4,7 @@ import { Sky, Stars } from "@react-three/drei";
 
 import { keyframes } from "themes/Renaissance/assets/constants";
 import React, { useMemo } from "react";
-import { MeshStandardMaterial } from "three";
+import { MeshStandardMaterial, Vector3 } from "three";
 import DualEnvironment from "themes/components/DualEnvironment";
 import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import Lighting from "../../../themes/Renaissance/components/Lighting";
@@ -68,7 +68,11 @@ const Standard = (props: StandardProps) => {
   if (socialLinks.web) socials.push(socialLinks.web);
 
   return (
-    <DualEnvironment keyframes={keyframes} canvasProps={{ camera: { far } }}>
+    <DualEnvironment
+      keyframes={keyframes}
+      canvasProps={{ camera: { far } }}
+      player={{ pos: new Vector3(0, 0, 10), rot: Math.PI / 2 }}
+    >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (

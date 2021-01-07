@@ -29,21 +29,17 @@ const Renaissance = (props: RenaissanceProps) => {
   );
 
   return (
-    <group scale={[5, 5, 5]}>
+    <group>
       <Suspense fallback={null}>
-        <Alto_01
-          position-y={0.5}
-          scale={[0.5, 0.5, 0.5]}
-          rotation-y={Math.PI}
-        />
+        <Alto_01 />
       </Suspense>
       <Suspense fallback={null}>
         <AltoCollisions />
       </Suspense>
       <group
-        position={[0, -1.5, 2.75]}
+        position={[0, -5.5, 15]}
         rotation={[0, Math.PI, 0]}
-        scale={[1.5, 1.5, 1.5]}
+        scale={[7.5, 7.5, 7.5]}
       >
         <Text
           text={(name || "").toUpperCase()}
@@ -54,7 +50,9 @@ const Renaissance = (props: RenaissanceProps) => {
         <SocialLinks socials={socials} position={[0, 1, 0]} />
       </group>
       <Suspense fallback={null}>
-        <Artwork artwork={artwork} linkPositions={linkPositions} />
+        <group position-y={2} scale={[5, 5, 5]}>
+          <Artwork artwork={artwork} linkPositions={linkPositions} />
+        </group>
       </Suspense>
     </group>
   );

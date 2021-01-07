@@ -18,14 +18,14 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://spaces-gallery-assets.s3-us-west-1.amazonaws.com/models/renaissance-1609393927/alto_01.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/alto-1609991012/alto_02.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position-y={5} rotation-y={Math.PI} scale={[3, 3, 3]}>
+      <group>
         <mesh
           name="structure"
           material={materials["structure.mat"]}
