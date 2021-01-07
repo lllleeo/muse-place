@@ -22,31 +22,31 @@ export const linkPositions = [
 
 export const keyframes: Keyframe[] = [
   {
-    position: new Vector3(0, -1, 11.5),
+    position: new Vector3(0, 0, 11.5),
     label: "socials",
   },
   {
-    position: new Vector3(0, 0, 3),
+    position: new Vector3(0, 1, 3),
     label: "0",
   },
   {
-    position: new Vector3(-3.75, 0, 0.9),
+    position: new Vector3(-3.75, 1, 0.9),
     label: "1",
   },
   {
-    position: new Vector3(-2, 0, -3),
+    position: new Vector3(-2, 1, -3),
     label: "2",
   },
   {
-    position: new Vector3(2, 0, -3),
+    position: new Vector3(2, 1, -3),
     label: "3",
   },
   {
-    position: new Vector3(3.75, 0, 0.9),
+    position: new Vector3(3.75, 1, 0.9),
     label: "4",
   },
   {
-    position: new Vector3(0, 0, 3),
+    position: new Vector3(0, 1, 3),
     label: "0",
   },
 ];
