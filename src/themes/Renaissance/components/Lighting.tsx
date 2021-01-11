@@ -7,12 +7,7 @@ const Lighting = (props: JSX.IntrinsicElements["group"] & LightingProps) => {
 
   return (
     <group {...props}>
-      <ambientLight intensity={0.1} />
-      <pointLight position={[20, 20, 20]} intensity={0.25} color="white" />
-      <pointLight position={[-20, 20, 20]} intensity={0.25} color="white" />
-      <pointLight position={[20, 20, -20]} intensity={0.25} color="white" />
-      <pointLight position={[-20, 20, -20]} intensity={0.25} color="white" />
-      {/*<pointLight position={[0, 2, 0]} intensity={0.1} color="white" />*/}
+      <ambientLight intensity={0.25} />
     </group>
   );
 };

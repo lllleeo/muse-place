@@ -25,7 +25,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group>
+      <group position-y={-0.5} rotation-y={Math.PI} scale={[3, 3, 3]}>
         <mesh
           name="structure"
           material={materials["structure.mat"]}
