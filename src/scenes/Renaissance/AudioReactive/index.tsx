@@ -17,7 +17,9 @@ const AudioReactive = (props: AudioReactiveProps) => {
     <group {...props}>
       <Background color="white" />
       <Music url={audio} setAnalyser={setAnalyser} />
-      {analyser && <ReactivePrimitive url={img} aa={analyser} />}
+      {analyser && (
+        <ReactivePrimitive url={img ? img : undefined} aa={analyser} />
+      )}
     </group>
   );
 };
