@@ -42,7 +42,6 @@ const SkyCubes = (props: SkyCubesProps) => {
   for (let i = 0; i < cubePositions.length; i++) {
     const cube = cubePositions[i];
     const color = colors[Math.floor(Math.random() * 10)];
-    console.log(color);
     cubes.push(
       // @ts-ignore
       <mesh position={cube.p} rotation={cube.r} scale={cube.s} key={i}>

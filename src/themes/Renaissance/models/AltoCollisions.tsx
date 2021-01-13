@@ -34,9 +34,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation-y={Math.PI} scale={[3, 3, 3]} position-y={5}>
-        <mesh geometry={nodes.Tube1.geometry}>
-          <meshStandardMaterial attach="material" color="blue" wireframe />
-        </mesh>
+        {/*<mesh geometry={nodes.Tube1.geometry}>*/}
+        {/*  <meshStandardMaterial attach="material" color="blue" wireframe />*/}
+        {/*</mesh>*/}
       </group>
     </group>
   );

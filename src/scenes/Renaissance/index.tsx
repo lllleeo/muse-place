@@ -3,12 +3,16 @@ import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
 import Lighting from "../../themes/Renaissance/components/Lighting";
-import Outside from "../../themes/Renaissance/components/Outside";
 import { keyframes } from "themes/Gotham/assets/constants";
 import DualEnvironment from "themes/components/DualEnvironment";
 import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
+import dynamic from "next/dynamic";
+
+const AudioReactive = dynamic(import("scenes/Renaissance/AudioReactive"), {
+  ssr: false,
+});
 
 export type RenaissanceSceneProps = {
   floorColor?: string;
@@ -61,14 +65,8 @@ const RenaissanceScene = (props: RenaissanceSceneProps) => {
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
       <Lighting color={lightColor} />
-      {/*<Outside*/}
-      {/*  position={scenePos}*/}
-      {/*  color={floorColor}*/}
-      {/*  map={map}*/}
-      {/*  hScale={hMapScale}*/}
-      {/*  xzScale={xzMapScale}*/}
-      {/*/>*/}
       <Renaissance {...props} />
+      <AudioReactive />
       {children}
     </DualEnvironment>
   );

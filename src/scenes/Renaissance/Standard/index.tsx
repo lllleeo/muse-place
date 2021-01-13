@@ -10,6 +10,7 @@ import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import Lighting from "../../../themes/Renaissance/components/Lighting";
 import Outside from "../../../themes/Renaissance/components/Outside";
 import SkyCubes from "../../../themes/Renaissance/components/SkyCubes";
+import AudioReactive from "../AudioReactive";
 
 type StandardProps = {
   socialLinks: {
@@ -30,6 +31,8 @@ type StandardProps = {
   xzMapScale?: number;
   far?: number;
   lightColor?: string;
+  audio?: string;
+  img?: string;
 } & RenaissanceProps;
 
 const Standard = (props: StandardProps) => {
@@ -50,6 +53,8 @@ const Standard = (props: StandardProps) => {
     xzMapScale,
     far = 1000,
     lightColor,
+    audio = "",
+    img,
   } = props;
 
   const material = useMemo(
@@ -95,6 +100,7 @@ const Standard = (props: StandardProps) => {
         baseColor="#0000FF"
         baseColor2="#FF0000"
       />
+      {audio && <AudioReactive audio={audio} img={img} position={[0, 10, 0]} />}
     </DualEnvironment>
   );
 };
