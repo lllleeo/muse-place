@@ -100,7 +100,7 @@ const Standard = (props: StandardProps) => {
         baseColor="#0000FF"
         baseColor2="#FF0000"
       />
-      {audio && <AudioReactive audio={audio} img={img} position={[0, 10, 0]} />}
+      {audio && <AudioReactive audio={audio} img={img} position={[0, 5, 0]} />}
     </DualEnvironment>
   );
 };

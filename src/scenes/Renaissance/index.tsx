@@ -10,10 +10,6 @@ import { ReactNode } from "react";
 import { Vector3 } from "three";
 import dynamic from "next/dynamic";
 
-const AudioReactive = dynamic(import("scenes/Renaissance/AudioReactive"), {
-  ssr: false,
-});
-
 export type RenaissanceSceneProps = {
   floorColor?: string;
   sunPos?: number;
@@ -66,7 +62,6 @@ const RenaissanceScene = (props: RenaissanceSceneProps) => {
       )}
       <Lighting color={lightColor} />
       <Renaissance {...props} />
-      <AudioReactive />
       {children}
     </DualEnvironment>
   );
