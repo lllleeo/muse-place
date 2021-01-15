@@ -46,7 +46,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>DJ Upgrade</title>
+        <title>HIGHONFI</title>
       </Head>
       <Gotham
         artwork={artwork}
