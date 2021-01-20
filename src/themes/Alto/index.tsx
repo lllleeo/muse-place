@@ -1,21 +1,20 @@
 import React, { Suspense, useMemo } from "react";
-import Alto_02 from "./models/Alto_02";
-import AltoCollisions from "./models/AltoCollisions";
+import Alto from "./models/Alto";
 import { Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import { linkPositions } from "../Renaissance/assets/constants";
+import { linkPositions } from "./assets/constants";
 
-export type RenaissanceProps = {
+export type AltoProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
   artwork: ArtworkProps["artwork"];
 };
 
-const Renaissance = (props: RenaissanceProps) => {
+const Renaissance = (props: AltoProps) => {
   const { name, socials, artwork, removeWalls } = props;
 
   const material = useMemo(
@@ -31,10 +30,7 @@ const Renaissance = (props: RenaissanceProps) => {
   return (
     <group>
       <Suspense fallback={null}>
-        <Alto_02 />
-      </Suspense>
-      <Suspense fallback={null}>
-        <AltoCollisions />
+        <Alto />
       </Suspense>
       <group
         position={[-1.8, -1.75, 11.75]}

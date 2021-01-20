@@ -8,7 +8,7 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "process-gltf": "scripts/process-gltf.sh"
+    "process-gltf": "./scripts/process-gltf.sh"
   },
   "husky": {
     "hooks": {
