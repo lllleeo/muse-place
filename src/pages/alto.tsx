@@ -1,12 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { AltoSceneProps } from "scenes/Alto";
 
-const Standard = dynamic(import("scenes/Renaissance/Standard"), { ssr: false });
+const Standard = dynamic(import("scenes/Alto"), { ssr: false });
 
 const ARTIST = {
-  number: 45,
-  name: "Renaissance",
+  name: "Alto",
   socialLinks: {
     instagram: "https://www.instagram.com/musehq/",
     twitter: "https://twitter.com/musehq_",
@@ -14,19 +14,21 @@ const ARTIST = {
   },
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/codame/ARTISTS`;
-const linkData = [
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial`;
+const artwork: AltoSceneProps["artwork"] = [
   {
-    src: `${url}/${ARTIST.number}/1.jpg`,
+    src: `${url}/1.jpg`,
   },
   {
-    src: `${url}/${ARTIST.number}/2.jpg`,
+    src: `${url}/2.jpg`,
+    size: [2406, 1606],
   },
   {
-    src: `${url}/${ARTIST.number}/3.jpg`,
+    src: `${url}/3.jpg`,
+    size: [1440, 960],
   },
   {
-    src: `${url}/${ARTIST.number}/4.jpg`,
+    src: `${url}/4.jpg`,
   },
 ];
 
@@ -38,7 +40,7 @@ const LinkTree: NextPage = () => {
       </Head>
       <Standard
         socials={[]}
-        artwork={linkData}
+        artwork={artwork}
         socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
         map="canyon"

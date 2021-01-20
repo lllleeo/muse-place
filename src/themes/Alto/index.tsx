@@ -1,28 +1,21 @@
-import React, { Suspense, useMemo, useRef } from "react";
-import Alto_02 from "./models/Alto_02";
-import AltoCollisions from "./models/AltoCollisions";
-import Knot from "./models/Knot";
+import React, { Suspense, useMemo } from "react";
+import Alto from "./models/Alto";
 import { Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import { linkPositions } from "../Renaissance/assets/constants";
+import { linkPositions } from "./assets/constants";
 
-export type RenaissanceProps = {
+export type AltoProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
   artwork: ArtworkProps["artwork"];
 };
 
-const Renaissance = (props: RenaissanceProps) => {
+const Renaissance = (props: AltoProps) => {
   const { name, socials, artwork, removeWalls } = props;
-
-  const ref1 = useRef();
-  const ref2 = useRef();
-  const ref3 = useRef();
-  const ref4 = useRef();
 
   const material = useMemo(
     () =>
@@ -37,14 +30,7 @@ const Renaissance = (props: RenaissanceProps) => {
   return (
     <group>
       <Suspense fallback={null}>
-        <Alto_02 />
-      </Suspense>
-      <Suspense fallback={null}>
-        <AltoCollisions />
-      </Suspense>
-      <Suspense fallback={null}>
-        {/*<Knot ref1={ref1} ref2={ref2} ref3={ref3} ref4={ref4}/>*/}
-        <Knot />
+        <Alto />
       </Suspense>
       <group
         position={[-1.8, -1.75, 11.75]}

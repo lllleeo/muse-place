@@ -2,18 +2,18 @@ import { Fog } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
-import { keyframes } from "themes/Renaissance/assets/constants";
+import { keyframes } from "themes/Alto/assets/constants";
 import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
 import DualEnvironment from "themes/components/DualEnvironment";
-import Renaissance, { RenaissanceProps } from "themes/Renaissance";
-import Lighting from "../../../themes/Renaissance/components/Lighting";
-import Outside from "../../../themes/Renaissance/components/Outside";
-import SkyCubes from "../../../themes/Renaissance/components/SkyCubes";
-import AudioReactive from "../AudioReactive";
+import Alto, { AltoProps } from "themes/Alto";
+import Lighting from "themes/Alto/components/Lighting";
+import Outside from "themes/Alto/components/Outside";
+import SkyCubes from "themes/Alto/components/SkyCubes";
+import AudioReactive from "./AudioReactive";
 import { Perf } from "r3f-perf";
 
-type StandardProps = {
+export type AltoSceneProps = {
   socialLinks: {
     instagram?: string;
     twitter?: string;
@@ -34,9 +34,9 @@ type StandardProps = {
   lightColor?: string;
   audio?: string;
   img?: string;
-} & RenaissanceProps;
+} & AltoProps;
 
-const Standard = (props: StandardProps) => {
+const AltoScene = (props: AltoSceneProps) => {
   const {
     artwork,
     socialLinks,
@@ -85,7 +85,7 @@ const Standard = (props: StandardProps) => {
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
       <group position={[0, 0, 0]}>
-        <Renaissance name={name} socials={socials} artwork={artwork} />
+        <Alto name={name} socials={socials} artwork={artwork} />
         <Lighting />
       </group>
       <Outside
@@ -107,4 +107,4 @@ const Standard = (props: StandardProps) => {
   );
 };
 
-export default Standard;
+export default AltoScene;
