@@ -1,21 +1,20 @@
 import React, { Suspense, useMemo } from "react";
-import Alto_01 from "./models/Alto_01";
-import AltoCollisions from "./models/AltoCollisions";
+import Alto from "./models/Alto";
 import { Text } from "spacesvr";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import { linkPositions } from "../Renaissance/assets/constants";
+import { linkPositions } from "./assets/constants";
 
-export type RenaissanceProps = {
+export type AltoProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
   artwork: ArtworkProps["artwork"];
 };
 
-const Renaissance = (props: RenaissanceProps) => {
+const Renaissance = (props: AltoProps) => {
   const { name, socials, artwork, removeWalls } = props;
 
   const material = useMemo(
@@ -31,23 +30,20 @@ const Renaissance = (props: RenaissanceProps) => {
   return (
     <group>
       <Suspense fallback={null}>
-        <Alto_01 />
-      </Suspense>
-      <Suspense fallback={null}>
-        <AltoCollisions />
+        <Alto />
       </Suspense>
       <group
-        position={[0, -5.5, 15]}
-        rotation={[0, Math.PI, 0]}
-        scale={[7.5, 7.5, 7.5]}
+        position={[-1.8, -1.75, 11.75]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={[3, 3, 3]}
       >
         <Text
           text={(name || "").toUpperCase()}
-          size={1}
+          size={0.75}
           material={material}
-          position={[0, 1, 0]}
+          position={[0, 1, -0.025]}
         />
-        <SocialLinks socials={socials} position={[0, 1, 0]} />
+        <SocialLinks socials={socials} position={[0, 1, -0.05]} />
       </group>
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
