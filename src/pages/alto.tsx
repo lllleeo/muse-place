@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { GothamProps } from "../themes/Gotham";
+import { AltoSceneProps } from "scenes/Alto";
 
 const Standard = dynamic(import("scenes/Alto"), { ssr: false });
 
@@ -15,7 +15,7 @@ const ARTIST = {
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial`;
-const artwork: GothamProps["artwork"] = [
+const artwork: AltoSceneProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
   },
