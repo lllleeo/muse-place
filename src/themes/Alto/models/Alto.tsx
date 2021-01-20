@@ -12,20 +12,18 @@ import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    gods: THREE.Mesh;
-    structure: THREE.Mesh;
-    terrain: THREE.Mesh;
     collider: THREE.Mesh;
+    terrain: THREE.Mesh;
+    structure: THREE.Mesh;
   };
   materials: {
-    ["gods.mat"]: THREE.MeshStandardMaterial;
+    terrain: THREE.MeshStandardMaterial;
     ["structure.mat"]: THREE.MeshStandardMaterial;
-    ["terrain.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611116560/alto_04.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611126517/alto_05.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -34,33 +32,23 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   useTrimeshCollision(
     (nodes.collider.geometry as BufferGeometry)
       .clone()
-      .scale(10, 10, 10)
-      .translate(0, 46, 0)
+      .scale(12, 12, 12)
+      .translate(0, -36.69, 0)
   );
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position-y={46}>
-        <group scale={[10, 10, 10]}>
+      <group position-y={-36.69}>
+        <group scale={[12, 12, 12]}>
           <mesh
-            name="gods"
-            material={materials["gods.mat"]}
-            geometry={nodes.gods.geometry}
-            position={[0.0171, 0.0003, -0.0027]}
-            rotation={[0, 0, 0]}
+            name="terrain"
+            material={materials.terrain}
+            geometry={nodes.terrain.geometry}
           />
           <mesh
             name="structure"
             material={materials["structure.mat"]}
             geometry={nodes.structure.geometry}
-            position={[0.0241, -0.0014, 0.0027]}
-          />
-          <mesh
-            name="terrain"
-            material={materials["terrain.mat"]}
-            geometry={nodes.terrain.geometry}
-            position={[-0.0241, -0.0019, 0.0018]}
-            scale={[0.5, 0.5, 0.5]}
           />
         </group>
       </group>
