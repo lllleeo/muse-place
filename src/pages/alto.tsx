@@ -7,11 +7,11 @@ const Standard = dynamic(import("scenes/Alto"), { ssr: false });
 
 const ARTIST = {
   name: "Alto",
-  socialLinks: {
-    instagram: "https://www.instagram.com/musehq/",
-    twitter: "https://twitter.com/musehq_",
-    web: "https://www.spaces.gallery/",
-  },
+  socialLinks: [
+    "https://www.instagram.com/musehq/",
+    "https://twitter.com/musehq_",
+    "https://www.spaces.gallery/",
+  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial`;
@@ -39,9 +39,8 @@ const LinkTree: NextPage = () => {
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Standard
-        socials={[]}
         artwork={artwork}
-        socialLinks={ARTIST.socialLinks}
+        socials={ARTIST.socialLinks}
         name={ARTIST.name}
         map="canyon"
         fogColor="white"
