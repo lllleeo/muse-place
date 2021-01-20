@@ -52,7 +52,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
     }
   });
 
-  const SCALE = 1;
+  const SCALE = 0.7;
 
   return (
     <group scale={[SCALE, SCALE, SCALE]} position={[0, 0, 0]}>

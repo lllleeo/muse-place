@@ -73,7 +73,7 @@ const AltoScene = (props: AltoSceneProps) => {
       )}
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
-      {audio && <AudioReactive audio={audio} img={img} position={[0, 5, 0]} />}
+      {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
     </DualEnvironment>
   );
 };
