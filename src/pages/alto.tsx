@@ -30,13 +30,6 @@ const artwork: AltoSceneProps["artwork"] = [
   {
     src: `${url}/4.jpg`,
   },
-  {
-    src: `${url}/5.jpg`,
-    size: [1040, 1396],
-  },
-  {
-    src: `${url}/6.jpg`,
-  },
 ];
 
 const LinkTree: NextPage = () => {
