@@ -36,7 +36,8 @@
     "react-three-fiber": "^5.1.4",
     "simplex-noise": "^2.4.0",
     "spacesvr": "^1.2.13",
-    "three": "^0.122.0"
+    "three": "^0.122.0",
+    "three.modifiers": "https://github.com/EvanDElia/threejs-mesh-modifiers.git"
   },
   "devDependencies": {
     "@react-three/gltfjsx": "^3.0.8",
@@ -54,6 +55,7 @@
     "next-transpile-modules": "^3.3.0",
     "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
+    "r3f-perf": "^0.77.0",
     "typescript": "^3.9.5"
   }
 }

@@ -8,7 +8,6 @@ import DualEnvironment from "themes/components/DualEnvironment";
 import Renaissance, { RenaissanceProps } from "themes/Renaissance";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
-import dynamic from "next/dynamic";
 
 export type RenaissanceSceneProps = {
   floorColor?: string;

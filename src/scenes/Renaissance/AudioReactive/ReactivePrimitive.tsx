@@ -1,9 +1,13 @@
 import { useMemo, useRef } from "react";
 import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
+import Knot from "../../../themes/Renaissance/models/Knot";
+import { ModifierStack, Taper } from "three.modifiers/src/index";
+import { BufferGeometry } from "three";
 
 type ReactiveProps = JSX.IntrinsicElements["group"] & {
   url?: string;
+  freq?: number;
   aa: THREE.AudioAnalyser;
 };
 
@@ -17,6 +21,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
   const {
     url = "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/renaissance/cubehm.jpg",
     aa,
+    freq,
   } = props;
 
   const seed = useMemo(() => Math.random(), []);
@@ -25,10 +30,11 @@ const ReactivePrimitive = (props: ReactiveProps) => {
   const innerGroup = useRef<THREE.Group>();
   const material = useRef<THREE.MeshStandardMaterial>();
   const freqIndex = useRef(Math.floor(Math.random() * 16));
+  const mesh = useRef<THREE.Mesh | undefined>();
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock }, delta) => {
     if (material.current) {
-      const freqData = aa?.getFrequencyData()[freqIndex.current] || 0;
+      const freqData = aa?.getFrequencyData()[freq || freqIndex.current] || 0;
 
       if (freqData < min) {
         min = freqData;
@@ -50,6 +56,24 @@ const ReactivePrimitive = (props: ReactiveProps) => {
       group.current.rotation.y = clock.getElapsedTime() / (10 + seed * 30);
       group.current.rotation.z = clock.getElapsedTime() / (9 + seed * 30);
     }
+
+    if (mesh.current) {
+      const meshBuf = mesh?.current?.geometry as BufferGeometry;
+      const vertices = meshBuf.attributes.position.array;
+      const count = meshBuf.attributes.position.count;
+      for (let i = 0; i < count; i++) {
+        const x = vertices[i * 3];
+        const y = vertices[i * 3 + 1];
+        const z = vertices[i * 3 + 2];
+        if (i < count / 2) {
+          meshBuf.attributes.position.setZ(
+            i,
+            z + delta * Math.sin(clock.getElapsedTime())
+          );
+        }
+      }
+      meshBuf.attributes.position.needsUpdate = true;
+    }
   });
 
   const SCALE = 1;
@@ -58,7 +82,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
     <group scale={[SCALE, SCALE, SCALE]} position={[0, 0, 0]}>
       <group {...props} ref={group}>
         <group ref={innerGroup}>
-          <mesh>
+          <mesh ref={mesh}>
             <sphereBufferGeometry args={[2, 50, 50]} />
             <meshStandardMaterial
               ref={material}

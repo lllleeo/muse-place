@@ -11,6 +11,7 @@ import Lighting from "../../../themes/Renaissance/components/Lighting";
 import Outside from "../../../themes/Renaissance/components/Outside";
 import SkyCubes from "../../../themes/Renaissance/components/SkyCubes";
 import AudioReactive from "../AudioReactive";
+import { Perf } from "r3f-perf";
 
 type StandardProps = {
   socialLinks: {
@@ -101,6 +102,7 @@ const Standard = (props: StandardProps) => {
         baseColor2="#FF0000"
       />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 5, 0]} />}
+      <Perf />
     </DualEnvironment>
   );
 };
