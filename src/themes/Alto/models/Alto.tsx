@@ -12,18 +12,20 @@ import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    collider: THREE.Mesh;
+    gods: THREE.Mesh;
     terrain: THREE.Mesh;
     structure: THREE.Mesh;
+    collider: THREE.Mesh;
   };
   materials: {
+    gods: THREE.MeshStandardMaterial;
     terrain: THREE.MeshStandardMaterial;
-    ["structure.mat"]: THREE.MeshStandardMaterial;
+    structure: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611126517/alto_05.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611218757/alto_07.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -41,13 +43,19 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       <group position-y={-36.69}>
         <group scale={[12, 12, 12]}>
           <mesh
+            name="gods"
+            material={materials.gods}
+            geometry={nodes.gods.geometry}
+            rotation={[0, 0, 0]}
+          />
+          <mesh
             name="terrain"
             material={materials.terrain}
             geometry={nodes.terrain.geometry}
           />
           <mesh
             name="structure"
-            material={materials["structure.mat"]}
+            material={materials.structure}
             geometry={nodes.structure.geometry}
           />
         </group>
