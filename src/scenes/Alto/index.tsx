@@ -68,11 +68,10 @@ const AltoScene = (props: AltoSceneProps) => {
       canvasProps={{ camera: { far } }}
       player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2 }}
     >
-      {/*<Sky inclination={sunPos} distance={night ? 0 : 1000000} />*/}
-      {/*{stars && <Stars count={5000} factor={100000} radius={5000000} fade />}*/}
-      {/*{fogColor && (*/}
-      {/*  <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />*/}
-      {/*)}*/}
+      {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
+      {fogColor && (
+        <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
+      )}
       <Sunrays />
       <HDRI src="https://dwvo2npct47gg.cloudfront.net/hdr/SkyMural2.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />

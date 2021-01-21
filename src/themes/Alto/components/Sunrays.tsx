@@ -1,7 +1,6 @@
 import { EffectComposer, GodRays } from "@react-three/postprocessing";
 import { forwardRef, Suspense } from "react";
 import { useResource } from "react-three-fiber";
-import { Circle } from "@react-three/drei";
 import * as THREE from "three";
 
 const Sun = forwardRef(function Sun(props: any, forwardRef: any) {
@@ -12,9 +11,6 @@ const Sun = forwardRef(function Sun(props: any, forwardRef: any) {
         <meshBasicMaterial attach="material" color="white" />
       </mesh>
     </group>
-    // <Circle args={[200, 50]} ref={forwardRef} position={[0, 0, -200]}>
-    //   <meshBasicMaterial color="white" />
-    // </Circle>
   );
 });
 
