@@ -36,8 +36,7 @@
     "react-three-fiber": "^5.1.4",
     "simplex-noise": "^2.4.0",
     "spacesvr": "^1.2.13",
-    "three": "^0.122.0",
-    "three.modifiers": "https://github.com/EvanDElia/threejs-mesh-modifiers.git"
+    "three": "^0.122.0"
   },
   "devDependencies": {
     "@react-three/gltfjsx": "^3.0.8",
