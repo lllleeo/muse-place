@@ -6,6 +6,7 @@ import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 import { linkPositions } from "./assets/constants";
+import Grass from "./components/Grass";
 
 export type AltoProps = {
   name: string;
@@ -31,6 +32,7 @@ const Renaissance = (props: AltoProps) => {
     <group>
       <Suspense fallback={null}>
         <Alto />
+        <Grass />
       </Suspense>
       <group
         position={[-1.8, -1.75, 11.75]}
