@@ -1,7 +1,7 @@
 import { useMemo, useRef, Suspense } from "react";
 import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import Amongus from "../../../themes/Alto/models/Amongus";
+import AmongUs from "themes/Alto/models/AmongUs";
 
 type ReactiveProps = JSX.IntrinsicElements["group"] & {
   url?: string;
@@ -77,11 +77,11 @@ const ReactivePrimitive = (props: ReactiveProps) => {
   const SCALE = 0.7;
 
   return (
-    <group scale={[SCALE, SCALE, SCALE]} position={[0, 0, 0]}>
+    <group scale={[SCALE, SCALE, SCALE]} position={[0, -3, 0]}>
       <group {...props} ref={group}>
         <group ref={innerGroup}>
           <Suspense fallback={null}>
-            <Amongus texture={texture} position-y={-5} ref={amongus} />
+            <AmongUs texture={texture} ref={amongus} />
           </Suspense>
         </group>
       </group>

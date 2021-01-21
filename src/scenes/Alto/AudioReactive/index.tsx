@@ -1,5 +1,5 @@
 import { Background } from "spacesvr";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import * as THREE from "three";
 import Music from "./Music";
 import ReactivePrimitive from "./ReactivePrimitive";
@@ -19,7 +19,9 @@ const AudioReactive = (props: AudioReactiveProps) => {
       <Background color="white" />
       <Music url={audio} setAnalyser={setAnalyser} />
       {analyser && (
-        <ReactivePrimitive url={img} aa={analyser} freq={freqIndex} />
+        <Suspense fallback={null}>
+          <ReactivePrimitive url={img} aa={analyser} freq={freqIndex} />
+        </Suspense>
       )}
     </group>
   );

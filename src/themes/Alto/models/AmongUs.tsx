@@ -25,17 +25,17 @@ const Model = React.forwardRef(
     const { texture } = props;
     const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
+    materials["red color"].displacementMap = texture;
+    materials["red color"].displacementScale = 1;
+
     return (
       <group ref={ref} {...props} dispose={null}>
         <group name="Scene">
-          <mesh name="among_us_001" geometry={nodes.among_us_001.geometry}>
-            <meshStandardMaterial
-              attach="material"
-              displacementMap={texture}
-              displacementScale={1}
-              color="red"
-            />
-          </mesh>
+          <mesh
+            name="among_us_001"
+            geometry={nodes.among_us_001.geometry}
+            material={nodes.among_us_001.material}
+          />
         </group>
       </group>
     );
