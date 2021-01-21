@@ -23,23 +23,18 @@ const FILE_URL =
 
 const Model = React.forwardRef(
   (props: JSX.IntrinsicElements["group"] & any, ref) => {
-    // const group = useRef<THREE.Group>()
     const { texture } = props;
     const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
-    // const texture = useLoader(THREE.TextureLoader, "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/renaissance/cubehm.jpg");
 
     return (
       <group ref={ref} {...props} dispose={null}>
         <group name="Scene">
-          <mesh
-            name="among_us_001"
-            // material={materials['red color']}
-            geometry={nodes.among_us_001.geometry}
-          >
+          <mesh name="among_us_001" geometry={nodes.among_us_001.geometry}>
             <meshStandardMaterial
               attach="material"
               displacementMap={texture}
               displacementScale={1}
+              color="red"
             />
           </mesh>
         </group>

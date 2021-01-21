@@ -62,7 +62,6 @@ const ReactivePrimitive = (props: ReactiveProps) => {
           const modFreqData = (freqData - min) / (max - min);
 
           const disp = THREE.MathUtils.lerp(MIN_DISP, MAX_DISP, modFreqData);
-          // child.material.displacementMap = {texture}
           child.material.displacementScale = Math.max(0, disp / 2 + 0.05);
         }
       });
