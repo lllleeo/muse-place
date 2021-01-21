@@ -29,7 +29,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
   const innerGroup = useRef<THREE.Group>();
   const material = useRef<THREE.MeshStandardMaterial>();
   const freqIndex = useRef(Math.floor(Math.random() * 16));
-  const amongus = useRef<any>();
+  const amongus = useRef<THREE.Group>();
 
   useFrame(({ clock }, delta) => {
     const freqData = aa?.getFrequencyData()[freq || freqIndex.current] || 0;
@@ -82,7 +82,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
       <group {...props} ref={group}>
         <group ref={innerGroup}>
           <Suspense fallback={null}>
-            <AmongUs texture={texture} ref={amongus} />
+            <AmongUs texture={texture} modelRef={amongus} />
           </Suspense>
         </group>
       </group>

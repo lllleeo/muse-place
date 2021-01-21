@@ -26,7 +26,7 @@ const Sunrays = (props: JSX.IntrinsicElements["group"]) => {
               sun={sunRef.current}
               exposure={0.9}
               decay={0.9}
-              samples={30}
+              samples={5}
               blur={0.9}
             />
           </EffectComposer>

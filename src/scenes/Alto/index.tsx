@@ -1,6 +1,6 @@
-import { Fog, HDRI, Text } from "spacesvr";
+import { Fog, HDRI } from "spacesvr";
 import * as THREE from "three";
-import { Sky, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 
 import { keyframes } from "themes/Alto/assets/constants";
 import React, { useMemo } from "react";
@@ -11,6 +11,7 @@ import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
 import Sunrays from "themes/Alto/components/Sunrays";
 import Dropoff from "themes/Alto/components/Dropoff";
+import { isMobile } from "react-device-detect";
 
 export type AltoSceneProps = {
   floorColor?: string;
@@ -73,7 +74,7 @@ const AltoScene = (props: AltoSceneProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      <Sunrays />
+      {isMobile ? <></> : <Sunrays />}
       <HDRI src="https://dwvo2npct47gg.cloudfront.net/hdr/SkyMural2.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
