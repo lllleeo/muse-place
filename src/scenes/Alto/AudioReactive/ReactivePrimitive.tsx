@@ -80,18 +80,8 @@ const ReactivePrimitive = (props: ReactiveProps) => {
     <group scale={[SCALE, SCALE, SCALE]} position={[0, 0, 0]}>
       <group {...props} ref={group}>
         <group ref={innerGroup}>
-          <mesh>
-            <sphereBufferGeometry args={[2, 50, 50]} />
-            <meshStandardMaterial
-              ref={material}
-              map={texture}
-              color="red"
-              displacementMap={texture}
-              displacementScale={0}
-            />
-          </mesh>
           <Suspense fallback={null}>
-            <Amongus texture={texture} position-y={-3} ref={amongus} />
+            <Amongus texture={texture} position-y={-5} ref={amongus} />
           </Suspense>
         </group>
       </group>
