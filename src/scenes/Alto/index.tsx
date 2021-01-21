@@ -1,4 +1,4 @@
-import { Fog, HDRI } from "spacesvr";
+import { Fog, HDRI, Text } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
@@ -10,7 +10,7 @@ import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
 import Sunrays from "themes/Alto/components/Sunrays";
-import { Perf } from "r3f-perf";
+import Dropoff from "themes/Alto/components/Dropoff";
 
 export type AltoSceneProps = {
   floorColor?: string;
@@ -77,7 +77,7 @@ const AltoScene = (props: AltoSceneProps) => {
       <HDRI src="https://dwvo2npct47gg.cloudfront.net/hdr/SkyMural2.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
-      <Perf />
+      <Dropoff />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
     </DualEnvironment>
   );
