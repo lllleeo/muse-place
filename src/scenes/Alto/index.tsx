@@ -9,6 +9,7 @@ import DualEnvironment from "themes/components/DualEnvironment";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
+import { Perf } from "r3f-perf";
 
 export type AltoSceneProps = {
   floorColor?: string;
