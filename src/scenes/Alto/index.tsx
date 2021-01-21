@@ -66,6 +66,7 @@ const AltoScene = (props: AltoSceneProps) => {
       keyframes={keyframes}
       canvasProps={{ camera: { far } }}
       player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2 }}
+      disableGround
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}

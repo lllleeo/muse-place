@@ -35,7 +35,7 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <FBMFog />
       <group
-        position={[-1.8, -1.75, 11.75]}
+        position={[0, 0, 11.75]}
         rotation={[0, Math.PI / 2, 0]}
         scale={[3, 3, 3]}
       >
