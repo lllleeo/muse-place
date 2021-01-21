@@ -7,7 +7,6 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { useLoader } from "react-three-fiber";
 
 type GLTFResult = GLTF & {
   nodes: {

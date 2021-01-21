@@ -1,9 +1,11 @@
+import React from "react";
+
 type LightingProps = {
   color?: string;
 };
 
 const Lighting = (props: JSX.IntrinsicElements["group"] & LightingProps) => {
-  const { color = "#74148c" } = props;
+  const { color = "#FF0000" } = props;
 
   return (
     <group {...props}>

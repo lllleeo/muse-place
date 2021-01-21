@@ -9,6 +9,7 @@ import DualEnvironment from "themes/components/DualEnvironment";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
+import Sunrays from "themes/Alto/components/Sunrays";
 import { Perf } from "r3f-perf";
 
 export type AltoSceneProps = {
@@ -72,8 +73,10 @@ const AltoScene = (props: AltoSceneProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
+      <Sunrays />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
+      <Perf />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
     </DualEnvironment>
   );

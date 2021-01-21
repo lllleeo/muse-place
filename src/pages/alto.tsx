@@ -52,6 +52,7 @@ const LinkTree: NextPage = () => {
         xzMapScale={200}
         floorColor="black"
         audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/whoisabnel/dark.mp3"
+        sunPos={0}
       />
     </>
   );

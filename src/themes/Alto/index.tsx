@@ -33,7 +33,7 @@ const Renaissance = (props: AltoProps) => {
       <Suspense fallback={null}>
         <Alto />
       </Suspense>
-      <FBMFog />
+      {/*<FBMFog />*/}
       <group
         position={[-1.8, -1.75, 11.75]}
         rotation={[0, Math.PI / 2, 0]}
