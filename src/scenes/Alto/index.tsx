@@ -47,7 +47,7 @@ const AltoScene = (props: AltoSceneProps) => {
     scenePos = [0, -1, 0],
     hMapScale,
     xzMapScale,
-    far = 1000,
+    far = 500,
     lightColor,
     audio = "",
     img,
