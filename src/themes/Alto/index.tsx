@@ -49,7 +49,7 @@ const Renaissance = (props: AltoProps) => {
       </group>
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
-          <Artwork artwork={artwork} linkPositions={linkPositions} />
+          {/*<Artwork artwork={artwork} linkPositions={linkPositions} />*/}
         </group>
       </Suspense>
     </group>

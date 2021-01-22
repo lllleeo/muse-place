@@ -9,8 +9,9 @@ import {
 } from "three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { grassFrag, grassUniforms, grassVert } from "./shaders/grass";
+import SimplexNoise from "simplex-noise";
 
-const COUNT = 2000;
+const COUNT = 8000;
 const MIN_RADIUS = 10;
 const MAX_RADIUS = 35;
 
@@ -46,6 +47,7 @@ const Grass = () => {
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const geo = useMemo(() => new PlaneBufferGeometry(0.5, 0.5), []);
   const [counter, setCounter] = useState(1);
+  const simplex = useMemo(() => new SimplexNoise(), []);
 
   useEffect(() => {
     const terrain = scene.getObjectByName("terrain");
@@ -57,18 +59,22 @@ const Grass = () => {
     const raycaster = new Raycaster();
 
     for (let i = 0; i < COUNT; i++) {
+      // generate position
       const radius = Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
       let theta = Math.random() * Math.PI * 2;
 
+      // between PI_2  +- 0.1 don't spawn
       if (theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
         theta = Math.PI / 2 - 0.1 - 0.1 * Math.pow(Math.random(), 4);
       } else if (theta < Math.PI / 2 + 0.1 && theta >= Math.PI / 2) {
         theta = Math.PI / 2 + 0.1 + 0.1 * Math.pow(Math.random(), 4);
       }
 
+      // convert to cartesian
       const x = radius * Math.cos(theta);
       const z = radius * Math.sin(theta);
 
+      // raycast straight down (generation)
       raycaster.ray.origin.set(x, 40, z);
       raycaster.ray.lookAt(new Vector3(x, -40, z));
       const intersects = raycaster.intersectObject(terrain, false);
@@ -77,33 +83,32 @@ const Grass = () => {
         continue;
       }
 
+      // get y and normal (generation)
       const p = intersects[0].point;
-      const y = p.y;
-
+      const y = p.y - 0.2;
       const n = intersects[0].face?.normal.clone() || new Vector3();
       n.transformDirection(terrain.matrixWorld);
 
-      const g1 = i * 2;
-      dummy.scale.set(1, 1, 1);
-      dummy.rotation.x = n.x;
-      dummy.rotation.z = n.z;
+      // add randomness
+      const scaleY = 1 + 0.5 * simplex.noise3D(x, y, z);
+      const scaleX = 1 + 0.2 + Math.random();
+
+      // with coordinates, generate
+      const index = i * 2;
+      dummy.scale.set(scaleX, scaleY, 1);
+      dummy.rotation.x = -n.x;
+      dummy.rotation.z = -n.z;
       dummy.rotation.y = Math.random() * Math.PI * 2;
-      dummy.updateMatrix();
       dummy.position.set(x, y + 0.25, z);
       dummy.updateMatrix();
-      mesh.current.setMatrixAt(g1, dummy.matrix);
-
-      const g2 = i * 2 + 1;
-      dummy.rotation.y += Math.PI / 2;
-      dummy.updateMatrix();
-      mesh.current.setMatrixAt(g2, dummy.matrix);
+      mesh.current.setMatrixAt(index, dummy.matrix);
     }
     mesh.current.instanceMatrix.needsUpdate = true;
   }, [mesh, grassMat, counter]);
 
   return (
     <group>
-      <instancedMesh ref={mesh} args={[geo, grassMat, COUNT * 2]} />
+      <instancedMesh ref={mesh} args={[geo, grassMat, COUNT]} />
     </group>
   );
 };

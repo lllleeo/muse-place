@@ -42,8 +42,8 @@ export const grassFrag = `
         vec4 textureColor = texture2D(grassTex, vec2(vUv.s, vUv.t));
         
         // gradient from color1 to color2 going upward
-        vec3 color1 = vec3(0.0782, 0.153, 0.0116);
-        vec3 color2 = vec3(0.33958, 0.51, 0.0);
+        vec3 color1 = vec3(0.5, 0.73, 0.41);
+        vec3 color2 = vec3(0.65, 0.83, 0.61);
         vec3 color = mix(color1, color2, vUv.t);
         
         if (textureColor.w < threshold) {

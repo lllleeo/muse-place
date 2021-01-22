@@ -12,20 +12,29 @@ import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    gods: THREE.Mesh;
-    terrain: THREE.Mesh;
-    structure: THREE.Mesh;
     collider: THREE.Mesh;
+    gods: THREE.Mesh;
+    spawn: THREE.Mesh;
+    information: THREE.Mesh;
+    stairs: THREE.Mesh;
+    doorways: THREE.Mesh;
+    structure: THREE.Mesh;
+    archway: THREE.Mesh;
+    terrain: THREE.Mesh;
   };
   materials: {
-    gods: THREE.MeshStandardMaterial;
-    terrain: THREE.MeshStandardMaterial;
-    structure: THREE.MeshStandardMaterial;
+    ["spawn.mat"]: THREE.MeshStandardMaterial;
+    ["information.mat"]: THREE.MeshStandardMaterial;
+    ["stairs.mat"]: THREE.MeshStandardMaterial;
+    ["doorways.mat"]: THREE.MeshStandardMaterial;
+    ["structure.mat"]: THREE.MeshStandardMaterial;
+    ["archway.mat"]: THREE.MeshStandardMaterial;
+    ["terrain.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611218757/alto_07.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611297626/alto_08.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -44,19 +53,46 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <group scale={[12, 12, 12]}>
           <mesh
             name="gods"
-            material={materials.gods}
+            material={nodes.gods.material}
             geometry={nodes.gods.geometry}
             rotation={[0, 0, 0]}
           />
           <mesh
-            name="terrain"
-            material={materials.terrain}
-            geometry={nodes.terrain.geometry}
+            name="spawn"
+            material={materials["spawn.mat"]}
+            geometry={nodes.spawn.geometry}
+          />
+          <mesh
+            name="information"
+            material={materials["information.mat"]}
+            geometry={nodes.information.geometry}
+            rotation={[0, 0, 0]}
+          />
+          <mesh
+            name="stairs"
+            material={materials["stairs.mat"]}
+            geometry={nodes.stairs.geometry}
+          />
+          <mesh
+            name="doorways"
+            material={materials["doorways.mat"]}
+            geometry={nodes.doorways.geometry}
           />
           <mesh
             name="structure"
-            material={materials.structure}
+            material={materials["structure.mat"]}
             geometry={nodes.structure.geometry}
+          />
+          <mesh
+            name="archway"
+            material={materials["archway.mat"]}
+            geometry={nodes.archway.geometry}
+            rotation={[0, 0, 0]}
+          />
+          <mesh
+            name="terrain"
+            material={materials["terrain.mat"]}
+            geometry={nodes.terrain.geometry}
           />
         </group>
       </group>
