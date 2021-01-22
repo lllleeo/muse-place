@@ -1,11 +1,9 @@
-import { Fog, HDRI } from "spacesvr";
+import { Fog, HDRI, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
 import { Stars } from "@react-three/drei";
 
-import { keyframes } from "themes/Alto/assets/constants";
 import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
-import DualEnvironment from "themes/components/DualEnvironment";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
@@ -64,9 +62,7 @@ const AltoScene = (props: AltoSceneProps) => {
   );
 
   return (
-    <DualEnvironment
-      keyframes={keyframes}
-      canvasProps={{ camera: { far } }}
+    <StandardEnvironment
       player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2 }}
       disableGround
     >
@@ -80,7 +76,7 @@ const AltoScene = (props: AltoSceneProps) => {
       <Lighting />
       <Dropoff />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
-    </DualEnvironment>
+    </StandardEnvironment>
   );
 };
 
