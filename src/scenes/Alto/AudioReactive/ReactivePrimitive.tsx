@@ -1,7 +1,6 @@
 import { useMemo, useRef, Suspense } from "react";
 import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
-// @ts-ignore
 import AmongUs from "themes/Alto/models/AmongUs";
 
 type ReactiveProps = JSX.IntrinsicElements["group"] & {

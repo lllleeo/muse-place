@@ -8,7 +8,7 @@ const Dropoff = () => {
   const { player } = useEnvironment();
 
   useFrame(() => {
-    if (camera.position.y < -20) {
+    if (camera.position.y < -50) {
       player.controls.lock();
       if (camera.position.y < -350) {
         player.velocity.set(new Vector3(0, 0, 0));
