@@ -7,12 +7,13 @@ const DualEnvironment = (props: {
   children: React.ReactNode;
   keyframes: Keyframe[];
   canvasProps: Partial<CanvasProps>;
+  disableGround?: boolean;
   player?: {
     pos?: Vector3;
     rot?: number;
   };
 }) => {
-  const { keyframes, children, canvasProps, player } = props;
+  const { keyframes, children, canvasProps, player, disableGround } = props;
 
   if (isMobile) {
     return (
@@ -22,7 +23,11 @@ const DualEnvironment = (props: {
     );
   } else {
     return (
-      <StandardEnvironment player={player} canvasProps={canvasProps}>
+      <StandardEnvironment
+        player={player}
+        canvasProps={canvasProps}
+        disableGround={disableGround}
+      >
         {children}
       </StandardEnvironment>
     );

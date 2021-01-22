@@ -35,8 +35,8 @@ const Renaissance = (props: AltoProps) => {
         <Grass />
       </Suspense>
       <group
-        position={[-1.8, -1.75, 11.75]}
-        rotation={[0, Math.PI / 2, 0]}
+        position={[-1.4, -1, 25.65]}
+        rotation={[0, Math.PI / 6, 0]}
         scale={[3, 3, 3]}
       >
         <Text

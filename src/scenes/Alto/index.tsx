@@ -10,6 +10,7 @@ import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
 import Sunrays from "themes/Alto/components/Sunrays";
+import Dropoff from "themes/Alto/components/Dropoff";
 import { isMobile } from "react-device-detect";
 
 export type AltoSceneProps = {
@@ -46,7 +47,7 @@ const AltoScene = (props: AltoSceneProps) => {
     scenePos = [0, -1, 0],
     hMapScale,
     xzMapScale,
-    far = 1000,
+    far = 500,
     lightColor,
     audio = "",
     img,
@@ -67,6 +68,7 @@ const AltoScene = (props: AltoSceneProps) => {
       keyframes={keyframes}
       canvasProps={{ camera: { far } }}
       player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2 }}
+      disableGround
     >
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (
@@ -76,6 +78,7 @@ const AltoScene = (props: AltoSceneProps) => {
       <HDRI src="https://dwvo2npct47gg.cloudfront.net/hdr/SkyMural2.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
+      <Dropoff />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
     </DualEnvironment>
   );
