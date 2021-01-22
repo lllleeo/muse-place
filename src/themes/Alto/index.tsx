@@ -1,12 +1,11 @@
 import React, { Suspense, useMemo } from "react";
 import Alto from "./models/Alto";
 import { Text } from "spacesvr";
-import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import { linkPositions } from "./assets/constants";
 import Grass from "./components/Grass";
+import Scrolls from "./components/Scrolls";
 
 export type AltoProps = {
   name: string;
@@ -33,9 +32,10 @@ const Renaissance = (props: AltoProps) => {
       <Suspense fallback={null}>
         <Alto />
         <Grass />
+        <Scrolls />
       </Suspense>
       <group
-        position={[-1.4, -1, 25.65]}
+        position={[-1.4, -1.4, 29.25]}
         rotation={[0, Math.PI / 6, 0]}
         scale={[3, 3, 3]}
       >
