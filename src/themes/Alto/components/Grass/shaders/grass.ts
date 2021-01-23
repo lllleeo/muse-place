@@ -1,10 +1,12 @@
-import { Texture, Vector2 } from "three";
+import { Color, Texture, Vector2 } from "three";
 
-export const grassUniforms = (grassTex: Texture) => ({
-  grassTex: { value: grassTex },
-  uvScale: { value: new Vector2(1, 1) },
-  globalTime: { value: 0 },
-});
+export const grassUniforms = (grassTex: Texture) => {
+  return {
+    grassTex: { value: grassTex },
+    uvScale: { value: new Vector2(1, 1) },
+    globalTime: { value: 0 },
+  };
+};
 
 export const grassVert = `
       uniform vec2 uvScale;
@@ -42,8 +44,8 @@ export const grassFrag = `
         vec4 textureColor = texture2D(grassTex, vec2(vUv.s, vUv.t));
         
         // gradient from color1 to color2 going upward
-        vec3 color1 = vec3(0.5, 0.73, 0.41);
-        vec3 color2 = vec3(0.65, 0.83, 0.61);
+        vec3 color1 = vec3(0.43, 0.65, 0.47);
+        vec3 color2 = vec3(0.56, 0.75, 0.59);
         vec3 color = mix(color1, color2, vUv.t);
         
         if (textureColor.w < threshold) {

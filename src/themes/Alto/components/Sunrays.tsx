@@ -20,16 +20,16 @@ const Sunrays = (props: JSX.IntrinsicElements["group"]) => {
     <group {...props}>
       <Suspense fallback={null}>
         <Sun ref={sunRef} />
-        {/*{sunRef.current && (*/}
-        {/*  <EffectComposer multisampling={0}>*/}
-        {/*    <Bloom*/}
-        {/*      intensity={0.5}*/}
-        {/*      luminanceThreshold={0.3}*/}
-        {/*      luminanceSmoothing={0.6}*/}
-        {/*      height={200}*/}
-        {/*    />*/}
-        {/*  </EffectComposer>*/}
-        {/*)}*/}
+        {sunRef.current && (
+          <EffectComposer multisampling={0}>
+            <Bloom
+              intensity={0.7}
+              luminanceThreshold={0.3}
+              luminanceSmoothing={0.6}
+              height={200}
+            />
+          </EffectComposer>
+        )}
       </Suspense>
     </group>
   );
