@@ -1,4 +1,4 @@
-import { Color, Texture, Vector2 } from "three";
+import { Texture, Vector2 } from "three";
 
 export const grassUniforms = (grassTex: Texture) => {
   return {
