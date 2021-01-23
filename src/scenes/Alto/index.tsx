@@ -7,9 +7,7 @@ import { MeshStandardMaterial, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
-import Sunrays from "themes/Alto/components/Sunrays";
 import Dropoff from "themes/Alto/components/Dropoff";
-import { isMobile } from "react-device-detect";
 import { HDRI } from "./HDRBackground";
 
 export type AltoSceneProps = {
@@ -71,7 +69,6 @@ const AltoScene = (props: AltoSceneProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      {!isMobile && <Sunrays />}
       <Sky sunPosition={[0, 1, -1]} />
       <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />

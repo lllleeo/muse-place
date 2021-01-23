@@ -1,11 +1,9 @@
 import React, { Suspense, useMemo } from "react";
 import Alto from "./models/Alto";
 import { Text } from "spacesvr";
-import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import { linkPositions } from "./assets/constants";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 
