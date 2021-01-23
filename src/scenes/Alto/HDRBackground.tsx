@@ -17,8 +17,8 @@ export const HDRI = (props: HDRIProps) => {
   pmremGenerator.compileEquirectangularShader();
 
   // actual file loader
-  const loader = new TextureLoader();
-  // loader.setDataType(UnsignedByteType);
+  const loader = new RGBELoader();
+  loader.setDataType(UnsignedByteType);
 
   useEffect(() => {
     loader.load(src, (texture) => {
@@ -26,7 +26,7 @@ export const HDRI = (props: HDRIProps) => {
 
       // sent envmap onto scene env and background
       scene.environment = envMap;
-      scene.background = envMap;
+      // scene.background = envMap;
 
       texture.dispose();
       pmremGenerator.dispose();

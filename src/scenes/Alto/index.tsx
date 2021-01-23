@@ -1,6 +1,6 @@
 import { Fog, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
-import { Stars } from "@react-three/drei";
+import { Sky, Stars } from "@react-three/drei";
 
 import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
@@ -71,8 +71,9 @@ const AltoScene = (props: AltoSceneProps) => {
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      {isMobile ? <></> : <Sunrays />}
-      <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/sky1.png" />
+      {!isMobile && <Sunrays />}
+      <Sky sunPosition={[0, 1, -1]} />
+      <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
       <Dropoff />
