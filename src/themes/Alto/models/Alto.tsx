@@ -13,28 +13,26 @@ import { BufferGeometry } from "three";
 type GLTFResult = GLTF & {
   nodes: {
     collider: THREE.Mesh;
+    stairs: THREE.Mesh;
     gods: THREE.Mesh;
+    structure: THREE.Mesh;
     spawn: THREE.Mesh;
     information: THREE.Mesh;
-    stairs: THREE.Mesh;
-    doorways: THREE.Mesh;
-    structure: THREE.Mesh;
-    archway: THREE.Mesh;
     terrain: THREE.Mesh;
+    terrainbottom: THREE.Mesh;
   };
   materials: {
-    ["spawn.mat"]: THREE.MeshStandardMaterial;
-    ["information.mat"]: THREE.MeshStandardMaterial;
     ["stairs.mat"]: THREE.MeshStandardMaterial;
-    ["doorways.mat"]: THREE.MeshStandardMaterial;
+    ["gods.mat"]: THREE.MeshStandardMaterial;
     ["structure.mat"]: THREE.MeshStandardMaterial;
-    ["archway.mat"]: THREE.MeshStandardMaterial;
-    ["terrain.mat"]: THREE.MeshStandardMaterial;
+    ["spawn.mat"]: THREE.MeshStandardMaterial;
+    information: THREE.MeshStandardMaterial;
+    terrain: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611297626/alto_08.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611349714/alto_09.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -52,10 +50,20 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       <group position-y={-36.69}>
         <group scale={[12, 12, 12]}>
           <mesh
+            name="stairs"
+            material={materials["stairs.mat"]}
+            geometry={nodes.stairs.geometry}
+          />
+          <mesh
             name="gods"
-            material={nodes.gods.material}
+            material={materials["gods.mat"]}
             geometry={nodes.gods.geometry}
             rotation={[0, 0, 0]}
+          />
+          <mesh
+            name="structure"
+            material={materials["structure.mat"]}
+            geometry={nodes.structure.geometry}
           />
           <mesh
             name="spawn"
@@ -64,35 +72,18 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="information"
-            material={materials["information.mat"]}
+            material={materials.information}
             geometry={nodes.information.geometry}
-            rotation={[0, 0, 0]}
-          />
-          <mesh
-            name="stairs"
-            material={materials["stairs.mat"]}
-            geometry={nodes.stairs.geometry}
-          />
-          <mesh
-            name="doorways"
-            material={materials["doorways.mat"]}
-            geometry={nodes.doorways.geometry}
-          />
-          <mesh
-            name="structure"
-            material={materials["structure.mat"]}
-            geometry={nodes.structure.geometry}
-          />
-          <mesh
-            name="archway"
-            material={materials["archway.mat"]}
-            geometry={nodes.archway.geometry}
-            rotation={[0, 0, 0]}
           />
           <mesh
             name="terrain"
-            material={materials["terrain.mat"]}
+            material={materials.terrain}
             geometry={nodes.terrain.geometry}
+          />
+          <mesh
+            name="terrainbottom"
+            material={nodes.terrainbottom.material}
+            geometry={nodes.terrainbottom.geometry}
           />
         </group>
       </group>
