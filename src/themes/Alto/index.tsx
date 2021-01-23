@@ -7,6 +7,7 @@ import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 import { linkPositions } from "./assets/constants";
 import Grass from "./components/Grass";
+import Sun from "./components/Sun";
 
 export type AltoProps = {
   name: string;
@@ -34,6 +35,7 @@ const Renaissance = (props: AltoProps) => {
         <Alto />
         <Grass />
       </Suspense>
+      <Sun />
       <group
         position={[-1.4, -1.4, 29.25]}
         rotation={[0, Math.PI / 6, 0]}
