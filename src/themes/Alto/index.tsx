@@ -7,6 +7,7 @@ import SocialLinks from "../components/SocialLinks";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 import { Perf } from "r3f-perf";
+import Effects from "./components/Effects";
 
 export type AltoProps = {
   name: string;
@@ -35,6 +36,7 @@ const Renaissance = (props: AltoProps) => {
         <Grass />
       </Suspense>
       <Sun />
+      <Effects />
       <group position={[-1.4, -1.4, 31.25]} rotation={[0, Math.PI / 6, 0]}>
         <Text
           fontSize={1}

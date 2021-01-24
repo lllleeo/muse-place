@@ -13,27 +13,25 @@ import { useLoader } from "react-three-fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
-    collider: THREE.Mesh;
-    stairs: THREE.Mesh;
     gods: THREE.Mesh;
+    stairs: THREE.Mesh;
     structure: THREE.Mesh;
     spawn: THREE.Mesh;
     information: THREE.Mesh;
     terrain: THREE.Mesh;
-    terrainbottom: THREE.Mesh;
+    collider: THREE.Mesh;
   };
   materials: {
-    ["stairs.mat"]: THREE.MeshStandardMaterial;
     ["gods.mat"]: THREE.MeshStandardMaterial;
+    ["stairs.mat"]: THREE.MeshStandardMaterial;
     ["structure.mat"]: THREE.MeshStandardMaterial;
     ["spawn.mat"]: THREE.MeshStandardMaterial;
-    information: THREE.MeshStandardMaterial;
-    terrain: THREE.MeshStandardMaterial;
+    ["information.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611349714/alto_09.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611450233/alto_10.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -64,15 +62,15 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       <group position-y={-36.69}>
         <group scale={[12, 12, 12]}>
           <mesh
-            name="stairs"
-            material={materials["stairs.mat"]}
-            geometry={nodes.stairs.geometry}
-          />
-          <mesh
             name="gods"
             material={materials["gods.mat"]}
             geometry={nodes.gods.geometry}
             rotation={[0, 0, 0]}
+          />
+          <mesh
+            name="stairs"
+            material={materials["stairs.mat"]}
+            geometry={nodes.stairs.geometry}
           />
           <mesh
             name="structure"
@@ -86,7 +84,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="information"
-            material={materials.information}
+            material={materials["information.mat"]}
             geometry={nodes.information.geometry}
           />
           <mesh
@@ -94,11 +92,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             material={mat}
             geometry={nodes.terrain.geometry}
           />
-          <mesh
-            name="terrainbottom"
-            material={nodes.terrainbottom.material}
-            geometry={nodes.terrainbottom.geometry}
-          />
+          {/*<mesh name="collider" material={nodes.collider.material} geometry={nodes.collider.geometry} />*/}
         </group>
       </group>
     </group>
