@@ -7286,10 +7286,10 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spacesvr@^1.2.23:
-  version "1.2.23"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.23.tgz#de053ae134d296f0cafacc21eda263dcf836a199"
-  integrity sha512-0jjcZfv3LpAFRZhhQDmqYc5wJlG8knscaAfx4PAhQzHtZ0W9hPOQQF8DeO+72nl1CobZFCY0sx5gp7yaoK1JxQ==
+spacesvr@^1.2.25:
+  version "1.2.25"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.25.tgz#c556f6cb4fa66751cb5ef62f5a02f8bdcd5685de"
+  integrity sha512-rIo+VggRcJAbjS9hRzlCI+OM1cmu/RFZ9VtFzjEMmIOL0OwnGrntsgdP//W0GArbuvnK3u7Ryx+RSsMn7o/S6g==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
