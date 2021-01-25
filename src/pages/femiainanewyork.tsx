@@ -4,37 +4,41 @@ import dynamic from "next/dynamic";
 import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+
 const ARTIST = {
-  name: "AbieyuwaLD",
-  socials: ["https://www.instagram.com/ozwvld/", "https://vimeo.com/399998090"],
+  name: "Femi Aina New York",
+  socials: [
+    "https://www.instagram.com/femiainanewyork/",
+    "https://femiainanewyork.com/",
+  ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abieyuwa`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/femiainanewyork`;
 const artwork: GothamProps["artwork"] = [
   {
-    src: `${url}/1.jpg`,
+    src: `${url}/1.png`,
     audio: true,
-    size: [1080, 1080],
+    size: [720, 720],
   },
   {
-    src: `${url}/2.jpg`,
-    size: [1080, 1080],
+    src: `${url}/2.png`,
+    size: [720, 720],
   },
   {
-    src: `${url}/3.jpg`,
-    size: [1080, 1080],
+    src: `${url}/3.png`,
+    size: [720, 720],
   },
   {
     src: `${url}/4.jpg`,
-    size: [1080, 1080],
+    size: [720, 720],
   },
   {
-    src: `${url}/5.jpg`,
-    size: [1080, 1080],
+    src: `${url}/5.png`,
+    size: [720, 720],
   },
   {
-    src: `${url}/6.mp4`,
-    size: [1080, 1080],
+    src: `${url}/6.jpg`,
+    size: [720, 720],
   },
 ];
 
@@ -42,7 +46,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Abieyuwa</title>
+        <title>Femi Aina New York</title>
       </Head>
       <Gotham
         artwork={artwork}
@@ -56,9 +60,8 @@ const LinkTree: NextPage = () => {
         hMapScale={30}
         xzMapScale={100}
         floorColor="black"
-        night
         stars
-      ></Gotham>
+      />
     </>
   );
 };

@@ -4,37 +4,35 @@ import dynamic from "next/dynamic";
 import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+
 const ARTIST = {
-  name: "AbieyuwaLD",
-  socials: ["https://www.instagram.com/ozwvld/", "https://vimeo.com/399998090"],
+  name: "Yungg Lee",
+  socials: [
+    "https://www.instagram.com/yunggleeofficial_/",
+    "https://open.spotify.com/artist/7dFrIo1IWHQuS8GAqhZ3yw?si=PnBbyPXCQd-jBk0HOqm4Wg",
+    "https://linktr.ee/Yunggleeofficial_",
+  ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abieyuwa`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/yunggleeofficial`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
-    audio: true,
-    size: [1080, 1080],
   },
   {
-    src: `${url}/2.jpg`,
-    size: [1080, 1080],
+    src: `${url}/2.mp4`,
   },
   {
     src: `${url}/3.jpg`,
-    size: [1080, 1080],
   },
   {
-    src: `${url}/4.jpg`,
-    size: [1080, 1080],
+    src: `${url}/4.mp4`,
   },
   {
     src: `${url}/5.jpg`,
-    size: [1080, 1080],
   },
   {
     src: `${url}/6.mp4`,
-    size: [1080, 1080],
   },
 ];
 
@@ -42,7 +40,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Abieyuwa</title>
+        <title>Yungg Lee</title>
       </Head>
       <Gotham
         artwork={artwork}
@@ -58,7 +56,7 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-      ></Gotham>
+      />
     </>
   );
 };

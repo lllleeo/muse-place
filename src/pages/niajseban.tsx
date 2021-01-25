@@ -4,37 +4,34 @@ import dynamic from "next/dynamic";
 import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+
 const ARTIST = {
-  name: "AbieyuwaLD",
-  socials: ["https://www.instagram.com/ozwvld/", "https://vimeo.com/399998090"],
+  name: "NIAJ",
+  socials: [
+    "https://www.instagram.com/niajseban/",
+    "http://smarturl.it/sause/",
+  ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abieyuwa`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/niajseban`;
 const artwork: GothamProps["artwork"] = [
   {
-    src: `${url}/1.jpg`,
-    audio: true,
-    size: [1080, 1080],
+    src: `${url}/1.mp4`,
   },
   {
-    src: `${url}/2.jpg`,
-    size: [1080, 1080],
+    src: `${url}/2.mp4`,
   },
   {
-    src: `${url}/3.jpg`,
-    size: [1080, 1080],
+    src: `${url}/3.mp4`,
   },
   {
     src: `${url}/4.jpg`,
-    size: [1080, 1080],
   },
   {
-    src: `${url}/5.jpg`,
-    size: [1080, 1080],
+    src: `${url}/5.mp4`,
   },
   {
     src: `${url}/6.mp4`,
-    size: [1080, 1080],
   },
 ];
 
@@ -42,7 +39,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Abieyuwa</title>
+        <title>NIAJ</title>
       </Head>
       <Gotham
         artwork={artwork}
@@ -58,7 +55,7 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-      ></Gotham>
+      />
     </>
   );
 };
