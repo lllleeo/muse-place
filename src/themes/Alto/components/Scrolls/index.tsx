@@ -5,7 +5,7 @@ const ScrollArray = [];
 const Scrolls = () => {
   return (
     <group>
-      <Scroll position={[15, 5, 30]} />
+      <Scroll text="Hello World" position={[15, 5, 30]} />
     </group>
   );
 };

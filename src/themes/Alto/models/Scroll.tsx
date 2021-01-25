@@ -27,6 +27,11 @@ type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 const FILE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/scroll-1611302043/scroll24.glb\n";
 
+export function play(actions: { [p: string]: THREE.AnimationAction }) {
+  actions.jump.play();
+  console.log("hello world");
+}
+
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF(FILE_URL) as GLTFResult;

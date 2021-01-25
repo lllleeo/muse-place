@@ -10,9 +10,9 @@ const Dropoff = () => {
   useFrame(() => {
     if (camera.position.y < -50) {
       player.controls.lock();
-      if (camera.position.y < -350) {
+      if (camera.position.y < -200) {
         player.velocity.set(new Vector3(0, 0, 0));
-        player.position.set(new Vector3(0, 10, 32));
+        player.position.set(new Vector3(0, 10, 35));
         setTimeout(() => player.controls.unlock(), 2000);
       }
     }
