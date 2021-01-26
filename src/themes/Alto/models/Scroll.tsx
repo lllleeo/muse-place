@@ -8,6 +8,8 @@ import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACO_URL } from "spacesvr";
+// @ts-ignore
+import { animated, useSpring } from "react-spring/three";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -24,27 +26,40 @@ type GLTFResult = GLTF & {
 const FILE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/Scroll-1611622181/scroll28.glb";
 
-export default function Model(props: JSX.IntrinsicElements["group"]) {
+type Props = {
+  open: boolean;
+} & JSX.IntrinsicElements["group"];
+
+export default function Model(props: Props) {
+  const { open } = props;
+
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
+  const { posZ, scale } = useSpring({
+    posZ: open ? 0 : 0.75 * 17.5,
+    scale: open ? 1 : 0.1,
+  });
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={[0.1, 0.1, 0.1]}>
+      <group name="Scene" scale={[0.07, 0.07, 0.07]} rotation-y={Math.PI}>
         <mesh
           name="tophandle"
           material={materials.handlemat}
           geometry={nodes.tophandle.geometry}
         />
-        <mesh
+        <animated.mesh
           name="paper"
           material={materials.papermat}
           geometry={nodes.paper.geometry}
+          scale-y={scale}
         />
-        <mesh
+        <animated.mesh
           name="bottomhandle"
           material={materials.handlemat}
           geometry={nodes.bottomhandle.geometry}
+          position-y={posZ}
         />
       </group>
     </group>
