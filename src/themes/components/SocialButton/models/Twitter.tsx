@@ -11,45 +11,30 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    twittericon: THREE.Mesh;
     twitterbutton: THREE.Mesh;
-    twitterbase: THREE.Mesh;
   };
   materials: {
-    ["twitter.icon"]: THREE.MeshStandardMaterial;
-    ["twitter.button"]: THREE.MeshStandardMaterial;
-    ["twitter.base"]: THREE.MeshStandardMaterial;
+    ["twitter.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/twitter-1607643758/twitter.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Twitter-1611646069/twitter.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  materials["twitter.icon"].metalness = 0.1;
-  materials["twitter.button"].metalness = 0.1;
-  materials["twitter.base"].metalness = 0.1;
+  materials["twitter.mat"].metalness = 0;
+  materials["twitter.mat"].roughness = 0.25;
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="twittericon"
-          material={materials["twitter.icon"]}
-          geometry={nodes.twittericon.geometry}
-        />
-        <mesh
           name="twitterbutton"
-          material={materials["twitter.button"]}
+          material={materials["twitter.mat"]}
           geometry={nodes.twitterbutton.geometry}
-        />
-        <mesh
-          name="twitterbase"
-          material={materials["twitter.base"]}
-          geometry={nodes.twitterbase.geometry}
         />
       </group>
     </group>
