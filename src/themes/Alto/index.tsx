@@ -8,6 +8,7 @@ import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 import { Perf } from "r3f-perf";
 import Effects from "./components/Effects";
+import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 
 export type AltoProps = {
@@ -38,6 +39,7 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
+      <Scrolls />
       <Tablatures socials={socials} />
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
