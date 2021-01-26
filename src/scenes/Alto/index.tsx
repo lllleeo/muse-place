@@ -1,15 +1,14 @@
-import { Fog, HDRI, StandardEnvironment } from "spacesvr";
+import { Fog, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
-import { Stars } from "@react-three/drei";
+import { Sky, Stars } from "@react-three/drei";
 
 import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./AudioReactive";
-import Sunrays from "themes/Alto/components/Sunrays";
 import Dropoff from "themes/Alto/components/Dropoff";
-import { isMobile } from "react-device-detect";
+import { HDRI } from "./HDRBackground";
 
 export type AltoSceneProps = {
   floorColor?: string;
@@ -63,15 +62,15 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2 }}
+      player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2, speed: 2.4 }}
       disableGround
     >
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      {isMobile ? <></> : <Sunrays />}
-      <HDRI src="https://dwvo2npct47gg.cloudfront.net/hdr/SkyMural2.hdr" />
+      <Sky sunPosition={[0, 1, -1]} />
+      <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
       <Alto name={name} socials={socials} artwork={artwork} />
       <Lighting />
       <Dropoff />

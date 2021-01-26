@@ -1,11 +1,13 @@
 import React, { Suspense, useMemo } from "react";
 import Alto from "./models/Alto";
-import { Text } from "spacesvr";
+import { Text } from "@react-three/drei";
 import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
 import Grass from "./components/Grass";
-import Scrolls from "./components/Scrolls";
+import Sun from "./components/Sun";
+import { Perf } from "r3f-perf";
+import Effects from "./components/Effects";
 
 export type AltoProps = {
   name: string;
@@ -32,20 +34,24 @@ const Renaissance = (props: AltoProps) => {
       <Suspense fallback={null}>
         <Alto />
         <Grass />
-        <Scrolls />
       </Suspense>
-      <group
-        position={[-1.4, -1.4, 29.25]}
-        rotation={[0, Math.PI / 6, 0]}
-        scale={[3, 3, 3]}
-      >
+      <Sun />
+      <Effects />
+      <group position={[-1.4, -1.4, 31.25]} rotation={[0, Math.PI / 6, 0]}>
         <Text
-          text={(name || "").toUpperCase()}
-          size={0.75}
-          material={material}
-          position={[0, 1, -0.025]}
-        />
-        <SocialLinks socials={socials} position={[0, 1, -0.05]} />
+          fontSize={1}
+          color="black"
+          font="https://d27rt3a60hh1lx.cloudfront.net/content/alto/ohmightyisis.ttf"
+        >
+          Welcome to Alto
+        </Text>
+        {/*<Text*/}
+        {/*  text={(name || "").toUpperCase()}*/}
+        {/*  size={0.75}*/}
+        {/*  material={material}*/}
+        {/*  position={[0, 1, -0.025]}*/}
+        {/*/>*/}
+        {/*<SocialLinks socials={socials} position={[0, 1, -0.05]} />*/}
       </group>
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
