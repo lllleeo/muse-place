@@ -1,17 +1,32 @@
 import Scroll from "./Scroll";
+import { ScrollDataProps } from "../../index";
 
-const ScrollArray = [];
+type ScrollsProps = {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+  scrollData: ScrollDataProps[];
+};
 
-const Scrolls = () => {
-  return (
-    <group>
-      <Scroll
-        img="https://spaces-gallery-assets.s3-us-west-1.amazonaws.com/images/muse.png"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        position={[15, 0, 30]}
-      />
-    </group>
-  );
+const Scrolls = (props: ScrollsProps) => {
+  const { count, setCount, scrollData } = props;
+
+  const scrollArray = scrollData.map((scroll) => (
+    // eslint-disable-next-line react/jsx-key
+    <Scroll
+      count={count}
+      setCount={setCount}
+      img={scroll.img}
+      text={scroll.text}
+      textColor={scroll.textColor}
+      textSize={scroll.textSize}
+      textY={scroll.textY}
+      position={scroll.position}
+      rotationY={scroll.rotationY}
+      key={scroll.img}
+    />
+  ));
+
+  return <group>{scrollArray}</group>;
 };
 
 export default Scrolls;
