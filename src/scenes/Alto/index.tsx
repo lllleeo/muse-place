@@ -6,7 +6,6 @@ import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
-import AudioReactive from "./components/AudioReactive";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "./components/HDRBackground";
 import { ScrollDataProps } from "themes/Alto";
@@ -73,10 +72,14 @@ const AltoScene = (props: AltoSceneProps) => {
       )}
       <Sky sunPosition={[0, 1, -1]} />
       <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
-      <Alto name={name} socials={socials} scrollData={scrollData} />
+      <Alto
+        name={name}
+        socials={socials}
+        scrollData={scrollData}
+        audio={audio}
+      />
       <Lighting />
       <Dropoff />
-      {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
     </StandardEnvironment>
   );
 };

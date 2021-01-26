@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { createBirdGeometry } from "./core/bird";
 import { initComputeRenderer } from "./core/physics";
 import { useFrame, useThree } from "react-three-fiber";
-import { MathUtils } from "three";
+import { AudioAnalyser, MathUtils } from "three";
 
 // general scale: z=350
 
@@ -22,7 +22,12 @@ const effectController = {
   freedom: 0.75,
 };
 
-const Birds = () => {
+type Props = {
+  aa?: AudioAnalyser;
+};
+
+const Birds = (props: Props) => {
+  const { aa } = props;
   const { gl, camera } = useThree();
 
   const posVar = useRef<Variable>();
@@ -61,7 +66,7 @@ const Birds = () => {
     if (!gpuCompute || !birdMesh || !posVar.current || !velVar.current) return;
 
     const now = clock.getElapsedTime() / 1000;
-    const speed = 0.5;
+    const speed = 0.05 + (aa?.getFrequencyData()[0] || 0) * 0.005;
 
     const posUniforms = posVar.current.material.uniforms;
     const velUniforms = velVar.current.material.uniforms;
