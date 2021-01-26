@@ -10,6 +10,7 @@ import { Perf } from "r3f-perf";
 import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
+import Birds from "../components/Birds";
 
 export type AltoProps = {
   name: string;
@@ -40,6 +41,7 @@ const Renaissance = (props: AltoProps) => {
       <Sun />
       <Effects />
       <Scrolls />
+      <Birds />
       <Tablatures socials={socials} />
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
