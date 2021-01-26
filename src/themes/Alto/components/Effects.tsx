@@ -6,7 +6,7 @@ const Effects = () => {
     <Suspense fallback={null}>
       <EffectComposer multisampling={0}>
         <Bloom
-          intensity={0.7}
+          intensity={0.5}
           luminanceThreshold={0.3}
           luminanceSmoothing={0.6}
           height={200}
