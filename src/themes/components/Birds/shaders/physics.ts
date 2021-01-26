@@ -96,12 +96,12 @@ export const vert = glsl`
 
 
         // move birds away from predator
-        if ( dist < preyRadius ) {
-
-            f = ( distSquared / preyRadiusSq - 1.0 ) * delta * 100.;
-            velocity += normalize( dir ) * f;
-            limit += 1.0;
-        }
+        // if ( dist < preyRadius ) {
+        //
+        //     f = ( distSquared / preyRadiusSq - 1.0 ) * delta * 100.;
+        //     velocity += normalize( dir ) * f;
+        //     limit += 1.0;
+        // }
 
 
         // if (testing == 0.0) {}
@@ -114,7 +114,7 @@ export const vert = glsl`
         dist = length( dir );
 
         dir.y *= 2.5;
-        velocity -= normalize( dir ) * delta * 5.;
+        velocity -= normalize( dir ) * delta * 15.;
 
         for ( float y = 0.0; y < height; y++ ) {
             for ( float x = 0.0; x < width; x++ ) {

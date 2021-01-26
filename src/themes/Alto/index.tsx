@@ -1,12 +1,13 @@
-import React, { Suspense, useMemo, useState } from "react";
+import React, { Suspense, useState } from "react";
 import Alto from "./models/Alto";
-import { MeshStandardMaterial } from "three";
+import { default as THREE } from "three";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "../components/Birds";
+import AudioReactive from "./components/AudioReactive";
 
 export type ScrollDataProps = {
   text?: string;
@@ -23,21 +24,14 @@ export type AltoProps = {
   socials: string[];
   removeWalls?: boolean;
   scrollData: ScrollDataProps[];
+  audio?: string;
 };
 
 const Renaissance = (props: AltoProps) => {
-  const { name, socials, scrollData, removeWalls } = props;
-  const [scrollCount, setScrollCount] = useState<number>(0);
+  const { name, socials, scrollData, removeWalls, audio } = props;
 
-  const material = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        color: 0xffffff,
-        metalness: 0.2,
-        roughness: 0.1,
-      }),
-    []
-  );
+  const [scrollCount, setScrollCount] = useState(0);
+  const [aa, setAA] = useState<THREE.AudioAnalyser>();
 
   return (
     <group>
@@ -47,19 +41,21 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
-
       <Scrolls
         scrollData={scrollData}
         count={scrollCount}
         setCount={setScrollCount}
       />
-      <Birds />
+      <Birds aa={aa} />
       <Tablatures socials={socials} scrolls={scrollCount} />
-      <Suspense fallback={null}>
-        <group position-y={2} scale={[5, 5, 5]}>
-          {/*<Artwork artwork={artwork} linkPositions={linkPositions} />*/}
-        </group>
-      </Suspense>
+      {audio && (
+        <AudioReactive
+          audio={audio}
+          aa={aa}
+          setAA={setAA}
+          position={[0, 11, 0]}
+        />
+      )}
     </group>
   );
 };

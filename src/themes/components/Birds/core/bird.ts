@@ -23,7 +23,7 @@ export const createBirdGeometry = (
 
   // generate vertices
   let v = 0;
-  const wingsSpan = 20;
+  const wingsSpan = 5;
   const pushVerts = (...args: number[]) => {
     for (let i = 0; i < args.length; i++) {
       // @ts-ignore
