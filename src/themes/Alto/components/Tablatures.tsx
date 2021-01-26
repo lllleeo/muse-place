@@ -41,7 +41,7 @@ const Tablatures = (props: Props) => {
         rotation={[0, -Math.PI / 6, 0]}
         name="tablature-right"
       >
-        <group position-y={-0.1}>
+        <group position-y={-0.05}>
           <Text {...textStyles} textAlign="justify">
             Welcome to Alto
           </Text>
@@ -61,7 +61,7 @@ const Tablatures = (props: Props) => {
           <Text {...textStyles} fontSize={0.125} textAlign="center">
             Follow Muse
           </Text>
-          <group scale={[1.5, 1.5, 1.5]} position-y={-0.01}>
+          <group scale={[1.75, 1.75, 1.75]} position-y={-0.28}>
             <SocialLinks socials={socials} />
           </group>
         </group>

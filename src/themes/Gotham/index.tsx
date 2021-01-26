@@ -48,7 +48,7 @@ const Gotham = (props: GothamProps) => {
           material={material}
           position={[0, 0, -0.019]}
         />
-        <SocialLinks socials={socials} />
+        <SocialLinks position={[0, -0.17, 0.075]} socials={socials} />
       </group>
       <group position={[0.539, 0.033, 0.575]} rotation={[0, -Math.PI / 2, 0]}>
         <Text
