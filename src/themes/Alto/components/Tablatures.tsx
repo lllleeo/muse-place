@@ -27,7 +27,6 @@ const Tablatures = (props: Props) => {
         name="tablature-left"
       >
         <group name="collection" position-y={-0.5}>
-          {/* @ts-ignore */}
           <Floating height={0.05} speed={2}>
             <Scroll
               open={false}
@@ -86,7 +85,7 @@ const Tablatures = (props: Props) => {
         </group>
         <group position-y={-1.5}>
           <Text {...textStyles} fontSize={0.125} textAlign="center">
-            Follow Muse
+            Follow Lucid Monday
           </Text>
           <group scale={[1.75, 1.75, 1.75]} position-y={-0.28}>
             <SocialLinks socials={socials} />
