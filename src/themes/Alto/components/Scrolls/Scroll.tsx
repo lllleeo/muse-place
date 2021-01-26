@@ -4,6 +4,7 @@ import { Image } from "spacesvr";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
+// @ts-ignore
 import { animated, useSpring } from "react-spring/three";
 
 type ScrollProps = {
