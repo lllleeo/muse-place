@@ -1,6 +1,8 @@
 import { Text } from "@react-three/drei";
 import React from "react";
 import SocialLinks from "../../components/SocialLinks";
+import Scroll from "../models/Scroll";
+import { Floating } from "spacesvr";
 
 type Props = {
   socials: string[];
@@ -24,9 +26,32 @@ const Tablatures = (props: Props) => {
         rotation={[0, Math.PI / 6, 0]}
         name="tablature-left"
       >
-        <Text {...textStyles} textAlign="center">
-          Welcome to Alto
-        </Text>
+        <group name="collection" position-y={-0.5}>
+          <Floating height={0.05} speed={2}>
+            <Scroll
+              open={false}
+              position={[-0.3, -0.3, 0.2]}
+              rotation-z={-Math.PI / 2}
+              scale={[0.8, 0.8, 0.8]}
+            />
+          </Floating>
+          <Text
+            {...textStyles}
+            fontSize={0.25}
+            position={[0.3, -0.1, 0]}
+            textAlign="right"
+          >
+            0 / 6
+          </Text>
+          <Text
+            {...textStyles}
+            fontSize={0.15}
+            position={[0.3, -0.35, 0]}
+            textAlign="right"
+          >
+            collected
+          </Text>
+        </group>
         <Text
           {...textStyles}
           position-y={-1.8}
@@ -36,6 +61,7 @@ const Tablatures = (props: Props) => {
           Created By Muse • Get Your Own
         </Text>
       </group>
+
       <group
         position={[1.93, 2.2, 29.26]}
         rotation={[0, -Math.PI / 6, 0]}
