@@ -27,6 +27,7 @@ const Tablatures = (props: Props) => {
         name="tablature-left"
       >
         <group name="collection" position-y={-0.5}>
+          {/* @ts-ignore */}
           <Floating height={0.05} speed={2}>
             <Scroll
               open={false}
