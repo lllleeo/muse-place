@@ -40,7 +40,7 @@ const Tablatures = (props: Props) => {
             otherwise known as the music venue of the gods. For thousands of
             years, Alto has been only accessible to immortal beings, but you
             seem to have found us anyway.. At the top of those stairs, you'll be
-            able the first mortal to ever hear Lucid Monday's latest work.
+            the first mortal to ever hear Lucid Monday's latest work.
           </Text>
         </group>
         <group position-y={-1.5}>
