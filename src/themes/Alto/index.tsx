@@ -8,6 +8,7 @@ import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 import { Perf } from "r3f-perf";
 import Effects from "./components/Effects";
+import Tablatures from "./components/Tablatures";
 
 export type AltoProps = {
   name: string;
@@ -37,26 +38,7 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
-      <group
-        position={[-1.4, 2, 29.28]}
-        rotation={[0, Math.PI / 6, 0]}
-        name="tablature-1"
-      >
-        <Text
-          fontSize={0.2}
-          color="#554c41"
-          font="https://d27rt3a60hh1lx.cloudfront.net/content/alto/ohmightyisis.ttf"
-        >
-          Welcome to Alto
-        </Text>
-        {/*<Text*/}
-        {/*  text={(name || "").toUpperCase()}*/}
-        {/*  size={0.75}*/}
-        {/*  material={material}*/}
-        {/*  position={[0, 1, -0.025]}*/}
-        {/*/>*/}
-        {/*<SocialLinks socials={socials} position={[0, 1, -0.05]} />*/}
-      </group>
+      <Tablatures socials={socials} />
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
           {/*<Artwork artwork={artwork} linkPositions={linkPositions} />*/}

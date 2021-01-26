@@ -9,7 +9,7 @@ const SocialLinks = (props: SocialLinksProps) => {
 
   return (
     <group {...props}>
-      <group position={[0, -0.17, 0.075]} scale={[0.225, 0.225, 0.225]}>
+      <group scale={[0.225, 0.225, 0.225]}>
         {socials.map((social, i) => {
           const x = (-(socials.length - 1) / 2 + i) * 0.75;
           if (social.includes("instagram")) {
