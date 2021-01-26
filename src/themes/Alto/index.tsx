@@ -25,7 +25,6 @@ export type AltoProps = {
   removeWalls?: boolean;
   scrollData: ScrollDataProps[];
   audio?: string;
-  img: string;
 };
 
 const Renaissance = (props: AltoProps) => {

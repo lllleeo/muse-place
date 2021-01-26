@@ -56,7 +56,7 @@ export const initComputeRenderer = (
 
   const dtPosition = gpucomp.createTexture();
   const dtVelocity = gpucomp.createTexture();
-  fillPositionTexture(dtPosition, bounds);
+  fillPositionTexture(dtPosition, bounds * 20);
   fillVelocityTexture(dtVelocity, bounds);
 
   velVar.current = gpucomp.addVariable("textureVelocity", velVert, dtVelocity);

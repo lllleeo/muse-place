@@ -2,7 +2,7 @@ import { Background } from "spacesvr";
 import { Suspense } from "react";
 import { Audio } from "spacesvr";
 import ReactivePrimitive from "./ReactivePrimitive";
-import { AudioAnalyser } from "three";
+import { AudioAnalyser, Vector3 } from "three";
 
 type AudioReactiveProps = {
   audio: string;
@@ -18,7 +18,11 @@ const AudioReactive = (props: AudioReactiveProps) => {
   return (
     <group {...props}>
       <Background color="white" />
-      <Audio url={audio} setAudioAnalyser={setAA} />
+      <Audio
+        url={audio}
+        setAudioAnalyser={setAA}
+        position={new Vector3(0, 11, 0)}
+      />
       {aa && (
         <Suspense fallback={null}>
           <ReactivePrimitive url={img} aa={aa} freq={freqIndex} />

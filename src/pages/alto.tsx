@@ -39,7 +39,7 @@ const scrollData: ScrollDataProps[] = [
     img: `${url}/4.jpg`,
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    position: [-15, 0, -30],
+    position: [-15, -1.13, -30],
   },
   {
     img: `${url}/5.jpg`,
@@ -74,7 +74,7 @@ const LinkTree: NextPage = () => {
         hMapScale={3}
         xzMapScale={200}
         floorColor="black"
-        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/whoisabnel/dark.mp3"
+        audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
       />
     </>
   );
