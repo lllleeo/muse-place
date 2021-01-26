@@ -6,9 +6,9 @@ import React, { useMemo } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
-import AudioReactive from "./AudioReactive";
+import AudioReactive from "./components/AudioReactive";
 import Dropoff from "themes/Alto/components/Dropoff";
-import { HDRI } from "./HDRBackground";
+import { HDRI } from "./components/HDRBackground";
 
 export type AltoSceneProps = {
   floorColor?: string;
@@ -62,7 +62,7 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(0, 2, 32), rot: -Math.PI / 2, speed: 2.4 }}
+      player={{ pos: new Vector3(0, 1.5, 36), rot: -Math.PI / 2, speed: 2.4 }}
       disableGround
     >
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}

@@ -37,10 +37,14 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
-      <group position={[-1.4, -1.4, 31.25]} rotation={[0, Math.PI / 6, 0]}>
+      <group
+        position={[-1.4, 2, 29.28]}
+        rotation={[0, Math.PI / 6, 0]}
+        name="tablature-1"
+      >
         <Text
-          fontSize={1}
-          color="black"
+          fontSize={0.2}
+          color="#554c41"
           font="https://d27rt3a60hh1lx.cloudfront.net/content/alto/ohmightyisis.ttf"
         >
           Welcome to Alto
