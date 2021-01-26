@@ -1,25 +1,32 @@
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useMemo, useState } from "react";
 import Alto from "./models/Alto";
-import { Text } from "@react-three/drei";
-import { ArtworkProps } from "../components/Artwork";
 import { MeshStandardMaterial } from "three";
-import SocialLinks from "../components/SocialLinks";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
-import { Perf } from "r3f-perf";
 import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
+
+export type ScrollDataProps = {
+  text?: string;
+  textColor?: string;
+  textSize?: number;
+  textY?: number;
+  img?: string;
+  position?: [number, number, number];
+  rotationY?: number;
+};
 
 export type AltoProps = {
   name: string;
   socials: string[];
   removeWalls?: boolean;
-  artwork: ArtworkProps["artwork"];
+  scrollData: ScrollDataProps[];
 };
 
 const Renaissance = (props: AltoProps) => {
-  const { name, socials, artwork, removeWalls } = props;
+  const { name, socials, scrollData, removeWalls } = props;
+  const [scrollCount, setScrollCount] = useState<number>(0);
 
   const material = useMemo(
     () =>
@@ -39,8 +46,12 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
-      <Scrolls />
-      <Tablatures socials={socials} />
+      <Scrolls
+        scrollData={scrollData}
+        count={scrollCount}
+        setCount={setScrollCount}
+      />
+      <Tablatures socials={socials} scrolls={scrollCount} />
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
           {/*<Artwork artwork={artwork} linkPositions={linkPositions} />*/}

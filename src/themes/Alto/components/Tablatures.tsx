@@ -6,10 +6,11 @@ import { Floating } from "spacesvr";
 
 type Props = {
   socials: string[];
+  scrolls: number;
 };
 
 const Tablatures = (props: Props) => {
-  const { socials } = props;
+  const { socials, scrolls } = props;
 
   const textStyles: Partial<typeof Text.defaultProps> = {
     fontSize: 0.2,
@@ -42,7 +43,7 @@ const Tablatures = (props: Props) => {
             position={[0.3, -0.1, 0]}
             textAlign="right"
           >
-            0 / 6
+            {scrolls.toString()} / 6
           </Text>
           <Text
             {...textStyles}
@@ -50,7 +51,7 @@ const Tablatures = (props: Props) => {
             position={[0.3, -0.35, 0]}
             textAlign="right"
           >
-            collected
+            found
           </Text>
         </group>
         <Text

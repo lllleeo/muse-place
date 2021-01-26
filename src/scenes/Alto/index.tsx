@@ -9,6 +9,7 @@ import Lighting from "themes/Alto/components/Lighting";
 import AudioReactive from "./components/AudioReactive";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "./components/HDRBackground";
+import { ScrollDataProps } from "themes/Alto";
 
 export type AltoSceneProps = {
   floorColor?: string;
@@ -26,11 +27,12 @@ export type AltoSceneProps = {
   lightColor?: string;
   audio?: string;
   img?: string;
+  scrollData?: ScrollDataProps[];
 } & AltoProps;
 
 const AltoScene = (props: AltoSceneProps) => {
   const {
-    artwork,
+    scrollData,
     socials,
     floorColor = 0xbbbbbb,
     sunPos = 1,
@@ -71,7 +73,7 @@ const AltoScene = (props: AltoSceneProps) => {
       )}
       <Sky sunPosition={[0, 1, -1]} />
       <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
-      <Alto name={name} socials={socials} artwork={artwork} />
+      <Alto name={name} socials={socials} scrollData={scrollData} />
       <Lighting />
       <Dropoff />
       {audio && <AudioReactive audio={audio} img={img} position={[0, 11, 0]} />}
