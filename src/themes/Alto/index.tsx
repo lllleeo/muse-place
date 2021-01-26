@@ -6,6 +6,7 @@ import Sun from "./components/Sun";
 import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
+import Birds from "../components/Birds";
 
 export type ScrollDataProps = {
   text?: string;
@@ -46,11 +47,13 @@ const Renaissance = (props: AltoProps) => {
       </Suspense>
       <Sun />
       <Effects />
+
       <Scrolls
         scrollData={scrollData}
         count={scrollCount}
         setCount={setScrollCount}
       />
+      <Birds />
       <Tablatures socials={socials} scrolls={scrollCount} />
       <Suspense fallback={null}>
         <group position-y={2} scale={[5, 5, 5]}>
