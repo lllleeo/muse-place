@@ -6,7 +6,7 @@ import { AudioAnalyser } from "three";
 
 type AudioReactiveProps = {
   audio: string;
-  aa: AudioAnalyser;
+  aa?: AudioAnalyser;
   setAA: (aa: AudioAnalyser) => void;
   img?: string;
   freqIndex?: number;

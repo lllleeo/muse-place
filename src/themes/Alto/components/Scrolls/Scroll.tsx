@@ -14,9 +14,7 @@ export type ScrollProps = {
   textY?: number;
   img?: string;
   count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-  position?: [number, number, number];
-  rotationY?: number;
+  setCount: (n: number) => void;
 };
 
 const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
@@ -28,8 +26,6 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
     img,
     count,
     setCount,
-    position = [0, 0, 0],
-    rotationY = 0,
   } = props;
 
   const { camera } = useThree();
@@ -72,7 +68,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
   });
 
   return (
-    <group position={position} rotation-y={rotationY} name={"scroll"}>
+    <group name={"scroll"}>
       <group ref={outer}>
         <group ref={inner} scale={[2, 2, 2]} position-y={[-0.25]}>
           <group position-y={0.475} name="innerscroll">
