@@ -36,14 +36,18 @@ export default function Model(props: Props) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  const { posZ, scale } = useSpring({
-    posZ: open ? 0 : 0.75 * 17.5,
+  const { posY, scale } = useSpring({
+    posY: open ? 0 : 0.75 * 17.5,
     scale: open ? 1 : 0.1,
   });
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={[0.07, 0.07, 0.07]} rotation-y={Math.PI}>
+      <animated.group
+        name="Scene"
+        scale={[0.07, 0.07, 0.07]}
+        rotation-y={Math.PI}
+      >
         <mesh
           name="tophandle"
           material={materials.handlemat}
@@ -59,9 +63,9 @@ export default function Model(props: Props) {
           name="bottomhandle"
           material={materials.handlemat}
           geometry={nodes.bottomhandle.geometry}
-          position-y={posZ}
+          position-y={posY}
         />
-      </group>
+      </animated.group>
     </group>
   );
 }
