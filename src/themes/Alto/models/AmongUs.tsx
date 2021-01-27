@@ -17,23 +17,14 @@ type GLTFResult = GLTF & {
   };
 };
 
-type ModelProps = {
-  texture: THREE.Texture;
-  modelRef: MutableRefObject<THREE.Group | undefined>;
-};
-
 const FILE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/amongus-1611130356/amongus.glb";
 
-export default function Model(props: ModelProps): any {
+export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
-  const { texture, modelRef } = props;
-
-  materials["red color"].displacementMap = texture;
-  materials["red color"].displacementScale = 1;
 
   return (
-    <group ref={modelRef} {...props} dispose={null}>
+    <group {...props} dispose={null}>
       <group name="Scene">
         <mesh
           name="among_us_001"

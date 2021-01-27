@@ -7,6 +7,7 @@ import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "../components/Birds";
+import AudioReactive from "./components/AudioReactive";
 
 export type ScrollDataProps = {
   text?: string;
