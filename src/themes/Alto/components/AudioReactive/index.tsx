@@ -1,10 +1,7 @@
 import { Background } from "spacesvr";
 import { Suspense, useMemo, useRef } from "react";
 import { Audio } from "spacesvr";
-import ReactivePrimitive from "./ReactivePrimitive";
 import { AudioAnalyser, Vector3 } from "three";
-import { createDistortMaterial } from "../Distort";
-import { useFrame } from "react-three-fiber";
 import Distort from "../Distort";
 import Monmon from "../../models/Monmon";
 import AmongUs from "../../models/AmongUs";

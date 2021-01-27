@@ -53,7 +53,11 @@ const Distort = (props: Props) => {
   const group = useRef<Group>();
   const seed = useMemo(() => Math.random(), []);
   const distortMat = useMemo<Material>(() => {
-    const material = new THREE.MeshNormalMaterial();
+    const material = new THREE.MeshStandardMaterial({
+      envMapIntensity: 0.6,
+      color: 0x7719aa,
+      metalness: 1,
+    });
 
     material.onBeforeCompile = function (shader) {
       shader.uniforms.time = { value: 0 };
