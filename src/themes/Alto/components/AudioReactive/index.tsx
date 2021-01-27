@@ -1,8 +1,14 @@
 import { Background } from "spacesvr";
-import { Suspense } from "react";
+import { Suspense, useMemo, useRef } from "react";
 import { Audio } from "spacesvr";
 import ReactivePrimitive from "./ReactivePrimitive";
 import { AudioAnalyser, Vector3 } from "three";
+import { createDistortMaterial } from "../Distort";
+import { useFrame } from "react-three-fiber";
+import Distort from "../Distort";
+import Monmon from "../../models/Monmon";
+import AmongUs from "../../models/AmongUs";
+import { Shadow } from "@react-three/drei";
 
 type AudioReactiveProps = {
   audio: string;
@@ -23,11 +29,16 @@ const AudioReactive = (props: AudioReactiveProps) => {
         setAudioAnalyser={setAA}
         position={new Vector3(0, 11, 0)}
       />
-      {aa && (
-        <Suspense fallback={null}>
-          <ReactivePrimitive url={img} aa={aa} freq={freqIndex} />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <group position-y={-3}>
+          <Distort aa={aa}>
+            <AmongUs />
+          </Distort>
+        </group>
+        <group position-y={-5.22} rotation-x={-Math.PI / 2} scale={[2, 2, 1]}>
+          <Shadow opacity={0.5} />
+        </group>
+      </Suspense>
     </group>
   );
 };

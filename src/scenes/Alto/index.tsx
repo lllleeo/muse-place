@@ -1,8 +1,8 @@
 import { Fog, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
-import { Sky, Stars } from "@react-three/drei";
+import { Sky, Stars, useProgress } from "@react-three/drei";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MeshStandardMaterial, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
@@ -50,16 +50,6 @@ const AltoScene = (props: AltoSceneProps) => {
     audio = "",
     img,
   } = props;
-
-  const material = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        color: 0xffffff,
-        metalness: 0.2,
-        roughness: 0.1,
-      }),
-    []
-  );
 
   return (
     <StandardEnvironment

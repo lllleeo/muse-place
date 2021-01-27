@@ -1,7 +1,7 @@
 import { useMemo, useRef, Suspense } from "react";
 import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import AmongUs from "themes/Alto/models/AmongUs";
+import Monmon from "themes/Alto/models/Monmon";
 
 type ReactiveProps = JSX.IntrinsicElements["group"] & {
   url?: string;
@@ -81,7 +81,7 @@ const ReactivePrimitive = (props: ReactiveProps) => {
       <group {...props} ref={group}>
         <group ref={innerGroup}>
           <Suspense fallback={null}>
-            <AmongUs texture={texture} modelRef={amongus} />
+            <Monmon />
           </Suspense>
         </group>
       </group>
