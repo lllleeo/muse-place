@@ -2,14 +2,7 @@ import * as THREE from "three";
 import { AudioAnalyser, Group, Material, Mesh, Object3D } from "three";
 // @ts-ignore
 import glsl from "babel-plugin-glsl/macro";
-import {
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "react-three-fiber";
 
 const uniforms = `
@@ -78,8 +71,8 @@ const Distort = (props: Props) => {
   useLayoutEffect(() => {
     if (group.current) {
       group.current.traverse((child: Object3D) => {
-        if (child.material) {
-          child.material = distortMat;
+        if ((child as Mesh).material) {
+          (child as Mesh).material = distortMat;
         }
       });
     }
