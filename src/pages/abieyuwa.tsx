@@ -5,8 +5,11 @@ import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const ARTIST = {
-  name: "AbieyuwaLD",
-  socials: ["https://www.instagram.com/ozwvld/", "https://vimeo.com/399998090"],
+  name: "Abieyuwa",
+  socials: [
+    "https://www.instagram.com/abieyuwa.art/",
+    "https://abieyuwa.myportfolio.com/",
+  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abieyuwa`;
@@ -56,8 +59,6 @@ const LinkTree: NextPage = () => {
         hMapScale={30}
         xzMapScale={100}
         floorColor="black"
-        night
-        stars
       ></Gotham>
     </>
   );
