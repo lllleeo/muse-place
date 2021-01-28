@@ -1,23 +1,27 @@
 import { Text } from "@react-three/drei";
-import React from "react";
+import React, { useContext } from "react";
 import SocialLinks from "../../components/SocialLinks";
 import SocialButton from "../../components/SocialButton";
 import Scroll from "../models/Scroll";
 import { Floating } from "spacesvr";
+import { AltoContext } from "../index";
 
 type Props = {
-  socials: string[];
   scrolls: number;
 };
 
 const Tablatures = (props: Props) => {
-  const { socials, scrolls } = props;
+  const { scrolls } = props;
+
+  const { socials, font, content, fontSize } = useContext(AltoContext);
+  const { landing, name } = content;
+  const { title, body } = landing;
 
   const textStyles: Partial<typeof Text.defaultProps> = {
-    fontSize: 0.2,
+    fontSize: 0.2 * fontSize,
     color: "#554c41",
     maxWidth: 1.3,
-    font: "https://d27rt3a60hh1lx.cloudfront.net/content/alto/ohmightyisis.ttf",
+    font,
     anchorY: "top",
   };
 
@@ -30,25 +34,22 @@ const Tablatures = (props: Props) => {
       >
         <group position-y={-0.05}>
           <Text {...textStyles} textAlign="justify">
-            Welcome to Alto
+            {title}
           </Text>
           <Text
             {...textStyles}
-            fontSize={0.113}
+            fontSize={0.113 * fontSize}
             position-y={-0.31}
             textAlign="justify"
           >
-            otherwise known as the music venue of the gods. For thousands of
-            years, Alto has been only accessible to immortal beings, but you
-            seem to have found us anyway.. At the top of those stairs, you'll be
-            the first mortal to ever hear Lucid Monday's latest work.
+            {body}
           </Text>
         </group>
         <group position-y={-1.5}>
-          <Text {...textStyles} fontSize={0.125} textAlign="center">
-            Follow Lucid Monday
+          <Text {...textStyles} fontSize={0.125 * fontSize} textAlign="center">
+            {`Follow ${name}`}
           </Text>
-          <group scale={[1.75, 1.75, 1.75]} position-y={-0.28}>
+          <group scale={[0.4, 0.4, 0.4]} position-y={-0.28}>
             <SocialLinks socials={socials} />
           </group>
         </group>
@@ -70,7 +71,7 @@ const Tablatures = (props: Props) => {
           </Floating>
           <Text
             {...textStyles}
-            fontSize={0.25}
+            fontSize={0.25 * fontSize}
             position={[0.3, -0.1, 0]}
             textAlign="right"
           >
@@ -78,7 +79,7 @@ const Tablatures = (props: Props) => {
           </Text>
           <Text
             {...textStyles}
-            fontSize={0.15}
+            fontSize={0.15 * fontSize}
             position={[0.3, -0.35, 0]}
             textAlign="right"
           >
@@ -89,7 +90,7 @@ const Tablatures = (props: Props) => {
           <Text
             {...textStyles}
             position={[-0.22, -1.65, 0]}
-            fontSize={0.11}
+            fontSize={0.11 * fontSize}
             letterSpacing={0.19}
             textAlign="right"
           >
@@ -98,7 +99,7 @@ const Tablatures = (props: Props) => {
           <Text
             {...textStyles}
             position={[-0.22, -1.8, 0]}
-            fontSize={0.11}
+            fontSize={0.11 * fontSize}
             letterSpacing={0.19}
             textAlign="right"
           >

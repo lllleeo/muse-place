@@ -1,33 +1,38 @@
-import { Suspense } from "react";
-import { Audio } from "spacesvr";
-import { AudioAnalyser, Vector3 } from "three";
+import { Suspense, useContext } from "react";
+import { Audio, DRACO_URL } from "spacesvr";
+import { Vector3 } from "three";
 import Distort from "../Distort";
-import Monmon from "../../models/Monmon";
-import AmongUs from "../../models/AmongUs";
-import { Shadow } from "@react-three/drei";
+import { Shadow, useGLTF } from "@react-three/drei";
+import { AltoContext } from "../../index";
+import { AltoSceneState } from "../../../../scenes/Alto";
+import { GroupProps } from "react-three-fiber";
 
-type AudioReactiveProps = {
-  audio: string;
-  aa?: AudioAnalyser;
-  setAA: (aa: AudioAnalyser) => void;
-  img?: string;
-  freqIndex?: number;
-} & JSX.IntrinsicElements["group"];
-
-const AudioReactive = (props: AudioReactiveProps) => {
-  const { audio, img, freqIndex, aa, setAA } = props;
+/**
+ * Audio Reactive component. Will slowly rotate and sway model
+ * if there is no audio.
+ * @param props
+ * @constructor
+ */
+const AudioReactive = (props: GroupProps) => {
+  const { aa, setAA } = useContext(AltoSceneState);
+  const { audio, model } = useContext(AltoContext);
+  const { url, scale } = model;
 
   return (
     <group {...props}>
-      <Audio
-        url={audio}
-        setAudioAnalyser={setAA}
-        position={new Vector3(0, 11, 0)}
-      />
+      {audio && (
+        <Audio
+          url={audio}
+          setAudioAnalyser={setAA}
+          position={new Vector3(0, 11, 0)}
+        />
+      )}
       <Suspense fallback={null}>
         <group position-y={-3}>
           <Distort aa={aa}>
-            <AmongUs />
+            <group scale={[scale, scale, scale]}>
+              <GeneralModel url={url} />
+            </group>
           </Distort>
         </group>
         <group position-y={-5.22} rotation-x={-Math.PI / 2} scale={[2, 2, 1]}>
@@ -39,3 +44,9 @@ const AudioReactive = (props: AudioReactiveProps) => {
 };
 
 export default AudioReactive;
+
+const GeneralModel = (props: { url: string }) => {
+  const { url } = props;
+  const gltf = useGLTF(url, DRACO_URL);
+  return <primitive object={gltf.scene} />;
+};

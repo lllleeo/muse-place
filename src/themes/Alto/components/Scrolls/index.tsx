@@ -1,14 +1,16 @@
 import Scroll from "./Scroll";
-import { ScrollData } from "../../types/scroll";
+import { useContext } from "react";
+import { AltoContext } from "../../index";
 
 type ScrollsProps = {
   count: number;
   setCount: (n: number) => void;
-  scrollData: ScrollData[];
 };
 
 const Scrolls = (props: ScrollsProps) => {
-  const { count, setCount, scrollData } = props;
+  const { count, setCount } = props;
+
+  const { scrollData } = useContext(AltoContext);
 
   return (
     <group>
