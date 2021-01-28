@@ -1,10 +1,10 @@
 import Scroll from "./Scroll";
-import { ScrollDataProps } from "../../index";
+import { ScrollData } from "../../types/scroll";
 
 type ScrollsProps = {
   count: number;
   setCount: (n: number) => void;
-  scrollData: ScrollDataProps[];
+  scrollData: ScrollData[];
 };
 
 const Scrolls = (props: ScrollsProps) => {

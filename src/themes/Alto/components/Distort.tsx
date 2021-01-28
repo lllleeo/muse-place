@@ -59,7 +59,7 @@ const Distort = (props: Props) => {
       shader.vertexShader = uniforms + shader.vertexShader;
       shader.vertexShader = shader.vertexShader.replace(
         "#include <begin_vertex>",
-        vert + "                       "
+        vert
       );
 
       material.userData.shader = shader;

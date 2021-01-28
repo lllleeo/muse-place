@@ -6,29 +6,18 @@ import Sun from "./components/Sun";
 import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
-import Birds from "../components/Birds";
+import Birds from "./components/Birds";
 import AudioReactive from "./components/AudioReactive";
-
-export type ScrollDataProps = {
-  text?: string;
-  textColor?: string;
-  textSize?: number;
-  textY?: number;
-  img?: string;
-  position?: [number, number, number];
-  rotationY?: number;
-};
+import { ScrollData } from "./types/scroll";
 
 export type AltoProps = {
-  name: string;
   socials: string[];
-  removeWalls?: boolean;
-  scrollData: ScrollDataProps[];
+  scrollData: ScrollData[];
   audio?: string;
 };
 
 const Renaissance = (props: AltoProps) => {
-  const { name, socials, scrollData, removeWalls, audio } = props;
+  const { socials, scrollData, audio } = props;
 
   const [scrollCount, setScrollCount] = useState(0);
   const [aa, setAA] = useState<THREE.AudioAnalyser>();

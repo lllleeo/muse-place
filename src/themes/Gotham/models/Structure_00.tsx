@@ -43,7 +43,7 @@ export default function Model(
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group>
+      <group scale={[5, 5, 5]} position-y={0.575}>
         <mesh
           name="stand"
           material={materials.metal}

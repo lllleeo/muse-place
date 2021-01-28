@@ -1,12 +1,12 @@
 import { Keyframe, KeyframeEnvironment, StandardEnvironment } from "spacesvr";
-import { CanvasProps } from "react-three-fiber";
+import { ContainerProps } from "react-three-fiber";
 import { isMobile } from "react-device-detect";
 import { Vector3 } from "three";
 
 const DualEnvironment = (props: {
   children: React.ReactNode;
   keyframes: Keyframe[];
-  canvasProps: Partial<CanvasProps>;
+  canvasProps: Partial<ContainerProps>;
   disableGround?: boolean;
   player?: {
     pos?: Vector3;

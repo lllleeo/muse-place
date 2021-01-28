@@ -18,7 +18,7 @@ const Artwork = (props: ArtworkProps) => {
   const { artwork, linkPositions } = props;
 
   return (
-    <group scale={[1 / 20, 1 / 20, 1 / 20]}>
+    <group>
       {artwork.map((piece, i) => (
         <Link
           position={linkPositions[i].p}
@@ -26,7 +26,6 @@ const Artwork = (props: ArtworkProps) => {
           audio={piece.audio}
           link={piece.link}
           size={piece.size}
-          scale={2}
           src={piece.src}
           key={i}
         />

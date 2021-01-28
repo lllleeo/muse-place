@@ -5,7 +5,6 @@ type LinkProps = {
   audio?: boolean;
   link?: string;
   size?: [number, number];
-  scale?: number;
   position: Vector3 | [number, number, number];
   src: string;
   rotY?: number;
@@ -14,15 +13,7 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const {
-    audio,
-    link,
-    size = [1, 1],
-    scale = 1,
-    position,
-    rotY = 0,
-    src,
-  } = props;
+  const { audio, link, size = [1, 1], position, rotY = 0, src } = props;
 
   const handleClick = () => {
     if (link) {
@@ -32,7 +23,7 @@ const Link = (props: LinkProps) => {
 
   const imgSize: [number, number] = new Vector2(size[0], size[1])
     .normalize()
-    .multiplyScalar(6.25)
+    .multiplyScalar(1.6)
     .toArray() as [number, number];
 
   if (src.includes("mp4")) {
@@ -50,11 +41,7 @@ const Link = (props: LinkProps) => {
   }
 
   return (
-    <group
-      position={position}
-      rotation={[0, rotY, 0]}
-      scale={[scale, scale, scale]}
-    >
+    <group position={position} rotation={[0, rotY, 0]}>
       {link ? (
         <Interactable onClick={handleClick}>
           <Image src={src} size={imgSize} framed />
