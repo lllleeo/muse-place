@@ -8,7 +8,7 @@ import { useFrame } from "react-three-fiber";
 const uniforms = `
     uniform float time;
     uniform float bins;
-    uniform float audio[256];
+    uniform float audio[64];
     varying vec3 vUv;
     
     float average_bins(float start, float end) {
@@ -38,7 +38,7 @@ type Props = {
   aa?: AudioAnalyser;
 };
 
-const BINS = 256;
+const BINS = 64;
 
 const Distort = (props: Props) => {
   const { aa, children } = props;
@@ -80,9 +80,12 @@ const Distort = (props: Props) => {
         clock.getElapsedTime() * 2;
 
       if (aa) {
-        distortMat.userData.shader.uniforms.audio.value = aa
-          .getFrequencyData()
-          .map((val) => Number(val));
+        const data = aa.getFrequencyData();
+        const newData = [];
+        for (let i = 0; i < BINS; i++) {
+          newData[i] = data[i * 4];
+        }
+        distortMat.userData.shader.uniforms.audio.value = newData;
       }
     }
 

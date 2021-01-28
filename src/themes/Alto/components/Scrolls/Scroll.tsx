@@ -35,42 +35,37 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const [found, setFound] = useState<boolean>(false);
 
-  const { scale } = useSpring({
+  const { scale, posY } = useSpring({
     scale: open ? 1 : 0.1,
+    posY: open ? 2 : -0.5,
+    config: {
+      mass: 1,
+      tension: 110,
+      friction: 30,
+    },
   });
 
-  useFrame(({ clock }, delta) => {
+  useFrame(() => {
     if (outer.current && inner.current) {
       if (camera.position.distanceTo(outer.current.position) < 5) {
         if (!found) {
           setCount(count + 1);
           setFound(true);
         }
-        inner.current.position.y = Math.min(
-          2,
-          inner.current.position.y + delta * 2
-        );
         inner.current.lookAt(camera.position);
         if (!open)
           setTimeout(() => {
             setOpen(true);
-          }, 750);
+          }, 250);
       } else {
-        inner.current.position.y = Math.max(
-          -0.5,
-          inner.current.position.y - delta * 2
-        );
-        if (open)
-          setTimeout(() => {
-            setOpen(false);
-          }, 50);
+        if (open) setOpen(false);
       }
     }
   });
 
   return (
     <group name={"scroll"} {...restProps} ref={outer}>
-      <group ref={inner} scale={[2, 2, 2]} position-y={[-0.25]}>
+      <animated.group ref={inner} scale={[2, 2, 2]} position-y={posY}>
         <group position-y={0.475} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">
             {img && (
@@ -97,7 +92,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
             <ScrollModel open={open} />
           </Suspense>
         </group>
-      </group>
+      </animated.group>
     </group>
   );
 };

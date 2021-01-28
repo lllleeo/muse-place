@@ -39,6 +39,11 @@ export default function Model(props: Props) {
   const { posY, scale } = useSpring({
     posY: open ? 0 : 0.75 * 17.5,
     scale: open ? 1 : 0.1,
+    config: {
+      mass: 1,
+      tension: 110,
+      friction: 30,
+    },
   });
 
   return (
