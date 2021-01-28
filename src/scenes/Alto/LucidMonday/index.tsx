@@ -12,12 +12,11 @@ const LucidMonday = () => {
       new ShaderMaterial({
         uniforms: {
           time: { value: 0 },
-          audio: { value: new Array(256).fill(0) },
+          audio: { value: new Array(5).fill(Math.random() * 255) },
         },
         vertexShader: vert,
         fragmentShader: frag,
         side: BackSide,
-        transparent: true,
       }),
     []
   );
@@ -27,14 +26,21 @@ const LucidMonday = () => {
       lsdMat.uniforms.time.value = clock.getElapsedTime() / 10;
     }
     if (aa) {
-      lsdMat.uniforms.audio.value = aa.getFrequencyData();
+      const data = aa.getFrequencyData();
+      lsdMat.uniforms.audio.value = [
+        data[0],
+        data[10],
+        data[20],
+        data[120],
+        data[200],
+      ];
     }
   });
 
   return (
     <group>
       <mesh material={lsdMat}>
-        <sphereBufferGeometry args={[60, 60, 60]} />
+        <sphereBufferGeometry args={[60, 10, 10]} />
       </mesh>
     </group>
   );

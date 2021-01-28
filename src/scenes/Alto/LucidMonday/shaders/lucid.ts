@@ -21,7 +21,7 @@ export const vert = glsl`
 
 export const frag = glsl`
     uniform float time;
-    uniform float audio[256];
+    uniform float audio[5];
     varying vec3 vUv;
     
     
@@ -141,6 +141,7 @@ export const frag = glsl`
     void main () {
         vec3 uv = vUv; 
         uv = (uv-.5)*2.;
+        float modTime = time + 0.3 * audio[0] / 255.0;
        
         vec3 vlsd = vec3(0,1,0);
         vlsd = rotate3d(vlsd, vec3(1.,1.,0.), time);
@@ -154,7 +155,7 @@ export const frag = glsl`
         
         vec3 color = vec3(dot(uv-v0, vlsd.xyz),dot(uv-v1, vlsd.yxz),dot(uv-v2, vlsd.zxy));
         
-        color *= .2 + (0.9 +  audio[200] / 255.0 + audio[120] / 255.0)*vec3(
+        color *= 1.7 + (0.9 +  audio[4] / 255.0 + audio[3] / 255.0)*vec3(
             (16.*snoise(uv+v0) + 8.*snoise((uv+v0)*2.) + 4.*snoise((uv+v0)*4.) + 2.*snoise((uv+v0)*8.) + snoise((v0+uv)*16.))/32.,
             (16.*snoise(uv+v1) + 8.*snoise((uv+v1)*2.) + 4.*snoise((uv+v1)*4.) + 2.*snoise((uv+v1)*8.) + snoise((v1+uv)*16.))/32.,
             (16.*snoise(uv+v2) + 8.*snoise((uv+v2)*2.) + 4.*snoise((uv+v2)*4.) + 2.*snoise((uv+v2)*8.) + snoise((v2+uv)*16.))/32.
@@ -163,9 +164,9 @@ export const frag = glsl`
         color = yiq2rgb(color);
         
         color *= 0.7- .25* vec3(
-            varazslat(uv.xy *.25, time + .5),
-            varazslat(uv.yz * .7, time + .2),
-            varazslat(uv.zx * .4, time + .7)
+            varazslat(uv.xy *.25, 0.8 * time + .5),
+            varazslat(uv.yz * .7, 0.4 * time + .2),
+            varazslat(uv.zx * .4, 0.6 * time + .7)
         );
         
         
@@ -174,14 +175,21 @@ export const frag = glsl`
         
         color = vec3(1. - pow(color.r, 0.45), 1. - pow(color.g, 0.45), 1. - pow(color.b, 0.45));
         
+        float a = snoise(0.01 * uv + (1.3 * vec3(modTime, modTime, modTime))) + 1. / 2.;
+        a = pow(a, 1. + 8.0 * audio[1] / 255.0);
+        
         vec3 hsv_color = rgb2hsv(color);
-        hsv_color.x = min(1.0, hsv_color.x * 0.6 +  0.4 * audio[20] / 255.0);
-        hsv_color.z = min(1.0, hsv_color.y + 0.36 * audio[0] / 255.0);
+        
+        hsv_color.x = min(1.0, hsv_color.x * 0.6 +  0.4 * audio[2] / 255.0);
+        hsv_color.y = min(1.0, 0.8* hsv_color.y + 0.46 * a);
+        hsv_color.z = min(1.0, hsv_color.y + 0.66 * audio[0] / 255.0 + 0.2 * a);
+        if(hsv_color.z > 0.8) {
+            hsv_color.y = min(1.0, hsv_color.y + 0.5);
+        }
         color = hsv2rgb(hsv_color);
         
-        float a = snoise(0.01 * uv + (1.3 * vec3(time, time, time))) + 1. / 2.;
-        a = pow(a, 1. + audio[0] / 255.0 / 2.0);
+    
         
-        gl_FragColor = vec4(color, a);
+        gl_FragColor = vec4(color, 1.0);
     }
 `;
