@@ -45,7 +45,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#11d2db" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
-        <title>Spaces</title>
+        <title>Muse</title>
       </Head>
       <Component {...pageProps} />
     </>
