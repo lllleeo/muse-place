@@ -34,6 +34,7 @@
     "react-ga": "^3.1.2",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^5.1.4",
+    "react-three-flex": "^0.5.2",
     "simplex-noise": "^2.4.0",
     "spacesvr": "^1.2.23",
     "three": "^0.122.0"
