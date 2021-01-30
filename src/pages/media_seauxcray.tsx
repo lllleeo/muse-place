@@ -1,35 +1,35 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const Pachman77 = dynamic(import("scenes/Gotham/Pachman77"), { ssr: false });
 
 const ARTIST = {
-  name: "Pachman77",
+  name: "Marvin Crayton Jr.",
   socials: [
-    "https://soundcloud.com/experiment23",
-    "https://twitter.com/djkirax23",
-    "https://www.instagram.com/djkirax23/",
+    "https://www.instagram.com/media_seauxcray/",
+    "https://open.spotify.com/artist/787OwNFvbbQwnrD4NJHm0i?nd=1",
+    "https://soundcloud.com/seauxcray?ref=clipboard&p=i&c=1",
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77`;
-const artwork = [
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/media_seauxcray`;
+const artwork: GothamProps["artwork"] = [
   {
-    src: `${url}/1.jpg`,
+    src: `${url}/1.mp4`,
   },
   {
     src: `${url}/2.jpg`,
   },
   {
-    src: `${url}/3.jpg`,
+    src: `${url}/3.mp4`,
   },
   {
     src: `${url}/4.jpg`,
   },
   {
-    src: `${url}/5.jpg`,
+    src: `${url}/5.mp4`,
   },
   {
     src: `${url}/6.jpg`,
@@ -40,7 +40,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Pace Moreno Bongiovanni | Muse Place</title>
+        <title>Marvin Crayton Jr.</title>
       </Head>
       <Gotham
         artwork={artwork}
@@ -54,11 +54,9 @@ const LinkTree: NextPage = () => {
         hMapScale={30}
         xzMapScale={100}
         floorColor="black"
-        removeWalls
         night
-      >
-        <Pachman77 />
-      </Gotham>
+        stars
+      />
     </>
   );
 };

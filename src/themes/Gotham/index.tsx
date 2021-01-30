@@ -54,7 +54,7 @@ const Gotham = (props: GothamProps) => {
         </Text>
         <Interactable
           onClick={() =>
-            (window.location.href = "https://musevr.typeform.com/to/QwGYwJH2")
+            (window.location.href = "https://muse.kickoffpages.com/")
           }
         >
           <group position-x={1.8}>

@@ -21,11 +21,10 @@ const ReactivePrimitive = (props: ReactiveProps) => {
   const group = useRef<THREE.Group>();
   const innerGroup = useRef<THREE.Group>();
   const material = useRef<THREE.MeshStandardMaterial>();
-  const freqIndex = useRef(Math.floor(Math.random() * 16));
 
   useFrame(({ clock }) => {
     if (material.current) {
-      const freqData = aa?.getFrequencyData()[freqIndex.current] || 0;
+      const freqData = aa?.getFrequencyData()[0] || 0;
 
       if (freqData < min) {
         min = freqData;
