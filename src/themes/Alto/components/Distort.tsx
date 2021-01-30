@@ -10,17 +10,6 @@ const uniforms = `
     uniform float bins;
     uniform float audio[64];
     varying vec3 vUv;
-    
-    float average_bins(float start, float end) {
-      float total = 0.0;
-      float i = 0.0;
-      
-      for(i = start; i < end; ++i) {
-        total += audio[int(i)];
-      }
-      
-      return total / (end - start + 1.0);
-    }
 `;
 
 const vert = glsl`
