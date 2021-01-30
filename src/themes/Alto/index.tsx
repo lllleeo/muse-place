@@ -1,9 +1,8 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
-import { AudioAnalyser, default as THREE } from "three";
+import { AudioAnalyser } from "three";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
-import Effects from "./components/Effects";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";

@@ -19,7 +19,6 @@ export const createBirdGeometry = (
   geo.setAttribute("birdColor", birdColors);
   geo.setAttribute("reference", references);
   geo.setAttribute("birdVertex", birdVertex);
-  // this.setAttribute( 'normal', new Float32Array( points * 3 ), 3 );
 
   // generate vertices
   let v = 0;
