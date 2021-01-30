@@ -65,6 +65,8 @@ const Outside = (props: SceneProps) => {
           displacementScale={hScale}
           alphaMap={heightmap}
           emissiveMap={emissiveMap}
+          emissive={new THREE.Color(0x800080)}
+          emissiveIntensity={3}
         />
       </instancedMesh>
       <mesh rotation-x={-Math.PI / 2}>
