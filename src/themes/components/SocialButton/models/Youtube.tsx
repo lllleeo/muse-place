@@ -11,45 +11,30 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    youtubeicon: THREE.Mesh;
     youtubebutton: THREE.Mesh;
-    youtubebase: THREE.Mesh;
   };
   materials: {
-    ["youtube.button"]: THREE.MeshStandardMaterial;
-    ["youtube.icon"]: THREE.MeshStandardMaterial;
-    ["youtube.base"]: THREE.MeshStandardMaterial;
+    ["youtube.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Youtube-1608777384/youtube.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Youtube-1611646088/youtube.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  materials["youtube.button"].metalness = 0.1;
-  materials["youtube.icon"].metalness = 0.1;
-  materials["youtube.base"].metalness = 0.1;
+  materials["youtube.mat"].metalness = 0;
+  materials["youtube.mat"].roughness = 0.25;
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="youtubeicon"
-          material={materials["youtube.button"]}
-          geometry={nodes.youtubeicon.geometry}
-        />
-        <mesh
           name="youtubebutton"
-          material={materials["youtube.icon"]}
+          material={materials["youtube.mat"]}
           geometry={nodes.youtubebutton.geometry}
-        />
-        <mesh
-          name="youtubebase"
-          material={materials["youtube.base"]}
-          geometry={nodes.youtubebase.geometry}
         />
       </group>
     </group>

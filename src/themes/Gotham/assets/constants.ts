@@ -3,27 +3,27 @@ import { Keyframe } from "spacesvr";
 
 export const linkPositions = [
   {
-    p: new Vector3(-5.5, 4, 1),
+    p: new Vector3(-1.4, 1, 0.25),
     r: Math.PI / 2,
   },
   {
-    p: new Vector3(-6.5, 4, 1),
+    p: new Vector3(-1.62, 1, 0.25),
     r: -Math.PI / 2,
   },
   {
-    p: new Vector3(-5.5, 4, 17),
+    p: new Vector3(-1.4, 1, 4.25),
     r: Math.PI / 2,
   },
   {
-    p: new Vector3(-6.5, 4, 17),
+    p: new Vector3(-1.62, 1, 4.25),
     r: -Math.PI / 2,
   },
   {
-    p: new Vector3(-5.5, 4, 33),
+    p: new Vector3(-1.4, 1, 8.25),
     r: Math.PI / 2,
   },
   {
-    p: new Vector3(-6.5, 4, 33),
+    p: new Vector3(-1.62, 1, 8.25),
     r: -Math.PI / 2,
   },
 ];

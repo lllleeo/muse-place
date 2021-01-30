@@ -5,7 +5,7 @@ import { Sky, Stars } from "@react-three/drei";
 import Outside from "themes/Gotham/components/Outside";
 import Lighting from "themes/Gotham/components/Lighting";
 import { keyframes as defaultKeyframes } from "themes/Gotham/assets/constants";
-import DualEnvironment from "themes/Gotham/components/DualEnvironment";
+import DualEnvironment from "themes/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
@@ -52,7 +52,7 @@ const GothamScene = (props: GothamSceneProps) => {
     <DualEnvironment
       keyframes={keyframes || defaultKeyframes}
       canvasProps={{ camera: { far: 300 } }}
-      player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI }}
+      player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI, speed: 1.7 }}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}
