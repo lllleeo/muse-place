@@ -47,7 +47,7 @@ const LinkTree: NextPage = () => {
         fogColor="#ffc152"
         hMapScale={30}
         xzMapScale={100}
-        floorColor="#ffc152"
+        lightColor="#af7102"
       />
     </>
   );
