@@ -1,5 +1,7 @@
 import { Fog, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
+import SilksModel from "./models/SilksModel";
+
 const Silks = () => {
   return (
     <StandardEnvironment player={{ speed: 1.4 }}>
@@ -8,6 +10,7 @@ const Silks = () => {
         <meshStandardMaterial color="white" />
       </mesh>
       <ambientLight />
+      <SilksModel />
       <Fog color={new THREE.Color(0x000000)} near={0} far={40} />
     </StandardEnvironment>
   );
