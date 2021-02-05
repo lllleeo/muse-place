@@ -1,5 +1,12 @@
 import * as THREE from "three";
-import { AudioAnalyser, Group, Material, Mesh, Object3D } from "three";
+import {
+  AudioAnalyser,
+  DoubleSide,
+  Group,
+  Material,
+  Mesh,
+  Object3D,
+} from "three";
 // @ts-ignore
 import glsl from "babel-plugin-glsl/macro";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
@@ -50,6 +57,8 @@ const Distort = (props: Props) => {
       material.userData.shader = shader;
     };
 
+    material.side = DoubleSide;
+
     return material;
   }, []);
 
@@ -79,9 +88,9 @@ const Distort = (props: Props) => {
     }
 
     if (group.current) {
-      group.current.rotation.x = clock.getElapsedTime() / (7 + seed * 30);
-      group.current.rotation.y = clock.getElapsedTime() / (10 + seed * 30);
-      group.current.rotation.z = clock.getElapsedTime() / (9 + seed * 30);
+      group.current.rotation.x = Math.PI; // clock.getElapsedTime() / (7 + seed * 30);
+      group.current.rotation.y = clock.getElapsedTime() / (4 + seed * 30);
+      group.current.rotation.z = -Math.PI / 2; // clock.getElapsedTime() / (9 + seed * 30);
     }
   });
 

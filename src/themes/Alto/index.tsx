@@ -37,8 +37,8 @@ const defaultContext: AltoProps = {
   fontSize: 1,
   model: {
     url:
-      "https://d27rt3a60hh1lx.cloudfront.net/models/amongus-1611130356/amongus.glb",
-    scale: 1,
+      "https://d27rt3a60hh1lx.cloudfront.net/models/Eagle-1612497310/eagle4.glb",
+    scale: 1.4,
   },
   scrollData: [],
   content: {

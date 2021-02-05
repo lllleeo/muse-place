@@ -5,16 +5,13 @@ import * as THREE from "three";
 import { createBirdGeometry } from "./core/bird";
 import { initComputeRenderer } from "./core/physics";
 import { useFrame, useThree } from "react-three-fiber";
-import { AudioAnalyser, MathUtils } from "three";
+import { MathUtils } from "three";
 import { AltoSceneState } from "../../../../scenes/Alto";
+import { useDetectGPU } from "@react-three/drei";
 
 // general scale: z=350
 
 /* TEXTURE WIDTH FOR SIMULATION */
-const WIDTH = Math.pow(2, 4);
-const BIRDS = WIDTH * WIDTH;
-const BOUNDS = 10;
-const SCALE = 0.2;
 
 const effectController = {
   separation: 60,
@@ -23,6 +20,9 @@ const effectController = {
   freedom: 0.75,
 };
 
+const BOUNDS = 10;
+const SCALE = 0.2;
+
 const Birds = () => {
   const { aa } = useContext(AltoSceneState);
   const { gl, camera } = useThree();
@@ -30,9 +30,14 @@ const Birds = () => {
   const posVar = useRef<Variable>();
   const velVar = useRef<Variable>();
 
+  const gpu = useDetectGPU();
+  const pow = gpu?.isMobile ? 2 : (gpu?.tier || 0) + 1;
+  const WIDTH = Math.pow(2, pow);
+  const BIRDS = WIDTH * WIDTH;
+
   const gpuCompute = useMemo(
     () => initComputeRenderer(gl, posVar, velVar, BOUNDS, WIDTH),
-    []
+    [BOUNDS, WIDTH, BIRDS]
   );
   const birdMesh = useMemo(() => {
     const geometry = createBirdGeometry(BIRDS, WIDTH);

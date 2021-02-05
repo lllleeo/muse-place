@@ -2,8 +2,9 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { GothamProps } from "../themes/Gotham";
+import { ScrollData } from "../themes/Alto/types/scroll";
 
-const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const Alto = dynamic(import("scenes/Alto"), { ssr: false });
 
 const ARTIST = {
   name: "Antonio Brown",
@@ -14,27 +15,44 @@ const ARTIST = {
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/antoniobrown`;
-const artwork: GothamProps["artwork"] = [
+const FOLDER = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/antoniobrown`;
+
+const scrollData: ScrollData[] = [
   {
-    src: `${url}/1.jpg`,
-    size: [1080, 692],
+    img: `${FOLDER}/image0.jpeg`,
+    text:
+      'Set The Tone "Stamped and Approved Hoodie"\n\nInspired by Set The Tone Multimedia Company\'s official stamp of approval by the state of Illinois',
+    position: [15, -0.61, 30],
   },
   {
-    src: `${url}/2.jpg`,
+    img: `${FOLDER}/image1.png`,
+    text:
+      'Set The Tone "Parks Tee"\n\nLogo inspired by my hometown Milwaukee, WI County Parks.',
+    position: [-15, -0.61, 30],
   },
   {
-    src: `${url}/3.mp4`,
-    size: [640, 800],
+    img: `${FOLDER}/image4.png`,
+    text:
+      'Set The Tone "Stamped and Approved Tee"\n\nInspired by Set The Tone Multimedia Company\'s official stamp of approval by the state of Illinois.',
+    position: [-15, -1.13, -30],
   },
   {
-    src: `${url}/4.jpg`,
+    img: `${FOLDER}/image6.png`,
+    text:
+      'Set The Tone "Stamped and Approved Tee"\n\nInspired by Set The Tone Multimedia Company\'s official stamp of approval by the state of Illinois.',
+    position: [12.36, 1.21, -15.84],
   },
   {
-    src: `${url}/5.jpg`,
+    img: `${FOLDER}/image8.png`,
+    text:
+      'Set The Tone "Developer Tee"\n\nInspired by one of my favorite apps. The "Developer" Tee is for anyone operating in the new millennium.',
+    position: [30.52, -0.39, 0.97],
   },
   {
-    src: `${url}/6.jpg`,
+    img: `${FOLDER}/image2.png`,
+    text:
+      'Set The Tone "Parks Tee"\n\nLogo inspired by my hometown Milwaukee, WI County Parks.',
+    position: [-12.04, 3.55, -5],
   },
 ];
 
@@ -44,19 +62,20 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>Antonio Brown | Muse Place</title>
       </Head>
-      <Gotham
-        artwork={artwork}
+      <Alto
+        font={undefined}
+        fontSize={0.83}
         socials={ARTIST.socials}
-        name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        night
-        stars
+        scrollData={scrollData}
+        content={{
+          name: "Set The Tone",
+          landing: {
+            title: "Set The Tone",
+            body:
+              "Delivering timely, quality work so that you too can set the tone for others to follow!\n\nThere are six images scattered around the map - find them, screenshot, and post in your story for discount code!",
+          },
+        }}
+        audio={`${FOLDER}/BigBang.mp3`}
       />
     </>
   );
