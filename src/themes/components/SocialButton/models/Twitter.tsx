@@ -7,34 +7,35 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL, useTrimeshCollision } from "spacesvr";
-import { BufferGeometry } from "three";
+import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    collider: THREE.Mesh;
+    twitterbutton: THREE.Mesh;
   };
   materials: {
-    ["Material.001"]: THREE.MeshStandardMaterial;
+    ["twitter.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/GothamColliderNoWalls-1608712808/gotham-collider-nowalls.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Twitter-1611646069/twitter.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry).clone().scale(5, 5, 5)
-  );
+  materials["twitter.mat"].metalness = 0;
+  materials["twitter.mat"].roughness = 0.25;
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        {/*<mesh name="collider" material={materials['Material.001']} geometry={nodes.collider.geometry} />*/}
+      <group>
+        <mesh
+          name="twitterbutton"
+          material={materials["twitter.mat"]}
+          geometry={nodes.twitterbutton.geometry}
+        />
       </group>
     </group>
   );

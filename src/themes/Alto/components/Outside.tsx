@@ -44,7 +44,6 @@ const Outside = (props: SceneProps) => {
             dummy.rotation.z = (Math.PI / 2) * i;
           }
           dummy.updateMatrix();
-          dummy.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
           mesh.current.setMatrixAt(i, dummy.matrix);
           i++;
         }

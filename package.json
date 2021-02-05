@@ -49,12 +49,13 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "gltf-pipeline": "^3.0.0",
+    "gltf-pipeline": "^3.0.2",
     "husky": "^4.2.5",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^3.3.0",
     "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
+    "r3f-perf": "^0.77.0",
     "typescript": "^3.9.5"
   }
 }

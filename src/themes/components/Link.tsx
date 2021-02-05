@@ -23,7 +23,7 @@ const Link = (props: LinkProps) => {
 
   const imgSize: [number, number] = new Vector2(size[0], size[1])
     .normalize()
-    .multiplyScalar(6.25)
+    .multiplyScalar(1.6)
     .toArray() as [number, number];
 
   if (src.includes("mp4")) {

@@ -7,7 +7,7 @@ import Lighting from "themes/Gotham/components/Lighting";
 import { keyframes } from "themes/Gotham/assets/constants";
 import { useMemo } from "react";
 import { MeshStandardMaterial } from "three";
-import DualEnvironment from "themes/Gotham/components/DualEnvironment";
+import DualEnvironment from "themes/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
 
 type CodameProps = {
@@ -67,7 +67,11 @@ const Codame = (props: CodameProps) => {
   if (socialLinks.web) socials.push(socialLinks.web);
 
   return (
-    <DualEnvironment keyframes={keyframes} canvasProps={{ camera: { far } }}>
+    <DualEnvironment
+      keyframes={keyframes}
+      canvasProps={{ camera: { far } }}
+      player={{ speed: 1.7 }}
+    >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (
