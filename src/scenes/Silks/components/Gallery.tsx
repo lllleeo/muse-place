@@ -94,7 +94,7 @@ const Gallery = () => {
       </group>
       <group
         name="left-wall"
-        position={[5.1, SIZE * 0.75, 3]}
+        position={[5.04, SIZE * 0.75, 3]}
         rotation-y={-Math.PI / 2}
       >
         <Image

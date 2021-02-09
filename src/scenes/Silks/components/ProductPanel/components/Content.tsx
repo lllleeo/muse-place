@@ -30,9 +30,11 @@ const Content = (props: GroupProps) => {
 
   return (
     <group name="content" {...props}>
+      {/* @ts-ignore */}
       <Text {...TITLE_TEXT} position-y={HEIGHT / 2 - PADDING}>
         {PRODUCT.title.toUpperCase()}
       </Text>
+      {/* @ts-ignore */}
       <Text {...DESC_TEXT}>{PRODUCT.description}</Text>
       <Image
         src={PRODUCT.img}
