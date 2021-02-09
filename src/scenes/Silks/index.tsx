@@ -4,15 +4,22 @@ import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
 import { Sky } from "@react-three/drei";
 import Cart from "./Cart";
+import ProductPanel from "./components/ProductPanel";
 
-const VIDEO_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/video.mp4";
+const SILKS_CONTENT_FOLDER =
+  "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
+
+const VIDEO_URL = `${SILKS_CONTENT_FOLDER}/video.mp4`;
 const VIDEO_SCALE = 2.2;
 
 const Silks = () => {
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(0, 1, 0), speed: 1.25 }}
+      player={{
+        pos: new Vector3(0, 1, 0),
+        speed: 1.25,
+        controls: { disableGyro: true },
+      }}
       canvasProps={{ gl: { antialias: true } }}
     >
       <Cart />
@@ -27,6 +34,7 @@ const Silks = () => {
       <SilksModel />
       <pointLight position={[0, 5, 0]} intensity={0.1} />
       <Sky sunPosition={[0, 1, 0.8]} />
+      <ProductPanel position={[-0.75, 0, -3.3]} />
     </StandardEnvironment>
   );
 };
