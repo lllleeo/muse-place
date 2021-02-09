@@ -3,6 +3,7 @@ import SilksModel from "./models/SilksModel";
 import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
 import { Sky } from "@react-three/drei";
+import Cart from "./Cart";
 
 const VIDEO_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/video.mp4";
@@ -14,6 +15,7 @@ const Silks = () => {
       player={{ pos: new Vector3(0, 1, 0), speed: 1.25 }}
       canvasProps={{ gl: { antialias: true } }}
     >
+      <Cart />
       <Gallery />
       <Video
         src={VIDEO_URL}
