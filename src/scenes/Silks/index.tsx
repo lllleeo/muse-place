@@ -20,7 +20,7 @@ const Silks = () => {
         speed: 1.25,
         controls: { disableGyro: true },
       }}
-      canvasProps={{ gl: { antialias: true } }}
+      canvasProps={{ gl: { antialias: true }, noEvents: true }}
     >
       <Cart />
       <Gallery />
