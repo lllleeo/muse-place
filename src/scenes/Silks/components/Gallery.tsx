@@ -54,7 +54,7 @@ const Gallery = () => {
           position-x={8}
         />
       </group>
-      <group name="front-wall" position={[0, SIZE * 0.75, 1.15]}>
+      <group name="front-wall" position={[0, SIZE * 0.75, 1.05]}>
         <Image
           src={`${SILKS_CONTENT_FOLDER}/gallery/pink.jpg`}
           size={[(1630 / 2038) * SIZE, SIZE]}
