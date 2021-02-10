@@ -25,6 +25,7 @@ const Description = (props: Props) => {
           <planeBufferGeometry args={[WIDTH, HEIGHT]} />
           <meshStandardMaterial color="white" />
         </mesh>
+        {/* @ts-ignore */}
         <Text
           color="black"
           fontSize={0.015}
