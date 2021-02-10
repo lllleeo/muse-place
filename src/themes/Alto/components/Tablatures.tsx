@@ -13,7 +13,9 @@ type Props = {
 const Tablatures = (props: Props) => {
   const { scrolls } = props;
 
-  const { socials, font, content, fontSize } = useContext(AltoContext);
+  const { socials, font, content, fontSize, scrollData } = useContext(
+    AltoContext
+  );
   const { landing, name } = content;
   const { title, body } = landing;
 
@@ -75,7 +77,7 @@ const Tablatures = (props: Props) => {
             position={[0.3, -0.1, 0]}
             textAlign="right"
           >
-            {scrolls.toString()} / 6
+            {scrolls.toString()} / {scrollData.length.toString()}
           </Text>
           <Text
             {...textStyles}

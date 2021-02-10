@@ -38,8 +38,6 @@ const GothamScene = (props: GothamSceneProps) => {
     night,
     stars,
     fogColor,
-    fogFar = 50,
-    fogNear = 3,
     map,
     scenePos = [0, -1, 0],
     hMapScale,
@@ -56,9 +54,7 @@ const GothamScene = (props: GothamSceneProps) => {
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}
-      {fogColor && (
-        <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
-      )}
+      {fogColor && <Fog color={new THREE.Color(fogColor)} near={10} far={80} />}
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
