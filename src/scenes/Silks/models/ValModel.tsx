@@ -28,7 +28,6 @@ type GLTFResult = GLTF & {
   };
   materials: {
     michaael: THREE.MeshStandardMaterial;
-    michaael: THREE.MeshStandardMaterial;
     stitchs: THREE.MeshStandardMaterial;
     Fabric: THREE.MeshStandardMaterial;
     ["Mat.2"]: THREE.MeshStandardMaterial;
@@ -50,6 +49,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     DRACO_URL
   ) as GLTFResult;
 
+  // @ts-ignore
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {

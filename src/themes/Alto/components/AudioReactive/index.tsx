@@ -36,6 +36,7 @@ const AudioReactive = (props: GroupProps) => {
           </Distort>
         </group>
         <group position-y={-5.22} rotation-x={-Math.PI / 2} scale={[2, 2, 1]}>
+          {/* @ts-ignore */}
           <Shadow opacity={0.5} />
         </group>
       </Suspense>

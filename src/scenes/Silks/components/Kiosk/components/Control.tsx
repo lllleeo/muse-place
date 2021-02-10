@@ -70,6 +70,7 @@ const Control = (props: Props) => {
               <boxBufferGeometry args={[CART_WIDTH, CART_WIDTH, 0.02]} />
               <meshStandardMaterial color="red" />
             </mesh>
+            {/* @ts-ignore */}
             <Text
               fontSize={0.07}
               color="white"

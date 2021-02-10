@@ -76,16 +76,19 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
               />
             )}
             {text && (
-              <Text
-                color={textColor}
-                maxWidth={0.45}
-                fontSize={textSize ? textSize / 100 : img ? 0.03 : 0.04}
-                anchorY="top"
-                position-x={0.005}
-                position-y={textY || img ? -0.55 : -0.05}
-              >
-                {text}
-              </Text>
+              <>
+                {/* @ts-ignore */}
+                <Text
+                  color={textColor}
+                  maxWidth={0.45}
+                  fontSize={textSize ? textSize / 100 : img ? 0.03 : 0.04}
+                  anchorY="top"
+                  position-x={0.005}
+                  position-y={textY || img ? -0.55 : -0.05}
+                >
+                  {text}
+                </Text>
+              </>
             )}
           </animated.group>
           <Suspense fallback={null}>

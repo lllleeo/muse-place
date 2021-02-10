@@ -21,6 +21,7 @@ const Cart = () => {
             <circleBufferGeometry args={[1.25, 30]} />
             <meshStandardMaterial color="red" transparent opacity={0.8} />
           </mesh>
+          {/* @ts-ignore */}
           <Text fontSize={1}>{count.toString()}</Text>
         </FacePlayer>
       </group>
