@@ -4,7 +4,6 @@ import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
 import { Sky } from "@react-three/drei";
 import Cart from "./Cart";
-import ProductPanel from "./components/ProductPanel";
 import Kiosk from "./components/Kiosk";
 
 const SILKS_CONTENT_FOLDER =
@@ -35,7 +34,6 @@ const Silks = () => {
       <SilksModel />
       <pointLight position={[0, 5, 0]} intensity={0.1} />
       <Sky sunPosition={[0, 1, 0.8]} />
-      <ProductPanel position={[-0.75, 0, -3.3]} />
       <Kiosk position={[2, 0.6, -4.6]}>
         <mesh position-y={0}>
           <torusKnotBufferGeometry args={[0.1, 0.05]} />
