@@ -4,24 +4,29 @@ import ShoppingCart from "../models/ShoppingCart";
 import { Tool } from "../modifiers/Tool";
 import FacePlayer from "../modifiers/FacePlayer";
 import { Text } from "@react-three/drei";
+import { isMobile } from "react-device-detect";
 
 const Cart = () => {
   const [count, setCount] = useState(0);
 
+  const posY = isMobile ? 0.65 : -0.75;
+  const posX = isMobile ? -0.85 : 0.85;
+  const scale = isMobile ? 0.6 : 0.8;
+
   return (
-    <Tool pos={[0.85, -0.75]} face={false}>
+    <Tool pos={[posX, posY]} face={false}>
+      <group position={[0, 4, 0]}>
+        <FacePlayer>
+          <mesh position-z={-0.2}>
+            <circleBufferGeometry args={[1.25, 30]} />
+            <meshStandardMaterial color="red" transparent opacity={0.8} />
+          </mesh>
+          <Text fontSize={1}>{count.toString()}</Text>
+        </FacePlayer>
+      </group>
       <Spinning>
-        <group position-y={8}>
-          <FacePlayer>
-            <mesh position-z={-0.2}>
-              <circleBufferGeometry args={[1.25, 30]} />
-              <meshStandardMaterial color="red" />
-            </mesh>
-            <Text fontSize={1}>{count.toString()}</Text>
-          </FacePlayer>
-        </group>
         <Suspense fallback={null}>
-          <ShoppingCart />
+          <ShoppingCart scale={[scale, scale, scale]} />
         </Suspense>
       </Spinning>
     </Tool>

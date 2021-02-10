@@ -66,7 +66,7 @@ export const Tool = (props: Props) => {
     if (parent.current) {
       parent.current.position.copy(camera.position);
     }
-  });
+  }, 1);
 
   return (
     <group ref={parent}>
