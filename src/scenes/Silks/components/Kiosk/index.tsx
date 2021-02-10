@@ -1,9 +1,9 @@
 import { GroupProps, useFrame, useThree } from "react-three-fiber";
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { Floating } from "spacesvr";
 import Control from "./components/Control";
 import { useBox } from "@react-three/cannon";
-import { Group } from "three";
+import { Group, Vector3 } from "three";
 import Images from "./components/Images";
 import Description from "./components/Description";
 
@@ -20,25 +20,29 @@ const Kiosk = (props: Props) => {
   const { camera } = useThree();
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
+  const { current: pos } = useRef(new Vector3(100, 100, 100));
 
-  useBox(() => ({
-    // @ts-ignore
-    position: props.position,
+  const [, box] = useBox(() => ({
+    position: pos.toArray(),
     args: [WIDTH, 0.05, DEPTH],
     type: "Static",
     mass: 0,
   }));
 
   useFrame(() => {
-    if (
-      group.current &&
-      camera.position.distanceTo(group.current.position) < 1
-    ) {
+    if (group.current && camera.position.distanceTo(pos) < 1) {
       setOpen(true);
     } else if (open) {
       setOpen(false);
     }
   });
+
+  useEffect(() => {
+    if (group.current) {
+      group.current.getWorldPosition(pos);
+      box.position.copy(pos);
+    }
+  }, []);
 
   return (
     <group name="kiosk" {...props} ref={group}>

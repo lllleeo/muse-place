@@ -6474,10 +6474,10 @@ quick-lru@^4.0.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
 
-r3f-perf@^0.77.0:
-  version "0.77.0"
-  resolved "https://registry.yarnpkg.com/r3f-perf/-/r3f-perf-0.77.0.tgz#e22ac203ab4294f3493656e3482333e2f2afcaac"
-  integrity sha512-NNFgavTfJ1V9ItqVr4YcBF7SjneN4NI1dxm4T71dptDxPHib7Og6D/LWa14lezMg18MxCrzwiFe+P8oyTgUjMw==
+r3f-perf@^0.79.0:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/r3f-perf/-/r3f-perf-0.79.0.tgz#5224f46a418868041d99a9bfaf45fdba8f05c3f2"
+  integrity sha512-c561ONKW09XOGDgK/QyH4nAghJOAyTctRvcdF1BtwcZV8hJrxOpmCsEqOUOAAYZRYJyNxAFZVZjqhGg5AlmLvQ==
   dependencies:
     "@react-icons/all-files" "^4.1.0"
     lerp "^1.0.3"

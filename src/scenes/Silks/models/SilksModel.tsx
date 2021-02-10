@@ -8,7 +8,8 @@ import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACO_URL, useTrimeshCollision } from "spacesvr";
-import { BufferGeometry } from "three";
+import { BufferGeometry, Texture } from "three";
+import { useTexture } from "@react-three/drei";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -20,6 +21,7 @@ type GLTFResult = GLTF & {
     lights: THREE.Mesh;
     walls: THREE.Mesh;
     floor: THREE.Mesh;
+    collider: THREE.Mesh;
   };
   materials: {
     rug: THREE.MeshStandardMaterial;
@@ -28,17 +30,26 @@ type GLTFResult = GLTF & {
     logoboxes: THREE.MeshStandardMaterial;
     ["Mat.17"]: THREE.MeshStandardMaterial;
     lights: THREE.MeshStandardMaterial;
-    walls: THREE.MeshStandardMaterial;
-    floor: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Silks-1612915993/Silks3.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Silks-1612919838/Silks03.glb";
+const FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
+
+  const woodDiff = useTexture(`${FOLDER}/kitchen_wood_diff_1k.jpg`) as Texture;
+  woodDiff.wrapT = woodDiff.wrapS = THREE.RepeatWrapping;
+  woodDiff.repeat.x = woodDiff.repeat.y = 4;
+
+  const plasterDiff = useTexture(
+    `${FOLDER}/plaster_grey_04_diff_1k.jpg`
+  ) as Texture;
+  plasterDiff.wrapT = plasterDiff.wrapS = THREE.RepeatWrapping;
+  plasterDiff.repeat.x = plasterDiff.repeat.y = 2;
 
   const fixMat = (mat: THREE.MeshStandardMaterial) => {
     mat.metalness = 1;
@@ -51,22 +62,17 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   fixMat(materials["logoboxes"]);
   fixMat(materials["Mat.17"]);
   fixMat(materials["lights"]);
-  fixMat(materials["walls"]);
-  fixMat(materials["floor"]);
 
   useTrimeshCollision(
-    (nodes.walls.geometry as BufferGeometry).clone().translate(-3.3, 0, -0.14)
-  );
-
-  useTrimeshCollision(
-    (nodes.structure.geometry as BufferGeometry)
+    (nodes.collider.geometry as BufferGeometry)
       .clone()
-      .translate(-3.3, 0, -0.14)
+      .scale(10, 10, 10)
+      .translate(-4.39, 0, -2.47)
   );
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" position={[-3.3, 0, -0.14]}>
+      <group scale={[10, 10, 10]} position={[-4.39, 0, -2.47]}>
         <mesh
           name="rug"
           material={materials.rug}
@@ -76,6 +82,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="speakers"
           material={materials.speakers}
           geometry={nodes.speakers.geometry}
+          rotation={[0, 0, 0]}
         />
         <mesh
           name="structure"
@@ -97,16 +104,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials.lights}
           geometry={nodes.lights.geometry}
         />
-        <mesh
-          name="walls"
-          material={materials.walls}
-          geometry={nodes.walls.geometry}
-        />
-        <mesh
-          name="floor"
-          material={materials.floor}
-          geometry={nodes.floor.geometry}
-        />
+        <mesh name="walls" geometry={nodes.walls.geometry}>
+          <meshStandardMaterial map={plasterDiff} />
+        </mesh>
+        <mesh name="floor" geometry={nodes.floor.geometry}>
+          <meshStandardMaterial map={woodDiff} />
+        </mesh>
       </group>
     </group>
   );

@@ -29,6 +29,7 @@ const Images = (props: Props) => {
         {images.map((image, i) => (
           <Floating height={SPACING * 0.05} speed={0.5}>
             <Image
+              key={image}
               src={image}
               size={[0.1, 0.15]}
               position-y={(i - 1) * SPACING}
