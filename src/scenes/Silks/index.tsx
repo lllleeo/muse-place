@@ -1,4 +1,4 @@
-import { StandardEnvironment, Video } from "spacesvr";
+import { HDRI, StandardEnvironment, Video } from "spacesvr";
 import SilksModel from "./models/SilksModel";
 import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
@@ -9,6 +9,8 @@ import Kiosks from "./components/Kiosks";
 
 const SILKS_CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
+
+const HDR_URL = `${SILKS_CONTENT_FOLDER}/Hazy_Afternoon_HDR_001.hdr`;
 
 const VIDEO_URL = `${SILKS_CONTENT_FOLDER}/video.mp4`;
 const VIDEO_SCALE = 2.2;
@@ -32,10 +34,11 @@ const Silks = () => {
       {/*  position={[-8.67, 1.03, -1.82]}*/}
       {/*  rotation-y={Math.PI / 2}*/}
       {/*/>*/}
+      <HDRI src={HDR_URL} />
       <ambientLight intensity={0.6} />
-      <pointLight intensity={0.6} position-y={10} />
+      <pointLight intensity={0.6} position-y={2} />
       <SilksModel />
-      <Sky sunPosition={[0, 1, 0.8]} />
+      {/*<Sky sunPosition={[0, 1, 0.8]} />*/}
       <Kiosks />
       {/*<Perf />*/}
     </StandardEnvironment>

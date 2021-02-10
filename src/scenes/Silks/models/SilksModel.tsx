@@ -105,7 +105,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           geometry={nodes.lights.geometry}
         />
         <mesh name="walls" geometry={nodes.walls.geometry}>
-          <meshStandardMaterial map={plasterDiff} />
+          <meshStandardMaterial
+            map={plasterDiff}
+            emissive={new THREE.Color(0xffffff)}
+            emissiveIntensity={0.25}
+          />
         </mesh>
         <mesh name="floor" geometry={nodes.floor.geometry}>
           <meshStandardMaterial map={woodDiff} />
