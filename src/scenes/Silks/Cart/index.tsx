@@ -1,13 +1,14 @@
 import Spinning from "../modifiers/Spinning";
-import { Suspense, useState } from "react";
+import { Suspense, useContext, useState } from "react";
 import ShoppingCart from "../models/ShoppingCart";
 import { Tool } from "../modifiers/Tool";
 import FacePlayer from "../modifiers/FacePlayer";
 import { Text } from "@react-three/drei";
 import { isMobile } from "react-device-detect";
+import { ShopContext } from "../index";
 
 const Cart = () => {
-  const [count, setCount] = useState(0);
+  const { cart } = useContext(ShopContext);
 
   const posY = isMobile ? 0.65 : -0.75;
   const posX = isMobile ? -0.85 : 0.85;
@@ -22,7 +23,7 @@ const Cart = () => {
             <meshStandardMaterial color="red" transparent opacity={0.8} />
           </mesh>
           {/* @ts-ignore */}
-          <Text fontSize={1}>{count.toString()}</Text>
+          <Text fontSize={1}>{cart.count.toString()}</Text>
         </FacePlayer>
       </group>
       <Spinning>

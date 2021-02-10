@@ -1,6 +1,9 @@
 import { GroupProps } from "react-three-fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
+import { useContext } from "react";
+import { ShopContext } from "../../../index";
+import { Interactable } from "spacesvr";
 
 const HEIGHT = 0.15;
 const PADDING_Y = 0.035;
@@ -27,6 +30,8 @@ type Props = {
 
 const Control = (props: Props) => {
   const { width, ...restProps } = props;
+
+  const { cart } = useContext(ShopContext);
 
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
@@ -66,10 +71,12 @@ const Control = (props: Props) => {
             position-x={WIDTH / 2 - CART_WIDTH / 2 - PADDING_X}
             position-y={0.01}
           >
-            <mesh>
-              <boxBufferGeometry args={[CART_WIDTH, CART_WIDTH, 0.02]} />
-              <meshStandardMaterial color="red" />
-            </mesh>
+            <Interactable onClick={() => cart.setCount(cart.count + 1)}>
+              <mesh>
+                <boxBufferGeometry args={[CART_WIDTH, CART_WIDTH, 0.02]} />
+                <meshStandardMaterial color="red" />
+              </mesh>
+            </Interactable>
             {/* @ts-ignore */}
             <Text
               fontSize={0.07}

@@ -6,37 +6,39 @@ import Cart from "./Cart";
 import { Perf } from "r3f-perf";
 import Kiosks from "./components/Kiosks";
 import Renderer from "./components/Renderer";
-import { Radiance } from "./components/Radiance";
 import ValPerre from "./characters/ValPerre";
 import MusicVideo from "./components/MusicVideo";
+import { createContext } from "react";
+import { useCart } from "./utils/cart";
+import Lighting from "./components/Lighting";
+import { ShopState } from "./types/shop";
 
-const SILKS_CONTENT_FOLDER =
-  "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
-
-const HDR_URL = `${SILKS_CONTENT_FOLDER}/Hazy_Afternoon_HDR_full.hdr`;
+export const ShopContext = createContext<ShopState>({} as ShopState);
 
 const Silks = () => {
+  const cart = useCart();
+
   return (
     <StandardEnvironment
       player={{
         pos: new Vector3(4.6, 1, -1.9),
         rot: Math.PI,
-        speed: 1.25,
+        speed: 1.3,
         controls: { disableGyro: true },
       }}
-      canvasProps={{ gl: { antialias: true }, noEvents: true }}
+      canvasProps={{ noEvents: true }}
     >
-      <Cart />
-      <Gallery />
-      <MusicVideo />
-      <Radiance src={HDR_URL} />
-      <ambientLight intensity={0.8} />
-      <pointLight intensity={0.2} position-y={2} />
-      <SilksModel />
-      <ValPerre />
-      <Kiosks />
-      <Perf />
-      <Renderer />
+      <ShopContext.Provider value={{ cart }}>
+        <Cart />
+        <Gallery />
+        <MusicVideo />
+        <Lighting />
+        <SilksModel />
+        <ValPerre />
+        <Kiosks />
+        {/*<Perf />*/}
+        <Renderer />
+      </ShopContext.Provider>
     </StandardEnvironment>
   );
 };
