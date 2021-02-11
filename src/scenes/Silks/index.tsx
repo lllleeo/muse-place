@@ -12,6 +12,7 @@ import { createContext } from "react";
 import { useCart } from "./utils/cart";
 import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
+import { ResizeObserver } from "@juggle/resize-observer";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
@@ -26,7 +27,7 @@ const Silks = () => {
         speed: 1.3,
         controls: { disableGyro: true },
       }}
-      canvasProps={{ noEvents: true }}
+      canvasProps={{ noEvents: true, resize: { polyfill: ResizeObserver } }}
     >
       <ShopContext.Provider value={{ cart }}>
         <Cart />
@@ -35,9 +36,12 @@ const Silks = () => {
         <Lighting />
         <SilksModel />
         <ValPerre />
+        {/*<Suspense fallback={null}>*/}
+        {/*  <MichaelModel />*/}
+        {/*</Suspense>*/}
         <Kiosks />
-        {/*<Perf />*/}
         <Renderer />
+        {/*<Perf />*/}
       </ShopContext.Provider>
     </StandardEnvironment>
   );

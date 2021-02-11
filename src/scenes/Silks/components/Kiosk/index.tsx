@@ -1,4 +1,4 @@
-import { GroupProps, useFrame, useThree } from "react-three-fiber";
+import { GroupProps, useFrame } from "react-three-fiber";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { Floating } from "spacesvr";
 import Control from "./components/Control";
@@ -17,7 +17,6 @@ const WIDTH = 0.6;
 const Kiosk = (props: Props) => {
   const { children } = props;
 
-  const { camera } = useThree();
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
@@ -29,7 +28,7 @@ const Kiosk = (props: Props) => {
     mass: 0,
   }));
 
-  useFrame(() => {
+  useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1) {
       setOpen(true);
     } else if (open) {
