@@ -1,25 +1,29 @@
 import { GroupProps } from "react-three-fiber";
 import FacePlayer from "../../../modifiers/FacePlayer";
 import { Text } from "@react-three/drei";
-
-type Props = {
-  open: boolean;
-} & GroupProps;
+import { useContext } from "react";
+import { KioskContext } from "../index";
 
 const WIDTH = 0.3;
 const HEIGHT = 0.15;
 const PADDING_X = 0.02;
 const PADDING_Y = 0.04;
 
-const Description = (props: Props) => {
-  const { open, ...restProps } = props;
+const Description = (props: GroupProps) => {
+  const { product, open } = useContext(KioskContext);
 
-  if (!open) {
+  if (!open || !product) {
+    return null;
+  }
+
+  const { description } = product;
+
+  if (!description) {
     return null;
   }
 
   return (
-    <group {...restProps}>
+    <group {...props}>
       <FacePlayer>
         <mesh>
           <planeBufferGeometry args={[WIDTH, HEIGHT]} />
@@ -37,7 +41,7 @@ const Description = (props: Props) => {
           position-z={0.025}
           maxWidth={WIDTH - PADDING_X * 2}
         >
-          Michael Rainey Jr. Pro Silk Du Rag (Jamaica Exclusive)
+          {description}
         </Text>
       </FacePlayer>
     </group>

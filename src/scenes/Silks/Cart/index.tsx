@@ -23,7 +23,7 @@ const Cart = () => {
             <meshStandardMaterial color="red" transparent opacity={0.8} />
           </mesh>
           {/* @ts-ignore */}
-          <Text fontSize={1}>{cart.count.toString()}</Text>
+          <Text fontSize={1}>{cart.items.length.toString()}</Text>
         </FacePlayer>
       </group>
       <Spinning>

@@ -1,9 +1,11 @@
 import { GroupProps } from "react-three-fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../../../index";
 import { Interactable } from "spacesvr";
+import { KioskContext } from "../index";
+import { Product } from "../../../types/shop";
 
 const HEIGHT = 0.15;
 const PADDING_Y = 0.035;
@@ -31,11 +33,17 @@ type Props = {
 const Control = (props: Props) => {
   const { width, ...restProps } = props;
 
-  const { cart } = useContext(ShopContext);
-
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
   const TEXT_WIDTH = WIDTH - CART_WIDTH - PADDING_X * 3;
+
+  const { cart } = useContext(ShopContext);
+  const { product } = useContext(KioskContext);
+
+  const [variantIndex, setVariantIndex] = useState(0);
+
+  const variant =
+    product && product.variants.length ? product.variants[variantIndex] : null;
 
   return (
     <group {...restProps} name="control">
@@ -53,7 +61,7 @@ const Control = (props: Props) => {
             position-x={-WIDTH / 2 + PADDING_X}
             maxWidth={TEXT_WIDTH}
           >
-            22 Neon Green Silk (Green/White)
+            {product ? product.title : "..."}
           </Text>
           {/* @ts-ignore */}
           <Text
@@ -63,18 +71,25 @@ const Control = (props: Props) => {
             position-x={-WIDTH / 2 + PADDING_X}
             maxWidth={TEXT_WIDTH}
           >
-            {"Ships in 2 weeks\n"}
-            $100
+            {variant
+              ? `$${variant.price}${variant.available ? "" : " - SOLD OUT"}`
+              : "..."}
           </Text>
           <group
             name="add-to-cart"
             position-x={WIDTH / 2 - CART_WIDTH / 2 - PADDING_X}
             position-y={0.01}
           >
-            <Interactable onClick={() => cart.setCount(cart.count + 1)}>
+            <Interactable
+              onClick={() =>
+                variant && variant.available && cart.add(variant.id)
+              }
+            >
               <mesh>
                 <boxBufferGeometry args={[CART_WIDTH, CART_WIDTH, 0.02]} />
-                <meshStandardMaterial color="red" />
+                <meshStandardMaterial
+                  color={variant && variant.available ? "red" : "gray"}
+                />
               </mesh>
             </Interactable>
             {/* @ts-ignore */}

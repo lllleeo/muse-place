@@ -9,15 +9,18 @@ import Renderer from "./components/Renderer";
 import ValPerre from "./characters/ValPerre";
 import MusicVideo from "./components/MusicVideo";
 import { createContext } from "react";
-import { useCart } from "./utils/cart";
 import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
 import { ResizeObserver } from "@juggle/resize-observer";
+import { useShopifyShop } from "./utils/shopify";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
 const Silks = () => {
-  const cart = useCart();
+  const shop = useShopifyShop({
+    domain: "silks-by-vp.myshopify.com",
+    storefrontAccessToken: "0ee16eee5ad43db15eaf55d74aee5c98",
+  });
 
   return (
     <StandardEnvironment
@@ -29,7 +32,7 @@ const Silks = () => {
       }}
       canvasProps={{ noEvents: true, resize: { polyfill: ResizeObserver } }}
     >
-      <ShopContext.Provider value={{ cart }}>
+      <ShopContext.Provider value={shop}>
         <Cart />
         <Gallery />
         <MusicVideo />

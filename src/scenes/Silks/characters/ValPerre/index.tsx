@@ -32,8 +32,6 @@ const ValPerre = () => {
     }
   });
 
-  console.log(cart.count);
-
   return (
     <group ref={group} position={[-4.86, 0, -4.65]}>
       <Suspense fallback={null}>
@@ -41,8 +39,18 @@ const ValPerre = () => {
           <ValModel />
         </SpringFace>
       </Suspense>
-      {talk && cart.count > 0 && <Checkout position-x={0.5} />}
-      {talk && cart.count === 0 && <GoBuy position-x={0.5} />}
+      {
+        <Checkout
+          position-x={0.5}
+          scale-y={talk && cart.items.length > 0 ? 1 : 0}
+        />
+      }
+      {
+        <GoBuy
+          position-x={0.5}
+          scale-y={talk && cart.items.length === 0 ? 1 : 0}
+        />
+      }
     </group>
   );
 };
