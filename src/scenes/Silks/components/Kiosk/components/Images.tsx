@@ -23,7 +23,7 @@ const Images = (props: GroupProps) => {
             <Image
               key={image}
               src={image}
-              size={[0.1, 0.15]}
+              size={0.15}
               position-y={(i - 1) * SPACING}
             />
           </Floating>

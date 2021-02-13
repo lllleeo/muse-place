@@ -1,4 +1,4 @@
-import { Vector2, Vector3 } from "three";
+import { Vector3 } from "three";
 import { Interactable, Image, Video } from "spacesvr";
 
 type LinkProps = {
@@ -13,7 +13,7 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const { audio, link, size = [1, 1], position, rotY = 0, src } = props;
+  const { audio, link, position, rotY = 0, src } = props;
 
   const handleClick = () => {
     if (link) {
@@ -21,20 +21,15 @@ const Link = (props: LinkProps) => {
     }
   };
 
-  const imgSize: [number, number] = new Vector2(size[0], size[1])
-    .normalize()
-    .multiplyScalar(1.6)
-    .toArray() as [number, number];
-
   if (src.includes("mp4")) {
     return (
       <group position={position} rotation={[0, rotY, 0]}>
         {link ? (
           <Interactable onClick={handleClick}>
-            <Video src={src} size={imgSize} framed muted={!audio} />
+            <Video src={src} size={1.6} framed muted={!audio} />
           </Interactable>
         ) : (
-          <Video src={src} size={imgSize} framed muted={!audio} />
+          <Video src={src} size={1.6} framed muted={!audio} />
         )}
       </group>
     );
@@ -44,10 +39,10 @@ const Link = (props: LinkProps) => {
     <group position={position} rotation={[0, rotY, 0]}>
       {link ? (
         <Interactable onClick={handleClick}>
-          <Image src={src} size={imgSize} framed />
+          <Image src={src} size={1.6} framed />
         </Interactable>
       ) : (
-        <Image src={src} size={imgSize} framed />
+        <Image src={src} size={1.6} framed />
       )}
     </group>
   );

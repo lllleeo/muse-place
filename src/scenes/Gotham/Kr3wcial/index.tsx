@@ -25,13 +25,13 @@ const Kr3wcial = () => {
       >
         <Image
           src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/extra3.jpg"
-          size={[2, 2]}
+          size={2}
           position-x={-3}
           framed
         />
         <Image
           src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/extra4.JPG"
-          size={[2, 2]}
+          size={2}
           framed
         />
       </group>
@@ -42,7 +42,7 @@ const Kr3wcial = () => {
       >
         <Image
           src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kr3wcial/extra1.png"
-          size={[0.8 * 4, 0.8 * 4]}
+          size={3.2}
           framed
         />
       </group>

@@ -69,11 +69,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
         <group position-y={0.475} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">
             {img && (
-              <Image
-                src={img}
-                size={[0.45, 0.45]}
-                position-y={text ? -0.3 : -0.45}
-              />
+              <Image src={img} size={0.45} position-y={text ? -0.3 : -0.45} />
             )}
             {text && (
               <>

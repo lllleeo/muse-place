@@ -1398,24 +1398,7 @@
   resolved "https://registry.yarnpkg.com/@react-three/cannon/-/cannon-0.5.3.tgz#b1849bf240629b4293155b4e611bf4417b44281c"
   integrity sha512-/Ak6AcY4KfBMSnqOxQ2drQZVXDAAwfnUi2/PxPepz9tSAl6GC5o7H5WnDRJqXClRcw8n4Q+Dm9uSl8L5mvV96A==
 
-"@react-three/drei@^2.2.10":
-  version "2.2.19"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.19.tgz#98eb66b9cbb9954f695affe30ba3d861b8e2717b"
-  integrity sha512-x3ODdsg2fGyviJ0TdLO3ULnxthG6h+4K85LdmDXjAd9MOBWHziVHTUR24aAwTE0cfbNFhfkYvWl6MQjBj/tSfw==
-  dependencies:
-    "@babel/runtime" "^7.11.2"
-    "@react-spring/web" "^9.0.0-rc.3"
-    detect-gpu "^3.0.0"
-    glsl-noise "^0.0.0"
-    lodash.omit "^4.5.0"
-    lodash.pick "^4.4.0"
-    react-merge-refs "^1.0.0"
-    stats.js "^0.17.0"
-    troika-three-text "^0.34.2"
-    utility-types "^3.10.0"
-    zustand "^3.0.3"
-
-"@react-three/drei@^2.2.2":
+"@react-three/drei@^2.2.10", "@react-three/drei@^2.2.2":
   version "2.2.22"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.22.tgz#0ea91fe3f475436f9a3bb6ad5d11fd233aaabaee"
   integrity sha512-tJUMLkoR1BSO7oDYCROPKzmogm5HEpIztHednaroiZqsUmMdLJPZqV8DntdD0ZiGU6nyrEzfwY8PM+YcM4gpgA==
@@ -7461,13 +7444,14 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spacesvr@^1.2.30:
-  version "1.2.30"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.30.tgz#df003d1c469337353f13c1870ea1b979a853f5ac"
-  integrity sha512-iLMuBeJ+jA7gIJb2a/Ouc248KyzRynHq3ov+wfofXOUU8PmvubNJPvNkm8obrYvMZyjJW/CCPgBAacu714NzJA==
+spacesvr@^1.2.31:
+  version "1.2.32"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.32.tgz#58ad653cb5b81596b4e69d6f36d63e9c438f8516"
+  integrity sha512-wr7+g00L8892hmZKtn7OHbtSSUdQgctUb3AFoWrQtTxOPNHeq87MkxlROHwD0R/W3pS8ztsusLO7u3/hPxoGQQ==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
+    "@juggle/resize-observer" "^3.2.0"
     "@react-three/cannon" "^0.5.3"
     "@react-three/drei" "^2.2.10"
     "@react-three/xr" "^1.1.0"

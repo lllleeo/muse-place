@@ -62,8 +62,7 @@ const Pachman77 = () => {
             <Interactable onClick={toggleSwitch}>
               <Image
                 src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/profile.jpg"
-                size={[0.15, 0.15]}
-                doubleSided
+                size={0.15}
               />
             </Interactable>
           </Floating>

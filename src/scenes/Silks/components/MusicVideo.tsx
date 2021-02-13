@@ -7,7 +7,7 @@ const MusicVideo = () => {
   return (
     <Video
       src={VIDEO_URL}
-      size={[VIDEO_SCALE, (402 / 720) * VIDEO_SCALE]}
+      size={VIDEO_SCALE}
       position={[-10.65, 1.075, -2.15]}
       rotation-y={Math.PI / 2}
     />

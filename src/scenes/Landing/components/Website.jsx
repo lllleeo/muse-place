@@ -1,9 +1,7 @@
-import React, { useRef, Suspense } from "react";
+import React, { Suspense } from "react";
 import { Image } from "spacesvr";
 
 const Website = (props) => {
-  const mesh = useRef();
-
   return (
     <Suspense fallback>
       <mesh onClick={(e) => window.open(props.url, "_blank")}>
@@ -13,7 +11,7 @@ const Website = (props) => {
             props.image
           }
           framed={true}
-          size={[5, 5]}
+          size={5}
         />
       </mesh>
     </Suspense>

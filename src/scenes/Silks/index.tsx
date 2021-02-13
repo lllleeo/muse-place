@@ -11,7 +11,6 @@ import MusicVideo from "./components/MusicVideo";
 import { createContext } from "react";
 import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
-import { ResizeObserver } from "@juggle/resize-observer";
 import { useShopifyShop } from "./utils/shopify";
 import Michael from "./characters/Michael";
 
@@ -31,7 +30,6 @@ const Silks = () => {
         speed: 1.3,
         controls: { disableGyro: true },
       }}
-      canvasProps={{ noEvents: true, resize: { polyfill: ResizeObserver } }}
     >
       <ShopContext.Provider value={shop}>
         <Cart />
@@ -43,7 +41,7 @@ const Silks = () => {
         <Michael />
         <Kiosks />
         <Renderer />
-        {/*<Perf />*/}
+        <Perf />
       </ShopContext.Provider>
     </StandardEnvironment>
   );
