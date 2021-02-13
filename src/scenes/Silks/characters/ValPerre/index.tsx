@@ -25,7 +25,7 @@ const ValPerre = () => {
       setTalk(false);
     }
 
-    if (dist < 5.25) {
+    if (dist < 5) {
       if (!look) setLook(true);
     } else if (look) {
       setLook(false);
@@ -33,7 +33,7 @@ const ValPerre = () => {
   });
 
   return (
-    <group ref={group} position={[-4.86, 0, -4.65]}>
+    <group ref={group} position={[-4.86, 0, -4.65]} name="val">
       <Suspense fallback={null}>
         <SpringFace face={look}>
           <ValModel />

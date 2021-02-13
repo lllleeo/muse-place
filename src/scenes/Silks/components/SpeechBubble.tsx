@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
 } & GroupProps;
 
-const MAX_WIDTH = 2;
+const MAX_WIDTH = 1;
 
 const FONT_SIZE = 0.08;
 const PADDING_X = 0.1;
@@ -52,10 +52,6 @@ const SpeechBubble = (props: Props) => {
           {str}
         </Text>
       </group>
-      {/*<mesh position-z={-0.02} position-x={width / 2 - PADDING_X}>*/}
-      {/*  <boxBufferGeometry args={[width, height, 0.02]} />*/}
-      {/*  <meshStandardMaterial color="black" />*/}
-      {/*</mesh>*/}
     </group>
   );
 };

@@ -13,6 +13,7 @@ import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { useShopifyShop } from "./utils/shopify";
+import Michael from "./characters/Michael";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
@@ -39,9 +40,7 @@ const Silks = () => {
         <Lighting />
         <SilksModel />
         <ValPerre />
-        {/*<Suspense fallback={null}>*/}
-        {/*  <MichaelModel />*/}
-        {/*</Suspense>*/}
+        <Michael />
         <Kiosks />
         <Renderer />
         {/*<Perf />*/}

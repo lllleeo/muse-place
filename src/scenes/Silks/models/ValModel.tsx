@@ -58,6 +58,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     }
   }, [actions]);
 
+  materials["michaael"].metalness = 0.66;
+
   return (
     <group {...props} dispose={null} name="val">
       <group scale={[0.0012, 0.0012, 0.0012]}>

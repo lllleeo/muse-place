@@ -21,7 +21,7 @@ const Kiosks = () => {
       <Kiosk
         position-x={1}
         productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ4MTQzMTA3Njg3MDI="
-        name="pink-green-durag"
+        name="pink-white-durag"
       >
         <Suspense fallback={null}>
           <Spinning>
