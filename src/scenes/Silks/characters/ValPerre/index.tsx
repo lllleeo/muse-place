@@ -39,18 +39,8 @@ const ValPerre = () => {
           <ValModel />
         </SpringFace>
       </Suspense>
-      {
-        <Checkout
-          position-x={0.5}
-          scale-y={talk && cart.items.length > 0 ? 1 : 0}
-        />
-      }
-      {
-        <GoBuy
-          position-x={0.5}
-          scale-y={talk && cart.items.length === 0 ? 1 : 0}
-        />
-      }
+      {talk && cart.items.length > 0 && <Checkout position={[0.25, 0, 0.5]} />}
+      {talk && cart.items.length === 0 && <GoBuy position={[0.25, 0, 0.5]} />}
     </group>
   );
 };

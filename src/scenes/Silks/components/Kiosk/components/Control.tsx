@@ -72,7 +72,7 @@ const Control = (props: Props) => {
             maxWidth={TEXT_WIDTH}
           >
             {variant
-              ? `$${variant.price}${variant.available ? "" : " - SOLD OUT"}`
+              ? `$${variant.price}${variant.available ? "" : " - OUT OF STOCK"}`
               : "..."}
           </Text>
           <group
