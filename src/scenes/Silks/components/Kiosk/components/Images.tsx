@@ -19,13 +19,8 @@ const Images = (props: GroupProps) => {
     <group {...props}>
       <FacePlayer>
         {images.map((image, i) => (
-          <Floating height={SPACING * 0.05} speed={0.5}>
-            <Image
-              key={image}
-              src={image}
-              size={0.15}
-              position-y={(i - 1) * SPACING}
-            />
+          <Floating height={SPACING * 0.05} speed={0.5} key={image}>
+            <Image src={image} size={0.15} position-y={(i - 1) * SPACING} />
           </Floating>
         ))}
       </FacePlayer>

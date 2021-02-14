@@ -27,7 +27,7 @@ type KioskContext = {
   open: boolean;
 };
 
-const DEPTH = 0.5;
+const DEPTH = 0.75;
 const WIDTH = 0.6;
 
 export const KioskContext = createContext<KioskContext>({} as KioskContext);
@@ -48,7 +48,7 @@ const Kiosk = (props: Props) => {
   }));
 
   useFrame(({ camera }) => {
-    if (group.current && camera.position.distanceTo(pos) < 1) {
+    if (group.current && camera.position.distanceTo(pos) < 1.5) {
       setOpen(true);
     } else if (open) {
       setOpen(false);
@@ -67,17 +67,17 @@ const Kiosk = (props: Props) => {
   return (
     <group name="kiosk" {...props} ref={group}>
       <KioskContext.Provider value={{ productId, product, open }}>
-        <mesh>
-          <boxBufferGeometry args={[WIDTH, 0.05, DEPTH]} />
-          <meshStandardMaterial color="black" />
+        <mesh position-y={-3 / 2 + 0.025}>
+          <boxBufferGeometry args={[WIDTH, 3, DEPTH]} />
+          <meshStandardMaterial color="white" />
         </mesh>
         <group position-y={0.4}>
           <Floating height={0.05} speed={2}>
             {children}
           </Floating>
         </group>
-        <Control width={WIDTH} position-z={DEPTH / 2} />
-        <Images position={[-WIDTH / 2 - 0.15, 0.25, DEPTH / 4]} />
+        <Control width={WIDTH} position-z={DEPTH / 2 - 0.15} />
+        <Images position={[-WIDTH / 2 - 0.05, 0.5, DEPTH / 4]} />
         <Description position={[WIDTH / 2 + 0.15, 0.25, DEPTH / 4]} />
       </KioskContext.Provider>
     </group>
