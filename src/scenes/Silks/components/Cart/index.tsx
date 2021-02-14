@@ -1,10 +1,10 @@
-import Spinning from "../modifiers/Spinning";
+import Spinning from "../../modifiers/Spinning";
 import { Suspense, useContext, useEffect } from "react";
-import ShoppingCart from "../models/ShoppingCart";
-import { Tool } from "../modifiers/Tool";
-import FacePlayer from "../modifiers/FacePlayer";
+import ShoppingCart from "../../models/ShoppingCart";
+import { Tool } from "../../modifiers/Tool";
+import FacePlayer from "../../modifiers/FacePlayer";
 import { isMobile } from "react-device-detect";
-import { ShopContext } from "../index";
+import { ShopContext } from "../../index";
 import { Interactable } from "spacesvr";
 import Control from "./components/Control";
 

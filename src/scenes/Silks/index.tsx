@@ -2,7 +2,7 @@ import { StandardEnvironment } from "spacesvr";
 import SilksModel from "./models/SilksModel";
 import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
-import Cart from "./Cart";
+import Cart from "./components/Cart";
 import { Perf } from "r3f-perf";
 import Kiosks from "./components/Kiosks";
 import Renderer from "./components/Renderer";
@@ -13,6 +13,7 @@ import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
 import { useShopifyShop } from "./utils/shopify";
 import Michael from "./characters/Michael";
+import MobileOnboarding from "./overlays/MobileOnboarding";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
@@ -41,6 +42,7 @@ const Silks = () => {
         <Michael />
         <Kiosks />
         <Renderer />
+        <MobileOnboarding />
         {/*<Perf />*/}
       </ShopContext.Provider>
     </StandardEnvironment>

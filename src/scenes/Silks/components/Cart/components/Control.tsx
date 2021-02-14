@@ -1,7 +1,7 @@
 import { Text } from "@react-three/drei";
 import { isMobile } from "react-device-detect";
 import { useContext } from "react";
-import { ShopContext } from "../../index";
+import { ShopContext } from "../../../index";
 
 const Control = () => {
   const { cart } = useContext(ShopContext);
