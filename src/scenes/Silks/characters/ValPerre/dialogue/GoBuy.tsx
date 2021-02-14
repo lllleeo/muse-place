@@ -4,7 +4,9 @@ import SpeechBubble from "../../../components/SpeechBubble";
 const GoBuy = (props: GroupProps) => {
   return (
     <group {...props}>
-      <SpeechBubble position-y={1}>Go buy some shit bro</SpeechBubble>
+      <SpeechBubble position-y={1}>
+        {"Go buy some shit bro\nDurags are on the wall"}
+      </SpeechBubble>
     </group>
   );
 };

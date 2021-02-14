@@ -12,6 +12,8 @@ export type Cart = {
   items: Item[];
   add: (id: string) => void;
   remove: (id: string) => void;
+  count: number;
+  clear: () => void;
   url?: string;
 };
 

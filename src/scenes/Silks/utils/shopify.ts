@@ -59,9 +59,21 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       client.checkout
         .removeLineItems(checkoutId, id)
         .then((newCheckout: any) => {
-          localStorage.setItem("id", newCheckout.id);
+          localStorage.setItem("muse-cart-id", newCheckout.id);
           setCheckout(newCheckout);
         });
+    },
+    count: checkout?.lineItems
+      ? checkout.lineItems.reduce(
+          (acc: number, cur: any) => acc + cur.quantity,
+          0
+        )
+      : 0,
+    clear: () => {
+      client.checkout.create().then((shopifyCheckout: any) => {
+        setCheckout(shopifyCheckout);
+        localStorage.setItem("muse-cart-id", shopifyCheckout.id);
+      });
     },
   };
 

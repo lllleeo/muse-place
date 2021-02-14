@@ -1,36 +1,45 @@
 import Spinning from "../modifiers/Spinning";
-import { Suspense, useContext, useState } from "react";
+import { Suspense, useContext, useEffect } from "react";
 import ShoppingCart from "../models/ShoppingCart";
 import { Tool } from "../modifiers/Tool";
 import FacePlayer from "../modifiers/FacePlayer";
-import { Text } from "@react-three/drei";
 import { isMobile } from "react-device-detect";
 import { ShopContext } from "../index";
+import { Interactable } from "spacesvr";
+import Control from "./components/Control";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
 
-  const posY = isMobile ? 0.65 : -0.75;
-  const posX = isMobile ? -0.85 : 0.85;
-  const scale = isMobile ? 0.6 : 0.8;
+  const posY = isMobile ? 0.7 : -0.75;
+  const posX = isMobile ? -0.75 : 0.8;
+  const cartScale = isMobile ? 0.45 : 0.75;
+
+  const onKeyPress = (e: KeyboardEvent) => {
+    if (e.key.toLowerCase() === "c") {
+      cart.clear();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keypress", onKeyPress);
+    return () => {
+      window.removeEventListener("keypress", onKeyPress);
+    };
+  }, [open]);
 
   return (
-    <Tool pos={[posX, posY]} face={false}>
-      <group position={[0, 4, 0]}>
+    <Tool pos={[posX, posY]} face={false} pinY={isMobile}>
+      <Interactable onClick={isMobile ? () => cart.clear() : undefined}>
         <FacePlayer>
-          <mesh position-z={-0.2}>
-            <circleBufferGeometry args={[1.25, 30]} />
-            <meshStandardMaterial color="red" transparent opacity={0.8} />
-          </mesh>
-          {/* @ts-ignore */}
-          <Text fontSize={1}>{cart.items.length.toString()}</Text>
+          <Control />
         </FacePlayer>
-      </group>
-      <Spinning>
-        <Suspense fallback={null}>
-          <ShoppingCart scale={[scale, scale, scale]} />
-        </Suspense>
-      </Spinning>
+        <Spinning>
+          <Suspense fallback={null}>
+            <ShoppingCart scale={[cartScale, cartScale, cartScale]} />
+          </Suspense>
+        </Spinning>
+      </Interactable>
     </Tool>
   );
 };

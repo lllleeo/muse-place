@@ -22,11 +22,11 @@ const Checkout = (props: GroupProps) => {
             >
               <mesh position-z={0.05 / -2}>
                 <boxBufferGeometry args={[0.5, 0.125, 0.05]} />
-                <meshStandardMaterial color="white" />
+                <meshStandardMaterial color="red" transparent opacity={0.7} />
               </mesh>
             </Interactable>
             {/* @ts-ignore */}
-            <Text color="black" fontSize={0.05} position-z={0.01}>
+            <Text color="white" fontSize={0.05} position-z={0.01}>
               Go To Checkout
             </Text>
           </FacePlayer>

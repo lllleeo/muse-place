@@ -14,7 +14,7 @@ const ValPerre = () => {
 
   const [talk, setTalk] = useState(false);
   const [look, setLook] = useState(false);
-  const limiter = useLimiter(50);
+  const limiter = useLimiter(30);
 
   useFrame(({ clock, camera }) => {
     if (!group.current || !limiter.isReady(clock)) return;
@@ -41,8 +41,8 @@ const ValPerre = () => {
           <ValModel />
         </SpringFace>
       </Suspense>
-      {talk && cart.items.length > 0 && <Checkout position={[0.25, 0, 0.5]} />}
-      {talk && cart.items.length === 0 && <GoBuy position={[0.25, 0, 0.5]} />}
+      {talk && cart.count > 0 && <Checkout position={[0.25, 0, 0.5]} />}
+      {talk && cart.count === 0 && <GoBuy position={[0.25, 0, 0.5]} />}
     </group>
   );
 };

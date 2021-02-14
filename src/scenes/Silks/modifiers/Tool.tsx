@@ -10,6 +10,7 @@ type Props = {
   pos?: [number, number];
   face?: boolean;
   distance?: number;
+  pinY?: boolean;
 };
 
 const SCALE = 0.0025;
@@ -25,9 +26,15 @@ const DISTANCE = 0.05;
  * @constructor
  */
 export const Tool = (props: Props) => {
-  const { children, pos, face = true, distance = DISTANCE } = props;
+  const {
+    children,
+    pos,
+    face = true,
+    pinY = false,
+    distance = DISTANCE,
+  } = props;
 
-  const { camera, size, gl } = useThree();
+  const { camera, size } = useThree();
 
   const group = useRef<Group>();
   const parent = useRef<Group>();
@@ -47,10 +54,13 @@ export const Tool = (props: Props) => {
 
     if (pos !== undefined) {
       const xPos = (pos[0] * 0.00008 * size.width) / 2;
-      dummyVector.set(xPos, 0.04 * pos[1], -distance);
+      const yPos = 0.04 * pos[1];
+      dummyVector.set(xPos, yPos, -distance);
       const moveQuaternion = camera.quaternion.clone();
-      moveQuaternion.x = 0;
-      moveQuaternion.z = 0;
+      if (!pinY) {
+        moveQuaternion.x = 0;
+        moveQuaternion.z = 0;
+      }
       dummyVector.applyQuaternion(moveQuaternion);
 
       setSpring({ xyz: dummyVector.toArray() });
@@ -62,7 +72,7 @@ export const Tool = (props: Props) => {
 
     const [x, y, z] = getSpringValues(spring);
     group.current.position.set(x, y, z);
-  });
+  }, 1);
 
   useFrame(() => {
     if (parent.current) {
