@@ -14,6 +14,7 @@ import { ShopState } from "./types/shop";
 import { useShopifyShop } from "./utils/shopify";
 import Michael from "./characters/Michael";
 import MobileOnboarding from "./overlays/MobileOnboarding";
+import Guide from "./components/Guide";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
@@ -43,6 +44,7 @@ const Silks = () => {
         <Kiosks />
         <Renderer />
         <MobileOnboarding />
+        <Guide />
         {/*<Perf />*/}
       </ShopContext.Provider>
     </StandardEnvironment>
