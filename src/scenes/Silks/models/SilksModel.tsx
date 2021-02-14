@@ -63,12 +63,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   fixMat(materials["Mat.17"]);
   fixMat(materials["lights"]);
 
-  // useTrimeshCollision(
-  //   (nodes.collider.geometry as BufferGeometry)
-  //     .clone()
-  //     .scale(10, 10, 10)
-  //     .translate(-4.39, 0, -2.47)
-  // );
+  useTrimeshCollision(
+    (nodes.collider.geometry as BufferGeometry)
+      .clone()
+      .scale(10, 10, 10)
+      .translate(-4.39, 0, -2.47)
+  );
 
   return (
     <group ref={group} {...props} dispose={null}>
