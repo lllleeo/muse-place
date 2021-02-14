@@ -41,7 +41,7 @@ const Silks = () => {
         <Michael />
         <Kiosks />
         <Renderer />
-        <Perf />
+        {/*<Perf />*/}
       </ShopContext.Provider>
     </StandardEnvironment>
   );

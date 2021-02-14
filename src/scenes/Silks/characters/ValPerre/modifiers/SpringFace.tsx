@@ -3,6 +3,7 @@ import { Group } from "three";
 import { useFrame } from "react-three-fiber";
 import { config, useSpring } from "react-spring";
 import { getSpringValues } from "../../../utils/spring";
+import { useLimiter } from "../../../utils/limiter";
 
 type Props = {
   children: ReactNode;
@@ -19,7 +20,11 @@ const SpringFace = (props: Props) => {
     config: config.slow,
   }));
 
-  useFrame(({ camera }) => {
+  const limiter = useLimiter(40);
+
+  useFrame(({ clock, camera }) => {
+    if (!limiter.isReady(clock)) return;
+
     if (group.current) {
       if (!face) {
         setSpring({ y: [0] });

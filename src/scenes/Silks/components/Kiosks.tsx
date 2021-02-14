@@ -8,7 +8,7 @@ const Kiosks = () => {
   return (
     <group name="kiosks" position={[0, 0.6, -5.32]}>
       <Kiosk
-        position-x={-1}
+        position-x={-0.5}
         productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ4MTQzMTA0NDEwMjI="
         name="pink-green-durag"
       >
@@ -19,7 +19,7 @@ const Kiosks = () => {
         </Suspense>
       </Kiosk>
       <Kiosk
-        position-x={1}
+        position-x={2.5}
         productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ4MTQzMTA3Njg3MDI="
         name="pink-white-durag"
       >
@@ -28,12 +28,6 @@ const Kiosks = () => {
             <PinkWhiteDurag />
           </Spinning>
         </Suspense>
-      </Kiosk>
-      <Kiosk position-x={3}>
-        <mesh>
-          <sphereBufferGeometry args={[0.2, 0.05]} />
-          <meshStandardMaterial color="purple" />
-        </mesh>
       </Kiosk>
     </group>
   );

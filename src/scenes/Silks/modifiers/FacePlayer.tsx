@@ -1,6 +1,7 @@
 import { ReactNode, useRef } from "react";
 import { Group } from "three";
 import { useFrame } from "react-three-fiber";
+import { useLimiter } from "../utils/limiter";
 
 type Props = {
   children: ReactNode;
@@ -13,8 +14,11 @@ const FacePlayer = (props: Props) => {
   const { children, lockX = false, lockY = false, lockZ = false } = props;
 
   const group = useRef<Group>();
+  const limiter = useLimiter(80);
 
-  useFrame(({ camera }) => {
+  useFrame(({ clock, camera }) => {
+    if (!limiter.isReady(clock)) return;
+
     if (group.current) {
       const prev = {
         x: group.current.rotation.x,

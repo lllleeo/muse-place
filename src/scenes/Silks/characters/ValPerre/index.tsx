@@ -6,6 +6,7 @@ import Checkout from "./dialogue/Checkout";
 import { ShopContext } from "../../index";
 import SpringFace from "./modifiers/SpringFace";
 import GoBuy from "./dialogue/GoBuy";
+import { useLimiter } from "../../utils/limiter";
 
 const ValPerre = () => {
   const { cart } = useContext(ShopContext);
@@ -13,9 +14,10 @@ const ValPerre = () => {
 
   const [talk, setTalk] = useState(false);
   const [look, setLook] = useState(false);
+  const limiter = useLimiter(50);
 
-  useFrame(({ camera }) => {
-    if (!group.current) return;
+  useFrame(({ clock, camera }) => {
+    if (!group.current || !limiter.isReady(clock)) return;
 
     const dist = camera.position.distanceTo(group.current.position);
 

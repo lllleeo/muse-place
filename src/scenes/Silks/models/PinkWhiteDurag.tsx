@@ -11,40 +11,27 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    fabric: THREE.Mesh;
-    stitches: THREE.Mesh;
+    Durag1obj3: THREE.Mesh;
   };
   materials: {
-    Fabric: THREE.MeshStandardMaterial;
-    Noeud: THREE.MeshStandardMaterial;
+    ["Durag1.obj.1"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/PinkWhiteDurag-1613163610/pinkwhitedurag4.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/PinkWhiteDurag-1613279207/pinkwhitedurag5.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
-
-  materials.Fabric.metalness = 0.52;
-  materials.Noeud.metalness = 0.25;
-
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={[0.225, 0.225, 0.225]}>
-        <group name="pinkwhite_durag">
-          <mesh
-            name="fabric"
-            material={materials.Fabric}
-            geometry={nodes.fabric.geometry}
-          />
-          <mesh
-            name="stitches"
-            material={materials.Noeud}
-            geometry={nodes.stitches.geometry}
-          />
-        </group>
+      <group name="Scene" scale={[0.27, 0.27, 0.27]}>
+        <mesh
+          name="Durag1obj3"
+          material={materials["Durag1.obj.1"]}
+          geometry={nodes.Durag1obj3.geometry}
+        />
       </group>
     </group>
   );
