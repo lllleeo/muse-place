@@ -43,12 +43,14 @@ const Gotham = (props: GothamProps) => {
         )}
       </Suspense>
       <group position={[-5.8, 1.5, 5]} rotation={[0, Math.PI / 2, 0]}>
+        {/* @ts-ignore */}
         <Text fontSize={0.8} color={"white"} position={[0, 0, 0.315]}>
           {(name || "").toUpperCase()}
         </Text>
         <SocialLinks position={[0, -0.85, 0.31]} socials={socials} />
       </group>
       <group position={[2.49, 0.165, 3.2]} rotation={[0, -Math.PI / 2, 0]}>
+        {/* @ts-ignore */}
         <Text anchorY="middle" fontSize={0.15} material={material}>
           MADE BY MUSE{"      "}|
         </Text>
@@ -58,6 +60,7 @@ const Gotham = (props: GothamProps) => {
           }
         >
           <group position-x={1.8}>
+            {/* @ts-ignore */}
             <Text anchorY="middle" fontSize={0.15} material={material}>
               Want Your Own? Click Here
             </Text>

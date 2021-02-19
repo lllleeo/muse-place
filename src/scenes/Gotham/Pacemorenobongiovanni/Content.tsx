@@ -38,14 +38,14 @@ const Content = (props: ContentProps) => {
           {drugTaken && (
             <Video
               src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/pach-rap.mp4"
-              size={[8, 3]}
+              size={1.6}
             />
           )}
         </group>
         <group position={[-1.51, 1.25, -3.5]}>
           <Video
             src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/reel-shorter.mp4"
-            size={[8, 3]}
+            size={1.6}
             muted
           />
         </group>

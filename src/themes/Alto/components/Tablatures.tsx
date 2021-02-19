@@ -35,9 +35,11 @@ const Tablatures = (props: Props) => {
         name="tablature-left"
       >
         <group position-y={-0.05}>
+          {/* @ts-ignore */}
           <Text {...textStyles} textAlign="justify">
             {title}
           </Text>
+          {/* @ts-ignore */}
           <Text
             {...textStyles}
             fontSize={0.113 * fontSize}
@@ -48,6 +50,7 @@ const Tablatures = (props: Props) => {
           </Text>
         </group>
         <group position-y={-1.5}>
+          {/* @ts-ignore */}
           <Text {...textStyles} fontSize={0.125 * fontSize} textAlign="center">
             {`Follow ${name}`}
           </Text>
@@ -56,7 +59,6 @@ const Tablatures = (props: Props) => {
           </group>
         </group>
       </group>
-
       <group
         position={[1.93, 2.2, 29.26]}
         rotation={[0, -Math.PI / 6, 0]}
@@ -71,6 +73,7 @@ const Tablatures = (props: Props) => {
               scale={[0.8, 0.8, 0.8]}
             />
           </Floating>
+          {/* @ts-ignore */}
           <Text
             {...textStyles}
             fontSize={0.25 * fontSize}
@@ -79,6 +82,7 @@ const Tablatures = (props: Props) => {
           >
             {scrolls.toString()} / {scrollData.length.toString()}
           </Text>
+          {/* @ts-ignore */}
           <Text
             {...textStyles}
             fontSize={0.15 * fontSize}
@@ -89,6 +93,7 @@ const Tablatures = (props: Props) => {
           </Text>
         </group>
         <group name="muse-credits" position-y={0.1} position-x={0.05}>
+          {/* @ts-ignore */}
           <Text
             {...textStyles}
             position={[-0.22, -1.65, 0]}
@@ -98,6 +103,7 @@ const Tablatures = (props: Props) => {
           >
             Created By Muse
           </Text>
+          {/* @ts-ignore */}
           <Text
             {...textStyles}
             position={[-0.22, -1.8, 0]}

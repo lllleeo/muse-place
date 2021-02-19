@@ -50,13 +50,13 @@ const KiraX23 = () => {
       >
         <Image
           src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/QRCODE1.png"
-          size={[1.5, 1.5]}
+          size={1.5}
           position-x={-3}
           framed
         />
         <Image
           src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/QRCODE2.png"
-          size={[1.5, 1.5]}
+          size={1.5}
           position-x={15}
           framed
         />

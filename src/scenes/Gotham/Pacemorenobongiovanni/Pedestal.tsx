@@ -26,6 +26,7 @@ const Pedestal = (props: PedestalProps) => {
       {!drugTaken && (
         <>
           <group rotation-y={Math.PI} position-z={0.1}>
+            {/* @ts-ignore */}
             <Text
               position={[0, 0.601, 0]}
               rotation={[-Math.PI / 2, 0, Math.PI]}
@@ -35,6 +36,7 @@ const Pedestal = (props: PedestalProps) => {
               TAKE ME
             </Text>
           </group>
+          {/* @ts-ignore */}
           <Text
             position={[0, 0.601, -0.1]}
             rotation={[-Math.PI / 2, 0, -Math.PI]}
@@ -48,6 +50,7 @@ const Pedestal = (props: PedestalProps) => {
       {drugTaken && (
         <>
           <group rotation-y={Math.PI} position-z={0.1}>
+            {/* @ts-ignore */}
             <Text
               position={[0, 0.601, 0]}
               rotation={[-Math.PI / 2, 0, Math.PI]}
@@ -57,6 +60,7 @@ const Pedestal = (props: PedestalProps) => {
               OK
             </Text>
           </group>
+          {/* @ts-ignore */}
           <Text
             position={[0, 0.601, -0.1]}
             rotation={[-Math.PI / 2, 0, -Math.PI]}

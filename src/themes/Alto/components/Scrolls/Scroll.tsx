@@ -69,23 +69,22 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
         <group position-y={0.475} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">
             {img && (
-              <Image
-                src={img}
-                size={[0.45, 0.45]}
-                position-y={text ? -0.3 : -0.45}
-              />
+              <Image src={img} size={0.45} position-y={text ? -0.3 : -0.45} />
             )}
             {text && (
-              <Text
-                color={textColor}
-                maxWidth={0.45}
-                fontSize={textSize ? textSize / 100 : img ? 0.03 : 0.04}
-                anchorY="top"
-                position-x={0.005}
-                position-y={textY || img ? -0.55 : -0.05}
-              >
-                {text}
-              </Text>
+              <>
+                {/* @ts-ignore */}
+                <Text
+                  color={textColor}
+                  maxWidth={0.45}
+                  fontSize={textSize ? textSize / 100 : img ? 0.03 : 0.04}
+                  anchorY="top"
+                  position-x={0.005}
+                  position-y={textY || img ? -0.55 : -0.05}
+                >
+                  {text}
+                </Text>
+              </>
             )}
           </animated.group>
           <Suspense fallback={null}>
