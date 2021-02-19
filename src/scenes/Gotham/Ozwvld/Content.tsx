@@ -38,7 +38,7 @@ const Content = (props: ContentProps) => {
           {drugTaken && (
             <Video
               src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/ozwvld/movie.mp4"
-              size={[8, 3]}
+              size={2.6}
             />
           )}
         </group>
