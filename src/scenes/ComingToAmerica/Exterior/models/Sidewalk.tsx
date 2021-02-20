@@ -11,15 +11,44 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
+    building: THREE.Mesh;
+    lattice: THREE.Mesh;
+    windows: THREE.Mesh;
+    glass: THREE.Mesh;
+    ac: THREE.Mesh;
+    fence: THREE.Mesh;
+    bin: THREE.Mesh;
+    barbershop: THREE.Mesh;
+    barberpole: THREE.Mesh;
+    barbershopsign: THREE.Mesh;
+    billboard: THREE.Mesh;
+    overhang: THREE.Mesh;
+    address: THREE.Mesh;
+    open: THREE.Mesh;
     sidewalk: THREE.Mesh;
+    street: THREE.Mesh;
   };
   materials: {
+    ["lattice.mat"]: THREE.MeshStandardMaterial;
+    ["windows.mat"]: THREE.MeshStandardMaterial;
+    ["glass.mat"]: THREE.MeshStandardMaterial;
+    ["ac.mat"]: THREE.MeshStandardMaterial;
+    ["fence.1"]: THREE.MeshStandardMaterial;
+    ["trash.mat"]: THREE.MeshStandardMaterial;
+    ["barbershop.mat"]: THREE.MeshStandardMaterial;
+    ["barberpole.mat"]: THREE.MeshStandardMaterial;
+    ["barbershopsign.mat"]: THREE.MeshStandardMaterial;
+    ["billboard.mat"]: THREE.MeshStandardMaterial;
+    ["overhang.mat"]: THREE.MeshStandardMaterial;
+    ["address.mat"]: THREE.MeshStandardMaterial;
+    ["open.mat"]: THREE.MeshStandardMaterial;
     ["sidewalk.mat"]: THREE.MeshStandardMaterial;
+    ["street.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ASidewalk-1613786884/sidewalk.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ASidewalk-1613814172/sidewalk_01.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -27,13 +56,94 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.35, 0.35, 0.35]}>
-        <group position={[-2.14, 0, -17.76]}>
-          <mesh
-            name="sidewalk"
-            material={materials["sidewalk.mat"]}
-            geometry={nodes.sidewalk.geometry}
-          />
-        </group>
+        <mesh
+          name="building"
+          material={nodes.building.material}
+          geometry={nodes.building.geometry}
+        />
+        <mesh
+          name="lattice"
+          material={materials["lattice.mat"]}
+          geometry={nodes.lattice.geometry}
+          scale={[0.8432, -0.8432, 0.8432]}
+        />
+        <mesh
+          name="windows"
+          material={materials["windows.mat"]}
+          geometry={nodes.windows.geometry}
+          scale={[0.8432, -0.8432, 0.8432]}
+        />
+        <mesh
+          name="glass"
+          material={materials["glass.mat"]}
+          geometry={nodes.glass.geometry}
+          scale={[0.8432, -0.8432, 0.8432]}
+        />
+        <mesh
+          name="ac"
+          material={materials["ac.mat"]}
+          geometry={nodes.ac.geometry}
+        />
+        <mesh
+          name="fence"
+          material={materials["fence.1"]}
+          geometry={nodes.fence.geometry}
+        />
+        <mesh
+          name="bin"
+          material={materials["trash.mat"]}
+          geometry={nodes.bin.geometry}
+        />
+        <mesh
+          name="barbershop"
+          material={materials["barbershop.mat"]}
+          geometry={nodes.barbershop.geometry}
+        />
+        <mesh
+          name="barberpole"
+          material={materials["barberpole.mat"]}
+          geometry={nodes.barberpole.geometry}
+        />
+        <mesh
+          name="barbershopsign"
+          material={materials["barbershopsign.mat"]}
+          geometry={nodes.barbershopsign.geometry}
+          rotation={[0, 0, 0]}
+          scale={[1.166, 1.166, 1.166]}
+        />
+        <mesh
+          name="billboard"
+          material={materials["billboard.mat"]}
+          geometry={nodes.billboard.geometry}
+        />
+        <mesh
+          name="overhang"
+          material={materials["overhang.mat"]}
+          geometry={nodes.overhang.geometry}
+        />
+        <mesh
+          name="address"
+          material={materials["address.mat"]}
+          geometry={nodes.address.geometry}
+          scale={[1.4571, 1.0129, 1.0125]}
+        />
+        <mesh
+          name="open"
+          material={materials["open.mat"]}
+          geometry={nodes.open.geometry}
+          scale={[0.9187, 0.6387, 0.6384]}
+        />
+        <mesh
+          name="sidewalk"
+          material={materials["sidewalk.mat"]}
+          geometry={nodes.sidewalk.geometry}
+        />
+        <mesh
+          name="street"
+          material={materials["street.mat"]}
+          geometry={nodes.street.geometry}
+          scale={[2.0335, 2.0335, 2.0335]}
+        />
       </group>
     </group>
   );
