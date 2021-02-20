@@ -11,8 +11,7 @@ const Barbershop = () => {
       <Suspense fallback={null}>
         <C2ABarbershop />
       </Suspense>
-      <pointLight position={[10, 30, 10]} intensity={0.6} />
-      <pointLight position={[-10, 30, -10]} intensity={0.6} />
+      <pointLight position={[0, 8, 0]} intensity={0.3} />
       <ambientLight />
     </StandardEnvironment>
   );
