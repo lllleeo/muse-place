@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+const desktop = "1900px";
+const laptop = "1050px";
+const tablet = "770px";
+const phone = "500px";
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
 const Container = styled.div`
@@ -37,6 +41,9 @@ const Barbers = styled.img`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  @media screen and (max-width: ${tablet}) {
+    max-width: 400px;
+  }
 `;
 
 const Background = () => {
