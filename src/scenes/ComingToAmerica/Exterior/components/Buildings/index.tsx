@@ -3,7 +3,7 @@ import { INSTANCE_DATA } from "./instance";
 import { useGLTF } from "@react-three/drei";
 import { DRACO_URL } from "spacesvr";
 import { InstancedMesh, Mesh } from "three";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 const Buildings = (props: GroupProps) => {
   const mesh = useRef<InstancedMesh>();
@@ -12,7 +12,7 @@ const Buildings = (props: GroupProps) => {
     DRACO_URL
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!mesh.current) return;
 
     for (let i = 0; i < INSTANCE_DATA.length; i++) {
