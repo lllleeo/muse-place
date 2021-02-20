@@ -8,7 +8,7 @@ import { useLayoutEffect, useRef } from "react";
 const Buildings = (props: GroupProps) => {
   const mesh = useRef<InstancedMesh>();
   const gltf = useGLTF(
-    "https://d27rt3a60hh1lx.cloudfront.net/models/Eagle-1612497310/eagle4.glb",
+    "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABuilding-1613786912/building.glb",
     DRACO_URL
   );
 
@@ -16,8 +16,9 @@ const Buildings = (props: GroupProps) => {
     if (!mesh.current) return;
 
     for (let i = 0; i < INSTANCE_DATA.length; i++) {
-      INSTANCE_DATA[i].updateMatrix();
-      mesh.current.setMatrixAt(i, INSTANCE_DATA[i].matrix);
+      const obj = INSTANCE_DATA[i]();
+      obj.updateMatrix();
+      mesh.current.setMatrixAt(i, obj.matrix);
     }
     mesh.current.instanceMatrix.needsUpdate = true;
   }, [INSTANCE_DATA]);
@@ -27,8 +28,8 @@ const Buildings = (props: GroupProps) => {
       <instancedMesh
         ref={mesh}
         args={[
-          (gltf.nodes.Eagle as Mesh).geometry,
-          (gltf.nodes.Eagle as Mesh).material,
+          (gltf.nodes.building as Mesh).geometry,
+          (gltf.nodes.building as Mesh).material,
           INSTANCE_DATA.length,
         ]}
       />

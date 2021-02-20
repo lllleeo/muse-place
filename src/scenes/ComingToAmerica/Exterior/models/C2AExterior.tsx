@@ -32,11 +32,14 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.35, 0.35, 0.35]}>
-        <mesh
-          name="mesh"
-          material={nodes.mesh.material}
-          geometry={nodes.mesh.geometry}
-        />
+        {/*<mesh*/}
+        {/*  name="mesh"*/}
+        {/*  material={nodes.mesh.material}*/}
+        {/*  geometry={nodes.mesh.geometry}*/}
+        {/*/>*/}
+        <mesh name="mesh" geometry={nodes.collider.geometry}>
+          <meshStandardMaterial color="red" opacity={0.6} transparent />
+        </mesh>
       </group>
     </group>
   );
