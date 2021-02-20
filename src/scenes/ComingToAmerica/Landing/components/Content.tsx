@@ -47,7 +47,22 @@ const Content = () => {
 
   return (
     <Container>
-      <VideoBox>{/*<ReactPlayer url="${content}/" />*/}</VideoBox>
+      <VideoBox>
+        {/*<ReactPlayer*/}
+        {/*  url="${content}/videos/infomercial.mp4"*/}
+        {/*  config={{*/}
+        {/*    file: {*/}
+        {/*      forceVideo: true*/}
+        {/*    }*/}
+        {/*  }}*/}
+        {/*/>*/}
+        <video width="325" height="250" controls>
+          <source
+            src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </VideoBox>
       <InfoBox>
         <Title>
           <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>

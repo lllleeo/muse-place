@@ -35,9 +35,15 @@ export const Container = styled.div`
 `;
 
 export const VideoBox = styled.div`
-  //border: green 2px dashed;
+  // border: green 2px dashed;
   width: 40%;
   height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  outline: none;
   @media screen and (max-width: ${tablet}) {
     margin: 0;
   }
