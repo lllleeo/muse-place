@@ -46,7 +46,7 @@ export const INSTANCE_DATA: (() => Object3D)[] = [
   // east of barbershop 2
   () => {
     const obj = initialObject();
-    obj.position.set(-19, 0, 10.25);
+    obj.position.set(-19, 0, 10.5);
     return obj;
   },
   // opposite barbershop 1

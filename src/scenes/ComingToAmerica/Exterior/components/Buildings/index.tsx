@@ -1,14 +1,15 @@
 import { GroupProps } from "react-three-fiber";
 import { INSTANCE_DATA } from "./instance";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { DRACO_URL } from "spacesvr";
 import {
   InstancedMesh,
   Mesh,
-  default as THREE,
   Material,
   Geometry,
+  MeshStandardMaterial,
 } from "three";
+import * as THREE from "three";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
@@ -28,8 +29,9 @@ type GLTFResult = GLTF & {
     ["glass.mat"]: THREE.MeshStandardMaterial;
   };
 };
-const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABuilding-1613815933/building_01.glb";
+
+const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net";
+const FILE_URL = `${CONTENT_FOLDER}/models/C2ABuilding-1613815933/building_01.glb`;
 
 const InstancedBuildingPiece = (props: {
   material: Material;
@@ -62,14 +64,57 @@ const InstancedBuildingPiece = (props: {
 const Buildings = (props: GroupProps) => {
   const gltf = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
+  const light = useTexture(`${CONTENT_FOLDER}/content/c2a/bricks/light.jpg`);
+  light.wrapS = light.wrapT = THREE.RepeatWrapping;
+  light.repeat.x = light.repeat.y = 16;
+
+  const ao = useTexture(`${CONTENT_FOLDER}/content/c2a/bricks/ao.jpg`);
+  ao.wrapS = ao.wrapT = THREE.RepeatWrapping;
+  ao.repeat.x = ao.repeat.y = 16;
+
+  const dark = useTexture(`${CONTENT_FOLDER}/content/c2a/bricks/dark.jpg`);
+  dark.wrapS = dark.wrapT = THREE.RepeatWrapping;
+  dark.repeat.x = dark.repeat.y = 16;
+
+  const lightMat = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        map: light,
+        aoMap: ao,
+        aoMapIntensity: 2,
+        side: THREE.DoubleSide,
+      }),
+    []
+  );
+  const darkMat = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        map: dark,
+        aoMap: ao,
+        aoMapIntensity: 2,
+        side: THREE.DoubleSide,
+      }),
+    []
+  );
+
   const pieces = useMemo(() => {
     const pic: ReactNode[] = [];
     gltf.scene.traverse((child) => {
       if ((child as Mesh).material && (child as Mesh).geometry) {
+        let mat = (child as Mesh).material as Material;
+
+        if (child.name === "light") {
+          mat = lightMat;
+        }
+
+        if (child.name === "dark") {
+          mat = darkMat;
+        }
+
         pic.push(
           <InstancedBuildingPiece
             key={child.uuid}
-            material={(child as Mesh).material as Material}
+            material={mat}
             geometry={(child as Mesh).geometry as Geometry}
           />
         );
