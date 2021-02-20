@@ -18,7 +18,7 @@ export const Container = styled.div`
   left: 0;
   justify-content: space-between;
   align-items: center;
-  border: white 2px dashed;
+  //border: white 2px dashed;
 
   /* Mobile responsiveness: swap video/info to vertical */
   /* and allow scrolling */
@@ -35,7 +35,7 @@ export const Container = styled.div`
 `;
 
 export const VideoBox = styled.div`
-  border: green 2px dashed;
+  //border: green 2px dashed;
   width: 40%;
   height: 60%;
   @media screen and (max-width: ${tablet}) {
@@ -47,7 +47,7 @@ export const VideoBox = styled.div`
 `;
 
 export const InfoBox = styled.div`
-  border: red 2px dashed;
+  //border: red 2px dashed;
   width: min(45%, 800px);
   height: 75%;
   text-align: center;
@@ -66,7 +66,7 @@ export const InfoBox = styled.div`
 
 export const Title = styled.div`
   max-width: 95%;
-  border: purple 2px dashed;
+  //border: purple 2px dashed;
   margin: 75px auto 0 auto;
   @media screen and (max-width: ${tablet}) {
     margin-top: 105px;
@@ -103,7 +103,7 @@ export const Buttons = styled.div`
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: 20px auto 20px auto;
-  border: black 2px dashed;
+  //border: black 2px dashed;
   color: yellow;
   font-weight: 550;
   font-size: min(0.8rem, 1.2vw);
@@ -149,7 +149,7 @@ export const Image1 = styled.div`
   width: 100%;
   max-width: 500px;
   height: 105px;
-  border: brown 2px dashed;
+  //border: brown 2px dashed;
   @media screen and (max-width: ${laptop}) {
     width: 80%;
   }
@@ -172,7 +172,7 @@ export const ShareContainer = styled.div`
   max-width: 250px;
   margin: 0 auto 20px auto;
   font-family: "Bodoni", sans-serif;
-  border: blue 2px dashed;
+  //border: blue 2px dashed;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -197,7 +197,7 @@ export const FBIcon = styled.div`
 
 export const FinePrint = styled.div`
   display: block;
-  border: green 2px dashed;
+  //border: green 2px dashed;
   margin: 0px auto 0 auto;
   color: yellow;
   font-size: clamp(0.5rem, 0.5vw, 0.7rem);
@@ -233,7 +233,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  border: pink 2px solid;
+  //border: pink 2px solid;
 `;
 
 export const Trailer = styled.div``;
@@ -246,8 +246,7 @@ export const Terms = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  //align-items: center;
-  border: white 2px dashed;
+  //border: white 2px dashed;
   color: yellow;
   font-family: "Bodoni", sans-serif;
   overflow-y: scroll;
@@ -259,25 +258,27 @@ export const TermsHeader = styled.h2`
   text-align: center;
   margin: 0 0 0.5rem 0;
   line-height: 70%;
-  //border: blue 2px dashed;
 `;
 
 export const TermsSubHeader = styled.h3`
   font-size: 1rem;
   text-align: left;
-  //border: blue 2px dashed;
   margin: 0.1rem 0;
+`;
+
+export const TermsHeader3 = styled.h4`
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: underline;
 `;
 
 export const TermsContent = styled.p`
   font-size: 0.7rem;
   text-align: left;
-  //border: blue 2px dashed;
   margin: 0.1rem 0;
 `;
 
 export const Exit = styled.p`
-  //display: inline;
   position: absolute;
   top: -5px;
   right: 20px;
@@ -286,3 +287,5 @@ export const Exit = styled.p`
   font-family: "Bodoni", sans-serif;
   color: white;
 `;
+
+export const Video = styled.video;
