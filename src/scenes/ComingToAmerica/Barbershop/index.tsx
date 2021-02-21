@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { StandardEnvironment } from "spacesvr";
 import { Sky } from "@react-three/drei";
 import C2ABarbershop from "./models/C2ABarbershop";
+import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
 
 const Barbershop = () => {
@@ -11,8 +12,9 @@ const Barbershop = () => {
       <Suspense fallback={null}>
         <C2ABarbershop />
       </Suspense>
-      <pointLight position={[10, 30, 10]} intensity={0.6} />
-      <pointLight position={[-10, 30, -10]} intensity={0.6} />
+      <Suspense fallback={null}>
+        <Mirror />
+      </Suspense>
       <ambientLight />
     </StandardEnvironment>
   );
