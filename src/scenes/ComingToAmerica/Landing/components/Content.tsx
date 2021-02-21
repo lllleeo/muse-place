@@ -163,10 +163,44 @@ const Content = () => {
                 <ScheduleSection>
                   <ScheduleLeft>
                     <ScheduleText>12:00PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Barbershop HSTRY with Nas and Darian Symone Harvin,
+                      Episodes 1 - 3, Powered by HSTRY
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleSection>
+                  <ScheduleLeft>
                     <ScheduleText>12:30PM EST</ScheduleText>
                   </ScheduleLeft>
-                  <ScheduleRight></ScheduleRight>
+                  <ScheduleRight>
+                    <ScheduleText>HSTRY Beanie Giveaway</ScheduleText>
+                  </ScheduleRight>
                 </ScheduleSection>
+                <ScheduleDate>MARCH 2ND</ScheduleDate>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:00PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Sharon Chuter x Zerina Akers, Powered by Uoma Beauty
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:30PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Uoma x Coming 2 America Product Giveaway
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleDate>MARCH 3RD</ScheduleDate>
               </ScheduleContent>
             </Schedule>
           </Background>

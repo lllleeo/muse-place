@@ -317,7 +317,7 @@ export const ScheduleDate = styled.h4`
 `;
 
 export const ScheduleSection = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -325,7 +325,7 @@ export const ScheduleSection = styled.div`
 `;
 
 export const ScheduleLeft = styled.div`
-  width: 30%;
+  width: 35%;
   text-align: right;
   border: green 2px dashed;
 `;
