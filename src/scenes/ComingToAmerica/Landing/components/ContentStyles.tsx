@@ -6,6 +6,15 @@ const tablet = "770px";
 const phone = "500px";
 const content = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
+export const Page = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const Container = styled.div`
   width: 100%;
   max-width: 2000px;
@@ -30,13 +39,13 @@ export const Container = styled.div`
   }
   @media screen and (max-width: ${phone}) {
     flex-direction: column-reverse;
-    justify-content: space-evenly;
+    justify-content: flex-end;
   }
 `;
 
 export const VideoBox = styled.div`
-  // border: green 2px dashed;
-  width: 40%;
+  //border: green 2px dashed;
+  width: 45%;
   height: 60%;
   display: flex;
   flex-direction: row;
@@ -44,11 +53,19 @@ export const VideoBox = styled.div`
   align-items: center;
   overflow: hidden;
   outline: none;
+  @media screen and (min-width: ${laptop}) {
+    justify-content: center;
+  }
   @media screen and (max-width: ${tablet}) {
     margin: 0;
   }
   @media screen and (max-width: ${phone}) {
-    height: 20%;
+    height: 17%;
+    width: 90%;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 15%;
   }
 `;
 
@@ -67,6 +84,9 @@ export const InfoBox = styled.div`
     width: 100%;
     height: 40%;
     margin-top: 25px;
+  }
+  @media screen and (max-width: 350px) {
+    margin-top: 35px;
   }
 `;
 
@@ -161,7 +181,7 @@ export const Image1 = styled.div`
   }
   @media screen and (max-width: ${phone}) {
     position: absolute;
-    bottom: 10px;
+    bottom: 1%;
     left: 10%;
   }
 `;
@@ -217,8 +237,8 @@ export const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;

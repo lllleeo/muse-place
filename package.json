@@ -38,10 +38,10 @@
     "react-facebook-pixel": "^1.0.3",
     "react-ga": "^3.1.2",
     "react-lottie": "^1.2.3",
-    "react-player": "^2.9.0",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^5.1.4",
     "react-three-flex": "^0.5.2",
+    "react-video-js-player": "^1.1.1",
     "simplex-noise": "^2.4.0",
     "spacesvr": "^1.2.33",
     "three": "^0.122.0"

@@ -1,4 +1,5 @@
 import {
+  Page,
   Container,
   VideoBox,
   InfoBox,
@@ -32,7 +33,7 @@ import {
 import { faComment, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import ReactPlayer from "react-player";
+import Video from "./Video";
 
 const content = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
@@ -46,84 +47,73 @@ const Content = () => {
   };
 
   return (
-    <Container>
-      <VideoBox>
-        {/*<ReactPlayer*/}
-        {/*  url="${content}/videos/infomercial.mp4"*/}
-        {/*  config={{*/}
-        {/*    file: {*/}
-        {/*      forceVideo: true*/}
-        {/*    }*/}
-        {/*  }}*/}
-        {/*/>*/}
-        <video width="325" height="250" controls>
-          <source
-            src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </VideoBox>
-      <InfoBox>
-        <Title>
-          <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>
-          <MainTitle>MY-T-SHARP BARBERSHOP</MainTitle>
-          <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
-        </Title>
-        <Buttons>
-          <Button onClick={handleEnter}>ENTER</Button>
-          <Button
-            onClick={() => {
-              setSchedule(!schedule);
-            }}
-          >
-            SCHEDULE
-          </Button>
-          <Button
-            onClick={() => {
-              setTrailer(!trailer);
-            }}
-          >
-            WATCH TRAILER
-          </Button>
-        </Buttons>
-        <Image1 />
-        <Share>SHARE</Share>
-        <ShareContainer>
-          <ShareIcon>
-            <FontAwesomeIcon icon={faInstagram} size="lg" />
-          </ShareIcon>
-          <ShareIcon>
-            <FontAwesomeIcon icon={faTwitter} size="lg" />
-          </ShareIcon>
-          <FBIcon>
-            <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
-          </FBIcon>
-          <ShareIcon>
-            <FontAwesomeIcon icon={faComment} size="lg" />
-          </ShareIcon>
-          <ShareIcon>
-            <FontAwesomeIcon icon={faEnvelope} size="lg" />
-          </ShareIcon>
-        </ShareContainer>
-        <FinePrint>BY USING THIS SITE, YOU AGREE TO THE</FinePrint>
-        <FinePrint>
-          <a
-            onClick={() => {
-              setTerms(!terms);
-            }}
-          >
-            PRIVACY POLICY
-          </a>{" "}
-          AND{" "}
-          <a
-            onClick={() => {
-              setTerms(!terms);
-            }}
-          >
-            TERMS AND CONDITIONS
-          </a>
-        </FinePrint>
-      </InfoBox>
+    <Page>
+      <Container>
+        <VideoBox>
+          <Video src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4" />
+        </VideoBox>
+        <InfoBox>
+          <Title>
+            <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>
+            <MainTitle>MY-T-SHARP BARBERSHOP</MainTitle>
+            <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
+          </Title>
+          <Buttons>
+            <Button onClick={handleEnter}>ENTER</Button>
+            <Button
+              onClick={() => {
+                setSchedule(!schedule);
+              }}
+            >
+              SCHEDULE
+            </Button>
+            <Button
+              onClick={() => {
+                setTrailer(!trailer);
+              }}
+            >
+              WATCH TRAILER
+            </Button>
+          </Buttons>
+          <Image1 />
+          <Share>SHARE</Share>
+          <ShareContainer>
+            <ShareIcon>
+              <FontAwesomeIcon icon={faInstagram} size="lg" />
+            </ShareIcon>
+            <ShareIcon>
+              <FontAwesomeIcon icon={faTwitter} size="lg" />
+            </ShareIcon>
+            <FBIcon>
+              <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
+            </FBIcon>
+            <ShareIcon>
+              <FontAwesomeIcon icon={faComment} size="lg" />
+            </ShareIcon>
+            <ShareIcon>
+              <FontAwesomeIcon icon={faEnvelope} size="lg" />
+            </ShareIcon>
+          </ShareContainer>
+          <FinePrint>BY USING THIS SITE, YOU AGREE TO THE</FinePrint>
+          <FinePrint>
+            <a
+              onClick={() => {
+                setTerms(!terms);
+              }}
+            >
+              PRIVACY POLICY
+            </a>{" "}
+            AND{" "}
+            <a
+              onClick={() => {
+                setTerms(!terms);
+              }}
+            >
+              TERMS AND CONDITIONS
+            </a>
+          </FinePrint>
+        </InfoBox>
+      </Container>
       {trailer ? (
         <Overlay>
           <Background>
@@ -483,7 +473,7 @@ const Content = () => {
       ) : (
         <></>
       )}
-    </Container>
+    </Page>
   );
 };
 
