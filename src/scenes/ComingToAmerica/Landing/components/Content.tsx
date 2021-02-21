@@ -23,6 +23,7 @@ import {
   ScheduleSubHeader,
   ScheduleContent,
   ScheduleDate,
+  ScheduleDate2,
   ScheduleSection,
   ScheduleLeft,
   ScheduleRight,
@@ -52,7 +53,7 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
 
   const handleEnter = () => {
-    return null;
+    window.location.href = "/comingtoamerica/exterior";
   };
 
   return (
@@ -231,7 +232,7 @@ const Content = () => {
                     <ScheduleText>Bevel Product Giveaway</ScheduleText>
                   </ScheduleRight>
                 </ScheduleSection>
-                <ScheduleDate>MARCH 1ST-7TH</ScheduleDate>
+                <ScheduleDate2>MARCH 1ST-7TH</ScheduleDate2>
                 <ScheduleSection>
                   <ScheduleLeft>
                     <ScheduleText>12:30PM EST</ScheduleText>

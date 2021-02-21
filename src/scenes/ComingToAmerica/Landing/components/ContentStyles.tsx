@@ -270,7 +270,7 @@ export const Schedule = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: white 2px dashed;
+  //border: white 2px dashed;
   color: yellow;
   font-family: "Bodoni", sans-serif;
 `;
@@ -302,7 +302,7 @@ export const ScheduleContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: white 2px dashed;
+  //border: white 2px dashed;
   margin-top: 10px;
 `;
 
@@ -311,9 +311,21 @@ export const ScheduleDate = styled.h4`
   text-decoration: underline;
   font-weight: bold;
   font-size: 0.9rem;
-  border: blue 2px dashed;
+  padding: 10px 0 0 0;
+  //border: blue 2px dashed;
   position: relative;
   right: 110px;
+`;
+
+export const ScheduleDate2 = styled.h4`
+  margin: 0;
+  padding: 10px 0 0 0;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 0.9rem;
+  //border: blue 2px dashed;
+  position: relative;
+  right: 125px;
 `;
 
 export const ScheduleSection = styled.div`
@@ -321,13 +333,14 @@ export const ScheduleSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: red 2px dashed;
+  padding: 1px 0 1px 0;
+  //border: red 2px dashed;
 `;
 
 export const ScheduleLeft = styled.div`
   width: 35%;
   text-align: right;
-  border: green 2px dashed;
+  //border: green 2px dashed;
 `;
 
 export const ScheduleText = styled.p`
@@ -338,7 +351,7 @@ export const ScheduleText = styled.p`
 export const ScheduleRight = styled.div`
   width: 60%;
   text-align: left;
-  border: blue 2px dashed;
+  //border: blue 2px dashed;
 `;
 
 export const Terms = styled.div`
