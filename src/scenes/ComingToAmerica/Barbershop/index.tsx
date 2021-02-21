@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import { StandardEnvironment } from "spacesvr";
 import { Sky } from "@react-three/drei";
-import C2ABarbershop from "./models/C2ABarbershop";
+import Barbershop from "./models/Barbershop";
 import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
 
-const Barbershop = () => {
+const BarbershopScene = () => {
   return (
     <StandardEnvironment player={{ pos: new Vector3(0, 1.25, 0), speed: 0.9 }}>
       <Sky />
       <Suspense fallback={null}>
-        <C2ABarbershop />
+        <Barbershop />
       </Suspense>
       <Suspense fallback={null}>
         <Mirror />
@@ -20,4 +20,4 @@ const Barbershop = () => {
   );
 };
 
-export default Barbershop;
+export default BarbershopScene;
