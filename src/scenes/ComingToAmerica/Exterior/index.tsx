@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { HDRI, StandardEnvironment } from "spacesvr";
+import { Audio, HDRI, StandardEnvironment } from "spacesvr";
 import { Sky } from "@react-three/drei";
 import Sidewalk from "./models/Sidewalk";
 import Building from "./models/Building";
@@ -23,6 +23,10 @@ const ComingAmerica = () => {
       <Suspense fallback={null}>
         <Buildings />
       </Suspense>
+      <Audio
+        url="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/audio/queens-audio.mp3"
+        position={[0, 10, 0]}
+      />
       <HDRI
         src={
           "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/Hazy_Afternoon_HDR_full.hdr"
