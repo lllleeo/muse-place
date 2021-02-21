@@ -56,6 +56,10 @@ const Content = () => {
     window.location.href = "/comingtoamerica/exterior";
   };
 
+  const handleShare = () => {
+    return null;
+  };
+
   return (
     <Page>
       <Container>
@@ -208,6 +212,7 @@ const Content = () => {
                   </ScheduleLeft>
                   <ScheduleRight>
                     <ScheduleText>
+                      {/* eslint-disable-next-line react/no-unescaped-entities */}
                       Bronner Bros "Fantasy Hair" Showcase, Powered by Bronner
                       Bros
                     </ScheduleText>
@@ -219,6 +224,7 @@ const Content = () => {
                   </ScheduleLeft>
                   <ScheduleRight>
                     <ScheduleText>
+                      {/* eslint-disable-next-line react/no-unescaped-entities */}
                       Bronner Bros "Soul Glo" Product Giveaway
                     </ScheduleText>
                   </ScheduleRight>
@@ -281,6 +287,7 @@ const Content = () => {
               <TermsHeader>Conditions of Use</TermsHeader>
               <TermsContent>
                 <b>
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   By visiting this site (the "Site"), you accept these
                   conditions. Please read them carefully.
                 </b>
@@ -316,8 +323,10 @@ const Content = () => {
                 AMAZON, AMAZON.COM, AMAZON STUDIOS, and other Site graphics,
                 logos, page headers, button icons, scripts, and service names
                 are trademarks, registered trademarks or trade dress of Amazon
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 in the U.S. and/or other countries. Amazon's trademarks and
                 trade dress may not be used in connection with any product or
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 service that is not Amazon's, in any manner that is likely to
                 cause confusion among customers, or in any manner that
                 disparages or discredits Amazon. All other trademarks not owned
@@ -327,7 +336,9 @@ const Content = () => {
                 STUDIOS, and other Site graphics, logos, page headers, button
                 icons, scripts, and service names are trademarks, registered
                 trademarks or trade dress of Amazon in the U.S. and/or other
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 countries. Amazon's trademarks and trade dress may not be used
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 in connection with any product or service that is not Amazon's,
                 in any manner that is likely to cause confusion among customers,
                 or in any manner that disparages or discredits Amazon. All other
@@ -353,6 +364,7 @@ const Content = () => {
                 techniques to enclose any trademark, logo, or other proprietary
                 information (including images, text, page layout, or form) of
                 Amazon without express written consent. You may not use any meta
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 tags or any other "hidden text" utilizing Amazon's name or
                 trademarks without the express written consent of Amazon. Any
                 unauthorized use terminates the permission or license granted by
@@ -405,6 +417,7 @@ const Content = () => {
                 THIS SITE AND ALL INFORMATION, CONTENT, MATERIALS, PRODUCTS
                 (INCLUDING SOFTWARE) AND SERVICES INCLUDED ON OR OTHERWISE MADE
                 AVAILABLE TO YOU THROUGH THIS SITE ARE PROVIDED BY AMAZON ON AN
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 "AS IS" AND "AS AVAILABLE" BASIS, UNLESS OTHERWISE SPECIFIED IN
                 WRITING. AMAZON MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY
                 KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THIS SITE OR
@@ -456,12 +469,16 @@ const Content = () => {
                 registered agent Corporation Service Company, 300 Deschutes Way
                 SW, Suite 304, Tumwater, WA 98051. The arbitration will be
                 conducted by the American Arbitration Association (AAA) under
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 its rules, including the AAA's Supplementary Procedures for
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Consumer-Related Disputes. The AAA's rules are available at
                 www.adr.org or by calling 1-800-778-7879. Payment of all filing,
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 administration and arbitrator fees will be governed by the AAA's
                 rules. We will reimburse those fees for claims totaling less
                 than $10,000 unless the arbitrator determines the claims are
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 frivolous. Likewise, Amazon will not seek attorneys' fees and
                 costs in arbitration unless the arbitrator determines the claims
                 are frivolous. You may choose to have the arbitration conducted
@@ -537,9 +554,11 @@ const Content = () => {
                     A statement by you, made under penalty of perjury, that the
                     above information in your notice is accurate and that you
                     are the copyright owner or authorized to act on the
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     copyright owner's behalf.
                   </li>
                 </ul>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Amazon's Copyright Agent for notice of claims of copyright
                 infringement on the Site can be reached as follows:
                 <br />
