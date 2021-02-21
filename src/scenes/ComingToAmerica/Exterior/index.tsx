@@ -9,7 +9,7 @@ import Buildings from "./components/Buildings";
 const ComingAmerica = () => {
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(0, 2, 0), speed: 2 }}
+      player={{ pos: new Vector3(0, 1.5, 6), speed: 2 }}
       disableGround
     >
       <Suspense fallback={null}>
