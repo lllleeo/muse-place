@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { StandardEnvironment } from "spacesvr";
 import { Sky } from "@react-three/drei";
 import C2ABarbershop from "./models/C2ABarbershop";
+import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
 
 const Barbershop = () => {
@@ -11,7 +12,17 @@ const Barbershop = () => {
       <Suspense fallback={null}>
         <C2ABarbershop />
       </Suspense>
-      <pointLight position={[0, 8, 0]} intensity={0.3} />
+      <Suspense fallback={null}>
+        <Mirror />
+      </Suspense>
+      {/*<mesh*/}
+      {/*  name="mirror-placeholder"*/}
+      {/*  rotation-y={Math.PI / 2}*/}
+      {/*  position={[-2.82, 0.980, 0.75]}*/}
+      {/*>*/}
+      {/*  <planeBufferGeometry args={[4.5, 0.775]} />*/}
+      {/*  <meshStandardMaterial color="red" />*/}
+      {/*</mesh>*/}
       <ambientLight />
     </StandardEnvironment>
   );
