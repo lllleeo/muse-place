@@ -201,6 +201,64 @@ const Content = () => {
                   </ScheduleRight>
                 </ScheduleSection>
                 <ScheduleDate>MARCH 3RD</ScheduleDate>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:00PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Bronner Bros "Fantasy Hair" Showcase, Powered by Bronner
+                      Bros
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:30PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Bronner Bros "Soul Glo" Product Giveaway
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleDate>MARCH 5TH</ScheduleDate>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:30PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>Bevel Product Giveaway</ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleDate>MARCH 1ST-7TH</ScheduleDate>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:30PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>BTS Content</ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText></ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>Barbershop Bloopers</ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText></ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight>
+                    <ScheduleText>
+                      Cast Conversations with Eddie Murphy, Arsenio Hall and The
+                      Jamaica, Queens Crew Episodes 1 - 2
+                    </ScheduleText>
+                  </ScheduleRight>
+                </ScheduleSection>
               </ScheduleContent>
             </Schedule>
           </Background>
