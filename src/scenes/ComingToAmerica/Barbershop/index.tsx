@@ -15,14 +15,6 @@ const Barbershop = () => {
       <Suspense fallback={null}>
         <Mirror />
       </Suspense>
-      {/*<mesh*/}
-      {/*  name="mirror-placeholder"*/}
-      {/*  rotation-y={Math.PI / 2}*/}
-      {/*  position={[-2.82, 0.980, 0.75]}*/}
-      {/*>*/}
-      {/*  <planeBufferGeometry args={[4.5, 0.775]} />*/}
-      {/*  <meshStandardMaterial color="red" />*/}
-      {/*</mesh>*/}
       <ambientLight />
     </StandardEnvironment>
   );
