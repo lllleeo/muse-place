@@ -12,7 +12,7 @@ import {
   Share,
   ShareContainer,
   ShareIcon,
-  FBIcon,
+  Icon,
   FinePrint,
   Overlay,
   Background,
@@ -39,13 +39,25 @@ import {
   faInstagram,
   faFacebook,
   faTwitter,
+  faPinterest,
+  faReddit,
 } from "@fortawesome/free-brands-svg-icons";
 import { faComment, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  PinterestShareButton,
+  RedditShareButton,
+} from "react-share";
 import { useState } from "react";
 import Video from "./Video";
 
 const content = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
+const shareUrl = "https://muse.place/comingtoamerica";
+const shareMessage =
+  "Check out the My-T-Sharp Barbershop, best cuts since 1988. www.mytsharp.com @amazonprimevideo #mytsharpexperience";
 
 const Content = () => {
   const [schedule, setSchedule] = useState<boolean>(false);
@@ -92,21 +104,52 @@ const Content = () => {
           <Image1 />
           <Share>SHARE</Share>
           <ShareContainer>
-            <ShareIcon>
-              <FontAwesomeIcon icon={faInstagram} size="lg" />
-            </ShareIcon>
-            <ShareIcon>
-              <FontAwesomeIcon icon={faTwitter} size="lg" />
-            </ShareIcon>
-            <FBIcon>
-              <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
-            </FBIcon>
-            <ShareIcon>
-              <FontAwesomeIcon icon={faComment} size="lg" />
-            </ShareIcon>
-            <ShareIcon>
-              <FontAwesomeIcon icon={faEnvelope} size="lg" />
-            </ShareIcon>
+            <RedditShareButton
+              url={shareUrl}
+              title="My-T-Barbershop Experience"
+              style={{ outline: "none" }}
+            >
+              <Icon>
+                <FontAwesomeIcon icon={faReddit} size="2x" color="#ffff00" />
+              </Icon>
+            </RedditShareButton>
+            <TwitterShareButton
+              url={shareUrl}
+              title="Check out The My-T-Barbershop Experience!"
+              style={{ outline: "none" }}
+            >
+              <ShareIcon>
+                <FontAwesomeIcon icon={faTwitter} size="lg" />
+              </ShareIcon>
+            </TwitterShareButton>
+            <FacebookShareButton
+              url={shareUrl}
+              quote={shareMessage}
+              style={{ outline: "none" }}
+            >
+              <Icon>
+                <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
+              </Icon>
+            </FacebookShareButton>
+            <PinterestShareButton
+              url={shareUrl}
+              media={`${content}/c2a/images/C2A_Website_Logo_Lockup.png`}
+              style={{ outline: "none" }}
+            >
+              <Icon>
+                <FontAwesomeIcon icon={faPinterest} size="2x" color="#ffff00" />
+              </Icon>
+            </PinterestShareButton>
+            <EmailShareButton
+              url={shareUrl}
+              subject="Check out the My-T-Sharp Barbershop Experience!"
+              body={shareMessage}
+              style={{ outline: "none" }}
+            >
+              <ShareIcon>
+                <FontAwesomeIcon icon={faEnvelope} size="lg" />
+              </ShareIcon>
+            </EmailShareButton>
           </ShareContainer>
           <FinePrint>BY USING THIS SITE, YOU AGREE TO THE</FinePrint>
           <FinePrint>

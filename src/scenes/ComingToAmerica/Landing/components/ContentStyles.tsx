@@ -208,6 +208,7 @@ export const ShareIcon = styled.div`
   width: 32px;
   height: 32px;
   background: yellow;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -215,10 +216,19 @@ export const ShareIcon = styled.div`
   align-items: center;
   justify-content: center;
   color: #c796b3;
+  outline: none;
 `;
 
-export const FBIcon = styled.div`
+export const Icon = styled.div`
   cursor: pointer;
+  outline: 0;
+  border: none;
+  padding: 0;
+
+  :focus {
+    outline: none;
+    box-shadow: none !important;
+  }
 `;
 
 export const FinePrint = styled.div`
@@ -253,13 +263,17 @@ export const Background = styled.div`
   min-width: 300px;
   max-width: 500px;
   background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
-  background-size: contain;
+  background-position: center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   //border: pink 2px solid;
+  @media screen and (max-width: 500px) {
+    // background-size: 97% 100%;
+  }
 `;
 
 export const Trailer = styled.div``;
