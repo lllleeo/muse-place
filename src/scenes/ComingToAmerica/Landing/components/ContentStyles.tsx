@@ -264,7 +264,82 @@ export const Background = styled.div`
 
 export const Trailer = styled.div``;
 
-export const Schedule = styled.div``;
+export const Schedule = styled.div`
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: white 2px dashed;
+  color: yellow;
+  font-family: "Bodoni", sans-serif;
+`;
+
+export const ScheduleHeader = styled.h2`
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  line-height: 70%;
+`;
+
+export const ScheduleBreak = styled.div`
+  width: 60%;
+  border: yellow 1px solid;
+  margin: 0 auto 0 auto;
+`;
+
+export const ScheduleSubHeader = styled.h3`
+  text-align: center;
+  font-size: 0.7rem;
+  //line-height: 50%;
+  margin: 0;
+`;
+
+export const ScheduleContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: white 2px dashed;
+  margin-top: 10px;
+`;
+
+export const ScheduleDate = styled.h4`
+  margin: 0;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: blue 2px dashed;
+  position: relative;
+  right: 110px;
+`;
+
+export const ScheduleSection = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: red 2px dashed;
+`;
+
+export const ScheduleLeft = styled.div`
+  width: 30%;
+  text-align: right;
+  border: green 2px dashed;
+`;
+
+export const ScheduleText = styled.p`
+  font-size: 0.7rem;
+  margin: 2px 0 2px 0;
+`;
+
+export const ScheduleRight = styled.div`
+  width: 60%;
+  text-align: left;
+  border: blue 2px dashed;
+`;
 
 export const Terms = styled.div`
   width: 90%;
@@ -313,5 +388,3 @@ export const Exit = styled.p`
   font-family: "Bodoni", sans-serif;
   color: white;
 `;
-
-export const Video = styled.video;

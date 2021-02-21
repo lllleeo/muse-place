@@ -18,6 +18,15 @@ import {
   Background,
   Trailer,
   Schedule,
+  ScheduleHeader,
+  ScheduleBreak,
+  ScheduleSubHeader,
+  ScheduleContent,
+  ScheduleDate,
+  ScheduleSection,
+  ScheduleLeft,
+  ScheduleRight,
+  ScheduleText,
   Terms,
   TermsHeader,
   TermsSubHeader,
@@ -140,7 +149,26 @@ const Content = () => {
             >
               X
             </Exit>
-            <Schedule></Schedule>
+            <Schedule>
+              <ScheduleHeader>SCHEDULE</ScheduleHeader>
+              <ScheduleBreak />
+              <ScheduleSubHeader>
+                DAILY PROGRAMMING SCHEDULE OF THE
+              </ScheduleSubHeader>
+              <ScheduleSubHeader>
+                MY-T-SHARP BARBERSHOP EXPERIENCE
+              </ScheduleSubHeader>
+              <ScheduleContent>
+                <ScheduleDate>MARCH 1ST</ScheduleDate>
+                <ScheduleSection>
+                  <ScheduleLeft>
+                    <ScheduleText>12:00PM EST</ScheduleText>
+                    <ScheduleText>12:30PM EST</ScheduleText>
+                  </ScheduleLeft>
+                  <ScheduleRight></ScheduleRight>
+                </ScheduleSection>
+              </ScheduleContent>
+            </Schedule>
           </Background>
         </Overlay>
       ) : (
