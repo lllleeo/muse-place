@@ -8,15 +8,16 @@ type videoProps = {
 
 const VideoDiv = styled.div`
   outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   .video-js {
     border-radius: 10px;
   }
-  .video-js .vjs-big-play-button {
-    background: #cccc00;
-  }
 `;
 
-const Video = (props: videoProps) => {
+const TrailerVideo = (props: videoProps) => {
   const { src, thumbnail } = props;
 
   return (
@@ -24,31 +25,33 @@ const Video = (props: videoProps) => {
       <VideoPlayer
         src={src}
         poster={thumbnail}
+        autoplay={true}
+        bigPlayButton={false}
         width={
           window.innerWidth < 501
             ? "300"
             : window.innerWidth < 770
-            ? "300"
-            : window.innerWidth < 1200
-            ? "400"
-            : window.innerWidth < 1500
             ? "500"
-            : "600"
+            : window.innerWidth < 1200
+            ? "800"
+            : window.innerWidth < 1500
+            ? "1100"
+            : "1400"
         }
         height={
           window.innerWidth < 501
-            ? "150"
+            ? "200"
             : window.innerWidth < 770
-            ? "250"
+            ? "400"
             : window.innerWidth < 1200
-            ? "300"
+            ? "600"
             : window.innerWidth < 1500
-            ? "350"
-            : "400"
+            ? "700"
+            : "900"
         }
       />
     </VideoDiv>
   );
 };
 
-export default Video;
+export default TrailerVideo;

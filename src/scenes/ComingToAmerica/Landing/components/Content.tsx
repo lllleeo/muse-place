@@ -53,6 +53,7 @@ import {
 } from "react-share";
 import { useState } from "react";
 import Video from "./Video";
+import TrailerVideo from "./TrailerVideo";
 
 const content = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 const shareUrl = "https://muse.place/comingtoamerica";
@@ -76,7 +77,10 @@ const Content = () => {
     <Page>
       <Container>
         <VideoBox>
-          <Video src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4" />
+          <Video
+            src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
+            thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+          />
         </VideoBox>
         <InfoBox>
           <Title>
@@ -173,7 +177,8 @@ const Content = () => {
       </Container>
       {trailer ? (
         <Overlay>
-          <Background>
+          {/*<TrailerVideo>*/}
+          <Trailer>
             <Exit
               onClick={() => {
                 setTrailer(false);
@@ -181,8 +186,12 @@ const Content = () => {
             >
               X
             </Exit>
-            <Trailer></Trailer>
-          </Background>
+            <TrailerVideo
+              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
+              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+            />
+          </Trailer>
+          {/*</TrailerVideo>*/}
         </Overlay>
       ) : (
         <></>

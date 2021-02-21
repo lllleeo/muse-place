@@ -276,7 +276,11 @@ export const Background = styled.div`
   }
 `;
 
-export const Trailer = styled.div``;
+export const Trailer = styled.div`
+  //border: white 2px dashed;
+  width: 90%;
+  position: relative;
+`;
 
 export const Schedule = styled.div`
   width: 90%;
