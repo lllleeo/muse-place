@@ -9,6 +9,7 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACO_URL, useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
+import Trigger from "../../modifiers/Trigger";
 
 type GLTFResult = GLTF & {
   nodes: {
