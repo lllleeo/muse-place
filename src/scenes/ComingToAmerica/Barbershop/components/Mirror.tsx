@@ -22,6 +22,7 @@ const Ground = () => {
 
   return (
     <group>
+      {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
         position={[-2.8, 0.98, 0.75]}
