@@ -6,11 +6,13 @@ import Building from "./models/Building";
 import { Vector3 } from "three";
 import Buildings from "./components/Buildings";
 import AmazonContainer from "../components/AmazonContainer";
+import PauseMenu from "../components/PauseMenu";
 
 const ComingAmerica = () => {
   return (
     <AmazonContainer>
       <StandardEnvironment
+        pauseMenu={<PauseMenu />}
         player={{ pos: new Vector3(0, 1.5, 6), speed: 2 }}
         disableGround
       >
