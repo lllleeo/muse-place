@@ -93,7 +93,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["hairstyle-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "fullscreen-barberchair-1")}>
           <mesh
             name="barberchair"
             material={materials["barberchair.1"]}
@@ -129,7 +129,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["giveaway-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "castconvo")}>
           <mesh
             name="tv"
             material={materials.tv}
@@ -141,7 +141,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["tv-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "fullscreen")}>
+        <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
             name="backdoor"
             material={materials.clay}

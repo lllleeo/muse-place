@@ -3,6 +3,8 @@ import Overlay from "../modifiers/Overlay";
 import PopupContainer from "./components/PopupContainer";
 import { Title } from "./components/Styles";
 import styled from "@emotion/styled";
+import { videos } from "../assets/videos";
+import VideoThumbnail from "./components/VideoThumbnail";
 
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
@@ -30,14 +32,23 @@ const BTSTrigger = () => {
     return null;
   }
 
+  const urls = videos.bts;
+  const ids = urls.map((url) =>
+    url.replace("https://www.youtube.com/watch?v=", "")
+  );
+
   return (
     <Overlay>
       <PopupContainer onClose={() => setPaused(false)}>
         <Title>BEHIND THE SCENES</Title>
         <VideoContainer>
-          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
-          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
-          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
+          {ids.map((id, index) => (
+            <VideoThumbnail
+              id={id}
+              key={id}
+              onClick={() => setPaused(true, `fullscreen-bts-${index}`)}
+            />
+          ))}
         </VideoContainer>
       </PopupContainer>
     </Overlay>

@@ -142,12 +142,6 @@ const LiveChat = () => {
   return (
     <Card>
       <CardContent>
-        <div className="top">
-          {/* @ts-ignore */}
-          <Typography variant="h4" inline="true">
-            Screening Room Chat
-          </Typography>
-        </div>
         <div>
           <Log messages={messages} />
         </div>
