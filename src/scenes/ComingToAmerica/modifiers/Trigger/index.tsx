@@ -1,4 +1,4 @@
-import { ReactNode, useLayoutEffect, useRef } from "react";
+import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { Interactable, useLimiter } from "spacesvr";
 import { Group, Material, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
@@ -16,6 +16,7 @@ const Trigger = (props: Props) => {
 
   const group = useRef<Group>();
   const matRef = useRef<Material>();
+  const seed = useMemo(() => Math.floor(Math.random() * 1000000) / 1000000, []);
 
   const limiter = useLimiter(30);
   const [spring, setSpring] = useSpring(() => ({
@@ -33,6 +34,7 @@ const Trigger = (props: Props) => {
     material.onBeforeCompile = function (shader) {
       shader.uniforms.time = { value: 0 };
       shader.uniforms.glow = { value: 0 };
+      shader.uniforms.seed = { value: seed };
 
       shader.vertexShader = uniforms + shader.vertexShader;
       shader.vertexShader = shader.vertexShader.replace(
@@ -71,7 +73,7 @@ const Trigger = (props: Props) => {
       onHover={() => setSpring({ g: [1] })}
       onUnHover={() => setSpring({ g: [0] })}
     >
-      <group ref={group}>{children}</group>
+      <group ref={group}>{children}</group>{" "}
     </Interactable>
   );
 };

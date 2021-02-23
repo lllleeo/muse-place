@@ -15,9 +15,6 @@ const ComingAmerica = () => {
       <Suspense fallback={null}>
         <Sidewalk />
       </Suspense>
-      {/*<Suspense fallback={null}>*/}
-      {/*  <Building position-x={-10} />*/}
-      {/*</Suspense>*/}
       <pointLight position={[0, 20, 0]} intensity={0.2} />
       <ambientLight intensity={0.5} />
       <Suspense fallback={null}>
