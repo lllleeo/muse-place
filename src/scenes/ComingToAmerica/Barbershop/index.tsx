@@ -10,6 +10,8 @@ import FullscreenVideoTrigger from "../overlays/FullscreenVideoTrigger";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import { Perf } from "r3f-perf";
+import PhotoTrigger from "../overlays/PhotoBooth";
+import Renderer from "../components/Renderer";
 import CastConvoTrigger from "../overlays/CastConvoTrigger";
 
 const BarbershopScene = () => {
@@ -20,6 +22,7 @@ const BarbershopScene = () => {
         player={{ pos: new Vector3(0, 1.25, 0), speed: 0.9 }}
       >
         <BTSTrigger />
+        <PhotoTrigger />
         <FullscreenVideoTrigger />
         <CastConvoTrigger />
         <Sky />
@@ -31,6 +34,7 @@ const BarbershopScene = () => {
         </Suspense>
         <ambientLight />
         {/*<Perf />*/}
+        <Renderer />
       </StandardEnvironment>
     </AmazonContainer>
   );

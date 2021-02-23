@@ -31,6 +31,7 @@
     "@react-three/xr": "^1.1.0",
     "babel-plugin-glsl": "^1.0.0",
     "babel-plugin-macros": "^2.8.0",
+    "facefilter": "^2.0.8",
     "glsl-noise": "^0.0.0",
     "next": "9.4.4",
     "pubnub": "^4.29.11",
