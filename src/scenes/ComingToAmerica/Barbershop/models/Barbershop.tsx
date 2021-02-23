@@ -169,11 +169,16 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["news.2"]}
           geometry={nodes.news.geometry}
         />
-        <mesh
-          name="product"
-          material={materials["product.1"]}
-          geometry={nodes.product.geometry}
-        />
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="product"
+            material={materials["product.1"]}
+            geometry={nodes.product.geometry}
+          />
+          <mesh position={[-7.44, 2.5, -3.2]} material={hitboxMat}>
+            <boxBufferGeometry args={[7.25, 1, 1.25]} />
+          </mesh>
+        </Trigger>
         <mesh
           name="clay"
           material={materials.clay}
