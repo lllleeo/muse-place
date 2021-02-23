@@ -1,4 +1,5 @@
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
+// @ts-ignore
 import { Interactable, useLimiter } from "spacesvr";
 import { Group, Material, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
