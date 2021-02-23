@@ -9,6 +9,7 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACO_URL, useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
+import Trigger from "../../modifiers/Trigger";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -41,11 +42,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
-  useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry)
-      .clone()
-      .scale(0.275, 0.275, 0.275)
-  );
+  // useTrimeshCollision(
+  //   (nodes.collider.geometry as BufferGeometry)
+  //     .clone()
+  //     .scale(0.275, 0.275, 0.275)
+  // );
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -76,11 +77,13 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["armrest.mat"]}
           geometry={nodes.armrest.geometry}
         />
-        <mesh
-          name="barberchair"
-          material={materials["barberchair.mat"]}
-          geometry={nodes.barberchair.geometry}
-        />
+        <Trigger>
+          <mesh
+            name="barberchair"
+            material={materials["barberchair.mat"]}
+            geometry={nodes.barberchair.geometry}
+          />
+        </Trigger>
         <mesh
           name="ceiling"
           material={materials["ceiling.mat"]}
