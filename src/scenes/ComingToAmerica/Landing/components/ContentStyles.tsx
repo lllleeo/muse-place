@@ -153,9 +153,6 @@ export const Button = styled.button`
     border: #999933 2px solid;
     color: #999933;
   }
-  @media screen and (max-width: ${laptop}) {
-    //padding: 0;
-  }
 `;
 
 export const Image1 = styled.div`
@@ -224,6 +221,9 @@ export const FinePrint = styled.div`
   a {
     cursor: pointer;
     text-decoration: underline;
+    // :hover {
+    //   color: #999933;
+    // }
   }
 `;
 
@@ -368,6 +368,7 @@ export const EmailCheck = styled.input`
   //border: #f8Ec72 2px dashed;
   background-color: #f8ec72;
   align-self: center;
+  cursor: pointer;
 `;
 
 export const EmailOptOut = styled.div`
@@ -384,21 +385,32 @@ export const EmailText = styled.p`
   font-size: 0.6rem;
   padding-left: 5px;
 `;
-export const EmailSignup = styled.div`
+export const EmailSignup = styled.button`
   border: 2px #f8ec72 solid;
+  background: none;
+  color: #f8ec72;
   font-weight: bold;
+  font-family: "HelveticaBlk", sans-serif;
   border-radius: 25px;
   width: 40%;
   text-align: center;
   padding: 5px 0 5px 0;
   margin-top: 15px;
   cursor: pointer;
+  :hover {
+    border: #999933 2px solid;
+    color: #999933;
+  }
 `;
 
 export const EmailSkip = styled.div`
   font-size: 0.6rem;
   text-decoration: underline;
   margin-top: 25px;
+  cursor: pointer;
+  :hover {
+    color: #999933;
+  }
 `;
 export const EmailPrivacy = styled.div`
   font-size: 0.5rem;

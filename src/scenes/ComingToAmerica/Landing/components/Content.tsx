@@ -50,6 +50,7 @@ import Video from "./Video";
 import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
+import Schedule2 from "./Schedule2";
 
 const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
@@ -113,9 +114,7 @@ const Content = () => {
             <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
           </Title>
           <Buttons>
-            <Button onClick={handleEmail}>
-              MARCH 8<sup>TH</sup> - 10<sup>TH</sup>
-            </Button>
+            <Button onClick={handleEmail}>RSVP</Button>
             <Button onClick={handleSchedule}>SCHEDULE</Button>
             <Button onClick={handleTrailer}>WATCH TRAILER</Button>
           </Buttons>
@@ -188,7 +187,7 @@ const Content = () => {
                 </EmailText>
               </EmailOptOut>
               <EmailSignup>SIGN-UP</EmailSignup>
-              <EmailSkip>SKIP</EmailSkip>
+              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
               <EmailPrivacy>BY USING THIS SITE, YOU AGREE TO THE</EmailPrivacy>
               <EmailPrivacy>
                 <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
@@ -213,7 +212,7 @@ const Content = () => {
         <Overlay>
           <Background>
             <Exit onClick={handleSchedule}>x</Exit>
-            <Schedule />
+            <Schedule2 />
           </Background>
         </Overlay>
       )}
