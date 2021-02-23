@@ -59,6 +59,7 @@ const FILE_URL =
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
+  const { setPaused } = useEnvironment();
 
   const { setPaused } = useEnvironment();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
@@ -190,11 +191,13 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["chairs.1"]}
           geometry={nodes.chairs.geometry}
         />
-        <mesh
-          name="armrest"
-          material={materials.armrest}
-          geometry={nodes.armrest.geometry}
-        />
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="armrest"
+            material={materials.armrest}
+            geometry={nodes.armrest.geometry}
+          />
+        </Trigger>
         <mesh
           name="walls"
           material={materials["walls.1"]}
