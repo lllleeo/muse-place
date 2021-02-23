@@ -6,6 +6,8 @@ import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
+import BTSTrigger from "../overlays/BTSTrigger";
+import { Perf } from "r3f-perf";
 
 const BarbershopScene = () => {
   return (
@@ -14,6 +16,7 @@ const BarbershopScene = () => {
         pauseMenu={<PauseMenu />}
         player={{ pos: new Vector3(0, 1.25, 0), speed: 0.9 }}
       >
+        <BTSTrigger />
         <Sky />
         <Suspense fallback={null}>
           <Barbershop />
@@ -22,6 +25,7 @@ const BarbershopScene = () => {
           <Mirror />
         </Suspense>
         <ambientLight />
+        {/*<Perf />*/}
       </StandardEnvironment>
     </AmazonContainer>
   );
