@@ -23,34 +23,27 @@ const VideoDiv = styled.div`
 const Video = (props: videoProps) => {
   const { src, thumbnail } = props;
 
+  let width, height;
+  if (window.innerWidth < 501) {
+    width = "300";
+    height = "150";
+  } else if (window.innerWidth < 770) {
+    width = "350";
+    height = "250";
+  } else if (window.innerWidth < 1200) {
+    width = "400";
+    height = "300";
+  } else if (window.innerWidth < 1500) {
+    width = "500";
+    height = "350";
+  } else {
+    width = "600";
+    height = "400";
+  }
+
   return (
     <VideoDiv>
-      <VideoPlayer
-        src={src}
-        poster={thumbnail}
-        width={
-          window.innerWidth < 501
-            ? "300"
-            : window.innerWidth < 770
-            ? "300"
-            : window.innerWidth < 1200
-            ? "400"
-            : window.innerWidth < 1500
-            ? "500"
-            : "600"
-        }
-        height={
-          window.innerWidth < 501
-            ? "150"
-            : window.innerWidth < 770
-            ? "250"
-            : window.innerWidth < 1200
-            ? "300"
-            : window.innerWidth < 1500
-            ? "350"
-            : "400"
-        }
-      />
+      <VideoPlayer src={src} poster={thumbnail} width={width} height={height} />
     </VideoDiv>
   );
 };
