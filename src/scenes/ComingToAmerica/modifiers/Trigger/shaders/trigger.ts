@@ -16,8 +16,8 @@ export const frag = `
     float shine = pow( sin(pos_offset + time / 2.5 ), 2000. ); // make sure pow is even
     vec3 shine_color = vec3(0.788,0.6,0.71);
     
-    vec3 shine_offset = 0.2 * shine * shine_color;
-    vec3 glow_offset = 0.2 * glow * shine_color;
+    vec3 shine_offset = 0.3 * shine * shine_color;
+    vec3 glow_offset = 0.25 * glow * shine_color;
     
     gl_FragColor.rgb = clamp(gl_FragColor.rgb + shine_offset + glow_offset, 0., 1.);
 `;
