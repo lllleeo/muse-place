@@ -269,7 +269,7 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  border: white 2px dashed;
+  //border: white 2px dashed;
   width: 90%;
   position: relative;
 `;
@@ -282,7 +282,7 @@ export const Exit = styled.p`
   font-size: 1.5rem;
   font-family: "Bodoni", sans-serif;
   color: white;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const Billing = styled.div`

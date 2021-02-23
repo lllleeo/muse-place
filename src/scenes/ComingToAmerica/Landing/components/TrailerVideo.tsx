@@ -1,9 +1,11 @@
 import VideoPlayer from "react-video-js-player";
 import styled from "@emotion/styled";
+import { useLayoutEffect, useRef } from "react";
 
 type videoProps = {
   src: string;
   thumbnail: string;
+  muted?: boolean;
 };
 
 const VideoDiv = styled.div`
@@ -14,6 +16,7 @@ const VideoDiv = styled.div`
   justify-content: center;
   .video-js {
     border-radius: 10px;
+    z-index: 1;
   }
 `;
 
@@ -24,12 +27,29 @@ export const VideoExit = styled.div`
   cursor: pointer;
   font-size: 1.5rem;
   font-family: "Bodoni", sans-serif;
-  color: white;
   z-index: 1;
 `;
 
 const TrailerVideo = (props: videoProps) => {
-  const { src, thumbnail } = props;
+  const { src, thumbnail, muted } = props;
+  const video = useRef();
+
+  const handleClick = () => {
+    if (video.current) {
+      // @ts-ignore
+      video.current.player.children_[0].volume = 1;
+      console.log("clicked");
+      document.removeEventListener("click", handleClick);
+    }
+  };
+
+  useLayoutEffect(() => {
+    if (video.current && muted) {
+      // @ts-ignore
+      video.current.player.children_[0].volume = 0;
+      document.addEventListener("click", handleClick);
+    }
+  });
 
   let width, height;
   if (window.innerWidth < 501) {
@@ -58,6 +78,7 @@ const TrailerVideo = (props: videoProps) => {
         bigPlayButton={false}
         width={width}
         height={height}
+        ref={video}
       />
     </VideoDiv>
   );

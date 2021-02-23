@@ -10,7 +10,7 @@ const globalStyles = css`
   
   @font-face {
     font-family: 'Bodoni';
-    src: url('${content}/fonts/Bodoni+Std/BodoniStd.otf') format('otf');
+    src: url('${content}/fonts/HelveticaLTStd-Blk.otf') format('opentype');
   }
 
   html,

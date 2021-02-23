@@ -44,7 +44,7 @@ import {
   TwitterShareButton,
   EmailShareButton,
 } from "react-share";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Video from "./Video";
 import TrailerVideo, { VideoExit } from "./TrailerVideo";
 import Terms from "./Terms";
@@ -60,6 +60,15 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
+  const [firstLogin, setFirstLogin] = useState<boolean>(false);
+  const overlay = useRef();
+
+  console.log(document.cookie);
+  if (document.cookie == "") {
+    setFirstLogin(true);
+    document.cookie = "cookie1=c2aFirstLogin;expires=315360000";
+  }
+  console.log(document.cookie);
 
   const handleTerms = () => {
     if (email) {
@@ -79,16 +88,37 @@ const Content = () => {
   const handleSchedule = () => {
     setSchedule(!schedule);
   };
+  const closeFirstOverlay = () => {
+    setFirstLogin(false);
+  };
 
   return (
     <Page>
+      {firstLogin ? (
+        <Overlay>
+          <Trailer>
+            <Exit onClick={closeFirstOverlay}>X</Exit>
+            <TrailerVideo
+              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
+              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+              muted
+            />
+          </Trailer>
+        </Overlay>
+      ) : (
+        <></>
+      )}
       <Container>
-        <VideoBox>
-          <Video
-            src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-            thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
-          />
-        </VideoBox>
+        {firstLogin ? (
+          <VideoBox />
+        ) : (
+          <VideoBox>
+            <Video
+              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
+              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+            />
+          </VideoBox>
+        )}
         <InfoBox>
           <Title>
             <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>
