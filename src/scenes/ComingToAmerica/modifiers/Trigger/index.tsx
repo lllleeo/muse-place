@@ -4,10 +4,10 @@ import { Group, Material, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
 import { useFrame } from "react-three-fiber";
 import { useSpring } from "react-spring";
-import { getSpringValues } from "../../../Silks/utils/spring";
+import { getSpringValues } from "../../utils/spring";
 
 type Props = {
-  children: ReactNode;
+  children: ReactNode[];
   onClick?: () => void;
 };
 
@@ -34,6 +34,7 @@ const Trigger = (props: Props) => {
     material.onBeforeCompile = function (shader) {
       shader.uniforms.time = { value: 0 };
       shader.uniforms.glow = { value: 0 };
+      shader.uniforms.dist = { value: 0 };
       shader.uniforms.seed = { value: seed };
 
       shader.vertexShader = uniforms + shader.vertexShader;
@@ -55,7 +56,7 @@ const Trigger = (props: Props) => {
     mesh.material = material;
   }, [frag]);
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, camera }) => {
     if (!group.current || !limiter.isReady(clock)) {
       return;
     }
@@ -68,13 +69,20 @@ const Trigger = (props: Props) => {
     }
   });
 
+  if (!children || !children.length || children.length !== 2) {
+    return <>{children}</>;
+  }
+
   return (
-    <Interactable
-      onHover={() => setSpring({ g: [1] })}
-      onUnHover={() => setSpring({ g: [0] })}
-    >
-      <group ref={group}>{children}</group>{" "}
-    </Interactable>
+    <>
+      <group ref={group}>{children[0]}</group>
+      <Interactable
+        onHover={() => setSpring({ g: [1] })}
+        onUnHover={() => setSpring({ g: [0] })}
+      >
+        {children[1]}
+      </Interactable>
+    </>
   );
 };
 
