@@ -1,9 +1,10 @@
 import { ReactNode, useLayoutEffect, useRef } from "react";
-import { Interactable } from "spacesvr";
-import { DoubleSide, Group, Material, Mesh } from "three";
+import { Interactable, useLimiter } from "spacesvr";
+import { Group, Material, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
 import { useFrame } from "react-three-fiber";
-import { useLimiter } from "../../utils/limiter";
+import { useSpring } from "react-spring";
+import { getSpringValues } from "../../../Silks/utils/spring";
 
 type Props = {
   children: ReactNode;
@@ -17,6 +18,9 @@ const Trigger = (props: Props) => {
   const matRef = useRef<Material>();
 
   const limiter = useLimiter(30);
+  const [spring, setSpring] = useSpring(() => ({
+    g: [0],
+  }));
 
   useLayoutEffect(() => {
     if (!group.current || !(group.current?.children[0] as Mesh).material) {
@@ -27,13 +31,15 @@ const Trigger = (props: Props) => {
     const material = (mesh.material as Material).clone();
 
     material.onBeforeCompile = function (shader) {
+      shader.uniforms.time = { value: 0 };
+      shader.uniforms.glow = { value: 0 };
+
       shader.vertexShader = uniforms + shader.vertexShader;
       shader.vertexShader = shader.vertexShader.replace(
         "#include <begin_vertex>",
         vert
       );
 
-      shader.uniforms.time = { value: 0 };
       shader.fragmentShader = uniforms + shader.fragmentShader;
       shader.fragmentShader = shader.fragmentShader.replace(
         "#include <dithering_fragment>",
@@ -53,11 +59,21 @@ const Trigger = (props: Props) => {
     }
 
     if (matRef?.current?.userData?.shader?.uniforms?.time) {
+      const [g] = getSpringValues(spring);
+
       matRef.current.userData.shader.uniforms.time.value = clock.getElapsedTime();
+      matRef.current.userData.shader.uniforms.glow.value = g;
     }
   });
 
-  return <group ref={group}>{children}</group>;
+  return (
+    <Interactable
+      onHover={() => setSpring({ g: [1] })}
+      onUnHover={() => setSpring({ g: [0] })}
+    >
+      <group ref={group}>{children}</group>
+    </Interactable>
+  );
 };
 
 export default Trigger;

@@ -72,18 +72,19 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["chairs.mat"]}
           geometry={nodes.chairs.geometry}
         />
-        <mesh
-          name="armrest"
-          material={materials["armrest.mat"]}
-          geometry={nodes.armrest.geometry}
-        />
         <Trigger>
           <mesh
-            name="barberchair"
-            material={materials["barberchair.mat"]}
-            geometry={nodes.barberchair.geometry}
+            name="armrest"
+            material={materials["armrest.mat"]}
+            geometry={nodes.armrest.geometry}
           />
         </Trigger>
+
+        <mesh
+          name="barberchair"
+          material={materials["barberchair.mat"]}
+          geometry={nodes.barberchair.geometry}
+        />
         <mesh
           name="ceiling"
           material={materials["ceiling.mat"]}
