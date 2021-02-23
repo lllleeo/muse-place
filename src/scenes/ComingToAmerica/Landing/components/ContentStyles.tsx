@@ -72,10 +72,10 @@ export const VideoBox = styled.div`
 export const InfoBox = styled.div`
   //border: red 2px dashed;
   width: min(45%, 800px);
-  height: 75%;
   text-align: center;
   diplay: flex;
   flex-direction: column;
+  justify-content: flex-start;
   font-family: "Bodoni", sans-serif;
   @media screen and (max-width: 1500px) {
     width: 40%;
@@ -92,14 +92,8 @@ export const InfoBox = styled.div`
 
 export const Title = styled.div`
   max-width: 95%;
-  //border: purple 2px dashed;
-  margin: 75px auto 0 auto;
-  @media screen and (max-width: ${tablet}) {
-    margin-top: 105px;
-  }
-  @media screen and (max-width: ${phone}) {
-    margin-top: 0;
-  }
+  //border: blue 2px dashed;
+  margin: 0 auto 0 auto;
 `;
 
 export const SurroundingTitle = styled.div`
@@ -129,7 +123,7 @@ export const Buttons = styled.div`
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: 20px auto 20px auto;
-  //border: black 2px dashed;
+  // border: black 2px dashed;
   color: yellow;
   font-weight: 550;
   font-size: min(0.8rem, 1.2vw);
