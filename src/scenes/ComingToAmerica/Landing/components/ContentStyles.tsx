@@ -194,7 +194,7 @@ export const ShareContainer = styled.div`
   justify-content: space-evenly;
 `;
 
-export const ShareIcon = styled.div`
+export const ShareIcon = styled.button`
   width: 32px;
   height: 32px;
   background: yellow;
@@ -206,19 +206,11 @@ export const ShareIcon = styled.div`
   align-items: center;
   justify-content: center;
   color: #c796b3;
-  outline: none;
 `;
 
 export const Icon = styled.div`
   cursor: pointer;
-  outline: 0;
   border: none;
-  padding: 0;
-
-  :focus {
-    outline: none;
-    box-shadow: none !important;
-  }
 `;
 
 export const FinePrint = styled.div`
@@ -265,19 +257,31 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  //border: white 2px dashed;
+  // border: white 2px dashed;
   width: 90%;
   position: relative;
 `;
 
 export const Exit = styled.p`
   position: absolute;
-  top: -5px;
-  right: 20px;
+  top: -10px;
+  right: 75px;
   cursor: pointer;
+  font-weight: 100;
   font-size: 1.5rem;
-  font-family: "HelveticaBlk", sans-serif;
+  font-family: "EmberCd", sans-serif;
   color: white;
+  z-index: 2;
+`;
+
+export const VideoExit = styled.div`
+  position: absolute;
+  //top: -400px;
+  right: 100px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "EmberCd", sans-serif;
   z-index: 2;
 `;
 

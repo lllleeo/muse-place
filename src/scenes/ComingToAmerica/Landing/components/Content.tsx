@@ -17,6 +17,7 @@ import {
   Overlay,
   Background,
   Trailer,
+  VideoExit,
   Exit,
   Billing,
   MovieLabel,
@@ -46,7 +47,7 @@ import {
 } from "react-share";
 import { useState } from "react";
 import Video from "./Video";
-import TrailerVideo, { VideoExit } from "./TrailerVideo";
+import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
 
@@ -83,8 +84,8 @@ const Content = () => {
     <Page>
       {firstLogin && (
         <Overlay>
+          <Exit onClick={closeFirstOverlay}>x</Exit>
           <Trailer>
-            <Exit onClick={closeFirstOverlay}>X</Exit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
               thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
@@ -120,14 +121,12 @@ const Content = () => {
           <Share>SHARE</Share>
           <ShareContainer>
             <ShareIcon>
-              <Icon>
-                <FontAwesomeIcon icon={faInstagram} size="lg" />
-              </Icon>
+              <FontAwesomeIcon icon={faInstagram} size="lg" />
             </ShareIcon>
             <TwitterShareButton
               url={shareUrl}
               title="Check out The My-T-Barbershop Experience!"
-              style={{ outline: "none" }}
+              // style={{ outline: "none" }}
             >
               <ShareIcon>
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
@@ -136,22 +135,20 @@ const Content = () => {
             <FacebookShareButton
               url={shareUrl}
               quote={shareMessage}
-              style={{ outline: "none" }}
+              // style={{ outline: "none" }}
             >
               <Icon>
                 <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
               </Icon>
             </FacebookShareButton>
             <ShareIcon>
-              <Icon>
-                <FontAwesomeIcon icon={faComment} size="lg" />
-              </Icon>
+              <FontAwesomeIcon icon={faComment} size="lg" />
             </ShareIcon>
             <EmailShareButton
               url={shareUrl}
               subject="Check out the My-T-Sharp Barbershop Experience!"
               body={shareMessage}
-              style={{ outline: "none" }}
+              // style={{ outline: "none" }}
             >
               <ShareIcon>
                 <FontAwesomeIcon icon={faEnvelope} size="lg" />
@@ -202,7 +199,7 @@ const Content = () => {
       {trailer && (
         <Overlay>
           <Trailer>
-            <VideoExit onClick={handleTrailer}>X</VideoExit>
+            <VideoExit onClick={handleTrailer}>x</VideoExit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
               thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
@@ -213,7 +210,7 @@ const Content = () => {
       {schedule && (
         <Overlay>
           <Background>
-            <Exit onClick={handleSchedule}>X</Exit>
+            <Exit onClick={handleSchedule}>x</Exit>
             <Schedule />
           </Background>
         </Overlay>
@@ -221,7 +218,7 @@ const Content = () => {
       {terms && (
         <Overlay>
           <Background>
-            <Exit onClick={handleTerms}>X</Exit>
+            <Exit onClick={handleTerms}>x</Exit>
             <Terms />
           </Background>
         </Overlay>

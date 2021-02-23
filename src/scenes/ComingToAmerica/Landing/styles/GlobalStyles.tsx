@@ -12,6 +12,10 @@ const globalStyles = css`
     font-family: 'HelveticaBlk';
     src: url('${content}/fonts/HelveticaLTStd-Blk.otf') format('opentype');
   }
+  @font-face {
+    font-family: 'EmberCd';
+    src: url('${content}/fonts/Amazon_Typefaces_Complete_Font_Set_Mar2020/Ember+Condensed/AmazonEmberCdRc_Bd.ttf') format('opentype');
+  }
 
   html,
   body,

@@ -16,18 +16,8 @@ const VideoDiv = styled.div`
   justify-content: center;
   .video-js {
     border-radius: 10px;
-    z-index: 1;
+    //z-index: 0;
   }
-`;
-
-export const VideoExit = styled.div`
-  position: absolute;
-  top: 10px;
-  right: 50px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  font-family: "HelveticaBlk", sans-serif;
-  z-index: 1;
 `;
 
 const TrailerVideo = (props: videoProps) => {
