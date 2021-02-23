@@ -2,12 +2,11 @@
 import { JEEFACEFILTERAPI, NN_4EXPR } from "facefilter";
 import { JeelizThreeFiberHelper } from "../assets/JeelizThreeFiberHelper.js";
 import { Canvas, useFrame, useThree, useUpdate } from "react-three-fiber";
-import { Group, WebGLState } from "three";
+import { Group } from "three";
 import { useEffect, useMemo, useRef } from "react";
 
 const _maxFacesDetected = 1; // max number of detected faces
 const _faceFollowers = new Array(_maxFacesDetected);
-let _timerResize = null;
 
 // This mesh follows the face. put stuffs in it.
 // Its position and orientation is controlled by Jeeliz THREE.js helper
@@ -177,6 +176,7 @@ const ARFilter = () => {
       {/* Canvas managed by FaceFilter, just displaying the video (and used for WebGL computations) */}
       <canvas
         className="mirrorX"
+        // @ts-ignore
         ref={faceFilterCanvas}
         style={{
           position: "absolute",
