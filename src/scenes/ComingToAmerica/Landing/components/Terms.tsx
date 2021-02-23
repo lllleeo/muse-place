@@ -6,7 +6,8 @@ const TermsMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  //border: white 2px dashed;
+  padding-top: 3px;
+  border: white 2px dashed;
   color: yellow;
   font-family: "Bodoni", sans-serif;
   overflow-y: scroll;

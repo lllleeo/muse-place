@@ -16,7 +16,7 @@ const VideoDiv = styled.div`
   justify-content: center;
   .video-js {
     border-radius: 10px;
-    //z-index: 0;
+    z-index: 1;
   }
 `;
 
