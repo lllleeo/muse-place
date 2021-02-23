@@ -10,6 +10,7 @@ import FullscreenVideoTrigger from "../overlays/FullscreenVideoTrigger";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import { Perf } from "r3f-perf";
+import CastConvoTrigger from "../overlays/CastConvoTrigger";
 
 const BarbershopScene = () => {
   return (
@@ -20,6 +21,7 @@ const BarbershopScene = () => {
       >
         <BTSTrigger />
         <FullscreenVideoTrigger />
+        <CastConvoTrigger />
         <Sky />
         <Suspense fallback={null}>
           <Barbershop />

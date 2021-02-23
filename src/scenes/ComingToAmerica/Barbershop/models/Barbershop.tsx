@@ -93,7 +93,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["hairstyle-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "fullscreen-barberchair-1")}>
+        <Trigger onClick={() => setPaused(true, "fullscreen-barberchair-0")}>
           <mesh
             name="barberchair"
             material={materials["barberchair.1"]}

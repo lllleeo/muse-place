@@ -156,6 +156,7 @@ const LiveChat = () => {
           onKeyDown={handleKeyDown}
           inputProps={{ "aria-label": "Message Field" }}
           autoFocus={true}
+          autoComplete={"off"}
         />
         <Button size="small" color="primary" onClick={publishMessage}>
           Submit
