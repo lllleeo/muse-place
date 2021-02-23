@@ -174,7 +174,7 @@ const Schedule2 = () => {
             </ScheduleText>
             <ScheduleText>Cast Conversations Ep 1 & 2</ScheduleText>
             <ScheduleText>
-              "Eddie Murphy + Arsenio Hall" + "The Jamaica, Queens Crew"
+              Eddie Murphy, Arsenio Hall + The Jamaica, Queens Crew
             </ScheduleText>
           </ScheduleRight>
         </ScheduleSection>
