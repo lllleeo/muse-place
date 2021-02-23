@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const desktop = "1900px";
+const desktop = "1500px";
 const laptop = "1050px";
 const tablet = "770px";
 const phone = "500px";
@@ -77,7 +77,7 @@ export const InfoBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   font-family: "Bodoni", sans-serif;
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: ${desktop}) {
     width: 40%;
   }
   @media screen and (max-width: ${phone}) {
@@ -128,10 +128,10 @@ export const Buttons = styled.div`
   font-weight: 550;
   font-size: min(0.8rem, 1.2vw);
   font-family: "Bodoni", sans-serif;
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: ${desktop}) {
     max-width: 400px;
   }
-  @media screen and (min-width: 1500px) {
+  @media screen and (min-width: ${desktop}) {
     font-size: 1rem;
   }
   @media screen and (max-width: ${tablet}) {
@@ -266,143 +266,12 @@ export const Background = styled.div`
   position: relative;
   z-index: 1;
   //border: pink 2px solid;
-  @media screen and (max-width: 500px) {
-    // background-size: 97% 100%;
-  }
 `;
 
 export const Trailer = styled.div`
   border: white 2px dashed;
   width: 90%;
   position: relative;
-`;
-
-export const Schedule = styled.div`
-  width: 90%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  //border: white 2px dashed;
-  color: yellow;
-  font-family: "Bodoni", sans-serif;
-`;
-
-export const ScheduleHeader = styled.h2`
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 0 0 0.5rem 0;
-  line-height: 70%;
-`;
-
-export const ScheduleBreak = styled.div`
-  width: 60%;
-  border: yellow 1px solid;
-  margin: 0 auto 0 auto;
-`;
-
-export const ScheduleSubHeader = styled.h3`
-  text-align: center;
-  font-size: 0.7rem;
-  //line-height: 50%;
-  margin: 0;
-`;
-
-export const ScheduleContent = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  //border: white 2px dashed;
-  margin-top: 10px;
-`;
-
-export const ScheduleDate = styled.h4`
-  margin: 0;
-  text-decoration: underline;
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 10px 0 0 0;
-  //border: blue 2px dashed;
-  position: relative;
-  right: 110px;
-`;
-
-export const ScheduleDate2 = styled.h4`
-  margin: 0;
-  padding: 10px 0 0 0;
-  text-decoration: underline;
-  font-weight: bold;
-  font-size: 0.9rem;
-  //border: blue 2px dashed;
-  position: relative;
-  right: 125px;
-`;
-
-export const ScheduleSection = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1px 0 1px 0;
-  //border: red 2px dashed;
-`;
-
-export const ScheduleLeft = styled.div`
-  width: 35%;
-  text-align: right;
-  //border: green 2px dashed;
-`;
-
-export const ScheduleText = styled.p`
-  font-size: 0.7rem;
-  margin: 2px 0 2px 0;
-`;
-
-export const ScheduleRight = styled.div`
-  width: 60%;
-  text-align: left;
-  //border: blue 2px dashed;
-`;
-
-export const Terms = styled.div`
-  width: 90%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  //border: white 2px dashed;
-  color: yellow;
-  font-family: "Bodoni", sans-serif;
-  overflow-y: scroll;
-`;
-
-export const TermsHeader = styled.h2`
-  font-size: 1.2rem;
-  text-decoration: underline;
-  text-align: center;
-  margin: 0 0 0.5rem 0;
-  line-height: 70%;
-`;
-
-export const TermsSubHeader = styled.h3`
-  font-size: 1rem;
-  text-align: left;
-  margin: 0.1rem 0;
-`;
-
-export const TermsHeader3 = styled.h4`
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: underline;
-`;
-
-export const TermsContent = styled.p`
-  font-size: 0.7rem;
-  text-align: left;
-  margin: 0.1rem 0;
 `;
 
 export const Exit = styled.p`
