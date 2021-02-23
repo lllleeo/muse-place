@@ -34,6 +34,19 @@ import {
   TermsHeader3,
   Exit,
   TermsContent,
+  Billing,
+  MovieLabel,
+  EmailCollection,
+  EmailHeader,
+  EmailSubTitle,
+  EmailInputDiv,
+  EmailInput,
+  EmailCheck,
+  EmailOptOut,
+  EmailText,
+  EmailSignup,
+  EmailSkip,
+  EmailPrivacy,
 } from "./ContentStyles";
 import {
   faInstagram,
@@ -64,12 +77,17 @@ const Content = () => {
   const [schedule, setSchedule] = useState<boolean>(false);
   const [trailer, setTrailer] = useState<boolean>(false);
   const [terms, setTerms] = useState<boolean>(false);
+  const [email, setEmail] = useState<boolean>(false);
+  const [subscribe, setSubscribe] = useState<boolean>(true);
 
-  const handleEnter = () => {
-    window.location.href = "/comingtoamerica/exterior";
+  const handleTerms = () => {
+    if (email) {
+      setEmail(false);
+    }
+    setTerms(!terms);
   };
 
-  const handleShare = () => {
+  const handleSignup = () => {
     return null;
   };
 
@@ -89,17 +107,23 @@ const Content = () => {
             <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
           </Title>
           <Buttons>
-            <Button onClick={handleEnter}>ENTER</Button>
             <Button
               onClick={() => {
-                setSchedule(!schedule);
+                setEmail(true);
+              }}
+            >
+              RSVP
+            </Button>
+            <Button
+              onClick={() => {
+                setSchedule(true);
               }}
             >
               SCHEDULE
             </Button>
             <Button
               onClick={() => {
-                setTrailer(!trailer);
+                setTrailer(true);
               }}
             >
               WATCH TRAILER
@@ -108,15 +132,11 @@ const Content = () => {
           <Image1 />
           <Share>SHARE</Share>
           <ShareContainer>
-            <RedditShareButton
-              url={shareUrl}
-              title="My-T-Barbershop Experience"
-              style={{ outline: "none" }}
-            >
+            <ShareIcon>
               <Icon>
-                <FontAwesomeIcon icon={faReddit} size="2x" color="#ffff00" />
+                <FontAwesomeIcon icon={faInstagram} size="lg" />
               </Icon>
-            </RedditShareButton>
+            </ShareIcon>
             <TwitterShareButton
               url={shareUrl}
               title="Check out The My-T-Barbershop Experience!"
@@ -135,15 +155,11 @@ const Content = () => {
                 <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
               </Icon>
             </FacebookShareButton>
-            <PinterestShareButton
-              url={shareUrl}
-              media={`${content}/c2a/images/C2A_Website_Logo_Lockup.png`}
-              style={{ outline: "none" }}
-            >
+            <ShareIcon>
               <Icon>
-                <FontAwesomeIcon icon={faPinterest} size="2x" color="#ffff00" />
+                <FontAwesomeIcon icon={faComment} size="lg" />
               </Icon>
-            </PinterestShareButton>
+            </ShareIcon>
             <EmailShareButton
               url={shareUrl}
               subject="Check out the My-T-Sharp Barbershop Experience!"
@@ -157,24 +173,58 @@ const Content = () => {
           </ShareContainer>
           <FinePrint>BY USING THIS SITE, YOU AGREE TO THE</FinePrint>
           <FinePrint>
-            <a
-              onClick={() => {
-                setTerms(!terms);
-              }}
-            >
-              PRIVACY POLICY
-            </a>{" "}
-            AND{" "}
-            <a
-              onClick={() => {
-                setTerms(!terms);
-              }}
-            >
-              TERMS AND CONDITIONS
-            </a>
+            <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
+            <a onClick={handleTerms}>TERMS AND CONDITIONS</a>
           </FinePrint>
         </InfoBox>
+        <Billing />
+        <MovieLabel />
       </Container>
+      {email ? (
+        <Overlay>
+          <Background>
+            <Exit
+              onClick={() => {
+                setEmail(false);
+              }}
+            >
+              X
+            </Exit>
+            <EmailCollection>
+              <EmailHeader />
+              <EmailSubTitle>
+                EXCLUSIVE MY-T-SHARP EXPERIENCE AVAILABLE MARCH 1ST - 7TH
+              </EmailSubTitle>
+              <EmailInputDiv>
+                <EmailInput placeholder="NAME" />
+              </EmailInputDiv>
+              <EmailInputDiv>
+                <EmailInput placeholder="EMAIL" />
+              </EmailInputDiv>
+              <EmailOptOut>
+                <EmailCheck
+                  type="checkbox"
+                  onClick={() => {
+                    setSubscribe(!subscribe);
+                  }}
+                />
+                <EmailText>
+                  OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER
+                </EmailText>
+              </EmailOptOut>
+              <EmailSignup>SIGN-UP</EmailSignup>
+              <EmailSkip>SKIP</EmailSkip>
+              <EmailPrivacy>BY USING THIS SITE, YOU AGREE TO THE</EmailPrivacy>
+              <EmailPrivacy>
+                <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
+                <a onClick={handleTerms}>TERMS AND CONDITIONS</a>.
+              </EmailPrivacy>
+            </EmailCollection>
+          </Background>
+        </Overlay>
+      ) : (
+        <></>
+      )}
       {trailer ? (
         <Overlay>
           {/*<TrailerVideo>*/}

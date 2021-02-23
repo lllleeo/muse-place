@@ -13,6 +13,10 @@ const VideoDiv = styled.div`
   }
   .video-js .vjs-big-play-button {
     background: #cccc00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -5%;
   }
 `;
 

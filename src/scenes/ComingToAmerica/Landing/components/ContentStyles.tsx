@@ -419,3 +419,126 @@ export const Exit = styled.p`
   font-family: "Bodoni", sans-serif;
   color: white;
 `;
+
+export const Billing = styled.div`
+  position: absolute;
+  margin: 0 auto 0 auto;
+  bottom: 30px;
+  width: 80%;
+  height: 200px;
+  max-width: 800px;
+  background-image: url("https://amznstudios.app.box.com/s/6xfuixk6nwv7038z7727dz0pdjijewph/file/766452857021");
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
+export const MovieLabel = styled.div`
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background-image: url("${content}/images/movielabel.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 20px;
+  bottom: 30px;
+`;
+
+export const EmailCollection = styled.div`
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  //border: white 2px dashed;
+  color: yellow;
+  font-family: "Bodoni", sans-serif;
+`;
+
+export const EmailHeader = styled.div`
+  background-image: url("${content}/images/c2amarch5logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 95%;
+  height: 35%;
+  //border: blue 2px dashed;
+`;
+
+export const EmailSubTitle = styled.div`
+  //border: green 2px dashed;
+  text-align: center;
+  font-weight: bold;
+  width: 80%;
+  margin: 3px 0 5px 0;
+`;
+
+export const EmailInputDiv = styled.div`
+  width: 45%;
+  padding: 0 0 0 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: text;
+  margin-top: 10px;
+  background: white;
+`;
+
+export const EmailInput = styled.input`
+  width: 95%;
+  padding: 5px 0 5px 0;
+  margin: 0 auto 0 auto;
+  border: none;
+  outline: none;
+  ::placeholder {
+    font-family: "Bodoni", sans-serif;
+    font-weight: bold;
+    color: rgba(152, 81, 30, 0.6);
+  }
+`;
+
+export const EmailCheck = styled.input`
+  display: inline;
+  //border: yellow 2px dashed;
+  background-color: yellow;
+  align-self: center;
+`;
+
+export const EmailOptOut = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 50%;
+  //border: blue 2px dashed;
+`;
+
+export const EmailText = styled.p`
+  //border: red 2px dashed;
+  font-size: 0.6rem;
+  padding-left: 5px;
+`;
+export const EmailSignup = styled.div`
+  border: 2px yellow solid;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 40%;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  margin-top: 15px;
+  cursor: pointer;
+`;
+
+export const EmailSkip = styled.div`
+  font-size: 0.6rem;
+  text-decoration: underline;
+  margin-top: 25px;
+`;
+export const EmailPrivacy = styled.div`
+  font-size: 0.5rem;
+  position: relative;
+  bottom: -20px;
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`;
