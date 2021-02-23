@@ -60,8 +60,6 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { setPaused } = useEnvironment();
-
-  const { setPaused } = useEnvironment();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   useTrimeshCollision(
@@ -191,13 +189,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["chairs.1"]}
           geometry={nodes.chairs.geometry}
         />
-        <Trigger onClick={() => setPaused(true, "bts")}>
-          <mesh
-            name="armrest"
-            material={materials.armrest}
-            geometry={nodes.armrest.geometry}
-          />
-        </Trigger>
+        <mesh
+          name="armrest"
+          material={materials.armrest}
+          geometry={nodes.armrest.geometry}
+        />
         <mesh
           name="walls"
           material={materials["walls.1"]}
