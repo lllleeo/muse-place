@@ -264,6 +264,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 1;
   //border: pink 2px solid;
   @media screen and (max-width: 500px) {
     // background-size: 97% 100%;
@@ -271,7 +272,7 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  //border: white 2px dashed;
+  border: white 2px dashed;
   width: 90%;
   position: relative;
 `;
@@ -412,6 +413,7 @@ export const Exit = styled.p`
   font-size: 1.5rem;
   font-family: "Bodoni", sans-serif;
   color: white;
+  z-index: 1;
 `;
 
 export const Billing = styled.div`

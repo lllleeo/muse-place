@@ -66,7 +66,7 @@ import {
 } from "react-share";
 import { useState } from "react";
 import Video from "./Video";
-import TrailerVideo from "./TrailerVideo";
+import TrailerVideo, { VideoExit } from "./TrailerVideo";
 
 const content = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 const shareUrl = "https://muse.place/comingtoamerica";
@@ -86,9 +86,17 @@ const Content = () => {
     }
     setTerms(!terms);
   };
-
-  const handleSignup = () => {
-    return null;
+  const handleSubscribe = () => {
+    setSubscribe(!subscribe);
+  };
+  const handleEmail = () => {
+    setEmail(!email);
+  };
+  const handleTrailer = () => {
+    setTrailer(!trailer);
+  };
+  const handleSchedule = () => {
+    setSchedule(!schedule);
   };
 
   return (
@@ -107,27 +115,9 @@ const Content = () => {
             <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
           </Title>
           <Buttons>
-            <Button
-              onClick={() => {
-                setEmail(true);
-              }}
-            >
-              RSVP
-            </Button>
-            <Button
-              onClick={() => {
-                setSchedule(true);
-              }}
-            >
-              SCHEDULE
-            </Button>
-            <Button
-              onClick={() => {
-                setTrailer(true);
-              }}
-            >
-              WATCH TRAILER
-            </Button>
+            <Button onClick={handleEmail}>RSVP</Button>
+            <Button onClick={handleSchedule}>SCHEDULE</Button>
+            <Button onClick={handleTrailer}>WATCH TRAILER</Button>
           </Buttons>
           <Image1 />
           <Share>SHARE</Share>
@@ -183,13 +173,7 @@ const Content = () => {
       {email ? (
         <Overlay>
           <Background>
-            <Exit
-              onClick={() => {
-                setEmail(false);
-              }}
-            >
-              X
-            </Exit>
+            <Exit onClick={handleEmail}>X</Exit>
             <EmailCollection>
               <EmailHeader />
               <EmailSubTitle>
@@ -202,12 +186,7 @@ const Content = () => {
                 <EmailInput placeholder="EMAIL" />
               </EmailInputDiv>
               <EmailOptOut>
-                <EmailCheck
-                  type="checkbox"
-                  onClick={() => {
-                    setSubscribe(!subscribe);
-                  }}
-                />
+                <EmailCheck type="checkbox" onClick={handleSubscribe} />
                 <EmailText>
                   OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER
                 </EmailText>
@@ -227,21 +206,13 @@ const Content = () => {
       )}
       {trailer ? (
         <Overlay>
-          {/*<TrailerVideo>*/}
           <Trailer>
-            <Exit
-              onClick={() => {
-                setTrailer(false);
-              }}
-            >
-              X
-            </Exit>
+            <VideoExit onClick={handleTrailer}>X</VideoExit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
               thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
             />
           </Trailer>
-          {/*</TrailerVideo>*/}
         </Overlay>
       ) : (
         <></>
@@ -249,13 +220,7 @@ const Content = () => {
       {schedule ? (
         <Overlay>
           <Background>
-            <Exit
-              onClick={() => {
-                setSchedule(false);
-              }}
-            >
-              X
-            </Exit>
+            <Exit onClick={handleSchedule}>X</Exit>
             <Schedule>
               <ScheduleHeader>SCHEDULE</ScheduleHeader>
               <ScheduleBreak />
@@ -378,13 +343,7 @@ const Content = () => {
       {terms ? (
         <Overlay>
           <Background>
-            <Exit
-              onClick={() => {
-                setTerms(false);
-              }}
-            >
-              X
-            </Exit>
+            <Exit onClick={handleTerms}>X</Exit>
             <Terms>
               <TermsHeader>Conditions of Use</TermsHeader>
               <TermsContent>

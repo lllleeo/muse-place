@@ -17,8 +17,37 @@ const VideoDiv = styled.div`
   }
 `;
 
+export const VideoExit = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: "Bodoni", sans-serif;
+  color: white;
+  z-index: 1;
+`;
+
 const TrailerVideo = (props: videoProps) => {
   const { src, thumbnail } = props;
+
+  let width, height;
+  if (window.innerWidth < 501) {
+    width = "300";
+    height = "200";
+  } else if (window.innerWidth < 770) {
+    width = "500";
+    height = "400";
+  } else if (window.innerWidth < 1200) {
+    width = "800";
+    height = "600";
+  } else if (window.innerWidth < 1500) {
+    width = "1100";
+    height = "700";
+  } else {
+    width = "1400";
+    height = "900";
+  }
 
   return (
     <VideoDiv>
@@ -27,28 +56,8 @@ const TrailerVideo = (props: videoProps) => {
         poster={thumbnail}
         autoplay={true}
         bigPlayButton={false}
-        width={
-          window.innerWidth < 501
-            ? "300"
-            : window.innerWidth < 770
-            ? "500"
-            : window.innerWidth < 1200
-            ? "800"
-            : window.innerWidth < 1500
-            ? "1100"
-            : "1400"
-        }
-        height={
-          window.innerWidth < 501
-            ? "200"
-            : window.innerWidth < 770
-            ? "400"
-            : window.innerWidth < 1200
-            ? "600"
-            : window.innerWidth < 1500
-            ? "700"
-            : "900"
-        }
+        width={width}
+        height={height}
       />
     </VideoDiv>
   );
