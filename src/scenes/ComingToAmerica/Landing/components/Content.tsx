@@ -84,7 +84,7 @@ const Content = () => {
     <Page>
       {firstLogin && (
         <Overlay>
-          <Exit onClick={closeFirstOverlay}>X</Exit>
+          <Exit onClick={closeFirstOverlay}>x</Exit>
           <Trailer>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
@@ -167,7 +167,7 @@ const Content = () => {
       {email && (
         <Overlay>
           <Background>
-            <Exit onClick={handleEmail}>X</Exit>
+            <Exit onClick={handleEmail}>x</Exit>
             <EmailCollection>
               <EmailHeader />
               <EmailSubTitle>
@@ -199,7 +199,7 @@ const Content = () => {
       {trailer && (
         <Overlay>
           <Trailer>
-            <VideoExit onClick={handleTrailer}>X</VideoExit>
+            <VideoExit onClick={handleTrailer}>x</VideoExit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
               thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
@@ -210,7 +210,7 @@ const Content = () => {
       {schedule && (
         <Overlay>
           <Background>
-            <Exit onClick={handleSchedule}>X</Exit>
+            <Exit onClick={handleSchedule}>x</Exit>
             <Schedule />
           </Background>
         </Overlay>
@@ -218,7 +218,7 @@ const Content = () => {
       {terms && (
         <Overlay>
           <Background>
-            <Exit onClick={handleTerms}>X</Exit>
+            <Exit onClick={handleTerms}>x</Exit>
             <Terms />
           </Background>
         </Overlay>
