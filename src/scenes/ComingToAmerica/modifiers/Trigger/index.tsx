@@ -77,6 +77,7 @@ const Trigger = (props: Props) => {
     <>
       <group ref={group}>{children[0]}</group>
       <Interactable
+        onClick={onClick}
         onHover={() => setSpring({ g: [1] })}
         onUnHover={() => setSpring({ g: [0] })}
       >

@@ -7,54 +7,60 @@ import React, { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL, useTrimeshCollision } from "spacesvr";
+import { DRACO_URL, useEnvironment, useTrimeshCollision } from "spacesvr";
 import { BufferGeometry, MeshStandardMaterial } from "three";
 import Trigger from "../../modifiers/Trigger";
 
 type GLTFResult = GLTF & {
   nodes: {
+    barberchair: THREE.Mesh;
+    ["barberchair-hitbox"]: THREE.Mesh;
+    hairstyle: THREE.Mesh;
     ["hairstyle-hitbox"]: THREE.Mesh;
+    defjam: THREE.Mesh;
     ["defjam-hitbox"]: THREE.Mesh;
+    giveaway: THREE.Mesh;
     ["giveaway-hitbox"]: THREE.Mesh;
-    ["radio-hitbox"]: THREE.Mesh;
+    tv: THREE.Mesh;
     ["tv-hitbox"]: THREE.Mesh;
+    backdoor: THREE.Mesh;
     ["backdoor-hitbox"]: THREE.Mesh;
-    ["barber-hitbox"]: THREE.Mesh;
+    ["radio-hitbox"]: THREE.Mesh;
+    barberchairs: THREE.Mesh;
     photos: THREE.Mesh;
     news: THREE.Mesh;
     product: THREE.Mesh;
     clay: THREE.Mesh;
-    tv: THREE.Mesh;
     phone: THREE.Mesh;
     seatframe: THREE.Mesh;
     chairs: THREE.Mesh;
     armrest: THREE.Mesh;
-    barberchair: THREE.Mesh;
     walls: THREE.Mesh;
     ceiling: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
+    ["barberchair.1"]: THREE.MeshStandardMaterial;
     photos: THREE.MeshStandardMaterial;
+    clay: THREE.MeshStandardMaterial;
     news: THREE.MeshStandardMaterial;
     product: THREE.MeshStandardMaterial;
-    clay: THREE.MeshStandardMaterial;
     telephone: THREE.MeshStandardMaterial;
     seatframe: THREE.MeshStandardMaterial;
     ["chairs.1"]: THREE.MeshStandardMaterial;
     armrest: THREE.MeshStandardMaterial;
-    ["barberchair.1"]: THREE.MeshStandardMaterial;
     ["walls.1"]: THREE.MeshStandardMaterial;
     celining: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614083036/barbershop_04.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614084842/barbershop_05.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
 
+  const { setPaused } = useEnvironment();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   useTrimeshCollision(
@@ -71,39 +77,55 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.275, 0.275, 0.275]} position-y={0.005}>
-        <mesh
-          name="hairstyle-hitbox"
-          material={hitboxMat}
-          geometry={nodes["hairstyle-hitbox"].geometry}
-        />
-        <mesh
-          name="defjam-hitbox"
-          material={hitboxMat}
-          geometry={nodes["defjam-hitbox"].geometry}
-        />
-        <Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="hairstyle"
+            material={nodes.hairstyle.material}
+            geometry={nodes.hairstyle.geometry}
+          />
+          <mesh
+            name="hairstyle-hitbox"
+            material={hitboxMat}
+            geometry={nodes["hairstyle-hitbox"].geometry}
+          />
+        </Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
             name="barberchair"
             material={materials["barberchair.1"]}
             geometry={nodes.barberchair.geometry}
           />
           <mesh
-            name="barber-hitbox"
+            name="barberchair-hitbox"
             material={hitboxMat}
-            geometry={nodes["barber-hitbox"].geometry}
+            geometry={nodes["barberchair-hitbox"].geometry}
           />
         </Trigger>
-        <mesh
-          name="giveaway-hitbox"
-          material={hitboxMat}
-          geometry={nodes["giveaway-hitbox"].geometry}
-        />
-        <mesh
-          name="radio-hitbox"
-          material={hitboxMat}
-          geometry={nodes["radio-hitbox"].geometry}
-        />
-        <Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="defjam"
+            material={materials.photos}
+            geometry={nodes.defjam.geometry}
+          />
+          <mesh
+            name="defjam-hitbox"
+            material={hitboxMat}
+            geometry={nodes["defjam-hitbox"].geometry}
+          />
+        </Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="giveaway"
+            material={materials.clay}
+            geometry={nodes.giveaway.geometry}
+          />
+          <mesh
+            name="giveaway-hitbox"
+            material={hitboxMat}
+            geometry={nodes["giveaway-hitbox"].geometry}
+          />
+        </Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
             name="tv"
             material={nodes.tv.material}
@@ -115,11 +137,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["tv-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger>
+        <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
-            name="clay"
+            name="backdoor"
             material={materials.clay}
-            geometry={nodes.clay.geometry}
+            geometry={nodes.backdoor.geometry}
           />
           <mesh
             name="backdoor-hitbox"
@@ -127,6 +149,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["backdoor-hitbox"].geometry}
           />
         </Trigger>
+        {/*<mesh name="radio-hitbox" material={nodes['radio-hitbox'].material} geometry={nodes['radio-hitbox'].geometry} />*/}
+        <mesh
+          name="barberchairs"
+          material={materials["barberchair.1"]}
+          geometry={nodes.barberchairs.geometry}
+        />
         <mesh
           name="photos"
           material={materials.photos}
@@ -142,7 +170,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials.product}
           geometry={nodes.product.geometry}
         />
-
+        <mesh
+          name="clay"
+          material={materials.clay}
+          geometry={nodes.clay.geometry}
+        />
         <mesh
           name="phone"
           material={materials.telephone}
@@ -163,7 +195,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials.armrest}
           geometry={nodes.armrest.geometry}
         />
-
         <mesh
           name="walls"
           material={materials["walls.1"]}
@@ -175,11 +206,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           geometry={nodes.ceiling.geometry}
           scale={[168.1893, 57.9186, 215.7007]}
         />
-        {/*<mesh*/}
-        {/*  name="collider"*/}
-        {/*  material={nodes.collider.material}*/}
-        {/*  geometry={nodes.collider.geometry}*/}
-        {/*/>*/}
+        {/*<mesh name="collider" material={nodes.collider.material} geometry={nodes.collider.geometry} />*/}
       </group>
     </group>
   );
