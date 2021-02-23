@@ -23,7 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@juggle/resize-observer": "^3.2.0",
-    "@react-three/cannon": "^0.5.3",
+    "@react-three/cannon": "^0.5.5",
     "@react-three/drei": "^3.8.6",
     "@react-three/flex": "^0.5.2",
     "@react-three/postprocessing": "^1.4.1",
@@ -43,8 +43,9 @@
     "react-three-fiber": "^5.1.4",
     "react-three-flex": "^0.5.2",
     "react-video-js-player": "^1.1.1",
+    "shopify-buy": "^2.11.0",
     "simplex-noise": "^2.4.0",
-    "spacesvr": "^1.2.33",
+    "spacesvr": "^1.3.1",
     "three": "^0.122.0"
   },
   "devDependencies": {
