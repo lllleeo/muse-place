@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 const BORDER_HEIGHT = "15px";
+const BORDER_HEIGHT_SMALL = "10px";
 
 const Container = styled.div`
   width: 100%;
@@ -17,6 +18,16 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   margin-bottom: ${BORDER_HEIGHT};
+  
+  @media screen and (max-height: 700px) {
+    height: 60px;
+    margin-bottom: ${BORDER_HEIGHT_SMALL};
+  }
+  
+  @media screen and (max-height: 575px) {
+    height: 50px;
+    margin-bottom: 8px;
+  }
 `;
 
 const Logo = styled.img`
@@ -36,6 +47,14 @@ const Border = styled.div`
   background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Background_gold-optimized.jpg");
   background-size: 200%;
   background-position: center center;
+  
+  @media screen and (max-height: 700px) {
+    height: ${BORDER_HEIGHT_SMALL};
+  }
+  
+  @media screen and (max-height: 575px) {
+    height: 8px;
+  }
 `;
 
 const Navbar = () => {
