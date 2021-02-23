@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+// @ts-ignore
 import PubNub from "pubnub";
 import useInput from "../hooks/useInput";
 import {
@@ -13,7 +14,7 @@ import {
 } from "@material-ui/core";
 
 // List of messages component
-function Log(props) {
+function Log(props: { messages: { uuid: string; text: string }[] }) {
   return (
     <List component="nav">
       <ListItem>
@@ -39,7 +40,9 @@ function Message(props: { uuid: string; text: string }) {
 const LiveChat = () => {
   const defaultChannel = "Screening Room";
   const [channel] = useState(defaultChannel);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<{ uuid: string; text: string }[]>(
+    []
+  );
   const [username] = useState(["user", new Date().getTime()].join("-"));
   const chatMessage = useInput();
   const pubnub = useMemo(() => {
@@ -56,19 +59,21 @@ const LiveChat = () => {
 
     // Add listeners
     pubnub.addListener({
-      status: (statusEvent) => {
+      status: (statusEvent: any) => {
         if (statusEvent.category === "PNConnectedCategory") {
           console.log("Connected to PubNub!");
         }
       },
-      message: (msg) => {
+      message: (msg: any) => {
         if (msg.message.text) {
-          let newMessages = [];
+          let newMessages: { uuid: string; text: string }[] = [];
           newMessages.push({
             uuid: msg.message.uuid,
             text: msg.message.text,
           });
-          setMessages((messages) => messages.concat(newMessages));
+          setMessages((messages: { uuid: string; text: string }[]) =>
+            messages.concat(newMessages)
+          );
         }
       },
     });
@@ -85,15 +90,17 @@ const LiveChat = () => {
         count: 10, // default 100
         stringifiedTimeToken: true, // default false
       },
-      (status, response) => {
-        let newMessages = [];
+      (status: any, response: any) => {
+        let newMessages: { uuid: string; text: string }[] = [];
         for (let i = 0; i < response.messages.length; i++) {
           newMessages.push({
             uuid: response.messages[i].entry.uuid,
             text: response.messages[i].entry.text,
           });
         }
-        setMessages((messages) => messages.concat(newMessages));
+        setMessages((messages: { uuid: string; text: string }[]) =>
+          messages.concat(newMessages)
+        );
       }
     );
 
@@ -106,7 +113,7 @@ const LiveChat = () => {
   }, [pubnub, channel, username]);
 
   // Handle inputs
-  function handleKeyDown(event) {
+  function handleKeyDown(event: any) {
     if (event.target.id === "messageInput") {
       if (event.key === "Enter") {
         publishMessage();
@@ -136,6 +143,7 @@ const LiveChat = () => {
     <Card>
       <CardContent>
         <div className="top">
+          {/* @ts-ignore */}
           <Typography variant="h4" inline="true">
             Screening Room Chat
           </Typography>
