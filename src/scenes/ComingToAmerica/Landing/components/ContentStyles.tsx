@@ -76,7 +76,7 @@ export const InfoBox = styled.div`
   diplay: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   @media screen and (max-width: ${desktop}) {
     width: 40%;
   }
@@ -96,23 +96,21 @@ export const Title = styled.div`
   margin: 0 auto 0 auto;
 `;
 
-export const SurroundingTitle = styled.div`
+export const SurroundingTitle = styled.h2`
   font-size: min(1.2rem, calc(2vw + 0.1rem));
-  color: saddlebrown;
+  color: #935c23;
   font-weight: 600;
-  padding-top: 5px;
-  .top {
-    margin-top: 20px;
-  }
-  .bottom {
-    margin-top: 1px;
-  }
+  //border: black 2px dashed;
+  //padding-top: 5px;
 `;
-export const MainTitle = styled.div`
+
+export const MainTitle = styled.h1`
   font-size: clamp(2rem, 4.5vw, 5rem);
   color: yellow;
   font-weight: 800;
   letter-spacing: -1px;
+  margin: 0;
+  //border: white 2px dashed;
   line-height: 80%;
 `;
 
@@ -124,10 +122,7 @@ export const Buttons = styled.div`
   flex-wrap: nowrap;
   margin: 20px auto 20px auto;
   // border: black 2px dashed;
-  color: yellow;
-  font-weight: 550;
-  font-size: min(0.8rem, 1.2vw);
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   @media screen and (max-width: ${desktop}) {
     max-width: 400px;
   }
@@ -142,15 +137,16 @@ export const Buttons = styled.div`
     font-size: 0.5em;
   }
 `;
-export const Button = styled.div`
+export const Button = styled.button`
   border: yellow 2px solid;
   border-radius: 20px;
   width: 31%;
   padding: 5px 0 5px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
+  font-size: min(0.8rem, 1.2vw);
+  font-family: "HelveticaBlk", sans-serif;
+  color: yellow;
+  background: none;
   :hover {
     border: #999933 2px solid;
     color: #999933;
@@ -162,7 +158,7 @@ export const Button = styled.div`
 
 export const Image1 = styled.div`
   margin: 15px auto 15px auto;
-  background-image: url("${content}/images/AMAZON_ORIGINAL_MOVIE1.png");
+  background-image: url("${content}/images/AMAZON_ORIGINAL_MOVIE1-resized.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -180,7 +176,7 @@ export const Image1 = styled.div`
   }
 `;
 
-export const Share = styled.div`
+export const Share = styled.p`
   color: yellow;
   font-weight: 600;
   font-size: 0.7rem;
@@ -191,7 +187,7 @@ export const ShareContainer = styled.div`
   width: 90%;
   max-width: 250px;
   margin: 0 auto 20px auto;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   //border: blue 2px dashed;
   display: flex;
   flex-direction: row;
@@ -280,7 +276,7 @@ export const Exit = styled.p`
   right: 20px;
   cursor: pointer;
   font-size: 1.5rem;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   color: white;
   z-index: 2;
 `;
@@ -317,7 +313,7 @@ export const EmailCollection = styled.div`
   align-items: center;
   //border: white 2px dashed;
   color: yellow;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
 `;
 
 export const EmailHeader = styled.div`
@@ -355,7 +351,7 @@ export const EmailInput = styled.input`
   border: none;
   outline: none;
   ::placeholder {
-    font-family: "Bodoni", sans-serif;
+    font-family: "HelveticaBlk", sans-serif;
     font-weight: bold;
     color: rgba(152, 81, 30, 0.6);
   }

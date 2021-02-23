@@ -26,7 +26,7 @@ export const VideoExit = styled.div`
   right: 50px;
   cursor: pointer;
   font-size: 1.5rem;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   z-index: 1;
 `;
 

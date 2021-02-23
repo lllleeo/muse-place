@@ -9,7 +9,7 @@ const globalStyles = css`
   }
   
   @font-face {
-    font-family: 'Bodoni';
+    font-family: 'HelveticaBlk';
     src: url('${content}/fonts/HelveticaLTStd-Blk.otf') format('opentype');
   }
 

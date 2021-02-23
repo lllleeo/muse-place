@@ -44,7 +44,7 @@ import {
   TwitterShareButton,
   EmailShareButton,
 } from "react-share";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Video from "./Video";
 import TrailerVideo, { VideoExit } from "./TrailerVideo";
 import Terms from "./Terms";
@@ -61,40 +61,27 @@ const Content = () => {
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
   const [firstLogin, setFirstLogin] = useState<boolean>(false);
-  const overlay = useRef();
 
-  console.log(document.cookie);
-  if (document.cookie == "") {
+  if (!localStorage.getItem("c2a-visited")) {
     setFirstLogin(true);
-    document.cookie = "cookie1=c2aFirstLogin;expires=315360000";
+    localStorage.setItem("c2a-visited", "visited");
   }
-  console.log(document.cookie);
 
+  const handleSubscribe = () => setSubscribe(!subscribe);
+  const handleEmail = () => setEmail(!email);
+  const handleTrailer = () => setTrailer(!trailer);
+  const handleSchedule = () => setSchedule(!schedule);
+  const closeFirstOverlay = () => setFirstLogin(false);
   const handleTerms = () => {
     if (email) {
       setEmail(false);
     }
     setTerms(!terms);
   };
-  const handleSubscribe = () => {
-    setSubscribe(!subscribe);
-  };
-  const handleEmail = () => {
-    setEmail(!email);
-  };
-  const handleTrailer = () => {
-    setTrailer(!trailer);
-  };
-  const handleSchedule = () => {
-    setSchedule(!schedule);
-  };
-  const closeFirstOverlay = () => {
-    setFirstLogin(false);
-  };
 
   return (
     <Page>
-      {firstLogin ? (
+      {firstLogin && (
         <Overlay>
           <Trailer>
             <Exit onClick={closeFirstOverlay}>X</Exit>
@@ -105,8 +92,6 @@ const Content = () => {
             />
           </Trailer>
         </Overlay>
-      ) : (
-        <></>
       )}
       <Container>
         {firstLogin ? (
@@ -122,7 +107,8 @@ const Content = () => {
         <InfoBox>
           <Title>
             <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>
-            <MainTitle>MY-T-SHARP BARBERSHOP</MainTitle>
+            <MainTitle>MY-T-SHARP</MainTitle>
+            <MainTitle>BARBERSHOP</MainTitle>
             <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
           </Title>
           <Buttons>
@@ -178,10 +164,10 @@ const Content = () => {
             <a onClick={handleTerms}>TERMS AND CONDITIONS</a>
           </FinePrint>
         </InfoBox>
-        <Billing />
+        {/*<Billing />*/}
         <MovieLabel />
       </Container>
-      {email ? (
+      {email && (
         <Overlay>
           <Background>
             <Exit onClick={handleEmail}>X</Exit>
@@ -212,10 +198,8 @@ const Content = () => {
             </EmailCollection>
           </Background>
         </Overlay>
-      ) : (
-        <></>
       )}
-      {trailer ? (
+      {trailer && (
         <Overlay>
           <Trailer>
             <VideoExit onClick={handleTrailer}>X</VideoExit>
@@ -225,28 +209,22 @@ const Content = () => {
             />
           </Trailer>
         </Overlay>
-      ) : (
-        <></>
       )}
-      {schedule ? (
+      {schedule && (
         <Overlay>
           <Background>
             <Exit onClick={handleSchedule}>X</Exit>
             <Schedule />
           </Background>
         </Overlay>
-      ) : (
-        <></>
       )}
-      {terms ? (
+      {terms && (
         <Overlay>
           <Background>
             <Exit onClick={handleTerms}>X</Exit>
             <Terms />
           </Background>
         </Overlay>
-      ) : (
-        <></>
       )}
     </Page>
   );
