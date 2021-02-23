@@ -138,7 +138,7 @@ const Content = () => {
               // style={{ outline: "none" }}
             >
               <Icon>
-                <FontAwesomeIcon icon={faFacebook} size="2x" color="#ffff00" />
+                <FontAwesomeIcon icon={faFacebook} size="2x" color="#f8Ec72" />
               </Icon>
             </FacebookShareButton>
             <ShareIcon>

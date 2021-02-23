@@ -106,7 +106,7 @@ export const SurroundingTitle = styled.h2`
 
 export const MainTitle = styled.h1`
   font-size: clamp(2rem, 4.5vw, 5rem);
-  color: yellow;
+  color: #f8ec72;
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
@@ -138,14 +138,14 @@ export const Buttons = styled.div`
   }
 `;
 export const Button = styled.button`
-  border: yellow 2px solid;
+  border: #f8ec72 2px solid;
   border-radius: 20px;
   width: 31%;
   padding: 5px 0 5px 0;
   cursor: pointer;
   font-size: min(0.8rem, 1.2vw);
   font-family: "HelveticaBlk", sans-serif;
-  color: yellow;
+  color: #f8ec72;
   background: none;
   :hover {
     border: #999933 2px solid;
@@ -177,7 +177,7 @@ export const Image1 = styled.div`
 `;
 
 export const Share = styled.p`
-  color: yellow;
+  color: #f8ec72;
   font-weight: 600;
   font-size: 0.7rem;
   margin: 0 auto 0 auto;
@@ -197,7 +197,7 @@ export const ShareContainer = styled.div`
 export const ShareIcon = styled.button`
   width: 32px;
   height: 32px;
-  background: yellow;
+  background: #f8ec72;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -217,7 +217,7 @@ export const FinePrint = styled.div`
   display: block;
   //border: green 2px dashed;
   margin: 0px auto 0 auto;
-  color: yellow;
+  color: #f8ec72;
   font-size: clamp(0.5rem, 0.5vw, 0.7rem);
   a {
     cursor: pointer;
@@ -316,7 +316,7 @@ export const EmailCollection = styled.div`
   justify-content: flex-start;
   align-items: center;
   //border: white 2px dashed;
-  color: yellow;
+  color: #f8ec72;
   font-family: "HelveticaBlk", sans-serif;
 `;
 
@@ -363,8 +363,8 @@ export const EmailInput = styled.input`
 
 export const EmailCheck = styled.input`
   display: inline;
-  //border: yellow 2px dashed;
-  background-color: yellow;
+  //border: #f8Ec72 2px dashed;
+  background-color: #f8ec72;
   align-self: center;
 `;
 
@@ -383,7 +383,7 @@ export const EmailText = styled.p`
   padding-left: 5px;
 `;
 export const EmailSignup = styled.div`
-  border: 2px yellow solid;
+  border: 2px #f8ec72 solid;
   font-weight: bold;
   border-radius: 25px;
   width: 40%;
