@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import Navbar from "./Navbar";
+import GlobalStyles from "./GlobalStyles";
 
 const Container = styled.div`
   width: 100%;
@@ -23,6 +24,7 @@ const AmazonContainer = (props: Props) => {
   const { children } = props;
   return (
     <Container>
+      <GlobalStyles />
       <Navbar />
       {children}
     </Container>

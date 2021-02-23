@@ -42,22 +42,30 @@ const Window = styled.div`
   overflow: hidden;
 `;
 
-const Continue = styled.div`
+const Continue = styled.button`
   width: 90%;
   max-width: 400px;
   height: auto;
+
+  color: #f4c948;
+  background: black;
+
   cursor: pointer;
-  text-align: center;
+
   font-size: 1.3em;
-  font-family: "Quicksand", sans-serif;
-  transition: opacity 0.15s linear;
-  margin-top: 20px;
-  background: white;
+  text-align: center;
+  font-family: "Bodoni", serif;
   line-height: 1em;
-  padding: 12px 0;
+
+  margin-top: 20px;
   border-radius: 10px;
+  border: 2px solid white;
+  padding: 17px 0 7px;
+
+  transition: filter 0.15s linear, background 0.15s linear;
   :hover {
-    opacity: 0.5;
+    background: rgb(10, 10, 10);
+    filter: brightness(1.5);
   }
 `;
 
@@ -76,7 +84,7 @@ const PauseMenu = () => {
         <Background />
         <Content />
       </Window>
-      <Continue onClick={closeOverlay}>continue</Continue>
+      <Continue onClick={closeOverlay}>CONTINUE</Continue>
     </Container>
   );
 };
