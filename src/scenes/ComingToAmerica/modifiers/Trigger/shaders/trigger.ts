@@ -21,8 +21,8 @@ export const frag = `
     
     vec3 shine_color = vec3(0.788,0.6,0.71);
     
-    vec3 shine_offset = 0.35 * shine * shine_color;
-    vec3 glow_offset = 0.25 * glow * shine_color;
+    vec3 shine_offset = 0.4 * shine * shine_color;
+    vec3 glow_offset = 0.35 * glow * shine_color;
     
-    gl_FragColor.rgb = clamp( gl_FragColor.rgb + shine_offset + glow_offset, 0., 1. );
+    gl_FragColor.rgb = saturate( gl_FragColor.rgb + shine_offset + glow_offset );
 `;
