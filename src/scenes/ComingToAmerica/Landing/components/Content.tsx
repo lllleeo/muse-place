@@ -50,6 +50,7 @@ import Video from "./Video";
 import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
+import Schedule2 from "./Schedule2";
 
 const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
@@ -61,7 +62,7 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
-  const [firstLogin, setFirstLogin] = useState<boolean>(true);
+  const [firstLogin, setFirstLogin] = useState<boolean>(false);
 
   if (!localStorage.getItem("c2a-visited")) {
     setFirstLogin(true);
@@ -186,7 +187,7 @@ const Content = () => {
                 </EmailText>
               </EmailOptOut>
               <EmailSignup>SIGN-UP</EmailSignup>
-              <EmailSkip>SKIP</EmailSkip>
+              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
               <EmailPrivacy>BY USING THIS SITE, YOU AGREE TO THE</EmailPrivacy>
               <EmailPrivacy>
                 <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
@@ -211,7 +212,7 @@ const Content = () => {
         <Overlay>
           <Background>
             <Exit onClick={handleSchedule}>x</Exit>
-            <Schedule />
+            <Schedule2 />
           </Background>
         </Overlay>
       )}

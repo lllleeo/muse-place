@@ -29,16 +29,16 @@ const Video = (props: videoProps) => {
     height = "150";
   } else if (window.innerWidth < 770) {
     width = "350";
-    height = "250";
+    height = "200";
   } else if (window.innerWidth < 1200) {
     width = "400";
-    height = "300";
+    height = "250";
   } else if (window.innerWidth < 1500) {
     width = "500";
-    height = "350";
+    height = "300";
   } else {
     width = "600";
-    height = "400";
+    height = "350";
   }
 
   return (

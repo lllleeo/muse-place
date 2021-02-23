@@ -8,7 +8,9 @@ const ScheduleMain = styled.div`
   justify-content: flex-start;
   //border: white 2px dashed;
   color: yellow;
+  padding-top: 10px;
   font-family: "Bodoni", sans-serif;
+  overflow-y: scroll;
 `;
 
 const ScheduleHeader = styled.h2`
@@ -38,7 +40,6 @@ const ScheduleContent = styled.div`
   align-items: center;
   justify-content: flex-start;
   //border: white 2px dashed;
-  margin-top: 10px;
 `;
 
 const ScheduleDate = styled.h4`
@@ -46,7 +47,7 @@ const ScheduleDate = styled.h4`
   text-decoration: underline;
   font-weight: bold;
   font-size: 0.9rem;
-  padding: 10px 0 0 0;
+  margin: 5px 0 0 0;
   //border: blue 2px dashed;
   position: relative;
   right: 110px;
@@ -89,7 +90,7 @@ const ScheduleRight = styled.div`
   //border: blue 2px dashed;
 `;
 
-const Schedule = () => {
+const Schedule2 = () => {
   return (
     <ScheduleMain>
       <ScheduleHeader>SCHEDULE</ScheduleHeader>
@@ -97,104 +98,83 @@ const Schedule = () => {
       <ScheduleSubHeader>DAILY PROGRAMMING SCHEDULE OF THE</ScheduleSubHeader>
       <ScheduleSubHeader>MY-T-SHARP BARBERSHOP EXPERIENCE</ScheduleSubHeader>
       <ScheduleContent>
-        <ScheduleDate>MARCH 1ST</ScheduleDate>
+        <ScheduleDate>MARCH 8TH</ScheduleDate>
         <ScheduleSection>
           <ScheduleLeft>
-            <ScheduleText>12:00PM EST</ScheduleText>
+            <ScheduleText>1:00PM EST</ScheduleText>
           </ScheduleLeft>
           <ScheduleRight>
+            <ScheduleText>Uoma x Zerina Akers Content Drop</ScheduleText>
             <ScheduleText>
-              Barbershop HSTRY with Nas and Darian Symone Harvin, Episodes 1 -
-              3, Powered by HSTRY
+              Black Skinned Beauty Royal Heir-Itage (remains until 3/10)
             </ScheduleText>
           </ScheduleRight>
         </ScheduleSection>
         <ScheduleSection>
           <ScheduleLeft>
-            <ScheduleText>12:30PM EST</ScheduleText>
+            <ScheduleText>1:30PM EST</ScheduleText>
           </ScheduleLeft>
           <ScheduleRight>
-            <ScheduleText>HSTRY Beanie Giveaway</ScheduleText>
+            <ScheduleText>Product Giveaway</ScheduleText>
+            <ScheduleText>Uoma x C2A</ScheduleText>
+            <ScheduleText>Soul Glo + Sexual Chocolates</ScheduleText>
           </ScheduleRight>
         </ScheduleSection>
-        <ScheduleDate>MARCH 2ND</ScheduleDate>
         <ScheduleSection>
           <ScheduleLeft>
-            <ScheduleText>12:00PM EST</ScheduleText>
+            <ScheduleText>5:30PM EST</ScheduleText>
           </ScheduleLeft>
           <ScheduleRight>
+            <ScheduleText>Product Giveaway</ScheduleText>
+            <ScheduleText>McDowell's Sweatshirt (TBC)</ScheduleText>
+            <ScheduleText>Soul Glo + Sexual Chocolates</ScheduleText>
+          </ScheduleRight>
+        </ScheduleSection>
+        <ScheduleDate>MARCH 9TH</ScheduleDate>
+        <ScheduleSection>
+          <ScheduleLeft>
+            <ScheduleText>1:00PM EST</ScheduleText>
+          </ScheduleLeft>
+          <ScheduleRight>
+            <ScheduleText>Barbershop HSTRY</ScheduleText>
+            <ScheduleText>Eps 1-3</ScheduleText>
+            <ScheduleText>BTS</ScheduleText>
+          </ScheduleRight>
+        </ScheduleSection>
+        <ScheduleSection>
+          <ScheduleLeft>
+            <ScheduleText>1:30PM EST</ScheduleText>
+          </ScheduleLeft>
+          <ScheduleRight>
+            <ScheduleText>Product Giveaway</ScheduleText>
+            <ScheduleText>HSTRY x C2A</ScheduleText>
+            <ScheduleText>Soul Glo + Sexual Chocolates</ScheduleText>
+          </ScheduleRight>
+        </ScheduleSection>
+        <ScheduleDate>MARCH 10TH</ScheduleDate>
+        <ScheduleSection>
+          <ScheduleLeft>
+            <ScheduleText>1:30PM EST</ScheduleText>
+          </ScheduleLeft>
+          <ScheduleRight>
+            <ScheduleText>Product Giveaway</ScheduleText>
+            <ScheduleText>Bevel Shave Kit</ScheduleText>
+            <ScheduleText>Soul Glo + Sexual Chocolates</ScheduleText>
+          </ScheduleRight>
+        </ScheduleSection>
+        <ScheduleDate2>MARCH 8TH - 10TH</ScheduleDate2>
+        <ScheduleSection>
+          <ScheduleLeft></ScheduleLeft>
+          <ScheduleRight>
+            <ScheduleText>BTS Content (TBC)</ScheduleText>
+            <ScheduleText>Featurettes (TBC)</ScheduleText>
+            <ScheduleText>Character Photos + Cast Info</ScheduleText>
             <ScheduleText>
-              Sharon Chuter x Zerina Akers, Powered by Uoma Beauty
+              Amazon Music Playlist (Official Soundtrack)
             </ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText>12:30PM EST</ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
+            <ScheduleText>Cast Conversations Ep 1 & 2</ScheduleText>
             <ScheduleText>
-              Uoma x Coming 2 America Product Giveaway
-            </ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleDate>MARCH 3RD</ScheduleDate>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText>12:00PM EST</ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Bronner Bros "Fantasy Hair" Showcase, Powered by Bronner Bros
-            </ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText>12:30PM EST</ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Bronner Bros "Soul Glo" Product Giveaway
-            </ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleDate>MARCH 5TH</ScheduleDate>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText>12:30PM EST</ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>Bevel Product Giveaway</ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleDate2>MARCH 1ST-7TH</ScheduleDate2>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText>12:30PM EST</ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>BTS Content</ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText></ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>Barbershop Bloopers</ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
-        <ScheduleSection>
-          <ScheduleLeft>
-            <ScheduleText></ScheduleText>
-          </ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>
-              Cast Conversations with Eddie Murphy, Arsenio Hall and The
-              Jamaica, Queens Crew Episodes 1 - 2
+              Eddie Murphy, Arsenio Hall + The Jamaica, Queens Crew
             </ScheduleText>
           </ScheduleRight>
         </ScheduleSection>
@@ -203,4 +183,4 @@ const Schedule = () => {
   );
 };
 
-export default Schedule;
+export default Schedule2;

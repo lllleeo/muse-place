@@ -27,6 +27,7 @@ export const Container = styled.div`
   left: 0;
   justify-content: space-between;
   align-items: center;
+  //border: white 2px dashed;
 
   /* Mobile responsiveness: swap video/info to vertical */
   /* and allow scrolling */
@@ -69,6 +70,7 @@ export const VideoBox = styled.div`
 `;
 
 export const InfoBox = styled.div`
+  //border: red 2px dashed;
   width: min(45%, 800px);
   text-align: center;
   diplay: flex;
@@ -94,9 +96,12 @@ export const Title = styled.div`
 `;
 
 export const SurroundingTitle = styled.h2`
-  font-size: min(1.2rem, calc(2vw + 0.1rem));
+  // font-size: min(1.2rem, calc(2vw + 0.1rem));
+  font-size: clamp(1rem, 1.7vw, 2rem);
   color: #935c23;
   font-weight: 600;
+  margin: 0;
+  //border: black 2px dashed;
   //padding-top: 5px;
 `;
 
@@ -106,6 +111,7 @@ export const MainTitle = styled.h1`
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
+  //border: white 2px dashed;
   line-height: 80%;
 `;
 
@@ -116,6 +122,7 @@ export const Buttons = styled.div`
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: 20px auto 20px auto;
+  // border: black 2px dashed;
   font-family: "HelveticaBlk", sans-serif;
   @media screen and (max-width: ${desktop}) {
     max-width: 400px;
@@ -144,9 +151,6 @@ export const Button = styled.button`
   :hover {
     border: #999933 2px solid;
     color: #999933;
-  }
-  @media screen and (max-width: ${laptop}) {
-    //padding: 0;
   }
 `;
 
@@ -359,6 +363,7 @@ export const EmailCheck = styled.input`
   //border: #f8Ec72 2px dashed;
   background-color: #f8ec72;
   align-self: center;
+  cursor: pointer;
 `;
 
 export const EmailOptOut = styled.div`
@@ -375,21 +380,32 @@ export const EmailText = styled.p`
   font-size: 0.6rem;
   padding-left: 5px;
 `;
-export const EmailSignup = styled.div`
+export const EmailSignup = styled.button`
   border: 2px #f8ec72 solid;
+  background: none;
+  color: #f8ec72;
   font-weight: bold;
+  font-family: "HelveticaBlk", sans-serif;
   border-radius: 25px;
   width: 40%;
   text-align: center;
   padding: 5px 0 5px 0;
   margin-top: 15px;
   cursor: pointer;
+  :hover {
+    border: #999933 2px solid;
+    color: #999933;
+  }
 `;
 
 export const EmailSkip = styled.div`
   font-size: 0.6rem;
   text-decoration: underline;
   margin-top: 25px;
+  cursor: pointer;
+  :hover {
+    color: #999933;
+  }
 `;
 export const EmailPrivacy = styled.div`
   font-size: 0.5rem;
