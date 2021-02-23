@@ -92,7 +92,6 @@ export const InfoBox = styled.div`
 
 export const Title = styled.div`
   max-width: 95%;
-  //border: blue 2px dashed;
   margin: 0 auto 0 auto;
 `;
 
@@ -164,7 +163,6 @@ export const Image1 = styled.div`
   width: 100%;
   max-width: 500px;
   height: 105px;
-  //border: brown 2px dashed;
   @media screen and (max-width: ${laptop}) {
     width: 80%;
   }
@@ -221,9 +219,6 @@ export const FinePrint = styled.div`
   a {
     cursor: pointer;
     text-decoration: underline;
-    // :hover {
-    //   color: #999933;
-    // }
   }
 `;
 
