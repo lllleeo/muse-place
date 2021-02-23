@@ -97,9 +97,11 @@ export const Title = styled.div`
 `;
 
 export const SurroundingTitle = styled.h2`
-  font-size: min(1.2rem, calc(2vw + 0.1rem));
+  // font-size: min(1.2rem, calc(2vw + 0.1rem));
+  font-size: clamp(1rem, 1.7vw, 2rem);
   color: #935c23;
   font-weight: 600;
+  margin: 0;
   //border: black 2px dashed;
   //padding-top: 5px;
 `;

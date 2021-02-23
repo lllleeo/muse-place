@@ -61,7 +61,7 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
-  const [firstLogin, setFirstLogin] = useState<boolean>(true);
+  const [firstLogin, setFirstLogin] = useState<boolean>(false);
 
   if (!localStorage.getItem("c2a-visited")) {
     setFirstLogin(true);
@@ -113,7 +113,9 @@ const Content = () => {
             <SurroundingTitle className="bottom">EXPERIENCE</SurroundingTitle>
           </Title>
           <Buttons>
-            <Button onClick={handleEmail}>RSVP</Button>
+            <Button onClick={handleEmail}>
+              MARCH 8<sup>TH</sup> - 10<sup>TH</sup>
+            </Button>
             <Button onClick={handleSchedule}>SCHEDULE</Button>
             <Button onClick={handleTrailer}>WATCH TRAILER</Button>
           </Buttons>
