@@ -13,7 +13,7 @@ export const vert = `
 // shine is #c999b5
 export const frag = `
     #include <dithering_fragment>
-    float seed_offset = seed * 100000.;
+    float seed_offset = seed * 549045.;
     float pos_offset = (pos.x + pos.y + pos.z) / 7.;
     
     // make sure pow is even

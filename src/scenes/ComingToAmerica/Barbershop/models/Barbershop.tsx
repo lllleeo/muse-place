@@ -100,7 +100,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["barberchair-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "photobooth")}>
           <mesh
             name="defjam"
             material={materials.photos}
@@ -112,7 +112,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["defjam-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "photobooth")}>
           <mesh
             name="giveaway"
             material={materials.clay}
@@ -124,7 +124,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["giveaway-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "photobooth")}>
           <mesh
             name="tv"
             material={nodes.tv.material}
