@@ -1,19 +1,26 @@
 import { useEnvironment } from "spacesvr";
-import styled from "@emotion/styled";
 import Overlay from "../modifiers/Overlay";
+import PopupContainer from "./components/PopupContainer";
+import { Title } from "./components/Styles";
+import styled from "@emotion/styled";
 
-const Container = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  color: white;
-  background-color: #0000007f;
-  text-align: center;
-  transition: opacity 0.15s linear;
+const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
-  z-index: 101;
+const VideoContainer = styled.div`
+  width: 95%;
+  max-width: 450px;
+  margin: 0 auto;
+`;
+
+const VideoPlaceholder = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 20px 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 `;
 
 const BTSTrigger = () => {
@@ -25,7 +32,14 @@ const BTSTrigger = () => {
 
   return (
     <Overlay>
-      <Container onClick={() => setPaused(false)}>close dis bitch</Container>
+      <PopupContainer onClose={() => setPaused(false)}>
+        <Title>BEHIND THE SCENES</Title>
+        <VideoContainer>
+          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
+          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
+          <VideoPlaceholder src={`${CONTENT_FOLDER}/video-placeholder.png`} />
+        </VideoContainer>
+      </PopupContainer>
     </Overlay>
   );
 };
