@@ -434,13 +434,13 @@ export const Billing = styled.div`
 
 export const MovieLabel = styled.div`
   position: absolute;
-  width: 300px;
-  height: 200px;
+  width: 150px;
+  height: 100px;
   background-image: url("${content}/images/movielabel.png");
   background-size: contain;
   background-repeat: no-repeat;
-  left: 20px;
-  bottom: 30px;
+  left: 10%;
+  bottom: 10px;
 `;
 
 export const EmailCollection = styled.div`
