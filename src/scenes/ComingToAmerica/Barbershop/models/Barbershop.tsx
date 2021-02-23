@@ -13,30 +13,37 @@ import Trigger from "../../modifiers/Trigger";
 
 type GLTFResult = GLTF & {
   nodes: {
+    photos: THREE.Mesh;
+    news: THREE.Mesh;
+    product: THREE.Mesh;
     clay: THREE.Mesh;
-    walls: THREE.Mesh;
+    tv: THREE.Mesh;
+    phone: THREE.Mesh;
     seatframe: THREE.Mesh;
     chairs: THREE.Mesh;
     armrest: THREE.Mesh;
     barberchair: THREE.Mesh;
+    walls: THREE.Mesh;
     ceiling: THREE.Mesh;
-    floor: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
-    ["clay.mat"]: THREE.MeshStandardMaterial;
-    ["walls.mat"]: THREE.MeshStandardMaterial;
-    ["seatframe.mat"]: THREE.MeshStandardMaterial;
-    ["chairs.mat"]: THREE.MeshStandardMaterial;
-    ["armrest.mat"]: THREE.MeshStandardMaterial;
-    ["barberchair.mat"]: THREE.MeshStandardMaterial;
-    ["ceiling.mat"]: THREE.MeshStandardMaterial;
-    ["floor.mat"]: THREE.MeshStandardMaterial;
+    photos: THREE.MeshStandardMaterial;
+    news: THREE.MeshStandardMaterial;
+    product: THREE.MeshStandardMaterial;
+    clay: THREE.MeshStandardMaterial;
+    telephone: THREE.MeshStandardMaterial;
+    seatframe: THREE.MeshStandardMaterial;
+    ["chairs.1"]: THREE.MeshStandardMaterial;
+    armrest: THREE.MeshStandardMaterial;
+    ["barberchair.1"]: THREE.MeshStandardMaterial;
+    ["walls.1"]: THREE.MeshStandardMaterial;
+    celining: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1613911793/barbershop_02.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614079025/barbershop_03.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -54,53 +61,72 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.275, 0.275, 0.275]} position-y={0.005}>
         <mesh
+          name="photos"
+          material={materials.photos}
+          geometry={nodes.photos.geometry}
+        />
+        <mesh
+          name="news"
+          material={materials.news}
+          geometry={nodes.news.geometry}
+        />
+        <mesh
+          name="product"
+          material={materials.product}
+          geometry={nodes.product.geometry}
+        />
+        <mesh
           name="clay"
-          material={materials["clay.mat"]}
+          material={materials.clay}
           geometry={nodes.clay.geometry}
         />
         <mesh
-          name="walls"
-          material={materials["walls.mat"]}
-          geometry={nodes.walls.geometry}
-          scale={[108.7553, 42.7347, 144.051]}
+          name="tv"
+          material={nodes.tv.material}
+          geometry={nodes.tv.geometry}
+        />
+        <mesh
+          name="phone"
+          material={materials.telephone}
+          geometry={nodes.phone.geometry}
         />
         <mesh
           name="seatframe"
-          material={materials["seatframe.mat"]}
+          material={materials.seatframe}
           geometry={nodes.seatframe.geometry}
         />
         <mesh
           name="chairs"
-          material={materials["chairs.mat"]}
+          material={materials["chairs.1"]}
           geometry={nodes.chairs.geometry}
         />
         <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
             name="armrest"
-            material={materials["armrest.mat"]}
+            material={materials.armrest}
             geometry={nodes.armrest.geometry}
           />
         </Trigger>
         <mesh
           name="barberchair"
-          material={materials["barberchair.mat"]}
+          material={materials["barberchair.1"]}
           geometry={nodes.barberchair.geometry}
         />
         <mesh
+          name="walls"
+          material={materials["walls.1"]}
+          geometry={nodes.walls.geometry}
+        />
+        <mesh
           name="ceiling"
-          material={materials["ceiling.mat"]}
+          material={materials.celining}
           geometry={nodes.ceiling.geometry}
           scale={[168.1893, 57.9186, 215.7007]}
         />
-        <mesh
-          name="floor"
-          material={materials["floor.mat"]}
-          geometry={nodes.floor.geometry}
-        />
         {/*<mesh*/}
-        {/*  name="collider"*/}
-        {/*  material={nodes.collider.material}*/}
-        {/*  geometry={nodes.collider.geometry}*/}
+        {/*    name="collider"*/}
+        {/*    material={nodes.collider.material}*/}
+        {/*    geometry={nodes.collider.geometry}*/}
         {/*/>*/}
       </group>
     </group>

@@ -25,21 +25,21 @@ const Ground = () => {
       {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
-        position={[-2.8, 0.98, 0.75]}
-        resolution={gpu && gpu.tier >= 2 ? 256 : 128}
+        position={[-2.35, 0.98, -0.85]}
+        resolution={gpu && gpu.tier >= 2 ? 512 : 256}
         args={[4.5, 0.775]}
-        mirror={0.25}
-        mixBlur={10}
-        mixStrength={0.8}
-        blur={[4.5 * 300, 0.775 * 300]}
+        mirror={0.75}
+        mixBlur={5}
+        mixStrength={0.9}
+        blur={[4.5 * 400, 0.775 * 400]}
+        // debug={4}
       >
         {(Material, props) => (
           <Material
-            color="#a0a0a0"
+            color="#f0f0f0"
             metalness={0.5}
             roughnessMap={floor}
             normalMap={normal}
-            normalScale={new Vector2(0.5, 0.5)}
             {...props}
           />
         )}
