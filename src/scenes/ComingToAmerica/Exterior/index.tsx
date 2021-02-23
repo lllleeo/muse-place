@@ -5,6 +5,7 @@ import Sidewalk from "./models/Sidewalk";
 import Building from "./models/Building";
 import { Vector3 } from "three";
 import Buildings from "./components/Buildings";
+import MobileOnboarding from "../components/MobileOnboarding";
 
 const ComingAmerica = () => {
   return (
@@ -12,6 +13,7 @@ const ComingAmerica = () => {
       player={{ pos: new Vector3(0, 1.5, 6), speed: 2 }}
       disableGround
     >
+      <MobileOnboarding />
       <Suspense fallback={null}>
         <Sidewalk />
       </Suspense>
