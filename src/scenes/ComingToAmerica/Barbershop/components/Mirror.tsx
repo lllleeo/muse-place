@@ -1,6 +1,6 @@
 import { Reflector, useDetectGPU, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { Vector2 } from "three";
+import Trigger from "../../modifiers/Trigger";
 
 const BASE_URL = "https://d27rt3a60hh1lx.cloudfront.net/content/soliman/";
 const FLOOR_URL = BASE_URL + "SurfaceImperfections003_1K_var1.jpg";
@@ -25,7 +25,7 @@ const Ground = () => {
       {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
-        position={[-2.35, 0.98, -0.85]}
+        position={[-2.32, 0.98, -0.85]}
         resolution={gpu && gpu.tier >= 2 ? 512 : 256}
         args={[4.5, 0.775]}
         mirror={0.75}
@@ -44,6 +44,16 @@ const Ground = () => {
           />
         )}
       </Reflector>
+      <Trigger>
+        <mesh rotation-y={Math.PI / 2} position={[-2.29, 0.98, -0.85]}>
+          <planeBufferGeometry args={[4.5, 0.775]} />
+          <meshStandardMaterial color="#999999" transparent opacity={0} />
+        </mesh>
+        <mesh rotation-y={Math.PI / 2} position={[-2.29, 0.98, -0.85]}>
+          <planeBufferGeometry args={[4.5, 0.775]} />
+          <meshStandardMaterial transparent opacity={0} />
+        </mesh>
+      </Trigger>
     </group>
   );
 };
