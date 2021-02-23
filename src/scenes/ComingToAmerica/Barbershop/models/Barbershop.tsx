@@ -141,7 +141,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["tv-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "fullscreen")}>
           <mesh
             name="backdoor"
             material={materials.clay}
