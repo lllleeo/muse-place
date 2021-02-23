@@ -5,12 +5,14 @@ import Barbershop from "./models/Barbershop";
 import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
 import BTSTrigger from "../overlays/BTSTrigger";
+import FullscreenVideoTrigger from "../overlays/FullscreenVideoTrigger";
 
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import { Perf } from "r3f-perf";
 import PhotoTrigger from "../overlays/PhotoBooth";
 import Renderer from "../components/Renderer";
+import CastConvoTrigger from "../overlays/CastConvoTrigger";
 
 const BarbershopScene = () => {
   return (
@@ -21,6 +23,8 @@ const BarbershopScene = () => {
       >
         <BTSTrigger />
         <PhotoTrigger />
+        <FullscreenVideoTrigger />
+        <CastConvoTrigger />
         <Sky />
         <Suspense fallback={null}>
           <Barbershop />

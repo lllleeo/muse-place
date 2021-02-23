@@ -11,9 +11,8 @@ import { useEnvironment } from "spacesvr";
  */
 const Renderer = () => {
   const { overlay } = useEnvironment();
-
   useFrame(({ gl, scene, camera }) => {
-    if (overlay !== "photobooth") {
+    if (!overlay || !overlay.includes("fullscreen") || !overlay.includes("photobooth")) {
       gl.render(scene, camera);
     }
   }, 100);

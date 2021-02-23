@@ -12,5 +12,6 @@ export const Title = styled.h1`
   font-family: 'HELVETICA BOLD', sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem auto 1rem;
+  width: calc(100% - 80px);
 `;

@@ -36,26 +36,31 @@ type GLTFResult = GLTF & {
     chairs: THREE.Mesh;
     armrest: THREE.Mesh;
     walls: THREE.Mesh;
+    checkers: THREE.Mesh;
     ceiling: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
     ["barberchair.1"]: THREE.MeshStandardMaterial;
-    photos: THREE.MeshStandardMaterial;
+    hairstyle: THREE.MeshStandardMaterial;
+    defjam: THREE.MeshStandardMaterial;
     clay: THREE.MeshStandardMaterial;
-    news: THREE.MeshStandardMaterial;
-    product: THREE.MeshStandardMaterial;
+    tv: THREE.MeshStandardMaterial;
+    photos: THREE.MeshStandardMaterial;
+    ["news.2"]: THREE.MeshStandardMaterial;
+    ["product.1"]: THREE.MeshStandardMaterial;
     telephone: THREE.MeshStandardMaterial;
     seatframe: THREE.MeshStandardMaterial;
     ["chairs.1"]: THREE.MeshStandardMaterial;
     armrest: THREE.MeshStandardMaterial;
     ["walls.1"]: THREE.MeshStandardMaterial;
+    checkers: THREE.MeshStandardMaterial;
     celining: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614084842/barbershop_05.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614090962/barbershop_06.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -79,7 +84,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <Trigger onClick={() => setPaused(true, "bts")}>
           <mesh
             name="hairstyle"
-            material={nodes.hairstyle.material}
+            material={materials.hairstyle}
             geometry={nodes.hairstyle.geometry}
           />
           <mesh
@@ -88,7 +93,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["hairstyle-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "fullscreen-barberchair-0")}>
           <mesh
             name="barberchair"
             material={materials["barberchair.1"]}
@@ -103,7 +108,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <Trigger onClick={() => setPaused(true, "photobooth")}>
           <mesh
             name="defjam"
-            material={materials.photos}
+            material={materials.defjam}
             geometry={nodes.defjam.geometry}
           />
           <mesh
@@ -124,10 +129,10 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["giveaway-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "photobooth")}>
+        <Trigger onClick={() => setPaused(true, "castconvo")}>
           <mesh
             name="tv"
-            material={nodes.tv.material}
+            material={materials.tv}
             geometry={nodes.tv.geometry}
           />
           <mesh
@@ -161,14 +166,23 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         />
         <mesh
           name="news"
-          material={materials.news}
+          material={materials["news.2"]}
           geometry={nodes.news.geometry}
         />
-        <mesh
-          name="product"
-          material={materials.product}
-          geometry={nodes.product.geometry}
-        />
+        <Trigger onClick={() => setPaused(true, "bts")}>
+          <mesh
+            name="product"
+            material={materials["product.1"]}
+            geometry={nodes.product.geometry}
+          />
+          <mesh
+            position={[-7.44, 2.5, -3.2]}
+            rotation-y={Math.PI / 2}
+            material={hitboxMat}
+          >
+            <boxBufferGeometry args={[7.25, 1, 1.25]} />
+          </mesh>
+        </Trigger>
         <mesh
           name="clay"
           material={materials.clay}
@@ -198,6 +212,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="walls"
           material={materials["walls.1"]}
           geometry={nodes.walls.geometry}
+        />
+        <mesh
+          name="checkers"
+          material={materials.checkers}
+          geometry={nodes.checkers.geometry}
         />
         <mesh
           name="ceiling"

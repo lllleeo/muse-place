@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Popup = styled.div`
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   padding: 0.5rem;
   box-sizing: border-box;
   

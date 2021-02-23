@@ -25,10 +25,10 @@ const VideoPlaceholder = styled.img`
   }
 `;
 
-const BTSTrigger = () => {
+const CastConvoTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
-  if (!paused || overlay !== "bts") {
+  if (!paused || overlay !== "castconvo") {
     return null;
   }
 
@@ -40,13 +40,13 @@ const BTSTrigger = () => {
   return (
     <Overlay>
       <PopupContainer onClose={() => setPaused(false)}>
-        <Title>BEHIND THE SCENES</Title>
+        <Title>CAST CONVERSATION SERIES</Title>
         <VideoContainer>
           {ids.map((id, index) => (
             <VideoThumbnail
               id={id}
               key={id}
-              onClick={() => setPaused(true, `fullscreen-bts-${index}`)}
+              onClick={() => setPaused(true, `fullscreen-castconvo-${index}`)}
             />
           ))}
         </VideoContainer>
@@ -55,4 +55,4 @@ const BTSTrigger = () => {
   );
 };
 
-export default BTSTrigger;
+export default CastConvoTrigger;
