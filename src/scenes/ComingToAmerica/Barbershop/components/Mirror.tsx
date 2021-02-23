@@ -25,7 +25,7 @@ const Ground = () => {
       {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
-        position={[-2.8, 0.98, 0.75]}
+        position={[-2.45, 0.98, 0]}
         resolution={gpu && gpu.tier >= 2 ? 256 : 128}
         args={[4.5, 0.775]}
         mirror={0.25}
