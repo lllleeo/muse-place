@@ -4,7 +4,7 @@ import { Group, Material, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
 import { useFrame } from "react-three-fiber";
 import { useSpring } from "react-spring";
-import { getSpringValues } from "../../../Silks/utils/spring";
+import { getSpringValues } from "../../utils/spring";
 
 type Props = {
   children: ReactNode;
@@ -70,6 +70,7 @@ const Trigger = (props: Props) => {
 
   return (
     <Interactable
+      onClick={onClick}
       onHover={() => setSpring({ g: [1] })}
       onUnHover={() => setSpring({ g: [0] })}
     >
