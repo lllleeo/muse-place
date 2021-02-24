@@ -66,12 +66,6 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
-  // const [firstLogin, setFirstLogin] = useState<boolean>(false);
-
-  if (!localStorage.getItem("c2a-visited")) {
-    // setFirstLogin(true);
-    localStorage.setItem("c2a-visited", "visited");
-  }
 
   const handleSubscribe = () => setSubscribe(!subscribe);
   const handleEmail = () => setEmail(!email);

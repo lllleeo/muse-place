@@ -35,12 +35,6 @@ export const Container = styled.div`
 
   /* Mobile responsiveness: swap video/info to vertical */
   /* and allow scrolling */
-  @media screen and (max-width: ${laptop}) {
-    //max-width: 1000px;
-  }
-  @media screen and (max-width: ${tablet}) {
-    //justify-content: space-evenly;
-  }
   @media screen and (max-width: ${phone}) {
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -73,14 +67,11 @@ export const VideoBox = styled.div`
 `;
 
 export const InfoBox = styled.div`
-  //border: red 2px dashed;
-  //width: min(45%, 800px);
   text-align: center;
   diplay: flex;
   flex-direction: column;
   justify-content: flex-start;
   font-family: "HelveticaBlk", sans-serif;
-  //z-index: 2;
   @media screen and (max-width: ${desktop}) {
     width: 40%;
   }
@@ -98,13 +89,11 @@ export const Title = styled.div`
 `;
 
 export const SurroundingTitle = styled.h2`
-  // font-size: min(1.2em, calc(2vw + 0.1em));
   font-size: clamp(1em, 1.7vw, 2em);
   color: ${secondaryColor};
   font-weight: 600;
   margin: 0;
   //border: black 2px dashed;
-  //padding-top: 5px;
 `;
 
 export const MainTitle = styled.h1`
@@ -158,9 +147,6 @@ export const Image1 = styled.div`
   }
   @media screen and (max-width: ${phone}) {
     margin: 2vh auto 0 auto;
-    //position: absolute;
-    //bottom: 1%;
-    //left: 10%;
   }
 `;
 
@@ -201,7 +187,6 @@ export const ShareIcon = styled.button`
 
 export const Icon = styled.div`
   cursor: pointer;
-  // color: ${bgColor};
   border: none;
 `;
 
@@ -278,7 +263,6 @@ export const Exit = styled.p`
 
 export const VideoExit = styled.div`
   position: absolute;
-  //top: -400px;
   right: 100px;
   cursor: pointer;
   color: ${secondaryColor};
