@@ -66,10 +66,10 @@ const Content = () => {
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
-  const [firstLogin, setFirstLogin] = useState<boolean>(false);
+  // const [firstLogin, setFirstLogin] = useState<boolean>(false);
 
   if (!localStorage.getItem("c2a-visited")) {
-    setFirstLogin(true);
+    // setFirstLogin(true);
     localStorage.setItem("c2a-visited", "visited");
   }
 
@@ -77,7 +77,7 @@ const Content = () => {
   const handleEmail = () => setEmail(!email);
   const handleTrailer = () => setTrailer(!trailer);
   const handleSchedule = () => setSchedule(!schedule);
-  const closeFirstOverlay = () => setFirstLogin(false);
+  // const closeFirstOverlay = () => setFirstLogin(false);
   const handleTerms = () => {
     if (email) {
       setEmail(false);
@@ -87,29 +87,10 @@ const Content = () => {
 
   return (
     <Page>
-      {firstLogin && (
-        <Overlay>
-          <Exit onClick={closeFirstOverlay}>x</Exit>
-          <Trailer>
-            <TrailerVideo
-              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
-              muted
-            />
-          </Trailer>
-        </Overlay>
-      )}
       <Container>
-        {firstLogin ? (
-          <VideoBox />
-        ) : (
-          <VideoBox>
-            <Video
-              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
-            />
-          </VideoBox>
-        )}
+        <VideoBox>
+          <Video src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4" />
+        </VideoBox>
         <InfoBox>
           <Title>
             <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>

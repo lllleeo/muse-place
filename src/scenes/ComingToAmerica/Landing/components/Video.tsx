@@ -5,6 +5,7 @@ import { Suspense } from "react";
 
 type videoProps = {
   src: string;
+  thumbnail?: string;
 };
 
 const mainColor = "#c8af68";
@@ -45,17 +46,7 @@ const Video = (props: videoProps) => {
   return (
     <VideoDiv>
       {/*<VideoPlayer src={src} poster={thumbnail} width={width} height={height} />*/}
-      <ReactPlayer
-        url={src}
-        width="70%"
-        height="100%"
-        style={
-          {
-            // boxShadow: `2px 2px 10px ${mainColor}, -2px -2px 10px ${mainColor}`,
-          }
-        }
-        controls
-      />
+      <ReactPlayer url={src} width="70%" height="100%" controls />
     </VideoDiv>
   );
 };
