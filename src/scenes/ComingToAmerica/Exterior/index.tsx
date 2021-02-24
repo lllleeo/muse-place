@@ -6,6 +6,10 @@ import Buildings from "./components/Buildings";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import EnterBarbershop from "./components/EnterBarbershop";
+import MyTSharpTrigger from "../overlays/MyTSharpTrigger";
+import BarbershopSignTrigger from "../overlays/BarbershopSignTrigger";
+import PhotoBoothTrigger from "../overlays/PhotoBoothTrigger";
+import Renderer from "../components/Renderer";
 
 const ComingAmerica = () => {
   return (
@@ -20,6 +24,9 @@ const ComingAmerica = () => {
         disableGround
       >
         <EnterBarbershop />
+        <MyTSharpTrigger />
+        <BarbershopSignTrigger />
+        <PhotoBoothTrigger />
         <Suspense fallback={null}>
           <Sidewalk />
         </Suspense>
@@ -33,6 +40,7 @@ const ComingAmerica = () => {
           position={[0, 10, 0]}
         />
         <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/Hazy_Afternoon_HDR_full.hdr" />
+        <Renderer />
       </StandardEnvironment>
     </AmazonContainer>
   );

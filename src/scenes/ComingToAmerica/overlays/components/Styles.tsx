@@ -8,7 +8,7 @@ export const Title = styled.h1`
       src: url('${CONTENT_FOLDER}/fonts/HelveticaLTStd-Blk.otf') format('opentype');
     }
 
-  color: #f8ec72;
+  color: #c8af68;
   font-family: 'HELVETICA BOLD', sans-serif;
   font-weight: bold;
   font-size: 2rem;
@@ -17,7 +17,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h3`
-  color: #f8ec72;
+  color: #c8af68;
   font-family: "HELVETICA BOLD", sans-serif;
   font-weight: bold;
   font-size: 0.95rem;
@@ -26,7 +26,7 @@ export const Subtitle = styled.h3`
 `;
 
 export const Body = styled.p`
-  color: #f8ec72;
+  color: #c8af68;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
   font-size: 1.05rem;
@@ -41,8 +41,8 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  color: #f8ec72;
-  border: 3px solid #f8ec72;
+  color: #c8af68;
+  border: 3px solid #c8af68;
   border-radius: 30px;
   background: none;
   margin: 0 10px;
@@ -52,7 +52,7 @@ export const Button = styled.button`
   transition: background 0.15s linear;
 
   &:hover {
-    background: #f8ec7240;
+    background: #c8af6840;
   }
 `;
 
@@ -60,9 +60,10 @@ export const Close = styled.button`
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 
   margin: 1rem;
-  color: #f8ec72;
+  color: #c8af68;
   font-size: 2rem;
   border: none;
   background: none;

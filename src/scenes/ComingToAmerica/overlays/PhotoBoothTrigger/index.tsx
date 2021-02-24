@@ -14,7 +14,7 @@ const Container = styled.div`
   min-height: 450px;
 `;
 
-const PhotoTrigger = () => {
+const PhotoBoothTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
   if (!paused || !overlay || !overlay.includes("photobooth")) {
@@ -40,4 +40,4 @@ const PhotoTrigger = () => {
   );
 };
 
-export default PhotoTrigger;
+export default PhotoBoothTrigger;

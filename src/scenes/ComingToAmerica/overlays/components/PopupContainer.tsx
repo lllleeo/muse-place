@@ -31,12 +31,11 @@ const Popup = styled.div`
   margin: 0 auto 40px;
   padding: 0.5rem 0.5rem 1rem;
   box-sizing: border-box;
-  
+
   width: 95%;
   max-width: 600px;
-  
-  background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Background_pink-tile-optimized.jpg");
-  background-repeat: repeat;
+
+  background: #f4e8da;
 `;
 
 type Props = {

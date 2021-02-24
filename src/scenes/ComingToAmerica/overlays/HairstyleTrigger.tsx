@@ -4,11 +4,12 @@ import { Title, Button, Close } from "./components/Styles";
 import styled from "@emotion/styled";
 import ReactPlayer from "react-player";
 import { characters } from "../assets/characters";
+import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background: white;
+  background: #f4e8da;
   position: absolute;
   top: 0;
   left: 0;
@@ -51,6 +52,13 @@ const Character = styled.img`
   }
 `;
 
+const StyledTitle = styled(Title)`
+  text-align: center;
+  font-size: 3rem;
+  text-decoration: underline;
+  margin-top: 1.5rem;
+`;
+
 const HairstyleTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
@@ -62,8 +70,12 @@ const HairstyleTrigger = () => {
     <Overlay>
       <Container>
         <Close onClick={() => setPaused(false)}>X</Close>
+        <StyledTitle>
+          COMING 2 AMERICA
+          <br />
+          CAST & CHARACTERS
+        </StyledTitle>
         <Content>
-          <Title>COMING 2 AMERICA CAST & CHARACTERS</Title>
           <br />
           <ReactPlayer
             url="https://www.youtube.com/watch?v=KorCljxiBbs"
@@ -71,7 +83,13 @@ const HairstyleTrigger = () => {
             height="300px"
           />
           <br />
-          <Button>COMING 2 AMERICA DETAILS</Button>
+          <Button
+            onClick={() =>
+              window.open("https://www.amazon.com/dp/B08R114191", "_blank")
+            }
+          >
+            COMING 2 AMERICA DETAILS
+          </Button>
         </Content>
         <CardsContainer>
           {characters.map((character) => (
