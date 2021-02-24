@@ -17,7 +17,6 @@ import {
   Overlay,
   Background,
   Trailer,
-  VideoExit,
   Exit,
   Billing,
   MovieLabel,
@@ -183,10 +182,9 @@ const Content = () => {
       {trailer && (
         <Overlay>
           <Trailer>
-            <VideoExit onClick={handleTrailer}>x</VideoExit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+              setDisplay={setTrailer}
             />
           </Trailer>
         </Overlay>

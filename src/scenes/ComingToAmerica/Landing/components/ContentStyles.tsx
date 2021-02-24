@@ -240,7 +240,7 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  // border: white 2px dashed;
+  //border: red 2px dashed;
   width: 90%;
   position: relative;
 `;
@@ -259,16 +259,6 @@ export const Exit = styled.p`
     right: 3px;
     top: -30px;
   }
-`;
-
-export const VideoExit = styled.div`
-  position: absolute;
-  right: 100px;
-  cursor: pointer;
-  color: ${secondaryColor};
-  font-size: 1.5em;
-  font-family: "EmberCd", sans-serif;
-  z-index: 2;
 `;
 
 export const Billing = styled.div`
