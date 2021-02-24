@@ -1,6 +1,8 @@
 import ReactPlayer from "react-player/lazy";
 import styled from "@emotion/styled";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
+
+const phone = "500px";
 
 type videoProps = {
   src: string;
@@ -26,6 +28,10 @@ export const Exit = styled.div`
   font-size: 1.5em;
   font-family: "EmberCd", sans-serif;
   z-index: 2;
+  @media screen and (max-width: ${phone}) {
+    top: 5px;
+    right: 15px;
+  }
 `;
 
 const TrailerVideo = (props: videoProps) => {
