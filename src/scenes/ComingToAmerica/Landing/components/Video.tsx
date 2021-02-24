@@ -1,13 +1,29 @@
 import VideoPlayer from "react-video-js-player";
+import ReactPlayer from "react-player";
 import styled from "@emotion/styled";
+import { Suspense } from "react";
 
 type videoProps = {
   src: string;
-  thumbnail: string;
+  thumbnail?: string;
 };
+
+const mainColor = "#c8af68";
+const phone = "500px";
+
+const PlayButton = styled.div`
+  width: 50px;
+  height: 32px;
+  background: ${mainColor};
+`;
 
 const VideoDiv = styled.div`
   outline: none;
+  //border: 2px dashed #ff0000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 30px;
   .video-js {
     border-radius: 10px;
   }
@@ -18,32 +34,19 @@ const VideoDiv = styled.div`
     height: 50px;
     margin-left: -5%;
   }
+  @media screen and (max-width: ${phone}) {
+    justify-content: left;
+    padding-right: 0;
+  }
 `;
 
 const Video = (props: videoProps) => {
-  const { src, thumbnail } = props;
-
-  let width, height;
-  if (window.innerWidth < 501) {
-    width = "300";
-    height = "150";
-  } else if (window.innerWidth < 770) {
-    width = "350";
-    height = "200";
-  } else if (window.innerWidth < 1200) {
-    width = "400";
-    height = "250";
-  } else if (window.innerWidth < 1500) {
-    width = "500";
-    height = "300";
-  } else {
-    width = "600";
-    height = "350";
-  }
+  const { src } = props;
 
   return (
     <VideoDiv>
-      <VideoPlayer src={src} poster={thumbnail} width={width} height={height} />
+      {/*<VideoPlayer src={src} poster={thumbnail} width={width} height={height} />*/}
+      <ReactPlayer url={src} width="70%" height="100%" controls />
     </VideoDiv>
   );
 };

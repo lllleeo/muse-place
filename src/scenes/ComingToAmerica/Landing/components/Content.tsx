@@ -56,24 +56,22 @@ const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
   "Check out the My-T-Sharp Barbershop, best cuts since 1988. www.mytsharp.com @amazonprimevideo #mytsharpexperience";
 
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
+const bgColor = "#FDEFD1";
+
 const Content = () => {
   const [schedule, setSchedule] = useState<boolean>(false);
   const [trailer, setTrailer] = useState<boolean>(false);
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
   const [subscribe, setSubscribe] = useState<boolean>(true);
-  const [firstLogin, setFirstLogin] = useState<boolean>(false);
-
-  if (!localStorage.getItem("c2a-visited")) {
-    setFirstLogin(true);
-    localStorage.setItem("c2a-visited", "visited");
-  }
 
   const handleSubscribe = () => setSubscribe(!subscribe);
   const handleEmail = () => setEmail(!email);
   const handleTrailer = () => setTrailer(!trailer);
   const handleSchedule = () => setSchedule(!schedule);
-  const closeFirstOverlay = () => setFirstLogin(false);
+  // const closeFirstOverlay = () => setFirstLogin(false);
   const handleTerms = () => {
     if (email) {
       setEmail(false);
@@ -83,29 +81,10 @@ const Content = () => {
 
   return (
     <Page>
-      {firstLogin && (
-        <Overlay>
-          <Exit onClick={closeFirstOverlay}>x</Exit>
-          <Trailer>
-            <TrailerVideo
-              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
-              muted
-            />
-          </Trailer>
-        </Overlay>
-      )}
       <Container>
-        {firstLogin ? (
-          <VideoBox />
-        ) : (
-          <VideoBox>
-            <Video
-              src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
-            />
-          </VideoBox>
-        )}
+        <VideoBox>
+          <Video src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/infomercial.mp4" />
+        </VideoBox>
         <InfoBox>
           <Title>
             <SurroundingTitle className="top">WELCOME TO THE</SurroundingTitle>
@@ -139,7 +118,11 @@ const Content = () => {
               // style={{ outline: "none" }}
             >
               <Icon>
-                <FontAwesomeIcon icon={faFacebook} size="2x" color="#f8Ec72" />
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  size="2x"
+                  color={mainColor}
+                />
               </Icon>
             </FacebookShareButton>
             <ShareIcon>
@@ -162,7 +145,7 @@ const Content = () => {
             <a onClick={handleTerms}>TERMS AND CONDITIONS</a>
           </FinePrint>
         </InfoBox>
-        {/*<Billing />*/}
+        <Billing />
         <MovieLabel />
       </Container>
       {email && (

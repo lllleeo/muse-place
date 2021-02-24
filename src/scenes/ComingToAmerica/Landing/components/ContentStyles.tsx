@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
+const bgColor = "#FDEFD1";
+
 const desktop = "1500px";
 const laptop = "1050px";
 const tablet = "770px";
@@ -31,12 +35,6 @@ export const Container = styled.div`
 
   /* Mobile responsiveness: swap video/info to vertical */
   /* and allow scrolling */
-  @media screen and (max-width: ${laptop}) {
-    //max-width: 1000px;
-  }
-  @media screen and (max-width: ${tablet}) {
-    //justify-content: space-evenly;
-  }
   @media screen and (max-width: ${phone}) {
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -60,18 +58,15 @@ export const VideoBox = styled.div`
     margin: 0;
   }
   @media screen and (max-width: ${phone}) {
-    height: 17%;
-    width: 90%;
+    width: 80%;
     justify-content: center;
     align-items: flex-start;
     position: absolute;
-    bottom: 15%;
+    top: 11%;
   }
 `;
 
 export const InfoBox = styled.div`
-  //border: red 2px dashed;
-  width: min(45%, 800px);
   text-align: center;
   diplay: flex;
   flex-direction: column;
@@ -83,10 +78,8 @@ export const InfoBox = styled.div`
   @media screen and (max-width: ${phone}) {
     width: 100%;
     height: 40%;
-    margin-top: 25px;
-  }
-  @media screen and (max-width: 350px) {
-    margin-top: 35px;
+    margin-top: 33vh;
+    z-index: 1;
   }
 `;
 
@@ -96,18 +89,16 @@ export const Title = styled.div`
 `;
 
 export const SurroundingTitle = styled.h2`
-  // font-size: min(1.2rem, calc(2vw + 0.1rem));
-  font-size: clamp(1rem, 1.7vw, 2rem);
-  color: #935c23;
+  font-size: clamp(1em, 1.7vw, 2em);
+  color: ${secondaryColor};
   font-weight: 600;
   margin: 0;
   //border: black 2px dashed;
-  //padding-top: 5px;
 `;
 
 export const MainTitle = styled.h1`
-  font-size: clamp(2rem, 4.5vw, 5rem);
-  color: #f8ec72;
+  font-size: clamp(2em, 4.5vw, 5em);
+  color: ${mainColor};
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
@@ -119,38 +110,25 @@ export const Buttons = styled.div`
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
-  margin: 20px auto 20px auto;
-  // border: black 2px dashed;
+  margin: 10px auto 0px auto;
+  //border: black 2px dashed;
   font-family: "HelveticaBlk", sans-serif;
-  @media screen and (max-width: ${desktop}) {
-    max-width: 400px;
-  }
-  @media screen and (min-width: ${desktop}) {
-    font-size: 1rem;
-  }
-  @media screen and (max-width: ${tablet}) {
-    max-width: 250px;
-  }
-  @media screen and (max-width: ${phone}) {
-    margin-top: 10px;
-    font-size: 0.5em;
-  }
 `;
 export const Button = styled.button`
-  border: #f8ec72 2px solid;
+  border: ${mainColor} 2px solid;
+  font-size: clamp(0.5em, 0.7em, 1.2vw);
   border-radius: 20px;
-  width: 31%;
-  padding: 5px 0 5px 0;
+  padding: 0.5em 1em;
+  min-width: 30%;
   cursor: pointer;
-  font-size: min(0.8rem, 1.2vw);
   font-family: "HelveticaBlk", sans-serif;
-  color: #f8ec72;
+  color: ${mainColor};
   background: none;
   :hover {
-    border: #999933 2px solid;
-    color: #999933;
+    border: ${secondaryColor} 2px solid;
+    color: ${secondaryColor};
   }
 `;
 
@@ -163,20 +141,19 @@ export const Image1 = styled.div`
   width: 100%;
   max-width: 500px;
   height: 105px;
+  //border: 2px dashed blue;
   @media screen and (max-width: ${laptop}) {
     width: 80%;
   }
   @media screen and (max-width: ${phone}) {
-    position: absolute;
-    bottom: 1%;
-    left: 10%;
+    margin: 2vh auto 0 auto;
   }
 `;
 
 export const Share = styled.p`
-  color: #f8ec72;
+  color: ${mainColor};
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.7em;
   margin: 0 auto 0 auto;
 `;
 
@@ -189,12 +166,15 @@ export const ShareContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  @media screen and (max-width: ${phone}) {
+    margin: 0 auto 10px auto;
+  }
 `;
 
 export const ShareIcon = styled.button`
   width: 32px;
   height: 32px;
-  background: #f8ec72;
+  background: ${mainColor};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -202,7 +182,7 @@ export const ShareIcon = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: #c796b3;
+  color: ${bgColor};
 `;
 
 export const Icon = styled.div`
@@ -214,8 +194,8 @@ export const FinePrint = styled.div`
   display: block;
   //border: green 2px dashed;
   margin: 0px auto 0 auto;
-  color: #f8ec72;
-  font-size: clamp(0.5rem, 0.5vw, 0.7rem);
+  color: ${mainColor};
+  font-size: clamp(0.5em, 0.5vw, 0.7em);
   a {
     cursor: pointer;
     text-decoration: underline;
@@ -241,16 +221,22 @@ export const Background = styled.div`
   max-height: 513px;
   min-width: 300px;
   max-width: 500px;
-  background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  // background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
+  // background-position: center;
+  // background-size: 100% 100%;
+  // background-repeat: no-repeat;
+  background: ${bgColor};
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1;
   //border: pink 2px solid;
+  @media screen and (max-width: ${phone}) {
+    width: 90%;
+    height: 80%;
+  }
 `;
 
 export const Trailer = styled.div`
@@ -261,23 +247,26 @@ export const Trailer = styled.div`
 
 export const Exit = styled.p`
   position: absolute;
-  top: -20px;
-  right: 13px;
+  top: -27px;
+  right: 6px;
   cursor: pointer;
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-family: "EmberCd", sans-serif;
-  color: white;
+  color: ${secondaryColor};
   z-index: 2;
+  @media screen and (max-width: ${phone}) {
+    right: 3px;
+    top: -30px;
+  }
 `;
 
 export const VideoExit = styled.div`
   position: absolute;
-  //top: -400px;
   right: 100px;
   cursor: pointer;
-  color: white;
-  font-size: 1.5rem;
+  color: ${secondaryColor};
+  font-size: 1.5em;
   font-family: "EmberCd", sans-serif;
   z-index: 2;
 `;
@@ -285,24 +274,51 @@ export const VideoExit = styled.div`
 export const Billing = styled.div`
   position: absolute;
   margin: 0 auto 0 auto;
-  bottom: 30px;
+  padding: -20px 0 -20px 0;
+  bottom: 10px;
   width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 200px;
   max-width: 800px;
-  background-image: url("https://amznstudios.app.box.com/s/6xfuixk6nwv7038z7727dz0pdjijewph/file/766452857021");
+  background-image: url("${content}/images/credits2x.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+  @media screen and (max-width: ${laptop}) {
+    max-width: 700px;
+  }
+  @media screen and (max-width: 800px) {
+    max-width: 550px;
+  }
+  @media screen and (max-width: ${tablet}) {
+    max-width: 500px;
+  }
+  @media screen and (max-width: ${phone}) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: 400px) {
+    max-width: 250px;
+  }
+  //border: 2px dashed blue;
 `;
 
 export const MovieLabel = styled.div`
   position: absolute;
-  width: 150px;
+  width: 100px;
   height: 100px;
   background-image: url("${content}/images/movielabel.png");
   background-size: contain;
   background-repeat: no-repeat;
-  left: 10%;
-  bottom: 10px;
+  left: 1%;
+  bottom: 0;
+  //border: 2px dashed blue;
+  padding-bottom: 30px;
+  @media screen and (max-width: ${phone}) {
+    width: 75px;
+    height: 75px;
+    padding-top: 15px;
+  }
 `;
 
 export const EmailCollection = styled.div`
@@ -313,7 +329,7 @@ export const EmailCollection = styled.div`
   justify-content: flex-start;
   align-items: center;
   //border: white 2px dashed;
-  color: #f8ec72;
+  color: ${mainColor};
   font-family: "HelveticaBlk", sans-serif;
 `;
 
@@ -360,8 +376,8 @@ export const EmailInput = styled.input`
 
 export const EmailCheck = styled.input`
   display: inline;
-  //border: #f8Ec72 2px dashed;
-  background-color: #f8ec72;
+  border: #f8Ec72 2px dashed;
+  // background-color: ${mainColor};
   align-self: center;
   cursor: pointer;
 `;
@@ -373,42 +389,48 @@ export const EmailOptOut = styled.div`
   justify-content: space-between;
   width: 50%;
   //border: blue 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    margin-top: 1vh;
+    width: 80%;
+  }
 `;
 
 export const EmailText = styled.p`
   //border: red 2px dashed;
-  font-size: 0.6rem;
+  font-size: 0.6em;
   padding-left: 5px;
 `;
 export const EmailSignup = styled.button`
-  border: 2px #f8ec72 solid;
+  border: 2px solid ${mainColor};
   background: none;
-  color: #f8ec72;
+  color: ${mainColor};
   font-weight: bold;
   font-family: "HelveticaBlk", sans-serif;
   border-radius: 25px;
   width: 40%;
-  text-align: center;
   padding: 5px 0 5px 0;
   margin-top: 15px;
   cursor: pointer;
   :hover {
-    border: #999933 2px solid;
-    color: #999933;
+    border: ${secondaryColor} 2px solid;
+    color: ${secondaryColor};
+  }
+  @media screen and (max-width: ${phone}) {
+    margin-top: 5px;
   }
 `;
 
 export const EmailSkip = styled.div`
-  font-size: 0.6rem;
+  font-size: 0.6em;
   text-decoration: underline;
   margin-top: 25px;
   cursor: pointer;
   :hover {
-    color: #999933;
+    color: ${secondaryColor};
   }
 `;
 export const EmailPrivacy = styled.div`
-  font-size: 0.5rem;
+  font-size: 0.5em;
   position: relative;
   bottom: -20px;
   a {

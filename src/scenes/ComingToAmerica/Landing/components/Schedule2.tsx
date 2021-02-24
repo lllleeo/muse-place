@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
+const phone = "500px";
+
 const ScheduleMain = styled.div`
   width: 90%;
   height: 90%;
@@ -7,23 +11,29 @@ const ScheduleMain = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   //border: white 2px dashed;
-  color: yellow;
+  color: ${mainColor};
   padding-top: 10px;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   overflow-y: scroll;
+  #bottomHeader {
+    margin-bottom: 3px;
+    @media screen and (max-width: ${phone}) {
+      margin-bottom: 7px;
+    }
+  }
 `;
 
 const ScheduleHeader = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 5px 0;
   line-height: 70%;
 `;
 
 const ScheduleBreak = styled.div`
   width: 60%;
-  border: yellow 1px solid;
+  border: ${mainColor} 1px solid;
   margin: 0 auto 0 auto;
 `;
 
@@ -31,6 +41,9 @@ const ScheduleSubHeader = styled.h3`
   text-align: center;
   font-size: 0.7rem;
   margin: 0;
+  @media screen and (max-width: ${phone}) {
+    font-size: 0.6rem;
+  }
 `;
 
 const ScheduleContent = styled.div`
@@ -51,6 +64,10 @@ const ScheduleDate = styled.h4`
   //border: blue 2px dashed;
   position: relative;
   right: 110px;
+  @media screen and (max-width: ${phone}) {
+    right: 70px;
+    font-size: 0.7rem;
+  }
 `;
 
 const ScheduleDate2 = styled.h4`
@@ -61,7 +78,11 @@ const ScheduleDate2 = styled.h4`
   font-size: 0.9rem;
   //border: blue 2px dashed;
   position: relative;
-  right: 125px;
+  right: 135px;
+  @media screen and (max-width: ${phone}) {
+    right: 90px;
+    font-size: 0.7rem;
+  }
 `;
 
 const ScheduleSection = styled.div`
@@ -70,24 +91,38 @@ const ScheduleSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 1px 0 1px 0;
+  margin: 5px 0 2px 0;
   //border: red 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    margin: 0;
+  }
 `;
 
 const ScheduleLeft = styled.div`
   width: 35%;
   text-align: right;
   //border: green 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    width: 40%;
+  }
 `;
 
 const ScheduleText = styled.p`
   font-size: 0.7rem;
   margin: 2px 0 2px 0;
+  @media screen and (max-width: ${phone}) {
+    margin: 7px 0;
+  }
 `;
 
 const ScheduleRight = styled.div`
   width: 63%;
   text-align: left;
   //border: blue 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    width: 55%;
+    font-size: 0.7rem;
+  }
 `;
 
 const Schedule2 = () => {
@@ -96,7 +131,9 @@ const Schedule2 = () => {
       <ScheduleHeader>SCHEDULE</ScheduleHeader>
       <ScheduleBreak />
       <ScheduleSubHeader>DAILY PROGRAMMING SCHEDULE OF THE</ScheduleSubHeader>
-      <ScheduleSubHeader>MY-T-SHARP BARBERSHOP EXPERIENCE</ScheduleSubHeader>
+      <ScheduleSubHeader id="bottomHeader">
+        MY-T-SHARP BARBERSHOP EXPERIENCE
+      </ScheduleSubHeader>
       <ScheduleContent>
         <ScheduleDate>MARCH 8TH</ScheduleDate>
         <ScheduleSection>

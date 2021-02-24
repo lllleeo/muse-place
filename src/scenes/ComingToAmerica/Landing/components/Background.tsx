@@ -5,13 +5,16 @@ const laptop = "1050px";
 const tablet = "770px";
 const phone = "500px";
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
+const bgColor = "#FDEFD1";
 
 const Container = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   top: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: ${bgColor};
 `;
 
 const Gold = styled.div`
@@ -32,7 +35,7 @@ const Purple = styled.div`
   background-repeat: repeat;
 `;
 
-const Barbers = styled.img`
+const Barbers = styled.div`
   width: 90%;
   max-width: 500px;
   height: 100%;
@@ -41,19 +44,30 @@ const Barbers = styled.img`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  //border: 2px dashed red;
+  background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Quar-optimized.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
   @media screen and (max-width: ${tablet}) {
     max-width: 400px;
+  }
+  @media screen and (max-width: ${phone}) {
+    top: 0;
+    left: 49%;
+    width: 50%;
+    height: 35%;
+    padding: 0;
+    transform: translateX(0);
   }
 `;
 
 const Background = () => {
   return (
     <Container>
-      <Gold />
-      <Purple />
-      <Barbers
-        src={`${CONTENT_FOLDER}/images/C2A_Website_Quar-optimized.png`}
-      />
+      {/*<Gold />*/}
+      {/*<Purple />*/}
+      <Barbers />
     </Container>
   );
 };
