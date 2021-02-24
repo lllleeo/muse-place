@@ -26,14 +26,12 @@ const PhotoBoothTrigger = () => {
 
   const filter = filters[type][index];
 
-  console.log(filter);
-
   return (
     <Overlay>
       <PopupContainer onClose={() => setPaused(false)}>
         <Title>Photo Booth</Title>
         <Container>
-          <ARFilter />
+          <ARFilter assetUrl={filter.url} />
         </Container>
       </PopupContainer>
     </Overlay>

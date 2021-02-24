@@ -1,26 +1,49 @@
+import { Suspense } from "react";
 // @ts-ignore
 import { JEEFACEFILTERAPI, NN_4EXPR } from "facefilter";
 import { JeelizThreeFiberHelper } from "../assets/JeelizThreeFiberHelper.js";
 import { Canvas, useFrame, useThree, useUpdate } from "react-three-fiber";
 import { Group } from "three";
 import { useEffect, useMemo, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr";
 
 const _maxFacesDetected = 1; // max number of detected faces
 const _faceFollowers = new Array(_maxFacesDetected);
 
+type Expressions = {
+  mouthOpen: number;
+  mouthSmile: number;
+  eyebrowFrown: number;
+  eyebrowRaised: number;
+};
+
 // This mesh follows the face. put stuffs in it.
 // Its position and orientation is controlled by Jeeliz THREE.js helper
-const FaceFollower = (props: any) => {
+const FaceFollower = (props: {
+  faceIndex: number;
+  expressions: Expressions;
+  assetUrl: string;
+}) => {
   const objRef = useUpdate<Group>((group) => {
     _faceFollowers[props.faceIndex] = group;
   }, []);
 
+  const gltf = useGLTF(props.assetUrl, DRACO_URL);
+
   return (
     <group ref={objRef}>
-      <mesh name="mainCube">
-        <boxBufferGeometry args={[1, 1, 1]} />
-        <meshNormalMaterial />
-      </mesh>
+      {/*<mesh name="mainCube">*/}
+      {/*  <boxBufferGeometry args={[1, 1, 1]} />*/}
+      {/*  <meshNormalMaterial />*/}
+      {/*</mesh>*/}
+      <ambientLight />
+      <group position-y={1}>
+        <group scale={[1.5, 1.5, 1.5]}>
+          <primitive object={gltf.scene} />
+        </group>
+      </group>
+      <spotLight position={[0, 5, 0]} />
       <mesh
         name="mouthOpen"
         scale={[props.expressions.mouthOpen, 1, props.expressions.mouthOpen]}
@@ -73,7 +96,9 @@ const compute_sizing = () => {
   return { width: 400, height: 400, top: height / 2, left: width / 2 - 200 };
 };
 
-const ARFilter = () => {
+const ARFilter = (props: { assetUrl: string }) => {
+  const { assetUrl } = props;
+
   const sizing = useMemo(compute_sizing, []);
   const expressions = useMemo(() => {
     const exp = [];
@@ -170,9 +195,14 @@ const ARFilter = () => {
         }}
       >
         <DirtyHook sizing={sizing} />
-        <FaceFollower faceIndex={0} expressions={expressions[0]} />
+        <Suspense fallback={null}>
+          <FaceFollower
+            faceIndex={0}
+            expressions={expressions[0]}
+            assetUrl={assetUrl}
+          />
+        </Suspense>
       </Canvas>
-
       {/* Canvas managed by FaceFilter, just displaying the video (and used for WebGL computations) */}
       <canvas
         className="mirrorX"
