@@ -11,8 +11,8 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    dark: THREE.Mesh;
     light: THREE.Mesh;
+    dark: THREE.Mesh;
     lattice: THREE.Mesh;
     stairs: THREE.Mesh;
     windows: THREE.Mesh;
@@ -27,7 +27,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABuilding-1613902614/building_02.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ASidewalk-1614187896/sidewalk_04.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -36,15 +36,15 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.35, -0.35, -0.35]}>
         <mesh
-          name="dark"
-          material={nodes.dark.material}
-          geometry={nodes.dark.geometry}
-          scale={[0.8432, -0.8432, 0.8432]}
-        />
-        <mesh
           name="light"
           material={nodes.light.material}
           geometry={nodes.light.geometry}
+          scale={[0.8432, -0.8432, 0.8432]}
+        />
+        <mesh
+          name="dark"
+          material={nodes.dark.material}
+          geometry={nodes.dark.geometry}
           scale={[0.8432, -0.8432, 0.8432]}
         />
         <mesh

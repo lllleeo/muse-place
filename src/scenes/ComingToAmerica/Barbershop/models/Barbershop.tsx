@@ -38,6 +38,7 @@ type GLTFResult = GLTF & {
     chairs: THREE.Mesh;
     armrest: THREE.Mesh;
     walls: THREE.Mesh;
+    street: THREE.Mesh;
     ceiling: THREE.Mesh;
     collider: THREE.Mesh;
   };
@@ -59,12 +60,13 @@ type GLTFResult = GLTF & {
     ["chairs.mat"]: THREE.MeshStandardMaterial;
     ["armrest.mat"]: THREE.MeshStandardMaterial;
     ["walls.1"]: THREE.MeshStandardMaterial;
+    ["street.1"]: THREE.MeshStandardMaterial;
     celining: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614175793/barbershop_07.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ABarbershop-1614188530/barbershop_09.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -220,6 +222,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="walls"
           material={materials["walls.1"]}
           geometry={nodes.walls.geometry}
+        />
+        <mesh
+          name="street"
+          material={materials["street.1"]}
+          geometry={nodes.street.geometry}
         />
         <mesh
           name="ceiling"

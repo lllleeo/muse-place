@@ -14,34 +14,40 @@ import { MeshStandardMaterial } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
+    storefront: THREE.Mesh;
     barbers: THREE.Mesh;
     highlight: THREE.Mesh;
     customs: THREE.Mesh;
+    shopsign: THREE.Mesh;
     barberpole: THREE.Mesh;
     barbershop_glass: THREE.Mesh;
     trash: THREE.Mesh;
     lattice: THREE.Mesh;
     windows: THREE.Mesh;
     windows_glass: THREE.Mesh;
+    roadblocks: THREE.Mesh;
     building: THREE.Mesh;
     sidewalk: THREE.Mesh;
     street: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
+    ["storefront.mat"]: THREE.MeshStandardMaterial;
     ["barbers.mat"]: THREE.MeshStandardMaterial;
     ["highlight.mat"]: THREE.MeshStandardMaterial;
     ["customs.mat"]: THREE.MeshStandardMaterial;
+    ["shopsign.mat"]: THREE.MeshStandardMaterial;
     ["barberpole.mat"]: THREE.MeshStandardMaterial;
     ["barbershop_glass.mat"]: THREE.MeshStandardMaterial;
     ["trash.mat"]: THREE.MeshStandardMaterial;
     ["lattice.mat"]: THREE.MeshStandardMaterial;
     ["windows.mat"]: THREE.MeshStandardMaterial;
+    ["roadblocks.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ASidewalk-1613902888/sidewalk_03.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/C2ASidewalk-1614187896/sidewalk_04.glb";
 
 const TILE_TEX =
   "https://d27rt3a60hh1lx.cloudfront.net/content/c2a/white_tile.jpg";
@@ -77,7 +83,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
 
   // sidewalk texture
   const streetTex = useLoader(THREE.TextureLoader, STREET_TEX);
-  streetTex.repeat.x = streetTex.repeat.y = 40;
+  streetTex.repeat.x = streetTex.repeat.y = 6;
   streetTex.wrapS = streetTex.wrapT = THREE.RepeatWrapping;
   const streetMat = useMemo(
     () => new MeshStandardMaterial({ map: streetTex }),
@@ -88,7 +94,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.35, 0.35, 0.35]}>
         <mesh
-          name="barber"
+          name="storefront"
+          material={materials["storefront.mat"]}
+          geometry={nodes.storefront.geometry}
+        />
+        <mesh
+          name="barbers"
           material={materials["barbers.mat"]}
           geometry={nodes.barbers.geometry}
         />
@@ -101,6 +112,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="customs"
           material={materials["customs.mat"]}
           geometry={nodes.customs.geometry}
+        />
+        <mesh
+          name="shopsign"
+          material={materials["shopsign.mat"]}
+          geometry={nodes.shopsign.geometry}
         />
         <mesh
           name="barberpole"
@@ -134,6 +150,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={nodes.windows_glass.material}
           geometry={nodes.windows_glass.geometry}
         />
+        <mesh
+          name="roadblocks"
+          material={materials["roadblocks.mat"]}
+          geometry={nodes.roadblocks.geometry}
+        />
+
         <mesh
           name="building"
           material={tileMat}

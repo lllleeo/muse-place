@@ -31,7 +31,7 @@ type GLTFResult = GLTF & {
 };
 
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net";
-const FILE_URL = `${CONTENT_FOLDER}/models/C2ABuilding-1613902614/building_02.glb`;
+const FILE_URL = `${CONTENT_FOLDER}/models/C2ABuilding-1614188821/building_04.glb`;
 
 const InstancedBuildingPiece = (props: {
   material: Material;

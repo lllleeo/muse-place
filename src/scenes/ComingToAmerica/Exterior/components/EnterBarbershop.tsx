@@ -18,7 +18,7 @@ const EnterBarbershop = () => {
 
   return (
     <group>
-      <group position={[0.407, 0.383, 0.218]}>
+      <group position={[0.407, 0.383, 0.15]}>
         <animated.group scale-x={scale} scale-y={scale} scale-z={scale}>
           {/* @ts-ignore */}
           <Text
@@ -35,7 +35,7 @@ const EnterBarbershop = () => {
         </animated.group>
       </group>
       <Trigger onClick={() => (window.location.href = "barbershop")}>
-        <mesh position={[0.407, 0.083, 0.018]}>
+        <mesh position={[0.407, 0.083, -0.04]}>
           <boxBufferGeometry args={[1.1, 1.34, 0.09]} />
           <meshStandardMaterial color="#999999" transparent opacity={0} />
         </mesh>
@@ -43,7 +43,7 @@ const EnterBarbershop = () => {
           onHover={() => setShow(true)}
           onUnHover={() => setShow(false)}
         >
-          <mesh position={[0.407, 0.083, 0.018]} visible={false}>
+          <mesh position={[0.407, 0.083, -0.04]} visible={false}>
             <boxBufferGeometry args={[1.1, 1.34, 0.09]} />
           </mesh>
         </Interactable>
