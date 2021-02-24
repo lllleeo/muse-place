@@ -18,6 +18,8 @@ import HairstyleTrigger from "../overlays/HairstyleTrigger";
 import GiveawayTrigger from "../overlays/GiveawayTrigger";
 import DefJamTrigger from "../overlays/DefJamTrigger";
 import LeaveBarbershop from "./components/LeaveBarbershop";
+import HstryTrigger from "../overlays/HstryTrigger";
+import AMUTrigger from "../overlays/AMUTrigger";
 
 const BarbershopScene = () => {
   return (
@@ -35,6 +37,8 @@ const BarbershopScene = () => {
         <GiveawayTrigger />
         <DefJamTrigger />
         <LeaveBarbershop />
+        <HstryTrigger />
+        <AMUTrigger />
         <Sky />
         <Suspense fallback={null}>
           <Barbershop />

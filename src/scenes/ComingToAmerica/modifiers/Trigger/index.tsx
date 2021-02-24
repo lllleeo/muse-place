@@ -17,12 +17,13 @@ const Trigger = (props: Props) => {
 
   const group = useRef<Group>();
   const matRef = useRef<Material>();
-  const seed = useMemo(() => Math.floor(Math.random() * 1000000) / 1000000, []);
+  const seed = useMemo(
+    () => Math.floor(Math.random() * 1000000000) / 1000000000,
+    []
+  );
 
   const limiter = useLimiter(45);
-  const [spring, setSpring] = useSpring(() => ({
-    g: [0],
-  }));
+  const [spring, setSpring] = useSpring(() => ({ g: [0] }));
 
   useLayoutEffect(() => {
     if (!group.current || !(group.current?.children[0] as Mesh).material) {
@@ -65,7 +66,8 @@ const Trigger = (props: Props) => {
     if (matRef?.current?.userData?.shader?.uniforms?.time) {
       const [g] = getSpringValues(spring);
 
-      matRef.current.userData.shader.uniforms.time.value = clock.getElapsedTime();
+      matRef.current.userData.shader.uniforms.time.value =
+        clock.getElapsedTime() * 0.66;
       matRef.current.userData.shader.uniforms.glow.value = g;
     }
   });
