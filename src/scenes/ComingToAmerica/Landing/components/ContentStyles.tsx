@@ -274,7 +274,7 @@ export const Exit = styled.p`
   font-weight: 100;
   font-size: 1.5rem;
   font-family: "EmberCd", sans-serif;
-  color: white;
+  color: ${secondaryColor};
   z-index: 2;
 `;
 
@@ -283,7 +283,7 @@ export const VideoExit = styled.div`
   //top: -400px;
   right: 100px;
   cursor: pointer;
-  color: white;
+  color: ${secondaryColor};
   font-size: 1.5rem;
   font-family: "EmberCd", sans-serif;
   z-index: 2;

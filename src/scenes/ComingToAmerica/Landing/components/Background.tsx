@@ -15,6 +15,7 @@ const Container = styled.div`
   top: 0;
   right: 0;
   background: ${bgColor};
+  // background: lightblue;
 `;
 
 const Gold = styled.div`

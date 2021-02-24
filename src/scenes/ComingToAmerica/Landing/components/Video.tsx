@@ -1,14 +1,28 @@
 import VideoPlayer from "react-video-js-player";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
 import styled from "@emotion/styled";
+import { Suspense } from "react";
 
 type videoProps = {
   src: string;
   thumbnail: string;
 };
 
+const mainColor = "#c8af68";
+
+const PlayButton = styled.div`
+  width: 50px;
+  height: 32px;
+  background: ${mainColor};
+`;
+
 const VideoDiv = styled.div`
   outline: none;
+  //border: 2px dashed #ff0000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 30px;
   .video-js {
     border-radius: 10px;
   }
@@ -44,8 +58,21 @@ const Video = (props: videoProps) => {
 
   return (
     <VideoDiv>
+      {/*<Suspense fallback={null}>*/}
       {/*<VideoPlayer src={src} poster={thumbnail} width={width} height={height} />*/}
-      <ReactPlayer url={src} width={width} height={height} />
+      <ReactPlayer
+        url={src}
+        width="70%"
+        height={height}
+        style={
+          {
+            // boxShadow: `2px 2px 10px ${mainColor}, -2px -2px 10px ${mainColor}`,
+          }
+        }
+        playing
+        controls
+      />
+      {/*</Suspense>*/}
     </VideoDiv>
   );
 };
