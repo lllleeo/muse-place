@@ -16,13 +16,15 @@ import CastConvoTrigger from "../overlays/CastConvoTrigger";
 import UomaTrigger from "../overlays/UomaTrigger";
 import HairstyleTrigger from "../overlays/HairstyleTrigger";
 import GiveawayTrigger from "../overlays/GiveawayTrigger";
+import DefJamTrigger from "../overlays/DefJamTrigger";
+import LeaveBarbershop from "./components/LeaveBarbershop";
 
 const BarbershopScene = () => {
   return (
     <AmazonContainer>
       <StandardEnvironment
         pauseMenu={<PauseMenu />}
-        player={{ pos: new Vector3(0, 1.25, 0), speed: 0.9 }}
+        player={{ pos: new Vector3(1.276, 1.1, 2.543), speed: 0.9, rot: -2 }}
       >
         <BTSTrigger />
         <PhotoBoothTrigger />
@@ -31,6 +33,8 @@ const BarbershopScene = () => {
         <UomaTrigger />
         <HairstyleTrigger />
         <GiveawayTrigger />
+        <DefJamTrigger />
+        <LeaveBarbershop />
         <Sky />
         <Suspense fallback={null}>
           <Barbershop />

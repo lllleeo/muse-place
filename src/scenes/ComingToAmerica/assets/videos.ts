@@ -14,4 +14,10 @@ export const videos: Videos = {
     "https://www.youtube.com/watch?v=bKfU-Yr8fog",
     "https://www.youtube.com/watch?v=bKfU-Yr8fog",
   ],
+  // (Q)? Defjam poster
+  defjam: [
+    "https://www.youtube.com/watch?v=s3djdugD0b0",
+    "https://www.youtube.com/watch?v=UU-2LBc25TU",
+    "https://www.youtube.com/watch?v=BaczgeZ9Qlc",
+  ],
 };

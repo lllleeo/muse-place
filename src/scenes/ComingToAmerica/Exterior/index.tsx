@@ -1,21 +1,25 @@
 import { Suspense } from "react";
 import { Audio, HDRI, StandardEnvironment } from "spacesvr";
-import { Sky } from "@react-three/drei";
 import Sidewalk from "./models/Sidewalk";
-import Building from "./models/Building";
 import { Vector3 } from "three";
 import Buildings from "./components/Buildings";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
+import EnterBarbershop from "./components/EnterBarbershop";
 
 const ComingAmerica = () => {
   return (
     <AmazonContainer>
       <StandardEnvironment
         pauseMenu={<PauseMenu />}
-        player={{ pos: new Vector3(0, 1.5, 6), speed: 2 }}
+        player={{
+          pos: new Vector3(-1.315, 1.7, 5.58),
+          rot: -Math.PI / 2,
+          speed: 2,
+        }}
         disableGround
       >
+        <EnterBarbershop />
         <Suspense fallback={null}>
           <Sidewalk />
         </Suspense>
@@ -28,11 +32,7 @@ const ComingAmerica = () => {
           url="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/audio/queens-audio.mp3"
           position={[0, 10, 0]}
         />
-        <HDRI
-          src={
-            "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/Hazy_Afternoon_HDR_full.hdr"
-          }
-        />
+        <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp/Hazy_Afternoon_HDR_full.hdr" />
       </StandardEnvironment>
     </AmazonContainer>
   );

@@ -12,10 +12,10 @@ const VideoContainer = styled.div`
   margin: 0 auto;
 `;
 
-const BTSTrigger = () => {
+const DefJamTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
-  if (!paused || overlay !== "bts") {
+  if (!paused || overlay !== "defjam") {
     return null;
   }
 
@@ -27,13 +27,13 @@ const BTSTrigger = () => {
   return (
     <Overlay>
       <PopupContainer onClose={() => setPaused(false)}>
-        <Title>BEHIND THE SCENES</Title>
+        <Title>DefJam Content</Title>
         <VideoContainer>
           {ids.map((id, index) => (
             <VideoThumbnail
               id={id}
               key={id}
-              onClick={() => setPaused(true, `fullscreen-bts-${index}`)}
+              onClick={() => setPaused(true, `fullscreen-defjam-${index}`)}
             />
           ))}
         </VideoContainer>
@@ -42,4 +42,4 @@ const BTSTrigger = () => {
   );
 };
 
-export default BTSTrigger;
+export default DefJamTrigger;
