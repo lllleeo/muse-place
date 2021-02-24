@@ -73,15 +73,10 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       .scale(0.275, 0.275, 0.275)
   );
 
-  const hitboxMat = useMemo(
-    () => new MeshStandardMaterial({ opacity: 0, transparent: true }),
-    []
-  );
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.275, 0.275, 0.275]} position-y={0.005}>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "hairstyle")}>
           <mesh
             name="hairstyle"
             material={materials.hairstyle}
@@ -89,23 +84,16 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="hairstyle-hitbox"
-            material={hitboxMat}
+            visible={false}
             geometry={nodes["hairstyle-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
-          <mesh
-            name="barberchair"
-            material={materials["barberchair.1"]}
-            geometry={nodes.barberchair.geometry}
-          />
-          <mesh
-            name="barberchair-hitbox"
-            material={hitboxMat}
-            geometry={nodes["barberchair-hitbox"].geometry}
-          />
-        </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <mesh
+          name="barberchair"
+          material={materials["barberchair.1"]}
+          geometry={nodes.barberchair.geometry}
+        />
+        <Trigger onClick={() => setPaused(true, "defjam")}>
           <mesh
             name="defjam"
             material={materials.defjam}
@@ -113,11 +101,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="defjam-hitbox"
-            material={hitboxMat}
+            visible={false}
             geometry={nodes["defjam-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "giveaway")}>
           <mesh
             name="giveaway"
             material={materials.clay}
@@ -125,11 +113,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="giveaway-hitbox"
-            material={hitboxMat}
+            visible={false}
             geometry={nodes["giveaway-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "castconvo")}>
           <mesh
             name="tv"
             material={materials.tv}
@@ -137,7 +125,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="tv-hitbox"
-            material={hitboxMat}
+            visible={false}
             geometry={nodes["tv-hitbox"].geometry}
           />
         </Trigger>
@@ -149,7 +137,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
           <mesh
             name="backdoor-hitbox"
-            material={hitboxMat}
+            visible={false}
             geometry={nodes["backdoor-hitbox"].geometry}
           />
         </Trigger>
@@ -169,11 +157,20 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["news.2"]}
           geometry={nodes.news.geometry}
         />
-        <mesh
-          name="product"
-          material={materials["product.1"]}
-          geometry={nodes.product.geometry}
-        />
+        <Trigger onClick={() => window.open("https://getbevel.com", "_blank")}>
+          <mesh
+            name="product"
+            material={materials["product.1"]}
+            geometry={nodes.product.geometry}
+          />
+          <mesh
+            position={[-7.44, 2.5, -3.2]}
+            rotation-y={Math.PI / 2}
+            visible={false}
+          >
+            <boxBufferGeometry args={[7.25, 1, 1.25]} />
+          </mesh>
+        </Trigger>
         <mesh
           name="clay"
           material={materials.clay}

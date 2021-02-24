@@ -6,16 +6,29 @@ import styled from "@emotion/styled";
 import { videos } from "../assets/videos";
 import VideoThumbnail from "./components/VideoThumbnail";
 
+const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
+
 const VideoContainer = styled.div`
   width: 95%;
   max-width: 450px;
   margin: 0 auto;
 `;
 
-const BTSTrigger = () => {
+const VideoPlaceholder = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 20px 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+`;
+
+const CastConvoTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
-  if (!paused || overlay !== "bts") {
+  if (!paused || overlay !== "castconvo") {
     return null;
   }
 
@@ -27,13 +40,13 @@ const BTSTrigger = () => {
   return (
     <Overlay>
       <PopupContainer onClose={() => setPaused(false)}>
-        <Title>BEHIND THE SCENES</Title>
+        <Title>CAST CONVERSATION SERIES</Title>
         <VideoContainer>
           {ids.map((id, index) => (
             <VideoThumbnail
               id={id}
               key={id}
-              onClick={() => setPaused(true, `fullscreen-bts-${index}`)}
+              onClick={() => setPaused(true, `fullscreen-castconvo-${index}`)}
             />
           ))}
         </VideoContainer>
@@ -42,4 +55,4 @@ const BTSTrigger = () => {
   );
 };
 
-export default BTSTrigger;
+export default CastConvoTrigger;
