@@ -80,7 +80,7 @@ export const InfoBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   font-family: "HelveticaBlk", sans-serif;
-  z-index: 2;
+  //z-index: 2;
   @media screen and (max-width: ${desktop}) {
     width: 40%;
   }
@@ -88,6 +88,7 @@ export const InfoBox = styled.div`
     width: 100%;
     height: 40%;
     margin-top: 33vh;
+    z-index: 1;
   }
   @media screen and (max-width: 350px) {
     margin-top: 35px;
@@ -250,6 +251,10 @@ export const Background = styled.div`
   position: relative;
   z-index: 1;
   //border: pink 2px solid;
+  @media screen and (max-width: ${phone}) {
+    width: 90%;
+    height: 80%;
+  }
 `;
 
 export const Trailer = styled.div`
@@ -268,6 +273,10 @@ export const Exit = styled.p`
   font-family: "EmberCd", sans-serif;
   color: ${secondaryColor};
   z-index: 2;
+  @media screen and (max-width: ${phone}) {
+    right: 3px;
+    top: -30px;
+  }
 `;
 
 export const VideoExit = styled.div`
@@ -385,8 +394,8 @@ export const EmailInput = styled.input`
 
 export const EmailCheck = styled.input`
   display: inline;
-  //border: #f8Ec72 2px dashed;
-  background-color: ${mainColor};
+  border: #f8Ec72 2px dashed;
+  // background-color: ${mainColor};
   align-self: center;
   cursor: pointer;
 `;
@@ -398,6 +407,10 @@ export const EmailOptOut = styled.div`
   justify-content: space-between;
   width: 50%;
   //border: blue 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    margin-top: 1vh;
+    width: 80%;
+  }
 `;
 
 export const EmailText = styled.p`
@@ -413,13 +426,15 @@ export const EmailSignup = styled.button`
   font-family: "HelveticaBlk", sans-serif;
   border-radius: 25px;
   width: 40%;
-  text-align: center;
   padding: 5px 0 5px 0;
   margin-top: 15px;
   cursor: pointer;
   :hover {
     border: ${secondaryColor} 2px solid;
     color: ${secondaryColor};
+  }
+  @media screen and (max-width: ${phone}) {
+    margin-top: 5px;
   }
 `;
 

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 const mainColor = "#c8af68";
 const secondaryColor = "#935c23";
+const phone = "500px";
 
 const ScheduleMain = styled.div`
   width: 90%;
@@ -16,6 +17,9 @@ const ScheduleMain = styled.div`
   overflow-y: scroll;
   #bottomHeader {
     margin-bottom: 3px;
+    @media screen and (max-width: ${phone}) {
+      margin-bottom: 7px;
+    }
   }
 `;
 
@@ -37,6 +41,9 @@ const ScheduleSubHeader = styled.h3`
   text-align: center;
   font-size: 0.7rem;
   margin: 0;
+  @media screen and (max-width: ${phone}) {
+    font-size: 0.6rem;
+  }
 `;
 
 const ScheduleContent = styled.div`
@@ -57,6 +64,10 @@ const ScheduleDate = styled.h4`
   //border: blue 2px dashed;
   position: relative;
   right: 110px;
+  @media screen and (max-width: ${phone}) {
+    right: 70px;
+    font-size: 0.7rem;
+  }
 `;
 
 const ScheduleDate2 = styled.h4`
@@ -68,6 +79,10 @@ const ScheduleDate2 = styled.h4`
   //border: blue 2px dashed;
   position: relative;
   right: 135px;
+  @media screen and (max-width: ${phone}) {
+    right: 90px;
+    font-size: 0.7rem;
+  }
 `;
 
 const ScheduleSection = styled.div`
@@ -78,23 +93,36 @@ const ScheduleSection = styled.div`
   padding: 1px 0 1px 0;
   margin: 5px 0 2px 0;
   //border: red 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    margin: 0;
+  }
 `;
 
 const ScheduleLeft = styled.div`
   width: 35%;
   text-align: right;
   //border: green 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    width: 40%;
+  }
 `;
 
 const ScheduleText = styled.p`
   font-size: 0.7rem;
   margin: 2px 0 2px 0;
+  @media screen and (max-width: ${phone}) {
+    margin: 7px 0;
+  }
 `;
 
 const ScheduleRight = styled.div`
   width: 63%;
   text-align: left;
   //border: blue 2px dashed;
+  @media screen and (max-width: ${phone}) {
+    width: 55%;
+    font-size: 0.7rem;
+  }
 `;
 
 const Schedule2 = () => {
