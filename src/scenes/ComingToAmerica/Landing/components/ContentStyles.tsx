@@ -262,8 +262,8 @@ export const Trailer = styled.div`
 
 export const Exit = styled.p`
   position: absolute;
-  top: -30px;
-  right: 3px;
+  top: -27px;
+  right: 6px;
   cursor: pointer;
   font-weight: 100;
   font-size: 1.5em;
