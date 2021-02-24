@@ -199,22 +199,22 @@ const Schedule2 = () => {
             <ScheduleText>Soul Glo + Sexual Chocolates</ScheduleText>
           </ScheduleRight>
         </ScheduleSection>
-        <ScheduleDate2>MARCH 8TH - 10TH</ScheduleDate2>
-        <ScheduleSection>
-          <ScheduleLeft></ScheduleLeft>
-          <ScheduleRight>
-            <ScheduleText>BTS Content (TBC)</ScheduleText>
-            <ScheduleText>Featurettes (TBC)</ScheduleText>
-            <ScheduleText>Character Photos + Cast Info</ScheduleText>
-            <ScheduleText>
-              Amazon Music Playlist (Official Soundtrack)
-            </ScheduleText>
-            <ScheduleText>Cast Conversations Ep 1 & 2</ScheduleText>
-            <ScheduleText>
-              Eddie Murphy, Arsenio Hall + The Jamaica, Queens Crew
-            </ScheduleText>
-          </ScheduleRight>
-        </ScheduleSection>
+        {/*<ScheduleDate2>MARCH 8TH - 10TH</ScheduleDate2>*/}
+        {/*<ScheduleSection>*/}
+        {/*  <ScheduleLeft></ScheduleLeft>*/}
+        {/*  <ScheduleRight>*/}
+        {/*    <ScheduleText>BTS Content (TBC)</ScheduleText>*/}
+        {/*    <ScheduleText>Featurettes (TBC)</ScheduleText>*/}
+        {/*    <ScheduleText>Character Photos + Cast Info</ScheduleText>*/}
+        {/*    <ScheduleText>*/}
+        {/*      Amazon Music Playlist (Official Soundtrack)*/}
+        {/*    </ScheduleText>*/}
+        {/*    <ScheduleText>Cast Conversations Ep 1 & 2</ScheduleText>*/}
+        {/*    <ScheduleText>*/}
+        {/*      Eddie Murphy, Arsenio Hall + The Jamaica, Queens Crew*/}
+        {/*    </ScheduleText>*/}
+        {/*  </ScheduleRight>*/}
+        {/*</ScheduleSection>*/}
       </ScheduleContent>
     </ScheduleMain>
   );

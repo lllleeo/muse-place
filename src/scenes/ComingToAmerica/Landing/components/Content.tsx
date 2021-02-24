@@ -31,6 +31,7 @@ import {
   EmailSignup,
   EmailSkip,
   EmailPrivacy,
+  EmailPrivacyDiv,
 } from "./ContentStyles";
 import {
   faInstagram,
@@ -154,27 +155,31 @@ const Content = () => {
             <EmailCollection>
               <EmailHeader />
               <EmailSubTitle>
-                EXCLUSIVE MY-T-SHARP EXPERIENCE AVAILABLE MARCH 1ST - 7TH
+                EXCLUSIVE MY-T-SHARP EXPERIENCE AVAILABLE MARCH 8TH - 10TH
               </EmailSubTitle>
+              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
               <EmailInputDiv>
                 <EmailInput placeholder="NAME" />
               </EmailInputDiv>
               <EmailInputDiv>
                 <EmailInput placeholder="EMAIL" />
               </EmailInputDiv>
-              <EmailOptOut>
-                <EmailCheck type="checkbox" onClick={handleSubscribe} />
-                <EmailText>
-                  OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER
-                </EmailText>
-              </EmailOptOut>
+              {/*<EmailOptOut>*/}
+              {/*  <EmailCheck type="checkbox" onClick={handleSubscribe} />*/}
+              {/*  <EmailText>*/}
+              {/*    OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER*/}
+              {/*  </EmailText>*/}
+              {/*</EmailOptOut>*/}
               <EmailSignup>SIGN-UP</EmailSignup>
-              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
-              <EmailPrivacy>BY USING THIS SITE, YOU AGREE TO THE</EmailPrivacy>
-              <EmailPrivacy>
-                <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
-                <a onClick={handleTerms}>TERMS AND CONDITIONS</a>.
-              </EmailPrivacy>
+              <EmailPrivacyDiv>
+                <EmailPrivacy>
+                  BY USING THIS SITE, YOU AGREE TO THE
+                </EmailPrivacy>
+                <EmailPrivacy>
+                  <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
+                  <a onClick={handleTerms}>TERMS AND CONDITIONS</a>.
+                </EmailPrivacy>
+              </EmailPrivacyDiv>
             </EmailCollection>
           </Background>
         </Overlay>

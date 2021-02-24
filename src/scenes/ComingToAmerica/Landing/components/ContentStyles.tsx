@@ -390,6 +390,7 @@ export const EmailText = styled.p`
   font-size: 0.6em;
   padding-left: 5px;
 `;
+
 export const EmailSignup = styled.button`
   border: 2px solid ${mainColor};
   background: none;
@@ -411,18 +412,23 @@ export const EmailSignup = styled.button`
 `;
 
 export const EmailSkip = styled.div`
-  font-size: 0.6em;
+  font-size: 1.5em;
   text-decoration: underline;
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   :hover {
     color: ${secondaryColor};
   }
 `;
+
+export const EmailPrivacyDiv = styled.div`
+  margin-top: 50px;
+  text-align: center;
+`;
+
 export const EmailPrivacy = styled.div`
   font-size: 0.5em;
-  position: relative;
-  bottom: -20px;
   a {
     text-decoration: underline;
     cursor: pointer;
