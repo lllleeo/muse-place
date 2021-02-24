@@ -64,30 +64,30 @@ export const VideoBox = styled.div`
     margin: 0;
   }
   @media screen and (max-width: ${phone}) {
-    height: 17%;
-    width: 90%;
+    width: 80%;
     justify-content: center;
     align-items: flex-start;
     position: absolute;
-    bottom: 15%;
+    top: 11%;
   }
 `;
 
 export const InfoBox = styled.div`
   //border: red 2px dashed;
-  width: min(45%, 800px);
+  //width: min(45%, 800px);
   text-align: center;
   diplay: flex;
   flex-direction: column;
   justify-content: flex-start;
   font-family: "HelveticaBlk", sans-serif;
+  z-index: 2;
   @media screen and (max-width: ${desktop}) {
     width: 40%;
   }
   @media screen and (max-width: ${phone}) {
     width: 100%;
     height: 40%;
-    margin-top: 25px;
+    margin-top: 33vh;
   }
   @media screen and (max-width: 350px) {
     margin-top: 35px;
@@ -123,32 +123,19 @@ export const Buttons = styled.div`
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
-  margin: 20px auto 20px auto;
-  // border: black 2px dashed;
+  margin: 10px auto 0px auto;
+  //border: black 2px dashed;
   font-family: "HelveticaBlk", sans-serif;
-  @media screen and (max-width: ${desktop}) {
-    max-width: 400px;
-  }
-  @media screen and (min-width: ${desktop}) {
-    font-size: 1rem;
-  }
-  @media screen and (max-width: ${tablet}) {
-    max-width: 250px;
-  }
-  @media screen and (max-width: ${phone}) {
-    margin-top: 10px;
-    font-size: 0.5em;
-  }
 `;
 export const Button = styled.button`
   border: ${mainColor} 2px solid;
+  font-size: clamp(0.5rem, 0.7rem, 1.2vw);
   border-radius: 20px;
-  width: 31%;
-  padding: 5px 0 5px 0;
+  padding: 0.5em 1em;
+  min-width: 30%;
   cursor: pointer;
-  font-size: min(0.8rem, 1.2vw);
   font-family: "HelveticaBlk", sans-serif;
   color: ${mainColor};
   background: none;
@@ -167,13 +154,15 @@ export const Image1 = styled.div`
   width: 100%;
   max-width: 500px;
   height: 105px;
+  //border: 2px dashed blue;
   @media screen and (max-width: ${laptop}) {
     width: 80%;
   }
   @media screen and (max-width: ${phone}) {
-    position: absolute;
-    bottom: 1%;
-    left: 10%;
+    margin: 2vh auto 0 auto;
+    //position: absolute;
+    //bottom: 1%;
+    //left: 10%;
   }
 `;
 
@@ -193,6 +182,9 @@ export const ShareContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  @media screen and (max-width: ${phone}) {
+    margin: 0 auto 10px auto;
+  }
 `;
 
 export const ShareIcon = styled.button`
@@ -292,24 +284,50 @@ export const VideoExit = styled.div`
 export const Billing = styled.div`
   position: absolute;
   margin: 0 auto 0 auto;
-  bottom: 30px;
+  padding: -20px 0 -20px 0;
+  bottom: 10px;
   width: 80%;
+  left: 20%;
   height: 200px;
   max-width: 800px;
-  background-image: url("https://amznstudios.app.box.com/s/6xfuixk6nwv7038z7727dz0pdjijewph/file/766452857021");
+  background-image: url("${content}/images/credits2x.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+  @media screen and (max-width: ${laptop}) {
+    max-width: 700px;
+  }
+  @media screen and (max-width: 800px) {
+    max-width: 550px;
+  }
+  @media screen and (max-width: ${tablet}) {
+    max-width: 500px;
+  }
+  @media screen and (max-width: ${phone}) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: 400px) {
+    max-width: 250px;
+  }
+  //border: 2px dashed blue;
 `;
 
 export const MovieLabel = styled.div`
   position: absolute;
-  width: 150px;
+  width: 100px;
   height: 100px;
   background-image: url("${content}/images/movielabel.png");
   background-size: contain;
   background-repeat: no-repeat;
-  left: 10%;
-  bottom: 10px;
+  left: 1%;
+  bottom: 0;
+  //border: 2px dashed blue;
+  padding-bottom: 30px;
+  @media screen and (max-width: ${phone}) {
+    width: 75px;
+    height: 75px;
+    padding-top: 15px;
+  }
 `;
 
 export const EmailCollection = styled.div`

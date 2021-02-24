@@ -170,7 +170,7 @@ const Content = () => {
             <a onClick={handleTerms}>TERMS AND CONDITIONS</a>
           </FinePrint>
         </InfoBox>
-        {/*<Billing />*/}
+        <Billing />
         <MovieLabel />
       </Container>
       {email && (

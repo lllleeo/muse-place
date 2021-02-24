@@ -14,6 +14,9 @@ const ScheduleMain = styled.div`
   padding-top: 10px;
   font-family: "HelveticaBlk", sans-serif;
   overflow-y: scroll;
+  #bottomHeader {
+    margin-bottom: 3px;
+  }
 `;
 
 const ScheduleHeader = styled.h2`
@@ -73,6 +76,7 @@ const ScheduleSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 1px 0 1px 0;
+  margin: 5px 0 2px 0;
   //border: red 2px dashed;
 `;
 
@@ -99,7 +103,9 @@ const Schedule2 = () => {
       <ScheduleHeader>SCHEDULE</ScheduleHeader>
       <ScheduleBreak />
       <ScheduleSubHeader>DAILY PROGRAMMING SCHEDULE OF THE</ScheduleSubHeader>
-      <ScheduleSubHeader>MY-T-SHARP BARBERSHOP EXPERIENCE</ScheduleSubHeader>
+      <ScheduleSubHeader id="bottomHeader">
+        MY-T-SHARP BARBERSHOP EXPERIENCE
+      </ScheduleSubHeader>
       <ScheduleContent>
         <ScheduleDate>MARCH 8TH</ScheduleDate>
         <ScheduleSection>
