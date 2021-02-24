@@ -19,7 +19,7 @@ const Trigger = (props: Props) => {
   const matRef = useRef<Material>();
   const seed = useMemo(() => Math.floor(Math.random() * 1000000) / 1000000, []);
 
-  const limiter = useLimiter(30);
+  const limiter = useLimiter(45);
   const [spring, setSpring] = useSpring(() => ({
     g: [0],
   }));

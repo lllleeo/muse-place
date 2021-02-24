@@ -13,7 +13,7 @@ export const vert = `
 // shine is #c999b5
 export const frag = `
     #include <dithering_fragment>
-    float seed_offset = seed * 100000.;
+    float seed_offset = seed * 549045.;
     float pos_offset = (pos.x + pos.y + pos.z) / 7.;
     
     // make sure pow is even
@@ -24,5 +24,7 @@ export const frag = `
     vec3 shine_offset = 0.4 * shine * shine_color;
     vec3 glow_offset = 0.35 * glow * shine_color;
     
-    gl_FragColor.rgb = saturate( gl_FragColor.rgb + shine_offset + glow_offset );
+    float a = (0.4 * shine + 0.35 * glow);
+    
+    gl_FragColor = vec4( saturate( gl_FragColor.rgb + shine_offset + glow_offset ), a );
 `;
