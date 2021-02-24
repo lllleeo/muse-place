@@ -1,7 +1,5 @@
-import VideoPlayer from "react-video-js-player";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import styled from "@emotion/styled";
-import { Suspense } from "react";
 
 type videoProps = {
   src: string;
@@ -45,7 +43,6 @@ const Video = (props: videoProps) => {
 
   return (
     <VideoDiv>
-      {/*<VideoPlayer src={src} poster={thumbnail} width={width} height={height} />*/}
       <ReactPlayer url={src} width="70%" height="100%" controls />
     </VideoDiv>
   );

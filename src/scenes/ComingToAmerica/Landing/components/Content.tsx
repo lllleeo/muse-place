@@ -17,7 +17,6 @@ import {
   Overlay,
   Background,
   Trailer,
-  VideoExit,
   Exit,
   Billing,
   MovieLabel,
@@ -32,6 +31,7 @@ import {
   EmailSignup,
   EmailSkip,
   EmailPrivacy,
+  EmailPrivacyDiv,
 } from "./ContentStyles";
 import {
   faInstagram,
@@ -155,27 +155,31 @@ const Content = () => {
             <EmailCollection>
               <EmailHeader />
               <EmailSubTitle>
-                EXCLUSIVE MY-T-SHARP EXPERIENCE AVAILABLE MARCH 1ST - 7TH
+                EXCLUSIVE MY-T-SHARP EXPERIENCE AVAILABLE MARCH 8TH - 10TH
               </EmailSubTitle>
+              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
               <EmailInputDiv>
                 <EmailInput placeholder="NAME" />
               </EmailInputDiv>
               <EmailInputDiv>
                 <EmailInput placeholder="EMAIL" />
               </EmailInputDiv>
-              <EmailOptOut>
-                <EmailCheck type="checkbox" onClick={handleSubscribe} />
-                <EmailText>
-                  OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER
-                </EmailText>
-              </EmailOptOut>
+              {/*<EmailOptOut>*/}
+              {/*  <EmailCheck type="checkbox" onClick={handleSubscribe} />*/}
+              {/*  <EmailText>*/}
+              {/*    OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER*/}
+              {/*  </EmailText>*/}
+              {/*</EmailOptOut>*/}
               <EmailSignup>SIGN-UP</EmailSignup>
-              <EmailSkip onClick={handleEmail}>SKIP</EmailSkip>
-              <EmailPrivacy>BY USING THIS SITE, YOU AGREE TO THE</EmailPrivacy>
-              <EmailPrivacy>
-                <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
-                <a onClick={handleTerms}>TERMS AND CONDITIONS</a>.
-              </EmailPrivacy>
+              <EmailPrivacyDiv>
+                <EmailPrivacy>
+                  BY USING THIS SITE, YOU AGREE TO THE
+                </EmailPrivacy>
+                <EmailPrivacy>
+                  <a onClick={handleTerms}>PRIVACY POLICY</a> AND{" "}
+                  <a onClick={handleTerms}>TERMS AND CONDITIONS</a>.
+                </EmailPrivacy>
+              </EmailPrivacyDiv>
             </EmailCollection>
           </Background>
         </Overlay>
@@ -183,10 +187,9 @@ const Content = () => {
       {trailer && (
         <Overlay>
           <Trailer>
-            <VideoExit onClick={handleTrailer}>x</VideoExit>
             <TrailerVideo
               src="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/videos/trailer.mp4"
-              thumbnail="https://d27rt3a60hh1lx.cloudfront.net/content/c2a/images/poster2.jpg"
+              setDisplay={setTrailer}
             />
           </Trailer>
         </Overlay>

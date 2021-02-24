@@ -1,74 +1,59 @@
-import VideoPlayer from "react-video-js-player";
+import ReactPlayer from "react-player/lazy";
 import styled from "@emotion/styled";
-import { useLayoutEffect, useRef } from "react";
+import { Dispatch, SetStateAction } from "react";
+
+const phone = "500px";
 
 type videoProps = {
   src: string;
-  thumbnail: string;
+  setDisplay: Dispatch<SetStateAction<boolean>>;
   muted?: boolean;
 };
 
 const VideoDiv = styled.div`
-  outline: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  .video-js {
-    border-radius: 10px;
-    z-index: 1;
+  position: relative;
+  margin: 0 auto 0 auto;
+  width: 80%;
+  height: 90%;
+  z-index: 1;
+  // border: 2px dashed white;
+`;
+
+export const Exit = styled.div`
+  position: absolute;
+  right: 50px;
+  top: 35px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5em;
+  font-family: "EmberCd", sans-serif;
+  z-index: 2;
+  @media screen and (max-width: ${phone}) {
+    top: 5px;
+    right: 15px;
   }
 `;
 
 const TrailerVideo = (props: videoProps) => {
-  const { src, thumbnail, muted } = props;
-  const video = useRef();
+  const { src, muted, setDisplay } = props;
 
   const handleClick = () => {
-    if (video.current) {
-      // @ts-ignore
-      video.current.player.children_[0].volume = 1;
-      console.log("clicked");
-      document.removeEventListener("click", handleClick);
-    }
+    setDisplay(false);
   };
-
-  useLayoutEffect(() => {
-    if (video.current && muted) {
-      // @ts-ignore
-      video.current.player.children_[0].volume = 0;
-      document.addEventListener("click", handleClick);
-    }
-  });
-
-  let width, height;
-  if (window.innerWidth < 501) {
-    width = "300";
-    height = "200";
-  } else if (window.innerWidth < 770) {
-    width = "500";
-    height = "400";
-  } else if (window.innerWidth < 1200) {
-    width = "800";
-    height = "600";
-  } else if (window.innerWidth < 1500) {
-    width = "1100";
-    height = "700";
-  } else {
-    width = "1400";
-    height = "900";
-  }
 
   return (
     <VideoDiv>
-      <VideoPlayer
-        src={src}
-        poster={thumbnail}
-        autoplay={true}
-        bigPlayButton={false}
-        width={width}
-        height={height}
-        ref={video}
+      <Exit onClick={handleClick}>x</Exit>
+      <ReactPlayer
+        url={src}
+        width="100%"
+        height="100%"
+        muted={muted}
+        controls
+        playing
+        style={{
+          zIndex: 1,
+        }}
       />
     </VideoDiv>
   );

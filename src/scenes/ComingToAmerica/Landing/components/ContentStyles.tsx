@@ -240,7 +240,7 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  // border: white 2px dashed;
+  //border: red 2px dashed;
   width: 90%;
   position: relative;
 `;
@@ -259,16 +259,6 @@ export const Exit = styled.p`
     right: 3px;
     top: -30px;
   }
-`;
-
-export const VideoExit = styled.div`
-  position: absolute;
-  right: 100px;
-  cursor: pointer;
-  color: ${secondaryColor};
-  font-size: 1.5em;
-  font-family: "EmberCd", sans-serif;
-  z-index: 2;
 `;
 
 export const Billing = styled.div`
@@ -400,6 +390,7 @@ export const EmailText = styled.p`
   font-size: 0.6em;
   padding-left: 5px;
 `;
+
 export const EmailSignup = styled.button`
   border: 2px solid ${mainColor};
   background: none;
@@ -421,18 +412,23 @@ export const EmailSignup = styled.button`
 `;
 
 export const EmailSkip = styled.div`
-  font-size: 0.6em;
+  font-size: 1.5em;
   text-decoration: underline;
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   :hover {
     color: ${secondaryColor};
   }
 `;
+
+export const EmailPrivacyDiv = styled.div`
+  margin-top: 50px;
+  text-align: center;
+`;
+
 export const EmailPrivacy = styled.div`
   font-size: 0.5em;
-  position: relative;
-  bottom: -20px;
   a {
     text-decoration: underline;
     cursor: pointer;
