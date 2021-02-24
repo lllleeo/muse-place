@@ -4,6 +4,7 @@ import Overlay from "../../modifiers/Overlay";
 import PopupContainer from "../components/PopupContainer";
 import { Title } from "../components/Styles";
 import ARFilter from "./components/ARFilter";
+import { filters } from "../../assets/filters";
 
 const Container = styled.div`
   width: 95%;
@@ -16,9 +17,16 @@ const Container = styled.div`
 const PhotoTrigger = () => {
   const { paused, overlay, setPaused } = useEnvironment();
 
-  if (!paused || overlay !== "photobooth") {
+  if (!paused || !overlay || !overlay.includes("photobooth")) {
     return null;
   }
+
+  const type = overlay.split("-")[1];
+  const index = parseInt(overlay.split("-")[2]);
+
+  const filter = filters[type][index];
+
+  console.log(filter);
 
   return (
     <Overlay>

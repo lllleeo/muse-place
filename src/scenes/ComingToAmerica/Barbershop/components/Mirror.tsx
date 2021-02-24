@@ -1,12 +1,15 @@
 import { Reflector, useDetectGPU, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import Trigger from "../../modifiers/Trigger";
+import { useEnvironment } from "spacesvr";
 
 const BASE_URL = "https://d27rt3a60hh1lx.cloudfront.net/content/soliman/";
 const FLOOR_URL = BASE_URL + "SurfaceImperfections003_1K_var1.jpg";
 const NORMAL_URL = BASE_URL + "SurfaceImperfections003_1K_Normal.jpg";
 
 const Ground = () => {
+  const { setPaused } = useEnvironment();
+
   const floor = useTexture(FLOOR_URL);
   const normal = useTexture(NORMAL_URL);
 
@@ -32,6 +35,7 @@ const Ground = () => {
         mixBlur={5}
         mixStrength={0.9}
         blur={[4.5 * 400, 0.775 * 400]}
+        frustumCulled={false}
         // debug={4}
       >
         {(Material, props) => (
@@ -44,9 +48,9 @@ const Ground = () => {
           />
         )}
       </Reflector>
-      <Trigger>
+      <Trigger onClick={() => setPaused(true, "uoma")}>
         <mesh rotation-y={Math.PI / 2} position={[-2.29, 0.98, -0.85]}>
-          <planeBufferGeometry args={[4.5, 0.775]} />
+          <planeBufferGeometry args={[4.5, 0.775, 25, 25]} />
           <meshStandardMaterial color="#999999" transparent opacity={0} />
         </mesh>
         <mesh rotation-y={Math.PI / 2} position={[-2.29, 0.98, -0.85]}>

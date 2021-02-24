@@ -81,7 +81,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group scale={[0.275, 0.275, 0.275]} position-y={0.005}>
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger>
           <mesh
             name="hairstyle"
             material={materials.hairstyle}
@@ -117,7 +117,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["defjam-hitbox"].geometry}
           />
         </Trigger>
-        <Trigger onClick={() => setPaused(true, "photobooth")}>
+        <Trigger onClick={() => setPaused(true, "giveaway")}>
           <mesh
             name="giveaway"
             material={materials.clay}
@@ -169,7 +169,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["news.2"]}
           geometry={nodes.news.geometry}
         />
-        <Trigger onClick={() => setPaused(true, "bts")}>
+        <Trigger onClick={() => setPaused(true, "hairstyle")}>
           <mesh
             name="product"
             material={materials["product.1"]}
