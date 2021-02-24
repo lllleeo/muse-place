@@ -1,13 +1,10 @@
 import { useEnvironment } from "spacesvr";
 import Overlay from "../../modifiers/Overlay";
-import PopupContainer from "../components/PopupContainer";
 import LiveChat from "./components/LiveChat";
-import { Title } from "../components/Styles";
 import styled from "@emotion/styled";
 import ReactPlayer from "react-player/lazy";
 import { videos } from "../../assets/videos";
-
-const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
+import CloseIcon from "@material-ui/icons/Close";
 
 const FullscreenContainer = styled.div`
   position: absolute;
@@ -19,27 +16,26 @@ const FullscreenContainer = styled.div`
   z-index: 10;
 `;
 
-const ChatContainer = styled.div`
-  width: 100%;
-  max-width: 400px;
-  height: 375px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-`;
-
 const Close = styled.button`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
 
-  padding: 1rem;
-  color: #f8ec72;
+  padding: 0.75rem;
+  color: white;
   font-size: 2rem;
   border: none;
   background: none;
   line-height: 1em;
-  background: black;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  background: rgb(101 101 101 / 75%);
+  backdrop-filter: blur(9px);
+
+  &:hover {
+  }
 `;
 
 const FullscreenVideo = () => {
@@ -59,11 +55,11 @@ const FullscreenVideo = () => {
   return (
     <Overlay>
       <FullscreenContainer>
-        <Close onClick={onClick}>X</Close>
+        <Close onClick={onClick}>
+          <CloseIcon />
+        </Close>
         <ReactPlayer url={url} width="100%" height="100%" />
-        <ChatContainer>
-          <LiveChat />
-        </ChatContainer>
+        <LiveChat />
       </FullscreenContainer>
     </Overlay>
   );

@@ -1,49 +1,38 @@
 import { useEffect, useMemo, useState } from "react";
 // @ts-ignore
 import PubNub from "pubnub";
-import useInput from "../hooks/useInput";
 import {
-  Card,
-  CardActions,
-  CardContent,
-  List,
-  ListItem,
-  Button,
-  Typography,
-  Input,
-} from "@material-ui/core";
+  uniqueNamesGenerator,
+  adjectives,
+  animals,
+} from "unique-names-generator";
+import useInput from "../hooks/useInput";
+import { Button, TextField } from "@material-ui/core";
+import {
+  ChatContainer,
+  InputContainer,
+  Log,
+  StyledSendIcon,
+  StyledTextField,
+} from "./Styles";
 
-// List of messages component
-function Log(props: { messages: { uuid: string; text: string }[] }) {
-  return (
-    <List component="nav">
-      <ListItem>
-        <Typography component="div">
-          {props.messages.map((item, index) => (
-            <Message key={index} uuid={item.uuid} text={item.text} />
-          ))}
-        </Typography>
-      </ListItem>
-    </List>
-  );
-}
-
-// Message component
-function Message(props: { uuid: string; text: string }) {
-  return (
-    <div>
-      {props.uuid}: {props.text}
-    </div>
-  );
-}
+type Message = { uuid: string; text: string };
 
 const LiveChat = () => {
-  const defaultChannel = "Screening Room";
-  const [channel] = useState(defaultChannel);
-  const [messages, setMessages] = useState<{ uuid: string; text: string }[]>(
+  const [channel] = useState("Screening Room");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const username = useMemo(
+    () =>
+      uniqueNamesGenerator({
+        dictionaries: [adjectives, animals],
+        length: 2,
+        separator: " ",
+      })
+        .split(" ")
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(" "),
     []
   );
-  const [username] = useState(["user", new Date().getTime()].join("-"));
   const chatMessage = useInput();
   const pubnub = useMemo(() => {
     return new PubNub({
@@ -66,45 +55,39 @@ const LiveChat = () => {
       },
       message: (msg: any) => {
         if (msg.message.text) {
-          let newMessages: { uuid: string; text: string }[] = [];
+          let newMessages: Message[] = [];
           newMessages.push({
             uuid: msg.message.uuid,
             text: msg.message.text,
           });
-          setMessages((messages: { uuid: string; text: string }[]) =>
-            messages.concat(newMessages)
-          );
+          setMessages((messages: Message[]) => messages.concat(newMessages));
         }
       },
     });
 
     // Subscribe to channel
-    pubnub.subscribe({
-      channels: [channel],
-    });
+    pubnub.subscribe({ channels: [channel] });
 
     // Fetch history
     pubnub.history(
       {
         channel: channel,
-        count: 10, // default 100
+        count: 5, // default 100
         stringifiedTimeToken: true, // default false
       },
       (status: any, response: any) => {
-        let newMessages: { uuid: string; text: string }[] = [];
+        let newMessages: Message[] = [];
         for (let i = 0; i < response.messages.length; i++) {
           newMessages.push({
             uuid: response.messages[i].entry.uuid,
             text: response.messages[i].entry.text,
           });
         }
-        setMessages((messages: { uuid: string; text: string }[]) =>
-          messages.concat(newMessages)
-        );
+        setMessages((messages: Message[]) => messages.concat(newMessages));
       }
     );
 
-    // End
+    // dispose
     return () => {
       console.log("Shutting down pubnub");
       pubnub.unsubscribeAll();
@@ -113,16 +96,14 @@ const LiveChat = () => {
   }, [pubnub, channel, username]);
 
   // Handle inputs
-  function handleKeyDown(event: any) {
-    if (event.target.id === "messageInput") {
-      if (event.key === "Enter") {
-        publishMessage();
-      }
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      publishMessage();
     }
-  }
+  };
 
   // Sending messages via PubNub
-  function publishMessage() {
+  const publishMessage = () => {
     if (chatMessage.value) {
       let messageObject = {
         text: chatMessage.value,
@@ -136,33 +117,30 @@ const LiveChat = () => {
 
       chatMessage.setValue("");
     }
-  }
+  };
 
   // Create page component
   return (
-    <Card>
-      <CardContent>
-        <div>
-          <Log messages={messages} />
-        </div>
-      </CardContent>
-      <CardActions>
-        <Input
-          placeholder="Enter a message"
+    <ChatContainer>
+      <Log messages={messages} />
+      <InputContainer>
+        <StyledTextField
+          placeholder="Type a message..."
           fullWidth={true}
-          id="messageInput"
           value={chatMessage.value}
           onChange={chatMessage.onChange}
+          // @ts-ignore
           onKeyDown={handleKeyDown}
           inputProps={{ "aria-label": "Message Field" }}
           autoFocus={true}
           autoComplete={"off"}
+          style={{ paddingLeft: "15px" }}
         />
         <Button size="small" color="primary" onClick={publishMessage}>
-          Submit
+          <StyledSendIcon />
         </Button>
-      </CardActions>
-    </Card>
+      </InputContainer>
+    </ChatContainer>
   );
 };
 
