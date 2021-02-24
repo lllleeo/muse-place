@@ -51,11 +51,14 @@ import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
 import Schedule2 from "./Schedule2";
-import { mainColor, secondaryColor, bgColor } from "../index";
 
 const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
   "Check out the My-T-Sharp Barbershop, best cuts since 1988. www.mytsharp.com @amazonprimevideo #mytsharpexperience";
+
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
+const bgColor = "#FDEFD1";
 
 const Content = () => {
   const [schedule, setSchedule] = useState<boolean>(false);

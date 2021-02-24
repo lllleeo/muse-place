@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { mainColor } from "../index";
+
+const mainColor = "#c8af68";
 
 const TermsMain = styled.div`
   width: 90%;

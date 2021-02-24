@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { bgColor } from "../index";
+
+const bgColor = "#FDEFD1";
 
 const desktop = "1900px";
 const laptop = "1050px";

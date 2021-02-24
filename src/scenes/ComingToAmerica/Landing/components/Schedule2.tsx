@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-import { mainColor, secondaryColor } from "../index";
+
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
 
 const ScheduleMain = styled.div`
   width: 90%;

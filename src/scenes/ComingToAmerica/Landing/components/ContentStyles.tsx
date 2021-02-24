@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-import { mainColor, secondaryColor, bgColor } from "../index";
+
+const mainColor = "#c8af68";
+const secondaryColor = "#935c23";
+const bgColor = "#FDEFD1";
 
 const desktop = "1500px";
 const laptop = "1050px";
@@ -385,7 +388,7 @@ export const EmailText = styled.p`
   padding-left: 5px;
 `;
 export const EmailSignup = styled.button`
-  border: 2px solid #751d17;
+  border: 2px solid ${mainColor};
   background: none;
   color: ${mainColor};
   font-weight: bold;
