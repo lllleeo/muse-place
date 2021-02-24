@@ -90,9 +90,6 @@ export const InfoBox = styled.div`
     margin-top: 33vh;
     z-index: 1;
   }
-  @media screen and (max-width: 350px) {
-    margin-top: 35px;
-  }
 `;
 
 export const Title = styled.div`
@@ -101,8 +98,8 @@ export const Title = styled.div`
 `;
 
 export const SurroundingTitle = styled.h2`
-  // font-size: min(1.2rem, calc(2vw + 0.1rem));
-  font-size: clamp(1rem, 1.7vw, 2rem);
+  // font-size: min(1.2em, calc(2vw + 0.1em));
+  font-size: clamp(1em, 1.7vw, 2em);
   color: ${secondaryColor};
   font-weight: 600;
   margin: 0;
@@ -111,7 +108,7 @@ export const SurroundingTitle = styled.h2`
 `;
 
 export const MainTitle = styled.h1`
-  font-size: clamp(2rem, 4.5vw, 5rem);
+  font-size: clamp(2em, 4.5vw, 5em);
   color: ${mainColor};
   font-weight: 800;
   letter-spacing: -1px;
@@ -132,7 +129,7 @@ export const Buttons = styled.div`
 `;
 export const Button = styled.button`
   border: ${mainColor} 2px solid;
-  font-size: clamp(0.5rem, 0.7rem, 1.2vw);
+  font-size: clamp(0.5em, 0.7em, 1.2vw);
   border-radius: 20px;
   padding: 0.5em 1em;
   min-width: 30%;
@@ -170,7 +167,7 @@ export const Image1 = styled.div`
 export const Share = styled.p`
   color: ${mainColor};
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.7em;
   margin: 0 auto 0 auto;
 `;
 
@@ -213,7 +210,7 @@ export const FinePrint = styled.div`
   //border: green 2px dashed;
   margin: 0px auto 0 auto;
   color: ${mainColor};
-  font-size: clamp(0.5rem, 0.5vw, 0.7rem);
+  font-size: clamp(0.5em, 0.5vw, 0.7em);
   a {
     cursor: pointer;
     text-decoration: underline;
@@ -269,7 +266,7 @@ export const Exit = styled.p`
   right: 3px;
   cursor: pointer;
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-family: "EmberCd", sans-serif;
   color: ${secondaryColor};
   z-index: 2;
@@ -285,7 +282,7 @@ export const VideoExit = styled.div`
   right: 100px;
   cursor: pointer;
   color: ${secondaryColor};
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-family: "EmberCd", sans-serif;
   z-index: 2;
 `;
@@ -296,7 +293,8 @@ export const Billing = styled.div`
   padding: -20px 0 -20px 0;
   bottom: 10px;
   width: 80%;
-  left: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 200px;
   max-width: 800px;
   background-image: url("${content}/images/credits2x.png");
@@ -415,7 +413,7 @@ export const EmailOptOut = styled.div`
 
 export const EmailText = styled.p`
   //border: red 2px dashed;
-  font-size: 0.6rem;
+  font-size: 0.6em;
   padding-left: 5px;
 `;
 export const EmailSignup = styled.button`
@@ -439,7 +437,7 @@ export const EmailSignup = styled.button`
 `;
 
 export const EmailSkip = styled.div`
-  font-size: 0.6rem;
+  font-size: 0.6em;
   text-decoration: underline;
   margin-top: 25px;
   cursor: pointer;
@@ -448,7 +446,7 @@ export const EmailSkip = styled.div`
   }
 `;
 export const EmailPrivacy = styled.div`
-  font-size: 0.5rem;
+  font-size: 0.5em;
   position: relative;
   bottom: -20px;
   a {

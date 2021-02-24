@@ -27,7 +27,7 @@ const ScheduleHeader = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 5px 0;
   line-height: 70%;
 `;
 
