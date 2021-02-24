@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mainColor, secondaryColor, bgColor } from "../index";
 
 const desktop = "1500px";
 const laptop = "1050px";
@@ -98,7 +99,7 @@ export const Title = styled.div`
 export const SurroundingTitle = styled.h2`
   // font-size: min(1.2rem, calc(2vw + 0.1rem));
   font-size: clamp(1rem, 1.7vw, 2rem);
-  color: #935c23;
+  color: ${secondaryColor};
   font-weight: 600;
   margin: 0;
   //border: black 2px dashed;
@@ -107,7 +108,7 @@ export const SurroundingTitle = styled.h2`
 
 export const MainTitle = styled.h1`
   font-size: clamp(2rem, 4.5vw, 5rem);
-  color: #f8ec72;
+  color: ${mainColor};
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
@@ -139,18 +140,18 @@ export const Buttons = styled.div`
   }
 `;
 export const Button = styled.button`
-  border: #f8ec72 2px solid;
+  border: ${mainColor} 2px solid;
   border-radius: 20px;
   width: 31%;
   padding: 5px 0 5px 0;
   cursor: pointer;
   font-size: min(0.8rem, 1.2vw);
   font-family: "HelveticaBlk", sans-serif;
-  color: #f8ec72;
+  color: ${mainColor};
   background: none;
   :hover {
-    border: #999933 2px solid;
-    color: #999933;
+    border: ${secondaryColor} 2px solid;
+    color: ${secondaryColor};
   }
 `;
 
@@ -174,7 +175,7 @@ export const Image1 = styled.div`
 `;
 
 export const Share = styled.p`
-  color: #f8ec72;
+  color: ${mainColor};
   font-weight: 600;
   font-size: 0.7rem;
   margin: 0 auto 0 auto;
@@ -194,7 +195,7 @@ export const ShareContainer = styled.div`
 export const ShareIcon = styled.button`
   width: 32px;
   height: 32px;
-  background: #f8ec72;
+  background: ${mainColor};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -202,11 +203,12 @@ export const ShareIcon = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: #c796b3;
+  color: ${bgColor};
 `;
 
 export const Icon = styled.div`
   cursor: pointer;
+  // color: ${bgColor};
   border: none;
 `;
 
@@ -214,7 +216,7 @@ export const FinePrint = styled.div`
   display: block;
   //border: green 2px dashed;
   margin: 0px auto 0 auto;
-  color: #f8ec72;
+  color: ${mainColor};
   font-size: clamp(0.5rem, 0.5vw, 0.7rem);
   a {
     cursor: pointer;
@@ -241,10 +243,12 @@ export const Background = styled.div`
   max-height: 513px;
   min-width: 300px;
   max-width: 500px;
-  background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  // background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
+  // background-position: center;
+  // background-size: 100% 100%;
+  // background-repeat: no-repeat;
+  background: ${bgColor};
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,7 +317,7 @@ export const EmailCollection = styled.div`
   justify-content: flex-start;
   align-items: center;
   //border: white 2px dashed;
-  color: #f8ec72;
+  color: ${mainColor};
   font-family: "HelveticaBlk", sans-serif;
 `;
 
@@ -361,7 +365,7 @@ export const EmailInput = styled.input`
 export const EmailCheck = styled.input`
   display: inline;
   //border: #f8Ec72 2px dashed;
-  background-color: #f8ec72;
+  background-color: ${mainColor};
   align-self: center;
   cursor: pointer;
 `;
@@ -381,9 +385,9 @@ export const EmailText = styled.p`
   padding-left: 5px;
 `;
 export const EmailSignup = styled.button`
-  border: 2px #f8ec72 solid;
+  border: 2px solid #751d17;
   background: none;
-  color: #f8ec72;
+  color: ${mainColor};
   font-weight: bold;
   font-family: "HelveticaBlk", sans-serif;
   border-radius: 25px;
@@ -393,8 +397,8 @@ export const EmailSignup = styled.button`
   margin-top: 15px;
   cursor: pointer;
   :hover {
-    border: #999933 2px solid;
-    color: #999933;
+    border: ${secondaryColor} 2px solid;
+    color: ${secondaryColor};
   }
 `;
 
@@ -404,7 +408,7 @@ export const EmailSkip = styled.div`
   margin-top: 25px;
   cursor: pointer;
   :hover {
-    color: #999933;
+    color: ${secondaryColor};
   }
 `;
 export const EmailPrivacy = styled.div`

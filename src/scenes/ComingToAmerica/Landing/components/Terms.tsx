@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mainColor } from "../index";
 
 const TermsMain = styled.div`
   width: 90%;
@@ -8,8 +9,8 @@ const TermsMain = styled.div`
   justify-content: flex-start;
   padding-top: 3px;
   //border: white 2px dashed;
-  color: yellow;
-  font-family: "Bodoni", sans-serif;
+  color: ${mainColor};
+  font-family: "HelveticaBlk", sans-serif;
   overflow-y: scroll;
 `;
 

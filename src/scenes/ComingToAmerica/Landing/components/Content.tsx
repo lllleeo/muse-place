@@ -51,6 +51,7 @@ import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
 import Schedule2 from "./Schedule2";
+import { mainColor, secondaryColor, bgColor } from "../index";
 
 const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
@@ -139,7 +140,11 @@ const Content = () => {
               // style={{ outline: "none" }}
             >
               <Icon>
-                <FontAwesomeIcon icon={faFacebook} size="2x" color="#f8Ec72" />
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  size="2x"
+                  color={mainColor}
+                />
               </Icon>
             </FacebookShareButton>
             <ShareIcon>

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mainColor, secondaryColor } from "../index";
 
 const ScheduleMain = styled.div`
   width: 90%;
@@ -7,9 +8,9 @@ const ScheduleMain = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   //border: white 2px dashed;
-  color: yellow;
+  color: ${mainColor};
   padding-top: 10px;
-  font-family: "Bodoni", sans-serif;
+  font-family: "HelveticaBlk", sans-serif;
   overflow-y: scroll;
 `;
 
@@ -23,7 +24,7 @@ const ScheduleHeader = styled.h2`
 
 const ScheduleBreak = styled.div`
   width: 60%;
-  border: yellow 1px solid;
+  border: ${mainColor} 1px solid;
   margin: 0 auto 0 auto;
 `;
 
@@ -61,7 +62,7 @@ const ScheduleDate2 = styled.h4`
   font-size: 0.9rem;
   //border: blue 2px dashed;
   position: relative;
-  right: 125px;
+  right: 135px;
 `;
 
 const ScheduleSection = styled.div`

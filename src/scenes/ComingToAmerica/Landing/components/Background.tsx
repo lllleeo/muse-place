@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { bgColor } from "../index";
 
 const desktop = "1900px";
 const laptop = "1050px";
@@ -12,6 +13,7 @@ const Container = styled.div`
   left: 0;
   top: 0;
   right: 0;
+  background: ${bgColor};
 `;
 
 const Gold = styled.div`
@@ -49,8 +51,8 @@ const Barbers = styled.img`
 const Background = () => {
   return (
     <Container>
-      <Gold />
-      <Purple />
+      {/*<Gold />*/}
+      {/*<Purple />*/}
       <Barbers
         src={`${CONTENT_FOLDER}/images/C2A_Website_Quar-optimized.png`}
       />
