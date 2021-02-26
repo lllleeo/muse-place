@@ -26,7 +26,7 @@ const LeaveBarbershop = () => {
             color="black"
             textAlign="center"
             maxWidth={0.85}
-            fontSize={0.005}
+            fontSize={0.05}
             font={`${CONTENT_FOLDER}/fonts/HelveticaLTStd-Blk.otf`}
           >
             click to go outside
