@@ -16,7 +16,7 @@ const Content = styled.div`
   max-width: 500px;
 `;
 
-const Available = (props: { giveaway: Giveaway }) => {
+const Input = (props: { giveaway: Giveaway }) => {
   const { giveaway } = props;
 
   return (
@@ -30,4 +30,4 @@ const Available = (props: { giveaway: Giveaway }) => {
   );
 };
 
-export default Available;
+export default Input;
