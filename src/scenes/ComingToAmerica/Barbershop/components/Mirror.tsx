@@ -31,8 +31,8 @@ const Ground = () => {
       <Reflector
         rotation-y={Math.PI / 2}
         position={[-2.32, 0.98, -0.85]}
-        resolution={1024}
-        // resolution={gpu && gpu.tier >= 2 ? 512 : 256}
+        // resolution={1024}
+        resolution={gpu && gpu.tier >= 2 ? 512 : 256}
         args={[4.5, 0.775]}
         mirror={0.75}
         // mixBlur={5}
