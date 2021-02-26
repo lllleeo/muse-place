@@ -2,6 +2,7 @@ import { Reflector, useDetectGPU, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import Trigger from "../../modifiers/Trigger";
 import { useEnvironment } from "spacesvr";
+import { Perf } from "r3f-perf";
 
 const BASE_URL = "https://d27rt3a60hh1lx.cloudfront.net/content/soliman/";
 const FLOOR_URL = BASE_URL + "SurfaceImperfections003_1K_var1.jpg";
@@ -25,16 +26,20 @@ const Ground = () => {
 
   return (
     <group>
+      {/*<Perf />*/}
       {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
         position={[-2.32, 0.98, -0.85]}
-        resolution={gpu && gpu.tier >= 2 ? 512 : 256}
+        resolution={1024}
+        // resolution={gpu && gpu.tier >= 2 ? 512 : 256}
         args={[4.5, 0.775]}
         mirror={0.75}
-        mixBlur={5}
+        // mixBlur={5}
+        mixBlur={10}
         mixStrength={0.9}
-        blur={[4.5 * 400, 0.775 * 400]}
+        blur={[0, 0]}
+        // blur={[4.5 * 400, 0.775 * 400]}
         frustumCulled={false}
         // debug={4}
       >
@@ -42,8 +47,8 @@ const Ground = () => {
           <Material
             color="#f0f0f0"
             metalness={0.5}
-            roughnessMap={floor}
-            normalMap={normal}
+            // roughnessMap={floor}
+            // normalMap={normal}
             {...props}
           />
         )}
