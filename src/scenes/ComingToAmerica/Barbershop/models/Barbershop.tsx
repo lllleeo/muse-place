@@ -168,6 +168,20 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["backdoor-hitbox"].geometry}
           />
         </Trigger>
+        <Trigger onClick={() => window.open("https://getbevel.com/", "_blank")}>
+          <mesh
+            name="product"
+            material={materials["product.mat"]}
+            geometry={nodes.product.geometry}
+          />
+          <mesh
+            position={[-7.44, 2.5, -3.2]}
+            rotation-y={Math.PI / 2}
+            visible={false}
+          >
+            <boxBufferGeometry args={[7.25, 1, 1.25]} />
+          </mesh>
+        </Trigger>
         <mesh
           name="barberchair"
           material={materials["barberchair.1"]}
@@ -182,11 +196,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="news"
           material={materials["news.mat"]}
           geometry={nodes.news.geometry}
-        />
-        <mesh
-          name="product"
-          material={materials["product.mat"]}
-          geometry={nodes.product.geometry}
         />
         <mesh
           name="clay"

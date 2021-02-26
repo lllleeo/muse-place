@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useEnvironment } from "spacesvr";
 import Background from "./components/Background";
 import Content from "./components/Content";
+import Footer from "./components/Footer";
 
 const Container = styled.div<{ paused: boolean }>`
   width: 100%;

@@ -39,16 +39,18 @@ const CardsContainer = styled.div`
 
 const Character = styled.img`
   width: calc(100% / 7 - 4px);
-  height: auto;
+  height: calc((100vw / 7 - 4px) / 1080 * 1920);
   object-fit: contain;
   margin: 2px 2px;
 
   @media screen and (max-width: 800px) {
     width: calc(100% / 5 - 4px);
+    height: calc((100vw / 5 - 4px) / 1080 * 1920);
   }
 
   @media screen and (max-width: 650px) {
     width: calc(100% / 3 - 4px);
+    height: calc((100vw / 3 - 4px) / 1080 * 1920);
   }
 `;
 

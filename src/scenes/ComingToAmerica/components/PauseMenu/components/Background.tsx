@@ -22,14 +22,13 @@ const Gold = styled.div`
 `;
 
 const Purple = styled.div`
- position: absolute;
+  position: absolute;
   margin: 15px;
-  width: calc(100% - 2*15px);
-  height: calc(100% - 2*15px);
+  width: calc(100% - 2 * 15px);
+  height: calc(100% - 2 * 15px);
   top: 0;
   left: 0;
-  background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Background_pink-tile-optimized.jpg");
-  background-repeat: repeat;
+  background: #f4e8da;
   z-index: 1;
 `;
 

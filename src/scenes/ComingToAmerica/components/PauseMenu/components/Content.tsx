@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Controls from "./Controls";
+import Footer from "./Footer";
 
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
@@ -22,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 75%;
+  width: 72%;
   height: auto;
   object-fit: contain;
 `;
@@ -42,6 +43,7 @@ const Content = () => {
       />
       <Tagline>now let's see if you can walk the walk.</Tagline>
       <Controls />
+      <Footer />
     </Container>
   );
 };

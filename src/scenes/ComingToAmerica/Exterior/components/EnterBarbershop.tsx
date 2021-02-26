@@ -26,12 +26,20 @@ const EnterBarbershop = () => {
             color="black"
             textAlign="center"
             maxWidth={0.85}
-            fontSize={0.08}
+            fontSize={0.05}
             font={`${CONTENT_FOLDER}/fonts/HelveticaLTStd-Blk.otf`}
           >
-            click to enter barbershop
+            click to go inside
           </Text>
-          <Image src={`${CONTENT_FOLDER}/RealMyTSHarpSign.png`} size={0.6} />
+          <Image
+            src={`${CONTENT_FOLDER}/C2A_My-T-Sharp_1581_alpha-small.jpg`}
+            size={0.6}
+            position-z={-0.005}
+          />
+          <mesh position-z={-0.01} position-y={-0.025}>
+            <planeBufferGeometry args={[0.65, 0.4]} />
+            <meshStandardMaterial color="white" />
+          </mesh>
         </animated.group>
       </group>
       <Trigger onClick={() => (window.location.href = "barbershop")}>

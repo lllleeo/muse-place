@@ -4,8 +4,8 @@ import { isMobile } from "react-device-detect";
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
 
 const Container = styled.div`
-  width: 100%;
-  height: 40%;
+  flex: 1;
+  overflow: hidden;
 `;
 
 const Text = styled.div`
