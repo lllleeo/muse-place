@@ -65,8 +65,7 @@ const LinkTree: NextPage = () => {
           name: "Siimbiie Selassiie",
           landing: {
             title: "Welcome to the World of Siimbiie Selassiie",
-            body:
-              "A successful man is one who can lay a firm foundation with the bricks others have thrown at him.",
+            body: "",
           },
         }}
       />
