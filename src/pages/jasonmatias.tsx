@@ -22,7 +22,6 @@ const artwork: GothamProps["artwork"] = [
   },
   {
     src: `${url}/4.mp4`,
-    audio: true,
   },
   {
     src: `${url}/5.jpg`,
@@ -47,10 +46,11 @@ const LinkTree: NextPage = () => {
         scenePos={[0, -20, 0]}
         fogNear={0}
         fogFar={150}
-        fogColor={"#000000"}
+        fogColor={"white"}
         hMapScale={30}
         xzMapScale={100}
         floorColor="white"
+        lightColor="#ffffff"
       ></Gotham>
     </>
   );
