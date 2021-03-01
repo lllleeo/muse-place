@@ -13,11 +13,11 @@ const ARTIST = {
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abhimanyu`;
 const artwork: GothamProps["artwork"] = [
   {
-    src: `https://www.behance.net/gallery/107055845/Parallel-Dimensions-Submission`,
+    src: `${url}/1.png`,
     size: [1080, 1350],
   },
   {
-    src: `https://www.behance.net/gallery/110121293/Space-Podcast`,
+    src: `${url}/2.png`,
     size: [640, 800],
   },
   {
@@ -25,7 +25,7 @@ const artwork: GothamProps["artwork"] = [
     size: [1080, 1350],
   },
   {
-    src: `https://www.behance.net/gallery/91568395/In-my-head`,
+    src: `${url}/4.png`,
     size: [640, 800],
     audio: true,
   },
