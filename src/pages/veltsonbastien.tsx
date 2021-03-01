@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Codame = dynamic(import("scenes/Gotham/Codame"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham/index.tsx"), { ssr: false });
 
 const ARTIST = {
   name: "Veltson",
@@ -41,7 +41,7 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
-      <Codame
+      <Gotham
         socials={[]}
         artwork={linkData}
         socialLinks={ARTIST.socialLinks}
