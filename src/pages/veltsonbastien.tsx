@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Gotham = dynamic(import("scenes/Gotham/index.tsx"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham/"), { ssr: false });
 
 const ARTIST = {
   name: "Veltson",

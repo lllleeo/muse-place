@@ -65,7 +65,6 @@ const LinkTree: NextPage = () => {
           name: "Siimbiie Selassiie",
           landing: {
             title: "Welcome to the World of Siimbiie Selassiie",
-            body: "",
           },
         }}
       />
