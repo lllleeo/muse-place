@@ -6,7 +6,9 @@ import { GothamProps } from "../themes/Gotham";
 import { Audio, Image } from "spacesvr";
 import { Vector3 } from "three";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-
+const ErielIndigo = dynamic(import("scenes/Gotham/ErielIndigo"), {
+  ssr: false,
+});
 const ARTIST = {
   name: "Eriel Indigo",
   socials: [
@@ -30,7 +32,6 @@ const artwork: GothamProps["artwork"] = [
   },
   {
     src: `${url}/4.mp4`,
-    audio: true,
   },
   {
     src: `${url}/5.jpg`,
@@ -60,7 +61,9 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-      ></Gotham>
+      >
+        <ErielIndigo />
+      </Gotham>
     </>
   );
 };
