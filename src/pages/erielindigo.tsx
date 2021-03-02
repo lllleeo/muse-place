@@ -30,6 +30,7 @@ const artwork: GothamProps["artwork"] = [
   },
   {
     src: `${url}/4.mp4`,
+    audio: true,
   },
   {
     src: `${url}/5.jpg`,
@@ -59,13 +60,7 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
         stars
-      >
-        <Audio
-          url="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/erielindigo/eriel.mp3"
-          position={new Vector3(1.9, 0, -3.2)}
-          volume={1}
-        />
-      </Gotham>
+      ></Gotham>
     </>
   );
 };
