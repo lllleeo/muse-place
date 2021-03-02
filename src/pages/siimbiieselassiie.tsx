@@ -23,9 +23,9 @@ const scrollData: ScrollData[] = [
     position: [15, -0.61, 30],
   },
   {
-    img: `${url}/2.mp4`,
+    img: `${url}/2.JPG`,
     text:
-      "Corona is Bad For the Soul.....and it took some courage to finally drop it....but VIICES is out on all platforms now....and that’s good for the soul.",
+      "I started eating fire because I was scared of it....people asked me how I got over my fear. The answer is simple. I didn’t. Courage isn’t the lack of fear, it’s the willingness to face it.",
     position: [-15, -0.61, 30],
   },
   {
@@ -61,12 +61,6 @@ const LinkTree: NextPage = () => {
         scrollData={scrollData}
         socials={ARTIST.socialLinks}
         audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
-        content={{
-          name: "Siimbiie Selassiie",
-          landing: {
-            title: "Welcome to the World of Siimbiie Selassiie",
-          },
-        }}
       />
     </>
   );
