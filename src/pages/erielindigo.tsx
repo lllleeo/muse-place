@@ -6,7 +6,6 @@ import { GothamProps } from "../themes/Gotham";
 import { Audio, Image } from "spacesvr";
 import { Vector3 } from "three";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const Kr3wcial = dynamic(import("scenes/Gotham/Kr3wcial"), { ssr: false });
 
 const ARTIST = {
   name: "Eriel Indigo",
