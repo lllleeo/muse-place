@@ -4,9 +4,9 @@ import { Sky } from "@react-three/drei";
 import Barbershop from "./models/Barbershop";
 import Mirror from "./components/Mirror";
 import { Vector3 } from "three";
+import MobileOnboarding from "../components/MobileOnboarding";
 import BTSTrigger from "../overlays/BTSTrigger";
 import FullscreenVideoTrigger from "../overlays/FullscreenVideoTrigger";
-
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import { Perf } from "r3f-perf";
@@ -28,6 +28,7 @@ const BarbershopScene = () => {
         pauseMenu={<PauseMenu />}
         player={{ pos: new Vector3(1.276, 1.1, 2.543), speed: 0.9, rot: -2 }}
       >
+        <MobileOnboarding />
         <BTSTrigger />
         <PhotoBoothTrigger />
         <FullscreenVideoTrigger />
