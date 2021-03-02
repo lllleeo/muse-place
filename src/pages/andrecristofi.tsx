@@ -13,7 +13,7 @@ const ARTIST = {
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/andreacristofi`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/andrecristofi`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.mp4`,
@@ -46,7 +46,7 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Andrea Cristofi | Muse Place</title>
+        <title>Andre Cristofi | Muse Place</title>
       </Head>
       <Gotham
         artwork={artwork}

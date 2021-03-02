@@ -54,9 +54,16 @@ const LinkTree: NextPage = () => {
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Standard
+        font={undefined}
+        fontSize={0.85}
         scrollData={scrollData}
-        socials={ARTIST.socialLinks}
-        audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
+        content={{
+          name: "Selva",
+          landing: {
+            title: "3-D Visual Artist and Designer",
+            body: "",
+          },
+        }}
       />
     </>
   );

@@ -7,11 +7,6 @@ const Standard = dynamic(import("scenes/Alto"), { ssr: false });
 
 const ARTIST = {
   name: "Siimbiie Selassiie",
-  socialLinks: [
-    "https://siimbiie.org/",
-    "https://www.instagram.com/siimbiie/",
-    "https://www.youtube.com/watch?app=desktop&v=yn3xf-sL99Q",
-  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/siimbiieselassiie`;
@@ -58,9 +53,22 @@ const LinkTree: NextPage = () => {
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Standard
+        font={undefined}
+        fontSize={0.85}
+        socials={[
+          "https://siimbiie.org/",
+          "https://www.instagram.com/siimbiie/",
+          "https://www.youtube.com/watch?app=desktop&v=yn3xf-sL99Q",
+        ]}
         scrollData={scrollData}
-        socials={ARTIST.socialLinks}
-        audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
+        content={{
+          name: "Siimbiie Selassiie",
+          landing: {
+            title: "Welcome to the world of Siimbiie Selassiie!",
+            body: "",
+          },
+        }}
+        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/siimbiieselassiie/TOURII$T GUMP.mp3"
       />
     </>
   );
