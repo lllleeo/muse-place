@@ -99,7 +99,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
       <animated.group ref={inner} scale={[2, 2, 2]} position-y={posY}>
         <animated.group ref={foundNotice} position-y={visits < 2 ? foundY : -3}>
           <Text color={textColor} fontSize={0.05} position-x={0.5}>
-            {count} scroll{count > 1 ? "s" : ""} found!
+            {count} Scroll{count > 1 ? "s" : ""} found!
           </Text>
         </animated.group>
         <group position-y={0.475} name="innerscroll">
