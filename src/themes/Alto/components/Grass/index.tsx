@@ -11,6 +11,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { grassFrag, grassUniforms, grassVert } from "./shaders/grass";
 import SimplexNoise from "simplex-noise";
 import cache1 from "./cache/cache1";
+import { useLimiter } from "../../../../scenes/Silks/utils/limiter";
 
 const COUNT = 20000;
 const MIN_RADIUS = 10;
@@ -22,10 +23,12 @@ const useGrassMat = (): ShaderMaterial => {
     "https://d27rt3a60hh1lx.cloudfront.net/content/alto/grass.png"
   );
 
+  const limiter = useLimiter(70);
+
   useFrame(({ clock }) => {
-    if (mat) {
-      mat.uniforms["globalTime"].value = clock.getElapsedTime();
-    }
+    if (!mat || !limiter.isReady(clock)) return;
+
+    mat.uniforms["globalTime"].value = clock.getElapsedTime();
   });
 
   const mat = useMemo(() => {

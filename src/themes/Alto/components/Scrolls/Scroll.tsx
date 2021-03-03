@@ -6,6 +6,7 @@ import * as THREE from "three";
 import { Text } from "@react-three/drei";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
+import { useLimiter } from "../../../../scenes/Silks/utils/limiter";
 
 export type ScrollProps = {
   text?: string;
@@ -45,26 +46,25 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
     },
   });
 
-  useFrame(() => {
-    if (outer.current && inner.current) {
-      if (camera.position.distanceTo(outer.current.position) < 5) {
-        if (!found) {
-          setCount(count + 1);
-          setFound(true);
-        }
-        inner.current.lookAt(camera.position);
-        if (!open)
-          setTimeout(() => {
-            setOpen(true);
-          }, 250);
-      } else {
-        if (open) setOpen(false);
+  const limiter = useLimiter(40);
+
+  useFrame(({ clock }) => {
+    if (!outer.current || !inner.current || !limiter.isReady(clock)) return;
+
+    if (camera.position.distanceTo(outer.current.position) < 5) {
+      if (!found) {
+        setCount(count + 1);
+        setFound(true);
       }
+      inner.current.lookAt(camera.position);
+      if (!open) setOpen(true);
+    } else {
+      if (open) setOpen(false);
     }
   });
 
   return (
-    <group name={"scroll"} {...restProps} ref={outer}>
+    <group name="scroll" ref={outer} {...restProps}>
       <animated.group ref={inner} scale={[2, 2, 2]} position-y={posY}>
         <group position-y={0.475} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">

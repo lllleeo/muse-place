@@ -8,6 +8,7 @@ import { useFrame, useThree } from "react-three-fiber";
 import { MathUtils } from "three";
 import { AltoSceneState } from "../../../../scenes/Alto";
 import { useDetectGPU } from "@react-three/drei";
+import { useLimiter } from "../../../../scenes/Silks/utils/limiter";
 
 // general scale: z=350
 
@@ -31,6 +32,7 @@ const Birds = () => {
   const velVar = useRef<Variable>();
 
   const gpu = useDetectGPU();
+  const limiter = useLimiter(70);
   const pow = gpu?.isMobile ? 2 : (gpu?.tier || 0) + 1;
   const WIDTH = Math.pow(2, pow);
   const BIRDS = WIDTH * WIDTH;
@@ -66,6 +68,7 @@ const Birds = () => {
 
   useFrame(({ clock, mouse }, delta) => {
     if (!gpuCompute || !birdMesh || !posVar.current || !velVar.current) return;
+    if (!limiter.isReady(clock)) return;
 
     const now = clock.getElapsedTime() / 1000;
     const speed = 0.1 + (aa?.getFrequencyData()[20] || 0) * 0.005;
