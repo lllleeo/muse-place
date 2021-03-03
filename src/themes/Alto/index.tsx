@@ -8,6 +8,7 @@ import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";
 import AudioReactive from "./components/AudioReactive";
 import { ScrollData } from "./types/scroll";
+import { Perf } from "r3f-perf";
 
 export type AltoProps = {
   socials: string[];
@@ -64,6 +65,7 @@ const Alto = (props: Partial<AltoProps>) => {
       <Birds />
       <Tablatures scrolls={scrollCount} />
       <AudioReactive position={[0, 11, 0]} />
+      <Perf />
     </AltoContext.Provider>
   );
 };
