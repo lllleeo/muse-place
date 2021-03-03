@@ -87,7 +87,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
   });
 
   useEffect(() => {
-    if (visits < 3) {
+    if (visits < 2) {
       if (inRange) {
         setVisits(visits + 1);
       }
