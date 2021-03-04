@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
-import { AudioAnalyser } from "three";
+import { AudioAnalyser, Color } from "three";
 import Grass from "./components/Grass";
 import Sun from "./components/Sun";
 import Scrolls from "./components/Scrolls";
@@ -9,6 +9,9 @@ import Birds from "./components/Birds";
 import AudioReactive from "./components/AudioReactive";
 import { ScrollData } from "./types/scroll";
 import { Perf } from "r3f-perf";
+import { Fog } from "spacesvr";
+import { Cloud } from "@react-three/drei";
+import Clouds from "./components/Clouds";
 
 export type AltoProps = {
   socials: string[];
@@ -38,7 +41,7 @@ const defaultContext: AltoProps = {
   fontSize: 1,
   model: {
     url:
-      "https://d27rt3a60hh1lx.cloudfront.net/models/Eagle-1612497310/eagle4.glb",
+      "https://d27rt3a60hh1lx.cloudfront.net/models/TheMuse-1614830089/themuse-pose.glb",
     scale: 1.4,
   },
   scrollData: [],
@@ -56,16 +59,17 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
+      <Fog color={new Color("#ffffff")} near={15} far={70} />
       <Suspense fallback={null}>
         <AltoModel />
         <Grass />
       </Suspense>
       <Sun />
       <Scrolls count={scrollCount} setCount={setScrollCount} />
-      <Birds />
+      {/*<Birds />*/}
       <Tablatures scrolls={scrollCount} />
       <AudioReactive position={[0, 11, 0]} />
-      <Perf />
+      {/*<Clouds />*/}
     </AltoContext.Provider>
   );
 };

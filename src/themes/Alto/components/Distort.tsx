@@ -30,6 +30,13 @@ const vert = glsl`
     vNormal = vNormal * m;
 `;
 
+const frag = glsl`
+  gl_FragColor = vec4( packNormalToRGB( normal ), opacity );
+  gl_FragColor.b = clamp((gl_FragColor.b) * 1.5, 0.0, 1.0);
+  gl_FragColor.g = pow(clamp( gl_FragColor.g + 0.25, 0.0, 1.0 ), 8.);
+  gl_FragColor.r *= 0.85;
+`;
+
 type Props = {
   children: ReactNode;
   aa?: AudioAnalyser;
@@ -55,6 +62,11 @@ const Distort = (props: Props) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <begin_vertex>",
         vert
+      );
+
+      shader.fragmentShader = shader.fragmentShader.replace(
+        "gl_FragColor = vec4( packNormalToRGB( normal ), opacity );",
+        frag
       );
 
       material.userData.shader = shader;
@@ -93,9 +105,9 @@ const Distort = (props: Props) => {
     }
 
     if (group.current) {
-      group.current.rotation.x = Math.PI; // clock.getElapsedTime() / (7 + seed * 30);
+      group.current.rotation.x = clock.getElapsedTime() / (7 + seed * 30);
       group.current.rotation.y = clock.getElapsedTime() / (4 + seed * 30);
-      group.current.rotation.z = -Math.PI / 2; // clock.getElapsedTime() / (9 + seed * 30);
+      group.current.rotation.z = clock.getElapsedTime() / (9 + seed * 30);
     }
   });
 
