@@ -1,7 +1,14 @@
 import ScrollModel from "../../models/Scroll";
 import { useFrame, useThree } from "react-three-fiber";
 import { Image } from "spacesvr";
-import { useRef, useState, Suspense } from "react";
+import {
+  useRef,
+  useState,
+  Suspense,
+  useLayoutEffect,
+  useMemo,
+  useEffect,
+} from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
 // @ts-ignore
@@ -33,12 +40,27 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
   const { camera } = useThree();
   const outer = useRef<THREE.Group>();
   const inner = useRef<THREE.Group>();
+  const foundNotice = useRef<THREE.Group>();
   const [open, setOpen] = useState<boolean>(false);
   const [found, setFound] = useState<boolean>(false);
+  const [visits, setVisits] = useState<number>(0);
+  const [inRange, setRange] = useState<boolean>(false);
 
   const { scale, posY } = useSpring({
     scale: open ? 1 : 0.1,
     posY: open ? 2 : -0.5,
+    config: {
+      mass: 1,
+      tension: 110,
+      friction: 30,
+    },
+  });
+  const { foundY } = useSpring({
+    from: { foundY: -3 },
+    to: async (next: any) => {
+      await next({ foundY: 0 });
+      await next({ foundY: -3 });
+    },
     config: {
       mass: 1,
       tension: 110,
@@ -50,8 +72,9 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
 
   useFrame(({ clock }) => {
     if (!outer.current || !inner.current || !limiter.isReady(clock)) return;
+    setRange(camera.position.distanceTo(outer.current.position) < 5);
 
-    if (camera.position.distanceTo(outer.current.position) < 5) {
+    if (inRange) {
       if (!found) {
         setCount(count + 1);
         setFound(true);
@@ -63,9 +86,23 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
     }
   });
 
+  useEffect(() => {
+    if (visits < 2) {
+      if (inRange) {
+        setVisits(visits + 1);
+      }
+    }
+  }, [inRange]);
+
   return (
     <group name="scroll" ref={outer} {...restProps}>
       <animated.group ref={inner} scale={[2, 2, 2]} position-y={posY}>
+        <animated.group ref={foundNotice} position-y={visits < 2 ? foundY : -3}>
+          {/* @ts-ignore */}
+          <Text color={textColor} fontSize={0.05} position-x={0.5}>
+            {count} Scroll{count > 1 ? "s" : ""} found!
+          </Text>
+        </animated.group>
         <group position-y={0.475} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">
             {img && (
