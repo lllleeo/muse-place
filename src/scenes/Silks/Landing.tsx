@@ -116,7 +116,7 @@ const Landing = () => {
     <Container>
       <Global styles={global} />
       <Middle>
-        <img src={`${CONTENT_FOLDER}/silksbyvp.png`} />
+        <img src={`${CONTENT_FOLDER}/silksbyvp.gif`} />
       </Middle>
       <TopSelection
         onClick={() =>
