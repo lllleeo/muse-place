@@ -2,8 +2,8 @@ import { Text } from "@react-three/drei";
 import { Material } from "three";
 
 type PedestalProps = {
-  material: Material;
-  crazyMaterial: Material;
+  material: any;
+  crazyMaterial: any;
   drugTaken: boolean;
 };
 
