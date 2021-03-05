@@ -26,31 +26,20 @@ const Ground = () => {
 
   return (
     <group>
-      {/*<Perf />*/}
       {/* @ts-ignore */}
       <Reflector
         rotation-y={Math.PI / 2}
         position={[-2.32, 0.98, -0.85]}
-        // resolution={1024}
         resolution={gpu && gpu.tier >= 2 ? 512 : 256}
         args={[4.5, 0.775]}
         mirror={0.75}
-        // mixBlur={5}
         mixBlur={10}
         mixStrength={0.9}
         blur={[0, 0]}
-        // blur={[4.5 * 400, 0.775 * 400]}
         frustumCulled={false}
-        // debug={4}
       >
         {(Material, props) => (
-          <Material
-            color="#f0f0f0"
-            metalness={0.5}
-            // roughnessMap={floor}
-            // normalMap={normal}
-            {...props}
-          />
+          <Material color="#f0f0f0" metalness={0.5} {...props} />
         )}
       </Reflector>
       <Trigger onClick={() => setPaused(true, "uoma")}>

@@ -6,18 +6,10 @@ type videoProps = {
   thumbnail?: string;
 };
 
-const mainColor = "#c8af68";
 const phone = "500px";
-
-const PlayButton = styled.div`
-  width: 50px;
-  height: 32px;
-  background: ${mainColor};
-`;
 
 const VideoDiv = styled.div`
   outline: none;
-  //border: 2px dashed #ff0000;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

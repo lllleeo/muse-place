@@ -16,7 +16,6 @@ const VideoDiv = styled.div`
   width: 80%;
   height: 90%;
   z-index: 1;
-  // border: 2px dashed white;
 `;
 
 export const Exit = styled.div`
