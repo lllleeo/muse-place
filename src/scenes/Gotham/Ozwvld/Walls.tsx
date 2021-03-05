@@ -1,10 +1,9 @@
-import { Material } from "three";
 import { useFrame } from "react-three-fiber";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Group } from "three";
 
 type PedestalProps = {
-  crazyMaterial: Material;
+  crazyMaterial: any;
   drugTaken: boolean;
 };
 

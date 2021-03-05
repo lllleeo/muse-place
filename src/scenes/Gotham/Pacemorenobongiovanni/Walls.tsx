@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Group } from "three";
 
 type PedestalProps = {
-  crazyMaterial: Material;
+  crazyMaterial: any;
   drugTaken: boolean;
 };
 
