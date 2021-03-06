@@ -2,14 +2,14 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Codame = dynamic(import("scenes/Gotham/Codame"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
   name: "Nkem Odera",
-  socialLinks: {
-    instagram: "https://www.instagram.com/oderawrites",
-    web: "https://www.oderawrites.com",
-  },
+  socialLinks: [
+    "https://www.instagram.com/oderawrites",
+    "https://www.oderawrites.com",
+  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/oderawrites`;
@@ -40,10 +40,9 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
-      <Codame
-        socials={[]}
+      <Gotham
         artwork={linkData}
-        socialLinks={ARTIST.socialLinks}
+        socials={ARTIST.socialLinks}
         name={ARTIST.name}
         map="city"
         far={100}
