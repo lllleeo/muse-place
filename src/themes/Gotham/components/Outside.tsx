@@ -1,78 +1,92 @@
-import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import { ReactText, useEffect, useMemo, useRef } from "react";
-import { InstancedMesh, Mesh } from "three";
+import { useEffect, useMemo, useRef } from "react";
+import {
+  BufferAttribute,
+  BufferGeometry,
+  Color,
+  InstancedMesh,
+  ShaderMaterial,
+  Spherical,
+  Vector3,
+} from "three";
+import { frag, vert } from "../shaders/building";
+import { useFrame } from "react-three-fiber";
+import { useLimiter } from "../../../scenes/Silks/utils/limiter";
 
 type SceneProps = {
-  color?: string | ReactText;
-  wSegments?: number;
-  hSegments?: number;
-  position?: [number, number, number];
-  map?: string;
-  hScale?: number;
-  xzScale?: number;
+  count?: number;
+  fogColor?: string;
 };
 
+const FLOOR = -100;
+
 const Outside = (props: SceneProps) => {
-  const {
-    color,
-    wSegments = 200,
-    hSegments = 200,
-    position = [0, 0, 0],
-    map = "mountain",
-    hScale = 10,
-    xzScale = 1000,
-  } = props;
+  const { count = 200, fogColor = "#000000" } = props;
 
-  const heightmap = useLoader(THREE.TextureLoader, `/assets/${map}.jpg`);
-  const emissiveMap = useLoader(THREE.TextureLoader, "/assets/gradient2.jpg");
-
-  const dist = 1;
   const mesh = useRef<InstancedMesh>();
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  const limiter = useLimiter(75);
 
   useEffect(() => {
-    if (mesh.current && dist) {
-      let i = 0;
-      for (let z = -dist; z <= dist; z++) {
-        for (let x = 0; x < 1; x++) {
-          if (x !== 0 && z == 0) continue;
-          dummy.rotation.x = -Math.PI / 2;
-          dummy.position.set(x * xzScale, 0, z * xzScale);
-          if (x != 0 || z != 0) {
-            dummy.scale.z = Math.random() * 0.3 + 0.85;
-            dummy.rotation.z = (Math.PI / 2) * i;
-          }
-          dummy.updateMatrix();
-          dummy.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
-          mesh.current.setMatrixAt(i, dummy.matrix);
-          i++;
-        }
+    if (mesh.current && count) {
+      const seeds = new Float32Array(count * 3);
+
+      for (let i = 0; i < count; i++) {
+        const scaleXZ = 0.5 + Math.random() * 2;
+        const scaleY = 0.1 + Math.random() * 2.75;
+        dummy.scale.y = scaleY;
+        dummy.scale.x = scaleXZ;
+        dummy.scale.z = scaleXZ;
+        dummy.rotation.y = Math.random() * Math.PI * 2;
+        dummy.updateMatrix();
+
+        const r = 30 + Math.random() * 200;
+        const p = Math.PI / 2;
+        const tVariance = (Math.PI * 2 * Math.random()) / 3 - Math.PI / 3;
+        const t = Math.random() > 0.5 ? tVariance : Math.PI + tVariance;
+        dummy.position.copy(
+          new Vector3().setFromSpherical(new Spherical(r, p, t))
+        );
+        const newHeight = 40 * scaleY;
+        dummy.position.y += FLOOR;
+        dummy.position.y += newHeight / 2;
+        dummy.updateMatrix();
+        mesh.current.setMatrixAt(i, dummy.matrix);
+
+        seeds[i] = Math.random();
       }
       mesh.current.instanceMatrix.needsUpdate = true;
+
+      (mesh.current.geometry as BufferGeometry).setAttribute(
+        "seed",
+        new BufferAttribute(seeds, 1)
+      );
     }
-  }, [dist, mesh]);
+  }, [count, mesh]);
+
+  const mat = useMemo(() => {
+    return new ShaderMaterial({
+      uniforms: {
+        time: { value: 0 },
+        fogColor: { value: new Color(fogColor) },
+      },
+      vertexShader: vert,
+      fragmentShader: frag,
+    });
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (mat && limiter.isReady(clock)) {
+      mat.uniforms.time.value = clock.getElapsedTime();
+    }
+  });
 
   return (
-    <group position={position}>
+    <group>
       {/* @ts-ignore */}
-      <instancedMesh ref={mesh} args={[null, null, 1 + dist * 2]}>
-        <planeBufferGeometry args={[xzScale, xzScale, wSegments, hSegments]} />
-        <meshStandardMaterial
-          color={color}
-          transparent
-          displacementMap={heightmap}
-          displacementScale={hScale}
-          alphaMap={heightmap}
-          emissiveMap={emissiveMap}
-          emissive={new THREE.Color(0x800080)}
-          emissiveIntensity={3}
-        />
+      <instancedMesh ref={mesh} args={[null, null, count]} material={mat}>
+        <boxBufferGeometry args={[5, 40, 5, 70, 2]} />
       </instancedMesh>
-      <mesh rotation-x={-Math.PI / 2}>
-        <planeBufferGeometry args={[xzScale * 5, xzScale * 5]} />
-        <meshStandardMaterial color={color} />
-      </mesh>
     </group>
   );
 };

@@ -69,7 +69,7 @@ const Codame = (props: CodameProps) => {
   return (
     <DualEnvironment
       keyframes={keyframes}
-      canvasProps={{ camera: { far } }}
+      canvasProps={{ camera: { far: 200 } }}
       player={{ speed: 1.7 }}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
@@ -78,13 +78,7 @@ const Codame = (props: CodameProps) => {
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
       <Lighting color={lightColor} />
-      <Outside
-        position={scenePos}
-        color={floorColor}
-        map={map}
-        hScale={hMapScale}
-        xzScale={xzMapScale}
-      />
+      <Outside />
       <Gotham name={name} socials={socials} artwork={artwork} />
       <group scale={[5, 5, 5]}>
         <group

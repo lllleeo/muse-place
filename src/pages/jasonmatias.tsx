@@ -13,22 +13,28 @@ const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatia
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
+    size: 1.2,
   },
   {
     src: `${url}/2.jpg`,
+    size: 1.2,
   },
   {
     src: `${url}/3.jpg`,
+    size: 1.2,
   },
   {
     src: `${url}/4.mp4`,
+    size: 1.2,
     audio: true,
   },
   {
     src: `${url}/5.jpg`,
+    size: 1.2,
   },
   {
     src: `${url}/6.jpeg`,
+    size: 1.2,
   },
 ];
 

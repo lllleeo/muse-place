@@ -19,27 +19,21 @@ const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
-    size: [2000, 3000],
   },
   {
     src: `${url}/2.jpg`,
-    size: [1125, 1414],
   },
   {
     src: `${url}/3.jpg`,
-    size: [986, 1226],
   },
   {
     src: `${url}/4.jpg`,
-    size: [2240, 2800],
   },
   {
     src: `${url}/5.jpg`,
-    size: [1250, 1873],
   },
   {
     src: `${url}/6.jpg`,
-    size: [1958, 2448],
   },
 ];
 
