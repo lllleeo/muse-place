@@ -9,7 +9,6 @@ const TermsMain = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 3px;
-  //border: white 2px dashed;
   color: ${mainColor};
   font-family: "HelveticaBlk", sans-serif;
   overflow-y: scroll;

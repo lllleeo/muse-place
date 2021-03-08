@@ -31,7 +31,6 @@ export const Container = styled.div`
   left: 0;
   justify-content: space-between;
   align-items: center;
-  //border: white 2px dashed;
 
   /* Mobile responsiveness: swap video/info to vertical */
   /* and allow scrolling */
@@ -42,7 +41,6 @@ export const Container = styled.div`
 `;
 
 export const VideoBox = styled.div`
-  //border: green 2px dashed;
   width: 45%;
   height: 60%;
   display: flex;
@@ -93,7 +91,6 @@ export const SurroundingTitle = styled.h2`
   color: ${secondaryColor};
   font-weight: 600;
   margin: 0;
-  //border: black 2px dashed;
 `;
 
 export const MainTitle = styled.h1`
@@ -102,7 +99,6 @@ export const MainTitle = styled.h1`
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
-  //border: white 2px dashed;
   line-height: 80%;
 `;
 
@@ -113,7 +109,6 @@ export const Buttons = styled.div`
   justify-content: space-evenly;
   flex-wrap: nowrap;
   margin: 10px auto 0px auto;
-  //border: black 2px dashed;
   font-family: "HelveticaBlk", sans-serif;
 `;
 export const Button = styled.button`
@@ -141,7 +136,6 @@ export const Image1 = styled.div`
   width: 100%;
   max-width: 500px;
   height: 105px;
-  //border: 2px dashed blue;
   @media screen and (max-width: ${laptop}) {
     width: 80%;
   }
@@ -162,7 +156,6 @@ export const ShareContainer = styled.div`
   max-width: 250px;
   margin: 0 auto 20px auto;
   font-family: "HelveticaBlk", sans-serif;
-  //border: blue 2px dashed;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -192,7 +185,6 @@ export const Icon = styled.div`
 
 export const FinePrint = styled.div`
   display: block;
-  //border: green 2px dashed;
   margin: 0px auto 0 auto;
   color: ${mainColor};
   font-size: clamp(0.5em, 0.5vw, 0.7em);
@@ -221,10 +213,6 @@ export const Background = styled.div`
   max-height: 513px;
   min-width: 300px;
   max-width: 500px;
-  // background-image: url("${content}/images/C2A_Website_Background_Pop-Up_4.png");
-  // background-position: center;
-  // background-size: 100% 100%;
-  // background-repeat: no-repeat;
   background: ${bgColor};
   border-radius: 5px;
   display: flex;
@@ -232,7 +220,6 @@ export const Background = styled.div`
   align-items: center;
   position: relative;
   z-index: 1;
-  //border: pink 2px solid;
   @media screen and (max-width: ${phone}) {
     width: 90%;
     height: 80%;
@@ -240,7 +227,6 @@ export const Background = styled.div`
 `;
 
 export const Trailer = styled.div`
-  //border: red 2px dashed;
   width: 90%;
   position: relative;
 `;
@@ -290,7 +276,6 @@ export const Billing = styled.div`
   @media screen and (max-width: 400px) {
     max-width: 250px;
   }
-  //border: 2px dashed blue;
 `;
 
 export const MovieLabel = styled.div`
@@ -302,7 +287,6 @@ export const MovieLabel = styled.div`
   background-repeat: no-repeat;
   left: 1%;
   bottom: 0;
-  //border: 2px dashed blue;
   padding-bottom: 30px;
   @media screen and (max-width: ${phone}) {
     width: 75px;
@@ -318,7 +302,6 @@ export const EmailCollection = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  //border: white 2px dashed;
   color: ${mainColor};
   font-family: "HelveticaBlk", sans-serif;
 `;
@@ -330,11 +313,9 @@ export const EmailHeader = styled.div`
   background-position: center;
   width: 95%;
   height: 35%;
-  //border: blue 2px dashed;
 `;
 
 export const EmailSubTitle = styled.div`
-  //border: green 2px dashed;
   text-align: center;
   font-weight: bold;
   width: 80%;
@@ -366,8 +347,7 @@ export const EmailInput = styled.input`
 
 export const EmailCheck = styled.input`
   display: inline;
-  border: #f8Ec72 2px dashed;
-  // background-color: ${mainColor};
+  border: #f8ec72 2px dashed;
   align-self: center;
   cursor: pointer;
 `;
@@ -378,7 +358,6 @@ export const EmailOptOut = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 50%;
-  //border: blue 2px dashed;
   @media screen and (max-width: ${phone}) {
     margin-top: 1vh;
     width: 80%;
@@ -386,7 +365,6 @@ export const EmailOptOut = styled.div`
 `;
 
 export const EmailText = styled.p`
-  //border: red 2px dashed;
   font-size: 0.6em;
   padding-left: 5px;
 `;

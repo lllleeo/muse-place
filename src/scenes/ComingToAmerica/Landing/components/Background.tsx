@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-const desktop = "1900px";
-const laptop = "1050px";
 const tablet = "770px";
 const phone = "500px";
 const CONTENT_FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/c2a";
@@ -17,24 +15,6 @@ const Container = styled.div`
   background: ${bgColor};
 `;
 
-const Gold = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Background_gold-optimized.jpg");
-  background-size: cover;
-  background-position: center center;
-  z-index: -1;
-`;
-
-const Purple = styled.div`
-  margin: min(20px, 4vw);
-  width: calc(100% - 2*min(20px, 4vw));
-  height: calc(100% - 2*min(20px, 4vw));
-  background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Background_pink-tile-optimized.jpg");
-  background-repeat: repeat;
-`;
-
 const Barbers = styled.div`
   width: 90%;
   max-width: 500px;
@@ -44,7 +24,6 @@ const Barbers = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  //border: 2px dashed red;
   background-image: url("${CONTENT_FOLDER}/images/C2A_Website_Quar-optimized.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -65,8 +44,6 @@ const Barbers = styled.div`
 const Background = () => {
   return (
     <Container>
-      {/*<Gold />*/}
-      {/*<Purple />*/}
       <Barbers />
     </Container>
   );

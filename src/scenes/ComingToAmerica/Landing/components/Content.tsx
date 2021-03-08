@@ -25,9 +25,6 @@ import {
   EmailSubTitle,
   EmailInputDiv,
   EmailInput,
-  EmailCheck,
-  EmailOptOut,
-  EmailText,
   EmailSignup,
   EmailSkip,
   EmailPrivacy,
@@ -50,28 +47,22 @@ import Video from "./Video";
 import TrailerVideo from "./TrailerVideo";
 import Terms from "./Terms";
 import Schedule from "./Schedule";
-import Schedule2 from "./Schedule2";
 
 const shareUrl = "https://muse.place/comingtoamerica";
 const shareMessage =
   "Check out the My-T-Sharp Barbershop, best cuts since 1988. www.mytsharp.com @amazonprimevideo #mytsharpexperience";
 
 const mainColor = "#c8af68";
-const secondaryColor = "#935c23";
-const bgColor = "#FDEFD1";
 
 const Content = () => {
   const [schedule, setSchedule] = useState<boolean>(false);
   const [trailer, setTrailer] = useState<boolean>(false);
   const [terms, setTerms] = useState<boolean>(false);
   const [email, setEmail] = useState<boolean>(false);
-  const [subscribe, setSubscribe] = useState<boolean>(true);
 
-  const handleSubscribe = () => setSubscribe(!subscribe);
   const handleEmail = () => setEmail(!email);
   const handleTrailer = () => setTrailer(!trailer);
   const handleSchedule = () => setSchedule(!schedule);
-  // const closeFirstOverlay = () => setFirstLogin(false);
   const handleTerms = () => {
     if (email) {
       setEmail(false);
@@ -106,17 +97,12 @@ const Content = () => {
             <TwitterShareButton
               url={shareUrl}
               title="Check out The My-T-Barbershop Experience!"
-              // style={{ outline: "none" }}
             >
               <ShareIcon>
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
               </ShareIcon>
             </TwitterShareButton>
-            <FacebookShareButton
-              url={shareUrl}
-              quote={shareMessage}
-              // style={{ outline: "none" }}
-            >
+            <FacebookShareButton url={shareUrl} quote={shareMessage}>
               <Icon>
                 <FontAwesomeIcon
                   icon={faFacebook}
@@ -132,7 +118,6 @@ const Content = () => {
               url={shareUrl}
               subject="Check out the My-T-Sharp Barbershop Experience!"
               body={shareMessage}
-              // style={{ outline: "none" }}
             >
               <ShareIcon>
                 <FontAwesomeIcon icon={faEnvelope} size="lg" />
@@ -164,12 +149,6 @@ const Content = () => {
               <EmailInputDiv>
                 <EmailInput placeholder="EMAIL" />
               </EmailInputDiv>
-              {/*<EmailOptOut>*/}
-              {/*  <EmailCheck type="checkbox" onClick={handleSubscribe} />*/}
-              {/*  <EmailText>*/}
-              {/*    OPT-OUT OF MY-T-SHARP EXPERIENCE UPDATES AND NEWSLETTER*/}
-              {/*  </EmailText>*/}
-              {/*</EmailOptOut>*/}
               <EmailSignup>SIGN-UP</EmailSignup>
               <EmailPrivacyDiv>
                 <EmailPrivacy>
@@ -198,7 +177,7 @@ const Content = () => {
         <Overlay>
           <Background>
             <Exit onClick={handleSchedule}>x</Exit>
-            <Schedule2 />
+            <Schedule />
           </Background>
         </Overlay>
       )}
