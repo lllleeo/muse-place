@@ -11,7 +11,7 @@ import {
 } from "three";
 import { frag, vert } from "../shaders/building";
 import { useFrame } from "react-three-fiber";
-import { useLimiter } from "../../../scenes/Silks/utils/limiter";
+import { useLimiter } from "spacesvr";
 
 type SceneProps = {
   count?: number;
@@ -20,7 +20,7 @@ type SceneProps = {
 
 const FLOOR = -100;
 
-const Outside = (props: SceneProps) => {
+const Buildings = (props: SceneProps) => {
   const { count = 400, fogColor = "#000000" } = props;
 
   const mesh = useRef<InstancedMesh>();
@@ -53,7 +53,9 @@ const Outside = (props: SceneProps) => {
         dummy.updateMatrix();
         mesh.current.setMatrixAt(i, dummy.matrix);
 
-        seeds[i] = Math.random();
+        if (i % 3 === 0) seeds[i] = Math.random();
+        else if (i % 3 === 1) seeds[i] = seeds[i - 1];
+        else if (i % 3 === 2) seeds[i] = seeds[i - 2];
       }
       mesh.current.instanceMatrix.needsUpdate = true;
 
@@ -85,10 +87,10 @@ const Outside = (props: SceneProps) => {
     <group>
       {/* @ts-ignore */}
       <instancedMesh ref={mesh} args={[null, null, count]} material={mat}>
-        <boxBufferGeometry args={[5, 40, 5, 70, 2]} />
+        <boxBufferGeometry args={[5, 40, 5]} />
       </instancedMesh>
     </group>
   );
 };
 
-export default Outside;
+export default Buildings;

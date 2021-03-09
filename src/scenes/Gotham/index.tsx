@@ -1,8 +1,7 @@
 import { Audio, Fog, Keyframe, StandardEnvironment } from "spacesvr";
-import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
-import Outside from "themes/Gotham/components/Outside";
+import Buildings from "themes/Gotham/components/Buildings";
 import Lighting from "themes/Gotham/components/Lighting";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
@@ -29,16 +28,7 @@ export type GothamSceneProps = {
 } & GothamProps;
 
 const GothamScene = (props: GothamSceneProps) => {
-  const {
-    children,
-    audio,
-    sunPos = 1,
-    night,
-    stars,
-    fogColor,
-    lightColor,
-    keyframes,
-  } = props;
+  const { children, audio, sunPos = 1, night, stars, fogColor } = props;
 
   return (
     <StandardEnvironment
@@ -58,7 +48,7 @@ const GothamScene = (props: GothamSceneProps) => {
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
       <Lighting />
-      <Outside fogColor={night ? "#000000" : "#ececf4"} />
+      <Buildings fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham {...props} />
       {children}
     </StandardEnvironment>

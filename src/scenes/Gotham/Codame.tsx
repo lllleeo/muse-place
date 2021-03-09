@@ -1,10 +1,10 @@
 import { Fog, StandardEnvironment } from "spacesvr";
 import { Sky, Stars } from "@react-three/drei";
 
-import Outside from "themes/Gotham/components/Outside";
+import Buildings from "themes/Gotham/components/Buildings";
 import Lighting from "themes/Gotham/components/Lighting";
 import Gotham, { GothamProps } from "themes/Gotham";
-import { Color } from "three";
+import { Color, Vector3 } from "three";
 
 type CodameProps = {
   socialLinks: {
@@ -38,7 +38,7 @@ const Codame = (props: CodameProps) => {
   return (
     <StandardEnvironment
       canvasProps={{ camera: { far: 200 } }}
-      player={{ speed: 1.7 }}
+      player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI, speed: 1.7 }}
     >
       {!stars && <Sky inclination={1} distance={night ? 0 : 1000000} />}
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
@@ -50,7 +50,7 @@ const Codame = (props: CodameProps) => {
         />
       )}
       <Lighting />
-      <Outside fogColor={night ? "#000000" : "#ececf4"} />
+      <Buildings fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham name={name} socials={socials} artwork={artwork} />
     </StandardEnvironment>
   );
