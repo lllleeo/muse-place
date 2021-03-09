@@ -37,7 +37,7 @@ const Index = (props: SocialProps) => {
   );
 
   const handleClick = () => {
-    window.location.href = link;
+    window.open(link, "_blank");
   };
 
   return (
