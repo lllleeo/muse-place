@@ -7,6 +7,7 @@ import Lighting from "themes/Gotham/components/Lighting";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
+import { Color } from "three";
 
 export type GothamSceneProps = {
   floorColor?: string;
@@ -47,13 +48,17 @@ const GothamScene = (props: GothamSceneProps) => {
       {!stars && <Sky inclination={sunPos} distance={night ? 0 : 1000000} />}
       {stars && <Stars count={1500} fade />}
       {fogColor && (
-        <Fog color={new THREE.Color(fogColor)} near={20} far={200} />
+        <Fog
+          color={new Color(night ? "#000000" : "#ececf4")}
+          near={20}
+          far={200}
+        />
       )}
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
       <Lighting />
-      <Outside fogColor={fogColor} />
+      <Outside fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham {...props} />
       {children}
     </StandardEnvironment>

@@ -38,10 +38,12 @@ export const frag = glsl`
     float depth = gl_FragCoord.z / gl_FragCoord.w;
     float fogFactor = smoothstep( fogNear, fogFar, depth );
         
-    gl_FragColor.rgb = mix(vec3(1.0, 0., 0.), vec3(0., 1., 0.), vPos.x / 50.);
+        //#383645 gray
+        //#odod10 dark blue
+    gl_FragColor.rgb = vec3(0.22,0.212,0.271); //mix(vec3(0.22,0.212,0.271), vec3(0.22,0.212,0.271), vPos.x / 50.);
     
     float pos_offset = ( vPos.y ) * 0.75;
-    gl_FragColor.rgb = clamp(gl_FragColor.rgb + 0.3 * sin(time * 0.8 + pos_offset), 0., 1.);
+    gl_FragColor.rgb = clamp(gl_FragColor.rgb + 0.1 * sin(time * 0.8 + pos_offset), 0., 1.);
     gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `;

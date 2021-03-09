@@ -1,10 +1,10 @@
 import { Fog, StandardEnvironment } from "spacesvr";
-import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
 import Outside from "themes/Gotham/components/Outside";
 import Lighting from "themes/Gotham/components/Lighting";
 import Gotham, { GothamProps } from "themes/Gotham";
+import { Color } from "three";
 
 type CodameProps = {
   socialLinks: {
@@ -28,16 +28,7 @@ type CodameProps = {
 } & GothamProps;
 
 const Codame = (props: CodameProps) => {
-  const {
-    artwork,
-    socialLinks,
-    night,
-    name,
-    stars,
-    fogColor,
-    fogFar = 50,
-    fogNear = 3,
-  } = props;
+  const { artwork, socialLinks, night, name, stars, fogColor } = props;
 
   const socials = [];
   if (socialLinks.instagram) socials.push(socialLinks.instagram);
@@ -52,10 +43,14 @@ const Codame = (props: CodameProps) => {
       {!stars && <Sky inclination={1} distance={night ? 0 : 1000000} />}
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (
-        <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
+        <Fog
+          color={new Color(night ? "#000000" : "#ececf4")}
+          near={20}
+          far={200}
+        />
       )}
       <Lighting />
-      <Outside />
+      <Outside fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham name={name} socials={socials} artwork={artwork} />
     </StandardEnvironment>
   );

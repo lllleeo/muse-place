@@ -77,7 +77,7 @@ const Outside = (props: SceneProps) => {
 
   useFrame(({ clock }) => {
     if (mat && limiter.isReady(clock)) {
-      mat.uniforms.time.value = clock.getElapsedTime();
+      // mat.uniforms.time.value = clock.getElapsedTime();
     }
   });
 
