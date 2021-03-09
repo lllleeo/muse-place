@@ -42,8 +42,8 @@ export const frag = glsl`
         //#odod10 dark blue
     gl_FragColor.rgb = vec3(0.22,0.212,0.271); //mix(vec3(0.22,0.212,0.271), vec3(0.22,0.212,0.271), vPos.x / 50.);
     
-    float pos_offset = ( vPos.y ) * 0.75;
-    gl_FragColor.rgb = clamp(gl_FragColor.rgb + 0.1 * sin(time * 0.8 + pos_offset), 0., 1.);
+    float pos_offset = 1.*sin(3.1415926538/2.*ceil(vPos.y*3.));
+    gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.051,0.051,0.063), pos_offset);
     gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `;
