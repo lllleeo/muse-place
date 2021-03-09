@@ -69,8 +69,8 @@ const Codame = (props: CodameProps) => {
   return (
     <DualEnvironment
       keyframes={keyframes}
-      canvasProps={{ camera: { far: 200 } }}
-      player={{ speed: 1.7 }}
+      canvasProps={{ camera: { far } }}
+      player={{ speed: 1.7, rot: Math.PI / 1.5 }}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}

@@ -44,8 +44,12 @@ const GothamScene = (props: GothamSceneProps) => {
   return (
     <DualEnvironment
       keyframes={keyframes || defaultKeyframes}
-      canvasProps={{ camera: { far: 200 } }}
-      player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI, speed: 1.7 }}
+      canvasProps={{ camera: { far: 300 } }}
+      player={{
+        pos: new Vector3(-4, 1, 9.9),
+        rot: (2 * Math.PI) / 1.2,
+        speed: 1.7,
+      }}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}
