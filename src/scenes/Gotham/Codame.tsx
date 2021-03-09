@@ -35,19 +35,12 @@ const Codame = (props: CodameProps) => {
   const {
     artwork,
     socialLinks,
-    floorColor = 0xbbbbbb,
-    sunPos = 1,
     night,
     name,
     stars,
     fogColor,
     fogFar = 50,
     fogNear = 3,
-    map,
-    scenePos = [0, -1, 0],
-    hMapScale,
-    xzMapScale,
-    far = 1000,
     lightColor,
   } = props;
 
@@ -72,12 +65,12 @@ const Codame = (props: CodameProps) => {
       canvasProps={{ camera: { far: 200 } }}
       player={{ speed: 1.7 }}
     >
-      <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
+      {!stars && <Sky inclination={1} distance={night ? 0 : 1000000} />}
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={fogNear} far={fogFar} />
       )}
-      <Lighting color={lightColor} />
+      <Lighting />
       <Outside />
       <Gotham name={name} socials={socials} artwork={artwork} />
       <group scale={[5, 5, 5]}>

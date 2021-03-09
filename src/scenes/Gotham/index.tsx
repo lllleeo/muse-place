@@ -47,7 +47,7 @@ const GothamScene = (props: GothamSceneProps) => {
       canvasProps={{ camera: { far: 200 } }}
       player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI, speed: 1.7 }}
     >
-      <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
+      {!stars && <Sky inclination={sunPos} distance={night ? 0 : 1000000} />}
       {stars && <Stars count={1500} fade />}
       {fogColor && (
         <Fog color={new THREE.Color(fogColor)} near={20} far={200} />
@@ -55,7 +55,7 @@ const GothamScene = (props: GothamSceneProps) => {
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
-      <Lighting color={lightColor} />
+      <Lighting />
       <Outside fogColor={fogColor} />
       <Gotham {...props} />
       {children}

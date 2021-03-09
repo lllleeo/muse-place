@@ -21,18 +21,18 @@ type SceneProps = {
 const FLOOR = -100;
 
 const Outside = (props: SceneProps) => {
-  const { count = 200, fogColor = "#000000" } = props;
+  const { count = 400, fogColor = "#000000" } = props;
 
   const mesh = useRef<InstancedMesh>();
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  const limiter = useLimiter(75);
+  const limiter = useLimiter(40);
 
   useEffect(() => {
     if (mesh.current && count) {
       const seeds = new Float32Array(count * 3);
 
       for (let i = 0; i < count; i++) {
-        const scaleXZ = 0.5 + Math.random() * 2;
+        const scaleXZ = 1.75 + Math.random();
         const scaleY = 0.1 + Math.random() * 2.75;
         dummy.scale.y = scaleY;
         dummy.scale.x = scaleXZ;
