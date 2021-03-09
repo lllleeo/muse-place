@@ -15,25 +15,26 @@ export type GothamProps = {
   socials: string[];
   removeWalls?: boolean;
   artwork: ArtworkProps["artwork"];
+  night?: boolean;
 };
 
 const Gotham = (props: GothamProps) => {
-  const { name, socials, artwork, removeWalls } = props;
+  const { name, socials, artwork, removeWalls, night } = props;
 
   const material = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: 0xffffff,
+        color: night ? 0xffffff : 0x000000,
         metalness: 0.2,
         roughness: 0.1,
       }),
-    []
+    [night]
   );
 
   return (
     <group>
       <Suspense fallback={null}>
-        <Structure_00 removeWalls={removeWalls} />
+        <Structure_00 removeWalls={removeWalls} night={night} />
       </Suspense>
       <Suspense fallback={null}>
         {removeWalls ? (
@@ -44,7 +45,7 @@ const Gotham = (props: GothamProps) => {
       </Suspense>
       <group position={[-5.8, 1.5, 5]} rotation={[0, Math.PI / 2, 0]}>
         {/* @ts-ignore */}
-        <Text fontSize={0.8} color={"white"} position={[0, 0, 0.315]}>
+        <Text fontSize={0.8} position={[0, 0, 0.315]} material={material}>
           {(name || "").toUpperCase()}
         </Text>
         <SocialLinks position={[0, -0.85, 0.31]} socials={socials} />
