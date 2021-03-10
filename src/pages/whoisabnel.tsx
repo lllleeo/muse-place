@@ -29,7 +29,7 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socials}
         name={ARTIST.name}
         night
-        removeWalls
+        open
       >
         <Whoisabnel />
       </Gotham>
