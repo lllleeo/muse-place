@@ -17,28 +17,22 @@ const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/selorm`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/2.jpg`,
-    size: [1080, 1350],
   },
   {
     src: `${url}/5.mp4`,
-    size: [640, 800],
   },
   {
     src: `${url}/3.jpg`,
-    size: [1080, 1350],
   },
   {
     src: `${url}/1.mp4`,
-    size: [640, 800],
     audio: true,
   },
   {
     src: `${url}/6.jpg`,
-    size: [674, 843],
   },
   {
     src: `${url}/4.jpg`,
-    size: [1080, 1349],
   },
 ];
 

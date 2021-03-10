@@ -42,8 +42,6 @@ const Ozwvld = () => {
     }
   });
 
-  const toggleSwitch = useCallback(() => setDrugTaken(!drugTaken), [drugTaken]);
-
   return (
     <group>
       <BlankAudio />
