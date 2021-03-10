@@ -1,6 +1,6 @@
 import { Suspense, useMemo } from "react";
 import Structure from "./models/Structure";
-import { Interactable } from "spacesvr";
+import { Interactable, StandardEnvironment } from "spacesvr";
 import { Text } from "@react-three/drei";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
@@ -19,7 +19,7 @@ export type GothamProps = {
 const FONT =
   "https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3";
 
-const Gotham = (props: GothamProps) => {
+export default function Gotham(props: GothamProps) {
   const { name, socials, artwork, removeWalls, night } = props;
 
   const material = useMemo(
@@ -34,6 +34,7 @@ const Gotham = (props: GothamProps) => {
 
   return (
     <group>
+      <ambientLight intensity={1} />
       <Suspense fallback={null}>
         <Structure removeWalls={removeWalls} night={night} />
       </Suspense>
@@ -75,6 +76,4 @@ const Gotham = (props: GothamProps) => {
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
     </group>
   );
-};
-
-export default Gotham;
+}

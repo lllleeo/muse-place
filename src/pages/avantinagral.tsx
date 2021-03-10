@@ -42,19 +42,7 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>Avantinagral</title>
       </Head>
-      <Gotham
-        artwork={artwork}
-        socials={ARTIST.socials}
-        name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="black"
-      ></Gotham>
+      <Gotham artwork={artwork} socials={ARTIST.socials} name={ARTIST.name} />
     </>
   );
 };

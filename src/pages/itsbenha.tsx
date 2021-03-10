@@ -46,15 +46,6 @@ const LinkTree: NextPage = () => {
         artwork={artwork}
         socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
-        map="city"
-        far={100}
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={50}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="black"
       />
     </>
   );

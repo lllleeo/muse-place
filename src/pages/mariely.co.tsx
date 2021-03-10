@@ -38,17 +38,7 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>Mariely | Muse Place</title>
       </Head>
-      <Gotham
-        artwork={artwork}
-        socials={ARTIST.socials}
-        name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogColor="#ffc152"
-        hMapScale={30}
-        xzMapScale={100}
-        lightColor="#af7102"
-      />
+      <Gotham artwork={artwork} socials={ARTIST.socials} name={ARTIST.name} />
     </>
   );
 };
