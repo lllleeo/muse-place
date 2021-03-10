@@ -56,7 +56,6 @@ const LinkTree: NextPage = () => {
         hMapScale={30}
         xzMapScale={100}
         floorColor="black"
-        night
       />
     </>
   );

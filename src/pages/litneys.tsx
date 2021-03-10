@@ -4,18 +4,13 @@ import dynamic from "next/dynamic";
 import { GothamProps } from "../themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const KiraX23 = dynamic(import("scenes/Gotham/KiraX23"), { ssr: false });
 
 const ARTIST = {
-  name: "KIRA-X23",
-  socials: [
-    "https://soundcloud.com/experiment23",
-    "https://twitter.com/djkirax23",
-    "https://www.instagram.com/djkirax23/",
-  ],
+  name: "Litneys",
+  socials: ["https://www.instagram.com/litneys/", "https://litneys.com/"],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/litneys`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
@@ -33,7 +28,7 @@ const artwork: GothamProps["artwork"] = [
     src: `${url}/5.jpg`,
   },
   {
-    src: `${url}/6.jpg`,
+    src: `${url}/6.mp4`,
   },
 ];
 
@@ -41,12 +36,12 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>KIRA-X23 | Muse Place</title>
+        <title>Litneys</title>
       </Head>
       <Gotham
         artwork={artwork}
         socials={ARTIST.socials}
-        name=""
+        name={ARTIST.name}
         map="city"
         scenePos={[0, -20, 0]}
         fogNear={0}
@@ -56,10 +51,8 @@ const LinkTree: NextPage = () => {
         xzMapScale={100}
         floorColor="black"
         night
-        audio={`${url}/hottopic-1.mp3`}
-      >
-        <KiraX23 />
-      </Gotham>
+        stars
+      />
     </>
   );
 };

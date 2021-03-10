@@ -18,27 +18,21 @@ const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
     audio: true,
-    size: [1080, 1080],
   },
   {
     src: `${url}/2.mp4`,
-    size: [640, 360],
   },
   {
     src: `${url}/3.mp4`,
-    size: [640, 362],
   },
   {
     src: `${url}/4.jpg`,
-    size: [1080, 720],
   },
   {
     src: `${url}/5.mp4`,
-    size: [640, 362],
   },
   {
     src: `${url}/6.jpg`,
-    size: [1080, 811],
   },
 ];
 
