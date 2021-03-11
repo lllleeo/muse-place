@@ -45,7 +45,12 @@ const LinkTree: NextPage = () => {
         <title>Jason Matias</title>
         <title>Gallery</title>
       </Head>
-      <Gotham artwork={artwork} socials={ARTIST.socials} name={ARTIST.name} />{" "}
+      <Gotham
+        artwork={artwork}
+        socials={ARTIST.socials}
+        name={ARTIST.name}
+        emailCollection
+      />
     </>
   );
 };
