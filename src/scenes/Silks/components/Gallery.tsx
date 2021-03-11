@@ -18,7 +18,7 @@ const Gallery = () => {
       >
         <Image
           material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/yellow-green-durag.jpg`}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/yellow-green-durag.jpg`}
           size={SIZE}
           framed
           position-x={-1}

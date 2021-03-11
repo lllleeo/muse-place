@@ -11,28 +11,30 @@ import { BufferGeometry, Texture } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
+    structure: THREE.Mesh;
+    walls: THREE.Mesh;
+    floor: THREE.Mesh;
+    images: THREE.Mesh;
     rug: THREE.Mesh;
     speakers: THREE.Mesh;
-    structure: THREE.Mesh;
     logoboxes: THREE.Mesh;
     glass: THREE.Mesh;
     lights: THREE.Mesh;
-    walls: THREE.Mesh;
-    floor: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
-    rug: THREE.MeshStandardMaterial;
-    speakers: THREE.MeshStandardMaterial;
-    structure: THREE.MeshStandardMaterial;
-    logoboxes: THREE.MeshStandardMaterial;
-    ["Mat.17"]: THREE.MeshStandardMaterial;
-    lights: THREE.MeshStandardMaterial;
+    ["structure.mat"]: THREE.MeshStandardMaterial;
+    ["images.mat"]: THREE.MeshStandardMaterial;
+    ["rug.mat"]: THREE.MeshStandardMaterial;
+    ["speakers.mat"]: THREE.MeshStandardMaterial;
+    ["logoboxes.mat"]: THREE.MeshStandardMaterial;
+    ["glass.mat"]: THREE.MeshStandardMaterial;
+    ["lights.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Silks-1612919838/Silks03.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Silks-1615445930/Silks04.glb";
 const FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
@@ -54,52 +56,57 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     mat.roughness = 0;
   };
 
-  fixMat(materials["rug"]);
-  fixMat(materials["speakers"]);
-  fixMat(materials["structure"]);
-  fixMat(materials["logoboxes"]);
-  fixMat(materials["Mat.17"]);
-  fixMat(materials["lights"]);
+  fixMat(materials["rug.mat"]);
+  fixMat(materials["speakers.mat"]);
+  fixMat(materials["structure.mat"]);
+  fixMat(materials["logoboxes.mat"]);
+  fixMat(materials["images.mat"]);
+  fixMat(materials["lights.mat"]);
 
   useTrimeshCollision(
     (nodes.collider.geometry as BufferGeometry)
       .clone()
-      .scale(10, 10, 10)
+      .scale(3.35, 3.35, 3.35)
       .translate(-4.39, 0, -2.47)
   );
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group scale={[10, 10, 10]} position={[-4.39, 0, -2.47]}>
+      <group scale={[3.35, 3.35, 3.35]} position={[-4.39, 0, -2.47]}>
+        <mesh
+          name="structure"
+          material={materials["structure.mat"]}
+          geometry={nodes.structure.geometry}
+        />
+        <mesh
+          name="images"
+          material={materials["images.mat"]}
+          geometry={nodes.images.geometry}
+        />
         <mesh
           name="rug"
-          material={materials.rug}
+          material={materials["rug.mat"]}
           geometry={nodes.rug.geometry}
         />
         <mesh
           name="speakers"
-          material={materials.speakers}
+          material={materials["speakers.mat"]}
           geometry={nodes.speakers.geometry}
           rotation={[0, 0, 0]}
         />
         <mesh
-          name="structure"
-          material={materials.structure}
-          geometry={nodes.structure.geometry}
-        />
-        <mesh
           name="logoboxes"
-          material={materials.logoboxes}
+          material={materials["logoboxes.mat"]}
           geometry={nodes.logoboxes.geometry}
         />
         <mesh
           name="glass"
-          material={materials["Mat.17"]}
+          material={materials["glass.mat"]}
           geometry={nodes.glass.geometry}
         />
         <mesh
           name="lights"
-          material={materials.lights}
+          material={materials["lights.mat"]}
           geometry={nodes.lights.geometry}
         />
         <mesh name="walls" geometry={nodes.walls.geometry}>
