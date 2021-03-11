@@ -1,61 +1,34 @@
-import { Audio, Fog, Keyframe } from "spacesvr";
-import * as THREE from "three";
+import { Audio, Fog, StandardEnvironment } from "spacesvr";
 import { Sky, Stars } from "@react-three/drei";
 
-import Outside from "themes/Gotham/components/Outside";
-import Lighting from "themes/Gotham/components/Lighting";
-import { keyframes as defaultKeyframes } from "themes/Gotham/assets/constants";
-import DualEnvironment from "themes/components/DualEnvironment";
+import Buildings from "themes/Gotham/components/Buildings";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
 import Onboarding from "../../themes/components/Onboarding";
+import { Color } from "three";
 
 export type GothamSceneProps = {
-  floorColor?: string;
-  sunPos?: number;
   night?: boolean;
-  stars?: boolean;
-  fogColor?: string;
-  fogFar?: number;
-  fogNear?: number;
-  map?: string;
-  scenePos?: [number, number, number];
-  hMapScale?: number;
-  xzMapScale?: number;
-  far?: number;
-  lightColor?: string;
   children?: ReactNode;
   audio?: string;
-  keyframes?: Keyframe[];
 } & GothamProps;
 
-const GothamScene = (props: GothamSceneProps) => {
-  const {
-    children,
-    audio,
-    floorColor = 0xbbbbbb,
-    sunPos = 1,
-    night,
-    stars,
-    fogColor,
-    map,
-    scenePos = [0, -1, 0],
-    hMapScale,
-    xzMapScale,
-    lightColor,
-    keyframes,
-  } = props;
+export default function GothamScene(props: GothamSceneProps) {
+  const { children, audio, night } = props;
 
   return (
-    <DualEnvironment
-      keyframes={keyframes || defaultKeyframes}
-      canvasProps={{ camera: { far: 300 } }}
+    <StandardEnvironment
+      canvasProps={{ camera: { far: 200 } }}
       player={{ pos: new Vector3(-3.4, 1, 4.9), rot: Math.PI, speed: 1.7 }}
     >
-      <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
-      {stars && <Stars count={1500} fade />}
-      {fogColor && <Fog color={new THREE.Color(fogColor)} near={10} far={80} />}
+      {!night && <Sky inclination={1} distance={night ? 0 : 1000000} />}
+      {night && <Stars count={1500} fade />}
+      <Fog
+        color={new Color(night ? "#000000" : "#ececf4")}
+        near={20}
+        far={200}
+      />
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
@@ -68,10 +41,9 @@ const GothamScene = (props: GothamSceneProps) => {
         xzScale={xzMapScale}
       />
       <Onboarding />
+      <Buildings fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham {...props} />
       {children}
-    </DualEnvironment>
+    </StandardEnvironment>
   );
-};
-
-export default GothamScene;
+}
