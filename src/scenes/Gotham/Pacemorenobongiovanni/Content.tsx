@@ -34,18 +34,18 @@ const Content = (props: ContentProps) => {
   return (
     <group>
       <group ref={content} scale={[0, 0, 0]}>
-        <group position={[-1.51, 1.25, 12]} rotation-y={Math.PI}>
+        <group position={[-1.51, 1.25, 10]} rotation-y={Math.PI}>
           {drugTaken && (
             <Video
               src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/pach-rap.mp4"
-              size={1.6}
+              size={4.3}
             />
           )}
         </group>
-        <group position={[-1.51, 1.25, -3.5]}>
+        <group position={[-1.51, 1.25, -1.5]}>
           <Video
             src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/pachman77/reel-shorter.mp4"
-            size={1.6}
+            size={4.3}
             muted
           />
         </group>
