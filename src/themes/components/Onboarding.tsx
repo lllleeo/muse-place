@@ -195,13 +195,13 @@ const Onboarding = () => {
   const { paused, overlay, setPaused, containerRef } = useEnvironment();
   const [firstVisit, setVisit] = useState<boolean>(true);
 
-  // useLayoutEffect(() => {
-  //   if (window.localStorage.getItem("login")) {
-  //     setVisit(false);
-  //   } else if (firstVisit) {
-  //     window.localStorage.setItem("login", "visited");
-  //   }
-  // }, []);
+  useLayoutEffect(() => {
+    if (window.localStorage.getItem("login")) {
+      setVisit(false);
+    } else if (firstVisit) {
+      window.localStorage.setItem("login", "visited");
+    }
+  }, []);
 
   const closeOverlay = () => {
     setPaused(false);

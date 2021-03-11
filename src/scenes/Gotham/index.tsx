@@ -32,14 +32,6 @@ export default function GothamScene(props: GothamSceneProps) {
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
-      <Lighting color={lightColor} />
-      <Outside
-        position={scenePos}
-        color={floorColor}
-        map={map}
-        hScale={hMapScale}
-        xzScale={xzMapScale}
-      />
       <Onboarding />
       <Buildings fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham {...props} />
