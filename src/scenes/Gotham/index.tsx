@@ -9,6 +9,7 @@ import DualEnvironment from "themes/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
+import Onboarding from "../../themes/components/Onboarding";
 
 export type GothamSceneProps = {
   floorColor?: string;
@@ -66,6 +67,7 @@ const GothamScene = (props: GothamSceneProps) => {
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
+      <Onboarding />
       <Gotham {...props} />
       {children}
     </DualEnvironment>
