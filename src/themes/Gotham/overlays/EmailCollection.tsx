@@ -1,6 +1,6 @@
 import { useEnvironment } from "spacesvr";
 import Overlay from "../modifiers/Overlay";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 const Darker = styled.div`
@@ -63,11 +63,16 @@ type Props = { name?: string };
 export default function EmailCollection(props: Props) {
   const { name } = props;
 
+  const [hasUnpaused, setHasUnpaused] = useState(false);
   const { paused, overlay, setPaused } = useEnvironment();
 
   useLayoutEffect(() => {
-    setTimeout(() => setPaused(true, "emailcollection"), 5000);
-  }, []);
+    if (!hasUnpaused && !paused) {
+      console.log("hello?");
+      setTimeout(() => setPaused(true, "emailcollection"), 5000);
+      setHasUnpaused(true);
+    }
+  }, [hasUnpaused, paused]);
 
   if (!paused || overlay !== "emailcollection") {
     return null;

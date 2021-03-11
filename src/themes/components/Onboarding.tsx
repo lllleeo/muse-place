@@ -51,7 +51,7 @@ const Window = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   border-radius: 3%;
   background-image: url("https://d27rt3a60hh1lx.cloudfront.net/images/muse-bg.jpg");
@@ -79,45 +79,6 @@ const Continue = styled.div`
   :hover {
     opacity: 0.5;
   }
-`;
-
-const Version = styled.a`
-  position: absolute;
-  top: 24px;
-  right: 60px;
-  font-size: 0.6em;
-`;
-
-const Instagram = styled.div`
-  position: absolute;
-  top: 24px;
-  left: 60px;
-  width: auto;
-  height: auto;
-  color: white;
-  cursor: pointer;
-  transition: opacity 0.15s linear;
-  font-size: 0.6em;
-  line-height: 1em;
-  :hover {
-    opacity: 0.5;
-  }
-`;
-
-const Header = styled.div`
-  margin-top: 15%;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Quicksand", sans-serif;
-`;
-
-const Title = styled.div`
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 0em;
-  line-height: 1em;
 `;
 
 const Text = styled.div`
@@ -218,15 +179,6 @@ const Onboarding = () => {
         <Container paused={paused}>
           <ClickContainer onClick={closeOverlay} />
           <Window>
-            <Version>v1.3.1</Version>
-            <Instagram
-              onClick={() => window.open("https://www.instagram.com/musehq")}
-            >
-              @musehq
-            </Instagram>
-            <Header>
-              <Title>Muse</Title>
-            </Header>
             <Text>
               <p>Pause with the {isMobile ? "Menu Button" : "Esc key"}</p>
             </Text>
