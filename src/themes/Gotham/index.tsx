@@ -63,7 +63,7 @@ export default function Gotham(props: GothamProps) {
         </Text>
         <Interactable
           onClick={() =>
-            (window.location.href = "https://musevr.typeform.com/to/QwGYwJH2")
+            (window.location.href = "https://musevr.typeform.com/to/yjALZqVp")
           }
         >
           <group position-x={1.8}>
