@@ -5,32 +5,32 @@ import dynamic from "next/dynamic";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "Rei the Imperial",
+  name: "Million King",
   socialLinks: [
-    "https://www.instagram.com/reitheimperial",
-    "https://open.spotify.com/track/398fpovo0TkrjangLLYgNH?si=ruzf4GEASum3BX0d-f-dHg",
+    "https://www.instagram.com/millionkingmusic",
+    "https://open.spotify.com/artist/6To84cmvQDTiQz44PoDbmN?si=B_ZscDFtSamB10XZiqqafw",
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/reitheimperial`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/dustinking`;
 const linkData = [
   {
-    src: `${url}/1.jpg`,
+    src: `${url}/1.JPG`,
   },
   {
-    src: `${url}/2.mp4`,
+    src: `${url}/2.JPG`,
   },
   {
-    src: `${url}/3.mp4`,
+    src: `${url}/3.JPG`,
   },
   {
-    src: `${url}/4.jpg`,
+    src: `${url}/4.JPG`,
   },
   {
     src: `${url}/5.jpg`,
   },
   {
-    src: `${url}/6.mp4`,
+    src: `${url}/6.png`,
   },
 ];
 
@@ -44,7 +44,7 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
-        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/reitheimperial/Super+Sunday.mp3"
+        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/dustinking/JoJo.mp3"
         night
       />
     </>
