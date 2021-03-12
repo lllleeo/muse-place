@@ -22,7 +22,7 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>Pace Moreno Bongiovanni | Muse Place</title>
       </Head>
-      <Gotham socials={ARTIST.socials} name={ARTIST.name} removeWalls night>
+      <Gotham socials={ARTIST.socials} name={ARTIST.name} open night>
         <Pacemorenobongiovanni />
       </Gotham>
     </>

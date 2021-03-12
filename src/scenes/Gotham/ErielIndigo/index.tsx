@@ -1,0 +1,47 @@
+import Jukebox from "themes/Gotham/models/Jukebox";
+import DepthImage from "themes/Gotham/components/DepthImage";
+import { Vector3 } from "three";
+import { Audio, Image } from "spacesvr";
+
+const ErielIndigo = () => {
+  return (
+    <group>
+      <Jukebox position={[1.9, 0, -3.2]} rotation-y={-0.63} />
+      <Audio
+        url="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/erielindigo/basicsforbreakfast.mp3"
+        position={new Vector3(1.9, 0, -3.2)}
+        volume={1}
+      />
+      <group
+        position={[-5.46, 1.25, 8]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={[0.5, 0.5, 1]}
+      >
+        <Image
+          src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/erielindigo/extra3.jpg"
+          size={2}
+          position-x={-3}
+          framed
+        />
+        <Image
+          src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/erielindigo/extra1.jpg"
+          size={2}
+          framed
+        />
+      </group>
+      <group
+        position={[2.49, 0.9, -2.2]}
+        rotation={[0, -Math.PI / 2, 0]}
+        scale={[1 / 4, 1 / 4, 1]}
+      >
+        <Image
+          src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/erielindigo/extra2.jpg"
+          size={3.2}
+          framed
+        />
+      </group>
+    </group>
+  );
+};
+
+export default ErielIndigo;

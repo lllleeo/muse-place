@@ -5,6 +5,7 @@ import Buildings from "themes/Gotham/components/Buildings";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
+import Onboarding from "../../themes/components/Onboarding";
 import { Color } from "three";
 
 export type GothamSceneProps = {
@@ -31,6 +32,7 @@ export default function GothamScene(props: GothamSceneProps) {
       {audio && (
         <Audio url={audio} position={new Vector3(-6, 1, 2.5)} volume={1.2} />
       )}
+      <Onboarding />
       <Buildings fogColor={night ? "#000000" : "#ececf4"} />
       <Gotham {...props} />
       {children}
