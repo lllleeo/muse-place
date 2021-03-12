@@ -18,27 +18,21 @@ const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.mp4`,
     audio: true,
-    size: [720, 406],
   },
   {
     src: `${url}/2.mp4`,
-    size: [640, 798],
   },
   {
     src: `${url}/3.mp4`,
-    size: [720, 406],
   },
   {
     src: `${url}/4.mp4`,
-    size: [720, 720],
   },
   {
     src: `${url}/5.mp4`,
-    size: [640, 334],
   },
   {
     src: `${url}/6.mp4`,
-    size: [640, 800],
   },
 ];
 
@@ -52,16 +46,7 @@ const LinkTree: NextPage = () => {
         artwork={artwork}
         socials={ARTIST.socials}
         name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="black"
         night
-        stars
       />
     </>
   );
