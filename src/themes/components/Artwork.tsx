@@ -6,7 +6,7 @@ export type ArtworkProps = {
     src: string;
     link?: string;
     audio?: boolean;
-    size?: [number, number];
+    size?: number;
   }[];
   linkPositions: {
     p: Vector3;
