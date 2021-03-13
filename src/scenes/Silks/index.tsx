@@ -35,7 +35,7 @@ const Silks = () => {
     >
       <ShopContext.Provider value={shop}>
         <Cart />
-        {/*<Gallery />*/}
+        <Gallery />
         <MusicVideo />
         <Lighting />
         <SilksModel />
