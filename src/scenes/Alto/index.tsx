@@ -8,6 +8,7 @@ import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "themes/components/HDRBackground";
+import Video from "spacesvr";
 
 export type AltoSceneProps = {
   stars?: boolean;
@@ -53,6 +54,7 @@ const AltoScene = (props: AltoSceneProps) => {
         <Alto {...restProps} />
         <Lighting />
         <Dropoff />
+
         {/* @ts-ignore */}
         {children && React.cloneElement(children, { aa })}
       </AltoSceneState.Provider>

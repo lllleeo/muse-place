@@ -3,7 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { ScrollData } from "../../themes/Alto/types/scroll";
 
-const Standard = dynamic(import("scenes/Alto"), { ssr: false });
+const Standard = dynamic(import("scenes/Alto/kira"), { ssr: false });
 
 const ARTIST = {
   name: "Kira-X23",
@@ -52,7 +52,7 @@ const LinkTree: NextPage = () => {
       <Standard
         scrollData={scrollData}
         socials={ARTIST.socialLinks}
-        // audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
+        audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
       />
     </>
   );
