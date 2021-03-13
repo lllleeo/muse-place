@@ -77,17 +77,17 @@ const AltoScene = (props: AltoSceneProps) => {
         </Interactable>
         <Interactable onClick={handleGenesis}>
           <group
-            position={[2.9, 8.25, -3.75]}
+            position={[2.9, 7.75, -3.75]}
             rotation-y={-0.6}
-            scale={[2, 2, 2]}
+            scale={[1.8, 1.8, 1.8]}
             name="genesis"
           >
             <Video src={genesis} framed />
           </group>
           <group
-            position={[-2.35, 8.25, -4]}
+            position={[-2.35, 7.75, -4]}
             rotation-y={0.6}
-            scale={[2, 2, 2]}
+            scale={[1.8, 1.8, 1.8]}
             name="cardplat"
           >
             <Video src={cardPlat} framed />
