@@ -33,7 +33,7 @@ const Birds = () => {
 
   const gpu = useDetectGPU();
   const limiter = useLimiter(70);
-  const pow = 2; //gpu?.isMobile ? 2 : (gpu?.tier || 0) + 1;
+  const pow = 2;
   const WIDTH = Math.pow(2, pow);
   const BIRDS = WIDTH * WIDTH;
 
