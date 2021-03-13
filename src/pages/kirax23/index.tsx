@@ -3,7 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { GothamProps } from "../../themes/Gotham";
 
-const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham/OldGotham"), { ssr: false });
 const KiraX23 = dynamic(import("scenes/Gotham/KiraX23"), { ssr: false });
 
 const ARTIST = {
@@ -47,6 +47,14 @@ const LinkTree: NextPage = () => {
         artwork={artwork}
         socials={ARTIST.socials}
         name=""
+        map="city"
+        scenePos={[0, -20, 0]}
+        fogNear={0}
+        fogFar={150}
+        fogColor={"#000000"}
+        hMapScale={30}
+        xzMapScale={100}
+        floorColor="black"
         night
         audio={`${url}/hottopic-1.mp3`}
       >
