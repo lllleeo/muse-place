@@ -10,8 +10,7 @@ import AudioReactive from "./components/AudioReactive";
 import { ScrollData } from "./types/scroll";
 import { Perf } from "r3f-perf";
 import { Fog } from "spacesvr";
-import { Cloud } from "@react-three/drei";
-import Clouds from "./components/Clouds";
+import { Preload } from "@react-three/drei";
 
 export type AltoProps = {
   socials: string[];
@@ -60,16 +59,17 @@ const Alto = (props: Partial<AltoProps>) => {
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
       <Fog color={new Color("#ffffff")} near={15} far={70} />
+      <Preload all />
       <Suspense fallback={null}>
+        <Preload all />
         <AltoModel />
         <Grass />
       </Suspense>
       <Sun />
       <Scrolls count={scrollCount} setCount={setScrollCount} />
-      {/*<Birds />*/}
+      <Birds />
       <Tablatures scrolls={scrollCount} />
       <AudioReactive position={[0, 11, 0]} />
-      {/*<Clouds />*/}
     </AltoContext.Provider>
   );
 };
