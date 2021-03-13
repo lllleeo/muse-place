@@ -52,7 +52,7 @@ const LinkTree: NextPage = () => {
       <Standard
         scrollData={scrollData}
         socials={ARTIST.socialLinks}
-        audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
+        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/kiramix.mp3"
       />
     </>
   );
