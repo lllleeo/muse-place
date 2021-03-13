@@ -69,7 +69,7 @@ export default function EmailCollection(props: Props) {
   useLayoutEffect(() => {
     if (!hasUnpaused && !paused) {
       console.log("hello?");
-      setTimeout(() => setPaused(true, "emailcollection"), 5000);
+      setTimeout(() => setPaused(true, "emailcollection"), 25000);
       setHasUnpaused(true);
     }
   }, [hasUnpaused, paused]);

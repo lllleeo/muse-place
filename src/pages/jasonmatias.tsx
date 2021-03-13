@@ -53,6 +53,7 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socials}
         name={ARTIST.name}
         emailCollection
+        premium
       />
     </>
   );
