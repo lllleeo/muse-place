@@ -66,7 +66,6 @@ const GothamScene = (props: GothamSceneProps) => {
       <Outside
         position={scenePos}
         color={floorColor}
-        map={map}
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
