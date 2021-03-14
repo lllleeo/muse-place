@@ -1,11 +1,7 @@
 import { Suspense, useMemo } from "react";
 import KiraHead from "./KiraHead";
 import { Floating, Image, Text, Video, Interactable } from "spacesvr";
-import {
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-  MultiplyOperation,
-} from "three";
+import { MeshStandardMaterial } from "three";
 
 const KiraX23 = () => {
   const glowMaterial = useMemo(
@@ -46,7 +42,7 @@ const KiraX23 = () => {
       <mesh position={[2.49, 1.25, 4.2]} rotation-y={Math.PI / 2}>
         <planeBufferGeometry args={[16.5, 3, 60, 30]} />
         <meshStandardMaterial
-          color={0xff0000}
+          color={0x00ff00}
           wireframe
           transparent
           opacity={0.8}
