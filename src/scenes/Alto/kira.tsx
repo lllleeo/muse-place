@@ -1,10 +1,10 @@
 import { Interactable, StandardEnvironment, Video } from "spacesvr";
 import * as THREE from "three";
-import { Sky, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 
 import React, { ReactNode, useState } from "react";
 import { Audio, AudioAnalyser, DoubleSide, Vector3 } from "three";
-import Alto, { AltoProps } from "themes/Alto";
+import Alto, { AltoProps } from "themes/Alto/kira";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "spacesvr";

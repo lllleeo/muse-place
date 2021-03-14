@@ -64,7 +64,7 @@ const Alto = (props: Partial<AltoProps>) => {
         <AltoModel />
         <Grass />
       </Suspense>
-      {/*<Sun />*/}
+      <Sun />
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
