@@ -1,15 +1,15 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
-import { AudioAnalyser, Color } from "three";
+import { AudioAnalyser } from "three";
+import { Interactable, Video } from "spacesvr";
 import Grass from "./components/Grass";
-import Sun from "./components/Sun";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";
 import AudioReactive from "./components/AudioReactive";
 import { ScrollData } from "./types/scroll";
-import { Fog } from "spacesvr";
 import { Preload } from "@react-three/drei";
+import { AltoContext } from "./index";
 
 export type AltoProps = {
   socials: string[];
@@ -32,7 +32,6 @@ export type AltoProps = {
   setAA?: (aa: AudioAnalyser) => void;
 };
 
-export const AltoContext = React.createContext<AltoProps>({} as AltoProps);
 const defaultContext: AltoProps = {
   socials: ["http://instagram.com/musehq"],
   font: "https://d27rt3a60hh1lx.cloudfront.net/content/alto/ohmightyisis.ttf",
@@ -57,14 +56,12 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
-      <Fog color={new Color("#ffffff")} near={15} far={70} />
       <Preload all />
       <Suspense fallback={null}>
         <Preload all />
         <AltoModel />
         <Grass />
       </Suspense>
-      <Sun />
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
