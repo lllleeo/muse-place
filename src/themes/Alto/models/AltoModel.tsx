@@ -58,22 +58,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     [grassTileTex]
   );
 
-  // const treeTranspTex = useLoader(THREE.TextureLoader, TREE_TRANSP_TEX);
-  // const treeTex = useLoader(THREE.TextureLoader, TREE_TEX);
-  // treeTex.transformUv(new Vector2(1/4, 1/4));
-  // treeTranspTex.transformUv(new Vector2(1/4, 1/4));
-  // const treeMat = useMemo(
-  //   () =>
-  //     new MeshStandardMaterial({
-  //       map: treeTex,
-  //       transparent: true,
-  //       alphaMap: treeTranspTex,
-  //       side: THREE.DoubleSide,
-  //       depthWrite: false,
-  //     }),
-  //   [treeTranspTex, treeTex]
-  // );
-
   materials["bench.mat"].envMapIntensity = 0.38;
 
   useTrimeshCollision(

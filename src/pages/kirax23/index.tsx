@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { GothamProps } from "../../themes/Gotham";
+import { GothamProps } from "themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham/OldGotham"), { ssr: false });
 const KiraX23 = dynamic(import("scenes/Gotham/KiraX23"), { ssr: false });

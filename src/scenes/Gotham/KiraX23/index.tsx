@@ -6,8 +6,6 @@ import {
   MeshStandardMaterial,
   MultiplyOperation,
 } from "three";
-import { useLoader } from "react-three-fiber";
-import * as THREE from "three";
 
 const KiraX23 = () => {
   const glowMaterial = useMemo(

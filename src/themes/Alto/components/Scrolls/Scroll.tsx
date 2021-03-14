@@ -1,19 +1,12 @@
 import ScrollModel from "../../models/Scroll";
 import { useFrame, useThree } from "react-three-fiber";
 import { Image } from "spacesvr";
-import {
-  useRef,
-  useState,
-  Suspense,
-  useLayoutEffect,
-  useMemo,
-  useEffect,
-} from "react";
+import { useRef, useState, Suspense, useEffect } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
-import { useLimiter } from "../../../../scenes/Silks/utils/limiter";
+import { useLimiter } from "spacesvr";
 
 export type ScrollProps = {
   text?: string;
@@ -87,10 +80,8 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
   });
 
   useEffect(() => {
-    if (visits < 2) {
-      if (inRange) {
-        setVisits(visits + 1);
-      }
+    if (visits < 2 && inRange) {
+      setVisits(visits + 1);
     }
   }, [inRange]);
 
@@ -103,7 +94,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
             {count} SCROLL{count > 1 ? "S" : ""} FOUND!
           </Text>
         </animated.group>
-        <group position-y={0.475} name="innerscroll">
+        <group position-y={0.5} name="innerscroll">
           <animated.group position-x={0.015} scale-y={scale} name="content">
             {img && (
               <Image src={img} size={0.45} position-y={text ? -0.3 : -0.45} />
