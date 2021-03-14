@@ -20,6 +20,7 @@ type AltoSceneStore = {
   aa?: AudioAnalyser;
   setAA: (aa: AudioAnalyser) => void;
 };
+
 export const AltoSceneState = React.createContext({} as AltoSceneStore);
 
 const AltoScene = (props: AltoSceneProps) => {
