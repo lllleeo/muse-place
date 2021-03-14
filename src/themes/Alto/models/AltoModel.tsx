@@ -13,29 +13,29 @@ import { useLoader } from "react-three-fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
-    bench: THREE.Mesh;
-    tree: THREE.Mesh;
+    structure: THREE.Mesh;
     gods: THREE.Mesh;
     stairs: THREE.Mesh;
-    structure: THREE.Mesh;
-    spawn: THREE.Mesh;
     information: THREE.Mesh;
+    spawn: THREE.Mesh;
+    bench: THREE.Mesh;
+    tree: THREE.Mesh;
     terrain: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
-    ["bench.mat"]: THREE.MeshStandardMaterial;
-    ["tree.mat"]: THREE.MeshStandardMaterial;
+    ["structure.mat"]: THREE.MeshStandardMaterial;
     ["gods.mat"]: THREE.MeshStandardMaterial;
     ["stairs.mat"]: THREE.MeshStandardMaterial;
-    ["structure.mat"]: THREE.MeshStandardMaterial;
-    ["spawn.mat"]: THREE.MeshStandardMaterial;
     ["information.mat"]: THREE.MeshStandardMaterial;
+    ["spawn.mat"]: THREE.MeshStandardMaterial;
+    ["bench.mat"]: THREE.MeshStandardMaterial;
+    ["tree.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1611656558/alto_12.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1614817459/alto_13.glb";
 
 const GRASS_TEX =
   "https://d27rt3a60hh1lx.cloudfront.net/content/alto/grasstile.jpg";
@@ -58,20 +58,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     [grassTileTex]
   );
 
-  const treeTranspTex = useLoader(THREE.TextureLoader, TREE_TRANSP_TEX);
-  const treeTex = useLoader(THREE.TextureLoader, TREE_TEX);
-  const treeMat = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        map: treeTex,
-        transparent: true,
-        alphaMap: treeTranspTex,
-        side: THREE.DoubleSide,
-        depthWrite: false,
-      }),
-    [treeTranspTex, treeTex]
-  );
-
   materials["bench.mat"].envMapIntensity = 0.38;
 
   useTrimeshCollision(
@@ -90,7 +76,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             material={materials["bench.mat"]}
             geometry={nodes.bench.geometry}
           />
-          <mesh name="tree" material={treeMat} geometry={nodes.tree.geometry} />
+          {/*<mesh name="tree" material={treeMat} geometry={nodes.tree.geometry} />*/}
           <mesh
             name="gods"
             material={materials["gods.mat"]}
