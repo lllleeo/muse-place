@@ -35,7 +35,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1614817459/alto_13.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Alto-1615802818/scene.glb.gz";
 
 const GRASS_TEX =
   "https://d27rt3a60hh1lx.cloudfront.net/content/alto/grasstile.jpg";

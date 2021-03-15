@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL, useTrimeshCollision } from "spacesvr";
+import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry, Color } from "three";
 
 type GLTFResult = GLTF & {
@@ -24,7 +24,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1615316545/structure_09.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1615802571/scene.glb.gz";
 
 export default function Model(
   props: JSX.IntrinsicElements["group"] & {
@@ -34,7 +34,7 @@ export default function Model(
   const { night, ...restProps } = props;
 
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
   if (night) {
     materials["structure"].emissive = new Color("#292929");
@@ -79,4 +79,4 @@ export default function Model(
   );
 }
 
-useGLTF.preload(FILE_URL, DRACO_URL);
+useGLTF.preload(FILE_URL);
