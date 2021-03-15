@@ -1,11 +1,7 @@
 import { Suspense, useMemo } from "react";
 import KiraHead from "./KiraHead";
-import { Floating, Image, Text } from "spacesvr";
-import {
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-  MultiplyOperation,
-} from "three";
+import { Floating, Image, Text, Video, Interactable } from "spacesvr";
+import { MeshStandardMaterial } from "three";
 
 const KiraX23 = () => {
   const glowMaterial = useMemo(
@@ -17,6 +13,15 @@ const KiraX23 = () => {
       }),
     []
   );
+
+  const ceiling =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/ceiling.mp4";
+  const planet =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/planet.mp4";
+
+  const handlePlanetX = () => {
+    window.location.href = "/kirax23/alto";
+  };
 
   return (
     <group>
@@ -43,6 +48,22 @@ const KiraX23 = () => {
           opacity={0.8}
         />
       </mesh>
+      <group
+        position={[-2, 2.5, 4]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        scale={[17, 15, 1]}
+      >
+        <Video src={ceiling} />
+      </group>
+      <Interactable onClick={handlePlanetX}>
+        <group
+          position={[2.48, 1.25, 4.1]}
+          rotation-y={-Math.PI / 2}
+          scale={[5, 5, 5]}
+        >
+          <Video src={planet} />
+        </group>
+      </Interactable>
       <group
         position={[-5.46, 1, 8]}
         rotation={[0, Math.PI / 2, 0]}
