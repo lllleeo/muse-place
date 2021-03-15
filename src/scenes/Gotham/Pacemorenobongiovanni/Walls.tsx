@@ -49,6 +49,16 @@ const Walls = (props: PedestalProps) => {
           <boxBufferGeometry args={[8, 0.1, 16.5]} />
         </mesh>
       </group>
+      <group position={[-1.45, 1.25, -3.75]}>
+        <mesh material={crazyMaterial}>
+          <boxBufferGeometry args={[8, 3, 0.1]} />
+        </mesh>
+      </group>
+      <group position={[-1.45, 1.25, 12.21]}>
+        <mesh material={crazyMaterial}>
+          <boxBufferGeometry args={[8, 3, 0.1]} />
+        </mesh>
+      </group>
     </group>
   );
 };

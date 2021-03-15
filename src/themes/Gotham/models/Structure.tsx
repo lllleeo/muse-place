@@ -28,11 +28,10 @@ const FILE_URL =
 
 export default function Model(
   props: JSX.IntrinsicElements["group"] & {
-    removeWalls?: boolean;
     night?: boolean;
   }
 ) {
-  const { removeWalls, night, ...restProps } = props;
+  const { night, ...restProps } = props;
 
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
@@ -45,9 +44,8 @@ export default function Model(
     materials["middleSupports"].emissive = new Color("#ffffff");
   }
 
-  const colliderMesh = removeWalls ? nodes.colliderNoSupports : nodes.collider;
   useTrimeshCollision(
-    (colliderMesh.geometry as BufferGeometry)
+    (nodes.collider.geometry as BufferGeometry)
       .clone()
       .scale(5, 5, 5)
       .translate(-1.505, 0, 3.96)
@@ -61,13 +59,11 @@ export default function Model(
           material={materials.structure}
           geometry={nodes.structure.geometry}
         />
-        {!removeWalls && (
-          <mesh
-            name="middleSupports"
-            material={materials.middleSupports}
-            geometry={nodes.middleSupports.geometry}
-          />
-        )}
+        <mesh
+          name="middleSupports"
+          material={materials.middleSupports}
+          geometry={nodes.middleSupports.geometry}
+        />
         {/*<mesh*/}
         {/*  name="collider"*/}
         {/*  material={nodes.collider.material}*/}

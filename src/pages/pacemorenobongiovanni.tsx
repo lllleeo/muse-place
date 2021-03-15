@@ -22,20 +22,7 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>Pace Moreno Bongiovanni | Muse Place</title>
       </Head>
-      <Gotham
-        socials={ARTIST.socials}
-        name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="black"
-        removeWalls
-        night
-      >
+      <Gotham socials={ARTIST.socials} name={ARTIST.name} open night>
         <Pacemorenobongiovanni />
       </Gotham>
     </>

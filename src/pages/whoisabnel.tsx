@@ -18,13 +18,6 @@ const ARTIST = {
 
 const artwork: GothamProps["artwork"] = [];
 
-const keyframes: Keyframe[] = [
-  { position: new Vector3(-4, 1, 5), label: "start" },
-  { position: new Vector3(-1, 1, 2), label: "left" },
-  { position: new Vector3(1.5, 1, 5), label: "back" },
-  { position: new Vector3(-1, 1, 8), label: "right" },
-];
-
 const LinkTree: NextPage = () => {
   return (
     <>
@@ -32,21 +25,11 @@ const LinkTree: NextPage = () => {
         <title>whoisabnel | Muse Place</title>
       </Head>
       <Gotham
-        keyframes={keyframes}
         artwork={artwork}
         socials={ARTIST.socials}
         name={ARTIST.name}
-        map="city"
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"white"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="white"
         night
-        stars
-        removeWalls
+        open
       >
         <Whoisabnel />
       </Gotham>
