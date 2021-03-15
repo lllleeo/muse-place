@@ -10,6 +10,7 @@ import Control from "./components/Control";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
 import { config } from "react-spring";
+import { Preload } from "@react-three/drei";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
@@ -55,6 +56,7 @@ const Cart = () => {
         <Spinning>
           <animated.group rotation-y={rotY}>
             <Suspense fallback={null}>
+              <Preload all />
               <ShoppingCart scale={[cartScale, cartScale, cartScale]} />
             </Suspense>
           </animated.group>

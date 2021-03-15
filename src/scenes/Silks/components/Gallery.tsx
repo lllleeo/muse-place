@@ -18,21 +18,21 @@ const Gallery = () => {
       >
         <Image
           material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/gallery/gold.jpg`}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/yellow-green-durag.jpg`}
           size={SIZE}
           framed
           position-x={-1}
         />
         <Image
           material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/gallery/camo.jpg`}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/eyes.jpg`}
           size={SIZE}
           framed
           position-x={3}
         />
         <Image
           material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/gallery/eyes.jpg`}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/camo.jpg`}
           size={SIZE}
           framed
           position-x={7}
@@ -56,7 +56,7 @@ const Gallery = () => {
 
         <Image
           material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/gallery/mal.jpg`}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/gold.jpg`}
           size={SIZE}
           framed
           position-x={2.75}
@@ -78,14 +78,7 @@ const Gallery = () => {
         name="right-wall"
         position={[-10.68, SIZE * 0.75, 3.15]}
         rotation-y={Math.PI / 2}
-      >
-        <Image
-          material={mat}
-          src={`${SILKS_CONTENT_FOLDER}/gallery/laker.jpg`}
-          size={SIZE}
-          framed
-        />
-      </group>
+      />
     </group>
   );
 };

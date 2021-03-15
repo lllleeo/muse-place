@@ -40,13 +40,6 @@ const Kiosk = (props: Props) => {
   const { current: pos } = useRef(new Vector3(100, 100, 100));
   const { products } = useContext(ShopContext);
 
-  const [, box] = useBox(() => ({
-    position: pos.toArray(),
-    args: [WIDTH, 0.05, DEPTH],
-    type: "Static",
-    mass: 0,
-  }));
-
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
       setOpen(true);
@@ -54,13 +47,6 @@ const Kiosk = (props: Props) => {
       setOpen(false);
     }
   });
-
-  useEffect(() => {
-    if (group.current) {
-      group.current.getWorldPosition(pos);
-      box.position.copy(pos);
-    }
-  }, []);
 
   const product = products.find((prod) => prod.id === productId);
 
