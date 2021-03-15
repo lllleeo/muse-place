@@ -32,7 +32,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SilksNoDraco-1615790852/scene.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/SilksNoDraco-1615800441/scene.glb.gz";
 const FOLDER = "https://d27rt3a60hh1lx.cloudfront.net/content/silksbyvp";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
@@ -53,6 +53,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     mat.metalness = 1;
     mat.roughness = 0;
   };
+
+  console.log(materials);
 
   fixMat(materials["rug"]);
   fixMat(materials["speakers"]);

@@ -21,7 +21,7 @@ type ActionName = "Anim_0";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/MichaelNoDraco-1615786478/scene.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/MichaelNoDraco-1615800030/scene.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
