@@ -6,7 +6,6 @@ import * as THREE from "three";
 import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -22,14 +21,11 @@ type ActionName = "Anim_0";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Michael-1613184104/michael1.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/MichaelNoDraco-1615786478/scene.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials, animations } = useGLTF(
-    FILE_URL,
-    DRACO_URL
-  ) as GLTFResult;
+  const { nodes, materials, animations } = useGLTF(FILE_URL) as GLTFResult;
 
   // @ts-ignore
   const { actions } = useAnimations(animations, group);
@@ -58,4 +54,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL, DRACO_URL);
+useGLTF.preload(FILE_URL);

@@ -6,20 +6,19 @@ import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    ["ears.1_1"]: THREE.SkinnedMesh;
-    ["nose.1_1"]: THREE.SkinnedMesh;
-    ["stitchs.1_1"]: THREE.SkinnedMesh;
-    ["Fabric.1_1"]: THREE.SkinnedMesh;
-    ["Sphere.1_1.1_1"]: THREE.SkinnedMesh;
-    ["pants.1_1"]: THREE.SkinnedMesh;
-    ["shirt.1_1"]: THREE.SkinnedMesh;
-    ["left_arm.1_1"]: THREE.SkinnedMesh;
-    ["neck.1_1"]: THREE.SkinnedMesh;
-    ["head.1_1"]: THREE.SkinnedMesh;
+    ["ears1_1"]: THREE.SkinnedMesh;
+    ["nose1_1"]: THREE.SkinnedMesh;
+    ["stitchs1_1"]: THREE.SkinnedMesh;
+    ["Fabric1_1"]: THREE.SkinnedMesh;
+    ["Sphere1_11_1"]: THREE.SkinnedMesh;
+    ["pants1_1"]: THREE.SkinnedMesh;
+    ["shirt1_1"]: THREE.SkinnedMesh;
+    ["left_arm1_1"]: THREE.SkinnedMesh;
+    ["neck1_1"]: THREE.SkinnedMesh;
+    ["head1_1"]: THREE.SkinnedMesh;
     Noeud1: THREE.SkinnedMesh;
     Sphere: THREE.SkinnedMesh;
     mixamorigHips: THREE.Bone;
@@ -30,7 +29,7 @@ type GLTFResult = GLTF & {
     Fabric: THREE.MeshStandardMaterial;
     ["Mat.2"]: THREE.MeshStandardMaterial;
     Mat: THREE.MeshStandardMaterial;
-    ["Mat.1"]: THREE.MeshStandardMaterial;
+    ["Mat1"]: THREE.MeshStandardMaterial;
   };
 };
 
@@ -38,14 +37,11 @@ type ActionName = "animation_0";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SilksVal-1612932102/VAL_EXPORT_1.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/SilksValNoDraco-1615786556/scene.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials, animations } = useGLTF(
-    FILE_URL,
-    DRACO_URL
-  ) as GLTFResult;
+  const { nodes, materials, animations } = useGLTF(FILE_URL) as GLTFResult;
 
   // @ts-ignore
   const { actions } = useAnimations(animations, group);
@@ -65,82 +61,82 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           <primitive object={nodes.mixamorigHips} />
           <group name="ears1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="ears.1_1"
+              name="ears1_1"
               material={materials.michaael}
-              geometry={nodes["ears.1_1"].geometry}
-              skeleton={nodes["ears.1_1"].skeleton}
+              geometry={nodes["ears1_1"].geometry}
+              skeleton={nodes["ears1_1"].skeleton}
             />
           </group>
           <group name="nose1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="nose.1_1"
+              name="nose1_1"
               material={materials.michaael}
-              geometry={nodes["nose.1_1"].geometry}
-              skeleton={nodes["nose.1_1"].skeleton}
+              geometry={nodes["nose1_1"].geometry}
+              skeleton={nodes["nose1_1"].skeleton}
             />
           </group>
           <group name="stitchs1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="stitchs.1_1"
+              name="stitchs1_1"
               material={materials.stitchs}
-              geometry={nodes["stitchs.1_1"].geometry}
-              skeleton={nodes["stitchs.1_1"].skeleton}
+              geometry={nodes["stitchs1_1"].geometry}
+              skeleton={nodes["stitchs1_1"].skeleton}
             />
           </group>
           <group name="Fabric1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="Fabric.1_1"
+              name="Fabric1_1"
               material={materials.Fabric}
-              geometry={nodes["Fabric.1_1"].geometry}
-              skeleton={nodes["Fabric.1_1"].skeleton}
+              geometry={nodes["Fabric1_1"].geometry}
+              skeleton={nodes["Fabric1_1"].skeleton}
             />
           </group>
           <group name="Sphere1_11" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="Sphere.1_1.1_1"
+              name="Sphere1_11_1"
               material={materials["Mat.2"]}
-              geometry={nodes["Sphere.1_1.1_1"].geometry}
-              skeleton={nodes["Sphere.1_1.1_1"].skeleton}
+              geometry={nodes["Sphere1_11_1"].geometry}
+              skeleton={nodes["Sphere1_11_1"].skeleton}
             />
           </group>
           <group name="pants1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="pants.1_1"
+              name="pants1_1"
               material={materials.Mat}
-              geometry={nodes["pants.1_1"].geometry}
-              skeleton={nodes["pants.1_1"].skeleton}
+              geometry={nodes["pants1_1"].geometry}
+              skeleton={nodes["pants1_1"].skeleton}
             />
           </group>
           <group name="shirt1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="shirt.1_1"
-              material={materials["Mat.1"]}
-              geometry={nodes["shirt.1_1"].geometry}
-              skeleton={nodes["shirt.1_1"].skeleton}
+              name="shirt1_1"
+              material={materials["Mat1"]}
+              geometry={nodes["shirt1_1"].geometry}
+              skeleton={nodes["shirt1_1"].skeleton}
             />
           </group>
           <group name="left_arm1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="left_arm.1_1"
+              name="left_arm1_1"
               material={materials.michaael}
-              geometry={nodes["left_arm.1_1"].geometry}
-              skeleton={nodes["left_arm.1_1"].skeleton}
+              geometry={nodes["left_arm1_1"].geometry}
+              skeleton={nodes["left_arm1_1"].skeleton}
             />
           </group>
           <group name="neck1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="neck.1_1"
+              name="neck1_1"
               material={materials.michaael}
-              geometry={nodes["neck.1_1"].geometry}
-              skeleton={nodes["neck.1_1"].skeleton}
+              geometry={nodes["neck1_1"].geometry}
+              skeleton={nodes["neck1_1"].skeleton}
             />
           </group>
           <group name="head1" position={[-2.237, -31.7118, -0.2285]}>
             <skinnedMesh
-              name="head.1_1"
+              name="head1_1"
               material={materials.michaael}
-              geometry={nodes["head.1_1"].geometry}
-              skeleton={nodes["head.1_1"].skeleton}
+              geometry={nodes["head1_1"].geometry}
+              skeleton={nodes["head1_1"].skeleton}
             />
           </group>
           <skinnedMesh
@@ -163,4 +159,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL, DRACO_URL);
+useGLTF.preload(FILE_URL);
