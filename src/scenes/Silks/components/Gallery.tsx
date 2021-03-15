@@ -78,14 +78,7 @@ const Gallery = () => {
         name="right-wall"
         position={[-10.68, SIZE * 0.75, 3.15]}
         rotation-y={Math.PI / 2}
-      >
-        {/*<Image*/}
-        {/*  material={mat}*/}
-        {/*  src={`${SILKS_CONTENT_FOLDER}/gallery/laker.jpg`}*/}
-        {/*  size={SIZE}*/}
-        {/*  framed*/}
-        {/*/>*/}
-      </group>
+      />
     </group>
   );
 };
