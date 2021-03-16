@@ -17,7 +17,7 @@ export default function Placard(props: Props) {
 
   const PADDING_X = 0.06;
   const PADDING_Y = 0.04;
-  const HEIGHT = 0.5;
+  const HEIGHT = Math.max(0.5, (children || "").length * 0.00115);
 
   const top = HEIGHT / 2 - PADDING_Y;
   const left = -width / 2 + PADDING_X;
