@@ -6,7 +6,10 @@ import { GothamProps } from "../themes/Gotham";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const ARTIST = {
   name: "Jason Matias",
-  socials: ["https://www.instagram.com/realjasonmatias", "jasonmatias.com"],
+  socials: [
+    "https://www.instagram.com/realjasonmatias",
+    "https://jasonmatias.com",
+  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias`;

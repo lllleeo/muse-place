@@ -9,4 +9,8 @@ const transpileModules = require("next-transpile-modules")([
   "use-cannon",
 ]);
 
-module.exports = withPlugins([transpileModules]);
+module.exports = {
+  ...withPlugins([transpileModules]),
+  experimental: { reactMode: "concurrent" },
+  reactStrictMode: true,
+};

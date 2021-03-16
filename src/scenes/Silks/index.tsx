@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { StandardEnvironment } from "spacesvr";
 import SilksModel from "./models/SilksModel";
 import { Vector3 } from "three";
@@ -15,6 +16,7 @@ import { useShopifyShop } from "./utils/shopify";
 import Michael from "./characters/Michael";
 import MobileOnboarding from "./overlays/MobileOnboarding";
 import Guide from "./components/Guide";
+import { Preload } from "@react-three/drei";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
 
@@ -34,13 +36,20 @@ const Silks = () => {
       }}
     >
       <ShopContext.Provider value={shop}>
+        <Preload all />
         <Cart />
         <Gallery />
         <MusicVideo />
         <Lighting />
-        <SilksModel />
-        <ValPerre />
-        <Michael />
+        <Suspense fallback={null}>
+          <Preload all />
+          <SilksModel />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Preload all />
+          <ValPerre />
+          <Michael />
+        </Suspense>
         <Kiosks />
         <Renderer />
         <MobileOnboarding />
