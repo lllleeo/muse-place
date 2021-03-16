@@ -1,16 +1,14 @@
-import { Interactable, StandardEnvironment, Video, Image } from "spacesvr";
+import { Interactable, StandardEnvironment, Image } from "spacesvr";
 import * as THREE from "three";
 import { Stars } from "@react-three/drei";
 
 import React, { ReactNode, useState } from "react";
-import { Audio, AudioAnalyser, DoubleSide, Vector3 } from "three";
+import { AudioAnalyser, DoubleSide, Vector3 } from "three";
 import Alto, { AltoProps } from "themes/Alto/Kira";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "spacesvr";
 import Card from "themes/Alto/models/Kira/NftCard";
-import EmailCollection from "themes/Gotham/overlays/EmailCollection";
-import { useLoader } from "react-three-fiber";
 
 export type AltoSceneProps = {
   stars?: boolean;
@@ -79,56 +77,31 @@ const AltoScene = (props: AltoSceneProps) => {
             <Image src={skyloft} />
           </group>
         </Interactable>
-        <group
-          position={[-18.5, 1.6, 26.7]}
-          rotation-y={-2.61}
-          scale={[1.25, 1.25, 1.25]}
-          name="cardPlat"
-        >
+        <group position={[-18.5, 1.6, 26.7]} rotation-y={-2.61} name="cardPlat">
           <Card link={link} video={cardPlat} float />
         </group>
-        <group
-          position={[28.9, 1.6, 10.8]}
-          rotation-y={-0.45}
-          scale={[1.25, 1.25, 1.25]}
-          name="g1"
-        >
+        <group position={[28.9, 1.6, 10.8]} rotation-y={-0.45} name="g1">
           <Card
             link={link + "/x23-genesis-release-7116"}
             image={genesis}
             float
           />
         </group>
-        <group
-          position={[-23.7, 1.6, -15.9]}
-          rotation-y={2.5}
-          scale={[1.25, 1.25, 1.25]}
-          name="g2"
-        >
+        <group position={[-23.7, 1.6, -15.9]} rotation-y={2.5} name="g2">
           <Card
             link={link + "/x23-genesis-collection-arrival-7595"}
             image={genesis2}
             float
           />
         </group>
-        <group
-          position={[22.4, 2.15, -14.12]}
-          rotation-y={0.54}
-          scale={[1.25, 1.25, 1.25]}
-          name="g3"
-        >
+        <group position={[22.4, 2.15, -14.12]} rotation-y={0.54} name="g3">
           <Card
             link={link + "/x23-genesis-collection-download-8117"}
             image={genesis3}
             float
           />
         </group>
-        <group
-          position={[0, 7.5, 0]}
-          rotation-y={0.5}
-          scale={[1.25, 1.25, 1.25]}
-          name="g4"
-        >
+        <group position={[0, 7.5, 0]} rotation-y={0.5} name="g4">
           <Card
             link={link + "/x23-genesis-collection-deus-x23-machina-8682"}
             video={genesis4}

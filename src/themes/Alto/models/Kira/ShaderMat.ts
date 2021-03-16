@@ -47,4 +47,3 @@ const RainbowMaterial = shaderMaterial(
 );
 
 export default RainbowMaterial;
-extend({ RainbowMaterial });

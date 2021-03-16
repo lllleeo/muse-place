@@ -16,9 +16,7 @@ const NftCard = (props: CardProps) => {
 
   const group = useRef<THREE.Group>();
 
-  const handleClick = () => {
-    window.open(link, "_blank");
-  };
+  const handleClick = () => window.open(link, "_blank");
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
@@ -34,7 +32,7 @@ const NftCard = (props: CardProps) => {
   return (
     <group {...props} ref={group}>
       <Interactable onClick={handleClick}>
-        <group>
+        <group scale={[1.25, 1.25, 1.25]}>
           {video && (
             <Video
               src={video}

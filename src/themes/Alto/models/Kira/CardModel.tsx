@@ -6,7 +6,6 @@ import React, { useMemo, useRef } from "react";
 // @ts-ignore
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import RainbowMaterial from "./ShaderMat";
 import { MeshBasicMaterial } from "three";
 import { useLoader } from "react-three-fiber";
 

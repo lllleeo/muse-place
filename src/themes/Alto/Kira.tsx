@@ -1,12 +1,10 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
 import { AudioAnalyser } from "three";
-import { Interactable, Video } from "spacesvr";
 import Grass from "./components/Grass";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";
-import AudioReactive from "./components/AudioReactive";
 import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
 import { AltoContext } from "./index";
@@ -65,7 +63,6 @@ const Alto = (props: Partial<AltoProps>) => {
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
-      {/*<AudioReactive position={[0, 11, 0]} />*/}
     </AltoContext.Provider>
   );
 };
