@@ -65,7 +65,7 @@ const Alto = (props: Partial<AltoProps>) => {
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
-      <AudioReactive position={[0, 11, 0]} />
+      {/*<AudioReactive position={[0, 11, 0]} />*/}
     </AltoContext.Provider>
   );
 };

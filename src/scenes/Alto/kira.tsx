@@ -29,16 +29,17 @@ const AltoScene = (props: AltoSceneProps) => {
   const { stars, skyColor, children, ...restProps } = props;
 
   const genesis =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/GENESIS1.mp4";
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g1.JPG";
   const genesis2 =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis2.mp4";
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g2.JPG";
   const genesis3 =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis3.mp4";
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g3.JPG";
+  const genesis4 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis4.mp4";
   const cardPlat =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/CARD1_PLAT.mp4";
   const skyloft =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/SKYLOFT2.png";
-  // const planetTex = useLoader(THREE.TextureLoader, skyloft);
   const link = "https://foundation.app/X23";
 
   const handleSkyloft = () => {
@@ -75,39 +76,67 @@ const AltoScene = (props: AltoSceneProps) => {
             rotation-y={Math.PI / 1.2}
             scale={[5, 5, 5]}
           >
-            {/*<Video src={skyloft} />*/}
             <Image src={skyloft} />
-            {/*<mesh>*/}
-            {/*  <planeBufferGeometry args={[1, 0.15]} />*/}
-            {/*  <meshStandardMaterial map={planetTex} opacity={1} transparent/>*/}
-            {/*</mesh>*/}
           </group>
         </Interactable>
         <group
-          position={[2.9, 7.75, -3.75]}
-          rotation-y={0.9}
+          position={[-18.5, 1.6, 26.7]}
+          rotation-y={-2.61}
+          scale={[1.25, 1.25, 1.25]}
+          name="cardPlat"
+        >
+          <Card link={link} video={cardPlat} float />
+        </group>
+        <group
+          position={[28.9, 1.6, 10.8]}
+          rotation-y={-0.45}
           scale={[1.25, 1.25, 1.25]}
           name="g1"
         >
-          <Card link={link} video={genesis} />
+          <Card
+            link={link + "/x23-genesis-release-7116"}
+            image={genesis}
+            float
+          />
         </group>
         <group
-          position={[-2.35, 7.75, -4]}
-          rotation-y={2}
+          position={[-23.7, 1.6, -15.9]}
+          rotation-y={2.5}
           scale={[1.25, 1.25, 1.25]}
           name="g2"
         >
-          <Card link={link} video={genesis2} />
+          <Card
+            link={link + "/x23-genesis-collection-arrival-7595"}
+            image={genesis2}
+            float
+          />
         </group>
-        {/*<group*/}
-        {/*  position={[0, 2, 33]}*/}
-        {/*  rotation-y={2}*/}
-        {/*  scale={[1.25, 1.25, 1.25]}*/}
-        {/*  name="g3"*/}
-        {/*>*/}
-        {/*  <Card link={link} video={genesis3} />*/}
-        {/*</group>*/}
-        {/* @ts-ignore */}
+        <group
+          position={[22.4, 2.15, -14.12]}
+          rotation-y={0.54}
+          scale={[1.25, 1.25, 1.25]}
+          name="g3"
+        >
+          <Card
+            link={link + "/x23-genesis-collection-download-8117"}
+            image={genesis3}
+            float
+          />
+        </group>
+        <group
+          position={[0, 7.5, 0]}
+          rotation-y={0.5}
+          scale={[1.25, 1.25, 1.25]}
+          name="g4"
+        >
+          <Card
+            link={link + "/x23-genesis-collection-deus-x23-machina-8682"}
+            video={genesis4}
+            rotate
+            float
+          />
+        </group>
+        {/*@ts-ignore*/}
         {children && React.cloneElement(children, { aa })}
       </AltoSceneState.Provider>
     </StandardEnvironment>
