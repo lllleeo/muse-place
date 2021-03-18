@@ -35,7 +35,9 @@ const AltoScene = (props: AltoSceneProps) => {
   const genesis4 =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g4.JPG";
   const genesis5 =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis5.mp4";
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g5.JPG";
+  const genesis6 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis6.mp4";
   const cardPlat =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/CARD1_PLAT.mp4";
   const skyloft =
@@ -81,10 +83,11 @@ const AltoScene = (props: AltoSceneProps) => {
         </Interactable>
         <group position={[0, 7.5, 0]} rotation-y={0.5} name="center">
           <Card
-            link={link + "/x23-genesis-collection-night-city-9257"}
-            video={genesis5}
+            link={link + "/x23-genesis-collection-invasion-9837"}
+            video={genesis6}
             rotate
             float
+            thin
           />
         </group>
         <group position={[-18.5, 1.6, 26.7]} rotation-y={-2.61} name="cardPlat">
@@ -115,6 +118,13 @@ const AltoScene = (props: AltoSceneProps) => {
           <Card
             link={link + "/x23-genesis-collection-deus-x23-machina-8682"}
             image={genesis4}
+            float
+          />
+        </group>
+        <group position={[2.9, 1.56, -28.26]} rotation-y={1.1} name="g5">
+          <Card
+            link={link + "/x23-genesis-collection-night-city-9257"}
+            image={genesis5}
             float
           />
         </group>
