@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
-import { AudioAnalyser } from "three";
+import { AudioAnalyser, Vector3 } from "three";
 import Grass from "./components/Grass";
 import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
@@ -8,6 +8,7 @@ import Birds from "./components/Birds";
 import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
 import { AltoContext } from "./index";
+import { Audio } from "spacesvr";
 
 export type AltoProps = {
   socials: string[];
@@ -51,6 +52,7 @@ const defaultContext: AltoProps = {
 
 const Alto = (props: Partial<AltoProps>) => {
   const [scrollCount, setScrollCount] = useState(0);
+  const { audio = "" } = props;
 
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
@@ -63,6 +65,7 @@ const Alto = (props: Partial<AltoProps>) => {
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
+      <Audio url={audio} position={new Vector3(0, 11, 0)} />
     </AltoContext.Provider>
   );
 };
