@@ -98,14 +98,14 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/Portrait.jpg`}
           size={0.4}
-          position={[-0.7, -0.31, 0]}
+          position={[-0.625, -0.31, 0]}
         />
         {/* @ts-ignore */}
         <Text
-          position={[0.2, -0.1, 0]}
+          position={[0.19, -0.1, 0]}
           color="black"
-          fontSize={0.04}
-          maxWidth={1.35}
+          fontSize={0.0375}
+          maxWidth={1.225}
           anchorY="top"
         >
           Jason Matias is an author and contemporary photographer who lives and
@@ -169,6 +169,50 @@ export default function JasonMatias() {
       >
         <Image src={`${CONTENT_FOLDER}/FirstLight.jpg`} framed size={1.5} />
       </group>
+      <group
+        name="wall-bottom"
+        position={[-5.47, 0.95, 0.6]}
+        rotation-y={Math.PI / 2}
+      >
+        <Image
+          src={`${CONTENT_FOLDER}/Skyraider.jpg`}
+          framed
+          size={0.8}
+          position={[-0.25, 0.5, 0]}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/Expeditor.jpg`}
+          framed
+          size={1.05}
+          position={[0.75, 0.5, 0]}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/Superfortress.jpg`}
+          framed
+          size={1.825}
+          position={[0.36, -0.3, 0]}
+        />
+        {/* @ts-ignore */}
+        <Text color="black" fontSize={0.15} position={[-8, 0, -0.03]}>
+          New Releases April 7th
+        </Text>
+      </group>
+      <Image
+        name="outside-edgefsolace"
+        src={`${CONTENT_FOLDER}/EdgeOfSolace.jpg`}
+        framed
+        size={10}
+        rotation-y={Math.PI}
+        position={[-1.4, 1.5, 19]}
+      />
+      <Image
+        name="outside-eddie"
+        src={`${CONTENT_FOLDER}/EddieWave.jpg`}
+        framed
+        size={12}
+        rotation-y={0}
+        position={[-1.4, 1.5, -12]}
+      />
     </group>
   );
 }
