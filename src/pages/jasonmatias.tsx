@@ -14,7 +14,12 @@ const LinkTree: NextPage = () => {
         <title>Jason Matias</title>
         <title>Gallery</title>
       </Head>
-      <Gotham socials={[]} name="" emailCollection premium>
+      <Gotham
+        socials={[]}
+        name=""
+        premium
+        emailCollection="http://eepurl.com/gfW1JP"
+      >
         <JasonMatias />
       </Gotham>
     </>

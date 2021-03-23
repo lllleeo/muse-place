@@ -16,7 +16,7 @@ export type GothamProps = {
   open?: boolean;
   artwork?: ArtworkProps["artwork"];
   night?: boolean;
-  emailCollection?: boolean;
+  emailCollection?: string;
   premium?: boolean;
   coupon?: string;
 };
@@ -48,7 +48,9 @@ export default function Gotham(props: GothamProps) {
 
   return (
     <group name="gotham-theme">
-      {emailCollection && <EmailCollection name={name} />}
+      {emailCollection && (
+        <EmailCollection emailCollection={emailCollection} name={name} />
+      )}
       <Preload all />
       <ambientLight intensity={1} />
       <Suspense fallback={null}>
