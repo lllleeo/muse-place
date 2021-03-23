@@ -6,7 +6,7 @@ const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
   name: "Carlos Alberto",
-  socialLinks: ["https://www.instagram.com/homocomsico"],
+  socialLinks: ["https://www.instagram.com/homocosmico"],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/carlosalberto`;
