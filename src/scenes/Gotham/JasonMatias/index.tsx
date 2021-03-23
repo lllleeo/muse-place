@@ -36,6 +36,12 @@ export default function JasonMatias() {
         position={[2.49, 1.07, 4]}
         rotation-y={-Math.PI / 2}
       >
+        <Image
+          src={`${CONTENT_FOLDER}/FTLL.jpg`}
+          framed
+          size={1.6}
+          position-x={-6.5}
+        />
         <group name="connect" position={[-2.65, -0.1, 0]}>
           {/* @ts-ignore */}
           <Text
@@ -58,6 +64,12 @@ export default function JasonMatias() {
           framed
           size={2}
           position-x={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`}
+          framed
+          size={1.6}
+          position-x={6.5}
         />
       </group>
       <group
@@ -167,7 +179,7 @@ export default function JasonMatias() {
         position={[-1.63, 1.07, 8.1]}
         rotation-y={-Math.PI / 2}
       >
-        <Image src={`${CONTENT_FOLDER}/FirstLight.jpg`} framed size={1.5} />
+        <Image src={`${CONTENT_FOLDER}/FirstLightBW.jpg`} framed size={1.5} />
       </group>
       <group
         name="wall-bottom"
@@ -177,25 +189,44 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/Skyraider.jpg`}
           framed
-          size={0.8}
-          position={[-0.25, 0.5, 0]}
+          size={1}
+          position={[2.75, 0, 0]}
         />
         <Image
           src={`${CONTENT_FOLDER}/Expeditor.jpg`}
           framed
-          size={1.05}
-          position={[0.75, 0.5, 0]}
+          size={1.3}
+          position={[1.25, 0, 0]}
         />
         <Image
           src={`${CONTENT_FOLDER}/Superfortress.jpg`}
           framed
-          size={1.825}
-          position={[0.36, -0.3, 0]}
+          size={2}
+          position={[-1, 0, 0]}
         />
-        {/* @ts-ignore */}
-        <Text color="black" fontSize={0.15} position={[-8, 0, -0.03]}>
-          New Releases April 7th
-        </Text>
+        <group position-x={-4.25}>
+          {/* @ts-ignore */}
+          <Text color="black" fontSize={0.15} position={[-1, 0.5, -0.03]}>
+            New Releases April 7th
+          </Text>
+          <Image
+            framed
+            size={1.25}
+            src="https://d27rt3a60hh1lx.cloudfront.net/images/placeholder-10x3.jpg"
+            position-x={-2}
+          />
+          <Image
+            framed
+            size={1.25}
+            src="https://d27rt3a60hh1lx.cloudfront.net/images/placeholder-10x3.jpg"
+          />
+        </group>
+        <Image
+          src={`${CONTENT_FOLDER}/LastLight.jpg`}
+          framed
+          size={2}
+          position={[-9.5, 0, 0]}
+        />
       </group>
       <Image
         name="outside-edgefsolace"
