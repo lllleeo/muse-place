@@ -1,7 +1,6 @@
 import { Suspense, useMemo } from "react";
 import Structure from "./models/Structure";
 import StructureOpen from "./models/StructureOpen";
-import { Interactable } from "spacesvr";
 import { Preload, Text } from "@react-three/drei";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
@@ -17,7 +16,7 @@ export type GothamProps = {
   open?: boolean;
   artwork?: ArtworkProps["artwork"];
   night?: boolean;
-  emailCollection?: boolean;
+  emailCollection?: string;
   premium?: boolean;
 };
 
@@ -47,7 +46,9 @@ export default function Gotham(props: GothamProps) {
 
   return (
     <group name="gotham-theme">
-      {emailCollection && <EmailCollection name={name} />}
+      {emailCollection && (
+        <EmailCollection emailCollection={emailCollection} name={name} />
+      )}
       <Preload all />
       <ambientLight intensity={1} />
       <Suspense fallback={null}>
