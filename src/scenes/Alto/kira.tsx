@@ -33,7 +33,19 @@ const AltoScene = (props: AltoSceneProps) => {
   const genesis3 =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g3.JPG";
   const genesis4 =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis4.mp4";
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g4.JPG";
+  const genesis5 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g5.JPG";
+  const genesis6 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g6.JPG";
+  const genesis7 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g7.JPG";
+  const genesis8 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g8.JPG";
+  const genesis9 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/g9.JPG";
+  const genesis10 =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis10.mp4";
   const cardPlat =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/CARD1_PLAT.mp4";
   const skyloft =
