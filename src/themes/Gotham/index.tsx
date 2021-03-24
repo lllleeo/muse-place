@@ -87,12 +87,18 @@ export default function Gotham(props: GothamProps) {
             </Text>
           </group>
         </Interactable>
-        {coupon &&
+        {coupon && (
           /* @ts-ignore */
-          // <Text anchorY="middle" fontSize={0.15} material={material} font={FONT} position-x={2}>
-          //   Use coupon code {coupon}
-          // </Text>
-          console.log("coupon")}
+          <Text
+            anchorY="middle"
+            fontSize={0.1}
+            material={material}
+            font={FONT}
+            position={[1.8, 0.2, 0]}
+          >
+            Use coupon code djupgrade
+          </Text>
+        )}
       </group>
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
     </group>
