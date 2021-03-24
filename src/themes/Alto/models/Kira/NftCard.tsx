@@ -9,10 +9,11 @@ type CardProps = {
   image?: string;
   rotate?: boolean;
   float?: boolean;
+  thin?: boolean;
 } & JSX.IntrinsicElements["group"];
 
 const NftCard = (props: CardProps) => {
-  const { link, video, image, rotate, float } = props;
+  const { link, video, image, rotate, float, thin } = props;
 
   const group = useRef<THREE.Group>();
 
@@ -38,7 +39,8 @@ const NftCard = (props: CardProps) => {
               src={video}
               rotation-y={-Math.PI / 2 + 0.05}
               position={[-0.05, 0, 0]}
-              scale={[1.5, 1.5, 1.5]}
+              scale={thin ? [1.3, 1.3, 1.3] : [1.5, 1.5, 1.5]}
+              muted
             />
           )}
           {image && (
