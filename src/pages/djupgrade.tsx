@@ -37,6 +37,9 @@ const artwork: GothamProps["artwork"] = [
   },
 ];
 
+const FONT =
+  "https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3";
+
 const LinkTree: NextPage = () => {
   return (
     <>
