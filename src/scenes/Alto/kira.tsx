@@ -91,8 +91,8 @@ const AltoScene = (props: AltoSceneProps) => {
         </Interactable>
         <group position={[0, 7.5, 0]} rotation-y={0.5} name="center">
           <Card
-            link={link + "/x23-genesis-collection-invasion-9837"}
-            video={genesis6}
+            link={link + "/x23-genesis-collection-discovery-12710"}
+            video={genesis10}
             rotate
             float
             thin
@@ -133,6 +133,36 @@ const AltoScene = (props: AltoSceneProps) => {
           <Card
             link={link + "/x23-genesis-collection-night-city-9257"}
             image={genesis5}
+            float
+          />
+        </group>
+        <group position={[-16.5, 1.1, -28.26]} rotation-y={2} name="g6">
+          <Card
+            link={link + "/x23-genesis-collection-invasion-9837"}
+            image={genesis6}
+            thin
+            float
+          />
+        </group>
+        <group position={[13.08, 1.55, -24.5]} rotation-y={0.85} name="g7">
+          <Card
+            link={link + "/x23-genesis-collection-deception-10462"}
+            image={genesis7}
+            thin
+            float
+          />
+        </group>
+        <group position={[30.5, 1.66, -4.47]} rotation-y={0} name="g8">
+          <Card
+            link={link + "/x23-genesis-collection-final-boss-11610"}
+            image={genesis8}
+            float
+          />
+        </group>
+        <group position={[-28.7, 1.56, 16.6]} rotation-y={3.7} name="g9">
+          <Card
+            link={link + "/x23-genesis-collection-aftermath-12138"}
+            image={genesis9}
             float
           />
         </group>
