@@ -48,24 +48,7 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socials}
         name={ARTIST.name}
         night
-      >
-        <group
-          position={[2.49, 0.165, 2.2]}
-          rotation={[0, -Math.PI / 2, 0]}
-          name="coupon"
-        >
-          {/* @ts-ignore */}
-          <Text
-            anchorY="middle"
-            fontSize={0.15}
-            color="white"
-            font={FONT}
-            position-x={2}
-          >
-            Use coupon code djupgrade
-          </Text>
-        </group>
-      </Gotham>
+      />
     </>
   );
 };
