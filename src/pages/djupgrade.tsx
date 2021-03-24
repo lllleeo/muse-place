@@ -50,6 +50,7 @@ const LinkTree: NextPage = () => {
         artwork={artwork}
         socials={ARTIST.socials}
         name={ARTIST.name}
+        coupon="djupgrade"
         night
       />
     </>
