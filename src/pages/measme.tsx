@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Gotham, { GothamProps } from "../themes/Gotham";
-const Codame = dynamic(import("../scenes/Gotham/Codame"), { ssr: false });
+const Codame = dynamic(import("../scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
   name: "Me As Me",
@@ -27,13 +27,12 @@ const artwork: GothamProps["artwork"] = [
   },
   {
     src: `${url}/4.mp4`,
-    audio: true,
   },
   {
     src: `${url}/5.mp4`,
   },
   {
-    src: `${url}/6.mp4`,
+    src: `${url}/6.jpg`,
   },
 ];
 
@@ -48,6 +47,7 @@ const LinkTree: NextPage = () => {
         artwork={artwork}
         socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
+        audio={`${url}/music.mp3`}
       />
     </>
   );
