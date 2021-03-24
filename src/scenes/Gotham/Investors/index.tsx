@@ -1,5 +1,5 @@
 import { Image, Video } from "spacesvr";
-import Placard from "../../../themes/components/Placard";
+// import Placard from "../../../themes/components/Placard";
 import SocialButton from "../../../themes/components/SocialButton";
 import { GroupProps } from "react-three-fiber";
 import { Text } from "@react-three/drei";
@@ -96,47 +96,22 @@ export default function Investors() {
           position-x={1}
         />
       </group> */}
-      {/* <group 
+      <group
         name="wall-top-middle"
         position={[-1.39, 1.07, 4.1]}
         rotation-y={Math.PI / 2}
       >
-        <Video
-          src={`${CONTENT_FOLDER}/4.mp4`}
-          framed
-          size={1.5}
-          position-y={0.4}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/Portrait.jpg`}
-          size={0.4}
-          position={[-0.625, -0.31, 0]}
-        /> */}
-      {/* @ts-ignore */}
-      {/* <Text
-          position={[0.19, -0.1, 0]}
+        {/* @ts-ignore */}
+        <Text
+          position={[0.19, 1.3, 0]}
           color="black"
-          fontSize={0.0375}
-          maxWidth={1.225}
+          fontSize={0.2}
+          maxWidth={2}
           anchorY="top"
         >
-          Jason Matias is an author and contemporary photographer who lives and
-          works in the Greater Seattle Area. A New York native, his photographs
-          of nature include locations around the globe. More recently in his
-          career his creative focus expanded work with models. No matter the
-          subject, Jason’s work focuses on the ideas of isolation and
-          introspection.{"\n\n"}Jason Matias’ career in photography officially
-          began in 2012 however he began exploring photography as a medium of
-          expression during his service in the United States Air Force in 2006.
-          His experience and artist direction eventually culminated in two
-          distant veins of work, Comfortable Isolation and the Aria.{"\n\n"}
-          Jason’s artwork has been shown in exhibitions in the US including Art
-          Basel Week and Art Expo New York and in private shows around the
-          world. His photography has been featured in National Geographic,
-          Weather Channel, and TED, among others. In 2020, Jason published his
-          first book, NakedThoughts.
-        </Text> */}
-      {/* </group> */}
+          The Web Reimagined by Muse
+        </Text>
+      </group>
       {/* <group
         name="wall-top-right"
         position={[-1.39, 1.07, 8.1]}
