@@ -48,7 +48,7 @@ const NftCard = (props: CardProps) => {
               src={image}
               rotation-y={-Math.PI / 2 + 0.05}
               position={[-0.05, 0, 0]}
-              scale={[1.5, 1.5, 1.5]}
+              scale={thin ? [1.3, 1.3, 1.3] : [1.5, 1.5, 1.5]}
             />
           )}
           <Model />

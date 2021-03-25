@@ -17,13 +17,22 @@ export type GothamProps = {
   artwork?: ArtworkProps["artwork"];
   night?: boolean;
   emailCollection?: boolean;
+  coupon?: string;
 };
 
 const FONT =
   "https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3";
 
 export default function Gotham(props: GothamProps) {
-  const { name, socials, artwork, open, night, emailCollection } = props;
+  const {
+    name,
+    socials,
+    artwork,
+    open,
+    night,
+    emailCollection,
+    coupon,
+  } = props;
 
   const material = useMemo(
     () =>
@@ -78,6 +87,18 @@ export default function Gotham(props: GothamProps) {
             </Text>
           </group>
         </Interactable>
+        {coupon && (
+          /* @ts-ignore */
+          <Text
+            anchorY="middle"
+            fontSize={0.1}
+            material={material}
+            font={FONT}
+            position={[1.8, 0.2, 0]}
+          >
+            Use coupon code djupgrade
+          </Text>
+        )}
       </group>
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
     </group>
