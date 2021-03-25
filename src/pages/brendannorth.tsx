@@ -5,32 +5,29 @@ import dynamic from "next/dynamic";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "Million King",
-  socialLinks: [
-    "https://www.instagram.com/millionkingmusic",
-    "https://open.spotify.com/artist/6To84cmvQDTiQz44PoDbmN?si=B_ZscDFtSamB10XZiqqafw",
-  ],
+  name: "Brendan North",
+  socialLinks: ["https://www.instagram.com/brendannorth"],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/dustinking`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/brendannorth`;
 const linkData = [
   {
-    src: `${url}/1.JPG`,
+    src: `${url}/image0.jpeg`,
   },
   {
-    src: `${url}/2.JPG`,
+    src: `${url}/image1.jpeg`,
   },
   {
-    src: `${url}/3.JPG`,
+    src: `${url}/image2.jpeg`,
   },
   {
-    src: `${url}/4.JPG`,
+    src: `${url}/image3.jpeg`,
   },
   {
-    src: `${url}/5.jpg`,
+    src: `${url}/image4.jpeg`,
   },
   {
-    src: `${url}/6.png`,
+    src: `${url}/image5.jpeg`,
   },
 ];
 
@@ -44,7 +41,6 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
-        audio="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/dustinking/newmusic.mp3"
         night
       />
     </>

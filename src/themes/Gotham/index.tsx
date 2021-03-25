@@ -24,6 +24,7 @@ export type GothamProps = {
   premium?: boolean;
   fbPixel?: string;
   googleAnalytics?: string;
+  coupon?: string;
 };
 
 const FONT =
@@ -40,6 +41,7 @@ export default function Gotham(props: GothamProps) {
     premium,
     fbPixel,
     googleAnalytics,
+    coupon,
   } = props;
 
   const material = useMemo(
@@ -79,6 +81,41 @@ export default function Gotham(props: GothamProps) {
         <SocialLinks position={[0, -0.85, 0.31]} socials={socials} />
       </group>
       {!premium && <Credits night={night} />}
+      <group position={[2.49, 0.165, 3.2]} rotation={[0, -Math.PI / 2, 0]}>
+        {/* @ts-ignore */}
+        <Text anchorY="middle" fontSize={0.15} material={material} font={FONT}>
+          MADE BY MUSE{"      "}|
+        </Text>
+        <Interactable
+          onClick={() =>
+            (window.location.href = "https://musevr.typeform.com/to/yjALZqVp")
+          }
+        >
+          <group position-x={1.8}>
+            {/* @ts-ignore */}
+            <Text
+              anchorY="middle"
+              fontSize={0.15}
+              material={material}
+              font={FONT}
+            >
+              Want Your Own? Click Here
+            </Text>
+          </group>
+        </Interactable>
+        {coupon && (
+          /* @ts-ignore */
+          <Text
+            anchorY="middle"
+            fontSize={0.1}
+            material={material}
+            font={FONT}
+            position={[1.8, 0.2, 0]}
+          >
+            Use coupon code {coupon}
+          </Text>
+        )}
+      </group>
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
       <FBPixel code={fbPixel} />
       <GoogleAnalytics code={googleAnalytics} />
