@@ -23,6 +23,7 @@ const LinkTree: NextPage = () => {
             "Sign up to receive beautiful arts and new releases from the artist.",
           link: "http://eepurl.com/gfW1JP",
         }}
+        fbPixel="1756555791243957"
       >
         <JasonMatias />
       </Gotham>
