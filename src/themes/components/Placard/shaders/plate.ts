@@ -1,7 +1,7 @@
 //@ts-ignore
 import glsl from "babel-plugin-glsl/macro";
 
-export const vert = glsl`
+export const vert = `
     varying vec2 vUv;
 
     void main() {
@@ -12,7 +12,7 @@ export const vert = glsl`
     }
 `;
 
-export const frag = glsl`
+export const frag = `
      uniform float borderRadius;
      uniform vec2 dimensions;
      varying vec2 vUv;
