@@ -82,27 +82,6 @@ export default function Gotham(props: GothamProps) {
       </group>
       {!premium && <Credits night={night} />}
       <group position={[2.49, 0.165, 3.2]} rotation={[0, -Math.PI / 2, 0]}>
-        {/* @ts-ignore */}
-        <Text anchorY="middle" fontSize={0.15} material={material} font={FONT}>
-          MADE BY MUSE{"      "}|
-        </Text>
-        <Interactable
-          onClick={() =>
-            (window.location.href = "https://musevr.typeform.com/to/yjALZqVp")
-          }
-        >
-          <group position-x={1.8}>
-            {/* @ts-ignore */}
-            <Text
-              anchorY="middle"
-              fontSize={0.15}
-              material={material}
-              font={FONT}
-            >
-              Want Your Own? Click Here
-            </Text>
-          </group>
-        </Interactable>
         {coupon && (
           /* @ts-ignore */
           <Text
