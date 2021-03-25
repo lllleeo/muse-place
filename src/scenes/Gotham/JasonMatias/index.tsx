@@ -54,7 +54,7 @@ export default function JasonMatias() {
           </Text>
           <AnnotatedLink link="https://instagram.com/realjasonmatias" />
           <AnnotatedLink
-            link="jasonmatias.com"
+            link="https://jasonmatias.com"
             text="Exit to JasonMatias.com"
             position-y={-0.2}
           />

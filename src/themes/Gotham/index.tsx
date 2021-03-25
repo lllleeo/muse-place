@@ -7,7 +7,9 @@ import { ArtworkProps } from "../components/Artwork";
 import { linkPositions } from "./assets/constants";
 import { MeshStandardMaterial } from "three";
 import SocialLinks from "../components/SocialLinks";
-import EmailCollection from "./overlays/EmailCollection";
+import EmailCollection, {
+  EmailCollectionProps,
+} from "./overlays/EmailCollection";
 import Credits from "./components/Credits";
 
 export type GothamProps = {
@@ -16,7 +18,7 @@ export type GothamProps = {
   open?: boolean;
   artwork?: ArtworkProps["artwork"];
   night?: boolean;
-  emailCollection?: string;
+  emailCollection?: EmailCollectionProps;
   premium?: boolean;
   coupon?: string;
 };
@@ -49,7 +51,10 @@ export default function Gotham(props: GothamProps) {
   return (
     <group name="gotham-theme">
       {emailCollection && (
-        <EmailCollection emailCollection={emailCollection} name={name} />
+        <EmailCollection
+          title={`Sign up to receive updates${name && ` from ${name}`}!`}
+          {...emailCollection}
+        />
       )}
       <Preload all />
       <ambientLight intensity={1} />
