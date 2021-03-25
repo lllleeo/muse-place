@@ -11,6 +11,7 @@ import EmailCollection, {
   EmailCollectionProps,
 } from "./overlays/EmailCollection";
 import Credits from "./components/Credits";
+import FBPixel from "../components/FacebookPixel";
 
 export type GothamProps = {
   name: string;
@@ -21,6 +22,7 @@ export type GothamProps = {
   emailCollection?: EmailCollectionProps;
   premium?: boolean;
   coupon?: string;
+  fbPixel?: string;
 };
 
 const FONT =
@@ -35,6 +37,7 @@ export default function Gotham(props: GothamProps) {
     night,
     emailCollection,
     premium,
+    fbPixel,
     coupon,
   } = props;
 
@@ -88,6 +91,7 @@ export default function Gotham(props: GothamProps) {
             </Text>
         )}
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
+      <FBPixel code={fbPixel} />
     </group>
   );
 }
