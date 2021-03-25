@@ -12,6 +12,7 @@ import EmailCollection, {
 } from "./overlays/EmailCollection";
 import Credits from "./components/Credits";
 import FBPixel from "../components/FacebookPixel";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export type GothamProps = {
   name: string;
@@ -22,6 +23,7 @@ export type GothamProps = {
   emailCollection?: EmailCollectionProps;
   premium?: boolean;
   fbPixel?: string;
+  googleAnalytics?: string;
 };
 
 const FONT =
@@ -37,6 +39,7 @@ export default function Gotham(props: GothamProps) {
     emailCollection,
     premium,
     fbPixel,
+    googleAnalytics,
   } = props;
 
   const material = useMemo(
@@ -78,6 +81,7 @@ export default function Gotham(props: GothamProps) {
       {!premium && <Credits night={night} />}
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
       <FBPixel code={fbPixel} />
+      <GoogleAnalytics code={googleAnalytics} />
     </group>
   );
 }
