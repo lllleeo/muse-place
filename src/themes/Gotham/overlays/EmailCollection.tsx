@@ -58,10 +58,10 @@ const NoButton = styled(YesButton)`
   background: gray;
 `;
 
-type Props = { emailCollection?: string; name?: string };
+export type EmailCollectionProps = { title?: string; link?: string };
 
-export default function EmailCollection(props: Props) {
-  const { emailCollection, name } = props;
+export default function EmailCollection(props: EmailCollectionProps) {
+  const { title = "Sign up to receive updates!", link } = props;
 
   const [hasUnpaused, setHasUnpaused] = useState(false);
   const { paused, overlay, setPaused } = useEnvironment();
@@ -81,9 +81,10 @@ export default function EmailCollection(props: Props) {
     <Overlay>
       <Darker>
         <Container>
-          <h3>Sign up to receive updates{name && ` from ${name}`}!</h3>
+          <h3>{title}</h3>
+          {!link && <input type="email" placeholder="Enter email" />}
           <div>
-            <YesButton onClick={() => window.open(emailCollection, "_blank")}>
+            <YesButton onClick={() => window.open(link, "_blank")}>
               Sign Up
             </YesButton>
             <NoButton onClick={() => setPaused(false)}>No Thanks</NoButton>

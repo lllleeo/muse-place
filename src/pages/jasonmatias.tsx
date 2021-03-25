@@ -18,7 +18,11 @@ const LinkTree: NextPage = () => {
         socials={[]}
         name=""
         premium
-        emailCollection="http://eepurl.com/gfW1JP"
+        emailCollection={{
+          title:
+            "Sign up to receive beautiful arts and new releases from the artist.",
+          link: "http://eepurl.com/gfW1JP",
+        }}
       >
         <JasonMatias />
       </Gotham>
