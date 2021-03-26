@@ -1,4 +1,4 @@
-import { Image, Video } from "spacesvr";
+import { Interactable, Image, Video } from "spacesvr";
 // import Placard from "../../../themes/components/Placard";
 import SocialButton from "../../../themes/components/SocialButton";
 import { GroupProps } from "react-three-fiber";
@@ -42,13 +42,13 @@ export default function Investors() {
           size={1.6}
           position-x={-6.5}
         /> */}
-        <group name="connect" position={[-2.65, -0.1, 0]}>
+        <group name="connect" position={[-1.65, 0.1, 0]}>
           {/* @ts-ignore */}
           <Text
-            fontSize={0.1}
+            fontSize={0.2}
             color="black"
             anchorX="left"
-            position={[-0.2, 0.2, 0]}
+            position={[-0.2, 0.4, 0]}
           >
             Connect
           </Text>
@@ -59,14 +59,24 @@ export default function Investors() {
             position-y={-0.2}
           />
         </group>
-        {/* <Image
-          src={`${CONTENT_FOLDER}/WanderingStar.jpg`}
+        {/* <Text
+            fontSize={0.1}
+            color="black"
+            anchorX="center"
+            position={[-0.2, 1, 0]}
+          >
+            Click on a picture to explore. 
+          </Text>
+          
+        <Image
+          src={`${CONTENT_FOLDER}/WanderingStar.jpg`} // asap rocky site 
           framed
           size={2}
           position-x={0.8}
         />
+        
         <Image
-          src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`}
+          src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`} // amazon site 
           framed
           size={1.6}
           position-x={6.5}

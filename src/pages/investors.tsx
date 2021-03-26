@@ -9,10 +9,7 @@ const Investors = dynamic(import("scenes/Gotham/Investors"), {
 });
 const ARTIST = {
   name: "Muse Investors",
-  socials: [
-    "https://app.slidebean.com/p/pm6sgokwzm/Pitch-Deck-V10-NGF",
-    "https://muse.place/muse",
-  ],
+  socials: ["https://linktr.ee/musehq"],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/investors`;
