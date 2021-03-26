@@ -47,6 +47,13 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socialLinks={ARTIST.socialLinks}
         name={ARTIST.name}
+        simulationProps={{
+          signalHost: "13.56.145.136",
+          signalPort: 80,
+          signalPath: "/signal",
+          socketServer: "ws://13.56.145.136:3002",
+          frequency: 30,
+        }}
       />
     </>
   );
