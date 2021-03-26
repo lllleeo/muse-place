@@ -11,7 +11,17 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>VR Gallery | Jason Matias</title>
+        <title>VR Gallery | Jason Matias x Muse</title>
+        <meta
+          property="og:description"
+          content="VR Gallery | Jason Matias x Muse"
+        />
+        <meta
+          property="og:image"
+          content="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias/Signature-Logo.png"
+        />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="500" />
       </Head>
       <Gotham
         socials={[]}
