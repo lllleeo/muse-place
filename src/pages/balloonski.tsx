@@ -3,7 +3,8 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { ScrollData } from "../themes/Alto/types/scroll";
 
-const Standard = dynamic(import("scenes/Alto"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const Balloonski = dynamic(import("scenes/Gotham/Balloonski"), { ssr: false });
 
 const ARTIST = {
   name: "Balloonski",
@@ -15,30 +16,24 @@ const ARTIST = {
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/balloonski`;
 
-const scrollData: ScrollData[] = [
+const linkData = [
   {
-    img: `${url}/1.jpg`,
-    position: [15, -0.61, 30],
+    src: `${url}/gator-stripper.jpg`,
   },
   {
-    img: `${url}/2.jpg`,
-    position: [-15, -0.61, 30],
+    src: `${url}/gucci+ghost.jpg`,
   },
   {
-    img: `${url}/3.jpg`,
-    position: [12.36, 1.21, -15.84],
+    src: `${url}/balloon+frights.jpg`,
   },
   {
-    img: `${url}/4.jpg`,
-    position: [-15, -1.13, -30],
+    src: `${url}/5.jpg`,
   },
   {
-    img: `${url}/5.jpg`,
-    position: [30.52, -0.39, 0.97],
+    src: `${url}/balloonski.jpeg`,
   },
   {
-    img: `${url}/6.jpg`,
-    position: [-12.04, 3.55, -5],
+    src: `${url}/many+balloonski+ghosts.jpg`,
   },
 ];
 
@@ -48,11 +43,14 @@ const LinkTree: NextPage = () => {
       <Head>
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
-      <Standard
-        scrollData={scrollData}
+      <Gotham
+        artwork={linkData}
         socials={ARTIST.socialLinks}
+        name={ARTIST.name}
         audio="https://d27rt3a60hh1lx.cloudfront.net/audio/ini-bestmixever.mp3"
-      />
+      >
+        <Balloonski />
+      </Gotham>
     </>
   );
 };
