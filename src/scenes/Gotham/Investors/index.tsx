@@ -2,9 +2,13 @@ import SocialButton from "themes/components/SocialButton";
 import { GroupProps } from "react-three-fiber";
 import { Text } from "@react-three/drei";
 import { Idea } from "./components/Idea";
-import { Image } from "spacesvr";
+import { Image, Interactable } from "spacesvr";
 import ColorCylinder from "./components/ColorCylinder";
 import SpinningBuilder from "./components/SpinningBuilder";
+
+const FONT = "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
+const CONTENT =
+  "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/investors";
 
 function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   const { link, text = link.replace("https://", ""), ...restProps } = props;
@@ -23,6 +27,74 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
       >
         {text}
       </Text>
+    </group>
+  );
+}
+
+function ImageLink(
+  props: { image?: string; link?: string; text: string } & GroupProps
+) {
+  const { image, link, text, ...restProps } = props;
+
+  const SIZE = 0.5;
+
+  return (
+    <group {...restProps}>
+      {link && (
+        <Interactable onClick={() => window.open(link, "_blank")}>
+          <mesh visible={false}>
+            <planeBufferGeometry args={[SIZE, SIZE]} />
+          </mesh>
+        </Interactable>
+      )}
+      {image && <Image src={image} size={SIZE} />}
+      {/* @ts-ignore */}
+      <Text
+        font={FONT}
+        position-y={-SIZE / 2 - 0.05}
+        anchorY="top"
+        maxWidth={SIZE}
+        textAlign="center"
+      >
+        {text}
+      </Text>
+    </group>
+  );
+}
+
+function ImageLinks(props: GroupProps) {
+  const links = [
+    {
+      image: `${CONTENT}/kirax23.jpg`,
+      link: "https://muse.place/kirax23",
+      text: "Kira X-23",
+    },
+    {
+      image: `${CONTENT}/silks.jpg`,
+      link: "https://silksbyvp.com/world",
+      text: "Silks By VP",
+    },
+    {
+      image: `${CONTENT}/c2a.jpg`,
+      link: "https://muse.place/comingtoamerica/barbershop",
+      text: "Coming 2 America",
+    },
+    {
+      image: `${CONTENT}/awge.jpg`,
+      text: "AWGE",
+    },
+    {
+      image: `${CONTENT}/chad.jpg`,
+      link: "https://spaces.gallery/chad",
+      text: "Chad Knight",
+    },
+  ];
+
+  return (
+    <group {...props}>
+      {links.map((link, i) => (
+        <ImageLink key={link.link} {...link} position-x={i * 0.7} />
+      ))}
     </group>
   );
 }
@@ -48,6 +120,7 @@ export default function Investors() {
             position-y={-0.2}
           />
         </group>
+        <ImageLinks position-y={0.3} />
       </group>
       <group
         name="wall-bottom"
@@ -55,12 +128,7 @@ export default function Investors() {
         rotation-y={Math.PI / 2}
       >
         {/* @ts-ignore */}
-        <Text
-          font="https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf"
-          color="black"
-          fontSize={1}
-          position-x={-3.43}
-        >
+        <Text font={FONT} color="black" fontSize={1} position-x={-3.43}>
           muse
         </Text>
       </group>
