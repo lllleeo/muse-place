@@ -8,37 +8,35 @@ const Investors = dynamic(import("scenes/Gotham/Investors"), {
   ssr: false,
 });
 const ARTIST = {
-  name: "Muse Investors",
-  socials: ["https://linktr.ee/musehq"],
+  name: "",
+  socials: [],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/investors`;
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.jpg`,
-    size: 2.8,
+    size: 1.8,
   },
   {
     src: `${url}/2.jpg`,
-    size: 2.8,
+    size: 1.8,
   },
   {
-    src: `${url}/5.mp4`,
-    size: 2.8,
-    audio: true,
+    src: `${url}/5-smaller.mp4`,
+    size: 1.8,
   },
   {
     src: `${url}/4.jpg`,
-    size: 2.8,
+    size: 1.8,
   },
   {
     src: `${url}/3.jpg`,
-    size: 2.8,
-    audio: true,
+    size: 1.8,
   },
   {
     src: `${url}/6.jpg`,
-    size: 2.8,
+    size: 1.8,
   },
 ];
 
@@ -46,14 +44,18 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Investors</title>
-        <title>Gallery</title>
+        <title>Investors | Muse</title>
       </Head>
       <Gotham
         artwork={artwork}
         socials={ARTIST.socials}
         name={ARTIST.name}
-        emailCollection
+        emailCollection={{
+          title: "Be the first to hear about our progress",
+          link: "https://mailchimp.com",
+        }}
+        premium
+        night
       >
         <Investors />
       </Gotham>
