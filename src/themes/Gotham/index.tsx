@@ -22,9 +22,9 @@ export type GothamProps = {
   night?: boolean;
   emailCollection?: EmailCollectionProps;
   premium?: boolean;
-  coupon?: string;
   fbPixel?: string;
   googleAnalytics?: string;
+  coupon?: string;
 };
 
 const FONT =
@@ -80,19 +80,19 @@ export default function Gotham(props: GothamProps) {
         </Text>
         <SocialLinks position={[0, -0.85, 0.31]} socials={socials} />
       </group>
+      {coupon && (
+        /* @ts-ignore */
+        <Text
+          anchorY="middle"
+          fontSize={0.1}
+          material={material}
+          font={FONT}
+          position={[1.8, 0.2, 0]}
+        >
+          Use coupon code djupgrade
+        </Text>
+      )}
       {!premium && <Credits night={night} />}
-        {coupon && (
-            /* @ts-ignore */
-            <Text
-                anchorY="middle"
-                fontSize={0.1}
-                material={material}
-                font={FONT}
-                position={[1.8, 0.2, 0]}
-            >
-                Use coupon code djupgrade
-            </Text>
-        )}
       {artwork && <Artwork artwork={artwork} linkPositions={linkPositions} />}
       <FBPixel code={fbPixel} />
       <GoogleAnalytics code={googleAnalytics} />
