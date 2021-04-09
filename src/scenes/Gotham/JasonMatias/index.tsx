@@ -205,20 +205,17 @@ export default function JasonMatias() {
           position={[-1, 0, 0]}
         />
         <group position-x={-4.25}>
-          {/* @ts-ignore */}
-          <Text color="black" fontSize={0.15} position={[-1, 0.5, -0.03]}>
-            New Releases April 7th
-          </Text>
           <Image
             framed
-            size={1.25}
-            src="https://d27rt3a60hh1lx.cloudfront.net/images/placeholder-10x3.jpg"
-            position-x={-2}
+            size={2}
+            src={`${CONTENT_FOLDER}/HawaiiWave.jpg`}
+            position-x={-2.4}
           />
           <Image
             framed
-            size={1.25}
-            src="https://d27rt3a60hh1lx.cloudfront.net/images/placeholder-10x3.jpg"
+            size={2}
+            src={`${CONTENT_FOLDER}/MolokaiPano.jpg`}
+            position-x={0.4}
           />
         </group>
         <Image
