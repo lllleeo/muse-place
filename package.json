@@ -28,7 +28,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@react-three/cannon": "^0.5.5",
-    "@react-three/drei": "^3.8.6",
+    "@react-three/drei": "^3.4.0",
     "@react-three/flex": "^0.5.2",
     "@react-three/postprocessing": "^1.4.1",
     "@react-three/xr": "^1.1.0",
