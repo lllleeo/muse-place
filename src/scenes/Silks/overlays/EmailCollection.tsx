@@ -1,7 +1,8 @@
 import { useEnvironment } from "spacesvr";
 import Overlay from "../modifiers/Overlay";
-import { useLayoutEffect, useState } from "react";
+import { useCallback, useContext, useLayoutEffect, useState } from "react";
 import styled from "@emotion/styled";
+import { SilksContext } from "../index";
 
 const Darker = styled.div`
   width: 100%;
@@ -13,7 +14,7 @@ const Darker = styled.div`
   z-index: 10;
 `;
 
-const Container = styled.div`
+const Container = styled.form`
   width: 95%;
   max-width: 500px;
 
@@ -58,20 +59,16 @@ const NoButton = styled(YesButton)`
   background: gray;
 `;
 
-export type EmailCollectionProps = { title?: string; link?: string };
-
-export default function EmailCollection(props: EmailCollectionProps) {
-  const { title = "Sign up to receive updates!", link } = props;
-
-  const [hasUnpaused, setHasUnpaused] = useState(false);
+export default function EmailCollection() {
   const { paused, overlay, setPaused } = useEnvironment();
+  const { setGiveCode } = useContext(SilksContext);
 
-  useLayoutEffect(() => {
-    if (!hasUnpaused && !paused) {
-      setTimeout(() => setPaused(true, "emailcollection"), 25000);
-      setHasUnpaused(true);
-    }
-  }, [hasUnpaused, paused]);
+  const [value, setValue] = useState("");
+
+  const submitEmail = useCallback(() => {
+    // @ts-ignore
+    window._learnq.push(["identify", { $email: value }]);
+  }, [value]);
 
   if (!paused || overlay !== "emailcollection") {
     return null;
@@ -81,13 +78,25 @@ export default function EmailCollection(props: EmailCollectionProps) {
     <Overlay>
       <Darker>
         <Container>
-          <h3>{title}</h3>
-          {!link && <input type="email" placeholder="Enter email" />}
+          <h3>Be first in line for Silks by VP drops</h3>
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
           <div>
-            <YesButton onClick={() => window.open(link, "_blank")}>
-              Sign Up
+            <YesButton
+              type="submit"
+              onClick={() => {
+                setGiveCode(true);
+                submitEmail();
+                setPaused(false);
+              }}
+            >
+              🤝
             </YesButton>
-            <NoButton onClick={() => setPaused(false)}>No Thanks</NoButton>
+            <NoButton onClick={() => setPaused(false)}>nevermind</NoButton>
           </div>
         </Container>
       </Darker>
