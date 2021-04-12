@@ -28,7 +28,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@react-three/cannon": "^0.5.5",
-    "@react-three/drei": "^3.4.0",
+    "@react-three/drei": "^3.8.6",
     "@react-three/flex": "^0.5.2",
     "@react-three/postprocessing": "^1.4.1",
     "@react-three/xr": "^1.1.0",
@@ -49,7 +49,7 @@
     "react-three-flex": "^0.5.2",
     "shopify-buy": "^2.11.0",
     "simplex-noise": "^2.4.0",
-    "spacesvr": "1.5.0",
+    "spacesvr": "^1.5.3",
     "three": "^0.122.0",
     "unique-names-generator": "^4.4.0"
   },
