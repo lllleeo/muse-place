@@ -8,7 +8,8 @@ import { Perf } from "r3f-perf";
 const ShedScene = () => {
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(1.276, 1.1, 2.543), speed: 0.9, rot: -2 }}
+      canvasProps={{ camera: { far: 200 } }}
+      playerProps={{ pos: [1.276, 1.1, 2.543], speed: 0.9, rot: -2 }}
     >
       <Sky />
       <Suspense fallback={null}>
