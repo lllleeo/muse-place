@@ -1,11 +1,9 @@
 import { Suspense, useMemo } from "react";
 import KiraHead from "./KiraHead";
-import { Floating, Image, Text } from "spacesvr";
-import {
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-  MultiplyOperation,
-} from "three";
+import { Floating, Image, Text, Video, Interactable } from "spacesvr";
+import { MeshStandardMaterial } from "three";
+import { useLoader } from "react-three-fiber";
+import * as THREE from "three";
 
 const KiraX23 = () => {
   const glowMaterial = useMemo(
@@ -18,6 +16,15 @@ const KiraX23 = () => {
     []
   );
 
+  const planet =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/PLANETX23.png";
+  const planetTex = useLoader(THREE.TextureLoader, planet);
+
+  const handlePlanetX = () => {
+    window.location.href = "/kirax23/alto";
+  };
+
+  // @ts-ignore
   return (
     <group>
       <Floating>
@@ -43,6 +50,28 @@ const KiraX23 = () => {
           opacity={0.8}
         />
       </mesh>
+      <group
+        position={[-2, 2.5, 4]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        scale={[17, 15, 1]}
+      >
+        <mesh>
+          <planeBufferGeometry args={[1, 1, 1, 1]} />
+          <meshStandardMaterial color="black" />
+        </mesh>
+      </group>
+      <Interactable onClick={handlePlanetX}>
+        <group
+          position={[2.48, 1.25, 4.1]}
+          rotation-y={-Math.PI / 2}
+          scale={[5, 5, 5]}
+        >
+          <mesh>
+            <planeBufferGeometry args={[1, 0.15]} />
+            <meshStandardMaterial map={planetTex} opacity={1} transparent />
+          </mesh>
+        </group>
+      </Interactable>
       <group
         position={[-5.46, 1, 8]}
         rotation={[0, Math.PI / 2, 0]}

@@ -53,6 +53,7 @@ const AltoScene = (props: AltoSceneProps) => {
         <Alto {...restProps} />
         <Lighting />
         <Dropoff />
+
         {/* @ts-ignore */}
         {children && React.cloneElement(children, { aa })}
       </AltoSceneState.Provider>

@@ -8,7 +8,6 @@ type SceneProps = {
   wSegments?: number;
   hSegments?: number;
   position?: [number, number, number];
-  map?: string;
   hScale?: number;
   xzScale?: number;
 };
@@ -19,13 +18,14 @@ const Outside = (props: SceneProps) => {
     wSegments = 200,
     hSegments = 200,
     position = [0, 0, 0],
-    map = "mountain",
     hScale = 10,
     xzScale = 1000,
   } = props;
 
-  const heightmap = useLoader(THREE.TextureLoader, `/assets/${map}.jpg`);
-  const emissiveMap = useLoader(THREE.TextureLoader, "/assets/gradient2.jpg");
+  const url =
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23";
+  const heightmap = useLoader(THREE.TextureLoader, `${url}/city.jpg`);
+  const emissiveMap = useLoader(THREE.TextureLoader, `${url}/gradient2.jpg`);
 
   const dist = 1;
   const mesh = useRef<InstancedMesh>();

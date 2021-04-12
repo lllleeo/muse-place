@@ -40,13 +40,6 @@ const Kiosk = (props: Props) => {
   const { current: pos } = useRef(new Vector3(100, 100, 100));
   const { products } = useContext(ShopContext);
 
-  const [, box] = useBox(() => ({
-    position: pos.toArray(),
-    args: [WIDTH, 0.05, DEPTH],
-    type: "Static",
-    mass: 0,
-  }));
-
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
       setOpen(true);
@@ -55,28 +48,21 @@ const Kiosk = (props: Props) => {
     }
   });
 
-  useEffect(() => {
-    if (group.current) {
-      group.current.getWorldPosition(pos);
-      box.position.copy(pos);
-    }
-  }, []);
-
   const product = products.find((prod) => prod.id === productId);
 
   return (
     <group name="kiosk" {...props} ref={group}>
+      <mesh position-y={-3 / 2 + 0.025}>
+        <boxBufferGeometry args={[WIDTH, 3, DEPTH]} />
+        <meshStandardMaterial color={0x464646} />
+      </mesh>
       <KioskContext.Provider value={{ productId, product, open }}>
-        <mesh position-y={-3 / 2 + 0.025}>
-          <boxBufferGeometry args={[WIDTH, 3, DEPTH]} />
-          <meshStandardMaterial color="white" />
-        </mesh>
         <group position-y={0.4}>
           <Floating height={0.05} speed={2}>
             {children}
           </Floating>
         </group>
-        <Control width={WIDTH} position-z={DEPTH / 2 - 0.15} />
+        <Control width={WIDTH} position-z={DEPTH / 2 - 0.05} />
         <Images position={[-WIDTH / 2 - 0.05, 0.5, DEPTH / 4]} />
         <Description position={[WIDTH / 2 + 0.15, 0.25, DEPTH / 4]} />
       </KioskContext.Provider>

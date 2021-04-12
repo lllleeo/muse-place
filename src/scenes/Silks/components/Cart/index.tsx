@@ -2,7 +2,6 @@ import Spinning from "../../modifiers/Spinning";
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";
-import FacePlayer from "../../modifiers/FacePlayer";
 import { isMobile } from "react-device-detect";
 import { ShopContext } from "../../index";
 import { Interactable } from "spacesvr";
@@ -10,6 +9,7 @@ import Control from "./components/Control";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
 import { config } from "react-spring";
+import { Preload } from "@react-three/drei";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
@@ -49,12 +49,11 @@ const Cart = () => {
   return (
     <Tool pos={[posX, posY]} face={false} pinY={isMobile}>
       <Interactable onClick={isMobile ? () => cart.clear() : undefined}>
-        <FacePlayer>
-          <Control />
-        </FacePlayer>
+        <Control />
         <Spinning>
           <animated.group rotation-y={rotY}>
             <Suspense fallback={null}>
+              <Preload all />
               <ShoppingCart scale={[cartScale, cartScale, cartScale]} />
             </Suspense>
           </animated.group>
