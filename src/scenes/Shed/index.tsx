@@ -5,7 +5,7 @@ import Shed from "./models/Shed";
 import { Vector3 } from "three";
 import { Perf } from "r3f-perf";
 
-const BarbershopScene = () => {
+const ShedScene = () => {
   return (
     <StandardEnvironment
       player={{ pos: new Vector3(1.276, 1.1, 2.543), speed: 0.9, rot: -2 }}
@@ -20,4 +20,4 @@ const BarbershopScene = () => {
   );
 };
 
-export default BarbershopScene;
+export default ShedScene;
