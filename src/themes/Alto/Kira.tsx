@@ -60,7 +60,6 @@ const Alto = (props: Partial<AltoProps>) => {
       <Suspense fallback={null}>
         <Preload all />
         <AltoModel />
-        <Grass />
       </Suspense>
       <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
