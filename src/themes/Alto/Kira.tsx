@@ -1,8 +1,6 @@
 import React, { Suspense, useState } from "react";
 import AltoModel from "./models/AltoModel";
 import { AudioAnalyser, Vector3 } from "three";
-import Grass from "./components/Grass";
-import Scrolls from "./components/Scrolls";
 import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";
 import { ScrollData } from "./types/scroll";
@@ -61,7 +59,6 @@ const Alto = (props: Partial<AltoProps>) => {
         <Preload all />
         <AltoModel />
       </Suspense>
-      <Scrolls count={scrollCount} setCount={setScrollCount} />
       <Birds />
       <Tablatures scrolls={scrollCount} />
       <Audio url={audio} position={new Vector3(0, 11, 0)} />

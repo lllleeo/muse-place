@@ -71,9 +71,10 @@ const Alto = (props: Partial<AltoProps>) => {
         <Grass />
       </Suspense>
       <Sun />
-      <Scrolls count={scrollCount} setCount={setScrollCount} />
+      <Scrolls count={scrollCount} setCount={setScrollCount} />{" "}
+      {/* ~25 DrawCalls */}
       <Birds />
-      <Tablatures scrolls={scrollCount} />
+      <Tablatures scrolls={scrollCount} /> {/* ~12 DrawCalls */}
       <AudioReactive position={[0, 11, 0]} />
       <FBPixel code={fbPixel} />
       <GoogleAnalytics code={googleAnalytics} />
