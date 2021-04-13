@@ -42,7 +42,6 @@ const linkData = [
     audio: true,
   },
 ];
-
 const LinkTree: NextPage = () => {
   const material = useMemo(
     () =>
