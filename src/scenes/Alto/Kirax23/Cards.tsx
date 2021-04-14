@@ -9,7 +9,7 @@ const links: any[] = [
   {
     video:
       "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis10.mp4",
-    link: "/x23-genesis-collection-discovery-12710",
+    link: "https://foundation.app/X23/x23-genesis-collection-discovery-12710",
     thin: true,
   },
   {
