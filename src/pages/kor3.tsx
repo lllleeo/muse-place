@@ -43,16 +43,6 @@ const linkData = [
   },
 ];
 const LinkTree: NextPage = () => {
-  const material = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        color: 0xffffff,
-        metalness: 0.2,
-        roughness: 0.1,
-      }),
-    []
-  );
-
   return (
     <>
       <Head>
@@ -71,11 +61,7 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
       >
-        <group position={[0, 0, 0]}>
-          {/*<mesh>*/}
-          {/*  <meshStandardMaterial attach="material" color="red" />*/}
-          {/*  <textBufferGeometry attach="geometry">Hello</textBufferGeometry>*/}
-          {/*</mesh>*/}
+        <group>
           <mesh position={[-5.48, 1.25, 4.2]} rotation-y={Math.PI / 2}>
             <planeBufferGeometry args={[16.5, 3, 60, 30]} />
             <meshStandardMaterial
