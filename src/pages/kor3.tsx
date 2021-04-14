@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { MeshStandardMaterial } from "three";
 import { useMemo } from "react";
 
-const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const Gotham = dynamic(import("scenes/Gotham/OldGotham"), { ssr: false });
 
 const ARTIST = {
   name: "Kor3",
