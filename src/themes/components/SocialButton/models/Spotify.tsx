@@ -7,7 +7,6 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -19,11 +18,11 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Spotify-1611646063/spotify.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/SBSpotify-1618368201/scene.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
   materials["spotify.mat"].metalness = 0;
   materials["spotify.mat"].roughness = 0.25;
@@ -41,4 +40,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL, DRACO_URL);
+useGLTF.preload(FILE_URL);
