@@ -42,6 +42,7 @@ const linkData = [
     audio: true,
   },
 ];
+
 const LinkTree: NextPage = () => {
   return (
     <>
@@ -52,6 +53,7 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        audio={`${url}/music.mp3`}
         scenePos={[0, -20, 0]}
         fogNear={0}
         fogFar={150}
@@ -61,7 +63,7 @@ const LinkTree: NextPage = () => {
         floorColor="black"
         night
       >
-        <group>
+        <group position={[0, 0, 0]}>
           <mesh position={[-5.48, 1.25, 4.2]} rotation-y={Math.PI / 2}>
             <planeBufferGeometry args={[16.5, 3, 60, 30]} />
             <meshStandardMaterial

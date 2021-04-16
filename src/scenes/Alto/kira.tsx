@@ -2,8 +2,8 @@ import { Interactable, StandardEnvironment, Image } from "spacesvr";
 import * as THREE from "three";
 import { Stars } from "@react-three/drei";
 
-import React, { ReactNode, useMemo, useState } from "react";
-import { AudioAnalyser, DoubleSide, MeshBasicMaterial, Vector3 } from "three";
+import React, { ReactNode, useState } from "react";
+import { AudioAnalyser, DoubleSide } from "three";
 import Alto, { AltoProps } from "themes/Alto/Kira";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";

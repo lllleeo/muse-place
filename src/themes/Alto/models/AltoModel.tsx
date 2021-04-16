@@ -7,7 +7,7 @@ import React, { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL, useTrimeshCollision } from "spacesvr";
+import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry, MeshStandardMaterial, Vector2 } from "three";
 import { useLoader } from "react-three-fiber";
 
