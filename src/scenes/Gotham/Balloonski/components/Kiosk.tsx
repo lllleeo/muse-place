@@ -8,17 +8,18 @@ import {
   useState,
 } from "react";
 import { Floating } from "spacesvr";
-import Control from "./components/Control";
+import Control from "../../../Silks/components/Kiosk/components/Control";
 import { useBox } from "@react-three/cannon";
 import { Group, Vector3 } from "three";
-import Images from "./components/Images";
-import Description from "./components/Description";
-import { Product, ShopState } from "../../types/shop";
-import { ShopContext } from "../../index";
+import Images from "../../../Silks/components/Kiosk/components/Images";
+import Description from "../../../Silks/components/Kiosk/components/Description";
+import { Product, ShopState } from "../../../Silks/types/shop";
+import { ShopContext } from "../../../Silks";
 
 type Props = {
   children: ReactNode;
   productId?: string;
+  productName?: string;
 } & GroupProps;
 
 type KioskContext = {
@@ -33,7 +34,7 @@ const WIDTH = 0.6;
 export const KioskContext = createContext<KioskContext>({} as KioskContext);
 
 const Kiosk = (props: Props) => {
-  const { children, productId } = props;
+  const { children, productId, productName } = props;
 
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
@@ -52,17 +53,17 @@ const Kiosk = (props: Props) => {
 
   return (
     <group name="kiosk" {...props} ref={group}>
-      <mesh position-y={-3 / 2 + 0.025}>
-        <boxBufferGeometry args={[WIDTH, 3, DEPTH]} />
-        <meshStandardMaterial color={0x464646} />
-      </mesh>
       <KioskContext.Provider value={{ productId, product, open }}>
         <group position-y={0.4}>
           <Floating height={0.05} speed={2}>
             {children}
           </Floating>
         </group>
-        <Control width={WIDTH} position-z={DEPTH / 2 - 0.05} />
+        <Control
+          width={WIDTH}
+          position-z={DEPTH / 2 - 0.05}
+          productName={productName}
+        />
         <Images position={[-WIDTH / 2 - 0.05, 0.5, DEPTH / 4]} />
         <Description position={[WIDTH / 2 + 0.15, 0.25, DEPTH / 4]} />
       </KioskContext.Provider>

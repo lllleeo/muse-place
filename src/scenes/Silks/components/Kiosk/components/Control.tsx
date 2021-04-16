@@ -30,10 +30,11 @@ const SUB_FONT = {
 
 type Props = {
   width: number;
+  productName?: string;
 } & GroupProps;
 
 const Control = (props: Props) => {
-  const { width, ...restProps } = props;
+  const { width, productName, ...restProps } = props;
 
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
@@ -63,7 +64,7 @@ const Control = (props: Props) => {
             position-x={-WIDTH / 2 + PADDING_X}
             maxWidth={TEXT_WIDTH}
           >
-            {product ? product.title : "Loading..."}
+            {productName ? productName : product ? product.title : "Loading..."}
           </Text>
           {/* @ts-ignore */}
           <Text
