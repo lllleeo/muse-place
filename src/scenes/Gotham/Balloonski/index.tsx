@@ -25,7 +25,7 @@ export default function Balloonski() {
       <Moneycat
         position={[-4.55, 0, 11.2]}
         rotation-y={2.34}
-        scale={[7, 7, 7]}
+        scale={[4, 4, 4]}
         name="cat"
       />
       <Gatorhead

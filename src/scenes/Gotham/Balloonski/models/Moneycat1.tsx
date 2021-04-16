@@ -25,6 +25,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
   materials["cat.mat"].metalness = 1;
+  materials["cat.mat"].color = new THREE.Color("#a6a6a6");
+  materials["cat.mat"].emissiveIntensity = 0.95;
 
   return (
     <group ref={group} {...props} dispose={null}>
