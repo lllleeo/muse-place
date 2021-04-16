@@ -10,30 +10,27 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    instagrambutton: THREE.Mesh;
+    gator: THREE.Mesh;
   };
   materials: {
-    ["instagram.mat"]: THREE.MeshStandardMaterial;
+    ["gator.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SBInstagram-1618367321/scene.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/gatorhead-1617845675/gatorhead.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
-
-  materials["instagram.mat"].metalness = 0;
-  materials["instagram.mat"].roughness = 0.25;
-
   return (
     <group ref={group} {...props} dispose={null}>
-      <group>
+      <group rotation-y={0.88}>
         <mesh
-          name="instagrambutton"
-          material={materials["instagram.mat"]}
-          geometry={nodes.instagrambutton.geometry}
+          name="gator"
+          material={materials["gator.mat"]}
+          geometry={nodes.gator.geometry}
+          rotation={[0, 0, 0]}
         />
       </group>
     </group>

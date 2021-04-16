@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import AltoModel from "./models/AltoModel";
+import AltoModel from "./models/OldAltoModel";
 import { AudioAnalyser, Vector3 } from "three";
 import Tablatures from "./components/Tablatures";
 import Birds from "./components/Birds";
@@ -49,7 +49,6 @@ const defaultContext: AltoProps = {
 };
 
 const Alto = (props: Partial<AltoProps>) => {
-  const [scrollCount, setScrollCount] = useState(0);
   const { audio = "" } = props;
 
   return (
@@ -60,7 +59,7 @@ const Alto = (props: Partial<AltoProps>) => {
         <AltoModel />
       </Suspense>
       <Birds />
-      <Tablatures scrolls={scrollCount} />
+      <Tablatures scrolls={0} />
       <Audio url={audio} position={new Vector3(0, 11, 0)} />
     </AltoContext.Provider>
   );

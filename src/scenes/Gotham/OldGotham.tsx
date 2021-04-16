@@ -50,7 +50,7 @@ const GothamScene = (props: GothamSceneProps) => {
     <DualEnvironment
       keyframes={keyframes || defaultKeyframes}
       canvasProps={{ camera: { far: 300 } }}
-      player={{
+      playerProps={{
         pos: [-4, 1, 9.9],
         rot: (2 * Math.PI) / 1.2,
         speed: 1.7,

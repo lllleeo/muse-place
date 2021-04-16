@@ -2,14 +2,13 @@ import { Interactable, StandardEnvironment, Image } from "spacesvr";
 import * as THREE from "three";
 import { Stars } from "@react-three/drei";
 
-import React, { ReactNode, useMemo, useState } from "react";
-import { AudioAnalyser, DoubleSide, MeshBasicMaterial, Vector3 } from "three";
+import React, { ReactNode, useState } from "react";
+import { AudioAnalyser, DoubleSide } from "three";
 import Alto, { AltoProps } from "themes/Alto/Kira";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "spacesvr";
 import Cards from "./Kirax23/Cards";
-import { Perf } from "r3f-perf";
 
 export type AltoSceneProps = {
   stars?: boolean;
@@ -27,12 +26,8 @@ export const AltoSceneState = React.createContext({} as AltoSceneStore);
 const AltoScene = (props: AltoSceneProps) => {
   const { stars, skyColor, children, ...restProps } = props;
 
-  const genesis10 =
-    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/genesis10.mp4";
   const skyloft =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kirax23/SKYLOFT2.png";
-
-  const link = "https://foundation.app/X23";
 
   const handleSkyloft = () => {
     window.location.href = "/kirax23";
@@ -42,7 +37,7 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0, 2.7, 36], rot: -Math.PI / 2, speed: 4.5 }}
+      playerProps={{ pos: [0, 2.7, 36], speed: 4.5 }}
       canvasProps={{ pixelRatio: 1 }}
       disableGround
     >
@@ -73,16 +68,6 @@ const AltoScene = (props: AltoSceneProps) => {
           </group>
         </Interactable>
         <Cards />
-        {/*<Perf />*/}
-        {/*<group position={[0, 7.5, 0]} rotation-y={0.5} name="center">*/}
-        {/*  <Card*/}
-        {/*    link={link + "/x23-genesis-collection-discovery-12710"}*/}
-        {/*    video={genesis10}*/}
-        {/*    rotate*/}
-        {/*    float*/}
-        {/*    thin*/}
-        {/*  />*/}
-        {/*</group>*/}
         {/*@ts-ignore*/}
         {children && React.cloneElement(children, { aa })}
       </AltoSceneState.Provider>
