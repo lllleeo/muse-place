@@ -115,7 +115,7 @@ export default function Investors() {
         <group name="connect" position={[-1.65, 0.1, 0]}>
           <AnnotatedLink link="https://instagram.com/musehq" />
           <AnnotatedLink
-            link="https://app.slidebean.com/p/pm6sgokwzm/Pitch-Deck-V10-NGF"
+            link="https://docs.google.com/presentation/d/1EbQBGbzSlUKR3rVCi0rOaxEGlkyfDn3QgO_YUkz5H-s/edit?usp=sharing"
             text="Exit to pitch deck"
             position-y={-0.2}
           />
