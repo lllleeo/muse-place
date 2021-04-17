@@ -1,4 +1,4 @@
-import { Bloom, EffectComposer, SMAA } from "@react-three/postprocessing";
+import { Bloom, EffectComposer, SMAA } from "react-postprocessing";
 import { Suspense } from "react";
 
 const Effects = () => {
