@@ -20,7 +20,7 @@ export default function GothamScene(props: GothamSceneProps) {
 
   return (
     <StandardEnvironment
-      canvasProps={{ camera: { far: 200 } }}
+      canvasProps={{ camera: { far: 200 }, pixelRatio: 1 }}
       playerProps={{ pos: [-3.4, 1, 4.9], rot: Math.PI, speed: 1.7 }}
       simulationProps={simulationProps}
     >
