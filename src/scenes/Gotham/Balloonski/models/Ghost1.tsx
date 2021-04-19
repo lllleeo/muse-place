@@ -10,30 +10,29 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    instagrambutton: THREE.Mesh;
+    ghost: THREE.Mesh;
   };
   materials: {
-    ["instagram.mat"]: THREE.MeshStandardMaterial;
+    ["ghost.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SBInstagram-1618367321/scene.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/ghost-1617672835/ghost.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
-  materials["instagram.mat"].metalness = 0;
-  materials["instagram.mat"].roughness = 0.25;
+  materials["ghost.mat"].metalness = 1;
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="instagrambutton"
-          material={materials["instagram.mat"]}
-          geometry={nodes.instagrambutton.geometry}
+          name="ghost"
+          material={materials["ghost.mat"]}
+          geometry={nodes.ghost.geometry}
         />
       </group>
     </group>
