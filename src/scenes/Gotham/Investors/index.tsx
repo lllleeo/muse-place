@@ -81,6 +81,7 @@ function ImageLinks(props: GroupProps) {
     },
     {
       image: `${CONTENT}/awge.jpg`,
+      link: "https://awge-space.vercel.app/gallery",
       text: "AWGE",
     },
     {
