@@ -1,6 +1,6 @@
-import Gatorhead from "./models/Gatorhead";
+import Gatorhead from "./models/Gator";
 import Ghost from "./models/Ghost1";
-import Moneycat from "./models/Moneycat1";
+import Moneycat from "./models/Moneycat";
 import Desk from "./models/Desk";
 import { Floating } from "spacesvr";
 import Cart from "../../Silks/components/Cart";
@@ -24,13 +24,13 @@ export default function Balloonski() {
       <Desk />
       <Moneycat
         position={[-4.55, 0, 11.2]}
-        rotation-y={2.34}
+        rotation-y={-2.55}
         scale={[4, 4, 4]}
         name="cat"
       />
       <Gatorhead
         position={[1.6, 0.9, 11]}
-        rotation={[2.942, 0.26, 2.982]}
+        rotation={[-0.25, -2.42, -0.13]}
         scale={[6, 6, 6]}
         name="gator"
       />

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Ghost from "../../models/Ghost1";
-import Moneycat from "../../models/Moneycat1";
-import Gatorhead from "../../models/Gatorhead";
+import Moneycat from "../../models/Moneycat";
+import Gatorhead from "../../models/Gator";
 import Spinning from "../../../../Silks/modifiers/Spinning";
 import Kiosk from "./Kiosk";
 import { Preload } from "@react-three/drei";
