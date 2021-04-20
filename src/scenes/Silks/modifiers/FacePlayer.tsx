@@ -42,7 +42,7 @@ const FacePlayer = (props: Props) => {
       group.current.rotation.y = y;
       group.current.rotation.z = z;
     }
-  }, 1);
+  });
 
   return <group ref={group}>{children}</group>;
 };

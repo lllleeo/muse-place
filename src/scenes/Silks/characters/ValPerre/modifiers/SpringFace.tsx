@@ -48,7 +48,7 @@ const SpringFace = (props: Props) => {
       const [y] = getSpringValues(spring);
       group.current.rotation.y = y;
     }
-  }, 1);
+  });
 
   return <group ref={group}>{children}</group>;
 };

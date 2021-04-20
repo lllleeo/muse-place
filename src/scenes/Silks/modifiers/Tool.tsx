@@ -72,13 +72,13 @@ export const Tool = (props: Props) => {
 
     const [x, y, z] = getSpringValues(spring);
     group.current.position.set(x, y, z);
-  }, 1);
+  });
 
   useFrame(() => {
     if (parent.current) {
       parent.current.position.copy(camera.position);
     }
-  }, 1);
+  });
 
   return (
     <group ref={parent}>

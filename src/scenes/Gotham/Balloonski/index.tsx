@@ -7,7 +7,7 @@ import Cart from "../../Silks/components/Cart";
 import Renderer from "../../Silks/components/Renderer";
 import { ShopState } from "../../Silks/types/shop";
 import { createContext } from "react";
-import Kiosks from "./components/Kiosks";
+import Kiosks from "./components/Shop/Kiosks";
 import { useShopifyShop } from "../../Silks/utils/shopify";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
@@ -29,9 +29,9 @@ export default function Balloonski() {
         name="cat"
       />
       <Gatorhead
-        position={[2, 1.38, 11.44]}
-        rotation={[2.842, 0.308, 2.882]}
-        scale={[7, 7, 7]}
+        position={[1.6, 0.9, 11]}
+        rotation={[2.942, 0.26, 2.982]}
+        scale={[6, 6, 6]}
         name="gator"
       />
       <Floating height={0.15} speed={3}>
@@ -43,8 +43,8 @@ export default function Balloonski() {
         />
       </Floating>
       <Cart />
-      <Renderer />
       <Kiosks />
+      {/*<Renderer />*/}
     </group>
     // </ShopContext.Provider>
   );

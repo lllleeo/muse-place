@@ -8,13 +8,13 @@ import {
   useState,
 } from "react";
 import { Floating } from "spacesvr";
-import Control from "../../../Silks/components/Kiosk/components/Control";
+import Control from "../../../../Silks/components/Kiosk/components/Control";
 import { useBox } from "@react-three/cannon";
 import { Group, Vector3 } from "three";
-import Images from "../../../Silks/components/Kiosk/components/Images";
-import Description from "../../../Silks/components/Kiosk/components/Description";
-import { Product, ShopState } from "../../../Silks/types/shop";
-import { ShopContext } from "../../../Silks";
+import Images from "../../../../Silks/components/Kiosk/components/Images";
+import Description from "../../../../Silks/components/Kiosk/components/Description";
+import { Product, ShopState } from "../../../../Silks/types/shop";
+import { ShopContext } from "../../../../Silks";
 
 type Props = {
   children: ReactNode;
