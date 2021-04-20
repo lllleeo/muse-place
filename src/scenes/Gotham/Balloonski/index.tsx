@@ -29,8 +29,8 @@ export default function Balloonski() {
         name="cat"
       />
       <Gatorhead
-        position={[1.6, 0.9, 11]}
-        rotation={[-0.25, -2.42, -0.13]}
+        position={[1.6, 0.54, 11]}
+        rotation={[0, -2.42, 0]}
         scale={[6, 6, 6]}
         name="gator"
       />
