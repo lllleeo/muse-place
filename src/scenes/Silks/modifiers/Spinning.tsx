@@ -15,7 +15,7 @@ const Spinning = (props: Props) => {
 
   const group = useRef<Group>();
   const [seed] = useState(Math.random());
-  const limiter = useLimiter(75);
+  const limiter = useLimiter(45);
 
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock)) return;
