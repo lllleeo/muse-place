@@ -7,6 +7,7 @@ export type ArtworkProps = {
     link?: string;
     audio?: boolean;
     size?: number;
+    blank?: boolean;
   }[];
   linkPositions: {
     p: Vector3;
@@ -27,6 +28,7 @@ const Artwork = (props: ArtworkProps) => {
           link={piece.link}
           size={piece.size}
           src={piece.src}
+          blank={piece.blank}
           key={i}
         />
       ))}
