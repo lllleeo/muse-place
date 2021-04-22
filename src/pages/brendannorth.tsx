@@ -13,23 +13,23 @@ const ARTIST = {
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/brendannorth`;
 const linkData = [
   {
-    src: `${url}/og/ahextinction.mp4`,
+    src: `${url}/og/Ahextinction-1.mp4`,
   },
   {
-    src: `${url}/og/vparadise.mp4`,
+    src: `${url}/og/Vparadise-1.mp4`,
   },
   {
     src: "",
     blank: true,
   },
   {
-    src: `${url}/og/vsummer.mp4`,
+    src: `${url}/og/Vsummer-1.mp4`,
   },
   {
-    src: `${url}/og/ahsingularity.mp4`,
+    src: `${url}/og/Ahsingularity-1.mp4`,
   },
   {
-    src: `${url}/og/vlove.mp4`,
+    src: `${url}/og/Vlove-1.mp4`,
   },
 ];
 
