@@ -1,8 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { ScrollData } from "themes/Alto/types/scroll";
-import Renderer from "scenes/Silks/components/Renderer";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const Balloonski = dynamic(import("scenes/Gotham/Balloonski"), { ssr: false });
@@ -51,7 +49,6 @@ const LinkTree: NextPage = () => {
         premium
       >
         <Balloonski />
-        {/*<Renderer />*/}
       </Gotham>
     </>
   );
