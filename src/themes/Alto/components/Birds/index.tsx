@@ -4,7 +4,7 @@ import { useContext, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { createBirdGeometry } from "./core/bird";
 import { initComputeRenderer } from "./core/physics";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { MathUtils } from "three";
 import { AltoSceneState } from "../../../../scenes/Alto";
 import { useDetectGPU } from "@react-three/drei";

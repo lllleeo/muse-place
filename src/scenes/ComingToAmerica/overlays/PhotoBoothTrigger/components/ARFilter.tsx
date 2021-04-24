@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 // @ts-ignore
-import { JEEFACEFILTERAPI, NN_4EXPR } from "facefilter";
+import { JEELIZFACEFILTER, NN_4EXPR } from "facefilter";
 import { JeelizThreeFiberHelper } from "../assets/JeelizThreeFiberHelper.js";
-import { Canvas, useFrame, useThree, useUpdate } from "react-three-fiber";
-import { Group } from "three";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { DRACO_URL } from "spacesvr";
@@ -25,14 +24,14 @@ const FaceFollower = (props: {
   expressions: Expressions;
   assetUrl: string;
 }) => {
-  const objRef = useUpdate<Group>((group) => {
-    _faceFollowers[props.faceIndex] = group;
-  }, []);
+  // const objRef = useMemo<Group>((group) => {
+  //   _faceFollowers[props.faceIndex] = group;
+  // }, []);
 
   const gltf = useGLTF(props.assetUrl, DRACO_URL);
 
   return (
-    <group ref={objRef}>
+    <group>
       {/*<mesh name="mainCube">*/}
       {/*  <boxBufferGeometry args={[1, 1, 1]} />*/}
       {/*  <meshNormalMaterial />*/}
@@ -125,7 +124,7 @@ const ARFilter = (props: { assetUrl: string }) => {
     JeelizThreeFiberHelper.update(detectStates, _threeFiber.camera);
 
     // render the video texture on the faceFilter canvas:
-    JEEFACEFILTERAPI.render_video();
+    JEELIZFACEFILTER.render_video();
 
     // get expressions factors:
     detectStates.forEach((detectState: any, faceIndex: any) => {
@@ -156,13 +155,13 @@ const ARFilter = (props: { assetUrl: string }) => {
       return;
     }
 
-    console.log("INFO: JEEFACEFILTERAPI IS READY");
+    console.log("INFO: JEELIZFACEFILTER IS READY");
     // there is only 1 face to track, so 1 face follower:
     JeelizThreeFiberHelper.init(spec, _faceFollowers, callbackDetect);
   };
 
   useEffect(() => {
-    JEEFACEFILTERAPI.init({
+    JEELIZFACEFILTER.init({
       canvas: faceFilterCanvas.current,
       NNC: NN_4EXPR,
       maxFacesDetected: 1,
@@ -172,7 +171,7 @@ const ARFilter = (props: { assetUrl: string }) => {
     });
 
     return () => {
-      JEEFACEFILTERAPI.destroy();
+      JEELIZFACEFILTER.destroy();
     };
   }, []);
 

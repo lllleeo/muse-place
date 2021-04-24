@@ -8,7 +8,7 @@ import Spotify from "./models/Spotify";
 import Youtube from "./models/Youtube";
 import Typeform from "./models/Typeform";
 import Soundcloud from "./models/Soundcloud";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 
 type SocialProps = {
   link: string;

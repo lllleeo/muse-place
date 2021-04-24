@@ -1,5 +1,5 @@
 import { Floating, Image } from "spacesvr";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import FacePlayer from "../../../modifiers/FacePlayer";
 import { useContext } from "react";
 import { KioskContext } from "../index";

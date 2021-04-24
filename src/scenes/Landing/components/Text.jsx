@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { Text as FlatText } from "@react-three/drei";
-import { useThree } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
 
 const Text = forwardRef(
   (

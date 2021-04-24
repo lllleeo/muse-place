@@ -9,7 +9,7 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry, MeshStandardMaterial, Vector2 } from "three";
-import { useLoader } from "react-three-fiber";
+import { useLoader } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
