@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useEffect, useMemo, useState } from "react";
-import { useThree } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
 
 type MusicProps = JSX.IntrinsicElements["group"] & {
   url: string;

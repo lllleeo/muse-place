@@ -1,5 +1,5 @@
 import ScrollModel from "../../models/Scroll";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Image } from "spacesvr";
 import { useRef, useState, Suspense, useEffect } from "react";
 import * as THREE from "three";

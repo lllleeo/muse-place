@@ -1,7 +1,7 @@
 import CardModel from "./CardModel";
 import { Image, Video, Interactable, useLimiter } from "spacesvr";
 import { useRef } from "react";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 type CardProps = {

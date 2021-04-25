@@ -1,4 +1,4 @@
-import { GroupProps, useFrame } from "react-three-fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import {
   createContext,
   ReactNode,

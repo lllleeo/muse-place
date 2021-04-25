@@ -1,9 +1,9 @@
 import { Fog, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
-import { Stars } from "@react-three/drei";
+import { Sky, Stars } from "@react-three/drei";
 
 import React, { ReactNode, useState } from "react";
-import { AudioAnalyser, DoubleSide, Vector3 } from "three";
+import { AudioAnalyser, DoubleSide } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
@@ -40,8 +40,8 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0, 3, 36], rot: -Math.PI / 2, speed: 2.4 }}
-      canvasProps={{ pixelRatio: 1 }}
+      playerProps={{ pos: [0, 3, 36], rot: 0, speed: 2.4 }}
+      canvasProps={{ dpr: 1 }}
       simulationProps={simulationProps}
       disableGround
     >
@@ -66,8 +66,9 @@ const AltoScene = (props: AltoSceneProps) => {
             hdri ||
             "https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr"
           }
-          hideBackground={hdri === undefined}
+          disableBackground={!hdri}
         />
+        {!hdri && <Sky sunPosition={[0, 1, 0]} />}
         <Alto {...restProps} />
         <Lighting />
         <Dropoff />

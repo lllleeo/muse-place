@@ -1,9 +1,6 @@
 import React, { ReactNode, useRef } from "react";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Group, Vector3 } from "three";
-import { useSpring } from "react-spring";
-import { getSpringValues } from "../utils/spring";
-import { useLimiter } from "../utils/limiter";
 
 type Props = {
   children: ReactNode;
@@ -14,7 +11,6 @@ type Props = {
 };
 
 const SCALE = 0.0025;
-const DISTANCE = 0.05;
 
 /**
  * Tool modifier will place its children in constant view of the camera
@@ -26,36 +22,25 @@ const DISTANCE = 0.05;
  * @constructor
  */
 export const Tool = (props: Props) => {
-  const {
-    children,
-    pos,
-    face = true,
-    pinY = false,
-    distance = DISTANCE,
-  } = props;
+  const { children, pos, face = true, pinY = false, distance = 1 } = props;
 
-  const { camera, size } = useThree();
+  const DISTANCE = distance * 0.05;
+
+  const camera = useThree((state) => state.camera);
+  const size = useThree((state) => state.size);
 
   const group = useRef<Group>();
-  const parent = useRef<Group>();
+  const groupPos = useRef(new Vector3());
 
   const { current: dummyVector } = useRef(new Vector3());
-  const { current: seed } = useRef(Math.random());
-  const [t, f] = hashSpringSeed(seed);
-  const limiter = useLimiter(70);
 
-  const [spring, setSpring] = useSpring(() => ({
-    xyz: [0, 0, 0],
-    config: { tension: 120 + t, friction: 24 + f, precision: 0.00001 },
-  }));
-
-  useFrame(({ clock }) => {
-    if (!group.current || !limiter.isReady(clock)) return;
+  useFrame(() => {
+    if (!group.current) return;
 
     if (pos !== undefined) {
       const xPos = (pos[0] * 0.00008 * size.width) / 2;
       const yPos = 0.04 * pos[1];
-      dummyVector.set(xPos, yPos, -distance);
+      dummyVector.set(xPos * distance, yPos * distance, -DISTANCE);
       const moveQuaternion = camera.quaternion.clone();
       if (!pinY) {
         moveQuaternion.x = 0;
@@ -63,34 +48,22 @@ export const Tool = (props: Props) => {
       }
       dummyVector.applyQuaternion(moveQuaternion);
 
-      setSpring({ xyz: dummyVector.toArray() });
+      group.current.getWorldPosition(groupPos.current);
+      const deltaPos = groupPos.current.sub(camera.position);
+      group.current.position.sub(deltaPos);
+      group.current.position.add(dummyVector);
     }
 
     if (face) {
-      group.current.lookAt(camera.position);
-    }
-
-    const [x, y, z] = getSpringValues(spring);
-    group.current.position.set(x, y, z);
-  });
-
-  useFrame(() => {
-    if (parent.current) {
-      parent.current.position.copy(camera.position);
+      group.current.quaternion.copy(camera.quaternion);
     }
   });
 
   return (
-    <group ref={parent}>
-      <group ref={group} scale={[SCALE, SCALE, SCALE]}>
-        {children}
+    <group>
+      <group ref={group}>
+        <group scale={SCALE * distance}>{children}</group>
       </group>
     </group>
   );
-};
-
-const hashSpringSeed = (seed: number): [number, number] => {
-  const t = (((seed * 100) % 100) - 50) / 50;
-  const f = (((seed * 10000) % 100) - 50) / 50;
-  return [t * 40, f * 13];
 };

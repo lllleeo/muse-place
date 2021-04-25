@@ -38,7 +38,7 @@ const AltoScene = (props: AltoSceneProps) => {
   return (
     <StandardEnvironment
       playerProps={{ pos: [0, 2.7, 36], speed: 4.5 }}
-      canvasProps={{ pixelRatio: 1 }}
+      canvasProps={{ dpr: 1 }}
       disableGround
     >
       <AltoSceneState.Provider value={{ aa, setAA }}>
