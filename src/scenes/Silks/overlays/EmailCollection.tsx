@@ -14,7 +14,7 @@ const Darker = styled.div`
   z-index: 10;
 `;
 
-const Container = styled.form`
+const Container = styled.div`
   width: 95%;
   max-width: 500px;
 

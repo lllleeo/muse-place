@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import * as THREE from "three";
-import { useThree } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
 import { FogExp2 } from "three";
 
 const FBMFog = () => {

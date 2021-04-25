@@ -5,7 +5,7 @@ import Distort from "../Distort";
 import { Shadow, useGLTF } from "@react-three/drei";
 import { AltoContext } from "../../index";
 import { AltoSceneState } from "../../../../scenes/Alto";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 
 /**
  * Audio Reactive component. Will slowly rotate and sway model

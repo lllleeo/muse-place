@@ -1,9 +1,7 @@
 import { Suspense } from "react";
 import { Audio, HDRI, StandardEnvironment } from "spacesvr";
 import Sidewalk from "./models/Sidewalk";
-import { Vector3 } from "three";
 import Buildings from "./components/Buildings";
-import MobileOnboarding from "../components/MobileOnboarding";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import EnterBarbershop from "./components/EnterBarbershop";
@@ -24,7 +22,6 @@ const ComingAmerica = () => {
         }}
         disableGround
       >
-        <MobileOnboarding />
         <EnterBarbershop />
         <MyTSharpTrigger />
         <BarbershopSignTrigger />

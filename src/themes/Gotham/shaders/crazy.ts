@@ -1,5 +1,5 @@
 import { Vector2 } from "three";
-import { extend } from "react-three-fiber";
+import { extend } from "@react-three/fiber";
 
 import { shaderMaterial } from "@react-three/drei";
 

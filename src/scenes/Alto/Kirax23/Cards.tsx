@@ -1,7 +1,7 @@
 import NftCard from "themes/Alto/models/Kira/NftCard";
 import React, { useMemo } from "react";
 import * as THREE from "three";
-import { useLoader } from "react-three-fiber";
+import { useLoader } from "@react-three/fiber";
 import { MeshBasicMaterial } from "three";
 
 const GAP = 0.2;

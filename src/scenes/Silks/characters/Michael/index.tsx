@@ -1,7 +1,7 @@
 import { Suspense, useContext, useRef, useState } from "react";
 import MichaelModel from "../../models/MichaelModel";
 import { Group } from "three";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import WhatsUp from "./dialogue/WhatsUp";
 import { SilksContext } from "../../index";
 import GiveCode from "./dialogue/GiveCode";

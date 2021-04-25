@@ -1,6 +1,7 @@
 import { useEnvironment } from "spacesvr";
 import { Html } from "@react-three/drei";
-import { createPortal } from "react-three-fiber";
+// @ts-ignore
+import { createPortal } from "react-dom";
 import { ReactNode } from "react";
 
 type Props = {
@@ -11,7 +12,11 @@ const Overlay = (props: Props) => {
   const { children } = props;
   const { containerRef } = useEnvironment();
 
-  return <Html>{createPortal(children, containerRef.current)}</Html>;
+  if (!containerRef.current) {
+    return null;
+  }
+
+  return <Html>{createPortal(children, containerRef!.current)}</Html>;
 };
 
 export default Overlay;

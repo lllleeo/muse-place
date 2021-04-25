@@ -1,5 +1,5 @@
 import { Text } from "@react-three/drei";
-import { GroupProps, useFrame } from "react-three-fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import { ReactNode, useRef, useState } from "react";
 
 type Props = {

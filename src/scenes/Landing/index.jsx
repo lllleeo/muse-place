@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Fog } from "spacesvr";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import { Loader } from "@react-three/drei";
 import Layout from "./components/Layout";
 import UpdateCamera from "./components/UpdateCamera";

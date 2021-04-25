@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Builder from "../models/Builder";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { Spinning } from "spacesvr";
 
 export default function SpinningBuilder(props: GroupProps) {
