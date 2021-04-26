@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useFrame, useLoader, useThree } from "react-three-fiber";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import {
   ShaderMaterial,
   InstancedMesh,

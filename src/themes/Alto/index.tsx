@@ -34,6 +34,7 @@ export type AltoProps = {
   setAA?: (aa: AudioAnalyser) => void;
   fbPixel?: string;
   googleAnalytics?: string;
+  premium?: boolean;
 };
 
 export const AltoContext = React.createContext<AltoProps>({} as AltoProps);
@@ -54,6 +55,7 @@ const defaultContext: AltoProps = {
       body: `otherwise known as the music venue of the gods. For thousands of years, Alto has been only accessible to immortal beings, but you seem to have found us anyway.. At the top of those stairs, you'll be the first mortal to ever hear Lucid Monday's latest work`,
     },
   },
+  premium: false,
 };
 
 const Alto = (props: Partial<AltoProps>) => {

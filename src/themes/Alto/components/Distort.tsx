@@ -9,8 +9,8 @@ import {
 } from "three";
 
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
-import { useFrame } from "react-three-fiber";
-import { useLimiter } from "../../../scenes/Silks/utils/limiter";
+import { useFrame } from "@react-three/fiber";
+import { useLimiter } from "spacesvr";
 
 const uniforms = `
     uniform float time;

@@ -1,7 +1,7 @@
 import { Image, Video } from "spacesvr";
 import Placard from "../../../themes/components/Placard";
 import SocialButton from "../../../themes/components/SocialButton";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 
 const CONTENT_FOLDER =

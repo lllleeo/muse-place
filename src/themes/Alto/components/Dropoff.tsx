@@ -1,6 +1,6 @@
 import { usePlayer, useLimiter } from "spacesvr";
-import { useThree } from "react-three-fiber";
-import { useFrame } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 
 const Dropoff = () => {

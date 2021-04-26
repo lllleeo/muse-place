@@ -1,5 +1,5 @@
 import SocialButton from "themes/components/SocialButton";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Idea } from "./components/Idea";
 import { Image, Interactable } from "spacesvr";
