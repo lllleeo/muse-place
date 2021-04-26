@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { Box3, Group, Mesh, Object3D, Sphere, Vector3 } from "three";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 
 type Props = {
   children: ReactNode;
@@ -40,7 +40,6 @@ const Sittable = (props: Props) => {
         for (const box of boxes.current) {
           if (box.intersectsSphere(sphere.current)) {
             setSit(true);
-            console.log("detected!");
           }
         }
       }

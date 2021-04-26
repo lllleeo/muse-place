@@ -2,7 +2,7 @@ import { Suspense, useMemo } from "react";
 import KiraHead from "./KiraHead";
 import { Floating, Image, Text, Video, Interactable } from "spacesvr";
 import { MeshStandardMaterial } from "three";
-import { useLoader } from "react-three-fiber";
+import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
 const KiraX23 = () => {

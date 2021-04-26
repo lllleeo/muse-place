@@ -5,11 +5,14 @@ import dynamic from "next/dynamic";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "Carlos Alberto",
-  socialLinks: ["https://www.instagram.com/homocosmico"],
+  name: "spill.rah",
+  socialLinks: [
+    "https://www.instagram.com/spillrah",
+    "https://open.spotify.com/artist/2VlCmPerBLbnxuVdQcH7D6?si=gbCEbj9_RKe1b_u6rrW4bA",
+  ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/carlosalberto`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/spill`;
 const linkData = [
   {
     src: `${url}/1.jpg`,
@@ -18,7 +21,7 @@ const linkData = [
     src: `${url}/2.jpg`,
   },
   {
-    src: `${url}/3.jpg`,
+    src: `${url}/3.mp4`,
   },
   {
     src: `${url}/4.jpg`,
@@ -41,6 +44,7 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        audio={`${url}/music.mp3`}
         night
       />
     </>

@@ -1,6 +1,6 @@
 import { Interactable } from "spacesvr";
 import { Text } from "@react-three/drei";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import SpeechBubble from "../../../components/SpeechBubble";
 import { useContext } from "react";
 import { ShopContext } from "../../../index";

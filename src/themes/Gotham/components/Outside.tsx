@@ -1,4 +1,4 @@
-import { useFrame, useLoader } from "react-three-fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { ReactText, useEffect, useMemo, useRef } from "react";
 import { InstancedMesh, Mesh } from "three";

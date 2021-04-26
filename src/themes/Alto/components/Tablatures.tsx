@@ -13,7 +13,7 @@ type Props = {
 const Tablatures = (props: Props) => {
   const { scrolls } = props;
 
-  const { socials, font, content, fontSize, scrollData } = useContext(
+  const { socials, font, content, fontSize, scrollData, premium } = useContext(
     AltoContext
   );
   const { landing, name } = content;
@@ -36,7 +36,7 @@ const Tablatures = (props: Props) => {
       >
         <group position-y={-0.05}>
           {/* @ts-ignore */}
-          <Text {...textStyles} textAlign="justify">
+          <Text {...textStyles} textAlign="center">
             {title}
           </Text>
           {/* @ts-ignore */}
@@ -44,7 +44,7 @@ const Tablatures = (props: Props) => {
             {...textStyles}
             fontSize={0.113 * fontSize}
             position-y={-0.31}
-            textAlign="justify"
+            textAlign="center"
           >
             {body}
           </Text>
@@ -64,61 +64,65 @@ const Tablatures = (props: Props) => {
         rotation={[0, -Math.PI / 6, 0]}
         name="tablature-right"
       >
-        <group name="collection" position-y={-0.4}>
-          <Floating height={0.05} speed={2}>
-            <Scroll
-              open={false}
-              position={[-0.3, -0.3, 0.2]}
-              rotation-z={-Math.PI / 2}
-              scale={[0.8, 0.8, 0.8]}
+        {scrollData?.length > 0 && (
+          <group name="collection" position-y={-0.4}>
+            <Floating height={0.05} speed={2}>
+              <Scroll
+                open={false}
+                position={[-0.3, -0.3, 0.2]}
+                rotation-z={-Math.PI / 2}
+                scale={[0.8, 0.8, 0.8]}
+              />
+            </Floating>
+            {/* @ts-ignore */}
+            <Text
+              {...textStyles}
+              fontSize={0.25 * fontSize}
+              position={[0.3, -0.1, 0]}
+              textAlign="right"
+            >
+              {scrolls.toString()} / {scrollData.length.toString()}
+            </Text>
+            {/* @ts-ignore */}
+            <Text
+              {...textStyles}
+              fontSize={0.15 * fontSize}
+              position={[0.3, -0.35, 0]}
+              textAlign="right"
+            >
+              found
+            </Text>
+          </group>
+        )}
+        {!premium && (
+          <group name="muse-credits" position-y={0.1} position-x={0.05}>
+            {/* @ts-ignore */}
+            <Text
+              {...textStyles}
+              position={[-0.22, -1.65, 0]}
+              fontSize={0.11 * fontSize}
+              letterSpacing={0.19}
+              textAlign="right"
+            >
+              Created By Muse
+            </Text>
+            {/* @ts-ignore */}
+            <Text
+              {...textStyles}
+              position={[-0.22, -1.8, 0]}
+              fontSize={0.11 * fontSize}
+              letterSpacing={0.19}
+              textAlign="right"
+            >
+              Want Your Own?
+            </Text>
+            <SocialButton
+              link="https://musevr.typeform.com/to/QwGYwJH2"
+              position={[0.45, -1.785, 0]}
+              scale={[0.6, 0.6, 0.6]}
             />
-          </Floating>
-          {/* @ts-ignore */}
-          <Text
-            {...textStyles}
-            fontSize={0.25 * fontSize}
-            position={[0.3, -0.1, 0]}
-            textAlign="right"
-          >
-            {scrolls.toString()} / {scrollData.length.toString()}
-          </Text>
-          {/* @ts-ignore */}
-          <Text
-            {...textStyles}
-            fontSize={0.15 * fontSize}
-            position={[0.3, -0.35, 0]}
-            textAlign="right"
-          >
-            found
-          </Text>
-        </group>
-        <group name="muse-credits" position-y={0.1} position-x={0.05}>
-          {/* @ts-ignore */}
-          <Text
-            {...textStyles}
-            position={[-0.22, -1.65, 0]}
-            fontSize={0.11 * fontSize}
-            letterSpacing={0.19}
-            textAlign="right"
-          >
-            Created By Muse
-          </Text>
-          {/* @ts-ignore */}
-          <Text
-            {...textStyles}
-            position={[-0.22, -1.8, 0]}
-            fontSize={0.11 * fontSize}
-            letterSpacing={0.19}
-            textAlign="right"
-          >
-            Want Your Own?
-          </Text>
-          <SocialButton
-            link="https://musevr.typeform.com/to/QwGYwJH2"
-            position={[0.45, -1.785, 0]}
-            scale={[0.6, 0.6, 0.6]}
-          />
-        </group>
+          </group>
+        )}
       </group>
     </>
   );

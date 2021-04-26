@@ -1,6 +1,6 @@
 import { BackSide, ShaderMaterial } from "three";
 import React, { useContext, useMemo } from "react";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import { frag, vert } from "./shaders/lucid";
 import { AltoSceneState } from "../index";
 
