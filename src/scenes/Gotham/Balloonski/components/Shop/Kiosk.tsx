@@ -1,4 +1,4 @@
-import { GroupProps, useFrame } from "react-three-fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import {
   createContext,
   ReactNode,
@@ -40,6 +40,7 @@ const Kiosk = (props: Props) => {
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
   const { products } = useContext(ShopContext);
+  console.log(products);
 
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
