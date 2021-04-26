@@ -4,6 +4,7 @@ import SocialButton from "themes/components/SocialButton";
 import { GroupProps } from "react-three-fiber";
 import { Text } from "@react-three/drei";
 import Label from "themes/components/Label";
+import Contact from "./components/Contact";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias";
@@ -43,6 +44,7 @@ export default function JasonMatias() {
           size={1.6}
           position-x={-6.5}
         />
+        {/*<Contact position={[-2.65, -0.2, 0]} />*/}
         <group name="connect" position={[-2.65, -0.1, 0]}>
           {/* @ts-ignore */}
           <Text
@@ -79,6 +81,12 @@ export default function JasonMatias() {
           might be too ugly that they hide their brilliance and miss the
           brightness in others.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Wandering Star"
+          body=""
+          position={[1.35, -0.3, 0]}
+        />
         <Image
           src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`}
           framed
@@ -108,6 +116,12 @@ export default function JasonMatias() {
           to play along the way she allows all of us from time to time, if we
           pay attention to her.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Solitude"
+          body=""
+          position={[0.1, 0.03, 0]}
+        />
         <Placard
           title="Crescendo And Gale"
           position={[0.535, -0.275, 0]}
@@ -149,6 +163,12 @@ export default function JasonMatias() {
           until it was united with the photograph. In a way, both pieces have
           grown with me as I’ve developed as an artist and writer.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Crescendo And Gale"
+          body=""
+          position={[0.325, -0.625, 0]}
+        />
         <Image
           src={`${CONTENT_FOLDER}/CrescendoAndGale.jpg`}
           framed
@@ -239,6 +259,12 @@ export default function JasonMatias() {
             think through each detail and tone thoroughly and I am proud of the
             result.
           </Placard>
+          <Contact
+            email="youremail@gmail.com"
+            subject="A Sun Story"
+            body=""
+            position={[0.5, -0.35, 0]}
+          />
         </group>
         <group name="edgeofsolace">
           <Image
@@ -270,6 +296,12 @@ export default function JasonMatias() {
             often, to meditate on my experiences, to check-in with my feelings,
             and to keep this place vibrant and full.
           </Placard>
+          <Contact
+            email="youremail@gmail.com"
+            subject="Edge of Solace"
+            body=""
+            position={[-1, -0.25, 0]}
+          />
         </group>
         <group position-y={-0.6} name="avenadoraleaf">
           <Image
@@ -291,6 +323,12 @@ export default function JasonMatias() {
             between the two until the light was perfect and the red as bold as
             could be.
           </Placard>
+          <Contact
+            email="youremail@gmail.com"
+            subject="Avensadora Leaf"
+            body=""
+            position={[0.5, -0.2, 0]}
+          />
         </group>
       </group>
       <group
@@ -317,6 +355,12 @@ export default function JasonMatias() {
           Geographic Online and National Geographic Yourshot Finalist It's
           Amazing Out There, The Weather Channel
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Ice Cave With A View"
+          body=""
+          position={[0.55, -0.3, 0]}
+        />
       </group>
       <group
         name="wall-bottom-middle"
@@ -337,6 +381,12 @@ export default function JasonMatias() {
           to kiss the pond’s surface just so. I chose this composition to show
           the balance the Tree of Fire has achieved with its environment.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Tree of Fire"
+          body=""
+          position={[0.55, -0.3, 0]}
+        />
       </group>
       <group
         name="wall-bottom-right"
@@ -362,6 +412,12 @@ export default function JasonMatias() {
           seastack, along with the tree, fell in the heavy winter storms of
           early 2016.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="First Light"
+          body=""
+          position={[0.6, -0.3, 0]}
+        />
       </group>
       <group
         name="wall-bottom"
@@ -431,6 +487,12 @@ export default function JasonMatias() {
           involved removing all armament and installing extra fuel tanks in the
           fuselage and under the wings.
         </Placard>
+        <Contact
+          email="youremail@gmail.com"
+          subject="Skyraider Collection"
+          body=""
+          position={[2.75, -0.45, 0]}
+        />
         <group position-x={-2.56}>
           <Image
             framed
