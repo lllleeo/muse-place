@@ -10,7 +10,7 @@ import {
   Vector3,
 } from "three";
 import { frag, vert } from "../shaders/building";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import { useLimiter } from "spacesvr";
 
 type SceneProps = {

@@ -1,4 +1,4 @@
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { INSTANCE_DATA } from "./instance";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { DRACO_URL } from "spacesvr";
@@ -6,8 +6,8 @@ import {
   InstancedMesh,
   Mesh,
   Material,
-  Geometry,
   MeshStandardMaterial,
+  BufferGeometry,
 } from "three";
 import * as THREE from "three";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
@@ -35,7 +35,7 @@ const FILE_URL = `${CONTENT_FOLDER}/models/C2ABuilding-1614188821/building_04.gl
 
 const InstancedBuildingPiece = (props: {
   material: Material;
-  geometry: Geometry;
+  geometry: BufferGeometry;
 }) => {
   const { geometry, material } = props;
   const mesh = useRef<InstancedMesh>();
@@ -115,7 +115,7 @@ const Buildings = (props: GroupProps) => {
           <InstancedBuildingPiece
             key={child.uuid}
             material={mat}
-            geometry={(child as Mesh).geometry as Geometry}
+            geometry={(child as Mesh).geometry as BufferGeometry}
           />
         );
       }

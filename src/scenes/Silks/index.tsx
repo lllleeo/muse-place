@@ -1,10 +1,8 @@
 import { Suspense, useState } from "react";
 import { StandardEnvironment } from "spacesvr";
 import SilksModel from "./models/SilksModel";
-import { Vector3 } from "three";
 import Gallery from "./components/Gallery";
 import Cart from "./components/Cart";
-import { Perf } from "r3f-perf";
 import Kiosks from "./components/Kiosks";
 import Renderer from "./components/Renderer";
 import ValPerre from "./characters/ValPerre";
@@ -14,7 +12,6 @@ import Lighting from "./components/Lighting";
 import { ShopState } from "./types/shop";
 import { useShopifyShop } from "./utils/shopify";
 import Michael from "./characters/Michael";
-import MobileOnboarding from "./overlays/MobileOnboarding";
 import EmailCollection from "./overlays/EmailCollection";
 import Guide from "./components/Guide";
 import { Preload } from "@react-three/drei";
@@ -36,7 +33,7 @@ const Silks = () => {
     <StandardEnvironment
       playerProps={{
         pos: [4.6, 1, -1.9],
-        rot: Math.PI,
+        rot: Math.PI / 2,
         speed: 1.3,
         controls: { disableGyro: true },
       }}
@@ -59,7 +56,6 @@ const Silks = () => {
           </Suspense>
           <Kiosks />
           <Renderer />
-          <MobileOnboarding />
           <Guide />
           <EmailCollection />
           {/*<Perf />*/}

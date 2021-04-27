@@ -1,4 +1,4 @@
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import SpeechBubble from "../../../components/SpeechBubble";
 import { Interactable, useEnvironment } from "spacesvr";
 import { Text } from "@react-three/drei";
