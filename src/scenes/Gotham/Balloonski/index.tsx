@@ -9,18 +9,16 @@ import { createContext } from "react";
 import Kiosks from "./components/Shop/Kiosks";
 import { useShopifyShop } from "../../Silks/utils/shopify";
 
-export const ShopContext = createContext<ShopState>({} as ShopState);
+export const ShopContext2 = createContext<ShopState>({} as ShopState);
 
 export default function Balloonski() {
   const shop = useShopifyShop({
     domain: "balloonski.myshopify.com",
-    storefrontAccessToken: "44672b19f332eb0a41bdd0e965bc4069",
+    storefrontAccessToken: "149755cbbf5f79758937d9114964fda7",
   });
 
-  console.log(shop);
-
   return (
-    <ShopContext.Provider value={shop}>
+    <ShopContext2.Provider value={shop}>
       <group>
         <Desk />
         <Moneycat
@@ -46,6 +44,6 @@ export default function Balloonski() {
         <Cart />
         <Kiosks />
       </group>
-    </ShopContext.Provider>
+    </ShopContext2.Provider>
   );
 }

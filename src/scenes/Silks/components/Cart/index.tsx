@@ -14,6 +14,8 @@ import { Preload } from "@react-three/drei";
 const Cart = () => {
   const { cart } = useContext(ShopContext);
 
+  console.log(cart);
+
   const posY = isMobile ? 0.7 : -0.75;
   const posX = isMobile ? -0.75 : 0.8;
   const cartScale = isMobile ? 0.45 : 0.75;

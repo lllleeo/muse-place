@@ -11,7 +11,7 @@ export default function Kiosks() {
     <group name="kiosks" position={[2, 0.65, 4]} rotation-y={-Math.PI / 2}>
       <Kiosk
         position-x={-0.75}
-        // productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NDU2MTQ3MzMzNzQ="
+        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY2MjEwNTg4OTE5NDQ="
         productName="Ghost"
         name="ghost"
       >
@@ -24,7 +24,7 @@ export default function Kiosks() {
       </Kiosk>
       <Kiosk
         position-x={0}
-        // productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NDU2MTUyOTA0MzA="
+        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY2MjEwODgyMTkzMDQ="
         productName="Money Cat"
         name="moneycat"
       >
@@ -37,7 +37,7 @@ export default function Kiosks() {
       </Kiosk>
       <Kiosk
         position-x={0.75}
-        // productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NDU2MTUyOTA0MzA="
+        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY2MjEwNDQ0NDEyNTY="
         productName="Gator"
         name="moneycat"
       >

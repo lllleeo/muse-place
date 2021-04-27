@@ -14,7 +14,7 @@ import { Group, Vector3 } from "three";
 import Images from "../../../../Silks/components/Kiosk/components/Images";
 import Description from "../../../../Silks/components/Kiosk/components/Description";
 import { Product, ShopState } from "../../../../Silks/types/shop";
-import { ShopContext } from "../../../../Silks";
+import { ShopContext2 } from "../../../Balloonski";
 
 type Props = {
   children: ReactNode;
@@ -39,8 +39,7 @@ const Kiosk = (props: Props) => {
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
-  const { products } = useContext(ShopContext);
-  console.log(products);
+  const { products } = useContext(ShopContext2);
 
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
@@ -51,6 +50,8 @@ const Kiosk = (props: Props) => {
   });
 
   const product = products?.find((prod) => prod.id === productId);
+
+  console.log(product);
 
   return (
     <group name="kiosk" {...props} ref={group}>
