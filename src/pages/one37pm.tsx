@@ -10,28 +10,29 @@ const ARTIST = {
     "https://www.instagram.com/one37pm",
     "https://twitter.com/137pm",
     "https://www.one37pm.com",
+    "https://open.spotify.com/show/3sZF2HLbfmMiEyXj4BmMq4?si=7GXatau3TMGSuQi1eJvBCQ",
   ],
 };
 
-const url = `https://edge.curalate.com/v1/img`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/one37pm`;
 const linkData = [
   {
-    src: `${url}/WETAtWFMQ7D4P7A2maSf-Ta4P8qvJ7xmnHqYKPBKMw8=/w/500`,
+    src: `${url}/1.jpg`,
   },
   {
-    src: `${url}/PKryZ7MVFYbMsx8qmvDI3MOytRqL45tCwGBhLgLNoww=/w/500`,
+    src: `${url}/2.jpg`,
   },
   {
-    src: `${url}/Wr7KT8-1bw_QjUzlgY9bCmYYwaYLsRFRM5s08COlCz8=/w/500`,
+    src: `${url}/3.jpg`,
   },
   {
-    src: `${url}/avH0yW8kndRW_XmivcubiNcKCQXEAbylhRcDcerUmek=/w/500`,
+    src: `${url}/4.jpg`,
   },
   {
-    src: `${url}/ppLvdRsLiW0s6Hi1DPV3VALpCdSgX4VESKQ7l3BYyqM=/w/500`,
+    src: `${url}/5.jpg`,
   },
   {
-    src: `${url}/Mz2puY0nMhrECymIvOHm7ZaX21EHy8NHDMbK_yQxHC0=/w/500`,
+    src: `${url}/6.png`,
   },
 ];
 const LinkTree: NextPage = () => {
