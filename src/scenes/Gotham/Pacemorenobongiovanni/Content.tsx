@@ -1,5 +1,5 @@
 import { Video } from "spacesvr";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Group } from "three";
 

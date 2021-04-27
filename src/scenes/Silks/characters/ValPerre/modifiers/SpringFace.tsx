@@ -1,56 +1,48 @@
-import { ReactNode, useRef } from "react";
-import { Group } from "three";
-import { useFrame } from "react-three-fiber";
-import { config, useSpring } from "react-spring";
-import { getSpringValues } from "../../../utils/spring";
-import { useLimiter } from "../../../utils/limiter";
+import { ReactNode, useMemo, useRef } from "react";
+import { Group, Quaternion, Vector2, Vector3 } from "three";
+import { useFrame } from "@react-three/fiber";
+import { useLimiter } from "spacesvr";
 
 type Props = {
+  face?: boolean;
   children: ReactNode;
-  face: boolean;
 };
 
-const SpringFace = (props: Props) => {
-  const { children, face } = props;
+const AXIS = new Vector3(0, 1, 0);
+
+const LookAtPlayer = (props: Props) => {
+  const { face = true, children } = props;
 
   const group = useRef<Group>();
+  const limiter = useLimiter(30);
+  const dummy1 = useMemo(() => new Vector2(), []);
+  const dummy2 = useMemo(() => new Vector2(), []);
+  const dummy3 = useMemo(() => new Vector3(), []);
+  const dummy4 = useMemo(() => new Quaternion().setFromAxisAngle(AXIS, 0), []);
 
-  const [spring, setSpring] = useSpring(() => ({
-    y: [0],
-    config: config.slow,
-  }));
-
-  const limiter = useLimiter(40);
-
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock, camera }, delta) => {
     if (!limiter.isReady(clock)) return;
 
     if (group.current) {
-      if (!face) {
-        setSpring({ y: [0] });
-      } else {
-        const prev = {
-          x: group.current.rotation.x,
-          y: group.current.rotation.y,
-          z: group.current.rotation.z,
-        };
+      let rot = 0;
 
-        group.current.lookAt(camera.position);
-        setSpring({ y: [group.current.rotation.y] });
+      if (face) {
+        group.current.getWorldPosition(dummy3);
+        dummy1.set(dummy3.x, dummy3.z);
+        dummy2.set(camera.position.x, camera.position.z);
+        dummy1.sub(dummy2);
 
-        // return to state
-        group.current.rotation.x = prev.x;
-        group.current.rotation.y = prev.y;
-        group.current.rotation.z = prev.z;
+        rot = -dummy1.normalize().angle();
+        rot -= Math.PI / 2;
       }
 
-      // set new value
-      const [y] = getSpringValues(spring);
-      group.current.rotation.y = y;
+      dummy4.setFromAxisAngle(AXIS, rot);
+
+      group.current.quaternion.slerp(dummy4, delta * 10);
     }
-  }, 1);
+  });
 
   return <group ref={group}>{children}</group>;
 };
 
-export default SpringFace;
+export default LookAtPlayer;

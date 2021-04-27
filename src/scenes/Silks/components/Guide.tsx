@@ -1,6 +1,6 @@
 import { Tool } from "../modifiers/Tool";
 import { Text } from "@react-three/drei";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useContext, useEffect, useRef, useState } from "react";
 import { ShopContext } from "../index";
 
@@ -46,7 +46,6 @@ const Guide = () => {
     if (cart.count !== prevCart.current) {
       if (!saidCounterMessage && cart.count > 0) {
         // run on first cart update > 0
-        console.log("needs update");
         prevCart.current = cart.count;
         setSaidCounterMessage(true);
         setMessage("Go to the counter to checkout");

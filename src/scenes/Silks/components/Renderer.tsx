@@ -1,4 +1,4 @@
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 
 /**
  * Because of modifiers/Tool that has a different renderpriority,

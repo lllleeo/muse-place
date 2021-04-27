@@ -3,17 +3,20 @@ import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
 import React, { ReactNode, useState } from "react";
-import { Audio, AudioAnalyser, DoubleSide, Vector3 } from "three";
+import { AudioAnalyser, DoubleSide } from "three";
 import Alto, { AltoProps } from "themes/Alto";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
-import { HDRI } from "themes/components/HDRBackground";
+import { HDRI } from "spacesvr";
+import { SimulationProps } from "spacesvr/core/types/simulation";
 
 export type AltoSceneProps = {
   stars?: boolean;
   fog?: [string, number, number];
   skyColor?: string;
   children?: ReactNode;
+  hdri?: string;
+  simulationProps?: SimulationProps;
 } & Partial<AltoProps>;
 
 type AltoSceneStore = {
@@ -23,13 +26,23 @@ type AltoSceneStore = {
 export const AltoSceneState = React.createContext({} as AltoSceneStore);
 
 const AltoScene = (props: AltoSceneProps) => {
-  const { stars, fog, skyColor, children, ...restProps } = props;
+  const {
+    stars,
+    fog,
+    skyColor,
+    children,
+    simulationProps,
+    hdri,
+    ...restProps
+  } = props;
 
   const [aa, setAA] = useState<THREE.AudioAnalyser>();
 
   return (
     <StandardEnvironment
-      player={{ pos: new Vector3(0, 2.7, 36), rot: -Math.PI / 2, speed: 2.4 }}
+      playerProps={{ pos: [0, 3, 36], rot: 0, speed: 2.4 }}
+      canvasProps={{ dpr: 1 }}
+      simulationProps={simulationProps}
       disableGround
     >
       <AltoSceneState.Provider value={{ aa, setAA }}>
@@ -38,7 +51,7 @@ const AltoScene = (props: AltoSceneProps) => {
           <Fog color={new THREE.Color(fog[0])} near={fog[1]} far={fog[2]} />
         )}
         {skyColor && (
-          <mesh>
+          <mesh name="sun">
             <sphereBufferGeometry args={[60, 60, 60]} />
             <meshStandardMaterial
               color={skyColor}
@@ -48,12 +61,17 @@ const AltoScene = (props: AltoSceneProps) => {
             />
           </mesh>
         )}
-        <Sky sunPosition={[0, 1, -1]} />
-        <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr" />
+        <HDRI
+          src={
+            hdri ||
+            "https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr"
+          }
+          disableBackground={!hdri}
+        />
+        {!hdri && <Sky sunPosition={[0, 1, 0]} />}
         <Alto {...restProps} />
         <Lighting />
         <Dropoff />
-
         {/* @ts-ignore */}
         {children && React.cloneElement(children, { aa })}
       </AltoSceneState.Provider>

@@ -1,5 +1,5 @@
 import SocialButton from "themes/components/SocialButton";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Idea } from "./components/Idea";
 import { Image, Interactable } from "spacesvr";
@@ -116,7 +116,7 @@ export default function Investors() {
         <group name="connect" position={[-1.65, 0.1, 0]}>
           <AnnotatedLink link="https://instagram.com/musehq" />
           <AnnotatedLink
-            link="https://docs.google.com/presentation/d/1EbQBGbzSlUKR3rVCi0rOaxEGlkyfDn3QgO_YUkz5H-s/edit?usp=sharing"
+            link="https://docs.google.com/presentation/d/1AeGsFQIc9mRuPkOU9aHnp3nINXis0LGWpF7AbVxLNik/edit?usp=sharing"
             text="Exit to pitch deck"
             position-y={-0.2}
           />

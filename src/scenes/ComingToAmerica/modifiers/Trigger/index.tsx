@@ -1,11 +1,9 @@
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 // @ts-ignore
 import { Interactable, useLimiter } from "spacesvr";
-import { Group, Material, Mesh } from "three";
+import { Group, Material, MathUtils, Mesh } from "three";
 import { uniforms, frag, vert } from "./shaders/trigger";
-import { useFrame } from "react-three-fiber";
-import { useSpring } from "react-spring";
-import { getSpringValues } from "../../utils/spring";
+import { useFrame } from "@react-three/fiber";
 
 type Props = {
   children: ReactNode[];
@@ -23,7 +21,8 @@ const Trigger = (props: Props) => {
   );
 
   const limiter = useLimiter(45);
-  const [spring, setSpring] = useSpring(() => ({ g: [0] }));
+  const g = useRef(0);
+  const targetG = useRef(0);
 
   useLayoutEffect(() => {
     if (!group.current || !(group.current?.children[0] as Mesh).material) {
@@ -56,19 +55,23 @@ const Trigger = (props: Props) => {
 
     matRef.current = material;
     mesh.material = material;
-  }, [frag]);
+    mesh.material.needsUpdate = true;
+  }, [uniforms, frag]);
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock }, delta) => {
     if (!group.current || !limiter.isReady(clock)) {
       return;
     }
 
     if (matRef?.current?.userData?.shader?.uniforms?.time) {
-      const [g] = getSpringValues(spring);
+      if (g.current !== targetG.current) {
+        g.current = MathUtils.lerp(g.current, targetG.current, 10 * delta);
+      }
 
       matRef.current.userData.shader.uniforms.time.value =
-        clock.getElapsedTime() * 0.66;
-      matRef.current.userData.shader.uniforms.glow.value = g;
+        clock.getElapsedTime() * 2.66;
+      matRef.current.userData.shader.uniforms.glow.value =
+        Math.round(g.current * 10000) / 10000;
     }
   });
 
@@ -81,8 +84,12 @@ const Trigger = (props: Props) => {
       <group ref={group}>{children[0]}</group>
       <Interactable
         onClick={onClick}
-        onHover={() => setSpring({ g: [1] })}
-        onUnHover={() => setSpring({ g: [0] })}
+        onHover={() => {
+          targetG.current = 1;
+        }}
+        onUnHover={() => {
+          targetG.current = 0;
+        }}
       >
         {children[1]}
       </Interactable>

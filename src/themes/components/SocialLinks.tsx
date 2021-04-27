@@ -1,5 +1,5 @@
 import SocialButton from "./SocialButton";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 
 type SocialLinksProps = {
   socials: string[];

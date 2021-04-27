@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
-import { useThree, useFrame } from "react-three-fiber";
+import { useThree, useFrame } from "@react-three/fiber";
 import { useAspect } from "@react-three/drei";
 import { isMobile } from "react-device-detect";
 import Website from "./Website";

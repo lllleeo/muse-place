@@ -2,7 +2,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { MeshStandardMaterial } from "three";
 import { Image, Floating, Interactable } from "spacesvr";
 import { Group } from "three";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import CrazyMaterial from "themes/Gotham/shaders/crazy";
 import Pedestal from "./Pedestal";
 import Walls from "./Walls";
