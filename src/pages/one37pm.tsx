@@ -44,13 +44,6 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
-        scenePos={[0, -20, 0]}
-        fogNear={0}
-        fogFar={150}
-        fogColor={"#000000"}
-        hMapScale={30}
-        xzMapScale={100}
-        floorColor="black"
         night
       >
         <group>
