@@ -5,7 +5,7 @@ import Desk from "./models/Desk";
 import { Floating } from "spacesvr";
 import Cart from "../../Silks/components/Cart";
 import { ShopState } from "../../Silks/types/shop";
-import { createContext } from "react";
+import { createContext, Suspense } from "react";
 import Kiosks from "./components/Shop/Kiosks";
 import { useShopifyShop } from "../../Silks/utils/shopify";
 
@@ -20,7 +20,9 @@ export default function Balloonski() {
   return (
     <ShopContext2.Provider value={shop}>
       <group>
-        <Desk />
+        <Suspense fallback={null}>
+          <Desk />
+        </Suspense>
         <Moneycat
           position={[-4.55, 0, 11.2]}
           rotation-y={-2.55}
