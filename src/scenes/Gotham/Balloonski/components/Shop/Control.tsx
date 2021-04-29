@@ -2,12 +2,8 @@ import { GroupProps, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
 import { useContext, useMemo, useState } from "react";
-import { ShopContext } from "../../../index";
+import { ShopContext } from "../../index";
 import { Interactable } from "spacesvr";
-import { KioskContext } from "../index";
-import { Product } from "../../../types/shop";
-import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
-import { BufferGeometryUtils } from "three/examples/jsm/utils/BufferGeometryUtils";
 
 const HEIGHT = 0.15;
 const PADDING_Y = 0.035;
@@ -30,22 +26,31 @@ const SUB_FONT = {
 
 type Props = {
   width: number;
+  productName?: string;
+  productId?: string;
 } & GroupProps;
 
 const Control = (props: Props) => {
-  const { width, ...restProps } = props;
+  const { width, productName, productId, ...restProps } = props;
 
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
   const TEXT_WIDTH = WIDTH - CART_WIDTH - PADDING_X * 3;
 
-  const { cart } = useContext(ShopContext);
-  const { product } = useContext(KioskContext);
+  const { cart, products } = useContext(ShopContext);
+  const product = products?.find((prod) => prod.id === productId);
 
   const [variantIndex, setVariantIndex] = useState(0);
 
   const variant =
     product && product.variants.length ? product.variants[variantIndex] : null;
+
+  const addToCart = () => {
+    if (variant && variant.available) {
+      cart.add(variant.id);
+      console.log(cart);
+    }
+  };
 
   return (
     <group {...restProps} name="control">
@@ -63,13 +68,13 @@ const Control = (props: Props) => {
             position-x={-WIDTH / 2 + PADDING_X}
             maxWidth={TEXT_WIDTH}
           >
-            {product ? product.title : "Loading..."}
+            {productName ? productName : product ? product.title : "Loading..."}
           </Text>
           {/* @ts-ignore */}
           <Text
             name="subtitle"
             {...SUB_FONT}
-            position-y={0.025}
+            position-y={-0.01}
             position-x={-WIDTH / 2 + PADDING_X}
             maxWidth={TEXT_WIDTH}
           >
@@ -82,11 +87,7 @@ const Control = (props: Props) => {
             position-x={WIDTH / 2 - CART_WIDTH / 2 - PADDING_X}
             position-y={0.01}
           >
-            <Interactable
-              onClick={() =>
-                variant && variant.available && cart.add(variant.id)
-              }
-            >
+            <Interactable onClick={addToCart}>
               <mesh>
                 <boxBufferGeometry args={[CART_WIDTH, CART_WIDTH, 0.02]} />
                 <meshStandardMaterial

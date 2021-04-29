@@ -11,8 +11,8 @@ const Control = () => {
   const numY = isMobile ? -1.25 : 6;
 
   const cartStatus =
-    cart && cart.count > 0
-      ? `${cart.count} Item${cart.count > 1 ? "s" : ""}`
+    cart && cart?.count > 0
+      ? `${cart?.count} Item${cart?.count > 1 ? "s" : ""}`
       : "Cart Is Empty";
   const cartPanelWidth = Math.max(4, cartStatus.length * 0.5);
   const instructions = isMobile ? "tap to clear" : "press 'c' to clear";
@@ -31,11 +31,11 @@ const Control = () => {
           </Text>
           {/* @ts-ignore */}
           <Text fontSize={0.5} position-y={0.2} anchorY="top">
-            {cart.count == 0 ? "" : instructions}
+            {cart?.count == 0 ? "" : instructions}
           </Text>
           {/* @ts-ignore */}
           <Text fontSize={0.35} position-y={-0.45} anchorY="top">
-            {"Silks by VP © 2021"}
+            {"Balloonski © 2021"}
           </Text>
         </FacePlayer>
       </group>

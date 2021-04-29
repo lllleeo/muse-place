@@ -36,6 +36,13 @@ const linkData = [
   },
 ];
 
+const envProps = {
+  playerProps: {
+    pos: [-4.1, 1, 5],
+    rot: -Math.PI / 2,
+  },
+};
+
 const LinkTree: NextPage = () => {
   return (
     <>
@@ -46,6 +53,7 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        environmentProps={envProps}
         premium
       >
         <Balloonski />

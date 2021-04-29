@@ -1,10 +1,9 @@
-import Spinning from "../../modifiers/Spinning";
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";
 import { isMobile } from "react-device-detect";
 import { ShopContext } from "../../index";
-import { Interactable } from "spacesvr";
+import { Interactable, Spinning } from "spacesvr";
 import Control from "./components/Control";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
@@ -23,7 +22,7 @@ const Cart = () => {
 
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
-      cart.clear();
+      cart?.clear();
     }
   };
 
@@ -40,11 +39,11 @@ const Cart = () => {
     config: config.wobbly,
   });
   useEffect(() => {
-    if (cart.count !== prevCart.current) {
+    if (cart?.count !== prevCart.current) {
       setIncr(incr + 1);
-      prevCart.current = cart.count;
+      prevCart.current = cart?.count;
     }
-  }, [incr, cart.count]);
+  }, [incr, cart?.count]);
 
   return (
     <Tool pos={[posX, posY]} face={false} pinY={isMobile}>

@@ -8,13 +8,13 @@ import {
   useState,
 } from "react";
 import { Floating } from "spacesvr";
-import Control from "../../../../Silks/components/Kiosk/components/Control";
+import Control from "./Control";
 import { useBox } from "@react-three/cannon";
 import { Group, Vector3 } from "three";
 import Images from "../../../../Silks/components/Kiosk/components/Images";
 import Description from "../../../../Silks/components/Kiosk/components/Description";
 import { Product, ShopState } from "../../../../Silks/types/shop";
-import { ShopContext2 } from "../../../Balloonski";
+import { ShopContext } from "../../../Balloonski";
 
 type Props = {
   children: ReactNode;
@@ -39,7 +39,7 @@ const Kiosk = (props: Props) => {
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
-  const { products } = useContext(ShopContext2);
+  const { products } = useContext(ShopContext);
 
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
@@ -51,7 +51,7 @@ const Kiosk = (props: Props) => {
 
   const product = products?.find((prod) => prod.id === productId);
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <group name="kiosk" {...props} ref={group}>
@@ -65,6 +65,7 @@ const Kiosk = (props: Props) => {
           width={WIDTH}
           position-z={DEPTH / 2 - 0.05}
           productName={productName}
+          productId={product?.id}
         />
         <Images position={[-WIDTH / 2 - 0.05, 0.5, DEPTH / 4]} />
         <Description position={[WIDTH / 2 + 0.15, 0.25, DEPTH / 4]} />

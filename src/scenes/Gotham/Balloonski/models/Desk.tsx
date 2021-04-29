@@ -62,7 +62,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       <group name="Scene">
         <group
           name="deskglb"
-          scale={[0.035, 0.035, 0.035]}
+          scale={[0.05, 0.035, 0.035]}
           position={[2, -0.35, 4]}
           rotation-y={-Math.PI / 2}
         >

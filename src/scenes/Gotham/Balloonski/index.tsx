@@ -2,14 +2,16 @@ import Gatorhead from "./models/Gator";
 import Ghost from "./models/Ghost1";
 import Moneycat from "./models/Moneycat";
 import Desk from "./models/Desk";
+import Register from "./models/Register";
 import { Floating } from "spacesvr";
-import Cart from "../../Silks/components/Cart";
+import Cart from "./components/Cart";
 import { ShopState } from "../../Silks/types/shop";
 import { createContext, Suspense } from "react";
 import Kiosks from "./components/Shop/Kiosks";
 import { useShopifyShop } from "../../Silks/utils/shopify";
+import Renderer from "./components/Renderer";
 
-export const ShopContext2 = createContext<ShopState>({} as ShopState);
+export const ShopContext = createContext<ShopState>({} as ShopState);
 
 export default function Balloonski() {
   const shop = useShopifyShop({
@@ -18,10 +20,11 @@ export default function Balloonski() {
   });
 
   return (
-    <ShopContext2.Provider value={shop}>
+    <ShopContext.Provider value={shop}>
       <group>
         <Suspense fallback={null}>
           <Desk />
+          <Register />
         </Suspense>
         <Moneycat
           position={[-4.55, 0, 11.2]}
@@ -45,7 +48,8 @@ export default function Balloonski() {
         </Floating>
         <Cart />
         <Kiosks />
+        <Renderer />
       </group>
-    </ShopContext2.Provider>
+    </ShopContext.Provider>
   );
 }

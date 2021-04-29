@@ -1,7 +1,7 @@
 import { ReactNode, useRef } from "react";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useLimiter } from "../utils/limiter";
+import { useLimiter } from "spacesvr";
 
 type Props = {
   children: ReactNode;
@@ -30,7 +30,7 @@ const FacePlayer = (props: Props) => {
       if (lockY) group.current.rotation.y = prev.y;
       if (lockZ) group.current.rotation.z = prev.z;
     }
-  }, 1);
+  });
 
   return <group ref={group}>{children}</group>;
 };
