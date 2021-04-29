@@ -57,11 +57,11 @@ const LinkTree: NextPage = () => {
         premium
         night
         simulationProps={{
-          signalHost: "live.muse.place",
+          signalHost: "investors.us-west-1.elasticbeanstalk.com",
           signalPort: 443,
           signalPath: "/signal",
-          socketServer: "wss://live.muse.place:8081",
-          frequency: 40,
+          socketServer: "wss://investors.us-west-1.elasticbeanstalk.com:8081",
+          frequency: 25,
         }}
       >
         <Investors />
