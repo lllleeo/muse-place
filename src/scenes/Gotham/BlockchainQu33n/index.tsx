@@ -7,9 +7,52 @@ import { Text } from "@react-three/drei";
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/blockchainqu33n";
 
+function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
+  const { link, text = link.replace("https://", ""), ...restProps } = props;
+
+  const SCALE = 0.4;
+
+  return (
+    <group name={`annotatedlink-${link}`} {...restProps}>
+      <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
+      {/* @ts-ignore */}
+      <Text
+        position-x={SCALE * 0.3}
+        fontSize={0.06}
+        anchorX="left"
+        color="black"
+      >
+        {text}
+      </Text>
+    </group>
+  );
+}
+
 export default function BlockchainQu33n() {
   return (
     <group name="blockchain-qu33n">
+      <group
+        name="wall-top"
+        position={[2.49, 0.65, 3.25]}
+        rotation-y={-Math.PI / 2}
+      >
+        <Image
+          position={[-1.45, 0.35, 0]}
+          size={0.6}
+          src="https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/blockchainqu33n/running-man-left-exit.jpg"
+        />
+        <group name="connect" position={[-1.65, 0.1, 0]}>
+          <AnnotatedLink
+            link="https://instagram.com/blockchain_qu33n"
+            text="@Blockchain_Qu33n"
+          />
+          <AnnotatedLink
+            link="https://linktr.ee/BlockchainQu33n"
+            text="Exit to BlockchainQu33n.com"
+            position-y={-0.2}
+          />
+        </group>
+      </group>
       <group
         name="wall-top-right"
         position={[-1.7, 2, 8.1]}
