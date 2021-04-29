@@ -7,27 +7,6 @@ import { Text } from "@react-three/drei";
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/blockchainqu33n";
 
-function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
-  const { link, text = link.replace("https://", ""), ...restProps } = props;
-
-  const SCALE = 0.4;
-
-  return (
-    <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
-      {/* @ts-ignore */}
-      <Text
-        position-x={SCALE * 0.3}
-        fontSize={0.06}
-        anchorX="left"
-        color="black"
-      >
-        {text}
-      </Text>
-    </group>
-  );
-}
-
 export default function BlockchainQu33n() {
   return (
     <group name="blockchain-qu33n">
