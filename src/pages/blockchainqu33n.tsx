@@ -9,10 +9,6 @@ const BlockchainQu33n = dynamic(import("scenes/Gotham/BlockchainQu33n"), {
 
 const ARTIST = {
   name: "BlockchainQu33n",
-  socialLinks: [
-    "https://www.instagram.com/blockchain_qu33n/",
-    "www.blockchainqueen.com",
-  ],
 };
 
 const LinkTree: NextPage = () => {
@@ -22,7 +18,7 @@ const LinkTree: NextPage = () => {
         <title>{ARTIST.name}</title>
         <title>Gallery</title>
       </Head>
-      <Gotham socials={ARTIST.socialLinks} name={ARTIST.name} premium>
+      <Gotham socials={[]} name={ARTIST.name} premium>
         <BlockchainQu33n />
       </Gotham>
     </>
