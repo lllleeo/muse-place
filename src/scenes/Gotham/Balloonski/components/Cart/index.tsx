@@ -22,7 +22,7 @@ const Cart = () => {
 
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
-      cart?.clear();
+      cart.clear();
     }
   };
 
@@ -39,11 +39,11 @@ const Cart = () => {
     config: config.wobbly,
   });
   useEffect(() => {
-    if (cart?.count !== prevCart.current) {
+    if (cart.count !== prevCart.current) {
       setIncr(incr + 1);
       prevCart.current = cart?.count;
     }
-  }, [incr, cart?.count]);
+  }, [incr, cart.count]);
 
   return (
     <Tool pos={[posX, posY]} face={false} pinY={isMobile}>

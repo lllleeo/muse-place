@@ -2,13 +2,13 @@ import { Suspense } from "react";
 import Ghost from "../../models/Ghost1";
 import Moneycat from "../../models/Moneycat";
 import Gatorhead from "../../models/Gator";
-import Spinning from "../../../../Silks/modifiers/Spinning";
+import Spinning from "../../modifiers/Spinning";
 import Kiosk from "./Kiosk";
 import { Preload } from "@react-three/drei";
 
 export default function Kiosks() {
   return (
-    <group name="kiosks" position={[2, 0.65, 4]} rotation-y={-Math.PI / 2}>
+    <group name="kiosks" position={[2, 0.65, 3.75]} rotation-y={-Math.PI / 2}>
       <Kiosk
         position-x={-0.75}
         productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY2MjEwNTg4OTE5NDQ="

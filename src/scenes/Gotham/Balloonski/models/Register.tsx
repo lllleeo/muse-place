@@ -6,47 +6,49 @@ import * as THREE from "three";
 import React, { useContext, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { Interactable } from "spacesvr";
+import { Interactable, useTrimeshCollision } from "spacesvr";
 import { ShopContext } from "../index";
+import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cash_Register_node: THREE.Mesh;
+    Plane146: THREE.Mesh;
   };
   materials: {
-    ["03___Default"]: THREE.MeshStandardMaterial;
+    Material: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/register-1619677702/register.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/register-1619748810/register.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   const { cart } = useContext(ShopContext);
+
+  materials["Material"].metalness = 0;
+
   return (
-    <group name="register" ref={group} {...props} dispose={null}>
-      <group
-        position={[2, 0.65, 5.35]}
-        rotation-y={-Math.PI / 2}
-        scale={[0.015, 0.015, 0.015]}
-      >
-        <group>
-          <Interactable
-            onClick={() => cart.url && window.open(cart.url, "_blank")}
-          >
-            <mesh name="hitbox">
-              <boxBufferGeometry attach="geometry" args={[5, 5, 5]} />
-              <meshBasicMaterial attach="material" color="blue" wireframe />
-            </mesh>
-          </Interactable>
-          <mesh
-            name="Cash_Register_node"
-            geometry={nodes.Cash_Register_node.geometry}
-            material={materials["03___Default"]}
-          />
-        </group>
+    <group
+      ref={group}
+      dispose={null}
+      position={[2, 0.65, 5.35]}
+      rotation-y={-Math.PI}
+      {...props}
+    >
+      <Interactable onClick={() => cart.url && window.open(cart.url, "_blank")}>
+        <mesh position={[0, 0.225, 0.1]} name="hitbox">
+          <boxBufferGeometry args={[0.67, 0.56, 0.65]} />
+          <meshBasicMaterial opacity={0} transparent />
+        </mesh>
+      </Interactable>
+      <group scale={2} name="Register2">
+        <mesh
+          name="Plane146"
+          geometry={nodes.Plane146.geometry}
+          material={materials.Material}
+        />
       </group>
     </group>
   );

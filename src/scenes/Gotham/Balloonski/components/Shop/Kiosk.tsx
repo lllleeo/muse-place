@@ -9,11 +9,8 @@ import {
 } from "react";
 import { Floating } from "spacesvr";
 import Control from "./Control";
-import { useBox } from "@react-three/cannon";
 import { Group, Vector3 } from "three";
-import Images from "../../../../Silks/components/Kiosk/components/Images";
-import Description from "../../../../Silks/components/Kiosk/components/Description";
-import { Product, ShopState } from "../../../../Silks/types/shop";
+import { Product, ShopState } from "../../types/shop";
 import { ShopContext } from "../../../Balloonski";
 
 type Props = {
@@ -67,8 +64,6 @@ const Kiosk = (props: Props) => {
           productName={productName}
           productId={product?.id}
         />
-        <Images position={[-WIDTH / 2 - 0.05, 0.5, DEPTH / 4]} />
-        <Description position={[WIDTH / 2 + 0.15, 0.25, DEPTH / 4]} />
       </KioskContext.Provider>
     </group>
   );

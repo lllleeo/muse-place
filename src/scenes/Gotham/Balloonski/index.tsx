@@ -5,10 +5,10 @@ import Desk from "./models/Desk";
 import Register from "./models/Register";
 import { Floating } from "spacesvr";
 import Cart from "./components/Cart";
-import { ShopState } from "../../Silks/types/shop";
+import { ShopState } from "./types/shop";
 import { createContext, Suspense } from "react";
 import Kiosks from "./components/Shop/Kiosks";
-import { useShopifyShop } from "../../Silks/utils/shopify";
+import { useShopifyShop } from "./utils/shopify";
 import Renderer from "./components/Renderer";
 
 export const ShopContext = createContext<ShopState>({} as ShopState);
