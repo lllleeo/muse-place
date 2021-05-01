@@ -1,5 +1,4 @@
 import { useEnvironment } from "spacesvr";
-import Overlay from "../../modifiers/Overlay";
 import PopupContainer from "../components/PopupContainer";
 import { useState } from "react";
 import { giveaways } from "../../assets/giveaways";
@@ -7,6 +6,7 @@ import Coming from "./components/Coming";
 import SoldOut from "./components/SoldOut";
 import Input from "./components/Input";
 import Trivia from "./components/Trivia";
+import Overlay from "../../modifiers/Overlay";
 
 export type Status = "coming" | "trivia" | "input" | "soldout";
 

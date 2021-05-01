@@ -1,5 +1,5 @@
 import ScrollModel from "../../models/Scroll";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Image } from "spacesvr";
 import { useRef, useState, Suspense, useEffect } from "react";
 import * as THREE from "three";
@@ -90,7 +90,7 @@ const Scroll = (props: JSX.IntrinsicElements["group"] & ScrollProps) => {
       <animated.group ref={inner} scale={[2, 2, 2]} position-y={posY}>
         <animated.group ref={foundNotice} position-y={visits < 2 ? foundY : -3}>
           {/* @ts-ignore */}
-          <Text color="white" fontSize={0.05} position-x={0.5}>
+          <Text color="green" fontSize={0.075} position-x={0.75}>
             {count} SCROLL{count > 1 ? "S" : ""} FOUND!
           </Text>
         </animated.group>

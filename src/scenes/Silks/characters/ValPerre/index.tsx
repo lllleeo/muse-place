@@ -1,7 +1,7 @@
 import { Suspense, useContext, useRef, useState } from "react";
 import ValModel from "../../models/ValModel";
 import { Group } from "three";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import Checkout from "./dialogue/Checkout";
 import { ShopContext } from "../../index";
 import SpringFace from "./modifiers/SpringFace";
@@ -38,7 +38,7 @@ const ValPerre = () => {
     <group ref={group} position={[-4.86, 0, -4.65]} name="val">
       <Suspense fallback={null}>
         <SpringFace face={look}>
-          <ValModel />
+          <ValModel rotation-y={0} />
         </SpringFace>
       </Suspense>
       {talk && cart.count > 0 && <Checkout position={[0.25, 0, 0.5]} />}

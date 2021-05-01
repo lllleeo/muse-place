@@ -4,7 +4,7 @@ import { useContext, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { createBirdGeometry } from "./core/bird";
 import { initComputeRenderer } from "./core/physics";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { MathUtils } from "three";
 import { AltoSceneState } from "../../../../scenes/Alto";
 import { useDetectGPU } from "@react-three/drei";
@@ -32,8 +32,9 @@ const Birds = () => {
   const velVar = useRef<Variable>();
 
   const gpu = useDetectGPU();
-  const limiter = useLimiter(70);
-  const pow = 2;
+  const limiter = useLimiter(45);
+  const TIER = gpu?.tier || 0;
+  const pow = TIER > 2 ? 4 : 2;
   const WIDTH = Math.pow(2, pow);
   const BIRDS = WIDTH * WIDTH;
 
@@ -64,7 +65,7 @@ const Birds = () => {
     mesh.updateMatrix();
 
     return mesh;
-  }, [BIRDS, WIDTH]);
+  }, [BIRDS, WIDTH, TIER]);
 
   useFrame(({ clock, mouse }, delta) => {
     if (!gpuCompute || !birdMesh || !posVar.current || !velVar.current) return;

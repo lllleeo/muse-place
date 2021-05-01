@@ -1,6 +1,6 @@
 import { Tool } from "../modifiers/Tool";
 import { Text } from "@react-three/drei";
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useContext, useEffect, useRef, useState } from "react";
 import { ShopContext } from "../index";
 
