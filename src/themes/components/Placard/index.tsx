@@ -1,4 +1,4 @@
-import { GroupProps } from "@react-three/fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { ReactNode, useMemo } from "react";
 import { DoubleSide, ShaderMaterial, Vector2 } from "three";
