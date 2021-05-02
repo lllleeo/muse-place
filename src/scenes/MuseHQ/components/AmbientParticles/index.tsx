@@ -6,7 +6,7 @@ import {
   InstancedMesh,
   Object3D,
 } from "three";
-import { GroupProps, useFrame } from "react-three-fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 
 const COUNT = 300;
 const X_RANGE = 24;

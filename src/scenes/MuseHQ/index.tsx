@@ -3,7 +3,7 @@ import { StandardEnvironment } from "spacesvr";
 import { Preload, Sky } from "@react-three/drei";
 import Musehq from "./models/Musehq";
 import AmbientParticles from "./components/AmbientParticles";
-import { Bloom, EffectComposer } from "react-postprocessing";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Idea } from "./components/Idea";
 
 export default function MuseHQ() {
@@ -12,7 +12,7 @@ export default function MuseHQ() {
       playerProps={{ speed: 2.3, pos: [-9.5, 9, 1.2], rot: -Math.PI / 2 }}
       canvasProps={{
         camera: { far: 300 },
-        pixelRatio: 1,
+        dpr: 1,
         gl: { antialias: false },
       }}
     >
@@ -27,7 +27,7 @@ export default function MuseHQ() {
         distance={300}
       />
       <ambientLight intensity={2} />
-      <AmbientParticles position={[-4, 6, -3]} />
+      <AmbientParticles position={[-4 - 7.09, 6, -3 - 3.19]} />
       <Suspense fallback={null}>
         <Preload all />
         <Musehq />
@@ -35,22 +35,22 @@ export default function MuseHQ() {
       <Idea
         name="saas-0"
         size={0.4}
-        position={[6.93, 6.55, -0.76]}
+        position={[-0.16, 6.55, -3.95]}
         perception={0.9}
       />
       <Idea
         name="saas-1"
         size={0.15}
-        position={[11.82, 6.7, 1.61]}
+        position={[11.82 - 7.09, 6.7, 1.61 - 3.19]}
         perception={0.1}
       />
       <Idea
         name="saas-2"
         size={0.6}
-        position={[6.93, 6.55, 4]}
+        position={[6.93 - 7.09, 6.55, 4 - 3.19]}
         perception={0.4}
       />
-      <EffectComposer>
+      <EffectComposer autoClear multisampling={0}>
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
       </EffectComposer>
     </StandardEnvironment>

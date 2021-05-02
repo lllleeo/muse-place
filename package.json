@@ -33,6 +33,7 @@
     "@react-three/flex": "^0.5.2",
     "@react-three/postprocessing": "^2.0.3",
     "@react-three/xr": "3.0.1",
+    "babel-plugin-glsl": "^1.0.0",
     "component-material": "^1.0.6",
     "facefilter": "^2.0.8",
     "glsl-noise": "^0.0.0",
