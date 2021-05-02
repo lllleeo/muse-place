@@ -1,4 +1,4 @@
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import SpeechBubble from "../../../components/SpeechBubble";
 
 const GiveCode = (props: GroupProps) => {

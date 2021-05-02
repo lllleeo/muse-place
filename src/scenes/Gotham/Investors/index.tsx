@@ -1,5 +1,5 @@
 import SocialButton from "themes/components/SocialButton";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Idea } from "./components/Idea";
 import { Image, Interactable } from "spacesvr";
@@ -81,6 +81,7 @@ function ImageLinks(props: GroupProps) {
     },
     {
       image: `${CONTENT}/awge.jpg`,
+      link: "https://awge-space.vercel.app/gallery",
       text: "AWGE",
     },
     {
@@ -115,7 +116,7 @@ export default function Investors() {
         <group name="connect" position={[-1.65, 0.1, 0]}>
           <AnnotatedLink link="https://instagram.com/musehq" />
           <AnnotatedLink
-            link="https://app.slidebean.com/p/pm6sgokwzm/Pitch-Deck-V10-NGF"
+            link="https://docs.google.com/presentation/d/1AeGsFQIc9mRuPkOU9aHnp3nINXis0LGWpF7AbVxLNik/edit?usp=sharing"
             text="Exit to pitch deck"
             position-y={-0.2}
           />

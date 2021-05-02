@@ -1,4 +1,4 @@
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 import FacePlayer from "../../../modifiers/FacePlayer";
 import { Text } from "@react-three/drei";
 import { useContext } from "react";

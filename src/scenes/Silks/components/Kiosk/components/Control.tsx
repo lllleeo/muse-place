@@ -1,4 +1,4 @@
-import { GroupProps, useLoader } from "react-three-fiber";
+import { GroupProps, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
 import { useContext, useMemo, useState } from "react";

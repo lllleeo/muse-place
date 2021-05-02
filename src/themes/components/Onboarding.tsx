@@ -3,7 +3,8 @@ import { isMobile } from "react-device-detect";
 import { useEnvironment } from "spacesvr";
 import { keyframes } from "@emotion/core";
 import { useLayoutEffect, useState } from "react";
-import { createPortal } from "react-three-fiber";
+// @ts-ignore
+import { createPortal } from "react-dom";
 import { Html } from "@react-three/drei";
 
 const Container = styled.div<{ paused: boolean }>`
