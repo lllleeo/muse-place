@@ -5,9 +5,11 @@ import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import Label from "themes/components/Label";
 import Contact from "./components/Contact";
+import Info from "./components/Info";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias";
+const EMAIL = "youremail@gmail.com";
 
 function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   const { link, text = link.replace("https://", ""), ...restProps } = props;
@@ -44,7 +46,6 @@ export default function JasonMatias() {
           size={1.6}
           position-x={-6.5}
         />
-        {/*<Contact position={[-2.65, -0.2, 0]} />*/}
         <group name="connect" position={[-2.65, -0.1, 0]}>
           {/* @ts-ignore */}
           <Text
@@ -68,7 +69,17 @@ export default function JasonMatias() {
           size={2}
           position-x={0.2}
         />
-        <Placard title="Wandering Star" position={[1.55, 0, 0]}>
+        <Info
+          position={[1.8, -0.3, 0.1]}
+          rotation={[0, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
+          title="Wandering Star"
+          fontSize={0.55}
+          textY={0.25}
+          name="Wandering Star"
+        >
           We turn ourselves into solitary objects hurtling through a space
           widened by the perception of our isolation. All the time thinking
           ourselves dull and cold and unseen while the universe observes us in
@@ -80,13 +91,7 @@ export default function JasonMatias() {
           who are so focused on hiding their pains in fear that their light
           might be too ugly that they hide their brilliance and miss the
           brightness in others.
-        </Placard>
-        <Contact
-          email="youremail@gmail.com"
-          subject="Wandering Star"
-          body=""
-          position={[1.35, -0.3, 0]}
-        />
+        </Info>
         <Image
           src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`}
           framed
@@ -117,7 +122,7 @@ export default function JasonMatias() {
           pay attention to her.
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="Solitude"
           body=""
           position={[0.1, 0.03, 0]}
@@ -164,7 +169,7 @@ export default function JasonMatias() {
           grown with me as I’ve developed as an artist and writer.
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="Crescendo And Gale"
           body=""
           position={[0.325, -0.625, 0]}
@@ -260,7 +265,7 @@ export default function JasonMatias() {
             result.
           </Placard>
           <Contact
-            email="youremail@gmail.com"
+            email={EMAIL}
             subject="A Sun Story"
             body=""
             position={[0.5, -0.35, 0]}
@@ -297,7 +302,7 @@ export default function JasonMatias() {
             and to keep this place vibrant and full.
           </Placard>
           <Contact
-            email="youremail@gmail.com"
+            email={EMAIL}
             subject="Edge of Solace"
             body=""
             position={[-1, -0.25, 0]}
@@ -324,7 +329,7 @@ export default function JasonMatias() {
             could be.
           </Placard>
           <Contact
-            email="youremail@gmail.com"
+            email={EMAIL}
             subject="Avensadora Leaf"
             body=""
             position={[0.5, -0.2, 0]}
@@ -356,7 +361,7 @@ export default function JasonMatias() {
           Amazing Out There, The Weather Channel
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="Ice Cave With A View"
           body=""
           position={[0.55, -0.3, 0]}
@@ -382,7 +387,7 @@ export default function JasonMatias() {
           the balance the Tree of Fire has achieved with its environment.
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="Tree of Fire"
           body=""
           position={[0.55, -0.3, 0]}
@@ -413,7 +418,7 @@ export default function JasonMatias() {
           early 2016.
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="First Light"
           body=""
           position={[0.6, -0.3, 0]}
@@ -488,7 +493,7 @@ export default function JasonMatias() {
           fuselage and under the wings.
         </Placard>
         <Contact
-          email="youremail@gmail.com"
+          email={EMAIL}
           subject="Skyraider Collection"
           body=""
           position={[2.75, -0.45, 0]}

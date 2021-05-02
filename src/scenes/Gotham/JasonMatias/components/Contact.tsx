@@ -16,6 +16,7 @@ const Contact = (props: ContactProps) => {
         name="add-to-cart"
         position-x={0.54 / 2 - 0.075 / 2 - 0.02}
         position-y={0.01}
+        position-z={0.02}
       >
         <Interactable
           onClick={() =>
@@ -26,20 +27,20 @@ const Contact = (props: ContactProps) => {
           }
         >
           <mesh>
-            <boxBufferGeometry args={[0.35, 0.085, 0.02]} />
-            <meshStandardMaterial color="white" />
+            <boxBufferGeometry args={[0.125, 0.085, 0.015]} />
+            <meshStandardMaterial color="black" />
           </mesh>
         </Interactable>
         {/* @ts-ignore */}
         <Text
-          fontSize={0.07}
-          color="black"
+          fontSize={0.025}
+          color="white"
           textAlign="center"
           anchorY="middle"
           anchorX="center"
           position-z={0.021}
         >
-          Inquire
+          Contact
         </Text>
       </group>
     </group>
