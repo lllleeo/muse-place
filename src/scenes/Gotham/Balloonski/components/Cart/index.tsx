@@ -20,8 +20,6 @@ const Cart = () => {
   const [incr, setIncr] = useState(2);
   const prevCart = useRef(0);
 
-  console.log(cart);
-
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
       cart.clear();
