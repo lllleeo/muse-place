@@ -12,7 +12,12 @@ type InfoProps = {
   fontSize?: number;
   children?: string | ReactNode | ReactNode[];
   width?: number;
+  extend?: boolean;
   textY?: number;
+  textX?: number;
+  boxWidth?: number;
+  boxHeight?: number;
+  contactPos?: [number, number, number];
 } & JSX.IntrinsicElements["group"];
 
 export default function Info(props: InfoProps) {
@@ -22,9 +27,14 @@ export default function Info(props: InfoProps) {
     subject = "",
     body = "",
     width = 1,
+    boxWidth = 0,
+    boxHeight = 0,
+    extend,
     fontSize = 1,
     content,
+    contactPos,
     textY = 0,
+    textX = 0,
     children,
     ...restProps
   } = props;
@@ -63,19 +73,33 @@ export default function Info(props: InfoProps) {
   };
 
   return (
-    <group {...restProps}>
+    <group name={title} {...restProps}>
       <Floating height={0.01} speed={3}>
         <mesh>
-          <boxBufferGeometry args={[0.85, 0.25, 0.02]} />
+          <boxBufferGeometry
+            args={[0.85 + boxWidth / 100, 0.25 + boxHeight / 100, 0.02]}
+          />
           <meshStandardMaterial color="white" />
         </mesh>
-        <group name="content" position={[-0.1, -0.2 + textY / 10, 0.011]}>
+        <group
+          name="content"
+          position={[-0.1 + textX / 10, -0.2 + textY / 10, 0.011]}
+        >
           {/* @ts-ignore */}
           <Text {...titleStyles}>{title}</Text>
           {/* @ts-ignore */}
           <Text {...bodyStyles}>{children}</Text>
         </group>
-        <Contact email={email} subject={subject} body={body} position-x={0.1} />
+        <Contact
+          email={email}
+          subject={subject}
+          body={body}
+          position={
+            contactPos
+              ? [contactPos[0] / 100, contactPos[1] / 100, contactPos[2] / 100]
+              : [0.1, 0, 0]
+          }
+        />
       </Floating>
     </group>
   );

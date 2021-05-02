@@ -78,7 +78,6 @@ export default function JasonMatias() {
           title="Wandering Star"
           fontSize={0.55}
           textY={0.25}
-          name="Wandering Star"
         >
           We turn ourselves into solitary objects hurtling through a space
           widened by the perception of our isolation. All the time thinking
@@ -109,7 +108,16 @@ export default function JasonMatias() {
           framed
           position-x={-0.275}
         />
-        <Placard title="Solitude" position={[0.33, 0.31, 0]}>
+        <Info
+          position={[-0.27, -0.65, 0.075]}
+          rotation={[-0.5, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
+          title="Solitude"
+          fontSize={0.55}
+          textY={0.25}
+        >
           There is something extremely calming about boats to me. At a lake
           shrouded in fog in New York I really felt as though the world was only
           as large as openings between the mist. Like covering your head with
@@ -120,19 +128,25 @@ export default function JasonMatias() {
           blanket; I was a part of the magic. That was just Nature allowing me
           to play along the way she allows all of us from time to time, if we
           pay attention to her.
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="Solitude"
-          body=""
-          position={[0.1, 0.03, 0]}
+        </Info>
+        <Image
+          src={`${CONTENT_FOLDER}/CrescendoAndGale.jpg`}
+          framed
+          position-x={1.25}
         />
-        <Placard
+        <Info
+          position={[0.475, -0.1, 0.1]}
+          rotation={[0, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
           title="Crescendo And Gale"
-          position={[0.535, -0.275, 0]}
-          height={0.825}
-          width={1.6}
-          size={0.85}
+          fontSize={0.55}
+          textY={2.25}
+          textX={0.75}
+          contactPos={[3, 21, 0]}
+          boxWidth={-15}
+          boxHeight={35}
         >
           This is a place where you can send your visions into the blind world.
           {"\n"}
@@ -167,18 +181,7 @@ export default function JasonMatias() {
           disappears entirely this evolving piece of writing didn't have a title
           until it was united with the photograph. In a way, both pieces have
           grown with me as I’ve developed as an artist and writer.
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="Crescendo And Gale"
-          body=""
-          position={[0.325, -0.625, 0]}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/CrescendoAndGale.jpg`}
-          framed
-          position-x={1.25}
-        />
+        </Info>
       </group>
       <group
         name="wall-top-middle"
@@ -233,11 +236,19 @@ export default function JasonMatias() {
             size={1.5}
             position-x={-0.35}
           />
-          <Placard
+          <Info
+            position={[0.85, -0.1, 0.15]}
+            rotation={[0.5, 0, 0]}
+            email={EMAIL}
+            subject="subject"
+            body=""
             title="A Sun Story"
-            position-x={0.82}
-            width={1.5}
-            height={0.75}
+            fontSize={0.55}
+            textY={-2}
+            textX={0.25}
+            boxHeight={25}
+            boxWidth={-5}
+            contactPos={[10, -15, 0]}
           >
             Finding tree farms in eastern Oregon is not too difficult, the
             region is full of them. So much so that it is difficult to know
@@ -263,13 +274,7 @@ export default function JasonMatias() {
             should also allow that the slowing of my workflow allowed me to
             think through each detail and tone thoroughly and I am proud of the
             result.
-          </Placard>
-          <Contact
-            email={EMAIL}
-            subject="A Sun Story"
-            body=""
-            position={[0.5, -0.35, 0]}
-          />
+          </Info>
         </group>
         <group name="edgeofsolace">
           <Image
@@ -278,11 +283,19 @@ export default function JasonMatias() {
             size={1.5}
             position-x={0.35}
           />
-          <Placard
+          <Info
+            position={[-0.9, 0, 0.1]}
+            rotation={[0, 0, 0]}
+            email={EMAIL}
+            subject="subject"
+            body=""
             title="Edge Of Solace"
-            position-x={-0.82}
-            width={1.5}
-            height={0.575}
+            fontSize={0.55}
+            textY={-0.75}
+            textX={0.25}
+            boxHeight={15}
+            boxWidth={-7}
+            contactPos={[9, 0, 0]}
           >
             This scene is as much painting as it is a photograph. It is a scene
             I’ve longed for but never found. Finally, I allowed my creativity to
@@ -300,13 +313,7 @@ export default function JasonMatias() {
             be vast. The Edge of Solace is a my reminder to self to visit here
             often, to meditate on my experiences, to check-in with my feelings,
             and to keep this place vibrant and full.
-          </Placard>
-          <Contact
-            email={EMAIL}
-            subject="Edge of Solace"
-            body=""
-            position={[-1, -0.25, 0]}
-          />
+          </Info>
         </group>
         <group position-y={-0.6} name="avenadoraleaf">
           <Image
@@ -315,11 +322,18 @@ export default function JasonMatias() {
             size={1.5}
             position-x={-0.35}
           />
-          <Placard
+          <Info
+            position={[0.85, -0.1, 0.1]}
+            rotation={[-0.5, 0, 0]}
+            email={EMAIL}
+            subject="subject"
+            body=""
             title="Avensadora Leaf"
-            position-x={0.82}
-            width={1.5}
-            height={0.275}
+            fontSize={0.55}
+            textY={0}
+            textX={0.25}
+            boxWidth={-5}
+            contactPos={[10, 0, 0]}
           >
             I visited this wonderful Japanese maple tree four times before I
             found the perfect conditions to make my photograph. When the light
@@ -327,13 +341,7 @@ export default function JasonMatias() {
             compositions, the larger Avendasora and the wider Leaf. I walked
             between the two until the light was perfect and the red as bold as
             could be.
-          </Placard>
-          <Contact
-            email={EMAIL}
-            subject="Avensadora Leaf"
-            body=""
-            position={[0.5, -0.2, 0]}
-          />
+          </Info>
         </group>
       </group>
       <group
@@ -347,7 +355,20 @@ export default function JasonMatias() {
           size={1.5}
           position-x={-0.25}
         />
-        <Placard title="Ice Cave With A View" position={[0.8, 0, 0]}>
+        <Info
+          position={[0.3, -0.65, 0.1]}
+          rotation={[-0.5, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
+          title="Ice Cave With A View"
+          fontSize={0.55}
+          textY={0.3}
+          textX={0.25}
+          boxWidth={-5}
+          boxHeight={5}
+          contactPos={[10, 0, 0]}
+        >
           I spent about an hour in the ice cave with my friend and my dog. At
           the back of the cave is a waterfall with a skylight that remain among
           the most surreal experiences of my life. As I was leaving I saw the
@@ -359,13 +380,7 @@ export default function JasonMatias() {
           this cave. Won Gold in International Pano Awards Published in National
           Geographic Online and National Geographic Yourshot Finalist It's
           Amazing Out There, The Weather Channel
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="Ice Cave With A View"
-          body=""
-          position={[0.55, -0.3, 0]}
-        />
+        </Info>
       </group>
       <group
         name="wall-bottom-middle"
@@ -378,20 +393,26 @@ export default function JasonMatias() {
           size={1.5}
           position-x={-0.25}
         />
-        <Placard title="Tree Of Fire" position={[0.8, 0, 0]}>
+        <Info
+          position={[0.55, -0.65, 0.1]}
+          rotation={[-0.5, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
+          title="Tree Of Fire"
+          fontSize={0.55}
+          textY={0.25}
+          textX={0.25}
+          boxWidth={-5}
+          contactPos={[10, 0, 0]}
+        >
           Tucked away in the back of a Kubota Japanese Garden, the “Tree of
           Fire” was difficult to find. I found it as the sun set below the
           trees. Ambient light seemed to fall on the leaves like dust from a
           Disney movie. I was inspired by how the tree knew just how far to grow
           to kiss the pond’s surface just so. I chose this composition to show
           the balance the Tree of Fire has achieved with its environment.
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="Tree of Fire"
-          body=""
-          position={[0.55, -0.3, 0]}
-        />
+        </Info>
       </group>
       <group
         name="wall-bottom-right"
@@ -404,7 +425,20 @@ export default function JasonMatias() {
           size={1.5}
           position-x={-0.2}
         />
-        <Placard title="First Light" position={[0.85, 0, 0]}>
+        <Info
+          position={[0.55, -0.65, 0.1]}
+          rotation={[-0.5, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
+          title="First Light"
+          fontSize={0.55}
+          textY={0.3}
+          textX={0.25}
+          boxWidth={-5}
+          boxHeight={5}
+          contactPos={[10, 0, 0]}
+        >
           After a full 36 hours awake through New Years night at Rialto Beach I
           was ready for sunrise light. Ansel Adams said, "You don't take a great
           photograph, you make one." I like to take it one step further, "You
@@ -416,13 +450,7 @@ export default function JasonMatias() {
           50 yards away but a well laid plan is worth the wait. This monolith or
           seastack, along with the tree, fell in the heavy winter storms of
           early 2016.
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="First Light"
-          body=""
-          position={[0.6, -0.3, 0]}
-        />
+        </Info>
       </group>
       <group
         name="wall-bottom"
@@ -459,11 +487,19 @@ export default function JasonMatias() {
             position={[1.95, 1.025, 0]}
           />
         </group>
-        <Placard
+        <Info
+          position={[0.15, 0, 0.1]}
+          rotation={[0, 0, 0]}
+          email={EMAIL}
+          subject="subject"
+          body=""
           title="Skyraider Collection"
-          position={[3, 0, 0]}
-          width={1.5}
-          height={0.9}
+          fontSize={0.55}
+          textY={2}
+          textX={0.25}
+          boxWidth={-5}
+          boxHeight={35}
+          contactPos={[10, 0, 0]}
         >
           I always knew I was going to join the military. I'm a sixth generation
           first son and all my fathers were in the military. No one ever said I
@@ -491,13 +527,7 @@ export default function JasonMatias() {
           refueling tankers by the Tactical Air Command. The first modifications
           involved removing all armament and installing extra fuel tanks in the
           fuselage and under the wings.
-        </Placard>
-        <Contact
-          email={EMAIL}
-          subject="Skyraider Collection"
-          body=""
-          position={[2.75, -0.45, 0]}
-        />
+        </Info>
         <group position-x={-2.56}>
           <Image
             framed

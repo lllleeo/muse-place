@@ -1,5 +1,5 @@
 import { Text } from "@react-three/drei";
-import { GroupProps } from "react-three-fiber";
+import { GroupProps } from "@react-three/fiber";
 
 type LabelProps = {
   text: string;
