@@ -57,7 +57,7 @@ export const Tool = (props: Props) => {
     if (face) {
       group.current.quaternion.copy(camera.quaternion);
     }
-  }, 1);
+  });
 
   return (
     <group>

@@ -27,7 +27,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       );
 
     // fetch cart id from local storage or create a new one
-    const id = localStorage.getItem("muse-cart-id");
+    const id = localStorage.getItem("muse-cart-ballonski-id");
     if (id) {
       client.checkout
         .fetch(id)
@@ -49,7 +49,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       client.checkout
         .addLineItems(checkout.id, lineItemsToAdd)
         .then((newCheckout: any) => {
-          localStorage.setItem("muse-cart-id", newCheckout.id);
+          localStorage.setItem("muse-cart-ballonski-id", newCheckout.id);
           setCheckout(newCheckout);
         });
     },
@@ -59,7 +59,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       client.checkout
         .removeLineItems(checkoutId, id)
         .then((newCheckout: any) => {
-          localStorage.setItem("muse-cart-id", newCheckout.id);
+          localStorage.setItem("muse-cart-ballonski-id", newCheckout.id);
           setCheckout(newCheckout);
         });
     },
@@ -72,7 +72,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     clear: () => {
       client.checkout.create().then((shopifyCheckout: any) => {
         setCheckout(shopifyCheckout);
-        localStorage.setItem("muse-cart-id", shopifyCheckout.id);
+        localStorage.setItem("muse-cart-ballonski-id", shopifyCheckout.id);
       });
     },
   };

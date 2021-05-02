@@ -38,7 +38,7 @@ const Control = (props: Props) => {
   const TEXT_WIDTH = WIDTH - CART_WIDTH - PADDING_X * 3;
 
   const { cart, products } = useContext(ShopContext);
-  const product = products?.find((prod) => prod.id === productId);
+  const product = products.find((prod) => prod.id === productId);
 
   const [variantIndex, setVariantIndex] = useState(0);
 
@@ -48,7 +48,6 @@ const Control = (props: Props) => {
   const addToCart = () => {
     if (variant && variant.available) {
       cart.add(variant.id);
-      console.log(cart);
     }
   };
 

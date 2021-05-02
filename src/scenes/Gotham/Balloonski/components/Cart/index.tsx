@@ -20,6 +20,8 @@ const Cart = () => {
   const [incr, setIncr] = useState(2);
   const prevCart = useRef(0);
 
+  console.log(cart);
+
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
       cart.clear();
@@ -41,7 +43,7 @@ const Cart = () => {
   useEffect(() => {
     if (cart.count !== prevCart.current) {
       setIncr(incr + 1);
-      prevCart.current = cart?.count;
+      prevCart.current = cart.count;
     }
   }, [incr, cart.count]);
 

@@ -48,7 +48,7 @@ export default function Balloonski() {
         </Floating>
         <Cart />
         <Kiosks />
-        <Renderer />
+        {/*<Renderer />*/}
       </group>
     </ShopContext.Provider>
   );

@@ -46,9 +46,7 @@ const Kiosk = (props: Props) => {
     }
   });
 
-  const product = products?.find((prod) => prod.id === productId);
-
-  // console.log(product);
+  const product = products.find((prod) => prod.id === productId);
 
   return (
     <group name="kiosk" {...props} ref={group}>

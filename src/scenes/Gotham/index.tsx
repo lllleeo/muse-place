@@ -28,7 +28,7 @@ export default function GothamScene(props: GothamSceneProps) {
 
   return (
     <StandardEnvironment
-      canvasProps={{ camera: { far: 200 } }}
+      canvasProps={{ camera: { far: 200, near: 0.001 } }}
       playerProps={{
         pos: [-4.1, 1, 11],
         rot: -0.15,
