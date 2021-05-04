@@ -1,11 +1,10 @@
 import { Image, Video } from "spacesvr";
-import Placard from "themes/components/Placard";
 import SocialButton from "themes/components/SocialButton";
 import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import Label from "themes/components/Label";
-import Contact from "./components/Contact";
 import Info from "./components/Info";
+import TitleCard from "./components/TitleCard";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias";
@@ -43,7 +42,8 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/FTLL.jpg`}
           framed
-          size={1.6}
+          frameWidth={0.75}
+          size={1.2}
           position-x={-6.5}
         />
         <group name="connect" position={[-2.65, -0.1, 0]}>
@@ -66,6 +66,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/WanderingStar.jpg`}
           framed
+          frameWidth={0.75}
           size={2}
           position-x={0.2}
         />
@@ -94,6 +95,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/LanikaiSilence.jpg`}
           framed
+          frameWidth={0.75}
           size={1.6}
           position-x={6.5}
         />
@@ -106,6 +108,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/Solitude.jpg`}
           framed
+          frameWidth={0.75}
           position-x={-0.275}
         />
         <Info
@@ -132,6 +135,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/CrescendoAndGale.jpg`}
           framed
+          frameWidth={0.75}
           position-x={1.25}
         />
         <Info
@@ -191,6 +195,7 @@ export default function JasonMatias() {
         <Video
           src={`${CONTENT_FOLDER}/4.mp4`}
           framed
+          frameWidth={0.75}
           size={1.5}
           position-y={0.4}
         />
@@ -229,119 +234,50 @@ export default function JasonMatias() {
         position={[-1.39, 1.07, 8.1]}
         rotation-y={Math.PI / 2}
       >
-        <group position-y={0.7} name="asunstory">
+        <group position-y={0.5} name="asunstory">
           <Image
             src={`${CONTENT_FOLDER}/ASunStory.jpg`}
             framed
-            size={1.5}
+            frameWidth={0.75}
+            size={1.25}
             position-x={-0.35}
           />
-          <Info
-            position={[0.85, -0.1, 0.15]}
-            rotation={[0.5, 0, 0]}
-            email={EMAIL}
-            subject="subject"
-            body=""
+          <TitleCard
             title="A Sun Story"
-            fontSize={0.55}
-            textY={-2}
-            textX={0.25}
-            boxHeight={25}
-            boxWidth={-5}
-            contactPos={[10, -15, 0]}
-          >
-            Finding tree farms in eastern Oregon is not too difficult, the
-            region is full of them. So much so that it is difficult to know
-            where one ends and another begins. And the roads; they go on and on
-            for what seems like forever. It is no surprise to you, then, that it
-            has taken me several overnight trips to find a scene like “A Sun
-            Story.” All the elements have to line up for a capture such as this:
-            the field, the light, the degree to which fall has taken hold, and
-            luck. One has to give credit where its due and I attribute A Sun
-            Story to luck. I had been driving for hours on my second day on the
-            farm roads and the sun was already two spans above the horizon by
-            the time I spied these three trees. They stood defiantly against an
-            autumn that had claimed the winter’s toll in leaves from an entire
-            forest. I was blown away by the contrast of life on display. The
-            photograph is panoramic with stunning clarity and detail. Five
-            images were captured with a full frame, Nikon D800 at 200mm. Without
-            enlarging the final piece you can print her at a full sixty inches
-            and see each branch and leaf and even the texture of the bark on the
-            trees. This wonderful clarity is what allows me to print A Sun Story
-            to 32×96 inches. I’ll admit, however, that such a large image
-            stretched the processing power of my computer to its limits. Still,
-            if I am to admit to a grueling and slow post production then I
-            should also allow that the slowing of my workflow allowed me to
-            think through each detail and tone thoroughly and I am proud of the
-            result.
-          </Info>
+            contactUrl="https://google.com"
+            visitUrl="https://jasonmatias.com"
+            position-x={0.745}
+          />
         </group>
-        <group name="edgeofsolace">
+        <group name="edgeofsolace" position-y={-0.05}>
           <Image
             src={`${CONTENT_FOLDER}/EdgeOfSolace.jpg`}
             framed
-            size={1.5}
+            frameWidth={0.75}
+            size={1.25}
             position-x={0.35}
           />
-          <Info
-            position={[-0.9, 0, 0.1]}
-            rotation={[0, 0, 0]}
-            email={EMAIL}
-            subject="subject"
-            body=""
+          <TitleCard
             title="Edge Of Solace"
-            fontSize={0.55}
-            textY={-0.75}
-            textX={0.25}
-            boxHeight={15}
-            boxWidth={-7}
-            contactPos={[9, 0, 0]}
-          >
-            This scene is as much painting as it is a photograph. It is a scene
-            I’ve longed for but never found. Finally, I allowed my creativity to
-            rend reality. Edge of Solace is an idea I’ve carried with me for a
-            long time but I feel that it was Seattle and the Northwest that gave
-            me the inspiration and the building blocks to bring it to life. All
-            the elements in Edge of Solace were captured in Seattle and Mercer
-            Island making it a true work of the Pacific Northwest and a
-            statement about my time here. As I strive to visualize and create
-            this idea of Comfortable Isolation I find myself drawn to water and
-            what it represents: renewal, neutrality, energy. In psychology, the
-            ego is referred to as a pool of energy found in the mind. Too often,
-            I visit my ego when it is roiling, dry, or as hard as ice. In my
-            meditations I imagine myself on the shore of my ego and I will it to
-            be vast. The Edge of Solace is a my reminder to self to visit here
-            often, to meditate on my experiences, to check-in with my feelings,
-            and to keep this place vibrant and full.
-          </Info>
+            contactUrl="https://google.com"
+            visitUrl="https://jasonmatias.com"
+            position-x={-0.7}
+          />
         </group>
         <group position-y={-0.6} name="avenadoraleaf">
           <Image
             src={`${CONTENT_FOLDER}/AvendasoraLeaf.jpg`}
             framed
-            size={1.5}
+            frameWidth={0.75}
+            size={1.25}
             position-x={-0.35}
           />
-          <Info
-            position={[0.85, -0.1, 0.1]}
-            rotation={[-0.5, 0, 0]}
-            email={EMAIL}
-            subject="subject"
-            body=""
+          <TitleCard
             title="Avensadora Leaf"
-            fontSize={0.55}
-            textY={0}
-            textX={0.25}
-            boxWidth={-5}
-            contactPos={[10, 0, 0]}
-          >
-            I visited this wonderful Japanese maple tree four times before I
-            found the perfect conditions to make my photograph. When the light
-            and atmosphere were perfect, I found that I was in love with two
-            compositions, the larger Avendasora and the wider Leaf. I walked
-            between the two until the light was perfect and the red as bold as
-            could be.
-          </Info>
+            contactUrl="https://google.com"
+            visitUrl="https://jasonmatias.com"
+            position-x={0.7}
+          />
         </group>
       </group>
       <group
@@ -352,6 +288,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/IceCaveWithAView.jpg`}
           framed
+          frameWidth={0.75}
           size={1.5}
           position-x={-0.25}
         />
@@ -390,6 +327,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/TreeOfFire.jpg`}
           framed
+          frameWidth={0.75}
           size={1.5}
           position-x={-0.25}
         />
@@ -422,6 +360,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/FirstLightBW.jpg`}
           framed
+          frameWidth={0.75}
           size={1.5}
           position-x={-0.2}
         />
@@ -466,6 +405,7 @@ export default function JasonMatias() {
           <Image
             src={`${CONTENT_FOLDER}/Skyraider.jpg`}
             framed
+            frameWidth={0.75}
             size={1}
             position={[2.68, 0, 0]}
           />
@@ -477,12 +417,14 @@ export default function JasonMatias() {
           <Image
             src={`${CONTENT_FOLDER}/Expeditor.jpg`}
             framed
+            frameWidth={0.75}
             size={1.3}
             position={[1.5, 0, 0]}
           />
           <Image
             src={`${CONTENT_FOLDER}/Superfortress.jpg`}
             framed
+            frameWidth={0.75}
             size={2.2}
             position={[1.95, 1.025, 0]}
           />
@@ -531,12 +473,14 @@ export default function JasonMatias() {
         <group position-x={-2.56}>
           <Image
             framed
+            frameWidth={0.75}
             size={2}
             src={`${CONTENT_FOLDER}/HawaiiWave.jpg`}
             position-x={-2.4}
           />
           <Image
             framed
+            frameWidth={0.75}
             size={2}
             src={`${CONTENT_FOLDER}/MolokaiPano.jpg`}
             position-x={0.4}
@@ -545,6 +489,7 @@ export default function JasonMatias() {
         <Image
           src={`${CONTENT_FOLDER}/LastLight.jpg`}
           framed
+          frameWidth={0.75}
           size={2}
           position={[-9.5, 0, 0]}
         />
@@ -553,6 +498,7 @@ export default function JasonMatias() {
         name="outside-edgefsolace"
         src={`${CONTENT_FOLDER}/EdgeOfSolace.jpg`}
         framed
+        frameWidth={0.75}
         size={10}
         rotation-y={Math.PI}
         position={[-1.4, 1.5, 19]}
@@ -561,6 +507,7 @@ export default function JasonMatias() {
         name="outside-eddie"
         src={`${CONTENT_FOLDER}/EddieWave.jpg`}
         framed
+        frameWidth={0.75}
         size={12}
         rotation-y={0}
         position={[-1.4, 1.5, -12]}
