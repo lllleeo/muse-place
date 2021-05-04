@@ -20,18 +20,20 @@ const Artwork = (props: ArtworkProps) => {
 
   return (
     <group>
-      {artwork.map((piece, i) => (
-        <Link
-          position={linkPositions[i].p}
-          rotY={linkPositions[i].r}
-          audio={piece.audio}
-          link={piece.link}
-          size={piece.size}
-          src={piece.src}
-          blank={piece.blank}
-          key={i}
-        />
-      ))}
+      {artwork.map(
+        (piece, i) =>
+          !piece.blank && (
+            <Link
+              position={linkPositions[i].p}
+              rotY={linkPositions[i].r}
+              audio={piece.audio}
+              link={piece.link}
+              size={piece.size}
+              src={piece.src}
+              key={i}
+            />
+          )
+      )}
     </group>
   );
 };

@@ -10,15 +10,10 @@ type LinkProps = {
   rotY?: number;
   text?: string;
   color?: string;
-  blank?: boolean;
 };
 
 const Link = (props: LinkProps) => {
-  const { audio, link, position, rotY = 0, size = 1.6, src, blank } = props;
-
-  if (blank) {
-    return <></>;
-  }
+  const { audio, link, position, rotY = 0, size = 1.6, src } = props;
 
   const handleClick = () => {
     if (link) {
