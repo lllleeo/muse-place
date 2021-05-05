@@ -127,9 +127,7 @@ const Landing = () => {
         <img src={`${CONTENT_FOLDER}/yellow-green-durag.jpg`} />
         <h1>Go to 2D Shop</h1>
       </TopSelection>
-      <BottomSelection
-        onClick={() => (window.location.href = "/silksbyvp/world")}
-      >
+      <BottomSelection onClick={() => (window.location.href = "/world")}>
         <video autoPlay muted playsInline loop>
           <source type="video/mp4" src={`${CONTENT_FOLDER}/gameplay.mp4`} />
         </video>
