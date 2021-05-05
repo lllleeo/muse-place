@@ -1,6 +1,5 @@
 import { Suspense } from "react";
-import YellowGreenDurag from "../models/YellowGreenDurag";
-import BlueGreenDurag from "../models/BlueGreenDurag";
+import Durag from "../models/Durag";
 import Spinning from "../modifiers/Spinning";
 import Kiosk from "./Kiosk";
 import { Preload } from "@react-three/drei";
@@ -16,7 +15,7 @@ export default function Kiosks() {
         <Spinning>
           <Suspense fallback={null}>
             <Preload all />
-            <BlueGreenDurag />
+            <Durag fabricColor="#f0dd33" stitchesColor="#e92907" />
           </Suspense>
         </Spinning>
       </Kiosk>
@@ -28,7 +27,7 @@ export default function Kiosks() {
         <Spinning>
           <Suspense fallback={null}>
             <Preload all />
-            <YellowGreenDurag />
+            <Durag fabricColor="#d51010" stitchesColor="#dbdbdb" />
           </Suspense>
         </Spinning>
       </Kiosk>
