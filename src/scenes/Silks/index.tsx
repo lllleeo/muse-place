@@ -39,7 +39,6 @@ const Silks = () => {
         speed: 2,
         controls: { disableGyro: true },
       }}
-      dev
     >
       <ShopContext.Provider value={shop}>
         <SilksContext.Provider value={{ giveCode, setGiveCode }}>
