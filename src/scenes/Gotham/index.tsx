@@ -21,7 +21,7 @@ export default function GothamScene(props: GothamSceneProps) {
   return (
     <StandardEnvironment
       canvasProps={{ camera: { far: 200 } }}
-      playerProps={{ pos: [-4.1, 1, 11], rot: -0.15, speed: 1.7 }}
+      playerProps={{ pos: [-4.26, 1, 9.56], rot: -0.4, speed: 1.7 }}
       simulationProps={simulationProps}
     >
       {!night && <Sky inclination={1} distance={night ? 0 : 1000000} />}
