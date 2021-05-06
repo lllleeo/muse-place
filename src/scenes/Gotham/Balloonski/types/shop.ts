@@ -1,9 +1,11 @@
+import { ReactNode } from "react";
+
 export type ShopState = {
   cart: Cart;
   products: Product[];
 };
 
-type Item = {
+export type Item = {
   id: string;
   quantity: number;
 };
@@ -31,4 +33,5 @@ export type Product = {
   images: string[];
   available: boolean;
   variants: Variant[];
+  visual?: ReactNode;
 };

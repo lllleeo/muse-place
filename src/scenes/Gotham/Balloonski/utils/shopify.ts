@@ -43,9 +43,9 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
   const cart: Cart = {
     items: checkout ? checkout.lineItems : [],
     url: checkout?.webUrl,
-    add: (id: string, quantity = 1) => {
+    add: (id: string) => {
       if (!checkout?.id) return;
-      const lineItemsToAdd = { variantId: id, quantity };
+      const lineItemsToAdd = { variantId: id, quantity: 1 };
       client.checkout
         .addLineItems(checkout.id, lineItemsToAdd)
         .then((newCheckout: any) => {

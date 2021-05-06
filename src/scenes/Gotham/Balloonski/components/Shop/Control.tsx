@@ -1,7 +1,7 @@
 import { GroupProps, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
-import { useContext, useMemo, useState } from "react";
+import { ReactNode, useContext, useMemo, useState } from "react";
 import { ShopContext } from "../../index";
 import { Interactable } from "spacesvr";
 
@@ -28,6 +28,7 @@ type Props = {
   width: number;
   productName?: string;
   productId?: string;
+  visual?: ReactNode;
 } & GroupProps;
 
 const Control = (props: Props) => {

@@ -7,14 +7,14 @@ import {
   useRef,
   useState,
 } from "react";
-import { Floating } from "spacesvr";
+import { Floating, Image } from "spacesvr";
 import Control from "./Control";
 import { Group, Vector3 } from "three";
-import { Product, ShopState } from "../../types/shop";
+import { Product } from "../../types/shop";
 import { ShopContext } from "../../../Balloonski";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   productId?: string;
   productName?: string;
 } & GroupProps;
@@ -48,12 +48,22 @@ const Kiosk = (props: Props) => {
 
   const product = products.find((prod) => prod.id === productId);
 
+  const images = product?.images || [];
+  const visual =
+    children || (images[0] && <Image src={images[0]} size={0.4} framed />);
+
+  useEffect(() => {
+    if (!product) return;
+    product.visual = visual;
+    console.log(visual);
+  }, [visual]);
+
   return (
     <group name="kiosk" {...props} ref={group}>
       <KioskContext.Provider value={{ productId, product, open }}>
         <group position-y={0.4}>
           <Floating height={0.05} speed={2}>
-            {children}
+            {visual}
           </Floating>
         </group>
         <Control
@@ -61,6 +71,7 @@ const Kiosk = (props: Props) => {
           position-z={DEPTH / 2 - 0.05}
           productName={productName}
           productId={product?.id}
+          visual={visual}
         />
       </KioskContext.Provider>
     </group>

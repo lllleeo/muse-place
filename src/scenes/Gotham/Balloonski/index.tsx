@@ -21,7 +21,7 @@ export default function Balloonski() {
 
   return (
     <ShopContext.Provider value={shop}>
-      <group>
+      <group name="balloonski-site">
         <Suspense fallback={null}>
           <Desk />
           <Register />

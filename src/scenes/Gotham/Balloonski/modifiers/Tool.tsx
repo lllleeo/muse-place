@@ -1,6 +1,6 @@
 import React, { ReactNode, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Group, Vector3 } from "three";
+import { Group, Vector2, Vector3 } from "three";
 
 type Props = {
   children: ReactNode;
@@ -31,6 +31,8 @@ export const Tool = (props: Props) => {
 
   const group = useRef<Group>();
   const groupPos = useRef(new Vector3());
+  const screenPos = useRef(new Vector2(pos ? pos[0] : 0, pos ? pos[1] : 0));
+  const dummy2 = useRef(new Vector2());
 
   const { current: dummyVector } = useRef(new Vector3());
 
@@ -38,8 +40,11 @@ export const Tool = (props: Props) => {
     if (!group.current) return;
 
     if (pos !== undefined) {
-      const xPos = (pos[0] * 0.00008 * size.width) / 2;
-      const yPos = 0.04 * pos[1];
+      dummy2.current.x = pos[0];
+      dummy2.current.y = pos[1];
+      screenPos.current.lerp(dummy2.current, 0.125);
+      const xPos = (screenPos.current.x * 0.00008 * size.width) / 2;
+      const yPos = 0.04 * screenPos.current.y;
       dummyVector.set(xPos * distance, yPos * distance, -DISTANCE);
       const moveQuaternion = camera.quaternion.clone();
       if (!pinY) {
@@ -60,7 +65,7 @@ export const Tool = (props: Props) => {
   });
 
   return (
-    <group>
+    <group name="tool">
       <group ref={group}>
         <group scale={SCALE * distance}>{children}</group>
       </group>
