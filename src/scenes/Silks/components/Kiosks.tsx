@@ -9,7 +9,7 @@ export default function Kiosks() {
     <group name="kiosks" position={[0, 0.6, -5.32]}>
       <Kiosk
         position-x={-0.5}
-        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NDU2MTQ3MzMzNzQ="
+        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1Nzk0NTg5NjU1NjY="
         name="pink-green-durag"
       >
         <Spinning>
@@ -21,7 +21,7 @@ export default function Kiosks() {
       </Kiosk>
       <Kiosk
         position-x={2.5}
-        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NDU2MTUyOTA0MzA="
+        productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1Nzk0NTkyMjc3MTA="
         name="pink-white-durag"
       >
         <Spinning>
