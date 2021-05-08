@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import ShopifyBuy, { Cart as ShopifyCart } from "shopify-buy";
+import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
 import { Cart, Item, Product, ShopState } from "../types/shop";
-import LineItemToAdd = ShopifyBuy.LineItemToAdd;
 
 type ShopifyClient = {
   domain: string;
