@@ -1,4 +1,4 @@
-import { Interactable } from "spacesvr";
+import { Floating, Interactable } from "spacesvr";
 import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
 // @ts-ignore
@@ -16,6 +16,7 @@ type TitleCardProps = {
   buttons?: [ButtonProps] | [ButtonProps, ButtonProps];
   contactUrl?: string;
   visitUrl?: string;
+  width?: number;
 } & GroupProps;
 
 function Button(props: ButtonProps & GroupProps) {
@@ -66,7 +67,14 @@ function Button(props: ButtonProps & GroupProps) {
 }
 
 export default function TitleCard(props: TitleCardProps) {
-  const { title, buttons = [], contactUrl, visitUrl, ...rest } = props;
+  const {
+    title,
+    buttons = [],
+    contactUrl,
+    visitUrl,
+    width = 0.65,
+    ...rest
+  } = props;
 
   const BUTTONS: ButtonProps[] =
     !contactUrl || !visitUrl
@@ -78,7 +86,7 @@ export default function TitleCard(props: TitleCardProps) {
 
   const FONT_URL =
     "https://d27rt3a60hh1lx.cloudfront.net/fonts/AcuminProMedium.otf";
-  const WIDTH = 0.65;
+  const WIDTH = width;
   const HEIGHT = 0.25;
   const DEPTH = 0.015;
   const PADDING_X = 0.05;
@@ -88,45 +96,47 @@ export default function TitleCard(props: TitleCardProps) {
 
   return (
     <group name={`titlecard-${title}`} {...rest}>
-      <mesh name="plate" position-y={0} position-z={-DEPTH - 0.001}>
-        <boxBufferGeometry args={[WIDTH, HEIGHT, DEPTH]} />
-        <meshStandardMaterial />
-      </mesh>
-      {/* @ts-ignore */}
-      <Text
-        name="title"
-        fontSize={FONT_SIZE}
-        position-y={HEIGHT / 2 - PADDING_Y}
-        position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
-        color="black"
-        font={FONT_URL}
-        anchorY="top"
-        anchorX="left"
-        textAlign="left"
-        maxWidth={WIDTH - PADDING_X * 2 - INDENT}
-      >
-        {title}
-      </Text>
-      <mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>
-        <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />
-        <meshStandardMaterial color="black" />
-      </mesh>
-      <group
-        name="buttons"
-        position-y={-0.035}
-        position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
-      >
-        {BUTTONS.map((button, i) => {
-          const maxWidth = 0.15;
-          let buttonWidth = (WIDTH / BUTTONS.length) * 0.9;
-          buttonWidth = buttonWidth > maxWidth ? maxWidth : buttonWidth;
+      <Floating height={0.01} speed={3}>
+        <mesh name="plate" position-y={0} position-z={-DEPTH - 0.001}>
+          <boxBufferGeometry args={[WIDTH, HEIGHT, DEPTH]} />
+          <meshStandardMaterial />
+        </mesh>
+        {/* @ts-ignore */}
+        <Text
+          name="title"
+          fontSize={FONT_SIZE}
+          position-y={HEIGHT / 2 - PADDING_Y}
+          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+          color="black"
+          font={FONT_URL}
+          anchorY="top"
+          anchorX="left"
+          textAlign="left"
+          maxWidth={WIDTH - PADDING_X * 2 - INDENT}
+        >
+          {title}
+        </Text>
+        <mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>
+          <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />
+          <meshStandardMaterial color="black" />
+        </mesh>
+        <group
+          name="buttons"
+          position-y={-0.035}
+          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+        >
+          {BUTTONS.map((button, i) => {
+            const maxWidth = 0.15;
+            let buttonWidth = (WIDTH / BUTTONS.length) * 0.9;
+            buttonWidth = buttonWidth > maxWidth ? maxWidth : buttonWidth;
 
-          const x =
-            buttonWidth / 2 + (i / (BUTTONS.length - 1)) * buttonWidth * 1.25;
+            const x =
+              buttonWidth / 2 + (i / (BUTTONS.length - 1)) * buttonWidth * 1.25;
 
-          return <Button position-x={x} width={buttonWidth} {...button} />;
-        })}
-      </group>
+            return <Button position-x={x} width={buttonWidth} {...button} />;
+          })}
+        </group>
+      </Floating>
     </group>
   );
 }
