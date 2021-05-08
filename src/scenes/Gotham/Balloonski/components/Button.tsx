@@ -13,13 +13,22 @@ type ButtonProps = {
   rounded?: boolean;
   size?: number;
   onClick?: () => void;
+  width?: number;
 } & GroupProps;
 
 export default function Button(props: ButtonProps) {
-  const { children, textStyles, rounded, onClick, size = 1, ...rest } = props;
+  const {
+    children,
+    textStyles,
+    rounded,
+    onClick,
+    width = 1,
+    size = 1,
+    ...rest
+  } = props;
 
   const HEIGHT = 1.25;
-  const WIDTH = 1.25;
+  const WIDTH = 1.25 * width;
   const DEPTH = 0.1;
   const TEXT_STYLES: Partial<React.ComponentProps<typeof Text>> = {
     color: "black",

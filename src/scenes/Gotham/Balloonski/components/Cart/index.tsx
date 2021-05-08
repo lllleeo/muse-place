@@ -89,6 +89,11 @@ const Cart = () => {
       </Tool>
       {open && (
         <RangeTool pos={[0, 0]} distance={6} onExit={() => setOpen(false)}>
+          <pointLight position={[0, 0, 4]} distance={0.4} />
+          <mesh position-z={-4}>
+            <planeBufferGeometry args={[20, 20]} />
+            <meshStandardMaterial color={"white"} />
+          </mesh>
           {cart.items.map((item, i) => (
             <Product
               item={item}

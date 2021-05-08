@@ -23,7 +23,11 @@ export default function Balloonski() {
     <ShopContext.Provider value={shop}>
       <group name="balloonski-site">
         <Suspense fallback={null}>
-          <Desk />
+          <Desk
+            position={[2.04, 0, 4.1]}
+            rotation-y={-Math.PI / 2}
+            scale={[2.04, 0.8, 1.29]}
+          />
           <Register />
         </Suspense>
         <Moneycat

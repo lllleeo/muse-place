@@ -30,7 +30,7 @@ export const RangeTool = (props: Props) => {
     face = true,
     pinY = false,
     distance = 1,
-    range = 0.8,
+    range = 1,
     onExit,
   } = props;
 
@@ -49,6 +49,7 @@ export const RangeTool = (props: Props) => {
     quat.z = 0;
     return quat;
   }, []);
+  const startPos = useRef(camera.position.clone());
 
   const { current: dummyVector } = useRef(new Vector3());
 
@@ -69,8 +70,12 @@ export const RangeTool = (props: Props) => {
       }
 
       if (Math.abs(moveQuaternion.angleTo(curQuaternion)) > range) {
-        onExit();
+        if (onExit) onExit();
         curQuaternion.slerp(moveQuaternion, 0.025);
+      }
+
+      if (startPos.current.distanceTo(camera.position) > 1) {
+        if (onExit) onExit();
       }
 
       dummyVector.applyQuaternion(curQuaternion);

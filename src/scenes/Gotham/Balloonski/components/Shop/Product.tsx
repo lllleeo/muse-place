@@ -1,10 +1,9 @@
 import { Item } from "../../types/shop";
-import { RoundedBox, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ShopContext } from "../../index";
 import { Image } from "spacesvr";
-import { useSpring, animated, config } from "react-spring/three";
 import Button from "../Button";
 
 type ProductProps = {
@@ -20,17 +19,14 @@ export default function Product(props: ProductProps) {
       prod.variants.find((variant) => variant.id === item.id) !== null
   );
 
-  const [pressed, setPressed] = useState(false);
-
-  const { color, scale } = useSpring({
-    color: pressed ? "#aaa" : "#fff",
-    scale: pressed ? 0.5 : 1,
-    ...config.stiff,
-  });
-
   if (!product) return null;
 
   const { images } = product;
+
+  // @ts-ignore
+  const subtotal = (item.quantity * product.variants[0].price).toString();
+  // @ts-ignore
+  const variantId = item.variant.id;
 
   return (
     <group name={`product-${item.id}`} {...rest} scale={1}>
@@ -44,26 +40,7 @@ export default function Product(props: ProductProps) {
       >
         {item.quantity}
       </Text>
-      <Text
-        position-y={-1.5}
-        position-z={0.05 + 0.001}
-        fontSize={0.4}
-        color="white"
-        outlineColor="black"
-        outlineWidth={0.05}
-        maxWidth={4}
-        textAlign="center"
-      >
-        {item.title}
-      </Text>
-      <RoundedBox
-        args={[4, 1.25, 0.1]} // Width, Height and Depth of the box
-        position-y={-1.5}
-        radius={0.25} // Border-Radius of the box
-        smoothness={4} // Optional, number of subdivisions
-      >
-        <animated.meshStandardMaterial color={color} />
-      </RoundedBox>
+      <Button position-y={-1.5}>{`$${subtotal}`}</Button>
       <Button
         position={[-1.25, -3, 0]}
         rounded
@@ -74,7 +51,7 @@ export default function Product(props: ProductProps) {
       <Button
         position={[1.25, -3, 0]}
         rounded
-        onClick={() => cart.add(item.variant.id)}
+        onClick={() => cart.add(variantId)}
       >
         +
       </Button>
