@@ -7,8 +7,6 @@ const SILKS_CONTENT_FOLDER =
 const SIZE = 1.5;
 
 const Gallery = () => {
-  const mat = useMemo(() => new MeshStandardMaterial({ color: "black" }), []);
-
   return (
     <group name="gallery">
       <group
@@ -17,21 +15,18 @@ const Gallery = () => {
         position={[0, SIZE * 0.75, 5.18]}
       >
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/yellow-green-durag.jpg`}
           size={SIZE}
           framed
           position-x={-1}
         />
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/eyes.jpg`}
           size={SIZE}
           framed
           position-x={3}
         />
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/camo.jpg`}
           size={SIZE}
           framed
@@ -40,14 +35,12 @@ const Gallery = () => {
       </group>
       <group name="front-wall" position={[0, SIZE * 0.75, 1.05]}>
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/pink.jpg`}
           size={SIZE}
           framed
           position-x={-8.5}
         />
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/sleep.jpg`}
           size={SIZE}
           framed
@@ -55,7 +48,6 @@ const Gallery = () => {
         />
 
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/gold.jpg`}
           size={SIZE}
           framed
@@ -68,7 +60,6 @@ const Gallery = () => {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          material={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/vp.jpg`}
           size={SIZE}
           framed
