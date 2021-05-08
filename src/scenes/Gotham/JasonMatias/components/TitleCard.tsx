@@ -81,7 +81,7 @@ export default function TitleCard(props: TitleCardProps) {
       ? buttons
       : [
           { title: "Contact", link: contactUrl },
-          { title: "Learn", link: visitUrl },
+          { title: "Learn More", link: visitUrl },
         ];
 
   const FONT_URL =

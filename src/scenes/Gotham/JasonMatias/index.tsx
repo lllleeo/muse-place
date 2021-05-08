@@ -10,7 +10,7 @@ const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias";
 const EMAIL = "youremail@gmail.com";
 const CONTACT = "mailto:youremail@gmail.com?";
-const SITE = "https://jasonmatias.comw";
+const SITE = "https://jasonmatias.com";
 
 function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   const { link, text = link.replace("https://", ""), ...restProps } = props;
