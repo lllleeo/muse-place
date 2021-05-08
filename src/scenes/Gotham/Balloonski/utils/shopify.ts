@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import ShopifyBuy, { Cart as ShopifyCart } from "shopify-buy";
 import { Cart, Item, Product, ShopState } from "../types/shop";
+import LineItemToAdd = ShopifyBuy.LineItemToAdd;
 
 type ShopifyClient = {
   domain: string;
@@ -48,7 +49,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     url: checkout?.webUrl,
     add: (id: string) => {
       if (!checkout?.id) return;
-      const lineItemsToAdd = { variantId: id, quantity: 1 };
+      const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
       client.checkout
         .addLineItems(checkout.id, [lineItemsToAdd])
         .then(saveNewCart);
