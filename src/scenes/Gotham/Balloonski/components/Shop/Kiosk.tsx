@@ -55,7 +55,6 @@ const Kiosk = (props: Props) => {
   useEffect(() => {
     if (!product) return;
     product.visual = visual;
-    console.log(visual);
   }, [visual]);
 
   return (

@@ -11,6 +11,7 @@ import { Preload } from "@react-three/drei";
 import SpeechBubble from "../SpeechBubble";
 import FacePlayer from "../../modifiers/FacePlayer";
 import Product from "../Shop/Product";
+import { RangeTool } from "../../modifiers/RangeTool";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
@@ -56,7 +57,7 @@ const Cart = () => {
   return (
     <>
       <Tool
-        pos={[open ? -0.8 : posX, open ? 0 : posY]}
+        pos={[open ? 0.8 : posX, open ? 0 : posY]}
         face={false}
         pinY={isMobile}
       >
@@ -87,14 +88,14 @@ const Cart = () => {
         </Spinning>
       </Tool>
       {open && (
-        <Tool pos={[0, 0]}>
+        <RangeTool pos={[0, 0]} distance={6} onExit={() => setOpen(false)}>
           {cart.items.map((item, i) => (
             <Product
               item={item}
               position-x={(-(cart.items.length - 1) / 2 + i) * 6.5}
             />
           ))}
-        </Tool>
+        </RangeTool>
       )}
     </>
   );

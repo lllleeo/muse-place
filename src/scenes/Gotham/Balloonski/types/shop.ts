@@ -13,6 +13,7 @@ export type Item = {
 export type Cart = {
   items: Item[];
   add: (id: string) => void;
+  subtract: (id: string) => void;
   remove: (id: string) => void;
   count: number;
   clear: () => void;
