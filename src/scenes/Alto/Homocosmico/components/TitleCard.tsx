@@ -96,47 +96,45 @@ export default function TitleCard(props: TitleCardProps) {
 
   return (
     <group name={`titlecard-${title}`} {...rest}>
-      <Floating height={0.01} speed={3}>
-        <mesh name="plate" position-y={0} position-z={-DEPTH - 0.001}>
-          <boxBufferGeometry args={[WIDTH, HEIGHT, DEPTH]} />
-          <meshStandardMaterial />
-        </mesh>
-        {/* @ts-ignore */}
-        <Text
-          name="title"
-          fontSize={FONT_SIZE}
-          position-y={HEIGHT / 2 - PADDING_Y}
-          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
-          color="black"
-          font={FONT_URL}
-          anchorY="top"
-          anchorX="left"
-          textAlign="left"
-          maxWidth={WIDTH - PADDING_X * 2 - INDENT}
-        >
-          {title}
-        </Text>
-        <mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>
-          <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />
-          <meshStandardMaterial color="black" />
-        </mesh>
-        <group
-          name="buttons"
-          position-y={-0.035}
-          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
-        >
-          {BUTTONS.map((button, i) => {
-            const maxWidth = 0.15;
-            let buttonWidth = (WIDTH / BUTTONS.length) * 0.9;
-            buttonWidth = buttonWidth > maxWidth ? maxWidth : buttonWidth;
+      <mesh name="plate" position-y={0} position-z={-DEPTH - 0.001}>
+        <boxBufferGeometry args={[WIDTH, HEIGHT, DEPTH]} />
+        <meshStandardMaterial />
+      </mesh>
+      {/* @ts-ignore */}
+      <Text
+        name="title"
+        fontSize={FONT_SIZE}
+        position-y={HEIGHT / 2 - PADDING_Y}
+        position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+        color="black"
+        font={FONT_URL}
+        anchorY="top"
+        anchorX="left"
+        textAlign="left"
+        maxWidth={WIDTH - PADDING_X * 2 - INDENT}
+      >
+        {title}
+      </Text>
+      <mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>
+        <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />
+        <meshStandardMaterial color="black" />
+      </mesh>
+      <group
+        name="buttons"
+        position-y={-0.035}
+        position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+      >
+        {BUTTONS.map((button, i) => {
+          const maxWidth = 0.15;
+          let buttonWidth = (WIDTH / BUTTONS.length) * 0.9;
+          buttonWidth = buttonWidth > maxWidth ? maxWidth : buttonWidth;
 
-            const x =
-              buttonWidth / 2 + (i / (BUTTONS.length - 1)) * buttonWidth * 1.25;
+          const x =
+            buttonWidth / 2 + (i / (BUTTONS.length - 1)) * buttonWidth * 1.25;
 
-            return <Button position-x={x} width={buttonWidth} {...button} />;
-          })}
-        </group>
-      </Floating>
+          return <Button position-x={x} width={buttonWidth} {...button} />;
+        })}
+      </group>
     </group>
   );
 }

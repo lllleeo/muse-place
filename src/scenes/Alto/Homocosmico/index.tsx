@@ -1,14 +1,20 @@
 import { Floating, Image } from "spacesvr";
 import { Text } from "@react-three/drei";
-import { Perf } from "r3f-perf";
 import Artwork from "./components/Artwork";
+import TitleCard from "./components/TitleCard";
 // @ts-ignore
 import { texts } from "./constants/texts";
 
-const NUM_IMAGES = 30;
 const RADIUS = 32;
 const GAP = 0.2;
 const FOLDER = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/homocosmico`;
+const CONTACT = "mailto:carlosortizdelapena@gmail.com";
+const VISIT = "http://homocosmico.com";
+
+function getTitle(text: string) {
+  const i = text.indexOf("\n");
+  return text.substr(0, i);
+}
 
 function Images() {
   const insideUrls = new Array(4)
@@ -44,6 +50,13 @@ function Images() {
               >
                 {texts[ind]}
               </Text>
+              <TitleCard
+                scale={1.5}
+                position={[-0.05, -1.1, 0.15]}
+                title={getTitle(texts[ind])}
+                contactUrl={CONTACT}
+                visitUrl={VISIT}
+              />
             </group>
             <Image src={url} size={2} />
           </group>
@@ -63,6 +76,13 @@ function Images() {
               >
                 {texts[ind + 4]}
               </Text>
+              <TitleCard
+                scale={1.5}
+                position={[-0.05, -0.85, 0.15]}
+                title={getTitle(texts[ind + 4])}
+                contactUrl={CONTACT}
+                visitUrl={VISIT}
+              />
             </group>
             <Image src={url} size={2} />
           </group>
@@ -82,6 +102,13 @@ function Images() {
               >
                 {texts[ind + 10]}
               </Text>
+              <TitleCard
+                scale={1.5}
+                position={[-0.05, -0.85, 0.15]}
+                title={getTitle(texts[ind + 4])}
+                contactUrl={CONTACT}
+                visitUrl={VISIT}
+              />
             </group>
             <Image src={url} size={2} />
           </group>
@@ -96,7 +123,6 @@ function Images() {
       <group rotation-y={Math.PI / 6 - 0.075}>
         <Artwork count={4} />
       </group>
-      {/*<Perf />*/}
     </group>
   );
 }
