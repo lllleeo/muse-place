@@ -44,6 +44,7 @@ const AltoScene = (props: AltoSceneProps) => {
       canvasProps={{ dpr: 1 }}
       simulationProps={simulationProps}
       disableGround
+      dev
     >
       <AltoSceneState.Provider value={{ aa, setAA }}>
         {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
