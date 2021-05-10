@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
+import ShopifyBuy, { AttributeInput } from "shopify-buy";
 import { Cart, Item, Product, ShopState } from "../types/shop";
 
 type ShopifyClient = {
@@ -17,69 +17,92 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     [domain, storefrontAccessToken]
   );
   const [products, setProducts] = useState<Product[]>([]);
-  const [checkout, setCheckout] = useState<ShopifyCart>();
+  const items: Item[] = useMemo(() => {
+    let its;
+    try {
+      its = JSON.parse(localStorage.getItem(CART_ID) || "[]");
+    } catch (e) {
+      its = [];
+    }
+    localStorage.setItem(CART_ID, JSON.stringify(its));
+    return its;
+  }, []);
+  // hacky, but incremenet to cause a re-render
+  const [incr, setIncr] = useState(0);
 
-  const saveNewCart = (newCheckout: ShopifyCart) => {
-    localStorage.setItem(CART_ID, newCheckout.id as string);
-    setCheckout(newCheckout);
+  const saveNewCart = () => {
+    localStorage.setItem(CART_ID, JSON.stringify(items));
+    console.log("saving cart to local storage....");
+    console.log(items);
+    setIncr(incr + 1);
   };
 
   useEffect(() => {
-    // fetch products, cast to Product type
+    // fetch fist 20 products, cast to Product type
     client.product
       .fetchAll()
       .then((shopifyProducts: any) =>
         setProducts(shopifyToProduct(shopifyProducts))
       );
-
-    // fetch cart id from local storage or create a new one
-    const id = localStorage.getItem(CART_ID);
-    if (id) {
-      client.checkout.fetch(id).then(saveNewCart);
-    } else {
-      client.checkout.create().then(saveNewCart);
-    }
   }, [client]);
 
   // create cart object
   const cart: Cart = {
-    items: checkout ? (checkout.lineItems as Item[]) : [],
-    // @ts-ignore
-    url: checkout?.webUrl,
+    items,
     add: (id: string) => {
-      if (!checkout?.id) return;
-      const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
-      client.checkout
-        .addLineItems(checkout.id, [lineItemsToAdd])
-        .then(saveNewCart);
+      const item = items.find((it) => it.id === id);
+      if (item) {
+        item.quantity++;
+      } else {
+        items.push({ id, quantity: 1 });
+      }
+      saveNewCart();
     },
     subtract: (id: string) => {
-      if (!checkout?.id) return;
-      const prod = checkout.lineItems.find((prod: any) => prod.id === id);
-      console.log(checkout.lineItems);
-      console.log(id);
-      console.log(prod);
-      if (!prod) return;
-      if (prod.quantity === 1) {
-        client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);
+      const item = items.find((it) => it.id === id);
+      if (!item) {
+        return;
+      } else if (item.quantity > 1) {
+        item.quantity--;
       } else {
-        client.checkout
-          .updateLineItems(checkout.id, [{ id, quantity: prod.quantity - 1 }])
-          .then(saveNewCart);
+        const ind = items.indexOf(item);
+        items.splice(ind, 1);
       }
+      saveNewCart();
     },
     remove: (id: string) => {
-      if (!checkout?.id) return;
-      client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);
+      const item = items.find((it) => it.id === id);
+      if (!item) {
+        return;
+      } else {
+        const ind = items.indexOf(item);
+        items.splice(ind, 1);
+      }
+      saveNewCart();
     },
-    count: checkout?.lineItems
-      ? checkout.lineItems.reduce(
-          (acc: number, cur: any) => acc + cur.quantity,
-          0
-        )
-      : 0,
+    count: items.length,
     clear: () => {
-      client.checkout.create().then(saveNewCart);
+      for (let i = items.length - 1; i >= 0; i--) {
+        items.splice(i, 1);
+      }
+      saveNewCart();
+    },
+    checkout: () => {
+      const itemsToAdd = items.map((it) => ({
+        id: it.id,
+        quantity: it.quantity,
+      }));
+
+      console.log(itemsToAdd);
+
+      client.checkout.create().then((newCheckout) => {
+        client.checkout
+          .updateLineItems(newCheckout.id, itemsToAdd as AttributeInput[])
+          .then((newnewCheckout) =>
+            // @ts-ignore
+            window.open(newnewCheckout.webUrl, "_blank")
+          );
+      });
     },
   };
 

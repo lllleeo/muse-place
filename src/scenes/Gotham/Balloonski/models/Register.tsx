@@ -66,7 +66,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       {...props}
     >
       <Interactable
-        onClick={() => cart.url && window.open(cart.url, "_blank")}
+        onClick={() => cart.checkout()}
         onHover={() => setHovered(true)}
         onUnHover={() => setHovered(false)}
       >

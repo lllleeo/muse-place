@@ -18,6 +18,7 @@ export type Cart = {
   count: number;
   clear: () => void;
   url?: string;
+  checkout: () => void;
 };
 
 export type Variant = {
