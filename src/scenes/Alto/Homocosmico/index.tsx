@@ -58,7 +58,7 @@ function Images() {
               {/*  visitUrl={VISIT}*/}
               {/*/>*/}
             </group>
-            <Image src={url} size={2} />
+            {/*<Image src={url} size={2} />*/}
           </group>
         </group>
       ))}
@@ -84,7 +84,7 @@ function Images() {
               {/*  visitUrl={VISIT}*/}
               {/*/>*/}
             </group>
-            <Image src={url} size={2} />
+            {/*<Image src={url} size={2} />*/}
           </group>
         </group>
       ))}
@@ -110,7 +110,7 @@ function Images() {
               {/*  visitUrl={VISIT}*/}
               {/*/>*/}
             </group>
-            <Image src={url} size={2} />
+            {/*<Image src={url} size={2} />*/}
           </group>
         </group>
       ))}
