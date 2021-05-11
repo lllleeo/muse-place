@@ -17,7 +17,7 @@ const LinkTree: NextPage = () => {
         font={undefined}
         fontSize={0.83}
         socials={["https://www.instagram.com/homocosmico/"]}
-        hdri={`${FOLDER}/space.hdr`}
+        // hdri={`${FOLDER}/space.hdr`}
         content={{
           name: "homocosmico",
           landing: {
@@ -25,6 +25,11 @@ const LinkTree: NextPage = () => {
             body: "Escritor, evolucionista. Bienvenido a mi mundo.",
           },
         }}
+        // emailCollection={{
+        //   title:
+        //     "Sign up to receive beautiful arts and new releases from the artist.",
+        //   link: "http://eepurl.com/gfW1JP",
+        // }}
         premium
       >
         <Homocosmico />
