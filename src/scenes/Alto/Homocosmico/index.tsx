@@ -40,16 +40,16 @@ function Images() {
         <group rotation-y={insideRot(ind + 1)} key={ind}>
           <group position={[0, 7.5, -3]}>
             <group position-x={1.35}>
-              <Text
-                anchorX="center"
-                anchorY="middle"
-                maxWidth={0.9}
-                fontSize={0.075}
-                color="black"
-                animations={[]}
-              >
-                {texts[ind]}
-              </Text>
+              {/*<Text*/}
+              {/*  anchorX="center"*/}
+              {/*  anchorY="middle"*/}
+              {/*  maxWidth={0.9}*/}
+              {/*  fontSize={0.075}*/}
+              {/*  color="black"*/}
+              {/*  animations={[]}*/}
+              {/*>*/}
+              {/*  {texts[ind]}*/}
+              {/*</Text>*/}
               {/*<TitleCard*/}
               {/*  scale={1.5}*/}
               {/*  position={[-0.05, -1.1, 0.15]}*/}
@@ -66,16 +66,16 @@ function Images() {
         <group rotation-y={-middleRot(ind + 1)} key={ind + 4}>
           <group rotation-y={-Math.PI} position={[0, 5.5, -12]}>
             <group position-x={1.355}>
-              <Text
-                anchorX="center"
-                anchorY="middle"
-                maxWidth={0.9}
-                fontSize={0.075}
-                color="black"
-                animations={[]}
-              >
-                {texts[ind + 4]}
-              </Text>
+              {/*<Text*/}
+              {/*  anchorX="center"*/}
+              {/*  anchorY="middle"*/}
+              {/*  maxWidth={0.9}*/}
+              {/*  fontSize={0.075}*/}
+              {/*  color="black"*/}
+              {/*  animations={[]}*/}
+              {/*>*/}
+              {/*  {texts[ind + 4]}*/}
+              {/*</Text>*/}
               {/*<TitleCard*/}
               {/*  scale={1.5}*/}
               {/*  position={[-0.05, -0.85, 0.15]}*/}
@@ -92,16 +92,16 @@ function Images() {
         <group rotation-y={outsideRot(ind + 1)} key={ind + 10}>
           <group position={[0, 1.5, -RADIUS]}>
             <group position-x={1.35}>
-              <Text
-                anchorX="center"
-                anchorY="middle"
-                maxWidth={0.9}
-                fontSize={0.075}
-                color="black"
-                animations={[]}
-              >
-                {texts[ind + 10]}
-              </Text>
+              {/*<Text*/}
+              {/*  anchorX="center"*/}
+              {/*  anchorY="middle"*/}
+              {/*  maxWidth={0.9}*/}
+              {/*  fontSize={0.075}*/}
+              {/*  color="black"*/}
+              {/*  animations={[]}*/}
+              {/*>*/}
+              {/*  {texts[ind + 10]}*/}
+              {/*</Text>*/}
               {/*<TitleCard*/}
               {/*  scale={1.5}*/}
               {/*  position={[-0.05, -0.85, 0.15]}*/}
@@ -114,15 +114,15 @@ function Images() {
           </group>
         </group>
       ))}
-      <group rotation-y={Math.PI / 2 - 0.105}>
-        <Artwork count={20} />
-      </group>
-      <group rotation-y={Math.PI / 4 - 0.05}>
-        <Artwork count={6} />
-      </group>
-      <group rotation-y={Math.PI / 6 - 0.075}>
-        <Artwork count={4} />
-      </group>
+      {/*<group rotation-y={Math.PI / 2 - 0.105}>*/}
+      {/*  <Artwork count={20} />*/}
+      {/*</group>*/}
+      {/*<group rotation-y={Math.PI / 4 - 0.05}>*/}
+      {/*  <Artwork count={6} />*/}
+      {/*</group>*/}
+      {/*<group rotation-y={Math.PI / 6 - 0.075}>*/}
+      {/*  <Artwork count={4} />*/}
+      {/*</group>*/}
     </group>
   );
 }
