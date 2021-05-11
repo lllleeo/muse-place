@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
 import { Cart, Item, Product, ShopState } from "../types/shop";
 
@@ -18,6 +18,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
   );
   const [products, setProducts] = useState<Product[]>([]);
   const [checkout, setCheckout] = useState<ShopifyCart>();
+  const visuals = useMemo(() => new Map<string, ReactNode>(), []);
 
   const saveNewCart = (newCheckout: ShopifyCart) => {
     localStorage.setItem(CART_ID, newCheckout.id as string);
@@ -46,7 +47,8 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     items: checkout ? (checkout.lineItems as Item[]) : [],
     // @ts-ignore
     url: checkout?.webUrl,
-    add: (id: string) => {
+    add: (id: string, visual?: ReactNode) => {
+      visuals.set(id, visual);
       if (!checkout?.id) return;
       const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
       client.checkout
@@ -81,6 +83,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     clear: () => {
       client.checkout.create().then(saveNewCart);
     },
+    visuals,
   };
 
   return {

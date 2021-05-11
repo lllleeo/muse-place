@@ -1,5 +1,5 @@
 import { RoundedBox, Text } from "@react-three/drei";
-import Product from "../../Shop/Product";
+import Product from "./Product";
 import { RangeTool } from "../../../modifiers/RangeTool";
 import { useContext } from "react";
 import { ShopContext } from "../../../index";

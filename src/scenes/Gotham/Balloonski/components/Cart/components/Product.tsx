@@ -1,10 +1,10 @@
-import { Item } from "../../types/shop";
+import { Item } from "../../../types/shop";
 import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
 import { useContext } from "react";
-import { ShopContext } from "../../index";
+import { ShopContext } from "../../../index";
 import { Image } from "spacesvr";
-import Button from "../Button";
+import Button from "../../Button";
 
 type ProductProps = {
   item: Item;
@@ -30,9 +30,16 @@ export default function Product(props: ProductProps) {
   // @ts-ignore
   const subtotal = (item.quantity * product.variants[0].price).toString();
 
+  const visual = cart.visuals.get(item.variant.id);
+
   return (
     <group name={`product-${item.id}`} {...rest} scale={1}>
-      {images[0] && <Image src={images[0]} size={5} framed position-y={2} />}
+      {!visual && images[0] && (
+        <Image src={images[0]} size={5} framed position-y={2} />
+      )}
+      <group name="visual" scale={10} position-y={2}>
+        {visual}
+      </group>
       <Text
         position-y={-3}
         fontSize={1.15}

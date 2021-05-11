@@ -12,12 +12,13 @@ export type Item = {
 
 export type Cart = {
   items: Item[];
-  add: (id: string) => void;
+  add: (id: string, visual: ReactNode) => void;
   subtract: (id: string) => void;
   remove: (id: string) => void;
   count: number;
   clear: () => void;
   url?: string;
+  visuals: Map<string, ReactNode>;
 };
 
 export type Variant = {
