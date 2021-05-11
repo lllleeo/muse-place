@@ -1,10 +1,9 @@
-import { Spinning } from "spacesvr";
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";
 import { isMobile } from "react-device-detect";
 import { ShopContext } from "../../index";
-import { Interactable } from "spacesvr";
+import { Interactable, Spinning } from "spacesvr";
 import Control from "./components/Control";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";

@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import YellowGreenDurag from "../models/YellowGreenDurag";
 import BlueGreenDurag from "../models/BlueGreenDurag";
-import Spinning from "../modifiers/Spinning";
 import Kiosk from "./Kiosk";
 import { Preload } from "@react-three/drei";
+import { Spinning } from "spacesvr";
 
 export default function Kiosks() {
   return (
