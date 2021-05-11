@@ -19,6 +19,9 @@ export type Cart = {
   clear: () => void;
   url?: string;
   visuals: Map<string, ReactNode>;
+  isOpen: boolean;
+  close: () => void;
+  open: () => void;
 };
 
 export type Variant = {

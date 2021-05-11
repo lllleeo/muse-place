@@ -19,6 +19,7 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
   const [products, setProducts] = useState<Product[]>([]);
   const [checkout, setCheckout] = useState<ShopifyCart>();
   const visuals = useMemo(() => new Map<string, ReactNode>(), []);
+  const [open, setOpen] = useState(false);
 
   const saveNewCart = (newCheckout: ShopifyCart) => {
     localStorage.setItem(CART_ID, newCheckout.id as string);
@@ -83,6 +84,9 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       client.checkout.create().then(saveNewCart);
     },
     visuals,
+    isOpen: open,
+    close: () => setOpen(false),
+    open: () => setOpen(true),
   };
 
   return {
