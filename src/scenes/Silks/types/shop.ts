@@ -3,7 +3,7 @@ export type ShopState = {
   products: Product[];
 };
 
-type Item = {
+export type Item = {
   id: string;
   quantity: number;
 };
@@ -11,6 +11,7 @@ type Item = {
 export type Cart = {
   items: Item[];
   add: (id: string) => void;
+  subtract: (id: string) => void;
   remove: (id: string) => void;
   count: number;
   clear: () => void;

@@ -1,28 +1,30 @@
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";
-import { isMobile } from "react-device-detect";
 import { ShopContext } from "../../index";
-import { Interactable, Spinning } from "spacesvr";
-import Control from "./components/Control";
+import { Interactable, Spinning, useEnvironment } from "spacesvr";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
 import { config } from "react-spring";
 import { Preload } from "@react-three/drei";
+import SpeechBubble from "../SpeechBubble";
+import FacePlayer from "../../modifiers/FacePlayer";
+import CartView from "./components/CartView";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
+  const { device } = useEnvironment();
 
-  const posY = isMobile ? 0.7 : -0.75;
-  const posX = isMobile ? -0.75 : 0.8;
-  const cartScale = isMobile ? 0.45 : 0.75;
-
-  const [incr, setIncr] = useState(2);
+  const [incr, setIncr] = useState(0);
+  const [speech, setSpeech] = useState(false);
   const prevCart = useRef(0);
 
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
-      cart.clear();
+      if (cart.isOpen) cart.close();
+      else cart.open();
+
+      if (speech) setSpeech(false);
     }
   };
 
@@ -31,7 +33,7 @@ const Cart = () => {
     return () => {
       window.removeEventListener("keypress", onKeyPress);
     };
-  }, [open]);
+  }, [speech, cart.isOpen]);
 
   // rotate cart when product is added
   const { rotY } = useSpring({
@@ -43,22 +45,57 @@ const Cart = () => {
       setIncr(incr + 1);
       prevCart.current = cart.count;
     }
+    if (incr === 1 && cart.count === 1) {
+      setSpeech(true);
+    }
   }, [incr, cart.count]);
 
+  const onTap = () => {
+    if (cart.isOpen) cart.close();
+    else cart.open();
+    if (speech) setSpeech(false);
+  };
+
+  const posY = device.mobile
+    ? cart.isOpen
+      ? -0.9
+      : 0.6
+    : cart.isOpen
+    ? 0
+    : -0.75;
+  const posX = 0.8;
+  const cartScale = device.mobile ? 0.45 : 0.75;
+
   return (
-    <Tool pos={[posX, posY]} face={false} pinY={isMobile}>
-      <Interactable onClick={isMobile ? () => cart.clear() : undefined}>
-        <Control />
-        <Spinning>
+    <>
+      <Tool pos={[posX, posY]} face={false} pinY={device.mobile}>
+        {speech && (
+          <FacePlayer>
+            <group scale={15} position={[device.mobile ? -12 : -15, 3, 0]}>
+              <SpeechBubble>
+                {device.mobile
+                  ? "tap to view your cart"
+                  : "press c to view your cart"}
+              </SpeechBubble>
+            </group>
+          </FacePlayer>
+        )}
+        <Interactable onClick={device.mobile ? onTap : undefined}>
+          <mesh position-y={2.64} visible={false}>
+            <boxBufferGeometry args={[5, 5, 5]} />
+          </mesh>
+        </Interactable>
+        <Spinning ySpeed={cart.isOpen ? 0 : 0.6}>
           <animated.group rotation-y={rotY}>
             <Suspense fallback={null}>
               <Preload all />
-              <ShoppingCart scale={[cartScale, cartScale, cartScale]} />
+              <ShoppingCart scale={cartScale} rotation-y={-Math.PI} />
             </Suspense>
           </animated.group>
         </Spinning>
-      </Interactable>
-    </Tool>
+      </Tool>
+      {cart.isOpen && <CartView />}
+    </>
   );
 };
 

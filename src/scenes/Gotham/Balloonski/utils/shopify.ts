@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-// @ts-ignore
-import ShopifyBuy from "shopify-buy";
-import { Cart, Product, ShopState } from "../types/shop";
+import { ReactNode, useEffect, useMemo, useState } from "react";
+import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
+import { Cart, Item, Product, ShopState } from "../types/shop";
 
 type ShopifyClient = {
   domain: string;
@@ -11,12 +10,21 @@ type ShopifyClient = {
 export const useShopifyShop = (props: ShopifyClient): ShopState => {
   const { domain, storefrontAccessToken } = props;
 
+  const CART_ID = `muse-cart-${domain}`;
+
   const client = useMemo(
     () => ShopifyBuy.buildClient({ domain, storefrontAccessToken }),
     [domain, storefrontAccessToken]
   );
   const [products, setProducts] = useState<Product[]>([]);
-  const [checkout, setCheckout] = useState<any>();
+  const [checkout, setCheckout] = useState<ShopifyCart>();
+  const visuals = useMemo(() => new Map<string, ReactNode>(), []);
+  const [open, setOpen] = useState(false);
+
+  const saveNewCart = (newCheckout: ShopifyCart) => {
+    localStorage.setItem(CART_ID, newCheckout.id as string);
+    setCheckout(newCheckout);
+  };
 
   useEffect(() => {
     // fetch products, cast to Product type
@@ -27,41 +35,44 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
       );
 
     // fetch cart id from local storage or create a new one
-    const id = localStorage.getItem("muse-cart-ballonski-id");
+    const id = localStorage.getItem(CART_ID);
     if (id) {
-      client.checkout
-        .fetch(id)
-        .then((shopifyCheckout: any) => setCheckout(shopifyCheckout));
+      client.checkout.fetch(id).then(saveNewCart);
     } else {
-      client.checkout
-        .create()
-        .then((shopifyCheckout: any) => setCheckout(shopifyCheckout));
+      client.checkout.create().then(saveNewCart);
     }
   }, [client]);
 
   // create cart object
   const cart: Cart = {
-    items: checkout ? checkout.lineItems : [],
+    items: checkout ? (checkout.lineItems as Item[]) : [],
+    // @ts-ignore
     url: checkout?.webUrl,
-    add: (id: string, quantity = 1) => {
+    add: (id: string, visual?: ReactNode) => {
+      // store visual in the map
+      if (visual) visuals.set(id, visual);
+
       if (!checkout?.id) return;
-      const lineItemsToAdd = { variantId: id, quantity };
+      const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
       client.checkout
-        .addLineItems(checkout.id, lineItemsToAdd)
-        .then((newCheckout: any) => {
-          localStorage.setItem("muse-cart-ballonski-id", newCheckout.id);
-          setCheckout(newCheckout);
-        });
+        .addLineItems(checkout.id, [lineItemsToAdd])
+        .then(saveNewCart);
+    },
+    subtract: (id: string) => {
+      if (!checkout?.id) return;
+      const prod = checkout.lineItems.find((prod: any) => prod.id === id);
+      if (!prod) return;
+      if (prod.quantity === 1) {
+        client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);
+      } else {
+        client.checkout
+          .updateLineItems(checkout.id, [{ id, quantity: prod.quantity - 1 }])
+          .then(saveNewCart);
+      }
     },
     remove: (id: string) => {
       if (!checkout?.id) return;
-      const checkoutId = checkout.id;
-      client.checkout
-        .removeLineItems(checkoutId, id)
-        .then((newCheckout: any) => {
-          localStorage.setItem("muse-cart-ballonski-id", newCheckout.id);
-          setCheckout(newCheckout);
-        });
+      client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);
     },
     count: checkout?.lineItems
       ? checkout.lineItems.reduce(
@@ -70,11 +81,12 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
         )
       : 0,
     clear: () => {
-      client.checkout.create().then((shopifyCheckout: any) => {
-        setCheckout(shopifyCheckout);
-        localStorage.setItem("muse-cart-ballonski-id", shopifyCheckout.id);
-      });
+      client.checkout.create().then(saveNewCart);
     },
+    visuals,
+    isOpen: open,
+    close: () => setOpen(false),
+    open: () => setOpen(true),
   };
 
   return {
