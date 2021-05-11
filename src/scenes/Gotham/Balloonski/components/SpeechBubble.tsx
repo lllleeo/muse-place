@@ -53,7 +53,7 @@ const SpeechBubble = (props: Props) => {
             anchorX={direction}
             lineHeight={2}
             font={FILE_URL}
-            outlineWidth={FONT_SIZE * 0.25}
+            outlineWidth={FONT_SIZE * 0.1}
             textAlign={direction === "left" ? "left" : "right"}
           >
             {str}

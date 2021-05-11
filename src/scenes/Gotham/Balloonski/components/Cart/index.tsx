@@ -10,8 +10,7 @@ import { config } from "react-spring";
 import { Preload } from "@react-three/drei";
 import SpeechBubble from "../SpeechBubble";
 import FacePlayer from "../../modifiers/FacePlayer";
-import Product from "../Shop/Product";
-import { RangeTool } from "../../modifiers/RangeTool";
+import CartView from "./components/CartView";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
@@ -21,13 +20,14 @@ const Cart = () => {
   const cartScale = isMobile ? 0.45 : 0.75;
 
   const [open, setOpen] = useState(false);
-  const [incr, setIncr] = useState(2);
+  const [incr, setIncr] = useState(0);
   const [speech, setSpeech] = useState(false);
   const prevCart = useRef(0);
 
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
       setOpen(!open);
+      if (speech) setSpeech(false);
     }
   };
 
@@ -36,7 +36,7 @@ const Cart = () => {
     return () => {
       window.removeEventListener("keypress", onKeyPress);
     };
-  }, [open]);
+  }, [speech, open]);
 
   // rotate cart when product is added
   const { rotY } = useSpring({
@@ -48,9 +48,8 @@ const Cart = () => {
       setIncr(incr + 1);
       prevCart.current = cart.count;
     }
-    if (incr === 1) {
+    if (incr === 1 && cart.count === 1) {
       setSpeech(true);
-      setTimeout(() => setSpeech(false), 6000);
     }
   }, [incr, cart.count]);
 
@@ -64,11 +63,11 @@ const Cart = () => {
         {speech && (
           <FacePlayer>
             <group
-              scale={[12, 12, 12]}
-              position={[isMobile ? 3 : -8, isMobile ? 2 : 10, 0]}
+              scale={15}
+              position={[isMobile ? 3 : -15, isMobile ? 2 : 3, 0]}
             >
               <SpeechBubble>
-                {isMobile ? "tap to clear" : "press c to clear"}
+                {isMobile ? "tap to open" : "press c to view your cart"}
               </SpeechBubble>
             </group>
           </FacePlayer>
@@ -78,30 +77,16 @@ const Cart = () => {
             <boxBufferGeometry args={[5, 5, 5]} />
           </mesh>
         </Interactable>
-        <Spinning ySpeed={0.6}>
+        <Spinning ySpeed={open ? 0 : 0.6}>
           <animated.group rotation-y={rotY}>
             <Suspense fallback={null}>
               <Preload all />
-              <ShoppingCart scale={[cartScale, cartScale, cartScale]} />
+              <ShoppingCart scale={cartScale} rotation-y={-Math.PI} />
             </Suspense>
           </animated.group>
         </Spinning>
       </Tool>
-      {open && (
-        <RangeTool pos={[0, 0]} distance={6} onExit={() => setOpen(false)}>
-          <pointLight position={[0, 0, 4]} distance={0.4} />
-          <mesh position-z={-4}>
-            <planeBufferGeometry args={[20, 20]} />
-            <meshStandardMaterial color={"white"} />
-          </mesh>
-          {cart.items.map((item, i) => (
-            <Product
-              item={item}
-              position-x={(-(cart.items.length - 1) / 2 + i) * 6.5}
-            />
-          ))}
-        </RangeTool>
-      )}
+      {open && <CartView setOpen={setOpen} />}
     </>
   );
 };

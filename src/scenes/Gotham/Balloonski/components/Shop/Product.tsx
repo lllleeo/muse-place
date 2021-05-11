@@ -10,13 +10,17 @@ type ProductProps = {
   item: Item;
 } & GroupProps;
 
+const CF_URL = "https://d27rt3a60hh1lx.cloudfront.net/images";
+
 export default function Product(props: ProductProps) {
   const { item, ...rest } = props;
   const { products, cart } = useContext(ShopContext);
+
   const product = products.find(
     (prod) =>
-      prod.id === item.id ||
-      prod.variants.find((variant) => variant.id === item.id) !== null
+      //@ts-ignore
+      prod.variants.find((variant) => variant.id === item.variant.id) !==
+      undefined
   );
 
   if (!product) return null;
@@ -25,8 +29,6 @@ export default function Product(props: ProductProps) {
 
   // @ts-ignore
   const subtotal = (item.quantity * product.variants[0].price).toString();
-  // @ts-ignore
-  const variantId = item.variant.id;
 
   return (
     <group name={`product-${item.id}`} {...rest} scale={1}>
@@ -40,21 +42,33 @@ export default function Product(props: ProductProps) {
       >
         {item.quantity}
       </Text>
-      <Button position-y={-1.5}>{`$${subtotal}`}</Button>
+      <Text
+        position-y={-1.5}
+        position-z={-1}
+        fontSize={1.15}
+        color="white"
+        outlineColor="black"
+        outlineWidth={0.1}
+      >
+        {`$${subtotal}`}
+      </Text>
       <Button
         position={[-1.25, -3, 0]}
         rounded
         onClick={() => cart.subtract(item.id)}
-      >
-        {item.quantity === 1 ? "x" : "-"}
-      </Button>
+        image={
+          item.quantity === 1
+            ? `${CF_URL}/trash-alt-solid.jpg`
+            : `${CF_URL}/minus-solid.jpg`
+        }
+      />
       <Button
         position={[1.25, -3, 0]}
         rounded
-        onClick={() => cart.add(variantId)}
-      >
-        +
-      </Button>
+        // @ts-ignore
+        onClick={() => cart.add(item.variant.id)}
+        image={`${CF_URL}/plus-solid.jpg`}
+      />
     </group>
   );
 }

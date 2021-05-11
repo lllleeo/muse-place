@@ -1,19 +1,20 @@
-import { Box, RoundedBox, Text } from "@react-three/drei";
+import { Box, RoundedBox, Text, useTexture } from "@react-three/drei";
 import { animated, useSpring, config } from "react-spring/three";
-import { useState } from "react";
-import { Interactable } from "spacesvr";
+import { useEffect, useState } from "react";
+import { Interactable, Image } from "spacesvr";
 import { GroupProps } from "@react-three/fiber";
 
 const FONT_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/AcuminProMedium.otf";
 
 type ButtonProps = {
-  children: string;
+  children?: string;
   textStyles?: Partial<React.ComponentProps<typeof Text>>;
   rounded?: boolean;
   size?: number;
   onClick?: () => void;
   width?: number;
+  image?: string;
 } & GroupProps;
 
 export default function Button(props: ButtonProps) {
@@ -24,6 +25,7 @@ export default function Button(props: ButtonProps) {
     onClick,
     width = 1,
     size = 1,
+    image,
     ...rest
   } = props;
 
@@ -39,38 +41,59 @@ export default function Button(props: ButtonProps) {
   };
 
   const [hovered, setHovered] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const { color, scale } = useSpring({
     color: hovered ? "#aaa" : "#fff",
-    scale: hovered ? 0.5 : 1,
+    scale: clicked ? 0.75 : 1,
     ...config.stiff,
   });
+
+  useEffect(() => {
+    if (clicked) {
+      setTimeout(() => setClicked(false), 150);
+    }
+  }, [clicked]);
+
+  const onButtonClick = () => {
+    if (onClick) {
+      onClick();
+    }
+    setClicked(true);
+  };
 
   return (
     <group name={`button-${children}`} {...rest}>
       <group name="button-wrapper" scale={size}>
-        <Text {...TEXT_STYLES} position-z={DEPTH / 2 + 0.001}>
-          {children}
-        </Text>
-        <Interactable
-          onClick={onClick}
-          onHover={() => setHovered(true)}
-          onUnHover={() => setHovered(false)}
-        >
-          {rounded ? (
-            <RoundedBox
-              args={[WIDTH, HEIGHT, DEPTH]}
-              radius={0.25}
-              smoothness={4}
-            >
-              <animated.meshStandardMaterial color={color} />
-            </RoundedBox>
-          ) : (
-            <Box args={[WIDTH, HEIGHT, DEPTH]}>
-              <animated.meshStandardMaterial color={color} />
-            </Box>
+        <animated.group scale={scale}>
+          {children && (
+            <Text {...TEXT_STYLES} position-z={DEPTH / 2 + 0.001}>
+              {children}
+            </Text>
           )}
-        </Interactable>
+          {image && (
+            <Image position-z={DEPTH / 2 + 0.001} src={image} size={0.6} />
+          )}
+          <Interactable
+            onClick={onButtonClick}
+            onHover={() => setHovered(true)}
+            onUnHover={() => setHovered(false)}
+          >
+            {rounded ? (
+              <RoundedBox
+                args={[WIDTH, HEIGHT, DEPTH]}
+                radius={0.25}
+                smoothness={4}
+              >
+                <animated.meshStandardMaterial color={color} />
+              </RoundedBox>
+            ) : (
+              <Box args={[WIDTH, HEIGHT, DEPTH]}>
+                <animated.meshStandardMaterial color={color} />
+              </Box>
+            )}
+          </Interactable>
+        </animated.group>
       </group>
     </group>
   );
