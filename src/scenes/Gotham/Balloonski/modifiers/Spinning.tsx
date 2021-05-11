@@ -1,7 +1,7 @@
 import { ReactNode, useRef, useState } from "react";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useLimiter } from "../utils/limiter";
+import { useLimiter } from "spacesvr";
 
 type Props = {
   children: ReactNode;
@@ -15,7 +15,7 @@ const Spinning = (props: Props) => {
 
   const group = useRef<Group>();
   const [seed] = useState(Math.random());
-  const limiter = useLimiter(75);
+  const limiter = useLimiter(45);
 
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock)) return;
