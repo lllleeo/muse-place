@@ -48,7 +48,9 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     // @ts-ignore
     url: checkout?.webUrl,
     add: (id: string, visual?: ReactNode) => {
-      visuals.set(id, visual);
+      // store visual in the map
+      if (visual) visuals.set(id, visual);
+
       if (!checkout?.id) return;
       const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
       client.checkout
@@ -58,9 +60,6 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     subtract: (id: string) => {
       if (!checkout?.id) return;
       const prod = checkout.lineItems.find((prod: any) => prod.id === id);
-      console.log(checkout.lineItems);
-      console.log(id);
-      console.log(prod);
       if (!prod) return;
       if (prod.quantity === 1) {
         client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);

@@ -33,7 +33,9 @@ export default function CartView(props: CartViewProps) {
           radius={0.25}
           smoothness={4}
           position-z={-4}
-        />
+        >
+          <meshStandardMaterial transparent opacity={0.95} />
+        </RoundedBox>
         {cart.items.map((item, i) => (
           <Product
             item={item}
@@ -58,7 +60,7 @@ export default function CartView(props: CartViewProps) {
             textAlign="center"
             maxWidth={18}
             fontSize={0.9}
-            position-y={-8}
+            position-y={-7}
             position-z={-3}
           >
             {`Subtotal: $${subtotal.toString()}`}
@@ -66,16 +68,17 @@ export default function CartView(props: CartViewProps) {
         )}
         <Text
           font={FONT_FILE}
-          color="gray"
+          color="#666"
           textAlign="center"
           maxWidth={18}
-          fontSize={0.8}
-          position-y={-9}
+          fontSize={0.75}
+          position-y={-8.5}
           position-z={-3}
+          lineHeight={0.89}
         >
-          {device.mobile
-            ? "tap the cart to close"
-            : "press c or look away to close"}
+          {(device.mobile
+            ? "tap the cart or look away to close"
+            : "press c or look away to close") + "\ncheckout at the register"}
         </Text>
       </RangeTool>
     </group>

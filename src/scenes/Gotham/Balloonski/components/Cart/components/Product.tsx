@@ -30,6 +30,7 @@ export default function Product(props: ProductProps) {
   // @ts-ignore
   const subtotal = (item.quantity * product.variants[0].price).toString();
 
+  // @ts-ignore
   const visual = cart.visuals.get(item.variant.id);
 
   return (

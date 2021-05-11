@@ -1,9 +1,8 @@
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";
-import { isMobile } from "react-device-detect";
 import { ShopContext } from "../../index";
-import { Interactable, Spinning } from "spacesvr";
+import { Interactable, Spinning, useEnvironment } from "spacesvr";
 // @ts-ignore
 import { animated, useSpring } from "react-spring/three";
 import { config } from "react-spring";
@@ -14,10 +13,7 @@ import CartView from "./components/CartView";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
-
-  const posY = isMobile ? 0.7 : -0.75;
-  const posX = isMobile ? -0.75 : 0.8;
-  const cartScale = isMobile ? 0.45 : 0.75;
+  const { device } = useEnvironment();
 
   const [open, setOpen] = useState(false);
   const [incr, setIncr] = useState(0);
@@ -53,26 +49,30 @@ const Cart = () => {
     }
   }, [incr, cart.count]);
 
+  const onTap = () => {
+    setOpen(!open);
+    if (speech) setSpeech(false);
+  };
+
+  const posY = device.mobile ? (open ? -0.9 : 0.6) : open ? 0 : -0.75;
+  const posX = 0.8;
+  const cartScale = device.mobile ? 0.45 : 0.75;
+
   return (
     <>
-      <Tool
-        pos={[open ? 0.8 : posX, open ? 0 : posY]}
-        face={false}
-        pinY={isMobile}
-      >
+      <Tool pos={[posX, posY]} face={false} pinY={device.mobile}>
         {speech && (
           <FacePlayer>
-            <group
-              scale={15}
-              position={[isMobile ? 3 : -15, isMobile ? 2 : 3, 0]}
-            >
+            <group scale={15} position={[device.mobile ? -12 : -15, 3, 0]}>
               <SpeechBubble>
-                {isMobile ? "tap to open" : "press c to view your cart"}
+                {device.mobile
+                  ? "tap to view your cart"
+                  : "press c to view your cart"}
               </SpeechBubble>
             </group>
           </FacePlayer>
         )}
-        <Interactable onClick={isMobile ? () => cart.clear() : undefined}>
+        <Interactable onClick={device.mobile ? onTap : undefined}>
           <mesh position-y={2.64} visible={false}>
             <boxBufferGeometry args={[5, 5, 5]} />
           </mesh>
