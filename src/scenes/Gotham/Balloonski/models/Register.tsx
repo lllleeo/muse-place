@@ -31,6 +31,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { cart } = useContext(ShopContext);
 
   materials["Material"].metalness = cart.count > 0 ? 0 : 0.8;
+  materials["Material"].emissive.setColorName("white");
 
   const [hovered, setHovered] = useState(false);
   const [needToShow, setNeedToShow] = useState(cart.count === 0);
@@ -43,14 +44,22 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
 
   const target = useRef(0);
 
-  useFrame(() => {
-    if (materials["Material"].metalness === target.current) return;
+  useFrame(({ clock }) => {
+    const amplitude = 0.03;
+    const wave =
+      target.current === 0.5
+        ? amplitude * Math.sin(clock.getElapsedTime() * 3)
+        : 0;
 
-    materials["Material"].metalness = MathUtils.lerp(
-      materials["Material"].metalness,
-      target.current,
-      0.08
-    );
+    if (materials["Material"].metalness !== target.current) {
+      materials["Material"].metalness = MathUtils.lerp(
+        materials["Material"].metalness,
+        target.current,
+        0.08
+      );
+    }
+
+    materials.Material.emissiveIntensity = amplitude / 2 + wave;
   });
 
   useEffect(() => {

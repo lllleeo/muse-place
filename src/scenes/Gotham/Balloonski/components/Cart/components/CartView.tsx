@@ -78,7 +78,11 @@ export default function CartView(props: CartViewProps) {
         >
           {(device.mobile
             ? "tap the cart or look away to close"
-            : "press c or look away to close") + "\ncheckout at the register"}
+            : "press c or look away to close") +
+            "\n" +
+            (device.mobile
+              ? "tap the register to check out"
+              : "click the register to check out")}
         </Text>
       </RangeTool>
     </group>
