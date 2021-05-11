@@ -50,13 +50,13 @@ function Images() {
               >
                 {texts[ind]}
               </Text>
-              <TitleCard
-                scale={1.5}
-                position={[-0.05, -1.1, 0.15]}
-                title={getTitle(texts[ind])}
-                contactUrl={CONTACT}
-                visitUrl={VISIT}
-              />
+              {/*<TitleCard*/}
+              {/*  scale={1.5}*/}
+              {/*  position={[-0.05, -1.1, 0.15]}*/}
+              {/*  title={getTitle(texts[ind])}*/}
+              {/*  contactUrl={CONTACT}*/}
+              {/*  visitUrl={VISIT}*/}
+              {/*/>*/}
             </group>
             <Image src={url} size={2} />
           </group>
@@ -76,13 +76,13 @@ function Images() {
               >
                 {texts[ind + 4]}
               </Text>
-              <TitleCard
-                scale={1.5}
-                position={[-0.05, -0.85, 0.15]}
-                title={getTitle(texts[ind + 4])}
-                contactUrl={CONTACT}
-                visitUrl={VISIT}
-              />
+              {/*<TitleCard*/}
+              {/*  scale={1.5}*/}
+              {/*  position={[-0.05, -0.85, 0.15]}*/}
+              {/*  title={getTitle(texts[ind + 4])}*/}
+              {/*  contactUrl={CONTACT}*/}
+              {/*  visitUrl={VISIT}*/}
+              {/*/>*/}
             </group>
             <Image src={url} size={2} />
           </group>
@@ -102,13 +102,13 @@ function Images() {
               >
                 {texts[ind + 10]}
               </Text>
-              <TitleCard
-                scale={1.5}
-                position={[-0.05, -0.85, 0.15]}
-                title={getTitle(texts[ind + 4])}
-                contactUrl={CONTACT}
-                visitUrl={VISIT}
-              />
+              {/*<TitleCard*/}
+              {/*  scale={1.5}*/}
+              {/*  position={[-0.05, -0.85, 0.15]}*/}
+              {/*  title={getTitle(texts[ind + 4])}*/}
+              {/*  contactUrl={CONTACT}*/}
+              {/*  visitUrl={VISIT}*/}
+              {/*/>*/}
             </group>
             <Image src={url} size={2} />
           </group>
