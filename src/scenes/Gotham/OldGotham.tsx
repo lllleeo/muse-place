@@ -25,6 +25,7 @@ export type GothamSceneProps = {
   children?: ReactNode;
   audio?: string;
   keyframes?: Keyframe[];
+  environmentProps?: any;
 } & GothamProps;
 
 const GothamScene = (props: GothamSceneProps) => {
@@ -42,7 +43,10 @@ const GothamScene = (props: GothamSceneProps) => {
     xzMapScale,
     lightColor,
     keyframes,
+    environmentProps = {},
   } = props;
+
+  const { playerProps, ...restEnvProps } = environmentProps;
 
   return (
     <StandardEnvironment
@@ -50,7 +54,9 @@ const GothamScene = (props: GothamSceneProps) => {
         pos: [-4, 1, 9.9],
         rot: (2 * Math.PI) / 1.2,
         speed: 1.7,
+        ...playerProps,
       }}
+      {...restEnvProps}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}

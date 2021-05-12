@@ -3,6 +3,7 @@ import Durag from "../models/Durag";
 import Spinning from "../modifiers/Spinning";
 import Kiosk from "./Kiosk";
 import { Preload } from "@react-three/drei";
+import { Spinning } from "spacesvr";
 
 export default function Kiosks() {
   return (
