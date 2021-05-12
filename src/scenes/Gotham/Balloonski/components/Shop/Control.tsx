@@ -1,7 +1,7 @@
 import { GroupProps, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
-import { useContext, useMemo, useState } from "react";
+import { ReactNode, useContext, useMemo, useState } from "react";
 import { ShopContext } from "../../index";
 import { Interactable } from "spacesvr";
 
@@ -28,10 +28,11 @@ type Props = {
   width: number;
   productName?: string;
   productId?: string;
+  visual?: ReactNode;
 } & GroupProps;
 
 const Control = (props: Props) => {
-  const { width, productName, productId, ...restProps } = props;
+  const { width, productName, productId, visual, ...restProps } = props;
 
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
@@ -40,14 +41,12 @@ const Control = (props: Props) => {
   const { cart, products } = useContext(ShopContext);
   const product = products.find((prod) => prod.id === productId);
 
-  const [variantIndex, setVariantIndex] = useState(0);
-
   const variant =
-    product && product.variants.length ? product.variants[variantIndex] : null;
+    product && product.variants.length ? product.variants[0] : null;
 
   const addToCart = () => {
     if (variant && variant.available) {
-      cart.add(variant.id);
+      cart.add(variant.id, visual);
     }
   };
 

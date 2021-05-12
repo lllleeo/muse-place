@@ -1,6 +1,6 @@
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Group, Vector2, Vector3 } from "three";
+import { Group, Quaternion, Vector2, Vector3 } from "three";
 
 type Props = {
   children: ReactNode;
@@ -8,6 +8,8 @@ type Props = {
   face?: boolean;
   distance?: number;
   pinY?: boolean;
+  range?: number;
+  onExit?: () => void;
 };
 
 const SCALE = 0.0025;
@@ -21,8 +23,16 @@ const SCALE = 0.0025;
  * @param props
  * @constructor
  */
-export const Tool = (props: Props) => {
-  const { children, pos, face = true, pinY = false, distance = 1 } = props;
+export const RangeTool = (props: Props) => {
+  const {
+    children,
+    pos,
+    face = true,
+    pinY = false,
+    distance = 1,
+    range = 1,
+    onExit,
+  } = props;
 
   const DISTANCE = distance * 0.05;
 
@@ -33,6 +43,13 @@ export const Tool = (props: Props) => {
   const groupPos = useRef(new Vector3());
   const screenPos = useRef(new Vector2(pos ? pos[0] : 0, pos ? pos[1] : 0));
   const dummy2 = useRef(new Vector2());
+  const curQuaternion = useMemo(() => {
+    const quat = camera.quaternion.clone();
+    quat.x = 0;
+    quat.z = 0;
+    return quat;
+  }, []);
+  const startPos = useRef(camera.position.clone());
 
   const { current: dummyVector } = useRef(new Vector3());
 
@@ -51,7 +68,17 @@ export const Tool = (props: Props) => {
         moveQuaternion.x = 0;
         moveQuaternion.z = 0;
       }
-      dummyVector.applyQuaternion(moveQuaternion);
+
+      if (Math.abs(moveQuaternion.angleTo(curQuaternion)) > range) {
+        if (onExit) onExit();
+        curQuaternion.slerp(moveQuaternion, 0.025);
+      }
+
+      if (startPos.current.distanceTo(camera.position) > 1) {
+        if (onExit) onExit();
+      }
+
+      dummyVector.applyQuaternion(curQuaternion);
 
       group.current.getWorldPosition(groupPos.current);
       const deltaPos = groupPos.current.sub(camera.position);
@@ -65,7 +92,7 @@ export const Tool = (props: Props) => {
   });
 
   return (
-    <group name="tool">
+    <group name="range-tool">
       <group ref={group}>
         <group scale={SCALE * distance}>{children}</group>
       </group>

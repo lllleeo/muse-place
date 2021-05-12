@@ -5,7 +5,6 @@ import Desk from "./models/Desk";
 import Register from "./models/Register";
 import { Floating } from "spacesvr";
 import Cart from "./components/Cart";
-import Guide from "./components/Shop/Guide";
 import { ShopState } from "./types/shop";
 import { createContext, Suspense } from "react";
 import Kiosks from "./components/Shop/Kiosks";
@@ -21,9 +20,13 @@ export default function Balloonski() {
 
   return (
     <ShopContext.Provider value={shop}>
-      <group>
+      <group name="balloonski-site">
         <Suspense fallback={null}>
-          <Desk />
+          <Desk
+            position={[2.04, 0, 4.1]}
+            rotation-y={-Math.PI / 2}
+            scale={[2.04, 0.8, 1.29]}
+          />
           <Register />
         </Suspense>
         <Moneycat
@@ -48,7 +51,6 @@ export default function Balloonski() {
         </Floating>
         <Cart />
         <Kiosks />
-        <Guide />
         {/*<Renderer />*/}
       </group>
     </ShopContext.Provider>
