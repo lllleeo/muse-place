@@ -3,6 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const BNorth = dynamic(import("scenes/Gotham/BNorth"), { ssr: false });
 
 const ARTIST = {
   name: "Brendan North",
@@ -12,22 +13,23 @@ const ARTIST = {
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/brendannorth`;
 const linkData = [
   {
-    src: `${url}/image0.jpeg`,
+    src: `${url}/og/Ahextinction-1.mp4`,
   },
   {
-    src: `${url}/image1.jpeg`,
+    src: `${url}/og/Vparadise-1.mp4`,
   },
   {
-    src: `${url}/image2.jpeg`,
+    src: "",
+    blank: true,
   },
   {
-    src: `${url}/image3.jpeg`,
+    src: `${url}/og/Vsummer-1.mp4`,
   },
   {
-    src: `${url}/image4.jpeg`,
+    src: `${url}/og/Ahsingularity-1.mp4`,
   },
   {
-    src: `${url}/image5.jpeg`,
+    src: `${url}/og/Vlove-1.mp4`,
   },
 ];
 
@@ -42,7 +44,10 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
         night
-      />
+        premium
+      >
+        <BNorth />
+      </Gotham>
     </>
   );
 };

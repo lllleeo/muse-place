@@ -13,16 +13,30 @@ export type GothamSceneProps = {
   children?: ReactNode;
   audio?: string;
   simulationProps?: SimulationProps;
+  environmentProps?: any;
 } & GothamProps;
 
 export default function GothamScene(props: GothamSceneProps) {
-  const { children, audio, night, simulationProps } = props;
+  const {
+    children,
+    audio,
+    night,
+    simulationProps,
+    environmentProps = {},
+  } = props;
+  const { playerProps, ...restEnvProps } = environmentProps;
 
   return (
     <StandardEnvironment
-      canvasProps={{ camera: { far: 200 } }}
-      playerProps={{ pos: [-4.26, 1, 9.56], rot: -0.4, speed: 1.7 }}
-      simulationProps={simulationProps}
+      canvasProps={{ camera: { far: 200, near: 0.001 } }}
+      playerProps={{
+        pos: [-4.26, 1, 9.56],
+        rot: -0.4,
+        speed: 2.05,
+        ...playerProps,
+      }}
+      {...restEnvProps}
+      {...simulationProps}
     >
       {!night && <Sky inclination={1} distance={night ? 0 : 1000000} />}
       {night && <Stars count={1500} fade />}

@@ -7,6 +7,7 @@ export type ArtworkProps = {
     link?: string;
     audio?: boolean;
     size?: number;
+    blank?: boolean;
   }[];
   linkPositions: {
     p: Vector3;
@@ -19,17 +20,20 @@ const Artwork = (props: ArtworkProps) => {
 
   return (
     <group>
-      {artwork.map((piece, i) => (
-        <Link
-          position={linkPositions[i].p}
-          rotY={linkPositions[i].r}
-          audio={piece.audio}
-          link={piece.link}
-          size={piece.size}
-          src={piece.src}
-          key={i}
-        />
-      ))}
+      {artwork.map(
+        (piece, i) =>
+          !piece.blank && (
+            <Link
+              position={linkPositions[i].p}
+              rotY={linkPositions[i].r}
+              audio={piece.audio}
+              link={piece.link}
+              size={piece.size}
+              src={piece.src}
+              key={i}
+            />
+          )
+      )}
     </group>
   );
 };
