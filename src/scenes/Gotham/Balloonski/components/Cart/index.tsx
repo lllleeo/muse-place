@@ -15,14 +15,15 @@ const Cart = () => {
   const { cart } = useContext(ShopContext);
   const { device } = useEnvironment();
 
-  const [open, setOpen] = useState(false);
   const [incr, setIncr] = useState(0);
   const [speech, setSpeech] = useState(false);
   const prevCart = useRef(0);
 
   const onKeyPress = (e: KeyboardEvent) => {
     if (e.key.toLowerCase() === "c") {
-      setOpen(!open);
+      if (cart.isOpen) cart.close();
+      else cart.open();
+
       if (speech) setSpeech(false);
     }
   };
@@ -32,7 +33,7 @@ const Cart = () => {
     return () => {
       window.removeEventListener("keypress", onKeyPress);
     };
-  }, [speech, open]);
+  }, [speech, cart.isOpen]);
 
   // rotate cart when product is added
   const { rotY } = useSpring({
@@ -50,11 +51,18 @@ const Cart = () => {
   }, [incr, cart.count]);
 
   const onTap = () => {
-    setOpen(!open);
+    if (cart.isOpen) cart.close();
+    else cart.open();
     if (speech) setSpeech(false);
   };
 
-  const posY = device.mobile ? (open ? -0.9 : 0.6) : open ? 0 : -0.75;
+  const posY = device.mobile
+    ? cart.isOpen
+      ? -0.9
+      : 0.6
+    : cart.isOpen
+    ? 0
+    : -0.75;
   const posX = 0.8;
   const cartScale = device.mobile ? 0.45 : 0.75;
 
@@ -77,7 +85,7 @@ const Cart = () => {
             <boxBufferGeometry args={[5, 5, 5]} />
           </mesh>
         </Interactable>
-        <Spinning ySpeed={open ? 0 : 0.6}>
+        <Spinning ySpeed={cart.isOpen ? 0 : 0.6}>
           <animated.group rotation-y={rotY}>
             <Suspense fallback={null}>
               <Preload all />
@@ -86,7 +94,7 @@ const Cart = () => {
           </animated.group>
         </Spinning>
       </Tool>
-      {open && <CartView setOpen={setOpen} />}
+      {cart.isOpen && <CartView />}
     </>
   );
 };

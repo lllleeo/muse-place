@@ -8,12 +8,7 @@ import { useEnvironment } from "spacesvr";
 const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
 
-type CartViewProps = {
-  setOpen: (b: boolean) => void;
-};
-
-export default function CartView(props: CartViewProps) {
-  const { setOpen } = props;
+export default function CartView() {
   const { device } = useEnvironment();
 
   const { cart } = useContext(ShopContext);
@@ -26,7 +21,7 @@ export default function CartView(props: CartViewProps) {
 
   return (
     <group name="cart-view">
-      <RangeTool pos={[0, 0]} distance={6} onExit={() => setOpen(false)}>
+      <RangeTool pos={[0, 0]} distance={6} onExit={() => cart.close()}>
         <pointLight position={[0, 0, 1]} distance={0.4} />
         <RoundedBox
           args={[20, 20, 0.5]}
