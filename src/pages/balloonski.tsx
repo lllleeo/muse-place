@@ -23,10 +23,10 @@ const linkData = [
     src: `${url}/gucci+ghost.jpg`,
   },
   {
-    src: `${url}/balloon+frights.jpg`,
+    src: `${url}/NFT-Gator-PalmTree.mp4`,
   },
   {
-    src: `${url}/5.jpg`,
+    src: `${url}/NFT-Gator-Water.mp4`,
   },
   {
     src: `${url}/balloonski.jpeg`,
