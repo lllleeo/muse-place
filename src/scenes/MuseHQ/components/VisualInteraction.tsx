@@ -3,6 +3,8 @@ import { Text } from "@react-three/drei";
 import { ReactNode, useContext } from "react";
 import Button from "./Button";
 import { DialogueContext } from "./Dialogue";
+import { getDecisionIdea } from "../utils/metaphysics";
+import FacePlayer from "../modifiers/FacePlayer";
 
 const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
@@ -32,23 +34,24 @@ export default function VisualInteraction(
 
   return (
     <group name={`interaction-${text}`}>
-      <Text {...textStyles} anchorY="bottom">
-        {text}
-      </Text>
-      <group name="decisions" position-y={-0.075}>
+      <Text {...textStyles}>{text}</Text>
+      <group name="decisions" position-y={-0.35 / 2 - 0.1}>
         {decisions.map((decision, i) => {
           const perc = i / (decisions.length - 1);
-          const width = decision.name.length * 0.275 + 0.25;
+          const width = decision.name.length * 0.28 + 0.25;
           const posY = -perc * 0.125;
           return (
-            <Button
-              width={width}
-              onClick={() => decision.action(setIndex)}
-              position-x={0}
-              position-y={posY}
-            >
-              {decision.name}
-            </Button>
+            <FacePlayer>
+              <Button
+                width={width}
+                onClick={() => decision.action(setIndex)}
+                position-z={0.15}
+                position-y={posY}
+                idea={getDecisionIdea(decision)}
+              >
+                {decision.name}
+              </Button>
+            </FacePlayer>
           );
         })}
       </group>

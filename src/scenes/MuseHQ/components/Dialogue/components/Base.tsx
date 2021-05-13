@@ -17,7 +17,7 @@ export default function Base(props: BaseProps) {
   const { enabled, currentIdea, index, setIndex } = useContext(DialogueContext);
 
   const WIDTH = 1;
-  const HEIGHT = 0.5;
+  const HEIGHT = 0.35;
   const DEPTH = 0.125;
   const RADIUS = Math.min(WIDTH, HEIGHT, DEPTH) * 0.5;
 
@@ -37,7 +37,7 @@ export default function Base(props: BaseProps) {
   }, []);
 
   return (
-    <group position-x={WIDTH / 2 + 0.1}>
+    <group position-x={WIDTH / 2 + 0.1} position-y={0.1}>
       <animated.group scale={scale}>
         <FacePlayer>
           <RoundedBox

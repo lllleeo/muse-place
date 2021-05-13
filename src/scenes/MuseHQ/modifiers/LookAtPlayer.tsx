@@ -14,7 +14,7 @@ const LookAtPlayer = (props: Props) => {
   const { enabled = true, children } = props;
 
   const group = useRef<Group>();
-  const limiter = useLimiter(30);
+  const limiter = useLimiter(50);
   const dummy1 = useMemo(() => new Vector2(), []);
   const dummy2 = useMemo(() => new Vector2(), []);
   const dummy3 = useMemo(() => new Vector3(), []);

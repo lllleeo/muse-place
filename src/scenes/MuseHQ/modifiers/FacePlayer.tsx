@@ -30,7 +30,7 @@ const FacePlayer = (props: Props) => {
       if (lockY) group.current.rotation.y = prev.y;
       if (lockZ) group.current.rotation.z = prev.z;
     }
-  }, 1);
+  });
 
   return <group ref={group}>{children}</group>;
 };

@@ -1,6 +1,8 @@
-import { Idea, Interaction } from "../types/metaphysics";
+import { Decision, Idea, Interaction } from "../types/metaphysics";
 // @ts-ignore
 import * as culori from "culori";
+
+const MAGIC_NUM = 50000; // each char is roughly 100, so loop every ~50 chars
 
 export const DEFAULT_IDEA: Idea = {
   mediation: 0,
@@ -22,12 +24,20 @@ export const getIdeaHex = (idea: Idea): string => {
 export const getInteractionIdea = (interaction: Interaction): Idea => {
   const len = interaction.text.length;
 
-  const MAGIC_NUM = 50000; // each char is roughly 100, so loop every ~50 chars
-
   return {
     mediation: (hashStringToNum(interaction.text) % MAGIC_NUM) / MAGIC_NUM,
     specificity: (1 - (len == 0 ? 1 : 1 / len)) * 0.5,
     utility: interaction.decisions ? 0.75 : 0.5,
+  };
+};
+
+export const getDecisionIdea = (decision: Decision) => {
+  const len = decision.name.length;
+
+  return {
+    mediation: (hashStringToNum(decision.name) % 5000) / 5000,
+    specificity: (1 - (len === 0 ? 1 : 1 / len)) * 0.6,
+    utility: 1 - 1 / decision.action.toString().length,
   };
 };
 
