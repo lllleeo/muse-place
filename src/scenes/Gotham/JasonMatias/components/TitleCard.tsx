@@ -87,7 +87,7 @@ export default function TitleCard(props: TitleCardProps) {
   const FONT_URL =
     "https://d27rt3a60hh1lx.cloudfront.net/fonts/AcuminProMedium.otf";
   const WIDTH = width;
-  const HEIGHT = 0.25;
+  const HEIGHT = 0.2;
   const DEPTH = 0.015;
   const PADDING_X = 0.05;
   const PADDING_Y = 0.02;
@@ -106,7 +106,7 @@ export default function TitleCard(props: TitleCardProps) {
           name="title"
           fontSize={FONT_SIZE}
           position-y={HEIGHT / 2 - PADDING_Y}
-          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+          position-x={-WIDTH / 2 + PADDING_X}
           color="black"
           font={FONT_URL}
           anchorY="top"
@@ -116,14 +116,14 @@ export default function TitleCard(props: TitleCardProps) {
         >
           {title}
         </Text>
-        <mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>
-          <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />
-          <meshStandardMaterial color="black" />
-        </mesh>
+        {/*<mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>*/}
+        {/*  <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />*/}
+        {/*  <meshStandardMaterial color="black" />*/}
+        {/*</mesh>*/}
         <group
           name="buttons"
-          position-y={-0.035}
-          position-x={-WIDTH / 2 + PADDING_X + INDENT * 2}
+          position-y={-0.05}
+          position-x={width === 0.65 ? -0.05 : 0}
         >
           {BUTTONS.map((button, i) => {
             const maxWidth = 0.15;
