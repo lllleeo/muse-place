@@ -116,10 +116,6 @@ export default function TitleCard(props: TitleCardProps) {
         >
           {title}
         </Text>
-        {/*<mesh name="mark" position={[-WIDTH / 2 + PADDING_X, 0, 0]}>*/}
-        {/*  <planeBufferGeometry args={[INDENT, HEIGHT - PADDING_Y * 4]} />*/}
-        {/*  <meshStandardMaterial color="black" />*/}
-        {/*</mesh>*/}
         <group
           name="buttons"
           position-y={-0.05}
