@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
 import { Cart, Item, Product, ShopState } from "../types/shop";
 
@@ -18,6 +18,8 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
   );
   const [products, setProducts] = useState<Product[]>([]);
   const [checkout, setCheckout] = useState<ShopifyCart>();
+  const visuals = useMemo(() => new Map<string, ReactNode>(), []);
+  const [open, setOpen] = useState(false);
 
   const saveNewCart = (newCheckout: ShopifyCart) => {
     localStorage.setItem(CART_ID, newCheckout.id as string);
@@ -46,7 +48,10 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     items: checkout ? (checkout.lineItems as Item[]) : [],
     // @ts-ignore
     url: checkout?.webUrl,
-    add: (id: string) => {
+    add: (id: string, visual?: ReactNode) => {
+      // store visual in the map
+      if (visual) visuals.set(id, visual);
+
       if (!checkout?.id) return;
       const lineItemsToAdd: LineItemToAdd = { variantId: id, quantity: 1 };
       client.checkout
@@ -56,9 +61,6 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     subtract: (id: string) => {
       if (!checkout?.id) return;
       const prod = checkout.lineItems.find((prod: any) => prod.id === id);
-      console.log(checkout.lineItems);
-      console.log(id);
-      console.log(prod);
       if (!prod) return;
       if (prod.quantity === 1) {
         client.checkout.removeLineItems(checkout.id, [id]).then(saveNewCart);
@@ -81,6 +83,10 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     clear: () => {
       client.checkout.create().then(saveNewCart);
     },
+    visuals,
+    isOpen: open,
+    close: () => setOpen(false),
+    open: () => setOpen(true),
   };
 
   return {

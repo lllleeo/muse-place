@@ -7,6 +7,8 @@ const SILKS_CONTENT_FOLDER =
 const SIZE = 1.5;
 
 const Gallery = () => {
+  const mat = useMemo(() => new MeshStandardMaterial({ color: "black" }), []);
+
   return (
     <group name="gallery">
       <group
@@ -15,39 +17,65 @@ const Gallery = () => {
         position={[0, SIZE * 0.75, 5.18]}
       >
         <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/yellow-green-durag.jpg`}
+          size={SIZE}
+          framed
+          position-x={-3.5}
+        />
+        <Image
+          frameMaterial={mat}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/racks.jpg`}
           size={SIZE}
           framed
           position-x={-1}
         />
         <Image
-          src={`${SILKS_CONTENT_FOLDER}/gallery/eyes.jpg`}
+          frameMaterial={mat}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/acne.jpg`}
+          size={SIZE}
+          framed
+          position-x={1}
+        />
+        <Image
+          frameMaterial={mat}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/tough.jpg`}
           size={SIZE}
           framed
           position-x={3}
         />
         <Image
+          frameMaterial={mat}
+          src={`${SILKS_CONTENT_FOLDER}/gallery/eyes.jpg`}
+          size={SIZE}
+          framed
+          position-x={5}
+        />
+        <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/camo.jpg`}
           size={SIZE}
           framed
-          position-x={7}
+          position-x={7.5}
         />
       </group>
       <group name="front-wall" position={[0, SIZE * 0.75, 1.05]}>
         <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/pink.jpg`}
           size={SIZE}
           framed
           position-x={-8.5}
         />
         <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/sleep.jpg`}
           size={SIZE}
           framed
           position-x={-5}
         />
-
         <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/gold.jpg`}
           size={SIZE}
           framed
@@ -60,6 +88,7 @@ const Gallery = () => {
         rotation-y={-Math.PI / 2}
       >
         <Image
+          frameMaterial={mat}
           src={`${SILKS_CONTENT_FOLDER}/gallery/vp.jpg`}
           size={SIZE}
           framed

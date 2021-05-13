@@ -862,10 +862,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^16.9.36":
-  version "16.14.5"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.5.tgz#2c39b5cadefaf4829818f9219e5e093325979f4d"
-  integrity sha512-YRRv9DNZhaVTVRh9Wmmit7Y0UFhEVqXqCSw3uazRWMxa2x85hWQZ5BN24i7GXZbaclaLXEcodEeIHsjBA8eAMw==
+"@types/react@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.5.tgz#3d887570c4489011f75a3fc8f965bf87d09a1bea"
+  integrity sha512-bj4biDB9ZJmGAYTWSKJly6bMr4BLUiBrx9ujiJEoP9XIDY9CTaPGxE5QWN/1WjpPLzYF7/jRNnV2nNxNe970sw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -875,6 +875,11 @@
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
+
+"@types/shopify-buy@^2.10.5":
+  version "2.10.5"
+  resolved "https://registry.yarnpkg.com/@types/shopify-buy/-/shopify-buy-2.10.5.tgz#c7184b792989a968af879224e8990cde4db45519"
+  integrity sha512-12Le/iXPynrONntux/OaXf9+yx0zbMBKhwywdej9mfR8YhXB82pPZYzU3o6j8cjK1uCQ/wWkqLTftpaXpeMKig==
 
 "@types/three@^0.127.1":
   version "0.127.1"
@@ -6020,10 +6025,10 @@ source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-spacesvr@^1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.6.8.tgz#3e79576ae1e381f9eeb00c54e949ba782245d927"
-  integrity sha512-G2zJPbc/QizXglhCtvKIi4tZnmx/svn0wpNHZsLI/2HYmpPQPNOjCOHZdcsj9yFVW1xc6/y3HUVvZx29lddZIA==
+spacesvr@^1.6.9:
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.6.9.tgz#d0811c703d6f8005ccdc09f5f26a6f8e25ff361f"
+  integrity sha512-11XO9xQ+N/qEEd/W6aA9nsRQPNTd7CGyFlrmqOoZ5jwkTOhnEypJCBr+jT0u/sv9RwyzLDzSGAssHXna6+RZvQ==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
