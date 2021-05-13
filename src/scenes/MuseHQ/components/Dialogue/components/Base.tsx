@@ -5,6 +5,7 @@ import { getIdeaHex } from "../../../utils/metaphysics";
 import { Children, ReactNode, useContext, useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring/three";
 import { DialogueContext } from "../index";
+import FacePlayer from "../../../modifiers/FacePlayer";
 
 type BaseProps = {
   children?: ReactNode | ReactNode[];
@@ -38,18 +39,20 @@ export default function Base(props: BaseProps) {
   return (
     <group position-x={WIDTH / 2 + 0.1}>
       <animated.group scale={scale}>
-        <RoundedBox
-          args={[WIDTH, HEIGHT, DEPTH]}
-          radius={RADIUS}
-          smoothness={4}
-        >
-          <meshStandardMaterial ref={material} side={DoubleSide} />
-        </RoundedBox>
-        <group name="content" position-z={DEPTH / 2 + 0.001}>
-          {Children.map(children, (child, i) => (
-            <Slide enabled={index === i}>{child}</Slide>
-          ))}
-        </group>
+        <FacePlayer>
+          <RoundedBox
+            args={[WIDTH, HEIGHT, DEPTH]}
+            radius={RADIUS}
+            smoothness={4}
+          >
+            <meshStandardMaterial ref={material} side={DoubleSide} />
+          </RoundedBox>
+          <group name="content" position-z={DEPTH / 2 + 0.001}>
+            {Children.map(children, (child, i) => (
+              <Slide enabled={index === i}>{child}</Slide>
+            ))}
+          </group>
+        </FacePlayer>
       </animated.group>
     </group>
   );

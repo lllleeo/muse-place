@@ -6,7 +6,7 @@ export type Idea = {
 
 export type Decision = {
   name: string;
-  action: () => void;
+  action: (setIndex: (n: number) => void) => void;
 };
 
 export type Interaction = {
