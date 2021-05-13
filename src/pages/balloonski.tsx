@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { ScrollData } from "../themes/Alto/types/scroll";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const Balloonski = dynamic(import("scenes/Gotham/Balloonski"), { ssr: false });
@@ -24,10 +23,14 @@ const linkData = [
     src: `${url}/gucci+ghost.jpg`,
   },
   {
-    src: `${url}/balloon+frights.jpg`,
+    src: `${url}/NFT-Gator-PalmTree.mp4`,
+    audio: true,
+    volume: 0.15,
   },
   {
-    src: `${url}/5.jpg`,
+    src: `${url}/NFT-Gator-Water.mp4`,
+    audio: true,
+    volume: 0.15,
   },
   {
     src: `${url}/balloonski.jpeg`,
@@ -36,6 +39,13 @@ const linkData = [
     src: `${url}/many+balloonski+ghosts.jpg`,
   },
 ];
+
+const envProps = {
+  playerProps: {
+    pos: [-4.1, 1, 5],
+    rot: -Math.PI / 2,
+  },
+};
 
 const LinkTree: NextPage = () => {
   return (
@@ -47,6 +57,7 @@ const LinkTree: NextPage = () => {
         artwork={linkData}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        environmentProps={envProps}
         premium
       >
         <Balloonski />

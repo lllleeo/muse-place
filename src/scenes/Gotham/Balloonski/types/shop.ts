@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type ShopState = {
   cart: Cart;
   products: Product[];
@@ -10,12 +12,16 @@ export type Item = {
 
 export type Cart = {
   items: Item[];
-  add: (id: string) => void;
+  add: (id: string, visual: ReactNode) => void;
   subtract: (id: string) => void;
   remove: (id: string) => void;
   count: number;
   clear: () => void;
   url?: string;
+  visuals: Map<string, ReactNode>;
+  isOpen: boolean;
+  close: () => void;
+  open: () => void;
 };
 
 export type Variant = {
@@ -32,4 +38,5 @@ export type Product = {
   images: string[];
   available: boolean;
   variants: Variant[];
+  visual?: ReactNode;
 };

@@ -1,4 +1,4 @@
-import Spinning from "../../modifiers/Spinning";
+import { Spinning } from "spacesvr";
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import ShoppingCart from "../../models/ShoppingCart";
 import { Tool } from "../../modifiers/Tool";

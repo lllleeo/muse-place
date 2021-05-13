@@ -9,26 +9,29 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Durag1obj3: THREE.Mesh;
+    emailbutton: THREE.Mesh;
   };
   materials: {
-    ["Durag1.obj.1"]: THREE.MeshStandardMaterial;
+    ["email.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/PinkWhiteDuragNoDraco-1615800186/scene.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/SBMail-1620873501/email.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+
+  materials["email.mat"].metalness = 0;
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={[0.27, 0.27, 0.27]}>
+      <group scale={0.002}>
         <mesh
-          name="Durag1obj3"
-          material={materials["Durag1.obj.1"]}
-          geometry={nodes.Durag1obj3.geometry}
+          name="emailbutton"
+          geometry={nodes.emailbutton.geometry}
+          material={materials["email.mat"]}
         />
       </group>
     </group>
