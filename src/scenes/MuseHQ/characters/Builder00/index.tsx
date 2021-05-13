@@ -32,7 +32,7 @@ export default function Builder00() {
     <group name="builder-mort" position={[-11.78, 5.89, -3.07]}>
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
-          <Builder rotation-y={-Math.PI / 2} />
+          <Builder rotation-y={-Math.PI / 2} animation="idle" />
         </group>
         <Dialogue
           enabled={TALKING}
