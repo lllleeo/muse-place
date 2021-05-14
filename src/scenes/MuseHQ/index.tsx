@@ -17,6 +17,7 @@ export default function MuseHQ() {
         dpr: 1,
         gl: { antialias: false },
       }}
+      dev
     >
       <IdentityLayer>
         <Sky

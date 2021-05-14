@@ -5,7 +5,7 @@ import { Dialogue } from "../layers/basis";
 import { DialogueContext } from "./VisualDialogueLogic";
 
 export default function VisualDialogue(props: Dialogue & { enabled: boolean }) {
-  const { effect, text, decisions, enabled } = props;
+  const { effect, text, input, decisions, enabled } = props;
 
   const { setIndex } = useContext(DialogueContext);
 
@@ -26,8 +26,12 @@ export default function VisualDialogue(props: Dialogue & { enabled: boolean }) {
   }, [prevEnabled, enabled]);
 
   return (
-    <animated.group name="slide" position-z={posZ} scale-y={scaleY}>
-      <VisualInteraction text={text} decisions={decisions} />
+    <animated.group
+      name={`slide-${text.substr(0, 8)}`}
+      position-z={posZ}
+      scale-y={scaleY}
+    >
+      <VisualInteraction text={text} input={input} decisions={decisions} />
     </animated.group>
   );
 }

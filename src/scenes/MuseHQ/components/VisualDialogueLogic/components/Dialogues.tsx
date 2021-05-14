@@ -33,7 +33,7 @@ export default function Dialogues() {
   }, []);
 
   return (
-    <group position-x={WIDTH / 2 + 0.1} position-y={0.1}>
+    <group position-x={WIDTH / 2 + 0.1} position-y={0}>
       <animated.group scale={scale}>
         <FacePlayer>
           <RoundedBox

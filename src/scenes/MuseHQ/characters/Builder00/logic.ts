@@ -2,6 +2,7 @@ import useStateMachine from "@cassiozen/usestatemachine";
 import { useIdentity } from "../../layers/identity";
 import { DialogueLogic } from "../../components/VisualDialogueLogic";
 import { useProxy } from "valtio";
+import { useState } from "react";
 
 export const useBuilder00Logic = () =>
   useStateMachine()({
@@ -31,6 +32,9 @@ export const useBuilder00Logic = () =>
 export const useDialogs = (): DialogueLogic => {
   const identity = useIdentity();
   const identityRef = useProxy(identity);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return [
     {
@@ -108,7 +112,7 @@ export const useDialogs = (): DialogueLogic => {
       decisions: [
         {
           name: "log in",
-          action: (setIndex) => setIndex(6),
+          action: (setIndex) => setIndex(13),
         },
         {
           name: "sign up",
@@ -121,7 +125,7 @@ export const useDialogs = (): DialogueLogic => {
       text: "logging in...",
       effect: async (setIndex) => {
         if (!identity.exists) {
-          const result = await identity.login("this username", "this password");
+          const result = await identity.login(email, password);
           if (result.success) {
             setIndex(8);
           }
@@ -150,7 +154,7 @@ export const useDialogs = (): DialogueLogic => {
     },
     {
       key: "8",
-      text: `all done! welcome to muse hq, ${identityRef.name}!. feel free to explore!`,
+      text: `all done! welcome to muse hq, ${identityRef.name}! feel free to explore`,
     },
     {
       key: "9",
@@ -198,6 +202,28 @@ export const useDialogs = (): DialogueLogic => {
         {
           name: "nevermind",
           action: (setIndex) => setIndex(4),
+        },
+      ],
+    },
+    {
+      key: "13",
+      text: "what's your email?",
+      input: [email, setEmail],
+      decisions: [
+        {
+          name: "submit",
+          action: (setIndex) => setIndex(14),
+        },
+      ],
+    },
+    {
+      key: "14",
+      text: "and your password?",
+      input: [password, setPassword],
+      decisions: [
+        {
+          name: "submit",
+          action: (setIndex) => setIndex(6),
         },
       ],
     },

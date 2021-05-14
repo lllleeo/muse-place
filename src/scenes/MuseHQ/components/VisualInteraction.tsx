@@ -1,9 +1,10 @@
-import { Text } from "@react-three/drei";
+import { RoundedBox, Text } from "@react-three/drei";
 import { ReactNode, useContext } from "react";
 import Button from "./Button";
 import FacePlayer from "../modifiers/FacePlayer";
 import { Idea, Interaction } from "../layers/basis";
 import { DialogueContext } from "./VisualDialogueLogic";
+import TextInput from "./input/TextInput";
 
 const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
@@ -11,7 +12,7 @@ const FONT_FILE =
 export default function VisualInteraction(
   props: Interaction & { children?: ReactNode }
 ) {
-  const { text, decisions, children } = props;
+  const { text, decisions, input, children } = props;
 
   const { setIndex } = useContext(DialogueContext);
 
@@ -23,41 +24,45 @@ export default function VisualInteraction(
     outlineWidth: 0.0065,
   };
 
-  if (!decisions) {
-    return (
-      <group name={`interaction-${text}`}>
-        <Text {...textStyles}>{text}</Text>
-      </group>
-    );
-  }
-
   return (
     <group name={`interaction-${text}`}>
-      <Text {...textStyles}>{text}</Text>
-      <group name="decisions" position-y={-0.35 / 2 - 0.1}>
-        {decisions.map((decision, i) => {
-          const perc = i / (decisions.length - 1);
-          const width = decision.name.length * 0.28 + 0.25;
-          const posY = -perc * 0.125;
+      <Text
+        {...textStyles}
+        anchorY={input ? "bottom" : "middle"}
+        position-y={input ? 0.025 : 0}
+      >
+        {text}
+      </Text>
+      {input && (
+        <TextInput value={input[0]} setValue={input[1]} position-y={-0.05} />
+      )}
+      {decisions && (
+        <group name="decisions" position-y={-0.35 / 2 - 0.1}>
+          {decisions.map((decision, i) => {
+            const perc =
+              decisions.length === 1 ? 0 : i / (decisions.length - 1);
+            const width = decision.name.length * 0.28 + 0.25;
+            const posY = -perc * 0.125;
 
-          const idea = new Idea();
-          idea.setFromDecision(decision);
+            const idea = new Idea();
+            idea.setFromDecision(decision);
 
-          return (
-            <FacePlayer>
-              <Button
-                width={width}
-                onClick={() => decision.action(setIndex)}
-                position-z={0.15}
-                position-y={posY}
-                idea={idea}
-              >
-                {decision.name}
-              </Button>
-            </FacePlayer>
-          );
-        })}
-      </group>
+            return (
+              <FacePlayer>
+                <Button
+                  width={width}
+                  onClick={() => decision.action(setIndex)}
+                  position-z={0.15}
+                  position-y={posY}
+                  idea={idea}
+                >
+                  {decision.name}
+                </Button>
+              </FacePlayer>
+            );
+          })}
+        </group>
+      )}
       {children}
     </group>
   );
