@@ -9,26 +9,27 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Durag1obj3: THREE.Mesh;
+    Hemp_plant_01: THREE.Mesh;
   };
   materials: {
-    ["Durag1.obj.1"]: THREE.MeshStandardMaterial;
+    ["Hemp_plant.002"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/PinkWhiteDuragNoDraco-1615800186/scene.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/WeedPlant-1620877818/weed_plant.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={[0.27, 0.27, 0.27]}>
+      <group name="Scene">
         <mesh
-          name="Durag1obj3"
-          material={materials["Durag1.obj.1"]}
-          geometry={nodes.Durag1obj3.geometry}
+          name="Hemp_plant_01"
+          geometry={nodes.Hemp_plant_01.geometry}
+          material={materials["Hemp_plant.002"]}
+          rotation-x={Math.PI / 2}
         />
       </group>
     </group>
