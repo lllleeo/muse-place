@@ -24,9 +24,13 @@ const linkData = [
   },
   {
     src: `${url}/NFT-Gator-PalmTree.mp4`,
+    audio: true,
+    volume: 0.15,
   },
   {
     src: `${url}/NFT-Gator-Water.mp4`,
+    audio: true,
+    volume: 0.15,
   },
   {
     src: `${url}/balloonski.jpeg`,
