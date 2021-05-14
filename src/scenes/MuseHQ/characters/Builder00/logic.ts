@@ -33,6 +33,10 @@ export const useDialogs = (): DialogueLogic => {
   const identity = useIdentity();
   const identityRef = useProxy(identity);
 
+  const [loginFlow, setLoginFlow] = useState(false); // when true, login, not signup
+
+  const [error, setError] = useState<string>();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -112,11 +116,17 @@ export const useDialogs = (): DialogueLogic => {
       decisions: [
         {
           name: "log in",
-          action: (setIndex) => setIndex(13),
+          action: (setIndex) => {
+            setLoginFlow(true);
+            setIndex(13);
+          },
         },
         {
           name: "sign up",
-          action: (setIndex) => setIndex(7),
+          action: (setIndex) => {
+            setLoginFlow(false);
+            setIndex(15);
+          },
         },
       ],
     },
@@ -125,9 +135,13 @@ export const useDialogs = (): DialogueLogic => {
       text: "logging in...",
       effect: async (setIndex) => {
         if (!identity.exists) {
+          setError(undefined);
           const result = await identity.login(email, password);
           if (result.success) {
-            setIndex(8);
+            setIndex(17);
+          } else {
+            setError(result.message);
+            setIndex(16);
           }
         }
       },
@@ -141,6 +155,18 @@ export const useDialogs = (): DialogueLogic => {
     {
       key: "7",
       text: "signing up...",
+      effect: async (setIndex) => {
+        if (!identity.exists) {
+          setError(undefined);
+          const result = await identity.signup(name, email, password);
+          if (result.success) {
+            setIndex(6);
+          } else {
+            setError(result.message);
+            setIndex(16);
+          }
+        }
+      },
       decisions: [
         {
           name: "wait go back",
@@ -218,14 +244,49 @@ export const useDialogs = (): DialogueLogic => {
     },
     {
       key: "14",
-      text: "and your password?",
+      text: "what your password? it better not be password",
       input: [password, setPassword],
       decisions: [
         {
           name: "submit",
-          action: (setIndex) => setIndex(6),
+          action: (setIndex) => setIndex(loginFlow ? 6 : 7),
         },
       ],
+    },
+    {
+      key: "15",
+      text: "you got a name?",
+      input: [name, setName],
+      decisions: [
+        {
+          name: "submit",
+          action: (setIndex) => setIndex(13),
+        },
+      ],
+    },
+    {
+      key: "16",
+      text: `error: ${error}`,
+      decisions: [
+        {
+          name: "try again",
+          action: (setIndex) => setIndex(5),
+        },
+      ],
+    },
+    {
+      key: "17",
+      text: "running a background check...",
+      effect: async (setIndex) => {
+        setError(undefined);
+        const result = await identity.fetch();
+        if (result.success) {
+          setIndex(8);
+        } else {
+          setError(result.message);
+          setIndex(16);
+        }
+      },
     },
   ];
 };

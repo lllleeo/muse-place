@@ -17,14 +17,17 @@ export default function TextInput(props: TextProps) {
 
   const { controls } = usePlayer();
   const [engaged, setEngaged] = useState(false);
+  const curString = useRef("");
+
   const { color } = useSpring({
     color: engaged ? "#000" : "#828282",
   });
+
   useEffect(() => {
     if (engaged) controls.lock();
     if (!engaged) controls.unlock();
   }, [engaged]);
-  const curString = useRef("");
+
   useEffect(() => {
     const onKeyup = (e: KeyboardEvent) => {
       if (!engaged) return;
@@ -57,7 +60,6 @@ export default function TextInput(props: TextProps) {
 
   const BORDER = 0.005;
   const WIDTH = 0.7;
-  const onClick = () => setEngaged(!engaged);
 
   const textStyles: Partial<typeof Text.defaultProps> = {
     font: FONT_FILE,
@@ -73,7 +75,7 @@ export default function TextInput(props: TextProps) {
       <Text {...textStyles} position-z={0.051} position-x={(-WIDTH + 0.05) / 2}>
         {value + "|"}
       </Text>
-      <Interactable onClick={onClick}>
+      <Interactable onClick={() => setEngaged(!engaged)}>
         <RoundedBox args={[0.7, 0.1, 0.1]} radius={0.025} smoothness={4}>
           <meshStandardMaterial color="white" />
         </RoundedBox>

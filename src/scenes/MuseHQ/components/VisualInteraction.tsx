@@ -1,4 +1,4 @@
-import { RoundedBox, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { ReactNode, useContext } from "react";
 import Button from "./Button";
 import FacePlayer from "../modifiers/FacePlayer";
