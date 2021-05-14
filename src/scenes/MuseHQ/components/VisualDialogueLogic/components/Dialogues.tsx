@@ -1,20 +1,16 @@
 import { RoundedBox } from "@react-three/drei";
 import { DoubleSide, MeshStandardMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
-import { getIdeaHex } from "../../../utils/metaphysics";
-import { Children, ReactNode, useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring/three";
 import { DialogueContext } from "../index";
 import FacePlayer from "../../../modifiers/FacePlayer";
+import VisualDialogue from "../../VisualDialogue";
 
-type BaseProps = {
-  children?: ReactNode | ReactNode[];
-};
-
-export default function Base(props: BaseProps) {
-  const { children } = props;
-
-  const { enabled, currentIdea, index, setIndex } = useContext(DialogueContext);
+export default function Dialogues() {
+  const { enabled, currentIdea, index, setIndex, dialogueLogic } = useContext(
+    DialogueContext
+  );
 
   const WIDTH = 1;
   const HEIGHT = 0.35;
@@ -25,7 +21,7 @@ export default function Base(props: BaseProps) {
 
   useFrame(() => {
     if (!material.current) return;
-    material.current.color.set(getIdeaHex(currentIdea));
+    material.current.color.set(currentIdea.getHex());
   });
 
   const { scale } = useSpring({
@@ -44,31 +40,17 @@ export default function Base(props: BaseProps) {
             args={[WIDTH, HEIGHT, DEPTH]}
             radius={RADIUS}
             smoothness={4}
+            name="base"
           >
             <meshStandardMaterial ref={material} side={DoubleSide} />
           </RoundedBox>
           <group name="content" position-z={DEPTH / 2 + 0.001}>
-            {Children.map(children, (child, i) => (
-              <Slide enabled={index === i}>{child}</Slide>
+            {dialogueLogic.map((dialogue, i) => (
+              <VisualDialogue {...dialogue} enabled={i === index} />
             ))}
           </group>
         </FacePlayer>
       </animated.group>
     </group>
-  );
-}
-
-function Slide(props: { children: ReactNode; enabled: boolean }) {
-  const { enabled, children } = props;
-
-  const { posZ, scaleY } = useSpring({
-    posZ: enabled ? 0.001 : -0.003,
-    scaleY: enabled ? 1 : 0,
-  });
-
-  return (
-    <animated.group name="slide" position-z={posZ} scale-y={scaleY}>
-      {children}
-    </animated.group>
   );
 }

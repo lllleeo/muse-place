@@ -3,10 +3,9 @@ import { GroupProps, useFrame } from "@react-three/fiber";
 import Material from "component-material";
 import { Sphere } from "@react-three/drei";
 import { DoubleSide, Color, Mesh } from "three";
-import { Idea } from "../types/metaphysics";
 // @ts-ignore
 import { useLimiter } from "spacesvr";
-import { getIdeaHex } from "../utils/metaphysics";
+import { Idea } from "../layers/basis";
 
 type Props = {
   size?: number | [number, number, number];
@@ -41,7 +40,9 @@ export const VisualIdea = (props: Props) => {
   const RADIUS = 4;
   const NOISE_AMPLITUDE = 0.82;
   const NOISE_FREQ = 0.154;
-  const HEX = getIdeaHex(idea || { utility, specificity, mediation });
+  const HEX = idea
+    ? idea.getHex()
+    : new Idea({ utility, specificity, mediation }).getHex();
   const SIZE: [number, number, number] =
     typeof size === "number"
       ? [size * 0.2, size * 0.2, size * 0.2]

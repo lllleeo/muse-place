@@ -1,16 +1,17 @@
 import { GroupProps, useFrame } from "@react-three/fiber";
-import { Idea } from "../../types/metaphysics";
 import Bubbles from "./components/Bubbles";
-import { createContext, ReactNode, useMemo, useState } from "react";
-import Base from "./components/Base";
-import { DEFAULT_IDEA } from "../../utils/metaphysics";
+import { createContext, useMemo, useState } from "react";
+import Dialogues from "./components/Dialogues";
 import { MathUtils } from "three";
+import { Dialogue, Idea } from "../../layers/basis";
 
-type DialogueProps = {
+export type DialogueLogic = Dialogue[];
+
+type VisualDialogueLogicProps = {
   source?: [number, number, number];
   numStops?: number;
   enabled?: boolean;
-  children: ReactNode | ReactNode[];
+  dialogueLogic: DialogueLogic;
 };
 
 type DialogueState = {
@@ -20,30 +21,30 @@ type DialogueState = {
   numStops: number;
   enabled: boolean;
   currentIdea: Idea;
+  dialogueLogic: DialogueLogic;
 };
 
 export const DialogueContext = createContext<DialogueState>(
   {} as DialogueState
 );
 
-export default function Dialogue(props: DialogueProps & GroupProps) {
+export default function VisualDialogueLogic(
+  props: VisualDialogueLogicProps & GroupProps
+) {
   const {
     source = [0.9, -0.5, -0.2],
     numStops = 5,
     enabled = false,
     children,
+    dialogueLogic,
     ...rest
   } = props;
 
   const [index, setIndex] = useState(0);
-  const currentIdea = useMemo(
-    () => ({ specificity: 0, mediation: 0, utility: 0.5 }),
-    []
-  );
+  const currentIdea = useMemo(() => new Idea(), []);
+  const targetIdea = useMemo(() => new Idea(), []);
 
   useFrame(() => {
-    const targetIdea = DEFAULT_IDEA;
-
     if (!deepCompareObjects(currentIdea, targetIdea)) {
       currentIdea.mediation = MathUtils.lerp(
         currentIdea.mediation,
@@ -73,10 +74,11 @@ export default function Dialogue(props: DialogueProps & GroupProps) {
           numStops,
           enabled,
           currentIdea,
+          dialogueLogic,
         }}
       >
         <Bubbles />
-        <Base>{children}</Base>
+        <Dialogues />
       </DialogueContext.Provider>
     </group>
   );

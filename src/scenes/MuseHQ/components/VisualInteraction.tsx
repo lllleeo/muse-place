@@ -1,10 +1,9 @@
-import { Interaction } from "../types/metaphysics";
 import { Text } from "@react-three/drei";
 import { ReactNode, useContext } from "react";
 import Button from "./Button";
-import { DialogueContext } from "./Dialogue";
-import { getDecisionIdea } from "../utils/metaphysics";
 import FacePlayer from "../modifiers/FacePlayer";
+import { Idea, Interaction } from "../layers/basis";
+import { DialogueContext } from "./VisualDialogueLogic";
 
 const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
@@ -40,6 +39,10 @@ export default function VisualInteraction(
           const perc = i / (decisions.length - 1);
           const width = decision.name.length * 0.28 + 0.25;
           const posY = -perc * 0.125;
+
+          const idea = new Idea();
+          idea.setFromDecision(decision);
+
           return (
             <FacePlayer>
               <Button
@@ -47,7 +50,7 @@ export default function VisualInteraction(
                 onClick={() => decision.action(setIndex)}
                 position-z={0.15}
                 position-y={posY}
-                idea={getDecisionIdea(decision)}
+                idea={idea}
               >
                 {decision.name}
               </Button>

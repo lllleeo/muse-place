@@ -3,8 +3,7 @@ import { animated, useSpring, config } from "react-spring/three";
 import { useEffect, useState } from "react";
 import { Interactable } from "spacesvr";
 import { GroupProps } from "@react-three/fiber";
-import { Idea } from "../types/metaphysics";
-import { getIdeaHex } from "../utils/metaphysics";
+import { Idea } from "../layers/basis";
 
 const FONT_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
@@ -47,13 +46,13 @@ export default function Button(props: ButtonProps) {
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  const restColor = idea ? getIdeaHex(idea) : "#aaa";
+  const restColor = idea ? idea.getHex() : "#aaa";
   const hoverColor = idea
-    ? getIdeaHex({
-        specificity: idea.specificity * 1.3,
-        utility: idea.utility * 1.3,
-        mediation: idea.mediation,
-      })
+    ? new Idea({
+        s: idea.specificity * 1.3,
+        u: idea.utility * 1.3,
+        m: idea.mediation,
+      }).getHex()
     : "#fff";
 
   const { color, scale } = useSpring({

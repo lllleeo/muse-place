@@ -1,10 +1,10 @@
-import { Idea } from "../../../types/metaphysics";
 import { useContext, useMemo } from "react";
 import { Floating, Spinning } from "spacesvr";
 import { VisualIdea } from "../../VisualIdea";
 import { animated, useSpring } from "react-spring/three";
 import { DialogueContext } from "../index";
 import { useFrame } from "@react-three/fiber";
+import { Idea } from "../../../layers/basis";
 
 type Bubble = {
   idea: Idea;
@@ -22,11 +22,11 @@ export default function Bubbles() {
     for (let i = 0; i < numStops; i++) {
       const perc = i / (numStops - 1);
       arr.push({
-        idea: {
-          mediation: currentIdea.mediation,
-          utility: currentIdea.utility * perc,
-          specificity: currentIdea.specificity * perc,
-        },
+        idea: new Idea({
+          m: currentIdea.mediation,
+          u: currentIdea.utility * perc,
+          s: currentIdea.specificity * perc,
+        }),
         size: 0.01 + perc * 0.05,
         pos: [
           source[0] * (1 - perc),
