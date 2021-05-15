@@ -7,13 +7,14 @@ import { Interactable, usePlayer } from "spacesvr";
 type TextProps = {
   value: string;
   setValue: (s: string) => void;
+  enabled: boolean;
 } & GroupProps;
 
 const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
 
 export default function TextInput(props: TextProps) {
-  const { value, setValue, ...rest } = props;
+  const { value, setValue, enabled, ...rest } = props;
 
   const { controls } = usePlayer();
   const [engaged, setEngaged] = useState(false);
@@ -29,6 +30,12 @@ export default function TextInput(props: TextProps) {
   }, [engaged]);
 
   useEffect(() => {
+    if (!enabled && engaged) {
+      setEngaged(false);
+    }
+  }, [enabled, engaged]);
+
+  useEffect(() => {
     const onKeyup = (e: KeyboardEvent) => {
       if (!engaged) return;
       if (
@@ -37,7 +44,6 @@ export default function TextInput(props: TextProps) {
       ) {
         curString.current = curString.current + e.key;
         setValue(curString.current);
-        console.log("good, ", e.key);
       } else {
         if (e.key === "Backspace") {
           curString.current = curString.current.substr(
@@ -46,8 +52,6 @@ export default function TextInput(props: TextProps) {
           );
           setValue(curString.current);
         }
-        console.log("bad, pressed -" + e.key + "-");
-        console.log("bad, pressed -" + String.fromCharCode(e.keyCode));
       }
     };
 
@@ -66,8 +70,8 @@ export default function TextInput(props: TextProps) {
     anchorX: "left",
     maxWidth: WIDTH - 0.05,
     textAlign: "left",
-    fontSize: 0.04,
-    outlineWidth: 0.004,
+    fontSize: 0.0385,
+    outlineWidth: 0.003,
   };
 
   return (

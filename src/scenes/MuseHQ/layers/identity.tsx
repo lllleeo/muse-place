@@ -41,10 +41,6 @@ export class Identity {
       this.token = json.token;
     }
 
-    console.log("sign up ========================");
-    console.log(response);
-    console.log(json);
-
     return { success: response.status === 200, message: json.message };
   }
 
@@ -82,12 +78,7 @@ export class Identity {
     const response = await fetch(`${URL}auth/user_info`, params);
     const json = await response.json();
 
-    console.log("user info============");
-    console.log(response);
-    console.log(json);
-
     if (response.status === 200) {
-      console.log("success");
       this.name = json.name;
       this.email = json.email;
       this.groups = json.groups;

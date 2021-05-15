@@ -31,7 +31,12 @@ export default function VisualDialogue(props: Dialogue & { enabled: boolean }) {
       position-z={posZ}
       scale-y={scaleY}
     >
-      <VisualInteraction text={text} input={input} decisions={decisions} />
+      <VisualInteraction
+        text={text}
+        input={input}
+        decisions={decisions}
+        enabled={enabled}
+      />
     </animated.group>
   );
 }

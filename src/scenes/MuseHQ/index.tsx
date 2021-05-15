@@ -1,5 +1,10 @@
-import { Suspense } from "react";
-import { StandardEnvironment } from "spacesvr";
+import { Suspense, useEffect, useState } from "react";
+import {
+  InfinitePlane,
+  StandardEnvironment,
+  useEnvironment,
+  usePlayer,
+} from "spacesvr";
 import { Preload, Sky } from "@react-three/drei";
 import Musehq from "./models/Musehq";
 import AmbientParticles from "./components/AmbientParticles";
@@ -7,11 +12,17 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { VisualIdea } from "./components/VisualIdea";
 import Builder00 from "./characters/Builder00";
 import { IdentityLayer } from "./layers/identity";
+import { useFrame } from "@react-three/fiber";
+import { Vector3 } from "three";
 
 export default function MuseHQ() {
   return (
     <StandardEnvironment
-      playerProps={{ speed: 1.65, pos: [-19.748, 9, -2.1], rot: -Math.PI / 2 }}
+      playerProps={{
+        speed: 1.65,
+        pos: [-19.748, 9, -2.1],
+        rot: -Math.PI / 2,
+      }}
       canvasProps={{
         camera: { far: 300 },
         dpr: 1,
@@ -20,6 +31,7 @@ export default function MuseHQ() {
       dev
     >
       <IdentityLayer>
+        <InfinitePlane height={6} />
         <Sky
           turbidity={20}
           rayleigh={4}
@@ -50,14 +62,14 @@ export default function MuseHQ() {
           position={[6.93 - 7.09, 6.85, 4 - 3.19]}
         />
         <Builder00 />
-        <EffectComposer autoClear multisampling={0}>
-          <Bloom
-            luminanceThreshold={0.25}
-            luminanceSmoothing={0.9}
-            intensity={0.5}
-            height={300}
-          />
-        </EffectComposer>
+        {/*<EffectComposer autoClear multisampling={0}>*/}
+        {/*  <Bloom*/}
+        {/*    luminanceThreshold={0.25}*/}
+        {/*    luminanceSmoothing={0.9}*/}
+        {/*    intensity={0.5}*/}
+        {/*    height={300}*/}
+        {/*  />*/}
+        {/*</EffectComposer>*/}
       </IdentityLayer>
     </StandardEnvironment>
   );

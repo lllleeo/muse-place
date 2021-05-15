@@ -12,6 +12,34 @@ type Bubble = {
   pos: [number, number, number];
 };
 
+type BubbleProps = {
+  i: number;
+  num: number;
+  enabled: boolean;
+} & Bubble;
+
+function Bubble(props: BubbleProps) {
+  const { i, num, enabled, pos, size, idea } = props;
+
+  const { scale } = useSpring({
+    scale: enabled ? 1 : 0,
+  });
+
+  useFrame(() => {});
+
+  return (
+    <group name={`bubble-${i}`} position={pos}>
+      <Floating height={size * 0.25}>
+        <Spinning xSpeed={0.1} ySpeed={0.1} zSpeed={0.1}>
+          <animated.group scale={scale}>
+            <VisualIdea idea={idea} size={size} />
+          </animated.group>
+        </Spinning>
+      </Floating>
+    </group>
+  );
+}
+
 export default function Bubbles() {
   const { numStops, source, enabled, currentIdea } = useContext(
     DialogueContext
@@ -41,36 +69,14 @@ export default function Bubbles() {
   return (
     <group name="bubbles">
       {bubbles.map((bubble, i) => (
-        <Bubble i={i} num={bubbles.length} enabled={enabled} {...bubble} />
+        <Bubble
+          key={i}
+          i={i}
+          num={bubbles.length}
+          enabled={enabled}
+          {...bubble}
+        />
       ))}
-    </group>
-  );
-}
-
-type BubbleProps = {
-  i: number;
-  num: number;
-  enabled: boolean;
-} & Bubble;
-
-function Bubble(props: BubbleProps) {
-  const { i, num, enabled, pos, size, idea } = props;
-
-  const { scale } = useSpring({
-    scale: enabled ? 1 : 0,
-  });
-
-  useFrame(() => {});
-
-  return (
-    <group name={`bubble-${i}`} position={pos}>
-      <Floating height={size * 0.25}>
-        <Spinning xSpeed={0.1} ySpeed={0.1} zSpeed={0.1}>
-          <animated.group scale={scale}>
-            <VisualIdea idea={idea} size={size} />
-          </animated.group>
-        </Spinning>
-      </Floating>
     </group>
   );
 }

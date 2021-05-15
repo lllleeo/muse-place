@@ -10,9 +10,9 @@ const FONT_FILE =
   "https://d27rt3a60hh1lx.cloudfront.net/fonts/Quicksand_Bold.otf";
 
 export default function VisualInteraction(
-  props: Interaction & { children?: ReactNode }
+  props: Interaction & { enabled: boolean; children?: ReactNode }
 ) {
-  const { text, decisions, input, children } = props;
+  const { text, decisions, enabled, input, children } = props;
 
   const { setIndex } = useContext(DialogueContext);
 
@@ -34,7 +34,12 @@ export default function VisualInteraction(
         {text}
       </Text>
       {input && (
-        <TextInput value={input[0]} setValue={input[1]} position-y={-0.05} />
+        <TextInput
+          value={input[0]}
+          setValue={input[1]}
+          position-y={-0.05}
+          enabled={enabled}
+        />
       )}
       {decisions && (
         <group name="decisions" position-y={-0.35 / 2 - 0.1}>
@@ -48,7 +53,7 @@ export default function VisualInteraction(
             idea.setFromDecision(decision);
 
             return (
-              <FacePlayer>
+              <FacePlayer key={`${decision.name}-${i}`}>
                 <Button
                   width={width}
                   onClick={() => decision.action(setIndex)}

@@ -11,122 +11,88 @@ import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    collider: THREE.Mesh;
-    doors: THREE.Mesh;
-    windows: THREE.Mesh;
-    couch: THREE.Mesh;
-    table: THREE.Mesh;
-    stilts: THREE.Mesh;
-    fans: THREE.Mesh;
-    misc: THREE.Mesh;
-    terrain: THREE.Mesh;
     wallsa: THREE.Mesh;
-    pedestal: THREE.Mesh;
-    balconyrailing: THREE.Mesh;
+    wallsb: THREE.Mesh;
     floor: THREE.Mesh;
-    railing: THREE.Mesh;
     supports: THREE.Mesh;
+    pedestal: THREE.Mesh;
+    railing: THREE.Mesh;
     balcony: THREE.Mesh;
     balconysupport: THREE.Mesh;
-    wallsb: THREE.Mesh;
+    balconyrailing: THREE.Mesh;
+    windows: THREE.Mesh;
+    table: THREE.Mesh;
+    doors: THREE.Mesh;
+    couch: THREE.Mesh;
+    banner: THREE.Mesh;
+    misc: THREE.Mesh;
+    fans: THREE.Mesh;
+    stilts: THREE.Mesh;
+    ["shelf-objects"]: THREE.Mesh;
+    ["lucid-hitbox"]: THREE.Mesh;
+    lucid: THREE.Mesh;
+    ["balloonski-hitbox"]: THREE.Mesh;
+    balloonski: THREE.Mesh;
+    ["kira-hitbox"]: THREE.Mesh;
+    kira: THREE.Mesh;
+    ["highrise-hitbox"]: THREE.Mesh;
+    highrise: THREE.Mesh;
+    collider: THREE.Mesh;
   };
   materials: {
-    ["doors.mat"]: THREE.MeshStandardMaterial;
-    ["windows.mat"]: THREE.MeshStandardMaterial;
-    ["couch.mat"]: THREE.MeshStandardMaterial;
-    ["table.mat"]: THREE.MeshStandardMaterial;
-    ["stilts.mat"]: THREE.MeshStandardMaterial;
-    ["fans.mat"]: THREE.MeshStandardMaterial;
-    ["misc.mat"]: THREE.MeshStandardMaterial;
-    ["terrain.mat"]: THREE.MeshStandardMaterial;
     ["wall.a2.mat"]: THREE.MeshStandardMaterial;
-    ["pedestal.mat"]: THREE.MeshStandardMaterial;
-    ["balcony.railing.mat"]: THREE.MeshStandardMaterial;
+    ["wall.b2.mat"]: THREE.MeshStandardMaterial;
     ["floor2.mat"]: THREE.MeshStandardMaterial;
-    ["railing.mat"]: THREE.MeshStandardMaterial;
     ["supports2.mat"]: THREE.MeshStandardMaterial;
+    ["pedestal.mat"]: THREE.MeshStandardMaterial;
+    ["railing.mat"]: THREE.MeshStandardMaterial;
     ["balcony.mat"]: THREE.MeshStandardMaterial;
     ["balcony.support.mat"]: THREE.MeshStandardMaterial;
-    ["wall.b2.mat"]: THREE.MeshStandardMaterial;
+    ["balcony.railing.mat"]: THREE.MeshStandardMaterial;
+    ["windows.mat"]: THREE.MeshStandardMaterial;
+    ["table.mat"]: THREE.MeshStandardMaterial;
+    ["doors.mat"]: THREE.MeshStandardMaterial;
+    ["couch.mat"]: THREE.MeshStandardMaterial;
+    ["banner.mat"]: THREE.MeshStandardMaterial;
+    ["misc.mat"]: THREE.MeshStandardMaterial;
+    ["telescope.mat"]: THREE.MeshStandardMaterial;
+    ["stilts.mat"]: THREE.MeshStandardMaterial;
+    ["shelf_objects.mat"]: THREE.MeshStandardMaterial;
+    lucid: THREE.MeshStandardMaterial;
+    ["ghost.mat"]: THREE.MeshStandardMaterial;
+    ["kira.mat"]: THREE.MeshStandardMaterial;
+    ["highrise.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1619942991/musehq_02.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1621038324/06.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
-  useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry).clone().scale(3, 3, 3)
-  );
+  const SCALE = 0.006;
+
+  // useTrimeshCollision(
+  //   (nodes.collider.geometry as BufferGeometry)
+  //     .clone()
+  //     .scale(SCALE, SCALE, SCALE)
+  // );
 
   return (
-    <group ref={group} {...props} dispose={null} name="musehq" scale={3}>
+    <group ref={group} {...props} dispose={null} name="musehq" scale={SCALE}>
       <group name="Scene">
         <group name="musehq_02glb">
-          {/*<mesh*/}
-          {/*  name="collider"*/}
-          {/*  geometry={nodes.collider.geometry}*/}
-          {/*  material={nodes.collider.material}*/}
-          {/*/>*/}
-          <mesh
-            name="doors"
-            geometry={nodes.doors.geometry}
-            material={materials["doors.mat"]}
-          />
-          <mesh
-            name="windows"
-            geometry={nodes.windows.geometry}
-            material={materials["windows.mat"]}
-          />
-          <mesh
-            name="couch"
-            geometry={nodes.couch.geometry}
-            material={materials["couch.mat"]}
-          />
-          <mesh
-            name="table"
-            geometry={nodes.table.geometry}
-            material={materials["table.mat"]}
-          />
-          <mesh
-            name="stilts"
-            geometry={nodes.stilts.geometry}
-            material={materials["stilts.mat"]}
-          />
-          <mesh
-            name="fans"
-            geometry={nodes.fans.geometry}
-            material={materials["fans.mat"]}
-            position={[0, 6.3767, -0.0104]}
-            rotation={[2.3937, 0, 0]}
-          />
-          <mesh
-            name="misc"
-            geometry={nodes.misc.geometry}
-            material={materials["misc.mat"]}
-          />
-          <mesh
-            name="terrain"
-            geometry={nodes.terrain.geometry}
-            material={materials["terrain.mat"]}
-          />
           <mesh
             name="wallsa"
             geometry={nodes.wallsa.geometry}
             material={materials["wall.a2.mat"]}
           />
           <mesh
-            name="pedestal"
-            geometry={nodes.pedestal.geometry}
-            material={materials["pedestal.mat"]}
-          />
-          <mesh
-            name="balconyrailing"
-            geometry={nodes.balconyrailing.geometry}
-            material={materials["balcony.railing.mat"]}
+            name="wallsb"
+            geometry={nodes.wallsb.geometry}
+            material={materials["wall.b2.mat"]}
           />
           <mesh
             name="floor"
@@ -134,14 +100,19 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             material={materials["floor2.mat"]}
           />
           <mesh
-            name="railing"
-            geometry={nodes.railing.geometry}
-            material={materials["railing.mat"]}
-          />
-          <mesh
             name="supports"
             geometry={nodes.supports.geometry}
             material={materials["supports2.mat"]}
+          />
+          <mesh
+            name="pedestal"
+            geometry={nodes.pedestal.geometry}
+            material={materials["pedestal.mat"]}
+          />
+          <mesh
+            name="railing"
+            geometry={nodes.railing.geometry}
+            material={materials["railing.mat"]}
           />
           <mesh
             name="balcony"
@@ -154,10 +125,98 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             material={materials["balcony.support.mat"]}
           />
           <mesh
-            name="wallsb"
-            geometry={nodes.wallsb.geometry}
-            material={materials["wall.b2.mat"]}
+            name="balconyrailing"
+            geometry={nodes.balconyrailing.geometry}
+            material={materials["balcony.railing.mat"]}
           />
+          <mesh
+            name="windows"
+            geometry={nodes.windows.geometry}
+            material={materials["windows.mat"]}
+          />
+          <mesh
+            name="table"
+            geometry={nodes.table.geometry}
+            material={materials["table.mat"]}
+          />
+          <mesh
+            name="doors"
+            geometry={nodes.doors.geometry}
+            material={materials["doors.mat"]}
+          />
+          <mesh
+            name="couch"
+            geometry={nodes.couch.geometry}
+            material={materials["couch.mat"]}
+          />
+          <mesh
+            name="banner"
+            geometry={nodes.banner.geometry}
+            material={materials["banner.mat"]}
+          />
+          <mesh
+            name="misc"
+            geometry={nodes.misc.geometry}
+            material={materials["misc.mat"]}
+          />
+          <mesh
+            name="fans"
+            geometry={nodes.fans.geometry}
+            material={materials["telescope.mat"]}
+            position={[-3.6945, 1595.5533, 623.3818]}
+          />
+          <mesh
+            name="stilts"
+            geometry={nodes.stilts.geometry}
+            material={materials["stilts.mat"]}
+          />
+          <mesh
+            name="shelf-objects"
+            geometry={nodes["shelf-objects"].geometry}
+            material={materials["shelf_objects.mat"]}
+          />
+          <mesh
+            name="lucid-hitbox"
+            geometry={nodes["lucid-hitbox"].geometry}
+            material={nodes["lucid-hitbox"].material}
+          />
+          <mesh
+            name="lucid"
+            geometry={nodes.lucid.geometry}
+            material={materials.lucid}
+          />
+          <mesh
+            name="balloonski-hitbox"
+            geometry={nodes["balloonski-hitbox"].geometry}
+            material={nodes["balloonski-hitbox"].material}
+          />
+          <mesh
+            name="balloonski"
+            geometry={nodes.balloonski.geometry}
+            material={materials["ghost.mat"]}
+          />
+          <mesh
+            name="kira-hitbox"
+            geometry={nodes["kira-hitbox"].geometry}
+            material={nodes["kira-hitbox"].material}
+          />
+          <mesh
+            name="kira"
+            geometry={nodes.kira.geometry}
+            material={materials["kira.mat"]}
+          />
+          <mesh
+            name="highrise-hitbox"
+            geometry={nodes["highrise-hitbox"].geometry}
+            material={nodes["highrise-hitbox"].material}
+          />
+          <mesh
+            name="highrise"
+            geometry={nodes.highrise.geometry}
+            material={materials["highrise.mat"]}
+            scale={[7.5, 7.5, 7.5]}
+          />
+          {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
         </group>
       </group>
     </group>
