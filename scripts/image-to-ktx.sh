@@ -72,7 +72,7 @@ imageToKTX () {
 
       echo "Image successfully uploaded! Compressed Texture can be found at -> ${CLOUD_URL}"
       let start=$start+1
-      echo "${start}/${end} Textures Uploaded."
+      echo "${start}/${end} Textures Uploaded. 🤛👁👄👁🤜"
       echo " "
   done
   rm -rf "${STAGED_FOLDER}/ktx"
