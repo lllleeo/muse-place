@@ -41,8 +41,6 @@ imageToKTX () {
       else
         EXT=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 2 | cut -d ':' -f 1`
 
-
-
         DATA=`file $FILE`
         NAME=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 1 | cut -d '/' -f 5`
         WIDTH=`file $FILE | cut -d ',' -f 8 | cut -d 'x' -f 1`
