@@ -39,12 +39,18 @@ imageToKTX () {
       then
         imageToKTX $FILE
       else
-        EXT=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 2 | cut -d ':' -f 1`
+#        EXT=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 2 | cut -d ':' -f 1`
 
         DATA=`file $FILE`
         NAME=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 1 | cut -d '/' -f 5`
-        WIDTH=`file $FILE | cut -d ',' -f 8 | cut -d 'x' -f 1`
-        HEIGHT=`file $FILE | cut -d ',' -f 8 | cut -d 'x' -f 2`
+        WIDTH=`node ./scripts/getImageSize.js $DATA width`
+        HEIGHT=`node ./scripts/getImageSize.js $DATA height`
+
+#        echo " "
+#        echo $DATA
+#        echo " "
+#        echo "width: $WIDTH"
+#        echo "height: $HEIGHT"
 
         echo $WIDTH >> "${STAGED_FOLDER}/ktx/sizes/${NAME}.txt"
         echo $HEIGHT >> "${STAGED_FOLDER}/ktx/sizes/${NAME}.txt"
