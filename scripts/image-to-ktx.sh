@@ -31,6 +31,7 @@ getImageCount () {
 }
 getImageCount "${STAGED_FOLDER}/images"
 
+echo "Compressing Images..."
 let start=0
 imageToKTX () {
   for FILE in "$1"/*
