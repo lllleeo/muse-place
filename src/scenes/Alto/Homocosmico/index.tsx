@@ -1,5 +1,6 @@
 import { Floating, Image } from "spacesvr";
 import { Text } from "@react-three/drei";
+import { Suspense } from "react";
 import Artwork from "./components/Artwork";
 import TitleCard from "./components/TitleCard";
 // @ts-ignore
@@ -85,7 +86,9 @@ function Images() {
                 visitUrl={VISIT}
               />
             </group>
-            <Image src={url} size={2} />
+            <Suspense fallback={null}>
+              <Image src={url} size={2} />
+            </Suspense>
           </group>
         </group>
       ))}
@@ -111,7 +114,9 @@ function Images() {
                 visitUrl={VISIT}
               />
             </group>
-            <Image src={url} size={2} />
+            <Suspense fallback={null}>
+              <Image src={url} size={2} />
+            </Suspense>
           </group>
         </group>
       ))}
@@ -137,7 +142,9 @@ function Images() {
                 visitUrl={VISIT}
               />
             </group>
-            <Image src={url} size={2} />
+            <Suspense fallback={null}>
+              <Image src={url} size={2} />
+            </Suspense>
           </group>
         </group>
       ))}
