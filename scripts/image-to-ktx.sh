@@ -11,7 +11,7 @@ nextPowerOf2() {
   node getNextPower $1 $2
 }
 #nextPowerOf2 23 $WIDTH
-echo "STARTING..."
+echo "RUNNING..."
 mkdir "${STAGED_FOLDER}/ktx"
 
 let end=0
@@ -57,6 +57,7 @@ imageToKTX () {
       fi
   done
   echo " "
+  echo "Uploading to S3..."
   let start=0
   touch $RESULT_FILE
   for FILE in "$STAGED_FOLDER/ktx"/*
@@ -85,4 +86,4 @@ imageToKTX () {
 }
 imageToKTX "${STAGED_FOLDER}/images"
 
-echo "Done"
+echo "\nDone 🤛👁👄👁🤜\n"
