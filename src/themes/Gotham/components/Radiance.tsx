@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useThree } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
 import { PMREMGenerator, UnsignedByteType } from "three";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 

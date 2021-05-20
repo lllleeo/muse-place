@@ -1,11 +1,9 @@
-import { Audio, Fog, Keyframe } from "spacesvr";
+import { Audio, Fog, Keyframe, StandardEnvironment } from "spacesvr";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 
 import Outside from "themes/Gotham/components/Outside";
 import Lighting from "themes/Gotham/components/Lighting";
-import { keyframes as defaultKeyframes } from "themes/Gotham/assets/constants";
-import DualEnvironment from "themes/components/DualEnvironment";
 import Gotham, { GothamProps } from "themes/Gotham";
 import { ReactNode } from "react";
 import { Vector3 } from "three";
@@ -27,6 +25,7 @@ export type GothamSceneProps = {
   children?: ReactNode;
   audio?: string;
   keyframes?: Keyframe[];
+  environmentProps?: any;
 } & GothamProps;
 
 const GothamScene = (props: GothamSceneProps) => {
@@ -44,17 +43,20 @@ const GothamScene = (props: GothamSceneProps) => {
     xzMapScale,
     lightColor,
     keyframes,
+    environmentProps = {},
   } = props;
 
+  const { playerProps, ...restEnvProps } = environmentProps;
+
   return (
-    <DualEnvironment
-      keyframes={keyframes || defaultKeyframes}
-      canvasProps={{ camera: { far: 300 } }}
-      player={{
-        pos: new Vector3(-4, 1, 9.9),
+    <StandardEnvironment
+      playerProps={{
+        pos: [-4, 1, 9.9],
         rot: (2 * Math.PI) / 1.2,
         speed: 1.7,
+        ...playerProps,
       }}
+      {...restEnvProps}
     >
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={1500} fade />}
@@ -71,7 +73,7 @@ const GothamScene = (props: GothamSceneProps) => {
       />
       <Gotham {...props} />
       {children}
-    </DualEnvironment>
+    </StandardEnvironment>
   );
 };
 

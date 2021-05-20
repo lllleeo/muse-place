@@ -1,9 +1,7 @@
 import { Suspense } from "react";
 import { Audio, HDRI, StandardEnvironment } from "spacesvr";
 import Sidewalk from "./models/Sidewalk";
-import { Vector3 } from "three";
 import Buildings from "./components/Buildings";
-import MobileOnboarding from "../components/MobileOnboarding";
 import AmazonContainer from "../components/AmazonContainer";
 import PauseMenu from "../components/PauseMenu";
 import EnterBarbershop from "./components/EnterBarbershop";
@@ -17,14 +15,13 @@ const ComingAmerica = () => {
     <AmazonContainer>
       <StandardEnvironment
         pauseMenu={<PauseMenu />}
-        player={{
-          pos: new Vector3(-1.315, 1.7, 5.58),
+        playerProps={{
+          pos: [-1.315, 1.7, 5.58],
           rot: -Math.PI / 2,
           speed: 2,
         }}
         disableGround
       >
-        <MobileOnboarding />
         <EnterBarbershop />
         <MyTSharpTrigger />
         <BarbershopSignTrigger />
