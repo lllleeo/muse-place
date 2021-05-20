@@ -17,29 +17,41 @@ function getTitle(text: string) {
   return text.substr(0, i);
 }
 
-const insideUrls = ["", "", "", ""];
-const middleUrls = ["", "", "", "", "", ""];
+const insideUrls = [
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream1-1621547010/dream1.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream2-1621547027/dream2.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream3-1621547047/dream3.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream4-1621547049/dream4.ktx2",
+];
+const middleUrls = [
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream5-1621547051/dream5.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream6-1621547052/dream6.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream7-1621547054/dream7.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream8-1621547056/dream8.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream9-1621547058/dream9.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream10-1621547012/dream10.ktx2",
+];
 const outsideUrls = [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream11-1621547014/dream11.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream12-1621547016/dream12.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream13-1621547017/dream13.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream14-1621547019/dream14.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream15-1621547021/dream15.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream16-1621547022/dream16.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream17-1621547024/dream17.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream19-1621547026/dream19.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream18-1621547479/dream18.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream20-1621547029/dream20.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream21-1621547032/dream21.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream22-1621547033/dream22.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream23-1621547035/dream23.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream24-1621547037/dream24.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream25-1621547039/dream25.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream26-1621547040/dream26.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream27-1621547042/dream27.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream28-1621547044/dream28.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream29-1621547045/dream29.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30-1621547213/dream30.ktx2",
 ];
 
 function Images() {
