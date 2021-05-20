@@ -8,7 +8,6 @@ import { texts } from "./constants/texts";
 
 const RADIUS = 32;
 const GAP = 0.2;
-const FOLDER = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/homocosmico`;
 const CONTACT = "mailto:carlosortizdelapena@gmail.com";
 const VISIT = "http://homocosmico.com";
 
