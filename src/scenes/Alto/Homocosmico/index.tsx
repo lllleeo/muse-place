@@ -16,6 +16,43 @@ function getTitle(text: string) {
   return text.substr(0, i);
 }
 
+// const insideUrls = [
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream1-1621460174/dream1.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream2-1621460193/dream2.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream3-1621460213/dream3.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream4-1621460217/dream4.ktx2"
+// ]
+// const middleUrls = [
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream5-1621460219/dream5.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream6-1621460221/dream6.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream7-1621460223/dream7.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream8-1621460225/dream8.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream9-1621460227/dream9.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream10-1621460176/dream10.ktx2",
+// ]
+// const outsideUrls = [
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream11-1621460178/dream11.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream12-1621460179/dream12.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream13-1621460182/dream13.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream14-1621460183/dream14.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream15-1621460185/dream15.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream16-1621460187/dream16.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream17-1621460188/dream17.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream18-1621460190/dream18.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream19-1621460192/dream19.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream20-1621460195/dream20.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream21-1621460197/dream21.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream22-1621460199/dream22.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream23-1621460200/dream23.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream24-1621460202/dream24.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream25-1621460204/dream25.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream26-1621460206/dream26.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream27-1621460208/dream27.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream28-1621460209/dream28.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream29-1621460211/dream29.ktx2",
+//   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30-1621460215/dream30.ktx2",
+// ]
+
 function Images() {
   const insideUrls = new Array(4)
     .fill("")
@@ -105,7 +142,7 @@ function Images() {
               <TitleCard
                 scale={1.5}
                 position={[-0.05, -0.85, 0.15]}
-                title={getTitle(texts[ind + 4])}
+                title={getTitle(texts[ind + 10])}
                 contactUrl={CONTACT}
                 visitUrl={VISIT}
               />
