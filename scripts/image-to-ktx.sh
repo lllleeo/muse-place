@@ -51,7 +51,7 @@ imageToKTX () {
         KTXWIDTH=`node ./scripts/nearestPower.js $WIDTH`
         KTXHEIGHT=`node ./scripts/nearestPower.js $HEIGHT`
 
-        TOKTX=`toktx --2d --genmipmap --resize "${KTXWIDTH}x${KTXHEIGHT}" --verbose "public/staging/ktx/${NAME}" $FILE`
+        TOKTX=`toktx --2d --genmipmap --assign_oetf srgb --lower_left_maps_to_s0t0 --resize "${KTXWIDTH}x${KTXHEIGHT}" --verbose "public/staging/ktx/${NAME}" $FILE`
 
         let start=$start+1
         echo "${start}/${end} Images Compressed."
