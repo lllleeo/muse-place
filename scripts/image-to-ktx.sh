@@ -51,7 +51,7 @@ imageToKTX () {
         KTXWIDTH=`node ./scripts/nearestPower.js $WIDTH`
         KTXHEIGHT=`node ./scripts/nearestPower.js $HEIGHT`
 
-        TOKTX=`toktx --2d --automipmap --assign_oetf srgb --lower_left_maps_to_s0t0 --resize "${KTXWIDTH}x${KTXHEIGHT}" --verbose "public/staging/ktx/${NAME}" $FILE`
+        TOKTX=`toktx --2d --automipmap --bcmp --resize "${KTXWIDTH}x${KTXHEIGHT}" --verbose "public/staging/ktx/${NAME}" $FILE`
 
         let start=$start+1
         echo "${start}/${end} Images Compressed."
@@ -68,9 +68,9 @@ imageToKTX () {
         NAME=`file $FILE | cut -d ',' -f 1 | cut -d '.' -f 1 | cut -d '/' -f 4`
         DATE_S=`date +%s`
         CLOUD_FOLDER="${NAME}-${DATE_S}"
-        CLOUD_URL="https://d27rt3a60hh1lx.cloudfront.net/textures/${CLOUD_FOLDER}/${NAME}.ktx"
+        CLOUD_URL="https://d27rt3a60hh1lx.cloudfront.net/textures/${CLOUD_FOLDER}/${NAME}.ktx2"
 
-        aws s3 cp "${FILE}" "s3://spaces-gallery-assets/textures/${CLOUD_FOLDER}/${NAME}.ktx" || handle_error
+        aws s3 cp "${FILE}" "s3://spaces-gallery-assets/textures/${CLOUD_FOLDER}/${NAME}.ktx2" || handle_error
         aws s3 cp "${STAGED_FOLDER}/ktx/sizes/${NAME}.txt" "s3://spaces-gallery-assets/textures/${CLOUD_FOLDER}/${NAME}.txt" || handle_error
 
         echo $NAME >> $RESULT_FILE
