@@ -25,7 +25,7 @@ const UnsuspensedImage = (props: ImageProps) => {
 
   const texture = useLoader(
     // @ts-ignore
-    isKtx ? KTXLoader : isKtx2 ? KTX2Loader : THREE.TextureLoader,
+    isKtx2 ? KTX2Loader : isKtx ? KTXLoader : THREE.TextureLoader,
     src,
     (loader: THREE.Loader) => {
       if (isKtx2) {
@@ -45,7 +45,9 @@ const UnsuspensedImage = (props: ImageProps) => {
     HEIGHT = (height / max) * size;
 
   if (isKtx2 || isKtx) {
-    const ogSizeUrl = `${src.slice(0, -4)}txt`;
+    const ogSizeUrl = isKtx2
+      ? `${src.slice(0, -4)}txt`
+      : `${src.slice(0, -3)}txt`;
     const request = new XMLHttpRequest();
     request.open("GET", ogSizeUrl, true);
     request.send(null);
