@@ -1,4 +1,4 @@
-import { Floating, Image } from "spacesvr";
+import { Image } from "spacesvr";
 import { Text } from "@react-three/drei";
 import { Suspense } from "react";
 import Artwork from "./components/Artwork";
