@@ -3,6 +3,7 @@ import { Text } from "@react-three/drei";
 import { Suspense } from "react";
 import Artwork from "./components/Artwork";
 import TitleCard from "./components/TitleCard";
+import { KtxImage } from "./components/KtxImage";
 // @ts-ignore
 import { texts } from "./constants/texts";
 
@@ -142,7 +143,7 @@ function Images() {
               />
             </group>
             <Suspense fallback={null}>
-              <Image src={url} size={2} />
+              <KtxImage src={url} size={2} />
             </Suspense>
           </group>
         </group>
