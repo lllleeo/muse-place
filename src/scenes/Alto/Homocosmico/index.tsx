@@ -45,12 +45,12 @@ const outsideUrls = [
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream22-1621554180/dream22.ktx2",
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream23-1621554181/dream23.ktx2",
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream24-1621554183/dream24.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream25-1621554185/dream25.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream26-1621554187/dream26.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream27-1621554189/dream27.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream28-1621554191/dream28.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream29-1621554194/dream29.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30-1621554197/dream30.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream25-1621557349/dream25.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream26-1621557353/dream26.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream27-1621557356/dream27.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream28-1621557359/dream28.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream29-1621557363/dream29.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30-1621557368/dream30.ktx2",
 ];
 
 function Images() {
