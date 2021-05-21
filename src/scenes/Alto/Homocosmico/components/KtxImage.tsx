@@ -5,6 +5,7 @@ import { Material } from "three";
 import Frame from "./Frame";
 import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
 import { KTXLoader } from "three/examples/jsm/loaders/KTXLoader";
+import { BasisTextureLoader } from "three/examples/jsm/loaders/BasisTextureLoader";
 
 type ImageProps = JSX.IntrinsicElements["group"] & {
   src: string;
@@ -18,14 +19,22 @@ const UnsuspensedImage = (props: ImageProps) => {
   const { src, size = 1, framed, frameMaterial, frameWidth = 1 } = props;
   const { gl } = useThree();
 
-  const isKtx2 = src.includes(".ktx2");
-  const isKtx = !src.includes(".ktx2") && src.includes(".ktx");
+  const isKtx2 = src.includes(".ktx2"),
+    isKtx = !src.includes(".ktx2") && src.includes(".ktx"),
+    isBasis = src.includes(".basis");
+
   const ogWidth = 1,
     ogHeight = 1;
 
   const texture = useLoader(
     // @ts-ignore
-    isKtx2 ? KTX2Loader : isKtx ? KTXLoader : THREE.TextureLoader,
+    isKtx2
+      ? KTX2Loader
+      : isKtx
+      ? KTXLoader
+      : isBasis
+      ? BasisTextureLoader
+      : THREE.TextureLoader,
     src,
     (loader: THREE.Loader) => {
       if (isKtx2) {
@@ -33,9 +42,15 @@ const UnsuspensedImage = (props: ImageProps) => {
           "https://d27rt3a60hh1lx.cloudfront.net/basis-transcoder/"
         );
         (loader as KTX2Loader).detectSupport(gl);
+      } else if (isBasis) {
+        (loader as BasisTextureLoader).setTranscoderPath(
+          "https://d27rt3a60hh1lx.cloudfront.net/basis-transcoder/"
+        );
+        (loader as BasisTextureLoader).detectSupport(gl);
       }
     }
   );
+  texture.encoding = THREE.sRGBEncoding;
 
   const [width, setWidth] = useState<number>(texture.image.width);
   const [height, setHeight] = useState<number>(texture.image.height);

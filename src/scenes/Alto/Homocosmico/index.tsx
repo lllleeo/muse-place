@@ -51,7 +51,7 @@ const outsideUrls = [
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream27-1621558315/dream27.ktx",
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream28-1621558318/dream28.ktx",
   "https://d27rt3a60hh1lx.cloudfront.net/textures/dream29-1621558322/dream29.ktx",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30-1621558326/dream30.ktx",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/dream30basis/dream30v2.basis",
 ];
 
 function Images() {
