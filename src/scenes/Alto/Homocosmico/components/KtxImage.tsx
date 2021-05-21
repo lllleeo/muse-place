@@ -23,9 +23,6 @@ const UnsuspensedImage = (props: ImageProps) => {
     isKtx = !src.includes(".ktx2") && src.includes(".ktx"),
     isBasis = src.includes(".basis");
 
-  const ogWidth = 1,
-    ogHeight = 1;
-
   const texture = useLoader(
     // @ts-ignore
     isKtx2
