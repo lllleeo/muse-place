@@ -64,7 +64,7 @@ export default function Highrise() {
           src={`${CONTENT_FOLDER}/logo.jpg`}
           position={[0.29, 0, 4.14]}
           rotation={[-Math.PI / 2, 0, Math.PI / 2]}
-          size={4.5}
+          size={3.5}
         />
       </group>
       <group
@@ -271,7 +271,7 @@ export default function Highrise() {
           size={1.75}
           position={[-0.75, 0.4, 0]}
         />
-        <group position-x={-4.25}>
+        <group position-x={-4.05}>
           {/* @ts-ignore */}
           <Text
             fontSize={0.1}
@@ -281,35 +281,37 @@ export default function Highrise() {
           >
             Explore:
           </Text>
+          <Text
+            fontSize={0.1}
+            color="black"
+            anchorX="center"
+            position={[0.35, 1.4, 0]}
+          >
+            A NEW AGE 420 MEDIA AGENCY
+          </Text>
           <Video
             framed
             size={2}
             src={`${CONTENT_FOLDER}/2.mp4`}
-            position-y={0.4}
+            position-y={0.25}
             position-x={0.3}
           />
           <AnnotatedLink
-            link="https://thehighriseco.com"
-            text="Visit The Highrise Co"
+            link="https://highrisetv.com"
+            text="Highrise TV"
             position-y={0.1}
             position-x={1.5}
           />
           <AnnotatedLink
-            link="https://highrisetv.com"
-            text="Visit Highrise TV"
+            link="https://www.highrise-agency.com/"
+            text="Highrise Agency"
             position-y={-0.1}
             position-x={1.5}
           />
           <AnnotatedLink
-            link="https://www.highrise-agency.com/"
-            text="Visit the Highrise Agency"
-            position-y={-0.3}
-            position-x={1.5}
-          />
-          <AnnotatedLink
             link="https://thehighriseco.shop/"
-            text="Visit the Shop"
-            position-y={-0.5}
+            text="Shop"
+            position-y={-0.3}
             position-x={1.5}
           />
         </group>
