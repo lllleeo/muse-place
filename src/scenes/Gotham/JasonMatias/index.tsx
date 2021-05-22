@@ -2,15 +2,11 @@ import { Image, Video } from "spacesvr";
 import SocialButton from "themes/components/SocialButton";
 import { GroupProps } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
-import Label from "themes/components/Label";
-import Info from "./components/Info";
 import TitleCard from "./components/TitleCard";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/jasonmatias";
-const EMAIL = "youremail@gmail.com";
-const CONTACT = "mailto:youremail@gmail.com?";
-const SITE = "https://jasonmatias.com";
+const CONTACT = "mailto:jason@jasonmatias.com?";
 
 function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   const { link, text = link.replace("https://", ""), ...restProps } = props;
@@ -297,36 +293,40 @@ export default function JasonMatias() {
         position={[-5.47, 0.9, 0.6]}
         rotation-y={Math.PI / 2}
       >
-        <group position-y={-0.2} scale={[0.8, 0.8, 0.8]} name="skyraider">
+        <group
+          position-y={-0.2}
+          scale={[0.8, 0.8, 0.8]}
+          name="skywardCollection"
+        >
           <Image
             src={`${CONTENT_FOLDER}/Skyraider.jpg`}
             framed
             frameWidth={0.75}
             size={1}
-            position={[2.68, 0, 0]}
+            position={[4.18, 0.25, 0]}
           />
           <Image
             src={`${CONTENT_FOLDER}/Expeditor.jpg`}
             framed
             frameWidth={0.75}
             size={1.3}
-            position={[1.5, 0, 0]}
+            position={[2.95, 0.25, 0]}
           />
           <Image
             src={`${CONTENT_FOLDER}/Superfortress.jpg`}
             framed
             frameWidth={0.75}
             size={2.2}
-            position={[1.95, 1.025, 0]}
+            position={[1, 0.25, 0]}
           />
         </group>
         <TitleCard
-          position={[0.15, 0, 0.1]}
-          rotation-x={0}
-          title="Skyraider Collection"
+          position={[1.3, -0.5, 0.1]}
+          rotation-x={-0.5}
+          title="Skyward Collection"
           width={0.8}
           contactUrl={CONTACT}
-          visitUrl={SITE}
+          visitUrl="https://www.jasonmatias.com/landscapes#/skyward/"
         />
         <group position-x={-2.56}>
           <Image
@@ -375,8 +375,6 @@ export default function JasonMatias() {
       <Image
         name="outside-edgefsolace"
         src={`${CONTENT_FOLDER}/EdgeOfSolace.jpg`}
-        framed
-        frameWidth={0.75}
         size={10}
         rotation-y={Math.PI}
         position={[-1.4, 1.5, 19]}
@@ -384,8 +382,6 @@ export default function JasonMatias() {
       <Image
         name="outside-eddie"
         src={`${CONTENT_FOLDER}/EddieWave.jpg`}
-        framed
-        frameWidth={0.75}
         size={12}
         rotation-y={0}
         position={[-1.4, 1.5, -12]}
