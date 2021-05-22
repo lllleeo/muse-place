@@ -143,7 +143,7 @@ function Images() {
               />
             </group>
             <Suspense fallback={null}>
-              <Image rotation-y={-Math.PI} src={url} size={2} />
+              <KtxImage rotation-y={-Math.PI} src={url} size={2} />
             </Suspense>
           </group>
         </group>

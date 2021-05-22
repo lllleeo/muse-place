@@ -48,6 +48,7 @@ const UnsuspensedImage = (props: ImageProps) => {
     }
   );
   texture.encoding = THREE.sRGBEncoding;
+  console.log("Texture format: " + texture.format);
 
   const [width, setWidth] = useState<number>(texture.image.width);
   const [height, setHeight] = useState<number>(texture.image.height);
