@@ -188,13 +188,13 @@ export default function Highrise() {
       </group>
       <group
         name="wall-top-middle"
-        position={[-1.39, 1.07, 4.1]}
+        position={[-1.39, 1.25, 4.1]}
         rotation-y={Math.PI / 2}
       >
         {/* @ts-ignore */}
         <Image
           src={`${CONTENT_FOLDER}/gs.png`}
-          position={[0.05, 0.5, 0]}
+          position={[0.05, 0.7, 0]}
           framed
         />
         <Text
@@ -207,24 +207,30 @@ export default function Highrise() {
           Social Media:
         </Text>
         <AnnotatedLink
-          link="https://www.instagram.com/thehighriseco"
-          text="@thehighriseco on Instagram"
-          position={[-0.4, -0.2, 0]}
-        />
-        <AnnotatedLink
-          link="https://www.twitter.com/thehighriseco"
-          text="@thehighriseco on Twitter"
-          position={[-0.4, -0.4, 0]}
+          link="https://www.instagram.com/highriseagency/"
+          text="@HIGHRISEAGENCY"
+          position={[-0.3, -0.2, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/highrisetv"
-          text="@highrisetv"
-          position={[-0.4, -0.6, 0]}
+          text="@HIGHRISETV"
+          position={[-0.3, -0.4, 0]}
         />
         <AnnotatedLink
-          link="mailto:info@thehighriseco.com"
-          text="Bang our line: info@thehighriseco.com"
-          position={[-0.4, -0.8, 0]}
+          link="https://www.instagram.com/thehighriseco"
+          text="@THEHIGHRISECO"
+          position={[-0.3, -0.6, 0]}
+        />
+        <AnnotatedLink
+          link="https://www.instagram.com/2girls.1bong/"
+          text="@2GIRLS.1BONG"
+          position={[-0.3, -0.8, 0]}
+        />
+
+        <AnnotatedLink
+          link="https://www.youtube.com/user/TheHighRiseCo"
+          text="  HRTV YOUTUBE"
+          position={[-0.32, -1, 0.05]}
         />
       </group>
       <group
@@ -325,13 +331,13 @@ export default function Highrise() {
           size={1.75}
           position={[-0.75, 0.4, 0]}
         />
-        <group position-x={-4.05}>
+        <group position-x={-3.95}>
           {/* @ts-ignore */}
           <Text
             fontSize={0.1}
             color="black"
             anchorX="left"
-            position={[1.4, 0.3, 0]}
+            position={[-0.75, -0.8, 0]}
           >
             Explore:
           </Text>
@@ -339,7 +345,7 @@ export default function Highrise() {
             fontSize={0.1}
             color="black"
             anchorX="center"
-            position={[0.35, 1.4, 0]}
+            position={[0.35, 1.5, 0]}
           >
             A NEW AGE 420 MEDIA AGENCY
           </Text>
@@ -347,26 +353,26 @@ export default function Highrise() {
             framed
             size={2}
             src={`${CONTENT_FOLDER}/2.mp4`}
-            position-y={0.25}
+            position-y={0.35}
             position-x={0.3}
           />
           <AnnotatedLink
             link="https://highrisetv.com"
             text="Highrise TV"
-            position-y={0.1}
-            position-x={1.5}
+            position-y={-0.8}
+            position-x={-0.25}
           />
           <AnnotatedLink
             link="https://www.highrise-agency.com/"
             text="Highrise Agency"
-            position-y={-0.1}
-            position-x={1.5}
+            position-y={-0.8}
+            position-x={0.3}
           />
           <AnnotatedLink
             link="https://thehighriseco.shop/"
             text="Shop"
-            position-y={-0.3}
-            position-x={1.5}
+            position-y={-0.8}
+            position-x={1}
           />
         </group>
         <Image
