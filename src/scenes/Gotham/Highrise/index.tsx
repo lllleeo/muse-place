@@ -68,6 +68,13 @@ export default function Highrise() {
         />
       </group>
       <group
+        name="wall-right"
+        rotation-y={-Math.PI / 2}
+        position={[2.49, 1.25, 10.6]}
+      >
+        <Image src={`${CONTENT_FOLDER}/weeklydrops.png`} framed size={1.75} />
+      </group>
+      <group
         name="wall-top"
         position={[2.49, 1.07, 4]}
         rotation-y={-Math.PI / 2}
