@@ -32,8 +32,10 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   );
 }
 
-function WatchNow(props: { link: string } & GroupProps) {
-  const { link, ...restProps } = props;
+function ClickHere(
+  props: { link: string; text?: string; color?: string } & GroupProps
+) {
+  const { link, text = "Click Here", color = "red", ...restProps } = props;
 
   return (
     <group {...restProps}>
@@ -53,20 +55,16 @@ function WatchNow(props: { link: string } & GroupProps) {
       </mesh>
       <mesh position-z={-0.01}>
         <boxBufferGeometry args={[0.55, 0.2, 0.04]} />
-        <meshBasicMaterial color="red" />
+        <meshBasicMaterial color={color} />
       </mesh>
-      <Text color="red" position-z={0.04} fontSize={0.075}>
-        Watch Now
+      <Text color={color} position-z={0.04} fontSize={0.075}>
+        {text}
       </Text>
     </group>
   );
 }
 
-const handleHRTVLink = () => (window.location.href = "https://highrisetv.com");
-
-const handleHRDeckLink = () =>
-  (window.location.href =
-    "https://www.dropbox.com/s/b9xrt379ocwc1n7/HRmarketing2021%20%28dragged%29.pdf?dl=0");
+const handleHRTVLink = () => window.open("https://highrisetv.com", "_blank");
 
 export default function Highrise() {
   const weedShapeFunc = (x: number, y: number, z: number) => {
@@ -145,11 +143,16 @@ export default function Highrise() {
             position-y={-0.6}
             position-x={0.2}
           />
-
+          <AnnotatedLink
+            link="https://www.dropbox.com/s/b9xrt379ocwc1n7/HRmarketing2021%20%28dragged%29.pdf?dl=0"
+            text="HIGHRISE AGENCY DECK"
+            position-y={-0.8}
+            position-x={0.2}
+          />
           <AnnotatedLink
             link="https://thehighriseco.shop/"
             text="SHOP HIGHRISE MERCH"
-            position-y={-0.8}
+            position-y={-1}
             position-x={0.2}
           />
         </group>
@@ -262,18 +265,27 @@ export default function Highrise() {
         position={[-1.63, 1.07, 0.15]}
         rotation-y={-Math.PI / 2}
       >
-        <Interactable onClick={handleHRTVLink}>
-          <Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />
-        </Interactable>
+        <Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />
+        <ClickHere
+          position-y={-0.85}
+          link="https://highrisetv.com"
+          color="black"
+        />
       </group>
       <group
         name="wall-bottom-middle"
         position={[-1.63, 1.07, 4.125]}
         rotation-y={-Math.PI / 2}
       >
-        <Interactable onClick={handleHRDeckLink}>
-          <Image src={`${CONTENT_FOLDER}/3.jpg`} framed size={1.7} />
-        </Interactable>
+        <Text position-y={0.6} color="black">
+          2021 AGENCY DECK
+        </Text>
+        <Image src={`${CONTENT_FOLDER}/3.jpg`} framed size={1.7} />
+        <ClickHere
+          position-y={-0.7}
+          link="https://www.dropbox.com/s/b9xrt379ocwc1n7/HRmarketing2021%20%28dragged%29.pdf?dl=0"
+          color="black"
+        />
       </group>
       <group
         name="wall-bottom-right"
@@ -286,9 +298,10 @@ export default function Highrise() {
           size={1.5}
           position-y={0.6}
         />
-        <WatchNow
+        <ClickHere
           link="https://www.youtube.com/watch?v=HcxiI8AjE-s"
           position={[0.75, 0.1, 0.075]}
+          text="Watch Now"
         />
         <Image
           src={`${CONTENT_FOLDER}/waxhotbox.jpg`}
@@ -296,9 +309,10 @@ export default function Highrise() {
           size={1.5}
           position-y={-0.4}
         />
-        <WatchNow
+        <ClickHere
           link="https://www.youtube.com/watch?v=gQsrV5gaBYg"
           position={[0.75, -0.9, 0.075]}
+          text="Watch Now"
         />
       </group>
       <group
