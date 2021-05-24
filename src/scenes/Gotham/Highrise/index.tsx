@@ -32,6 +32,36 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   );
 }
 
+function WatchNow(props: { link: string } & GroupProps) {
+  const { link, ...restProps } = props;
+
+  return (
+    <group {...restProps}>
+      <Interactable
+        onClick={() => {
+          window.open(link, "_blank");
+        }}
+      >
+        <mesh>
+          <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
+          <meshBasicMaterial color="blue" opacity={0} transparent />
+        </mesh>
+      </Interactable>
+      <mesh>
+        <boxBufferGeometry args={[0.5, 0.15, 0.05]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
+      <mesh position-z={-0.01}>
+        <boxBufferGeometry args={[0.55, 0.2, 0.04]} />
+        <meshBasicMaterial color="red" />
+      </mesh>
+      <Text color="red" position-z={0.04} fontSize={0.075}>
+        Watch Now
+      </Text>
+    </group>
+  );
+}
+
 const handleHRTVLink = () => (window.location.href = "https://highrisetv.com");
 
 const handleHRDeckLink = () =>
@@ -75,6 +105,13 @@ export default function Highrise() {
         <Image src={`${CONTENT_FOLDER}/weeklydrops.png`} framed size={1.75} />
       </group>
       <group
+        name="wall-left"
+        rotation-y={-Math.PI / 2}
+        position={[2.49, 1.25, -2.35]}
+      >
+        <Image src={`${CONTENT_FOLDER}/fgo.png`} framed size={1.75} />
+      </group>
+      <group
         name="wall-top"
         position={[2.49, 1.07, 4]}
         rotation-y={-Math.PI / 2}
@@ -86,31 +123,32 @@ export default function Highrise() {
           position-x={-2.0}
           position-y={0.6}
         />
-        <group name="connect" position={[-2.65, -0.1, 0]}>
+        <group name="connect" position={[-2.65, 0.1, 0]}>
           {/* @ts-ignore */}
           <Text
             fontSize={0.1}
             color="black"
             anchorX="left"
-            position={[-0.1, -0.2, 0]}
+            position={[0.1, -0.225, 0]}
           >
-            Check us out on these platforms:
+            Directory:
           </Text>
           <AnnotatedLink
-            link="https://thehighriseco.com"
-            text="Exit to The Highrise Co"
+            link="https://www.highrisetv.com/"
+            text="HIGHRISE TV PLATFORM"
             position-y={-0.4}
             position-x={0.2}
           />
           <AnnotatedLink
             link="https://www.highrise-agency.com/"
-            text="Exit to Highrise Agency"
+            text="HIGHRISE AGENCY WEBSITE"
             position-y={-0.6}
             position-x={0.2}
           />
+
           <AnnotatedLink
-            link="https://www.highrisetv.com/"
-            text="Exit to Highrise TV"
+            link="https://thehighriseco.shop/"
+            text="SHOP HIGHRISE MERCH"
             position-y={-0.8}
             position-x={0.2}
           />
@@ -243,16 +281,24 @@ export default function Highrise() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/4a.jpg`}
+          src={`${CONTENT_FOLDER}/ontherise.jpg`}
           framed
           size={1.5}
           position-y={0.6}
         />
+        <WatchNow
+          link="https://www.youtube.com/watch?v=HcxiI8AjE-s"
+          position={[0.75, 0.1, 0.075]}
+        />
         <Image
-          src={`${CONTENT_FOLDER}/4b.png`}
+          src={`${CONTENT_FOLDER}/waxhotbox.jpg`}
           framed
           size={1.5}
           position-y={-0.4}
+        />
+        <WatchNow
+          link="https://www.youtube.com/watch?v=gQsrV5gaBYg"
+          position={[0.75, -0.9, 0.075]}
         />
       </group>
       <group
