@@ -192,24 +192,11 @@ export default function Highrise() {
         rotation-y={Math.PI / 2}
       >
         {/* @ts-ignore */}
-        <Text
-          position={[0.05, 1.0, 0]}
-          color="black"
-          fontSize={0.1}
-          maxWidth={1.225}
-          anchorY="top"
-        >
-          Events:
-        </Text>
-        <Text
-          position={[0.05, 0.8, 0]}
-          color="black"
-          fontSize={0.08}
-          maxWidth={1.225}
-          anchorY="top"
-        >
-          Coming Soon!
-        </Text>
+        <Image
+          src={`${CONTENT_FOLDER}/gs.png`}
+          position={[0.05, 0.5, 0]}
+          framed
+        />
         <Text
           position={[0.05, 0.1, 0]}
           color="black"
@@ -401,6 +388,40 @@ export default function Highrise() {
           size={1.75}
           position-x={-6.5}
           position-y={0.4}
+        />
+      </group>
+      <group rotation-z={Math.PI / 2} position={[0, 1, -3.85]}>
+        <Image
+          position-y={-0.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
+        />
+        <Image
+          position-y={1.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
+        />
+        <Image
+          position-y={3.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
+        />
+      </group>
+      <group rotation={[0, Math.PI, -Math.PI / 2]} position={[0, 1, 12.075]}>
+        <Image
+          position-y={-0.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
+        />
+        <Image
+          position-y={1.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
+        />
+        <Image
+          position-y={3.5}
+          scale={[1.5, 1.25, 1]}
+          src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
         />
       </group>
       {/*<Image*/}
