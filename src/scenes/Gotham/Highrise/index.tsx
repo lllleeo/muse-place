@@ -198,7 +198,7 @@ export default function Highrise() {
           framed
         />
         <Text
-          position={[0.05, 0.1, 0]}
+          position={[0.05, 0.125, 0]}
           color="black"
           fontSize={0.1}
           maxWidth={1.225}
@@ -209,28 +209,32 @@ export default function Highrise() {
         <AnnotatedLink
           link="https://www.instagram.com/highriseagency/"
           text="@HIGHRISEAGENCY"
-          position={[-0.3, -0.2, 0]}
+          position={[-0.3, -0.1, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/highrisetv"
           text="@HIGHRISETV"
-          position={[-0.3, -0.4, 0]}
+          position={[-0.3, -0.3, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/thehighriseco"
           text="@THEHIGHRISECO"
-          position={[-0.3, -0.6, 0]}
+          position={[-0.3, -0.5, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/2girls.1bong/"
           text="@2GIRLS.1BONG"
-          position={[-0.3, -0.8, 0]}
+          position={[-0.3, -0.7, 0]}
         />
-
         <AnnotatedLink
           link="https://www.youtube.com/user/TheHighRiseCo"
           text="  HRTV YOUTUBE"
-          position={[-0.32, -1, 0.05]}
+          position={[-0.32, -0.9, 0.05]}
+        />
+        <AnnotatedLink
+          link="https://www.youtube.com/channel/UCvV3rzgG0Pd96Hdy-bYZH8A"
+          text="  HRAGENCY YOUTUBE"
+          position={[-0.32, -1.1, 0.05]}
         />
       </group>
       <group
