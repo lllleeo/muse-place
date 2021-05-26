@@ -3,7 +3,7 @@ import React, { useContext, useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { ChadAltoSceneState } from "../chad";
-import Grass from "themes/Alto/components/Grass";
+import Grass from "./components/Grass";
 import Birds from "themes/Alto/components/Birds";
 import { Preload } from "@react-three/drei";
 import { Suspense } from "react";
@@ -33,24 +33,24 @@ const ChadKnight = () => {
       <Seasons>
         <Tableaux />
         <NftScrolls />
-        {/*<mesh>*/}
-        {/*  <boxBufferGeometry args={[200, 100, 1]} />*/}
-        {/*  <meshStandardMaterial*/}
-        {/*    color="red"*/}
-        {/*    opacity={0.1}*/}
-        {/*    side={THREE.DoubleSide}*/}
-        {/*    transparent*/}
-        {/*  />*/}
-        {/*</mesh>*/}
-        {/*<mesh>*/}
-        {/*  <boxBufferGeometry args={[1, 100, 200]} />*/}
-        {/*  <meshStandardMaterial*/}
-        {/*    color="green"*/}
-        {/*    opacity={0.1}*/}
-        {/*    side={THREE.DoubleSide}*/}
-        {/*    transparent*/}
-        {/*  />*/}
-        {/*</mesh>*/}
+        <mesh>
+          <boxBufferGeometry args={[200, 100, 1]} />
+          <meshStandardMaterial
+            color="red"
+            opacity={0.1}
+            side={THREE.DoubleSide}
+            transparent
+          />
+        </mesh>
+        <mesh>
+          <boxBufferGeometry args={[1, 100, 200]} />
+          <meshStandardMaterial
+            color="green"
+            opacity={0.1}
+            side={THREE.DoubleSide}
+            transparent
+          />
+        </mesh>
         <Suspense fallback={null}>
           <Preload all />
           <Grass altCache={true} maxRadius={90} />

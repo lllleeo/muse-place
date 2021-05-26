@@ -71,7 +71,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             <mesh
               name="platonic-top"
               geometry={nodes["platonic-top"].geometry}
-              material={statueMat}
+              material={facesMat}
               scale={[1.5, 1.5, 1.5]}
               receiveShadow
             />
@@ -85,7 +85,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             <mesh
               name="platonic-bottom"
               geometry={nodes["platonic-bottom"].geometry}
-              material={statueMat}
+              material={facesMat}
               scale={[1.5, 1.5, 1.5]}
               receiveShadow
             />
