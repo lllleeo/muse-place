@@ -8,7 +8,7 @@ type NatureProps = {
   shape: ImplicitFunc;
 };
 
-const WEED_URL =
+const TREE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/knight_tree-1621990378/knight_tree.glb.gz";
 
 type Piece = {
@@ -28,7 +28,7 @@ export default function Nature(props: NatureProps) {
 
   const pieces: Piece[] = [
     {
-      model: WEED_URL,
+      model: TREE_URL,
       clustering: shape,
       count: density / 10,
       transform: pinkObj,

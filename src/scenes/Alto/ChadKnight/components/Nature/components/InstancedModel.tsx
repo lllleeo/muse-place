@@ -1,8 +1,18 @@
 import { useGLTF } from "@react-three/drei";
-import { InstancedMesh, Mesh, Object3D, Vector3 } from "three";
+import {
+  InstancedMesh,
+  Mesh,
+  MeshBasicMaterial,
+  MeshStandardMaterial,
+  Object3D,
+  Vector3,
+} from "three";
 import { useLayoutEffect, useMemo, useRef } from "react";
+import { GroupProps } from "@react-three/fiber";
 
-const InstancedObject = (props: { mesh: Mesh; placements: Object3D[] }) => {
+const InstancedObject = (
+  props: { mesh: Mesh; placements: Object3D[] } & GroupProps
+) => {
   const { mesh, placements } = props;
   const instances = useRef<InstancedMesh>();
 
@@ -60,6 +70,12 @@ const InstancedModel = (props: InstancedModelProps) => {
     }
     return spots;
   }, [generation, count]);
+
+  // const texMat = meshes[1].material;
+  // meshes[1].material = new MeshBasicMaterial({ color: "blue" });
+  // meshes[1].material = texMat;
+  // (meshes[1].material as MeshBasicMaterial).needsUpdate = true;
+  // console.log(meshes);
 
   const instances = meshes.map((mesh) => (
     <InstancedObject key={mesh.uuid} mesh={mesh} placements={placements} />

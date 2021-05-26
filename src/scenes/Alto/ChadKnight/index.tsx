@@ -8,7 +8,6 @@ import Birds from "themes/Alto/components/Birds";
 import { Preload } from "@react-three/drei";
 import { Suspense } from "react";
 import Seasons from "./contexts/Seasons";
-import GradientSky from "./components/GradientSky";
 import Nature from "./components/Nature";
 import Tableaux from "./components/Tableaux";
 import NftScrolls from "./components/Scrolls/NftScrolls";
