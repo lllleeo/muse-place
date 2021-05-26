@@ -47,7 +47,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !top.current) return;
-    top.current.rotation.y = -clock.getElapsedTime() / 7;
+    top.current.rotation.y = clock.getElapsedTime() / 7;
   });
 
   useTrimeshCollision(

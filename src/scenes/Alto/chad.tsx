@@ -4,7 +4,7 @@ import { Sky, Stars } from "@react-three/drei";
 
 import React, { ReactNode, useState } from "react";
 import { AudioAnalyser, DoubleSide } from "three";
-import Alto, { AltoProps } from "themes/Alto/Chad";
+import ChadAlto, { AltoProps } from "themes/Alto/Chad";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { HDRI } from "spacesvr";
@@ -70,7 +70,7 @@ const AltoScene = (props: AltoSceneProps) => {
         {/*  disableBackground={!hdri}*/}
         {/*/>*/}
         {!hdri && <Sky sunPosition={[0, 1, 0]} />}
-        <Alto {...restProps} />
+        <ChadAlto {...restProps} />
         <Lighting />
         <Dropoff maxDist={35} />
         {/* @ts-ignore */}

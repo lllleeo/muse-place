@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useFrame, useLoader, useThree } from "@react-three/fiber";
+import { GroupProps, useFrame, useLoader, useThree } from "@react-three/fiber";
 import {
   ShaderMaterial,
   InstancedMesh,
@@ -11,6 +11,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { grassFrag, grassUniforms, grassVert } from "./shaders/grass";
 import SimplexNoise from "simplex-noise";
 import cache1 from "./cache/cache1";
+import cache2 from "./cache/cache2";
 import { useLimiter } from "spacesvr";
 
 const COUNT = 10000;
@@ -44,7 +45,19 @@ const useGrassMat = (): ShaderMaterial => {
   return mat;
 };
 
-const Grass = () => {
+type GrassProps = {
+  altCache?: boolean;
+  minRadius?: number;
+  maxRadius?: number;
+} & GroupProps;
+
+const Grass = (props: GrassProps) => {
+  const {
+    altCache = false,
+    minRadius = 10,
+    maxRadius = 35,
+    ...restProps
+  } = props;
   const { scene } = useThree();
   const grassMat = useGrassMat();
   const mesh = useRef<InstancedMesh>();
@@ -57,7 +70,8 @@ const Grass = () => {
     const terrain = scene.getObjectByName("terrain");
     const generate = false; // set to true and refresh to get a new cached version generated
     const cache = [];
-    const parsedCache = JSON.parse(cache1);
+    const parsedCache = JSON.parse(altCache ? cache2 : cache1);
+    console.log(parsedCache);
 
     if (!terrain || !mesh.current) {
       setTimeout(() => setCounter(counter + 1), 200);
@@ -70,13 +84,17 @@ const Grass = () => {
 
       if (generate) {
         // generate position
-        const radius = Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
+        const radius = Math.random() * (maxRadius - minRadius) + minRadius;
         let theta = Math.random() * Math.PI * 2;
 
         // between PI_2  +- 0.1 don't spawn
-        if (theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
+        if (!altCache && theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
           theta = Math.PI / 2 - 0.1 - 0.1 * Math.pow(Math.random(), 4);
-        } else if (theta < Math.PI / 2 + 0.1 && theta >= Math.PI / 2) {
+        } else if (
+          !altCache &&
+          theta < Math.PI / 2 + 0.1 &&
+          theta >= Math.PI / 2
+        ) {
           theta = Math.PI / 2 + 0.1 + 0.1 * Math.pow(Math.random(), 4);
         }
 
@@ -95,16 +113,16 @@ const Grass = () => {
 
         // get y and normal (generation)
         const p = intersects[0].point;
-        y = p.y - 0.2;
+        y = p.y - (altCache ? 0 : 0.2);
         const n = intersects[0].face?.normal.clone() || new Vector3();
         n.transformDirection(terrain.matrixWorld);
 
         nx = n.x;
         nz = n.z;
 
-        const modX = Math.floor((x / MAX_RADIUS) * 100);
+        const modX = Math.floor((x / maxRadius) * 100);
         const modY = Math.floor((y / 10) * 100);
-        const modZ = Math.floor((z / MAX_RADIUS) * 100);
+        const modZ = Math.floor((z / maxRadius) * 100);
         const modNX = Math.floor(n.x * 10);
         const modNZ = Math.floor(n.z * 10);
 
@@ -114,11 +132,11 @@ const Grass = () => {
         cache.push(modNX);
         cache.push(modNZ);
       } else {
-        x = (parsedCache[i * 5] / 100) * 35;
-        y = (parsedCache[i * 5 + 1] / 100) * 10 + 0.1;
-        z = (parsedCache[i * 5 + 2] / 100) * 35;
-        nx = parsedCache[i * 5 + 3] / 10;
-        nz = parsedCache[i * 5 + 4] / 10;
+        x = (parsedCache[i * 5] / 100) * maxRadius;
+        y = (parsedCache[i * 5 + 1] / 100) * minRadius + 0.1;
+        z = (parsedCache[i * 5 + 2] / 100) * maxRadius;
+        nx = parsedCache[i * 5 + 3] / minRadius;
+        nz = parsedCache[i * 5 + 4] / minRadius;
       }
 
       // add randomness
@@ -141,7 +159,7 @@ const Grass = () => {
   }, [mesh, grassMat, counter]);
 
   return (
-    <group>
+    <group {...restProps}>
       <instancedMesh ref={mesh} args={[geo, grassMat, COUNT]} />
     </group>
   );
