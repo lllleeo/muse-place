@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { Color, ShaderMaterial } from "three";
 import * as THREE from "three";
 import { useLimiter } from "spacesvr";
-import { useScene } from "../contexts/Scene";
+// import { useScene } from "../contexts/Scene";
 
 type GradientSky = {
   radius?: number;
@@ -15,7 +15,7 @@ type GradientSky = {
 const GradientSky = (props: GradientSky) => {
   const { radius, stops, ...restProps } = props;
 
-  const { mediation } = useScene();
+  // const { mediation } = useScene();
 
   const NUM_COLORS = stops.length;
   const COLORS = stops.map((stop) => {
@@ -89,7 +89,7 @@ const GradientSky = (props: GradientSky) => {
   useFrame(({ clock }) => {
     if (mat && limiter.isReady(clock)) {
       mat.uniforms.time.value = clock.getElapsedTime();
-      mat.uniforms.mediation.value = mediation.current;
+      // mat.uniforms.mediation.value = mediation.current;
     }
   });
 
