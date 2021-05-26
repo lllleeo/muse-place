@@ -71,7 +71,6 @@ const Grass = (props: GrassProps) => {
     const generate = false; // set to true and refresh to get a new cached version generated
     const cache = [];
     const parsedCache = JSON.parse(altCache ? cache2 : cache1);
-    console.log(parsedCache);
 
     if (!terrain || !mesh.current) {
       setTimeout(() => setCounter(counter + 1), 200);
