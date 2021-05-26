@@ -98,11 +98,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             material={colliderMat}
           />
           <mesh
-            name="kaskade"
-            geometry={nodes.kaskade.geometry}
-            material={materials["kaskade.mat"]}
-          />
-          <mesh
             name="information"
             geometry={nodes.information.geometry}
             material={materials["information.mat"]}
