@@ -1,10 +1,11 @@
-import { Texture, Vector2 } from "three";
+import { Texture, Vector2, Vector3 } from "three";
 
 export const grassUniforms = (grassTex: Texture) => {
   return {
     grassTex: { value: grassTex },
     uvScale: { value: new Vector2(1, 1) },
     globalTime: { value: 0 },
+    color: { value: new Vector3(0.43, 0.65, 0.47) },
   };
 };
 
