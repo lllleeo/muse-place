@@ -6,7 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { BufferGeometry, MeshBasicMaterial } from "three";
+import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { useLimiter, useTrimeshCollision } from "spacesvr";
 import { useFrame } from "@react-three/fiber";
 
@@ -41,7 +41,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     opacity: 0,
     transparent: true,
   });
-  const terrainMat = new MeshBasicMaterial();
+  const terrainMat = new MeshBasicMaterial({ color: "grey" });
+  const statueMat = new MeshStandardMaterial({ color: "white" });
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
 
   const limiter = useLimiter(45);
@@ -70,8 +71,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             <mesh
               name="platonic-top"
               geometry={nodes["platonic-top"].geometry}
-              material={facesMat}
+              material={statueMat}
               scale={[1.5, 1.5, 1.5]}
+              receiveShadow
             />
           </group>
           <group name="modelBot">
@@ -83,8 +85,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             <mesh
               name="platonic-bottom"
               geometry={nodes["platonic-bottom"].geometry}
-              material={facesMat}
+              material={statueMat}
               scale={[1.5, 1.5, 1.5]}
+              receiveShadow
             />
           </group>
           <mesh
