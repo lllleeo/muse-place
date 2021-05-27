@@ -7,34 +7,127 @@ import React, { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { MeshStandardMaterial } from "three";
+import { Idea } from "../../../layers/basis";
+import { useFrame } from "@react-three/fiber";
+import { useLimiter } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Clean_Model_1: THREE.Mesh;
+    Tuesday_25_after_call_model__1: THREE.Mesh;
+    Tuesday_25_after_call_model__2: THREE.Mesh;
+    Tuesday_25_after_call_model__3: THREE.Mesh;
+    Tuesday_25_after_call_model__4: THREE.Mesh;
+    Tuesday_25_after_call_model__5: THREE.Mesh;
+    Tuesday_25_after_call_model__6: THREE.Mesh;
+    Tuesday_25_after_call_model__7: THREE.Mesh;
   };
   materials: {
+    ["Metal (1)"]: THREE.MeshStandardMaterial;
+    ["Metal (2)"]: THREE.MeshStandardMaterial;
+    Yeso: THREE.MeshStandardMaterial;
     diffuse_Black: THREE.MeshStandardMaterial;
+    Metal: THREE.MeshStandardMaterial;
+    diffuse_0: THREE.MeshStandardMaterial;
+    diffuse_Red: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/ArtBox-1620419603/artbox.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Artbox-1621985105/artbox.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
-  const mat = useMemo(() => new MeshStandardMaterial(), []);
+  const limiter = useLimiter(60);
+
+  const ideas: Idea[] = useMemo(() => {
+    const arr: Idea[] = [];
+    const keys = Object.keys(materials);
+    const initMediation = Math.random() * 0.9;
+    for (let i = 0; i < keys.length; i++) {
+      arr.push(
+        new Idea({
+          mediation: initMediation + Math.random() * 0.1,
+          specificity: 0.6 + Math.random() * 0.1,
+          utility: 0.5 + Math.random() * 0.09,
+        })
+      );
+
+      // @ts-ignore
+      (materials[keys[i]] as MeshStandardMaterial).color.set(arr[i].getHex());
+    }
+
+    return arr;
+  }, []);
+
+  materials["Metal (2)"].metalness = 0.2;
+  materials["Metal (2)"].roughness = 1;
+  materials["Yeso"].metalness = 0;
+  materials["Yeso"].roughness = 1;
+  materials["diffuse_0"].envMapIntensity = 0;
+
+  useFrame(({ clock }) => {
+    if (!limiter.isReady(clock)) return;
+
+    const keys = Object.keys(materials);
+    for (let i = 0; i < ideas.length; i++) {
+      const idea = ideas[i];
+
+      const newIdea = new Idea({
+        m: idea.mediation + 0.05 * Math.sin(clock.getElapsedTime() * 0.3),
+        s: idea.specificity + 0.05 * Math.sin(clock.getElapsedTime() * 0.2),
+        u: idea.utility + 0.05 * Math.sin(clock.getElapsedTime() * 0.01),
+      });
+
+      // @ts-ignore
+      (materials[keys[i]] as MeshStandardMaterial).color.set(newIdea.getHex());
+    }
+  });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene" scale={0.8}>
-        <mesh
-          name="Clean_Model_1"
-          geometry={nodes.Clean_Model_1.geometry}
-          material={mat}
+        <group
+          name="Tuesday_25_after_call_model_"
           rotation={[Math.PI / 2, 0, 0]}
-        />
+        >
+          <mesh
+            name="Tuesday_25_after_call_model__1"
+            geometry={nodes.Tuesday_25_after_call_model__1.geometry}
+            material={materials["Metal (1)"]}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__2"
+            geometry={nodes.Tuesday_25_after_call_model__2.geometry}
+            material={materials["Metal (2)"]}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__3"
+            geometry={nodes.Tuesday_25_after_call_model__3.geometry}
+            material={materials.Yeso}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__4"
+            geometry={nodes.Tuesday_25_after_call_model__4.geometry}
+            material={materials.diffuse_Black}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__5"
+            geometry={nodes.Tuesday_25_after_call_model__5.geometry}
+            material={materials.Metal}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__6"
+            geometry={nodes.Tuesday_25_after_call_model__6.geometry}
+            material={materials.diffuse_0}
+          />
+          <mesh
+            name="Tuesday_25_after_call_model__7"
+            geometry={nodes.Tuesday_25_after_call_model__7.geometry}
+            material={materials.diffuse_Red}
+          />
+        </group>
       </group>
     </group>
   );
