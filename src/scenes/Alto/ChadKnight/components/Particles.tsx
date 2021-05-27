@@ -109,6 +109,8 @@ export default function Particles(props: {
     if (material.current) {
       // @ts-ignore
       material.current.size = size.get();
+      // @ts-ignore
+      material.current.depthFunc = THREE.LessEqualDepth;
     }
   });
 
