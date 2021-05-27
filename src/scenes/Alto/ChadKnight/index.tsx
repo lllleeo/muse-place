@@ -43,7 +43,6 @@ const ChadKnight = () => {
   return (
     <group>
       <Tableaux />
-      <NftScrolls />
       {/*{winter &&*/}
       {/*  <Fog color={new Color("#ffffff")} near={15} far={70} />*/}
       {/*}*/}
@@ -70,9 +69,10 @@ const ChadKnight = () => {
       <Suspense fallback={null}>
         <Preload all />
         <Grass altCache={true} maxRadius={90} />
+        <NftScrolls />
+        <Nature density={1500} shape={treePlacementFunc} />
+        <Birds bounds={50} position-y={-10} />
       </Suspense>
-      <Birds bounds={50} position-y={-10} />
-      <Nature density={1500} shape={treePlacementFunc} />
     </group>
   );
 };

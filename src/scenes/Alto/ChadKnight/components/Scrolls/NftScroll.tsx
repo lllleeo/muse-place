@@ -1,7 +1,7 @@
 import ScrollModel from "../../../../../themes/Alto/models/Scroll";
 import { GroupProps, useFrame, useThree } from "@react-three/fiber";
 import { Image, Video } from "spacesvr";
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useMemo } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
 // @ts-ignore
@@ -32,14 +32,20 @@ const Scroll = (props: NftScrollProps) => {
   const { camera } = useThree();
   const outer = useRef<THREE.Group>();
   const inner = useRef<THREE.Group>();
+  const scroll = useRef<THREE.Group>();
 
   const limiter = useLimiter(40);
-
   useFrame(({ clock }) => {
     if (!outer.current || !limiter.isReady(clock)) return;
-
     outer.current.lookAt(0, outer.current.position.y, 0);
   });
+
+  useMemo(() => {
+    if (scroll.current) {
+      // @ts-ignore
+      scroll.current.children[0].children[0].children[1].material.metalness = 0.77;
+    }
+  }, [scroll.current]);
 
   return (
     <group name="scroll" ref={outer} {...restProps}>
@@ -51,7 +57,11 @@ const Scroll = (props: NftScrollProps) => {
               <Image src={img} size={0.45} position-y={text ? -0.3 : -0.45} />
             )}
             {vid && (
-              <Video src={vid} size={0.45} position-y={text ? -0.3 : -0.45} />
+              <Video
+                src={vid}
+                size={0.65}
+                position={[0.01, text ? -0.3 : -0.475, -0.01]}
+              />
             )}
             {text && (
               <>
@@ -73,7 +83,9 @@ const Scroll = (props: NftScrollProps) => {
             )}
           </group>
           <Suspense fallback={null}>
-            <ScrollModel open={true} /> {/* ~3 DrawCalls */}
+            <group name="scrollModel" ref={scroll}>
+              <ScrollModel open={true} />
+            </group>
           </Suspense>
         </group>
       </group>

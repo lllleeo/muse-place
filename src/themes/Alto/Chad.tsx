@@ -55,8 +55,6 @@ const defaultContext: AltoProps = {
 const Alto = (props: Partial<AltoProps>) => {
   const { fbPixel, googleAnalytics } = props;
 
-  const [scrollCount, setScrollCount] = useState(0);
-
   return (
     <ChadAltoContext.Provider value={{ ...defaultContext, ...props }}>
       <Preload all />
