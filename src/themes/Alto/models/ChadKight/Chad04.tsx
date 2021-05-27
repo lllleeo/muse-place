@@ -131,11 +131,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
           <mesh name="terrain" geometry={nodes.terrain.geometry}>
-            <meshBasicMaterial
-              ref={terrainMat}
-              color={new THREE.Color(r.get(), g.get(), b.get())}
-            />
-            {/*<animated.meshBasicMaterial color={color} />*/}
+            {/*<meshBasicMaterial*/}
+            {/*  ref={terrainMat}*/}
+            {/*  color={new THREE.Color(r.get(), g.get(), b.get())}*/}
+            {/*/>*/}
+            <animated.meshBasicMaterial color={color} />
           </mesh>
           <mesh
             name="information"
