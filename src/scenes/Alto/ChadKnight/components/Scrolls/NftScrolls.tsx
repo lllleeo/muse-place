@@ -32,7 +32,7 @@ export default function NftScrolls() {
   return (
     <group name="scrolls">
       <group position={[DISTANCE, -16, DISTANCE]} ref={winter}>
-        <NftScroll scale={1.5} img={`${CONTENT}/pfp.jpg`} />
+        <NftScroll scale={1.5} vid={`${CONTENT}/winternft.mp4`} />
         <NftScroll
           position-x={3}
           scale={1.5}
@@ -45,7 +45,7 @@ export default function NftScrolls() {
         </group>
       </group>
       <group position={[-DISTANCE, -16, DISTANCE]} ref={spring}>
-        <NftScroll scale={1.5} img={`${CONTENT}/pfp.jpg`} />
+        <NftScroll scale={1.5} vid={`${CONTENT}/springnft.mp4`} />
         <NftScroll
           position-x={3}
           scale={1.5}
@@ -58,7 +58,7 @@ export default function NftScrolls() {
         </group>
       </group>
       <group position={[DISTANCE, -16, -DISTANCE]} ref={summer}>
-        <NftScroll scale={1.5} img={`${CONTENT}/pfp.jpg`} />
+        <NftScroll scale={1.5} vid={`${CONTENT}/summernft.mp4`} />
         <NftScroll
           position-x={3}
           scale={1.5}
@@ -71,7 +71,7 @@ export default function NftScrolls() {
         </group>
       </group>
       <group position={[-DISTANCE, -16, -DISTANCE]} ref={fall}>
-        <NftScroll scale={1.5} img={`${CONTENT}/pfp.jpg`} />
+        <NftScroll scale={1.5} vid={`${CONTENT}/fallnft.mp4`} />
         <NftScroll
           position-x={3}
           scale={1.5}

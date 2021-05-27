@@ -1,6 +1,6 @@
 import ScrollModel from "../../../../../themes/Alto/models/Scroll";
 import { GroupProps, useFrame, useThree } from "@react-three/fiber";
-import { Image } from "spacesvr";
+import { Image, Video } from "spacesvr";
 import { useRef, Suspense } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
@@ -13,6 +13,7 @@ export type NftScrollProps = {
   textSize?: number;
   textY?: number;
   img?: string;
+  vid?: string;
   font?: string;
 } & GroupProps;
 
@@ -23,6 +24,7 @@ const Scroll = (props: NftScrollProps) => {
     textSize,
     textColor = "black",
     img,
+    vid,
     font,
     ...restProps
   } = props;
@@ -48,6 +50,9 @@ const Scroll = (props: NftScrollProps) => {
             {img && (
               <Image src={img} size={0.45} position-y={text ? -0.3 : -0.45} />
             )}
+            {vid && (
+              <Video src={vid} size={0.45} position-y={text ? -0.3 : -0.45} />
+            )}
             {text && (
               <>
                 {/* @ts-ignore */}
@@ -55,10 +60,12 @@ const Scroll = (props: NftScrollProps) => {
                   color={textColor}
                   maxWidth={0.45}
                   font={font ? font : ""}
-                  fontSize={textSize ? textSize / 100 : img ? 0.03 : 0.04}
+                  fontSize={
+                    textSize ? textSize / 100 : img ? 0.03 : vid ? 0.03 : 0.04
+                  }
                   anchorY="top"
                   position-x={0.005}
-                  position-y={textY || img ? -0.55 : -0.05}
+                  position-y={textY || img ? -0.55 : vid ? -0.55 : -0.05}
                 >
                   {text}
                 </Text>
