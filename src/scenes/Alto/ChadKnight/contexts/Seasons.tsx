@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  MutableRefObject,
+  ReactNode,
+  useContext,
+  useRef,
+  useState,
+} from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useLimiter } from "spacesvr";
 

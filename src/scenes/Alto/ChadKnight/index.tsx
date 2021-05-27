@@ -1,6 +1,6 @@
 import { BackSide, ShaderMaterial, Vector3 } from "three";
 import React, { useContext, useMemo, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { ReactThreeFiber, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { ChadAltoSceneState } from "../chad";
 import Grass from "./components/Grass";
@@ -11,6 +11,7 @@ import Seasons from "./contexts/Seasons";
 import Nature from "./components/Nature";
 import Tableaux from "./components/Tableaux";
 import NftScrolls from "./components/Scrolls/NftScrolls";
+import GradientSky from "./components/GradientSky";
 
 const ChadKnight = () => {
   const { aa } = useContext(ChadAltoSceneState);
@@ -27,29 +28,39 @@ const ChadKnight = () => {
     return cartCoords;
   };
 
+  const stops = [
+    "#ffecf0",
+    "#ffddf5",
+    "#cbc4e3",
+    "#95b9d3",
+    "#499abd",
+    "#167fa7",
+  ];
+
   return (
     <group>
       <Seasons>
         <Tableaux />
         <NftScrolls />
-        <mesh>
-          <boxBufferGeometry args={[200, 100, 1]} />
-          <meshStandardMaterial
-            color="red"
-            opacity={0.1}
-            side={THREE.DoubleSide}
-            transparent
-          />
-        </mesh>
-        <mesh>
-          <boxBufferGeometry args={[1, 100, 200]} />
-          <meshStandardMaterial
-            color="green"
-            opacity={0.1}
-            side={THREE.DoubleSide}
-            transparent
-          />
-        </mesh>
+        <GradientSky stops={stops} radius={200} />
+        {/*<mesh>*/}
+        {/*  <boxBufferGeometry args={[300, 100, 1]} />*/}
+        {/*  <meshStandardMaterial*/}
+        {/*    color="red"*/}
+        {/*    opacity={0.1}*/}
+        {/*    side={THREE.DoubleSide}*/}
+        {/*    transparent*/}
+        {/*  />*/}
+        {/*</mesh>*/}
+        {/*<mesh>*/}
+        {/*  <boxBufferGeometry args={[1, 100, 200]} />*/}
+        {/*  <meshStandardMaterial*/}
+        {/*    color="green"*/}
+        {/*    opacity={0.1}*/}
+        {/*    side={THREE.DoubleSide}*/}
+        {/*    transparent*/}
+        {/*  />*/}
+        {/*</mesh>*/}
         <Suspense fallback={null}>
           <Preload all />
           <Grass altCache={true} maxRadius={90} />

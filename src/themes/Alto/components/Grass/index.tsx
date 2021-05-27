@@ -15,8 +15,6 @@ import cache2 from "./cache/cache2";
 import { useLimiter } from "spacesvr";
 
 const COUNT = 10000;
-const MIN_RADIUS = 10;
-const MAX_RADIUS = 35;
 
 const useGrassMat = (): ShaderMaterial => {
   const grassTex = useLoader(

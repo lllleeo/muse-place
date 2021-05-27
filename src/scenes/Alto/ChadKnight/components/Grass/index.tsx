@@ -62,11 +62,7 @@ const useGrassMat = (): ShaderMaterial => {
 
     mat.uniforms["globalTime"].value = clock.getElapsedTime();
 
-    mat.uniforms["color"].value = new Vector3(
-      colorX.get(),
-      colorY.get(),
-      colorZ.get()
-    );
+    mat.uniforms["color"].value.set(colorX.get(), colorY.get(), colorZ.get());
   });
 
   const mat = useMemo(() => {
