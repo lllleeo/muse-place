@@ -40,11 +40,10 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0.5, 3, 70], rot: 0, speed: 15 }}
+      playerProps={{ pos: [0.5, 3, 70], rot: 0, speed: 7 }}
       canvasProps={{ dpr: 1, camera: { far: 300 } }}
       simulationProps={simulationProps}
       disableGround
-      dev
     >
       <ChadAltoSceneState.Provider value={{ aa, setAA }}>
         {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
