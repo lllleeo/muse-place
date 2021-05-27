@@ -8,6 +8,7 @@ import ChadAlto, { AltoProps } from "themes/Alto/Chad";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
 import { SimulationProps } from "spacesvr/core/types/simulation";
+import Seasons from "./ChadKnight/contexts/Seasons";
 
 export type AltoSceneProps = {
   stars?: boolean;
@@ -45,29 +46,33 @@ const AltoScene = (props: AltoSceneProps) => {
       disableGround
       dev
     >
-      <ChadAltoSceneState.Provider value={{ aa, setAA }}>
-        {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
-        {fog && (
-          <Fog color={new THREE.Color(fog[0])} near={fog[1]} far={fog[2]} />
-        )}
-        {skyColor && (
-          <mesh name="sun">
-            <sphereBufferGeometry args={[60, 60, 60]} />
-            <meshStandardMaterial
-              color={skyColor}
-              opacity={0.9}
-              transparent
-              side={DoubleSide}
-            />
-          </mesh>
-        )}
-        {!hdri && <Sky sunPosition={[0, 1, 0]} />}
-        <ChadAlto {...restProps} />
-        <Lighting />
-        <Dropoff maxDist={35} />
-        {/* @ts-ignore */}
-        {children && React.cloneElement(children, { aa })}
-      </ChadAltoSceneState.Provider>
+      <Seasons>
+        <ChadAltoSceneState.Provider value={{ aa, setAA }}>
+          {stars && (
+            <Stars count={5000} factor={100000} radius={5000000} fade />
+          )}
+          {fog && (
+            <Fog color={new THREE.Color(fog[0])} near={fog[1]} far={fog[2]} />
+          )}
+          {skyColor && (
+            <mesh name="sun">
+              <sphereBufferGeometry args={[60, 60, 60]} />
+              <meshStandardMaterial
+                color={skyColor}
+                opacity={0.9}
+                transparent
+                side={DoubleSide}
+              />
+            </mesh>
+          )}
+          {!hdri && <Sky sunPosition={[0, 1, 0]} />}
+          <ChadAlto {...restProps} />
+          <Lighting />
+          <Dropoff maxDist={35} />
+          {/* @ts-ignore */}
+          {children && React.cloneElement(children, { aa })}
+        </ChadAltoSceneState.Provider>
+      </Seasons>
     </StandardEnvironment>
   );
 };

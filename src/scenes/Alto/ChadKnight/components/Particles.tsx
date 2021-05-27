@@ -68,11 +68,6 @@ export default function Particles(props: {
   const material = useRef();
 
   const { size } = useSpring({
-    // from: { size: 2 },
-    // to: async (next: any) => {
-    //   await next({ size: 0.05 });
-    //   await next({ size: 2 });
-    // },
     size: activeSeason === "Winter" ? 2 : 0,
     config: {
       mass: 1,
@@ -150,7 +145,6 @@ export default function Particles(props: {
           />
         </bufferGeometry>
         <pointsMaterial
-          // size={seasonChange ? size.get() : 2}
           size={size.get()}
           color="white"
           vertexColors={false}

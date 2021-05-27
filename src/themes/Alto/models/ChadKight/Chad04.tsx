@@ -10,7 +10,7 @@ import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { useLimiter, useTrimeshCollision } from "spacesvr";
 import { useFrame } from "@react-three/fiber";
 import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
-import { useSpring } from "react-spring/three";
+import { useSpring, animated } from "react-spring/three";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -35,42 +35,60 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const top = useRef<THREE.Group>();
-  const ground = useRef<THREE.Mesh>();
+  const terrainMat = useRef<THREE.MeshBasicMaterial>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   const { activeSeason } = useSeason();
 
-  // const { r, g, b } = useSpring({
-  //   r: activeSeason === "Winter" ? 255
-  //     : activeSeason === "Spring" ? 155
-  //       : activeSeason === "Summer" ? 95
-  //         : 141,
-  //   g: activeSeason === "Winter" ? 255
-  //     : activeSeason === "Spring" ? 192
-  //       : activeSeason === "Summer" ? 123
-  //         : 55,
-  //   b: activeSeason === "Winter" ? 255
-  //     : activeSeason === "Spring" ? 135
-  //       : activeSeason === "Summer" ? 40
-  //         : 2,
-  //   config: {
-  //     mass: 1
-  //   }
-  // })
-
-  const colliderMat = new MeshBasicMaterial({
-    color: "blue",
-    wireframe: true,
-    opacity: 0,
-    transparent: true,
+  const { r, g, b, color } = useSpring({
+    r:
+      activeSeason === "Winter"
+        ? 255
+        : activeSeason === "Spring"
+        ? 155
+        : activeSeason === "Summer"
+        ? 95
+        : 141,
+    g:
+      activeSeason === "Winter"
+        ? 255
+        : activeSeason === "Spring"
+        ? 192
+        : activeSeason === "Summer"
+        ? 123
+        : 55,
+    b:
+      activeSeason === "Winter"
+        ? 255
+        : activeSeason === "Spring"
+        ? 135
+        : activeSeason === "Summer"
+        ? 40
+        : 2,
+    color:
+      activeSeason === "Winter"
+        ? 0xffffff
+        : activeSeason === "Spring"
+        ? 0x9bc087
+        : activeSeason === "Summer"
+        ? 0x5f7b28
+        : 0x8d3702,
+    config: {
+      mass: 1,
+    },
   });
-  const terrainMat = new MeshBasicMaterial({ color: "white" });
-  // const terrainMat = new MeshBasicMaterial({ color: new THREE.Color(r.get(), g.get(), b.get()) });
+
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !top.current) return;
     top.current.rotation.y = clock.getElapsedTime() / 7;
+    // if (terrainMat.current) {
+    //   // console.log(terrainMat.current)
+    //   terrainMat.current.color.setRGB(r.get(), g.get(), b.get());
+    //   terrainMat.current.needsUpdate = true;
+    //   // console.log(terrainMat.current.color);
+    // }
   });
 
   useTrimeshCollision(
@@ -112,17 +130,13 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               receiveShadow
             />
           </group>
-          <mesh
-            name="terrain"
-            geometry={nodes.terrain.geometry}
-            material={terrainMat}
-            ref={ground}
-          />
-          <mesh
-            name="collider"
-            geometry={nodes.collider.geometry}
-            material={colliderMat}
-          />
+          <mesh name="terrain" geometry={nodes.terrain.geometry}>
+            <meshBasicMaterial
+              ref={terrainMat}
+              color={new THREE.Color(r.get(), g.get(), b.get())}
+            />
+            {/*<animated.meshBasicMaterial color={color} />*/}
+          </mesh>
           <mesh
             name="information"
             geometry={nodes.information.geometry}

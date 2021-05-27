@@ -59,7 +59,6 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <ChadAltoContext.Provider value={{ ...defaultContext, ...props }}>
-      <Fog color={new Color("#ffffff")} near={15} far={70} />
       <Preload all />
       <Suspense fallback={null}>
         <Preload all />

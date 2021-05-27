@@ -11,11 +11,10 @@ import { Winter, Spring, Summer, Fall } from "./constants/skyColors";
 
 type GradientSky = {
   radius?: number;
-  stops: ReactThreeFiber.Color[];
 } & JSX.IntrinsicElements["group"];
 
 const GradientSky = (props: GradientSky) => {
-  const { radius, stops, ...restProps } = props;
+  const { radius, ...restProps } = props;
 
   const { activeSeason } = useSeason();
 
@@ -86,7 +85,7 @@ const GradientSky = (props: GradientSky) => {
           }
       `,
     });
-  }, [stops]);
+  }, []);
 
   mat.side = THREE.DoubleSide;
 
