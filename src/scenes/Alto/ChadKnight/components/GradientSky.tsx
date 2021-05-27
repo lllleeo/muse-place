@@ -34,10 +34,6 @@ const GradientSky = (props: GradientSky) => {
   });
 
   const NUM_COLORS = skyColors.get().length;
-  console.log(skyColors.get());
-  // const COLORS = stops.map((stop) => {
-  //   return new THREE.Color(stop as Color).getHex();
-  // });
 
   const limiter = useLimiter(50);
 
@@ -67,13 +63,6 @@ const GradientSky = (props: GradientSky) => {
             float fsnoise(float val1, float val2, float val3){
               return snoise(vec3(val1,val2,val3));
             }
-      
-          vec3 hexToVec(int hex) {
-            highp float r = float((hex >> 0x10) & 0xFF);
-            highp float g = float((hex >> 0x8) & 0xFF);
-            highp float b = float(hex & 0xFF);
-            return vec3(r / 255.0, g / 255.0, b / 255.0);
-          }
       
           void main() {
             highp float yCoord = (gl_FragCoord.y / gl_FragCoord.w);

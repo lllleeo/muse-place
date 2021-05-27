@@ -12,6 +12,7 @@ import Nature from "./components/Nature";
 import Tableaux from "./components/Tableaux";
 import NftScrolls from "./components/Scrolls/NftScrolls";
 import GradientSky from "./components/GradientSky";
+import Particles from "./components/Particles";
 
 const ChadKnight = () => {
   const { aa } = useContext(ChadAltoSceneState);
@@ -42,6 +43,7 @@ const ChadKnight = () => {
       <Seasons>
         <Tableaux />
         <NftScrolls />
+        <Particles particleNum={2500} />
         <GradientSky stops={stops} radius={200} />
         {/*<mesh>*/}
         {/*  <boxBufferGeometry args={[300, 100, 1]} />*/}

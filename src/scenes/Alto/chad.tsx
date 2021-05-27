@@ -7,7 +7,6 @@ import { AudioAnalyser, DoubleSide } from "three";
 import ChadAlto, { AltoProps } from "themes/Alto/Chad";
 import Lighting from "themes/Alto/components/Lighting";
 import Dropoff from "themes/Alto/components/Dropoff";
-import { HDRI } from "spacesvr";
 import { SimulationProps } from "spacesvr/core/types/simulation";
 
 export type AltoSceneProps = {
@@ -40,10 +39,11 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0.5, 3, 70], rot: 0, speed: 7 }}
+      playerProps={{ pos: [0.5, 3, 70], rot: 0, speed: 15 }}
       canvasProps={{ dpr: 1, camera: { far: 300 } }}
       simulationProps={simulationProps}
       disableGround
+      dev
     >
       <ChadAltoSceneState.Provider value={{ aa, setAA }}>
         {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
@@ -61,13 +61,6 @@ const AltoScene = (props: AltoSceneProps) => {
             />
           </mesh>
         )}
-        {/*<HDRI*/}
-        {/*  src={*/}
-        {/*    hdri ||*/}
-        {/*    "https://d27rt3a60hh1lx.cloudfront.net/content/alto/SkyMural3.hdr"*/}
-        {/*  }*/}
-        {/*  disableBackground={!hdri}*/}
-        {/*/>*/}
         {!hdri && <Sky sunPosition={[0, 1, 0]} />}
         <ChadAlto {...restProps} />
         <Lighting />

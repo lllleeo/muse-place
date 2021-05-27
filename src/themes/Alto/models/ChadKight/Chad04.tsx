@@ -9,6 +9,8 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { useLimiter, useTrimeshCollision } from "spacesvr";
 import { useFrame } from "@react-three/fiber";
+import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
+import { useSpring } from "react-spring/three";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -33,7 +35,27 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const top = useRef<THREE.Group>();
+  const ground = useRef<THREE.Mesh>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const { activeSeason } = useSeason();
+
+  // const { r, g, b } = useSpring({
+  //   r: activeSeason === "Winter" ? 255
+  //     : activeSeason === "Spring" ? 155
+  //       : activeSeason === "Summer" ? 95
+  //         : 141,
+  //   g: activeSeason === "Winter" ? 255
+  //     : activeSeason === "Spring" ? 192
+  //       : activeSeason === "Summer" ? 123
+  //         : 55,
+  //   b: activeSeason === "Winter" ? 255
+  //     : activeSeason === "Spring" ? 135
+  //       : activeSeason === "Summer" ? 40
+  //         : 2,
+  //   config: {
+  //     mass: 1
+  //   }
+  // })
 
   const colliderMat = new MeshBasicMaterial({
     color: "blue",
@@ -41,8 +63,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     opacity: 0,
     transparent: true,
   });
-  const terrainMat = new MeshBasicMaterial({ color: "grey" });
-  const statueMat = new MeshStandardMaterial({ color: "white" });
+  const terrainMat = new MeshBasicMaterial({ color: "white" });
+  // const terrainMat = new MeshBasicMaterial({ color: new THREE.Color(r.get(), g.get(), b.get()) });
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
 
   const limiter = useLimiter(45);
@@ -94,6 +116,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             name="terrain"
             geometry={nodes.terrain.geometry}
             material={terrainMat}
+            ref={ground}
           />
           <mesh
             name="collider"
