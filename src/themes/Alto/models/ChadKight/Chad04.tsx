@@ -39,39 +39,15 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   const { activeSeason } = useSeason();
 
-  const { r, g, b, color } = useSpring({
-    r:
-      activeSeason === "Winter"
-        ? 255
-        : activeSeason === "Spring"
-        ? 155
-        : activeSeason === "Summer"
-        ? 95
-        : 141,
-    g:
-      activeSeason === "Winter"
-        ? 255
-        : activeSeason === "Spring"
-        ? 192
-        : activeSeason === "Summer"
-        ? 123
-        : 55,
-    b:
-      activeSeason === "Winter"
-        ? 255
-        : activeSeason === "Spring"
-        ? 135
-        : activeSeason === "Summer"
-        ? 40
-        : 2,
+  const { color } = useSpring({
     color:
       activeSeason === "Winter"
-        ? 0xffffff
+        ? "#ffffff"
         : activeSeason === "Spring"
-        ? 0x9bc087
+        ? "#9bc087"
         : activeSeason === "Summer"
-        ? 0x5f7b28
-        : 0x8d3702,
+        ? "#5f7b28"
+        : "#8d3702",
     config: {
       mass: 1,
     },
@@ -83,12 +59,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !top.current) return;
     top.current.rotation.y = clock.getElapsedTime() / 7;
-    // if (terrainMat.current) {
-    //   // console.log(terrainMat.current)
-    //   terrainMat.current.color.setRGB(r.get(), g.get(), b.get());
-    //   terrainMat.current.needsUpdate = true;
-    //   // console.log(terrainMat.current.color);
-    // }
   });
 
   useTrimeshCollision(
@@ -131,10 +101,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
           <mesh name="terrain" geometry={nodes.terrain.geometry}>
-            {/*<meshBasicMaterial*/}
-            {/*  ref={terrainMat}*/}
-            {/*  color={new THREE.Color(r.get(), g.get(), b.get())}*/}
-            {/*/>*/}
             <animated.meshBasicMaterial color={color} />
           </mesh>
           <mesh
