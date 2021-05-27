@@ -70,7 +70,7 @@ const LinkTree: NextPage = () => {
           signalPort: 443,
           signalPath: "/signal",
           socketServer: "wss://alto.us-west-1.elasticbeanstalk.com:8081",
-          frequency: 40,
+          frequency: 25,
         }}
       />
     </>
