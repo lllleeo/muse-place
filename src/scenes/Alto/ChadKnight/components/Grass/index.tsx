@@ -14,7 +14,8 @@ import cache1 from "./cache/cache1";
 import cache2 from "./cache/cache2";
 import { useLimiter } from "spacesvr";
 import { useSeason } from "../../contexts/Seasons";
-import { useSpring, animated } from "react-spring/three";
+import { useSpring } from "react-spring/three";
+import { Winter, Spring, Summer, Fall } from "../constants/seasonColors";
 
 const COUNT = 10000;
 
@@ -26,31 +27,31 @@ const useGrassMat = (): ShaderMaterial => {
 
   const { activeSeason } = useSeason();
 
-  const { colorX, colorY, colorZ } = useSpring({
-    colorX:
+  const { r, g, b } = useSpring({
+    r:
       activeSeason === "Winter"
-        ? 0.702
+        ? Winter.grass.r
         : activeSeason === "Summer"
-        ? 0.282
+        ? Summer.grass.r
         : activeSeason === "Spring"
-        ? 0.4
-        : 0.639,
-    colorY:
+        ? Spring.grass.r
+        : Fall.grass.r,
+    g:
       activeSeason === "Winter"
-        ? 0.769
+        ? Winter.grass.g
         : activeSeason === "Summer"
-        ? 0.588
+        ? Summer.grass.g
         : activeSeason === "Spring"
-        ? 0.6
-        : 0.204,
-    colorZ:
+        ? Spring.grass.g
+        : Fall.grass.g,
+    b:
       activeSeason === "Winter"
-        ? 0.769
+        ? Winter.grass.b
         : activeSeason === "Summer"
-        ? 0.173
+        ? Summer.grass.b
         : activeSeason === "Spring"
-        ? 0.329
-        : 0,
+        ? Spring.grass.b
+        : Fall.grass.b,
     config: {
       mass: 5,
     },
@@ -62,7 +63,7 @@ const useGrassMat = (): ShaderMaterial => {
 
     mat.uniforms["globalTime"].value = clock.getElapsedTime();
 
-    mat.uniforms["color"].value.set(colorX.get(), colorY.get(), colorZ.get());
+    mat.uniforms["color"].value.set(r.get(), g.get(), b.get());
   });
 
   const mat = useMemo(() => {

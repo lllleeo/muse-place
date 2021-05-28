@@ -1,4 +1,4 @@
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLimiter } from "spacesvr";
@@ -59,10 +59,10 @@ export default function Particles(props: {
 
   const { activeSeason } = useSeason();
 
-  const [seasonChange, setChange] = useState<boolean>(false);
-  useEffect(() => {
-    setChange(!seasonChange);
-  }, [activeSeason]);
+  // const [seasonChange, setChange] = useState<boolean>(false);
+  // useEffect(() => {
+  //   setChange(!seasonChange);
+  // }, [activeSeason]);
 
   const buffer = useRef();
   const material = useRef();
@@ -127,6 +127,7 @@ export default function Particles(props: {
     }
     return [new Float32Array(positions), new Float32Array(velocities)];
   }, [particleNum]);
+
   if (activeSeason !== "Winter") return <></>;
 
   return (

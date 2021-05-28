@@ -1,13 +1,14 @@
 // @ts-ignore
 import glsl from "glslify";
-import { ReactThreeFiber, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useMemo } from "react";
-import { Color, MathUtils, ShaderMaterial } from "three";
+import { ShaderMaterial } from "three";
 import * as THREE from "three";
 import { useLimiter } from "spacesvr";
 import { useSeason } from "../contexts/Seasons";
-import { useSpring } from "react-spring/three";
-import { Winter, Spring, Summer, Fall } from "./constants/skyColors";
+import { useSpring, animated } from "react-spring/three";
+import { Winter, Spring, Summer, Fall } from "./constants/seasonColors";
+import { isMobile } from "react-device-detect";
 
 type GradientSky = {
   radius?: number;
@@ -17,24 +18,28 @@ const GradientSky = (props: GradientSky) => {
   const { radius, ...restProps } = props;
 
   const { activeSeason } = useSeason();
-
-  const { skyColors } = useSpring({
+  const { skyColors, mobileSkyColor } = useSpring({
     skyColors:
       activeSeason === "Winter"
-        ? Winter
+        ? Winter.sky
         : activeSeason === "Summer"
-        ? Summer
+        ? Summer.sky
         : activeSeason === "Spring"
-        ? Spring
-        : Fall,
+        ? Spring.sky
+        : Fall.sky,
+    mobileSkyColor:
+      activeSeason === "Winter"
+        ? Winter.mobileSky
+        : activeSeason === "Summer"
+        ? Summer.mobileSky
+        : activeSeason === "Spring"
+        ? Spring.mobileSky
+        : Fall.mobileSky,
     config: {
       mass: 5,
     },
   });
-
   const NUM_COLORS = skyColors.get().length;
-
-  const limiter = useLimiter(50);
 
   const mat = useMemo(() => {
     return new ShaderMaterial({
@@ -86,16 +91,27 @@ const GradientSky = (props: GradientSky) => {
       `,
     });
   }, []);
-
   mat.side = THREE.DoubleSide;
 
+  const limiter = useLimiter(50);
   useFrame(({ clock }) => {
-    if (mat && limiter.isReady(clock)) {
+    if (!limiter.isReady(clock)) return;
+    if (mat) {
       mat.uniforms.time.value = clock.getElapsedTime();
       mat.uniforms.colors.value = skyColors.get();
-      // console.log(mat.uniforms.colors.value);
     }
   });
+
+  if (isMobile) {
+    return (
+      <group {...restProps}>
+        <mesh>
+          <sphereBufferGeometry args={[radius, 50, 50]} />
+          <animated.meshBasicMaterial color={mobileSkyColor} />
+        </mesh>
+      </group>
+    );
+  }
 
   return (
     <group {...restProps}>

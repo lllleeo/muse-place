@@ -46,8 +46,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         : activeSeason === "Spring"
         ? "#9bc087"
         : activeSeason === "Summer"
-        ? "#5f7b28"
-        : "#8d3702",
+        ? "#213F12"
+        : "#9F622D",
     config: {
       mass: 1,
     },
