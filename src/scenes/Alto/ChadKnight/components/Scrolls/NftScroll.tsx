@@ -115,14 +115,7 @@ const Scroll = (props: NftScrollProps) => {
                     <meshBasicMaterial color="blue" visible={false} />
                   </mesh>
                 </Interactable>
-                <Nifty position-x={0.15} />
-                <Text
-                  position={[-0.075, -0.01, 0]}
-                  color={textColor}
-                  font={font ? font : ""}
-                >
-                  Buy Now
-                </Text>
+                <Nifty />
               </group>
             )}
           </group>

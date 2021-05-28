@@ -43,8 +43,8 @@ const AltoScene = (props: AltoSceneProps) => {
       playerProps={{ pos: [0.5, -4, 70], rot: 0, speed: 7 }}
       canvasProps={{ dpr: 1, camera: { far: 300 } }}
       simulationProps={simulationProps}
-      disableGround
       signup="http://bit.ly/musehq"
+      disableGround
     >
       <Seasons>
         <ChadAltoSceneState.Provider value={{ aa, setAA }}>
