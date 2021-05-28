@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useLimiter } from "spacesvr";
 import { useSeason } from "../contexts/Seasons";
 import { useSpring } from "react-spring/three";
+import { isMobile } from "react-device-detect";
 
 function drawRadialGradation(
   ctx: CanvasRenderingContext2D | null,
@@ -57,11 +58,19 @@ export default function Particles(props: {
   const { particleNum = 10000, maxRange = 300 } = props;
   const minRange = maxRange / 2;
 
+  if (isMobile) {
+    return <></>;
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { activeSeason } = useSeason();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const buffer = useRef();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const material = useRef();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { size } = useSpring({
     size: activeSeason === "Winter" ? 2 : 0,
     config: {
@@ -69,7 +78,9 @@ export default function Particles(props: {
     },
   });
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const limiter = useLimiter(45);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !buffer.current) return;
     // @ts-ignore
@@ -109,6 +120,7 @@ export default function Particles(props: {
     }
   });
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [positions, velocities] = useMemo(() => {
     const positions = [],
       velocities = [];
