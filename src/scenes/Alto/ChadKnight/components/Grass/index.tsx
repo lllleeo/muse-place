@@ -10,7 +10,6 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 import { grassFrag, grassUniforms, grassVert } from "./shaders/grass";
 import SimplexNoise from "simplex-noise";
-import cache1 from "./cache/cache1";
 import cache2 from "./cache/cache2";
 import { useLimiter } from "spacesvr";
 import { useSeason } from "../../contexts/Seasons";
@@ -57,14 +56,6 @@ const useGrassMat = (): ShaderMaterial => {
     },
   });
 
-  const limiter = useLimiter(30);
-  useFrame(({ clock }) => {
-    if (!mat || !limiter.isReady(clock)) return;
-
-    mat.uniforms["globalTime"].value = clock.getElapsedTime();
-    mat.uniforms["color"].value.set(r.get(), g.get(), b.get());
-  });
-
   const mat = useMemo(() => {
     return new ShaderMaterial({
       uniforms: grassUniforms(grassTex),
@@ -73,24 +64,24 @@ const useGrassMat = (): ShaderMaterial => {
     });
   }, []);
 
+  const limiter = useLimiter(30);
+  useFrame(({ clock }) => {
+    if (!mat || !limiter.isReady(clock)) return;
+    mat.uniforms["globalTime"].value = clock.getElapsedTime();
+    mat.uniforms["color"].value.set(r.get(), g.get(), b.get());
+  });
   mat.side = THREE.DoubleSide;
 
   return mat;
 };
 
 type GrassProps = {
-  altCache?: boolean;
   minRadius?: number;
   maxRadius?: number;
 } & GroupProps;
 
 const Grass = (props: GrassProps) => {
-  const {
-    altCache = false,
-    minRadius = 10,
-    maxRadius = 35,
-    ...restProps
-  } = props;
+  const { minRadius = 10, maxRadius = 35, ...restProps } = props;
   const { scene } = useThree();
   const grassMat = useGrassMat();
   const mesh = useRef<InstancedMesh>();
@@ -103,7 +94,7 @@ const Grass = (props: GrassProps) => {
     const terrain = scene.getObjectByName("terrain");
     const generate = false; // set to true and refresh to get a new cached version generated
     const cache = [];
-    const parsedCache = JSON.parse(altCache ? cache2 : cache1);
+    const parsedCache = JSON.parse(cache2);
 
     if (!terrain || !mesh.current) {
       setTimeout(() => setCounter(counter + 1), 200);
@@ -117,18 +108,7 @@ const Grass = (props: GrassProps) => {
       if (generate) {
         // generate position
         const radius = Math.random() * (maxRadius - minRadius) + minRadius;
-        let theta = Math.random() * Math.PI * 2;
-
-        // between PI_2  +- 0.1 don't spawn
-        if (!altCache && theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
-          theta = Math.PI / 2 - 0.1 - 0.1 * Math.pow(Math.random(), 4);
-        } else if (
-          !altCache &&
-          theta < Math.PI / 2 + 0.1 &&
-          theta >= Math.PI / 2
-        ) {
-          theta = Math.PI / 2 + 0.1 + 0.1 * Math.pow(Math.random(), 4);
-        }
+        const theta = Math.random() * Math.PI * 2;
 
         // convert to cartesian
         x = radius * Math.cos(theta);
@@ -145,7 +125,7 @@ const Grass = (props: GrassProps) => {
 
         // get y and normal (generation)
         const p = intersects[0].point;
-        y = p.y - (altCache ? 0 : 0.2);
+        y = p.y;
         const n = intersects[0].face?.normal.clone() || new Vector3();
         n.transformDirection(terrain.matrixWorld);
 

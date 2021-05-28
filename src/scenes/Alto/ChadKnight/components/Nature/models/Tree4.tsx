@@ -18,9 +18,12 @@ type GLTFResult = GLTF & {
   };
 };
 
+const FILE_URL =
+  "https://d27rt3a60hh1lx.cloudfront.net/models/tree4-1622189140/tree4.glb.gz";
+
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/tree4.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
@@ -41,4 +44,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/tree4.glb");
+useGLTF.preload(FILE_URL);

@@ -1,6 +1,6 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import ChadModel from "./models/ChadKight/Chad04b";
-import { AudioAnalyser, Color } from "three";
+import { AudioAnalyser } from "three";
 import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
 import FBPixel from "../components/FacebookPixel";

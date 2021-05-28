@@ -11,7 +11,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { grassFrag, grassUniforms, grassVert } from "./shaders/grass";
 import SimplexNoise from "simplex-noise";
 import cache1 from "./cache/cache1";
-import cache2 from "./cache/cache2";
 import { useLimiter } from "spacesvr";
 
 const COUNT = 10000;
@@ -44,18 +43,12 @@ const useGrassMat = (): ShaderMaterial => {
 };
 
 type GrassProps = {
-  altCache?: boolean;
   minRadius?: number;
   maxRadius?: number;
 } & GroupProps;
 
 const Grass = (props: GrassProps) => {
-  const {
-    altCache = false,
-    minRadius = 10,
-    maxRadius = 35,
-    ...restProps
-  } = props;
+  const { minRadius = 10, maxRadius = 35, ...restProps } = props;
   const { scene } = useThree();
   const grassMat = useGrassMat();
   const mesh = useRef<InstancedMesh>();
@@ -68,7 +61,7 @@ const Grass = (props: GrassProps) => {
     const terrain = scene.getObjectByName("terrain");
     const generate = false; // set to true and refresh to get a new cached version generated
     const cache = [];
-    const parsedCache = JSON.parse(altCache ? cache2 : cache1);
+    const parsedCache = JSON.parse(cache1);
 
     if (!terrain || !mesh.current) {
       setTimeout(() => setCounter(counter + 1), 200);
@@ -85,13 +78,9 @@ const Grass = (props: GrassProps) => {
         let theta = Math.random() * Math.PI * 2;
 
         // between PI_2  +- 0.1 don't spawn
-        if (!altCache && theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
+        if (theta > Math.PI / 2 - 0.1 && theta <= Math.PI / 2) {
           theta = Math.PI / 2 - 0.1 - 0.1 * Math.pow(Math.random(), 4);
-        } else if (
-          !altCache &&
-          theta < Math.PI / 2 + 0.1 &&
-          theta >= Math.PI / 2
-        ) {
+        } else if (theta < Math.PI / 2 + 0.1 && theta >= Math.PI / 2) {
           theta = Math.PI / 2 + 0.1 + 0.1 * Math.pow(Math.random(), 4);
         }
 
@@ -110,7 +99,7 @@ const Grass = (props: GrassProps) => {
 
         // get y and normal (generation)
         const p = intersects[0].point;
-        y = p.y - (altCache ? 0 : 0.2);
+        y = p.y - 0.2;
         const n = intersects[0].face?.normal.clone() || new Vector3();
         n.transformDirection(terrain.matrixWorld);
 

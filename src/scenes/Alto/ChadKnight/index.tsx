@@ -25,26 +25,6 @@ const ChadKnight = () => {
 
   return (
     <group>
-      <mesh>
-        <boxBufferGeometry args={[300, 100, 1]} />
-        <meshStandardMaterial
-          color="red"
-          opacity={0.1}
-          side={THREE.DoubleSide}
-          visible={false}
-          transparent
-        />
-      </mesh>
-      <mesh>
-        <boxBufferGeometry args={[1, 100, 200]} />
-        <meshStandardMaterial
-          color="green"
-          opacity={0.1}
-          side={THREE.DoubleSide}
-          transparent
-          visible={false}
-        />
-      </mesh>
       <Tableaux />
       <Snow particleNum={2500} />
       <GradientSky radius={200} />

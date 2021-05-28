@@ -6,7 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSeason } from "../../../../scenes/Alto/ChadKnight/contexts/Seasons";
+import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
 import { animated, useSpring } from "react-spring/three";
 import { BufferGeometry, MeshBasicMaterial } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
