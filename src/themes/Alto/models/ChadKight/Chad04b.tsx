@@ -35,7 +35,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   const top = useRef<THREE.Group>();
-  const terrainMat = useRef<THREE.MeshBasicMaterial>();
   const { activeSeason } = useSeason();
   const { color } = useSpring({
     color:
@@ -44,8 +43,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         : activeSeason === "Spring"
         ? "#9bc087"
         : activeSeason === "Summer"
-        ? "#213F12"
-        : "#9F622D",
+        ? "#008000"
+        : "#C06F35",
     config: {
       mass: 1,
     },

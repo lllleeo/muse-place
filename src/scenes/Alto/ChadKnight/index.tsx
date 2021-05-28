@@ -4,7 +4,7 @@ import { ReactThreeFiber, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { ChadAltoSceneState } from "../chad";
 import Grass from "./components/Grass";
-import Birds from "themes/Alto/components/Birds";
+import Birds from "./components/Birds";
 import { Preload } from "@react-three/drei";
 import { Suspense } from "react";
 import Nature from "./components/Nature";
@@ -14,8 +14,6 @@ import GradientSky from "./components/GradientSky";
 import Particles from "./components/Particles";
 
 const ChadKnight = () => {
-  const { aa } = useContext(ChadAltoSceneState);
-
   const treePlacementFunc = (r: number, theta: number) => {
     const r_gen = r * 60 + 10;
     const theta_gen = theta * 2 * Math.PI;
@@ -36,6 +34,7 @@ const ChadKnight = () => {
           color="red"
           opacity={0.1}
           side={THREE.DoubleSide}
+          visible={false}
           transparent
         />
       </mesh>
@@ -57,7 +56,7 @@ const ChadKnight = () => {
         <Grass altCache={true} maxRadius={90} />
         <NftScrolls />
         <Nature density={1500} shape={treePlacementFunc} />
-        <Birds bounds={50} position-y={-10} />
+        <Birds bounds={10} />
       </Suspense>
     </group>
   );
