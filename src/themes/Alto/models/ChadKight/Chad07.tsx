@@ -6,7 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
+import { useSeason } from "../../../../scenes/Alto/ChadKnight/contexts/Seasons";
 import { animated, useSpring } from "react-spring/three";
 import { BufferGeometry, MeshBasicMaterial } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
@@ -30,7 +30,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/chad05-1622189518/chad05.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/chad07-1622230940/chad07.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -51,6 +51,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     },
   });
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
+  const colliderMat = new MeshBasicMaterial({ color: "blue", wireframe: true });
 
   const terrainTex = useLoader(
     THREE.TextureLoader,
@@ -76,7 +77,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene" scale={5}>
-        <group name="chad05glb" position-y={-18.5}>
+        <group name="chad_07glb" position-y={-18.5}>
           <group name="top" ref={top}>
             <mesh
               name="face-top"
@@ -90,22 +91,25 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               scale={[1.5, 1.5, 1.5]}
             />
           </group>
-          <group name="bottom">
-            <mesh
-              name="face-bottom"
-              geometry={nodes["face-bottom"].geometry}
-              material={facesMat}
-            />
-            <mesh
-              name="platonic-bottom"
-              geometry={nodes["platonic-bottom"].geometry}
-              material={facesMat}
-              scale={[1.5, 1.5, 1.5]}
-            />
-          </group>
+          <mesh
+            name="face-bottom"
+            geometry={nodes["face-bottom"].geometry}
+            material={facesMat}
+          />
+          <mesh
+            name="platonic-bottom"
+            geometry={nodes["platonic-bottom"].geometry}
+            material={facesMat}
+            scale={[1.5, 1.5, 1.5]}
+          />
           <mesh name="terrain" geometry={nodes.terrain.geometry}>
             <animated.meshBasicMaterial color={color} map={terrainTex} />
           </mesh>
+          <mesh
+            name="kaskade"
+            geometry={nodes.kaskade.geometry}
+            material={materials["kaskade.mat"]}
+          />
           <mesh
             name="information"
             geometry={nodes.information.geometry}

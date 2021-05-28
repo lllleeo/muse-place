@@ -14,12 +14,7 @@ export default function Tableaux() {
   return (
     <group name="tableaux" position={[0, -13, 62]}>
       <group name="right" rotation-y={-0.525}>
-        <Image
-          src={`${CONTENT}/kklogo1.jpg`}
-          scale={3}
-          position={[3, -0.75, -2.9]}
-        />
-        <group position={[1.75, 1.3, -2.75]}>
+        <group position={[1.75, 1.3, -2.9]}>
           <SocialButton link="https://www.instagram.com/chadknight/" />
           <Text
             font={FONT}

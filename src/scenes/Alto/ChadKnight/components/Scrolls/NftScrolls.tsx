@@ -3,13 +3,15 @@ import { useEffect, useRef } from "react";
 import { Audio } from "spacesvr";
 import * as THREE from "three";
 import { useSeason } from "../../contexts/Seasons";
+import { Winter, Spring, Summer, Fall } from "../constants/seasonColors";
 
 const CONTENT =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/chadknight",
   DISTANCE = 45,
   SCALE = 2,
   POSY = -16,
-  TXTSIZE = 4,
+  TXTSIZE = 3.5,
+  TXTALIGN = "left",
   OFFSET = 3;
 
 export default function NftScrolls() {
@@ -36,56 +38,58 @@ export default function NftScrolls() {
   return (
     <group name="scrolls">
       <group position={[DISTANCE, POSY, DISTANCE]} ref={winter}>
-        <NftScroll scale={SCALE} vid={`${CONTENT}/winternft.mp4`} />
+        <NftScroll scale={SCALE} vid={`${CONTENT}/wntrnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
           scale={SCALE}
-          text="[ insert WINTER poem here ]"
+          text={Winter.poem}
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
+          textAlign={TXTALIGN}
+          textY={-0.2}
+          title="Winter"
+          nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/2"
         />
-        <group name="seasonalAudio" ref={winterAudio}>
-          {activeSeason === "Winter" && <Audio url={`${CONTENT}/WINTER.mp3`} />}
-        </group>
       </group>
       <group position={[-DISTANCE, POSY, DISTANCE]} ref={spring}>
-        <NftScroll scale={SCALE} vid={`${CONTENT}/springnft.mp4`} />
+        <NftScroll scale={SCALE} vid={`${CONTENT}/sprngnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
           scale={SCALE}
-          text="[ insert SPRING poem here ]"
+          text={Spring.poem}
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
+          textAlign={TXTALIGN}
+          title="Spring"
+          textY={-0.2}
+          nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/4"
         />
-        <group name="seasonalAudio" ref={springAudio}>
-          <Audio url={`${CONTENT}/SPRING.mp3`} />
-        </group>
       </group>
       <group position={[DISTANCE, POSY, -DISTANCE]} ref={summer}>
-        <NftScroll scale={SCALE} vid={`${CONTENT}/summernft.mp4`} />
+        <NftScroll scale={SCALE} vid={`${CONTENT}/smmrnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
           scale={SCALE}
-          text="[ insert SUMMER poem here ]"
+          text={Summer.poem}
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
+          textAlign={TXTALIGN}
+          textY={-0.2}
+          nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/1"
         />
-        <group name="seasonalAudio" ref={summerAudio}>
-          <Audio url={`${CONTENT}/SUMMER.mp3`} />
-        </group>
       </group>
       <group position={[-DISTANCE, POSY, -DISTANCE]} ref={fall}>
-        <NftScroll scale={SCALE} vid={`${CONTENT}/fallnft.mp4`} />
+        <NftScroll scale={SCALE} vid={`${CONTENT}/fllnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
           scale={SCALE}
-          text="[ insert FALL poem here ]"
+          text={Fall.poem}
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
+          textAlign={TXTALIGN}
+          textY={-0.2}
+          nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/3"
         />
-        <group name="seasonalAudio" ref={fallAudio}>
-          <Audio url={`${CONTENT}/FALL.mp3`} />
-        </group>
       </group>
     </group>
   );

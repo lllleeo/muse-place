@@ -1,31 +1,38 @@
-import ScrollModel from "../../../../../themes/Alto/models/Scroll";
+import ScrollModel from "themes/Alto/models/Scroll";
 import { GroupProps, useFrame, useThree } from "@react-three/fiber";
 import { Image, Video } from "spacesvr";
 import { useRef, Suspense, useMemo } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
+import Nifty from "./Nifty";
 // @ts-ignore
-import { useLimiter } from "spacesvr";
+import { useLimiter, Interactable } from "spacesvr";
 
 export type NftScrollProps = {
   text?: string;
   textColor?: string;
   textSize?: number;
   textY?: number;
+  textAlign?: "left" | "center" | "right" | "justify" | undefined;
   img?: string;
   vid?: string;
   font?: string;
+  title?: string;
+  nft?: string;
 } & GroupProps;
 
 const Scroll = (props: NftScrollProps) => {
   const {
     text,
     textY,
+    title,
     textSize,
     textColor = "black",
+    textAlign = "left",
     img,
     vid,
     font,
+    nft,
     ...restProps
   } = props;
 
@@ -47,6 +54,10 @@ const Scroll = (props: NftScrollProps) => {
     }
   }, [scroll.current]);
 
+  const handleClick = () => {
+    window.open(nft, "_blank");
+  };
+
   return (
     <group name="scroll" ref={outer} {...restProps}>
       <group ref={inner} scale={[2, 2, 2]} position-y={2}>
@@ -61,13 +72,28 @@ const Scroll = (props: NftScrollProps) => {
                 src={vid}
                 size={0.65}
                 position={[0.01, text ? -0.3 : -0.475, -0.01]}
+                volume={3}
               />
             )}
+            {title && (
+              <Text
+                color={textColor}
+                textAlign="center"
+                maxWidth={0.45}
+                font={font ? font : ""}
+                fontSize={0.125}
+                anchorY="top"
+                position-y={-0.1}
+              >
+                {title}
+              </Text>
+            )}
             {text && (
-              <>
+              <group name="text">
                 {/* @ts-ignore */}
                 <Text
                   color={textColor}
+                  textAlign={textAlign}
                   maxWidth={0.45}
                   font={font ? font : ""}
                   fontSize={
@@ -75,11 +101,29 @@ const Scroll = (props: NftScrollProps) => {
                   }
                   anchorY="top"
                   position-x={0.005}
-                  position-y={textY || img ? -0.55 : vid ? -0.55 : -0.05}
+                  position-y={textY ? textY : img ? -0.55 : vid ? -0.55 : -0.05}
                 >
                   {text}
                 </Text>
-              </>
+              </group>
+            )}
+            {nft && (
+              <group name="nft" position-y={-0.875}>
+                <Interactable onClick={handleClick}>
+                  <mesh position-x={0.155} scale={[0.115, 0.115, 0.05]}>
+                    <boxBufferGeometry args={[1, 1, 1]} />
+                    <meshBasicMaterial color="blue" visible={false} />
+                  </mesh>
+                </Interactable>
+                <Nifty position-x={0.15} />
+                <Text
+                  position={[-0.075, -0.01, 0]}
+                  color={textColor}
+                  font={font ? font : ""}
+                >
+                  Buy Now
+                </Text>
+              </group>
             )}
           </group>
           <Suspense fallback={null}>

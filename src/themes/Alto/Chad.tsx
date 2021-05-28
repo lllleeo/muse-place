@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import ChadModel from "./models/ChadKight/Chad04b";
+import ChadModel from "./models/ChadKight/Chad07";
 import { AudioAnalyser } from "three";
 import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
