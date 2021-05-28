@@ -1,8 +1,5 @@
-import { BackSide, Color, ShaderMaterial, Vector3 } from "three";
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { ReactThreeFiber, useFrame } from "@react-three/fiber";
+import { Vector3 } from "three";
 import * as THREE from "three";
-import { ChadAltoSceneState } from "../chad";
 import Grass from "./components/Grass";
 import Birds from "./components/Birds";
 import { Preload } from "@react-three/drei";
@@ -56,7 +53,7 @@ const ChadKnight = () => {
         <Grass altCache={true} maxRadius={90} />
         <NftScrolls />
         <Nature density={1500} shape={treePlacementFunc} />
-        <Birds bounds={10} />
+        <Birds bounds={10} position-y={-5} />
       </Suspense>
     </group>
   );

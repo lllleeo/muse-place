@@ -40,7 +40,7 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0.5, 3, 70], rot: 0, speed: 15 }}
+      playerProps={{ pos: [0.5, -4, 70], rot: 0, speed: 15 }}
       canvasProps={{ dpr: 1, camera: { far: 300 } }}
       simulationProps={simulationProps}
       disableGround
@@ -68,7 +68,7 @@ const AltoScene = (props: AltoSceneProps) => {
           {!hdri && <Sky sunPosition={[0, 1, 0]} />}
           <ChadAlto {...restProps} />
           <Lighting />
-          <Dropoff maxDist={35} />
+          <Dropoff maxDist={35} resetPos={[0.5, -4, 70]} />
           {/* @ts-ignore */}
           {children && React.cloneElement(children, { aa })}
         </ChadAltoSceneState.Provider>

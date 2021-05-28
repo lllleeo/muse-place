@@ -6,14 +6,11 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { useSeason } from "../../../../scenes/Alto/ChadKnight/contexts/Seasons";
+import { animated, useSpring } from "react-spring/three";
+import { BufferGeometry, MeshBasicMaterial } from "three";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { useLimiter, useTrimeshCollision } from "spacesvr";
-import { useFrame, useThree } from "@react-three/fiber";
-import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
-import { useSpring, animated } from "react-spring/three";
-import { WireframeGeometry2 } from "three/examples/jsm/lines/WireframeGeometry2";
-import { LineMaterial } from "three/examples/jsm/lines/LineMaterial";
-import { Wireframe } from "three/examples/jsm/lines/Wireframe";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -33,13 +30,12 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/chad04-1621991299/chad04.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/chad05-1622189518/chad05.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const top = useRef<THREE.Group>();
-  const terrainMat = useRef<THREE.MeshBasicMaterial>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const top = useRef<THREE.Group>();
   const { activeSeason } = useSeason();
   const { color } = useSpring({
     color:
@@ -48,19 +44,21 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         : activeSeason === "Spring"
         ? "#9bc087"
         : activeSeason === "Summer"
-        ? "#213F12"
-        : "#9F622D",
+        ? "#008000"
+        : "#C06F35",
     config: {
       mass: 1,
     },
   });
-
-  const { scene } = useThree();
-
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
-  // const wireframeGeo = new WireframeGeometry2(nodes["face-bottom"].geometry);
-  // const wireframe = new Wireframe(wireframeGeo, new LineMaterial({ color: 0xffffff, linewidth: 5, dashed: false }))
-  // scene.add(wireframe);
+
+  const terrainTex = useLoader(
+    THREE.TextureLoader,
+    "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/chadknight/grasstex.jpg"
+  );
+  terrainTex.repeat.x = 100;
+  terrainTex.repeat.y = 100;
+  terrainTex.wrapS = terrainTex.wrapT = THREE.RepeatWrapping;
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
@@ -78,9 +76,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene" scale={5}>
-        <group name="chad_03glb" position-y={-18.5}>
-          <group name="modelTop" ref={top}>
-            {/*{wireframe}*/}
+        <group name="chad05glb" position-y={-18.5}>
+          <group name="top" ref={top}>
             <mesh
               name="face-top"
               geometry={nodes["face-top"].geometry}
@@ -91,10 +88,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               geometry={nodes["platonic-top"].geometry}
               material={facesMat}
               scale={[1.5, 1.5, 1.5]}
-              receiveShadow
             />
           </group>
-          <group name="modelBot">
+          <group name="bottom">
             <mesh
               name="face-bottom"
               geometry={nodes["face-bottom"].geometry}
@@ -105,11 +101,10 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               geometry={nodes["platonic-bottom"].geometry}
               material={facesMat}
               scale={[1.5, 1.5, 1.5]}
-              receiveShadow
             />
           </group>
           <mesh name="terrain" geometry={nodes.terrain.geometry}>
-            <animated.meshBasicMaterial color={color} />
+            <animated.meshBasicMaterial color={color} map={terrainTex} />
           </mesh>
           <mesh
             name="information"

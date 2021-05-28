@@ -2,7 +2,6 @@ import React, { Suspense, useState } from "react";
 import ChadModel from "./models/ChadKight/Chad04b";
 import { AudioAnalyser, Color } from "three";
 import { ScrollData } from "./types/scroll";
-import { Fog } from "spacesvr";
 import { Preload } from "@react-three/drei";
 import FBPixel from "../components/FacebookPixel";
 import GoogleAnalytics from "../components/GoogleAnalytics";
