@@ -11,7 +11,7 @@ import Nature from "./components/Nature";
 import Tableaux from "./components/Tableaux";
 import NftScrolls from "./components/Scrolls/NftScrolls";
 import GradientSky from "./components/GradientSky";
-import Particles from "./components/Particles";
+import Snow from "./components/Snow";
 
 const ChadKnight = () => {
   const treePlacementFunc = (r: number, theta: number) => {
@@ -49,7 +49,7 @@ const ChadKnight = () => {
         />
       </mesh>
       <Tableaux />
-      <Particles particleNum={2500} />
+      <Snow particleNum={2500} />
       <GradientSky radius={200} />
       <Suspense fallback={null}>
         <Preload all />

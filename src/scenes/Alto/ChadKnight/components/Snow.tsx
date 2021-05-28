@@ -51,7 +51,7 @@ function getTexture() {
   return texture;
 }
 
-export default function Particles(props: {
+export default function Snow(props: {
   particleNum?: number;
   maxRange?: number;
 }) {

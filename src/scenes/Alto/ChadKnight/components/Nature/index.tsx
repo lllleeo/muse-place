@@ -9,7 +9,7 @@ type NatureProps = {
 };
 
 const TREE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/tree2-1622169631/tree2.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/tree4-1622189140/tree4.glb.gz";
 
 type Piece = {
   model: string;
