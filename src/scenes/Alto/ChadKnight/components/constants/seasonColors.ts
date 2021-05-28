@@ -89,7 +89,8 @@ export const Summer = {
     g: 0.588,
     b: 0.1,
   },
-  poem: "",
+  poem:
+    "Summer is a season of freedom. The sun that nourishes and sustains life beats down on the Earth fiercely, providing us with the perfect environment to explore. Summer is a magical time for self-development. It is the season of finding yourself, of trying new things. The days are longer and the nights are warm and welcoming. In summer, we needn’t hide, hibernate, or bundle up. Life is unwritten with adventures waiting around every corner. Summer reminds us of the vitality and youthfulness present in our being. The sun represents life, influence, and strength.",
 };
 
 export const Fall = {
@@ -119,5 +120,7 @@ export const Fall = {
     g: 0.729,
     b: 0.251,
   },
-  poem: "",
+  poem:
+    "In Autumn, the growing cycle gives us ripeness and maturity. The harvest is associated with abundance, prosperity and wealth. Humans also experience an “autumn”. If spring represents new birth and childhood, and summer symbolizes youth, autumn represents adulthood and maturity.\n" +
+    "Falling leaves symbolize change and even though they are brilliant in color, we know soon to follow is winter. Fall brings a certain melancholy. We must prepare for an end. Our symbolic human autumn of maturity must prepare for the winter of old age and death. Because day and night are the same length on the autumnal equinox, ancient cultures associated this day with the concept of balance.",
 };

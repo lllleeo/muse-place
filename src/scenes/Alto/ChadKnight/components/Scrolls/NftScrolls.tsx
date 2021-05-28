@@ -9,7 +9,7 @@ const CONTENT =
     "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/chadknight",
   DISTANCE = 45,
   SCALE = 2,
-  POSY = -16,
+  POSY = -16.5,
   TXTSIZE = 3.5,
   TXTALIGN = "left",
   OFFSET = 3;
@@ -65,7 +65,7 @@ export default function NftScrolls() {
           nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/4"
         />
       </group>
-      <group position={[DISTANCE, POSY, -DISTANCE]} ref={summer}>
+      <group position={[DISTANCE, POSY - 1, -DISTANCE]} ref={summer}>
         <NftScroll scale={SCALE} vid={`${CONTENT}/smmrnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
@@ -74,11 +74,12 @@ export default function NftScrolls() {
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
           textAlign={TXTALIGN}
+          title="Summer"
           textY={-0.2}
           nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/1"
         />
       </group>
-      <group position={[-DISTANCE, POSY, -DISTANCE]} ref={fall}>
+      <group position={[-DISTANCE, POSY - 1, -DISTANCE]} ref={fall}>
         <NftScroll scale={SCALE} vid={`${CONTENT}/fllnft.mp4`} />
         <NftScroll
           position-x={OFFSET}
@@ -87,6 +88,7 @@ export default function NftScrolls() {
           font={`${CONTENT}/journey.ttf`}
           textSize={TXTSIZE}
           textAlign={TXTALIGN}
+          title="Fall"
           textY={-0.2}
           nft="https://niftygateway.com/itemdetail/primary/0x9c7f4e2de0dbae78f69506bf43fb9327192e7102/3"
         />
