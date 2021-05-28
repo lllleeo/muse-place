@@ -62,7 +62,6 @@ const useGrassMat = (): ShaderMaterial => {
     if (!mat || !limiter.isReady(clock)) return;
 
     mat.uniforms["globalTime"].value = clock.getElapsedTime();
-
     mat.uniforms["color"].value.set(r.get(), g.get(), b.get());
   });
 

@@ -1,8 +1,10 @@
 import { Image } from "spacesvr";
 import { Text } from "@react-three/drei";
+import SocialButton from "../../../../themes/components/SocialButton";
 
 const CONTENT =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/chadknight";
+const FONT = `${CONTENT}/journey.ttf`;
 const INTRO_TOP =
   "As pioneers of the digital arts, Kaskade and Knight are shifting natures constant evolution into the digital domain where it can be immortalized and experienced by all. Each piece will be immune from the decay of time as the artists have reimagined natures cycles into a digital entity, catalyzing an immersive sonic and visual experience.";
 const INTRO_BOT =
@@ -11,17 +13,35 @@ const INTRO_BOT =
 export default function Tableaux() {
   return (
     <group name="tableaux" position={[0, -13, 62]}>
-      <group name="left">
+      <group name="right" rotation-y={-0.525}>
         <Image
           src={`${CONTENT}/kklogo1.jpg`}
           scale={3}
-          position={[4.07, -0.25, -1.01]}
-          rotation-y={-0.525}
+          position={[3, -0.75, -2.9]}
         />
+        <group position={[1.75, 1.3, -2.75]}>
+          <SocialButton link="https://www.instagram.com/chadknight/" />
+          <Text
+            font={FONT}
+            fontSize={0.5}
+            color="black"
+            position={[1.5, -0.05, 0]}
+          >
+            @chadknight
+          </Text>
+          <Text
+            font={FONT}
+            fontSize={0.5}
+            color="black"
+            position={[1.25, -0.4, 0]}
+          >
+            x
+          </Text>
+        </group>
       </group>
-      <group name="right" position={[-2.57, -0.05, -1.15]} rotation-y={0.525}>
+      <group name="left" position={[-2.57, -0.05, -1.15]} rotation-y={0.525}>
         <Text
-          font={`${CONTENT}/journey.ttf`}
+          font={FONT}
           fontSize={0.6}
           color="black"
           position={[-0.25, 1.5, 0]}
@@ -29,7 +49,7 @@ export default function Tableaux() {
           Chad Knight
         </Text>
         <Text
-          font={`${CONTENT}/journey.ttf`}
+          font={FONT}
           fontSize={0.2}
           color="black"
           maxWidth={2.75}
@@ -39,7 +59,7 @@ export default function Tableaux() {
           {INTRO_TOP}
         </Text>
         <Text
-          font={`${CONTENT}/journey.ttf`}
+          font={FONT}
           fontSize={0.2}
           color="black"
           maxWidth={2.75}

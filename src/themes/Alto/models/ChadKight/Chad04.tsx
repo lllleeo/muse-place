@@ -8,9 +8,12 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { useLimiter, useTrimeshCollision } from "spacesvr";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useSeason } from "scenes/Alto/ChadKnight/contexts/Seasons";
 import { useSpring, animated } from "react-spring/three";
+import { WireframeGeometry2 } from "three/examples/jsm/lines/WireframeGeometry2";
+import { LineMaterial } from "three/examples/jsm/lines/LineMaterial";
+import { Wireframe } from "three/examples/jsm/lines/Wireframe";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -38,7 +41,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const terrainMat = useRef<THREE.MeshBasicMaterial>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   const { activeSeason } = useSeason();
-
   const { color } = useSpring({
     color:
       activeSeason === "Winter"
@@ -53,7 +55,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     },
   });
 
+  const { scene } = useThree();
+
   const facesMat = new MeshBasicMaterial({ color: "white", wireframe: true });
+  // const wireframeGeo = new WireframeGeometry2(nodes["face-bottom"].geometry);
+  // const wireframe = new Wireframe(wireframeGeo, new LineMaterial({ color: 0xffffff, linewidth: 5, dashed: false }))
+  // scene.add(wireframe);
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
@@ -73,6 +80,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       <group name="Scene" scale={5}>
         <group name="chad_03glb" position-y={-18.5}>
           <group name="modelTop" ref={top}>
+            {/*{wireframe}*/}
             <mesh
               name="face-top"
               geometry={nodes["face-top"].geometry}

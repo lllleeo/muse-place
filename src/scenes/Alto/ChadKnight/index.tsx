@@ -46,6 +46,7 @@ const ChadKnight = () => {
           opacity={0.1}
           side={THREE.DoubleSide}
           transparent
+          visible={false}
         />
       </mesh>
       <Tableaux />
