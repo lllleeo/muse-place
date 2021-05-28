@@ -102,24 +102,27 @@ const GradientSky = (props: GradientSky) => {
     }
   });
 
-  if (isMobile) {
-    return (
-      <group {...restProps}>
-        <mesh>
-          <sphereBufferGeometry args={[radius, 50, 50]} />
-          <animated.meshBasicMaterial color={mobileSkyColor} />
-        </mesh>
-      </group>
-    );
-  }
-
+  // if (isMobile) {
   return (
     <group {...restProps}>
-      <mesh material={mat}>
+      <mesh>
         <sphereBufferGeometry args={[radius, 50, 50]} />
+        <animated.meshBasicMaterial
+          color={mobileSkyColor}
+          side={THREE.DoubleSide}
+        />
       </mesh>
     </group>
   );
+  // }
+
+  // return (
+  //   <group {...restProps}>
+  //     <mesh material={mat}>
+  //       <sphereBufferGeometry args={[radius, 50, 50]} />
+  //     </mesh>
+  //   </group>
+  // );
 };
 
 export default GradientSky;
