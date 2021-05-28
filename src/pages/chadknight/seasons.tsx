@@ -26,7 +26,7 @@ const LinkTree: NextPage = () => {
         }}
         premium
         simulationProps={{
-          signalHost: "chad-knight.us-west-1.lasticbeanstalk.com:8081",
+          signalHost: "chad-knight.us-west-1.elasticbeanstalk.com",
           signalPort: 443,
           signalPath: "/signal",
           socketServer: "wss://chad-knight.us-west-1.elasticbeanstalk.com:8081",
