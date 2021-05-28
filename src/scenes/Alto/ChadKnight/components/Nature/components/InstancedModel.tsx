@@ -98,22 +98,15 @@ const InstancedModel = (props: InstancedModelProps) => {
     return spots;
   }, [generation, count]);
 
-  // const texMat = meshes[1].material;
-  // meshes[1].material = new MeshBasicMaterial({ color: "blue" });
-  // meshes[1].material = texMat;
-  // (meshes[1].material as MeshBasicMaterial).needsUpdate = true;
-
   const instances = meshes.map((mesh) => (
     <InstancedObject key={mesh.uuid} mesh={mesh} placements={placements} />
   ));
 
-  // const limiter = useLimiter(45)
-  // useFrame(({ clock }) => {
-  //   if (!limiter.isReady(clock)) return;
-  //   instances[1].props.mesh.material.color.setRGB(r.get()*255, g.get()*255, b.get()*255);
-  //   instances[1].props.mesh.material.needsUpdate = true;
-  //   // console.log(instances[1].props.mesh.material.color)
-  // })
+  const limiter = useLimiter(45);
+  useFrame(({ clock }) => {
+    if (!limiter.isReady(clock)) return;
+    instances[1].props.mesh.material.emissive.setRGB(r.get(), g.get(), b.get());
+  });
 
   return <group {...props}>{instances}</group>;
 };

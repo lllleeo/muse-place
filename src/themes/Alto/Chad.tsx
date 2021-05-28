@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import ChadModel from "./models/ChadKight/Chad04";
+import ChadModel from "./models/ChadKight/Chad04b";
 import { AudioAnalyser, Color } from "three";
 import { ScrollData } from "./types/scroll";
 import { Fog } from "spacesvr";
