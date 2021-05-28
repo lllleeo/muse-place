@@ -30,7 +30,7 @@ const ChadKnight = () => {
       <GradientSky radius={200} />
       <Suspense fallback={null}>
         <Preload all />
-        <Grass altCache={true} maxRadius={90} />
+        <Grass maxRadius={90} />
         <NftScrolls />
         <Nature density={1500} shape={treePlacementFunc} />
         <Birds bounds={10} position-y={-5} />
