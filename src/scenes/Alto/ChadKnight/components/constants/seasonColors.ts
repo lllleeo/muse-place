@@ -77,7 +77,7 @@ export const Summer = {
     0.827,
     0.914,
   ],
-  mobileSky: "#1F93FF",
+  mobileSky: "#47A6FF",
   grass: {
     r: 0.282,
     g: 0.588,

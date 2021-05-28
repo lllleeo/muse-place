@@ -59,11 +59,6 @@ export default function Particles(props: {
 
   const { activeSeason } = useSeason();
 
-  // const [seasonChange, setChange] = useState<boolean>(false);
-  // useEffect(() => {
-  //   setChange(!seasonChange);
-  // }, [activeSeason]);
-
   const buffer = useRef();
   const material = useRef();
 

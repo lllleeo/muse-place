@@ -26,6 +26,13 @@ const LinkTree: NextPage = () => {
           },
         }}
         premium
+        simulationProps={{
+          signalHost: "chad-knight.us-west-1.lasticbeanstalk.com:8081",
+          signalPort: 443,
+          signalPath: "/signal",
+          socketServer: "wss://chad-knight.us-west-1.elasticbeanstalk.com:8081",
+          frequency: 25,
+        }}
         scrollData={[]}
       >
         <ChadKnight />
