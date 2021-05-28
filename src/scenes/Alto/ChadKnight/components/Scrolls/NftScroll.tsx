@@ -4,7 +4,7 @@ import { Image, Video } from "spacesvr";
 import { useRef, Suspense, useMemo } from "react";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
-import Nifty from "./Nifty";
+import Nifty from "themes/components/SocialButton/models/Nifty";
 // @ts-ignore
 import { useLimiter, Interactable } from "spacesvr";
 

@@ -17,7 +17,6 @@ const LinkTree: NextPage = () => {
         font={undefined}
         fontSize={0.83}
         socials={["https://www.instagram.com/chadknight/"]}
-        hdri={`${FOLDER}/space.hdr`}
         content={{
           name: "Chad Knight",
           landing: {
