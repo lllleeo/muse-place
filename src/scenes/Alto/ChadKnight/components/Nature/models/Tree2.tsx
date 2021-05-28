@@ -9,31 +9,31 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    leaves: THREE.Mesh;
     trunk: THREE.Mesh;
+    leaves: THREE.Mesh;
   };
   materials: {
-    ["leaves.mat"]: THREE.MeshStandardMaterial;
     ["trunk.mat"]: THREE.MeshStandardMaterial;
+    ["leaves.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/knight_tree.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/tree2.glb") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="leaves"
-          geometry={nodes.leaves.geometry}
-          material={materials["leaves.mat"]}
-          scale={[100, 100, 100]}
-        />
-        <mesh
           name="trunk"
           geometry={nodes.trunk.geometry}
           material={materials["trunk.mat"]}
+          scale={[100, 100, 100]}
+        />
+        <mesh
+          name="leaves"
+          geometry={nodes.leaves.geometry}
+          material={materials["leaves.mat"]}
           scale={[100, 100, 100]}
         />
       </group>
@@ -41,4 +41,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/knight_tree.glb");
+useGLTF.preload("/tree2.glb");

@@ -1,14 +1,11 @@
 import { useGLTF } from "@react-three/drei";
-import {
-  InstancedMesh,
-  Mesh,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-  Object3D,
-  Vector3,
-} from "three";
+import { InstancedMesh, Mesh, Object3D, Vector3 } from "three";
 import { useLayoutEffect, useMemo, useRef } from "react";
-import { GroupProps } from "@react-three/fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
+import { useSeason } from "../../../contexts/Seasons";
+import { useSpring } from "react-spring/three";
+import { Fall, Spring, Summer, Winter } from "../../constants/seasonColors";
+import { useLimiter } from "spacesvr";
 
 const InstancedObject = (
   props: { mesh: Mesh; placements: Object3D[] } & GroupProps
@@ -50,6 +47,36 @@ const InstancedModel = (props: InstancedModelProps) => {
   const { model, count, generation, transform = new Object3D() } = props;
 
   const gltf = useGLTF(model);
+  const { activeSeason } = useSeason();
+  const { r, g, b } = useSpring({
+    r:
+      activeSeason === "Winter"
+        ? Winter.grass.r
+        : activeSeason === "Summer"
+        ? Summer.grass.r
+        : activeSeason === "Spring"
+        ? Spring.grass.r
+        : Fall.grass.r,
+    g:
+      activeSeason === "Winter"
+        ? Winter.grass.g
+        : activeSeason === "Summer"
+        ? Summer.grass.g
+        : activeSeason === "Spring"
+        ? Spring.grass.g
+        : Fall.grass.g,
+    b:
+      activeSeason === "Winter"
+        ? Winter.grass.b
+        : activeSeason === "Summer"
+        ? Summer.grass.b
+        : activeSeason === "Spring"
+        ? Spring.grass.b
+        : Fall.grass.b,
+    config: {
+      mass: 5,
+    },
+  });
 
   const meshes: Mesh[] = useMemo(() => {
     const pic: Mesh[] = [];
@@ -75,11 +102,18 @@ const InstancedModel = (props: InstancedModelProps) => {
   // meshes[1].material = new MeshBasicMaterial({ color: "blue" });
   // meshes[1].material = texMat;
   // (meshes[1].material as MeshBasicMaterial).needsUpdate = true;
-  // console.log(meshes);
 
   const instances = meshes.map((mesh) => (
     <InstancedObject key={mesh.uuid} mesh={mesh} placements={placements} />
   ));
+
+  // const limiter = useLimiter(45)
+  // useFrame(({ clock }) => {
+  //   if (!limiter.isReady(clock)) return;
+  //   instances[1].props.mesh.material.color.setRGB(r.get()*255, g.get()*255, b.get()*255);
+  //   instances[1].props.mesh.material.needsUpdate = true;
+  //   // console.log(instances[1].props.mesh.material.color)
+  // })
 
   return <group {...props}>{instances}</group>;
 };
