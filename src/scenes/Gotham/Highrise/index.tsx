@@ -101,6 +101,11 @@ export default function Highrise() {
         position={[2.49, 1.25, 10.6]}
       >
         <Image src={`${CONTENT_FOLDER}/weeklydrops.png`} framed size={1.75} />
+        <ClickHere
+          position-y={-1.1}
+          color="black"
+          link="https://www.highrisetv.com/hrtv-blog/weekly-drops-episode-3"
+        />
       </group>
       <group
         name="wall-left"
@@ -265,7 +270,7 @@ export default function Highrise() {
         <Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />
         <ClickHere
           position-y={-0.85}
-          link="https://highrisetv.com"
+          link="https://www.highrisetv.com/hrtv-blog"
           color="black"
         />
       </group>
