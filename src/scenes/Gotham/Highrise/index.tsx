@@ -441,22 +441,6 @@ export default function Highrise() {
           src={`${CONTENT_FOLDER}/FCKMTRC1.png`}
         />
       </group>
-      {/*<Image*/}
-      {/*  name="raining-weed"*/}
-      {/*  src={`${CONTENT_FOLDER}/raining-weed.gif`}*/}
-      {/*  framed*/}
-      {/*  size={10}*/}
-      {/*  rotation-y={Math.PI}*/}
-      {/*  position={[-1.4, 1.5, 19]}*/}
-      {/*/>*/}
-      {/*<Image*/}
-      {/*  name="raining-weed-other"*/}
-      {/*  src={`${CONTENT_FOLDER}/raining-weed.gif`}*/}
-      {/*  framed*/}
-      {/*  size={12}*/}
-      {/*  rotation-y={0}*/}
-      {/*  position={[-1.4, 1.5, -12]}*/}
-      {/*/>*/}
     </group>
   );
 }
