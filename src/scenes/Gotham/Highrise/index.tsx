@@ -177,18 +177,28 @@ export default function Highrise() {
         rotation-y={Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/5a.jpg`}
+          src={`${CONTENT_FOLDER}/ontherise.jpg`}
           framed
           position-y={0.8}
           position-x={0.5}
           size={1.8}
         />
+        <ClickHere
+          link="https://www.youtube.com/watch?v=HcxiI8AjE-s"
+          position={[1.25, 0.2, 0.075]}
+          text="Watch Now"
+        />
         <Image
-          src={`${CONTENT_FOLDER}/5b.jpg`}
+          src={`${CONTENT_FOLDER}/waxhotbox.jpg`}
           framed
           position-y={-0.4}
           position-x={0.5}
           size={1.8}
+        />
+        <ClickHere
+          link="https://www.youtube.com/watch?v=gQsrV5gaBYg"
+          position={[1.25, -1, 0.075]}
+          text="Watch Now"
         />
       </group>
       <group
@@ -295,26 +305,16 @@ export default function Highrise() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/ontherise.jpg`}
+          src={`${CONTENT_FOLDER}/4a.jpg`}
           framed
           size={1.5}
           position-y={0.6}
         />
-        <ClickHere
-          link="https://www.youtube.com/watch?v=HcxiI8AjE-s"
-          position={[0.75, 0.1, 0.075]}
-          text="Watch Now"
-        />
         <Image
-          src={`${CONTENT_FOLDER}/waxhotbox.jpg`}
+          src={`${CONTENT_FOLDER}/4b.png`}
           framed
           size={1.5}
           position-y={-0.4}
-        />
-        <ClickHere
-          link="https://www.youtube.com/watch?v=gQsrV5gaBYg"
-          position={[0.75, -0.9, 0.075]}
-          text="Watch Now"
         />
       </group>
       <group
