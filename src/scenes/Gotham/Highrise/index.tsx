@@ -336,23 +336,6 @@ export default function Highrise() {
           position={[-0.75, 0.4, 0]}
         />
         <group position-x={-3.95}>
-          {/* @ts-ignore */}
-          <Text
-            fontSize={0.1}
-            color="black"
-            anchorX="left"
-            position={[-0.75, -0.8, 0]}
-          >
-            Explore:
-          </Text>
-          <Text
-            fontSize={0.1}
-            color="black"
-            anchorX="center"
-            position={[0.35, 1.5, 0]}
-          >
-            A NEW AGE 420 MEDIA AGENCY
-          </Text>
           <Video
             framed
             size={2}
@@ -360,24 +343,43 @@ export default function Highrise() {
             position-y={0.35}
             position-x={0.3}
           />
-          <AnnotatedLink
-            link="https://highrisetv.com"
-            text="Highrise TV"
-            position-y={-0.8}
-            position-x={-0.25}
-          />
-          <AnnotatedLink
-            link="https://www.highrise-agency.com/"
-            text="Highrise Agency"
-            position-y={-0.8}
-            position-x={0.3}
-          />
-          <AnnotatedLink
-            link="https://thehighriseco.shop/"
-            text="Shop"
-            position-y={-0.8}
-            position-x={1}
-          />
+          <group position-x={0.025} name="directory">
+            {/* @ts-ignore */}
+            <Text
+              fontSize={0.1}
+              color="black"
+              anchorX="left"
+              position={[-0.8, -0.8, 0]}
+            >
+              Directory:
+            </Text>
+            <Text
+              fontSize={0.1}
+              color="black"
+              anchorX="center"
+              position={[0.35, 1.5, 0]}
+            >
+              A NEW AGE 420 MEDIA AGENCY
+            </Text>
+            <AnnotatedLink
+              link="https://highrisetv.com"
+              text="HIGHRISE TV"
+              position-y={-0.8}
+              position-x={-0.25}
+            />
+            <AnnotatedLink
+              link="https://www.highrise-agency.com/"
+              text="HIGHRISE AGENCY"
+              position-y={-0.8}
+              position-x={0.325}
+            />
+            <AnnotatedLink
+              link="https://thehighriseco.shop/"
+              text="SHOP"
+              position-y={-0.8}
+              position-x={1.075}
+            />
+          </group>
         </group>
         <Image
           src={`${CONTENT_FOLDER}/10.jpg`}
