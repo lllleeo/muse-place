@@ -64,8 +64,6 @@ function ClickHere(
   );
 }
 
-const handleHRTVLink = () => window.open("https://highrisetv.com", "_blank");
-
 export default function Highrise() {
   const weedShapeFunc = (x: number, y: number, z: number) => {
     const x_gen = x * 13 - 8;
