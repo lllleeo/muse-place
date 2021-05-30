@@ -66,11 +66,11 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socialLinks}
         audio="https://d27rt3a60hh1lx.cloudfront.net/audio/kmb-unity.mp3"
         simulationProps={{
-          signalHost: "alto.us-west-1.elasticbeanstalk.com",
+          signalHost: "live.muse.place",
           signalPort: 443,
           signalPath: "/signal",
-          socketServer: "wss://alto.us-west-1.elasticbeanstalk.com:8081",
-          frequency: 25,
+          socketServer: "wss://live.muse.place:8081",
+          frequency: 40,
         }}
       />
     </>
