@@ -323,19 +323,19 @@ export default function Highrise() {
         rotation-y={Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/9.jpg`}
+          src={`${CONTENT_FOLDER}/9.png`}
           framed
           size={1.75}
           position={[3.25, 0.4, 0]}
         />
         <Image
-          src={`${CONTENT_FOLDER}/8.jpg`}
+          src={`${CONTENT_FOLDER}/8.png`}
           framed
           size={1.75}
           position={[1.25, 0.4, 0]}
         />
         <Image
-          src={`${CONTENT_FOLDER}/7.jpeg`}
+          src={`${CONTENT_FOLDER}/7.png`}
           framed
           size={1.75}
           position={[-0.75, 0.4, 0]}
@@ -387,7 +387,7 @@ export default function Highrise() {
           </group>
         </group>
         <Image
-          src={`${CONTENT_FOLDER}/10.jpg`}
+          src={`${CONTENT_FOLDER}/10.png`}
           framed
           size={1.75}
           position={[-10.5, 0.4, 0]}
