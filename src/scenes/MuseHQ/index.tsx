@@ -28,13 +28,6 @@ export default function MuseHQ() {
         dpr: 1,
         gl: { antialias: false },
       }}
-      simulationProps={{
-        signalHost: "musehq.us-west-1.elasticbeanstalk.com",
-        signalPort: 443,
-        signalPath: "/signal",
-        socketServer: "wss://musehq.us-west-1.elasticbeanstalk.com",
-        frequency: 25,
-      }}
     >
       <IdentityLayer>
         <InfinitePlane height={6} />
