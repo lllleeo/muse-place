@@ -222,34 +222,29 @@ export default function Highrise() {
           Social Media:
         </Text>
         <AnnotatedLink
-          link="https://www.instagram.com/highriseagency/"
-          text="@HIGHRISEAGENCY"
-          position={[-0.3, -0.1, 0]}
-        />
-        <AnnotatedLink
           link="https://www.instagram.com/highrisetv"
           text="@HIGHRISETV"
-          position={[-0.3, -0.3, 0]}
+          position={[-0.3, -0.1, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/thehighriseco"
           text="@THEHIGHRISECO"
-          position={[-0.3, -0.5, 0]}
+          position={[-0.3, -0.3, 0]}
         />
         <AnnotatedLink
           link="https://www.instagram.com/2girls.1bong/"
           text="@2GIRLS.1BONG"
-          position={[-0.3, -0.7, 0]}
+          position={[-0.3, -0.5, 0]}
         />
         <AnnotatedLink
           link="https://www.youtube.com/user/TheHighRiseCo"
           text="  HRTV YOUTUBE"
-          position={[-0.32, -0.9, 0.05]}
+          position={[-0.32, -0.7, 0.05]}
         />
         <AnnotatedLink
           link="https://www.youtube.com/channel/UCvV3rzgG0Pd96Hdy-bYZH8A"
           text="  HRAGENCY YOUTUBE"
-          position={[-0.32, -1.1, 0.05]}
+          position={[-0.32, -0.9, 0.05]}
         />
       </group>
       <group
