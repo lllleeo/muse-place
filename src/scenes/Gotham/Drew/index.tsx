@@ -1,9 +1,12 @@
 import { Image, Interactable, Video } from "spacesvr";
 import { Text } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import SocialButton from "themes/components/SocialButton";
+import CrazyMaterial from "themes/Gotham/shaders/crazy";
 import Palm from "./models/Palmtree";
 import { MeshBasicMaterial } from "three";
+import { useMemo } from "react";
+import LavaCeiling from "./components/LavaCeiling";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/drew";
@@ -62,8 +65,17 @@ function ClickHere(
 }
 
 export default function Drew() {
+  const crazyMaterial = useMemo(() => new CrazyMaterial(), []);
+  useFrame(({ clock }, delta) => {
+    if (crazyMaterial) {
+      // @ts-ignore
+      crazyMaterial.time += delta / 3;
+    }
+  });
+
   return (
     <group>
+      {/*<LavaCeiling crazyMaterial={crazyMaterial} />*/}
       <group
         position={[-3.5, 0, 4.14]}
         rotation={[-Math.PI / 2, 0, -Math.PI / 2]}

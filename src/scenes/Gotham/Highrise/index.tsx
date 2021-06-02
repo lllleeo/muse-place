@@ -1,11 +1,11 @@
 import { Image, Video, Interactable } from "spacesvr";
-import SocialButton from "../../../themes/components/SocialButton";
+import SocialButton from "themes/components/SocialButton";
 import { GroupProps, useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import Nature from "./components/Nature";
 import { MeshStandardMaterial, Vector3 } from "three";
 import { useMemo } from "react";
-import CrazyMaterial from "../../../themes/Gotham/shaders/crazy";
+import CrazyMaterial from "themes/Gotham/shaders/crazy";
 import LavaCeiling from "./components/LavaCeiling";
 
 const CONTENT_FOLDER =
