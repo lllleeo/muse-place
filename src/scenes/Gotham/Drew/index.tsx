@@ -63,6 +63,13 @@ export default function Drew() {
   return (
     <group>
       <group
+        position={[0.5, 0, 4.14]}
+        rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+        name="rug"
+      >
+        <Image src={`${CONTENT_FOLDER}/panther+sticker_rug.png`} size={2.5} />
+      </group>
+      <group
         name="wall-right"
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, 10.6]}
@@ -79,7 +86,8 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, -2.35]}
       >
-        <Image src={`${CONTENT_FOLDER}/fgo.png`} framed size={1.75} />
+        <Text>Back Wall Left</Text>
+        {/*<Image src={`${CONTENT_FOLDER}/fgo.png`} framed size={1.75} />*/}
       </group>
       <group
         name="wall-top"
@@ -87,28 +95,23 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/hentai.png`}
+          src={`${CONTENT_FOLDER}/Hentai.png`}
           framed
           size={1.2}
-          position-x={-2.0}
+          position-x={-1.0}
           position-y={0.6}
         />
         <group name="connect" position={[-2.65, 0.1, 0]}>
           {/* @ts-ignore */}
-          <Text
-            fontSize={0.1}
-            color="black"
-            anchorX="left"
-            position={[0.1, -0.225, 0]}
-          >
-            Wall Top
+          <Text fontSize={0.1} anchorX="left" color="white">
+            Back Wall Mid Left
           </Text>
         </group>
         <group name="sponsors">
           <Image
             src={`${CONTENT_FOLDER}/homer+sticker.png`}
             framed
-            size={3.5}
+            size={2}
             position-x={0.8}
             position-y={0.3}
           />
@@ -149,39 +152,52 @@ export default function Drew() {
         position={[-1.39, 1.25, 4.1]}
         rotation-y={Math.PI / 2}
       >
-        {/* @ts-ignore */}
+        <Text>Center Middle Wall Back</Text>
+        @ts-ignore
         <Image
-          src={`${CONTENT_FOLDER}/main+wall+1.jpg`}
-          position={[0.05, 0.7, 0]}
+          src={`${CONTENT_FOLDER}/surf+pic+5.jpg`}
+          position={[0.5, -0.5, 0]}
+          framed
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+6.jpg`}
+          position={[0, 0.55, 0]}
+          framed
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+7.jpg`}
+          position={[-0.5, -0.5, 0]}
           framed
         />
       </group>
       <group
         name="wall-top-right"
-        position={[-1.39, 1.07, 8.1]}
+        position={[-1.39, 1.25, 8.1]}
         rotation-y={Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
-          framed
-          size={1.1}
-          position-y={0.8}
-          position-x={-0.2}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/main+wall+3.jpg`}
-          framed
-          size={1.1}
-          position-y={-0.4}
-          position-x={0.2}
-        />
+        <Text>Right Middle Wall Back</Text>
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/main+wall+2.jpg`}*/}
+        {/*  framed*/}
+        {/*  size={1.1}*/}
+        {/*  position-y={0.8}*/}
+        {/*  position-x={-0.2}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/main+wall+3.jpg`}*/}
+        {/*  framed*/}
+        {/*  size={1.1}*/}
+        {/*  position-y={-0.4}*/}
+        {/*  position-x={0.2}*/}
+        {/*/>*/}
       </group>
       <group
         name="wall-bottom-left"
-        position={[-1.63, 1.07, 0.15]}
+        position={[-1.63, 1.25, 0.15]}
         rotation-y={-Math.PI / 2}
       >
-        <Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />
+        <Text>Left Middle Wall Front</Text>
+        {/*<Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />*/}
         <ClickHere
           position-y={-0.85}
           link="https://www.highrisetv.com/hrtv-blog"
@@ -190,91 +206,110 @@ export default function Drew() {
       </group>
       <group
         name="wall-bottom-middle"
-        position={[-1.63, 1.07, 4.125]}
+        position={[-1.63, 1.25, 4.125]}
         rotation-y={-Math.PI / 2}
       >
-        <Text position-y={0.6} color="black">
-          2021 AGENCY DECK
-        </Text>
-        <Image src={`${CONTENT_FOLDER}/3.jpg`} framed size={1.7} />
-        <ClickHere
-          position-y={-0.7}
-          link="https://www.dropbox.com/s/b9xrt379ocwc1n7/HRmarketing2021%20%28dragged%29.pdf?dl=0"
-          color="black"
+        <Text>Center Middle Wall Front</Text>
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}
+          position={[0.6, 0.35, 0]}
+          framed
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+2.jpg`}
+          position={[0.6, -0.65, 0]}
+          framed
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}
+          position={[-0.5, -0.75, 0]}
+          framed
+          size={1}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}
+          position={[-0.5, 0.25, 0]}
+          framed
+          size={1}
         />
       </group>
       <group
         name="wall-bottom-right"
-        position={[-1.63, 1.07, 8.1]}
+        position={[-1.63, 1.25, 8.1]}
         rotation-y={-Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/4a.jpg`}
-          framed
-          size={1.5}
-          position-y={0.6}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/4b.png`}
-          framed
-          size={1.5}
-          position-y={-0.4}
-        />
+        <Text>Right Middle Wall Front</Text>
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/4a.jpg`}*/}
+        {/*  framed*/}
+        {/*  size={1.5}*/}
+        {/*  position-y={0.6}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/4b.png`}*/}
+        {/*  framed*/}
+        {/*  size={1.5}*/}
+        {/*  position-y={-0.4}*/}
+        {/*/>*/}
       </group>
       <group
         name="wall-bottom"
         position={[-5.47, 0.95, 0.6]}
         rotation-y={Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/9.png`}
-          framed
-          size={1.75}
-          position={[3.25, 0.4, 0]}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/8.png`}
-          framed
-          size={1.75}
-          position={[1.25, 0.4, 0]}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/7.png`}
-          framed
-          size={1.75}
-          position={[-0.75, 0.4, 0]}
-        />
+        <Text>Front Wall Right</Text>
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/9.png`}*/}
+        {/*  framed*/}
+        {/*  size={1.75}*/}
+        {/*  position={[3.25, 0.4, 0]}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/8.png`}*/}
+        {/*  framed*/}
+        {/*  size={1.75}*/}
+        {/*  position={[1.25, 0.4, 0]}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/7.png`}*/}
+        {/*  framed*/}
+        {/*  size={1.75}*/}
+        {/*  position={[-0.75, 0.4, 0]}*/}
+        {/*/>*/}
         <group position-x={-3.95}>
-          {/* @ts-ignore */}
-          <Text
-            fontSize={0.1}
-            color="black"
-            anchorX="left"
-            position={[0, 0, 0]}
-          >
-            Front Wall
-          </Text>
+          <Text>Front Wall Middle</Text>
+          {/*  /!* @ts-ignore *!/*/}
+          {/*  <Text*/}
+          {/*    fontSize={0.1}*/}
+          {/*    color="black"*/}
+          {/*    anchorX="left"*/}
+          {/*    position={[0, 0, 0]}*/}
+          {/*  >*/}
+          {/*    Front Wall*/}
+          {/*  </Text>*/}
         </group>
-        <Image
-          src={`${CONTENT_FOLDER}/10.png`}
-          framed
-          size={1.75}
-          position={[-10.5, 0.4, 0]}
-        />
-        <Image
-          framed
-          src={`${CONTENT_FOLDER}/11.jpg`}
-          size={1.75}
-          position-x={-8.5}
-          position-y={0.4}
-        />
-        <Image
-          framed
-          src={`${CONTENT_FOLDER}/12.jpg`}
-          size={1.75}
-          position-x={-6.5}
-          position-y={0.4}
-        />
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/10.png`}*/}
+        {/*  framed*/}
+        {/*  size={1.75}*/}
+        {/*  position={[-10.5, 0.4, 0]}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  framed*/}
+        {/*  src={`${CONTENT_FOLDER}/11.jpg`}*/}
+        {/*  size={1.75}*/}
+        {/*  position-x={-8.5}*/}
+        {/*  position-y={0.4}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  framed*/}
+        {/*  src={`${CONTENT_FOLDER}/12.jpg`}*/}
+        {/*  size={1.75}*/}
+        {/*  position-x={-6.5}*/}
+        {/*  position-y={0.4}*/}
+        {/*/>*/}
       </group>
     </group>
   );
