@@ -104,8 +104,8 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, 10.6]}
       >
-        <Text>Back Wall Right</Text>
-        <Image src={`${CONTENT_FOLDER}/bugs+bunny.png`} framed size={1.75} />
+        {/*<Text>Back Wall Right</Text>*/}
+        {/*<Image src={`${CONTENT_FOLDER}/bugs+bunny.png`} framed size={1.75} />*/}
         {/*<ClickHere*/}
         {/*  position-y={-1.1}*/}
         {/*  color="black"*/}
@@ -149,16 +149,16 @@ export default function Drew() {
         </group>
       </group>
       <group
-        name="wall-top-left"
+        name="left-middle-wall-back"
         position={[-1.39, 1.07, 0.62]}
         rotation-y={Math.PI / 2}
       >
         <Image
           src={`${CONTENT_FOLDER}/homer.png`}
           framed
-          position-y={0.8}
-          position-x={0.5}
-          size={1.8}
+          position-x={-0.1}
+          position-y={0.15}
+          size={1.25}
         />
         {/*<ClickHere*/}
         {/*  link="https://www.youtube.com/watch?v=HcxiI8AjE-s"*/}
@@ -166,11 +166,11 @@ export default function Drew() {
         {/*  text="Watch Now"*/}
         {/*/>*/}
         <Image
-          src={`${CONTENT_FOLDER}/king+boo+sticker.png`}
+          src={`${CONTENT_FOLDER}/spongebob.png`}
           framed
-          position-y={-0.4}
-          position-x={0.5}
-          size={1.8}
+          position-x={1.05}
+          position-y={0.15}
+          size={1.25}
         />
         {/*<ClickHere*/}
         {/*  link="https://www.youtube.com/watch?v=gQsrV5gaBYg"*/}
@@ -179,7 +179,7 @@ export default function Drew() {
         {/*/>*/}
       </group>
       <group
-        name="center-wall-middle-back"
+        name="center-middle-wall-back"
         position={[-1.39, 1.25, 4.1]}
         rotation-y={Math.PI / 2}
       >
@@ -204,38 +204,46 @@ export default function Drew() {
         />
       </group>
       <group
-        name="wall-top-right"
-        position={[-1.39, 1.25, 8.1]}
+        name="right-middle-wall-back"
+        position={[-1.39, 1.25, 8.6]}
         rotation-y={Math.PI / 2}
       >
-        <Text>Right Middle Wall Back</Text>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/main+wall+2.jpg`}*/}
-        {/*  framed*/}
-        {/*  size={1.1}*/}
-        {/*  position-y={0.8}*/}
-        {/*  position-x={-0.2}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/main+wall+3.jpg`}*/}
-        {/*  framed*/}
-        {/*  size={1.1}*/}
-        {/*  position-y={-0.4}*/}
-        {/*  position-x={0.2}*/}
-        {/*/>*/}
+        {/*<Text>Right Middle Wall Back</Text>*/}
+        <Image
+          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
+          framed
+          size={1.25}
+          position-x={-0.1}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/main+wall+3.jpg`}
+          framed
+          size={1.25}
+          position-x={1.05}
+        />
       </group>
       <group
-        name="wall-bottom-left"
-        position={[-1.63, 1.25, 0.15]}
+        name="left-middle-wall-front"
+        position={[-1.63, 1.25, -0.35]}
         rotation-y={-Math.PI / 2}
       >
-        <Text>Left Middle Wall Front</Text>
-        {/*<Image src={`${CONTENT_FOLDER}/1.jpg`} framed size={1.5} />*/}
-        <ClickHere
-          position-y={-0.85}
-          link="https://www.highrisetv.com/hrtv-blog"
-          color="black"
+        <Image
+          src={`${CONTENT_FOLDER}/squirtle.png`}
+          framed
+          position-x={-0.1}
+          size={1.25}
         />
+        <Image
+          src={`${CONTENT_FOLDER}/richie+rich.png`}
+          framed
+          position-x={1.05}
+          size={1.25}
+        />
+        {/*<ClickHere*/}
+        {/*  position-y={-0.85}*/}
+        {/*  link="https://www.highrisetv.com/hrtv-blog"*/}
+        {/*  color="black"*/}
+        {/*/>*/}
       </group>
       <group
         name="center-wall-middle-front"
@@ -271,23 +279,22 @@ export default function Drew() {
         />
       </group>
       <group
-        name="wall-bottom-right"
-        position={[-1.63, 1.25, 8.1]}
+        name="right-middle-wall-front"
+        position={[-1.63, 1.25, 7.65]}
         rotation-y={-Math.PI / 2}
       >
-        <Text>Right Middle Wall Front</Text>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/4a.jpg`}*/}
-        {/*  framed*/}
-        {/*  size={1.5}*/}
-        {/*  position-y={0.6}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/4b.png`}*/}
-        {/*  framed*/}
-        {/*  size={1.5}*/}
-        {/*  position-y={-0.4}*/}
-        {/*/>*/}
+        <Image
+          src={`${CONTENT_FOLDER}/nft+highrise.png`}
+          framed
+          size={1.25}
+          position-x={1.05}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/wallpaper.png`}
+          framed
+          size={1.25}
+          position-x={-0.1}
+        />
       </group>
       <group
         name="wall-bottom"
