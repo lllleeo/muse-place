@@ -1,7 +1,9 @@
 import { Image, Interactable, Video } from "spacesvr";
 import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
-import SocialButton from "../../../themes/components/SocialButton";
+import SocialButton from "themes/components/SocialButton";
+import Palm from "./models/Palmtree";
+import { MeshBasicMaterial } from "three";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/drew";
@@ -63,17 +65,34 @@ export default function Drew() {
   return (
     <group>
       <group
-        position={[0.5, 0, 4.14]}
-        rotation={[-Math.PI / 2, 0, Math.PI / 2]}
-        name="rug"
+        position={[-3.5, 0, 4.14]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        name="rugs"
       >
         <Image src={`${CONTENT_FOLDER}/panther+sticker_rug.png`} size={2.5} />
+        <Image
+          src={`${CONTENT_FOLDER}/panther+sticker_rug.png`}
+          position-x={4}
+          size={2.5}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/panther+sticker_rug.png`}
+          position-x={-4}
+          size={2.5}
+        />
+      </group>
+      <group name="palmTrees">
+        <Palm position={[1.5, 0, -4]} name="palm1" />
+        <Palm position={[-4.5, 0, -4]} name="palm1" />
+        <Palm position={[-4.5, 0, 10.5]} name="palm1" />
+        <Palm position={[1.5, 0, 10.5]} name="palm1" />
       </group>
       <group
-        name="wall-right"
+        name="back-wall-right"
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, 10.6]}
       >
+        <Text>Back Wall Right</Text>
         <Image src={`${CONTENT_FOLDER}/bugs+bunny.png`} framed size={1.75} />
         {/*<ClickHere*/}
         {/*  position-y={-1.1}*/}
@@ -82,7 +101,7 @@ export default function Drew() {
         {/*/>*/}
       </group>
       <group
-        name="wall-left"
+        name="back-wall-left"
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, -2.35]}
       >
@@ -90,7 +109,7 @@ export default function Drew() {
         {/*<Image src={`${CONTENT_FOLDER}/fgo.png`} framed size={1.75} />*/}
       </group>
       <group
-        name="wall-top"
+        name="back-wall"
         position={[2.49, 1.07, 4]}
         rotation-y={-Math.PI / 2}
       >
@@ -148,11 +167,13 @@ export default function Drew() {
         {/*/>*/}
       </group>
       <group
-        name="wall-top-middle"
+        name="center-wall-middle-back"
         position={[-1.39, 1.25, 4.1]}
         rotation-y={Math.PI / 2}
       >
-        <Text>Center Middle Wall Back</Text>
+        <Text material={new MeshBasicMaterial({ visible: false })}>
+          Center Middle Wall Front
+        </Text>
         @ts-ignore
         <Image
           src={`${CONTENT_FOLDER}/surf+pic+5.jpg`}
@@ -205,11 +226,13 @@ export default function Drew() {
         />
       </group>
       <group
-        name="wall-bottom-middle"
+        name="center-wall-middle-front"
         position={[-1.63, 1.25, 4.125]}
         rotation-y={-Math.PI / 2}
       >
-        <Text>Center Middle Wall Front</Text>
+        <Text material={new MeshBasicMaterial({ visible: false })}>
+          Center Middle Wall Front
+        </Text>
         <Image
           src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}
           position={[0.6, 0.35, 0]}
