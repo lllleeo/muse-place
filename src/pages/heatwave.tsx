@@ -3,7 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const Drew = dynamic(import("scenes/Gotham/Drew"), { ssr: false });
+const Heatwave = dynamic(import("scenes/Gotham/Drew"), { ssr: false });
 
 const ARTIST = {
   name: "",
@@ -24,7 +24,7 @@ const LinkTree: NextPage = () => {
         name={ARTIST.name}
         night
       >
-        <Drew />
+        <Heatwave />
       </Gotham>
     </>
   );
