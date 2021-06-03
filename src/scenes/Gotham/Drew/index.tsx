@@ -334,23 +334,23 @@ export default function Drew() {
         />
         <PngImage
           src={`${CONTENT_FOLDER}/collage+1.png`}
-          size={1.1}
-          position={[-9.15, -0.25, 0]}
+          size={1.3}
+          position={[-9.1, -0.5, 0]}
         />
         <PngImage
           src={`${CONTENT_FOLDER}/collage+2.png`}
-          size={1.1}
-          position={[-9.15, 0.96, 0]}
+          size={1.3}
+          position={[-9.1, 1.19, 0]}
         />
         <PngImage
           src={`${CONTENT_FOLDER}/collage+3.png`}
-          size={1.1}
-          position={[-10.225, -0.25, 0]}
+          size={1.5}
+          position={[-10.815, -0.775, 0]}
         />
         <PngImage
           src={`${CONTENT_FOLDER}/collage+4.png`}
-          size={1.1}
-          position={[-10.225, 0.96, 0]}
+          size={1.5}
+          position={[-10.815, 1.475, 0]}
         />
         <group position-x={-3.95} name="front-wall-middle">
           {/*  /!* @ts-ignore *!/*/}
