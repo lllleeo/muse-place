@@ -14,7 +14,7 @@ export default function VisualInteraction(
 ) {
   const { text, decisions, enabled, input, children } = props;
 
-  const { setIndex } = useContext(DialogueContext);
+  const { setKey } = useContext(DialogueContext);
 
   const textStyles: Partial<typeof Text.defaultProps> = {
     font: FONT_FILE,
@@ -35,10 +35,11 @@ export default function VisualInteraction(
       </Text>
       {input && (
         <TextInput
-          value={input[0]}
-          setValue={input[1]}
+          value={input.value}
+          setValue={input.setValue}
           position-y={-0.05}
           enabled={enabled}
+          inputType={input.type}
         />
       )}
       {decisions && (
@@ -47,7 +48,7 @@ export default function VisualInteraction(
             const perc =
               decisions.length === 1 ? 0 : i / (decisions.length - 1);
             const width = decision.name.length * 0.28 + 0.25;
-            const posY = -perc * 0.125;
+            const posY = -perc * (decisions.length === 3 ? 0.225 : 0.125);
 
             const idea = new Idea();
             idea.setFromDecision(decision);
@@ -56,7 +57,11 @@ export default function VisualInteraction(
               <FacePlayer key={`${decision.name}-${i}`}>
                 <Button
                   width={width}
-                  onClick={() => decision.action(setIndex)}
+                  onClick={
+                    decision.nextKey
+                      ? () => setKey(decision.nextKey || "")
+                      : undefined
+                  }
                   position-z={0.15}
                   position-y={posY}
                   idea={idea}

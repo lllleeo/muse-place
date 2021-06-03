@@ -20,12 +20,7 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
     <group name={`annotatedlink-${link}`} {...restProps}>
       <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
       {/* @ts-ignore */}
-      <Text
-        position-x={SCALE * 0.3}
-        fontSize={0.06}
-        anchorX="left"
-        color="black"
-      >
+      <Text position-x={SCALE * 0.3} fontSize={0.06} anchorX="left" color="red">
         {text}
       </Text>
     </group>
@@ -35,7 +30,7 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
 function ClickHere(
   props: { link: string; text?: string; color?: string } & GroupProps
 ) {
-  const { link, text = "Click Here", color = "red", ...restProps } = props;
+  const { link, text = "CLICK HERE", color = "red", ...restProps } = props;
 
   return (
     <group {...restProps}>
@@ -100,10 +95,22 @@ export default function Highrise() {
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, 10.6]}
       >
-        <Image src={`${CONTENT_FOLDER}/weeklydrops.png`} framed size={1.75} />
+        <Image
+          src={`${CONTENT_FOLDER}/weeklydrops.png`}
+          size={1.0}
+          position-x={0.0}
+          position-y={0.75}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/weeklydropsscreenshot.jpg`}
+          framed
+          size={2.0}
+          position-x={0.0}
+          position-y={-0.375}
+        />
         <ClickHere
           position-y={-1.1}
-          color="black"
+          color="red"
           link="https://www.highrisetv.com/hrtv-blog/weekly-drops-episode-3"
         />
       </group>
@@ -134,7 +141,7 @@ export default function Highrise() {
             anchorX="left"
             position={[0.1, -0.225, 0]}
           >
-            Directory:
+            DIRECTORY:
           </Text>
           <AnnotatedLink
             link="https://www.highrisetv.com/"
@@ -186,7 +193,8 @@ export default function Highrise() {
         <ClickHere
           link="https://www.youtube.com/watch?v=HcxiI8AjE-s"
           position={[1.25, 0.2, 0.075]}
-          text="Watch Now"
+          color="red"
+          text="WATCH NOW"
         />
         <Image
           src={`${CONTENT_FOLDER}/waxhotbox.jpg`}
@@ -198,7 +206,8 @@ export default function Highrise() {
         <ClickHere
           link="https://www.youtube.com/watch?v=gQsrV5gaBYg"
           position={[1.25, -1, 0.075]}
-          text="Watch Now"
+          text="WATCH NOW"
+          color="red"
         />
       </group>
       <group
@@ -219,7 +228,7 @@ export default function Highrise() {
           maxWidth={1.225}
           anchorY="top"
         >
-          Social Media:
+          SOCIAL MEDIA:
         </Text>
         <AnnotatedLink
           link="https://www.instagram.com/highrisetv"
@@ -276,7 +285,7 @@ export default function Highrise() {
         <ClickHere
           position-y={-0.85}
           link="https://www.highrisetv.com/hrtv-blog"
-          color="black"
+          color="red"
         />
       </group>
       <group
@@ -291,7 +300,7 @@ export default function Highrise() {
         <ClickHere
           position-y={-0.7}
           link="https://www.dropbox.com/s/b9xrt379ocwc1n7/HRmarketing2021%20%28dragged%29.pdf?dl=0"
-          color="black"
+          color="red"
         />
       </group>
       <group
@@ -300,16 +309,18 @@ export default function Highrise() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/4a.jpg`}
+          src={`${CONTENT_FOLDER}/events1.jpg`}
           framed
-          size={1.5}
-          position-y={0.6}
+          size={1.8}
+          position-x={-0.6}
+          position-y={0.4}
         />
         <Image
-          src={`${CONTENT_FOLDER}/4b.png`}
+          src={`${CONTENT_FOLDER}/events2.jpg`}
           framed
-          size={1.5}
-          position-y={-0.4}
+          size={1.8}
+          position-x={0.6}
+          position-y={0.4}
         />
       </group>
       <group
@@ -320,20 +331,14 @@ export default function Highrise() {
         <Image
           src={`${CONTENT_FOLDER}/9.png`}
           framed
-          size={1.75}
-          position={[3.25, 0.4, 0]}
+          size={2.75}
+          position={[2.75, 0.4, 0]}
         />
         <Image
           src={`${CONTENT_FOLDER}/8.png`}
           framed
-          size={1.75}
-          position={[1.25, 0.4, 0]}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/7.png`}
-          framed
-          size={1.75}
-          position={[-0.75, 0.4, 0]}
+          size={2.75}
+          position={[-0.5, 0.4, 0]}
         />
         <group position-x={-3.95}>
           <Video
@@ -349,9 +354,9 @@ export default function Highrise() {
               fontSize={0.1}
               color="black"
               anchorX="left"
-              position={[-0.8, -0.8, 0]}
+              position={[-1.0, -0.8, 0]}
             >
-              Directory:
+              DIRECTORY:
             </Text>
             <Text
               fontSize={0.1}
@@ -384,20 +389,13 @@ export default function Highrise() {
         <Image
           src={`${CONTENT_FOLDER}/10.png`}
           framed
-          size={1.75}
-          position={[-10.5, 0.4, 0]}
+          size={2.75}
+          position={[-9.5, 0.4, 0]}
         />
         <Image
           framed
-          src={`${CONTENT_FOLDER}/11.jpg`}
-          size={1.75}
-          position-x={-8.5}
-          position-y={0.4}
-        />
-        <Image
-          framed
-          src={`${CONTENT_FOLDER}/12.jpg`}
-          size={1.75}
+          src={`${CONTENT_FOLDER}/7.png`}
+          size={2.75}
           position-x={-6.5}
           position-y={0.4}
         />
