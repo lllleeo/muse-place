@@ -22,6 +22,12 @@ const LinkTree: NextPage = () => {
         artwork={[]}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        environmentProps={{
+          playerProps: {
+            pos: [1.26, 1, -2],
+            rot: Math.PI - 0.4,
+          },
+        }}
         night
       >
         <Heatwave />
