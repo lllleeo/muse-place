@@ -102,8 +102,8 @@ export default function Drew() {
     <group>
       {/*<LavaCeiling crazyMaterial={crazyMaterial} />*/}
       <group
-        position={[-3.5, 0, 4.14]}
-        rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+        position={[-3, 0, 4.14]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
         name="rugs"
       >
         <PngImage src={`${CONTENT_FOLDER}/panther+sticker_rug.png`} size={2} />
@@ -138,37 +138,51 @@ export default function Drew() {
         {/*/>*/}
       </group>
       <group
-        name="back-wall-left"
-        rotation-y={-Math.PI / 2}
-        position={[2.49, 1.25, -2.35]}
-      >
-        <Text>Back Wall Left</Text>
-        {/*<Image src={`${CONTENT_FOLDER}/fgo.png`} framed size={1.75} />*/}
-      </group>
-      <group
         name="back-wall"
         position={[2.49, 1.07, 4]}
         rotation-y={-Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/Hentai.png`}
-          framed
-          size={1.2}
-          position-x={-1.0}
-          position-y={0.6}
-        />
-        <group name="connect" position={[-2.65, 0.1, 0]}>
-          {/* @ts-ignore */}
-          <Text fontSize={0.1} anchorX="left" color="white">
-            Back Wall Mid Left
-          </Text>
-        </group>
         <group name="sponsors">
           <Image
-            src={`${CONTENT_FOLDER}/homer+sticker.png`}
+            src={`${CONTENT_FOLDER}/Garden+Saint+Night+Out_Glassy.png`}
             framed
             size={2}
-            position-x={0.8}
+            position-x={-6.25}
+            position-y={0.3}
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/Immovable-Saint-ap2b.png`}
+            framed
+            size={2}
+            position-x={0.95}
+            position-y={0.3}
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/Saint+of+Hallways+copy.png`}
+            framed
+            size={2}
+            position-x={-2}
+            position-y={0.3}
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/Saint+of+Rocky+Bluffs_Glassy.png`}
+            framed
+            size={2}
+            position-x={6.5}
+            position-y={0.3}
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/Saint+of+Travel_Glassy.png`}
+            framed
+            size={2}
+            position-x={2.35}
+            position-y={0.3}
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/Saint+Transformation_signed.png`}
+            framed
+            size={2}
+            position-x={-0.4}
             position-y={0.3}
           />
         </group>
