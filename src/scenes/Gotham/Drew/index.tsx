@@ -100,7 +100,7 @@ export default function Drew() {
 
   return (
     <group>
-      <LavaCeiling crazyMaterial={crazyMaterial} position-y={-0.05} />
+      {/*<LavaCeiling crazyMaterial={crazyMaterial} position-y={-0.05} />*/}
       <group
         position={[-3, 0, 4.14]}
         rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
@@ -189,35 +189,36 @@ export default function Drew() {
       </group>
       <group
         name="left-middle-wall-back"
-        position={[-1.39, 1.07, 0.62]}
+        position={[-1.39, 1.07, 0.75]}
         rotation-y={Math.PI / 2}
       >
-        <PngImage
-          src={`${CONTENT_FOLDER}/king+boo+sticker.png`}
-          position-x={0}
-          position-y={0.75}
-          size={1.25}
+        <Image
+          src={`${CONTENT_FOLDER}/collage+1.png`}
+          position-x={0.1}
+          position-y={0.825}
+          size={1.1}
+          framed
         />
-        <PngImage
-          src={`${CONTENT_FOLDER}/homer+sticker.png`}
-          position-x={1.15}
-          position-y={-0.5}
-          position-z={0.01}
-          size={1.25}
+        <Image
+          src={`${CONTENT_FOLDER}/collage+2.png`}
+          position-x={1.125}
+          position-y={-0.45}
+          size={1.1}
+          framed
         />
-        <PngImage
-          src={`${CONTENT_FOLDER}/marvin+sticker.png`}
-          position-x={0}
-          position-y={-0.35}
-          position-z={0.05}
-          size={1.15}
+        <Image
+          src={`${CONTENT_FOLDER}/collage+3.png`}
+          position-x={-0.025}
+          position-y={-0.45}
+          size={1.1}
+          framed
         />
-        <PngImage
-          src={`${CONTENT_FOLDER}/pikachu+sticker.png`}
-          position-x={1.15}
-          position-y={0.75}
-          // position-z={-0.00025}
-          size={1.25}
+        <Image
+          src={`${CONTENT_FOLDER}/collage+4.png`}
+          position-x={1.25}
+          position-y={0.825}
+          size={1.1}
+          framed
         />
       </group>
       <group
@@ -225,10 +226,6 @@ export default function Drew() {
         position={[-1.39, 1.25, 4.1]}
         rotation-y={Math.PI / 2}
       >
-        <Text material={new MeshBasicMaterial({ visible: false })}>
-          Center Middle Wall Front
-        </Text>
-        @ts-ignore
         <Image
           src={`${CONTENT_FOLDER}/surf+pic+5.jpg`}
           position={[0.5, -0.5, 0]}
@@ -252,17 +249,10 @@ export default function Drew() {
       >
         {/*<Text>Right Middle Wall Back</Text>*/}
         <Image
-          src={`${CONTENT_FOLDER}/homer.png`}
+          src={`${CONTENT_FOLDER}/nft+highrise.png`}
           framed
-          size={1.25}
-          position-x={-0.1}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/richie+rich.png
-          `}
-          framed
-          size={1.25}
-          position-x={1.05}
+          size={2}
+          position-x={0.5}
         />
       </group>
       <group
@@ -270,52 +260,59 @@ export default function Drew() {
         position={[-1.63, 1.25, -0.35]}
         rotation-y={-Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/bear+bricks+1.jpg`}
-          framed
-          position={[-0.35, 0.5, 0]}
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
-          framed
-          position-x={0.475}
-          position-y={0.5}
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/bear+bricks+3.jpg`}
-          framed
-          position-x={1.3}
-          position-y={0.5}
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}
-          framed
-          position-x={-0.35}
-          position-y={-0.5}
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/bear+brick+5.JPG`}
-          framed
-          position-x={0.475}
-          position-y={-0.5}
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
-          framed
-          position-x={1.3}
-          position-y={-0.5}
-          size={0.8}
-        />
-        {/*<ClickHere*/}
-        {/*  position-y={-0.85}*/}
-        {/*  link="https://www.highrisetv.com/hrtv-blog"*/}
-        {/*  color="black"*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+bricks+1.jpg`}*/}
+        {/*  framed*/}
+        {/*  position={[-0.35, 0.5, 0]}*/}
+        {/*  size={0.8}*/}
         {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}*/}
+        {/*  framed*/}
+        {/*  position-x={0.475}*/}
+        {/*  position-y={0.5}*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+bricks+3.jpg`}*/}
+        {/*  framed*/}
+        {/*  position-x={1.3}*/}
+        {/*  position-y={0.5}*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}*/}
+        {/*  framed*/}
+        {/*  position-x={-0.35}*/}
+        {/*  position-y={-0.5}*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+brick+5.JPG`}*/}
+        {/*  framed*/}
+        {/*  position-x={0.475}*/}
+        {/*  position-y={-0.5}*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}*/}
+        {/*  framed*/}
+        {/*  position-x={1.3}*/}
+        {/*  position-y={-0.5}*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        <Image
+          src={`${CONTENT_FOLDER}/spongebob.png`}
+          framed
+          size={1.25}
+          position-x={-0.1}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/squirtle.png`}
+          framed
+          size={1.25}
+          position-x={1.05}
+        />
       </group>
       <group
         name="center-wall-middle-front"
@@ -325,30 +322,31 @@ export default function Drew() {
         <Text material={new MeshBasicMaterial({ visible: false })}>
           Center Middle Wall Front
         </Text>
-        <Image
-          src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}
-          position={[0.6, 0.35, 0]}
-          framed
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/surf+pic+2.jpg`}
-          position={[0.6, -0.65, 0]}
-          framed
-          size={0.8}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}
-          position={[-0.5, -0.75, 0]}
-          framed
-          size={1}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}
-          position={[-0.5, 0.25, 0]}
-          framed
-          size={1}
-        />
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}*/}
+        {/*  position={[0.6, 0.35, 0]}*/}
+        {/*  framed*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/surf+pic+2.jpg`}*/}
+        {/*  position={[0.6, -0.65, 0]}*/}
+        {/*  framed*/}
+        {/*  size={0.8}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}*/}
+        {/*  position={[-0.5, -0.75, 0]}*/}
+        {/*  framed*/}
+        {/*  size={1}*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}*/}
+        {/*  position={[-0.5, 0.25, 0]}*/}
+        {/*  framed*/}
+        {/*  size={1}*/}
+        {/*/>*/}
+        <Image src={`${CONTENT_FOLDER}/richie+rich.png`} scale={2} framed />
       </group>
       <group
         name="right-middle-wall-front"
@@ -356,10 +354,16 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/nft+highrise.png`}
+          src={`${CONTENT_FOLDER}/homer.png`}
           framed
-          size={2}
-          position-x={0.4}
+          size={1.25}
+          position-x={-0.1}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/bugs+bunny.png`}
+          framed
+          size={1.25}
+          position-x={1.05}
         />
       </group>
       <group
@@ -369,30 +373,37 @@ export default function Drew() {
       >
         <Video
           src={`${CONTENT_FOLDER}/2.mp4`}
-          size={2.5}
+          size={2.45}
           position={[-7, 0.35, 0]}
+          framed
           muted
         />
-        <PngImage
-          src={`${CONTENT_FOLDER}/collage+1.png`}
-          size={1.3}
-          position={[-9.1, -0.5, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/collage+2.png`}
-          size={1.3}
-          position={[-9.1, 1.19, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/collage+3.png`}
-          size={1.5}
-          position={[-10.815, -0.775, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/collage+4.png`}
-          size={1.5}
-          position={[-10.815, 1.475, 0]}
-        />
+        <group position-y={-0.1}>
+          <Image
+            src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
+            size={1}
+            position={[-9.1, -0.15, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}
+            size={1}
+            position={[-9.1, 0.775, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}
+            size={1}
+            position={[-10.15, -0.15, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}
+            size={1}
+            position={[-10.15, 1, 0]}
+            framed
+          />
+        </group>
         <group position-x={-3.95} name="front-wall-middle">
           {/*  /!* @ts-ignore *!/*/}
           <PngImage
@@ -403,35 +414,49 @@ export default function Drew() {
         </group>
         <Video
           src={`${CONTENT_FOLDER}/1.mp4`}
-          size={2.5}
+          size={2.45}
           position={[-1, 0.35, 0]}
+          framed
           muted
         />
-        <PngImage
-          src={`${CONTENT_FOLDER}/main+wall+1.jpg`}
-          size={1.15}
-          position={[3.067, -0.25, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
-          size={1.15}
-          position={[2.095, -0.25, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/main+wall+3.jpg`}
-          size={1.15}
-          position={[1.15, -0.25, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/main+wall+4.jpg`}
-          size={1.25}
-          position={[1.65, 1, 0]}
-        />
-        <PngImage
-          src={`${CONTENT_FOLDER}/main+wall+5.jpg`}
-          size={1.075}
-          position={[2.9, 1, 0]}
-        />
+        <group position-x={-0.15}>
+          <Image
+            src={`${CONTENT_FOLDER}/bear+bricks+1.jpg`}
+            size={1.15}
+            position={[3, 0.25, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/surf+pic+2.jpg`}
+            size={1.15}
+            position={[2, 0.25, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/bear+bricks+3.jpg`}
+            size={1.15}
+            position={[1, 0.25, 0]}
+            framed
+          />
+          <Image
+            src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}
+            size={1.15}
+            position={[4, 0.25, 0]}
+            framed
+          />
+        </group>
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/main+wall+4.jpg`}*/}
+        {/*  size={1.25}*/}
+        {/*  position={[1.65, 1, 0]}*/}
+        {/*  framed*/}
+        {/*/>*/}
+        {/*<Image*/}
+        {/*  src={`${CONTENT_FOLDER}/main+wall+5.jpg`}*/}
+        {/*  size={1.075}*/}
+        {/*  position={[2.9, 1, 0]}*/}
+        {/*  framed*/}
+        {/*/>*/}
       </group>
     </group>
   );
