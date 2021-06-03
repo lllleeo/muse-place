@@ -6,7 +6,7 @@ const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const Drew = dynamic(import("scenes/Gotham/Drew"), { ssr: false });
 
 const ARTIST = {
-  name: "Drew",
+  name: "",
   socialLinks: [],
 };
 

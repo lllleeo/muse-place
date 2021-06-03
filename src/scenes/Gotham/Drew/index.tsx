@@ -1,15 +1,40 @@
 import { Image, Interactable, Video } from "spacesvr";
 import { Text } from "@react-three/drei";
-import { GroupProps, useFrame } from "@react-three/fiber";
+import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
 import SocialButton from "themes/components/SocialButton";
-import CrazyMaterial from "themes/Gotham/shaders/crazy";
+import CrazyMaterial from "./shaders/crazy";
 import Palm from "./models/Palmtree";
 import { MeshBasicMaterial } from "three";
-import { useMemo } from "react";
+import * as THREE from "three";
+import { useMemo, Suspense } from "react";
 import LavaCeiling from "./components/LavaCeiling";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/drew";
+
+function PngImage(props: { src: string; size?: number } & GroupProps) {
+  const { src, size = 1, ...restProps } = props;
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const imageTex = useLoader(THREE.TextureLoader, src);
+
+  const width = imageTex.image.width,
+    height = imageTex.image.height;
+  const max = Math.max(width, height);
+  const WIDTH = (width / max) * size,
+    HEIGHT = (height / max) * size;
+
+  return (
+    <Suspense fallback={null}>
+      <group scale={size} {...restProps}>
+        <mesh>
+          <planeBufferGeometry args={[WIDTH, HEIGHT]} />
+          <meshBasicMaterial map={imageTex} transparent />
+        </mesh>
+      </group>
+    </Suspense>
+  );
+}
 
 function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
   const { link, text = link.replace("https://", ""), ...restProps } = props;
@@ -75,22 +100,22 @@ export default function Drew() {
 
   return (
     <group>
-      {/*<LavaCeiling crazyMaterial={crazyMaterial} />*/}
+      <LavaCeiling crazyMaterial={crazyMaterial} />
       <group
         position={[-3.5, 0, 4.14]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        rotation={[-Math.PI / 2, 0, Math.PI / 2]}
         name="rugs"
       >
-        <Image src={`${CONTENT_FOLDER}/panther+sticker_rug.png`} size={2.5} />
-        <Image
+        <PngImage src={`${CONTENT_FOLDER}/panther+sticker_rug.png`} size={2} />
+        <PngImage
           src={`${CONTENT_FOLDER}/panther+sticker_rug.png`}
           position-x={4}
-          size={2.5}
+          size={2}
         />
-        <Image
+        <PngImage
           src={`${CONTENT_FOLDER}/panther+sticker_rug.png`}
           position-x={-4}
-          size={2.5}
+          size={2}
         />
       </group>
       <group name="palmTrees">
@@ -284,16 +309,16 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/nft+highrise.png`}
+          src={`${CONTENT_FOLDER}/bugs+bunny.png`}
           framed
           size={1.25}
-          position-x={1.05}
+          position-x={-0.1}
         />
         <Image
           src={`${CONTENT_FOLDER}/wallpaper.png`}
           framed
           size={1.25}
-          position-x={-0.1}
+          position-x={1.05}
         />
       </group>
       <group
@@ -301,57 +326,71 @@ export default function Drew() {
         position={[-5.47, 0.95, 0.6]}
         rotation-y={Math.PI / 2}
       >
-        <Text>Front Wall Right</Text>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/9.png`}*/}
-        {/*  framed*/}
-        {/*  size={1.75}*/}
-        {/*  position={[3.25, 0.4, 0]}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/8.png`}*/}
-        {/*  framed*/}
-        {/*  size={1.75}*/}
-        {/*  position={[1.25, 0.4, 0]}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/7.png`}*/}
-        {/*  framed*/}
-        {/*  size={1.75}*/}
-        {/*  position={[-0.75, 0.4, 0]}*/}
-        {/*/>*/}
-        <group position-x={-3.95}>
-          <Text>Front Wall Middle</Text>
+        <Video
+          src={`${CONTENT_FOLDER}/2.mp4`}
+          size={2.5}
+          position={[-7, 0.35, 0]}
+          muted
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/collage+1.png`}
+          size={1.1}
+          position={[-9.15, -0.25, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/collage+2.png`}
+          size={1.1}
+          position={[-9.15, 0.96, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/collage+3.png`}
+          size={1.1}
+          position={[-10.225, -0.25, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/collage+4.png`}
+          size={1.1}
+          position={[-10.225, 0.96, 0]}
+        />
+        <group position-x={-3.95} name="front-wall-middle">
           {/*  /!* @ts-ignore *!/*/}
-          {/*  <Text*/}
-          {/*    fontSize={0.1}*/}
-          {/*    color="black"*/}
-          {/*    anchorX="left"*/}
-          {/*    position={[0, 0, 0]}*/}
-          {/*  >*/}
-          {/*    Front Wall*/}
-          {/*  </Text>*/}
+          <PngImage
+            src={`${CONTENT_FOLDER}/heatwave+logo.png`}
+            size={2.1}
+            position-y={0.3}
+          />
         </group>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/10.png`}*/}
-        {/*  framed*/}
-        {/*  size={1.75}*/}
-        {/*  position={[-10.5, 0.4, 0]}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  framed*/}
-        {/*  src={`${CONTENT_FOLDER}/11.jpg`}*/}
-        {/*  size={1.75}*/}
-        {/*  position-x={-8.5}*/}
-        {/*  position-y={0.4}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  framed*/}
-        {/*  src={`${CONTENT_FOLDER}/12.jpg`}*/}
-        {/*  size={1.75}*/}
-        {/*  position-x={-6.5}*/}
-        {/*  position-y={0.4}*/}
-        {/*/>*/}
+        <Video
+          src={`${CONTENT_FOLDER}/1.mp4`}
+          size={2.5}
+          position={[-1, 0.35, 0]}
+          muted
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/main+wall+1.jpg`}
+          size={1.15}
+          position={[3.067, -0.25, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
+          size={1.15}
+          position={[2.095, -0.25, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/main+wall+3.jpg`}
+          size={1.15}
+          position={[1.15, -0.25, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/main+wall+4.jpg`}
+          size={1.25}
+          position={[1.65, 1, 0]}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/main+wall+5.jpg`}
+          size={1.075}
+          position={[2.9, 1, 0]}
+        />
       </group>
     </group>
   );
