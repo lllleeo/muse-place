@@ -1,13 +1,13 @@
-import { useFrame } from "@react-three/fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Group } from "three";
 
 type PedestalProps = {
   crazyMaterial: any;
-};
+} & GroupProps;
 
 const LavaCeiling = (props: PedestalProps) => {
-  const { crazyMaterial } = props;
+  const { crazyMaterial, ...restProps } = props;
 
   const walls = useRef<Group>();
 
@@ -20,7 +20,7 @@ const LavaCeiling = (props: PedestalProps) => {
   });
 
   return (
-    <group ref={walls} scale={[0, 0, 0]}>
+    <group ref={walls} scale={[0, 0, 0]} {...restProps}>
       <group position={[-1.51, 2.7, 4.2]}>
         <mesh material={crazyMaterial}>
           <boxBufferGeometry args={[8, 0.1, 16.5]} />
