@@ -233,7 +233,8 @@ export default function Drew() {
         />
         <Image
           src={`${CONTENT_FOLDER}/surf+pic+6.jpg`}
-          position={[0, 0.55, 0]}
+          size={1.25}
+          position={[0, 0.675, 0]}
           framed
         />
         <Image
@@ -388,13 +389,13 @@ export default function Drew() {
           <Image
             src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}
             size={1}
-            position={[-10.85, 0.25, 0]}
+            position={[-9.82, 0.25, 0]}
             framed
           />
           <Image
             src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}
             size={1}
-            position={[-9.75, 0.25, 0]}
+            position={[-10.85, 0.25, 0]}
             framed
           />
         </group>
