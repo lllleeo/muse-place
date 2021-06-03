@@ -100,7 +100,7 @@ export default function Drew() {
 
   return (
     <group>
-      <LavaCeiling crazyMaterial={crazyMaterial} />
+      {/*<LavaCeiling crazyMaterial={crazyMaterial} />*/}
       <group
         position={[-3.5, 0, 4.14]}
         rotation={[-Math.PI / 2, 0, Math.PI / 2]}
