@@ -192,30 +192,33 @@ export default function Drew() {
         position={[-1.39, 1.07, 0.62]}
         rotation-y={Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
-          framed
-          position-x={-0.1}
-          position-y={0.15}
+        <PngImage
+          src={`${CONTENT_FOLDER}/king+boo+sticker.png`}
+          position-x={0}
+          position-y={0.75}
           size={1.25}
         />
-        {/*<ClickHere*/}
-        {/*  link="https://www.youtube.com/watch?v=HcxiI8AjE-s"*/}
-        {/*  position={[1.25, 0.2, 0.075]}*/}
-        {/*  text="Watch Now"*/}
-        {/*/>*/}
-        <Image
-          src={`${CONTENT_FOLDER}/main+wall+1.jpg`}
-          framed
-          position-x={1.05}
-          position-y={0.15}
+        <PngImage
+          src={`${CONTENT_FOLDER}/homer+sticker.png`}
+          position-x={1.15}
+          position-y={-0.5}
+          position-z={0.01}
           size={1.25}
         />
-        {/*<ClickHere*/}
-        {/*  link="https://www.youtube.com/watch?v=gQsrV5gaBYg"*/}
-        {/*  position={[1.25, -1, 0.075]}*/}
-        {/*  text="Watch Now"*/}
-        {/*/>*/}
+        <PngImage
+          src={`${CONTENT_FOLDER}/marvin+sticker.png`}
+          position-x={0}
+          position-y={-0.35}
+          position-z={0.05}
+          size={1.15}
+        />
+        <PngImage
+          src={`${CONTENT_FOLDER}/pikachu+sticker.png`}
+          position-x={1.15}
+          position-y={0.75}
+          // position-z={-0.00025}
+          size={1.25}
+        />
       </group>
       <group
         name="center-middle-wall-back"
