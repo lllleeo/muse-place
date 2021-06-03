@@ -267,16 +267,45 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/squirtle.png`}
+          src={`${CONTENT_FOLDER}/bear+bricks+1.jpg`}
           framed
-          position-x={-0.1}
-          size={1.25}
+          position={[-0.35, 0.5, 0]}
+          size={0.8}
         />
         <Image
-          src={`${CONTENT_FOLDER}/richie+rich.png`}
+          src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
           framed
-          position-x={1.05}
-          size={1.25}
+          position-x={0.475}
+          position-y={0.5}
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/bear+bricks+3.jpg`}
+          framed
+          position-x={1.3}
+          position-y={0.5}
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}
+          framed
+          position-x={-0.35}
+          position-y={-0.5}
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/bear+brick+5.JPG`}
+          framed
+          position-x={0.475}
+          position-y={-0.5}
+          size={0.8}
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
+          framed
+          position-x={1.3}
+          position-y={-0.5}
+          size={0.8}
         />
         {/*<ClickHere*/}
         {/*  position-y={-0.85}*/}
