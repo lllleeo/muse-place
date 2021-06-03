@@ -378,29 +378,23 @@ export default function Drew() {
           framed
           muted
         />
-        <group position-y={-0.1}>
+        <group>
           <Image
             src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}
             size={1}
-            position={[-9.1, -0.15, 0]}
-            framed
-          />
-          <Image
-            src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}
-            size={1}
-            position={[-9.1, 0.775, 0]}
+            position={[-8.8, 0.25, 0]}
             framed
           />
           <Image
             src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}
             size={1}
-            position={[-10.15, -0.15, 0]}
+            position={[-10.85, 0.25, 0]}
             framed
           />
           <Image
             src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}
             size={1}
-            position={[-10.15, 1, 0]}
+            position={[-9.75, 0.25, 0]}
             framed
           />
         </group>
