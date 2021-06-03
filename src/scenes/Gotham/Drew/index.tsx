@@ -193,7 +193,7 @@ export default function Drew() {
         rotation-y={Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/homer.png`}
+          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
           framed
           position-x={-0.1}
           position-y={0.15}
@@ -205,7 +205,7 @@ export default function Drew() {
         {/*  text="Watch Now"*/}
         {/*/>*/}
         <Image
-          src={`${CONTENT_FOLDER}/spongebob.png`}
+          src={`${CONTENT_FOLDER}/main+wall+1.jpg`}
           framed
           position-x={1.05}
           position-y={0.15}
@@ -249,13 +249,14 @@ export default function Drew() {
       >
         {/*<Text>Right Middle Wall Back</Text>*/}
         <Image
-          src={`${CONTENT_FOLDER}/main+wall+2.jpg`}
+          src={`${CONTENT_FOLDER}/homer.png`}
           framed
           size={1.25}
           position-x={-0.1}
         />
         <Image
-          src={`${CONTENT_FOLDER}/main+wall+3.jpg`}
+          src={`${CONTENT_FOLDER}/richie+rich.png
+          `}
           framed
           size={1.25}
           position-x={1.05}
@@ -352,16 +353,10 @@ export default function Drew() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/bugs+bunny.png`}
+          src={`${CONTENT_FOLDER}/nft+highrise.png`}
           framed
-          size={1.25}
-          position-x={-0.1}
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/wallpaper.png`}
-          framed
-          size={1.25}
-          position-x={1.05}
+          size={2}
+          position-x={0.4}
         />
       </group>
       <group
