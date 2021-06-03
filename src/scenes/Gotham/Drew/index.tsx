@@ -1,13 +1,9 @@
-import { Image, Interactable, Video } from "spacesvr";
-import { Text } from "@react-three/drei";
+import { Image, Video } from "spacesvr";
 import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
-import SocialButton from "themes/components/SocialButton";
-import CrazyMaterial from "./shaders/crazy";
+import CrazyMaterial from "./shaders/crazy2";
 import Palm from "./models/Palmtree";
-import { MeshBasicMaterial } from "three";
 import * as THREE from "three";
 import { useMemo, Suspense } from "react";
-import LavaCeiling from "./components/LavaCeiling";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/drew";
@@ -36,59 +32,6 @@ function PngImage(props: { src: string; size?: number } & GroupProps) {
   );
 }
 
-function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
-  const { link, text = link.replace("https://", ""), ...restProps } = props;
-
-  const SCALE = 0.4;
-
-  return (
-    <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
-      {/* @ts-ignore */}
-      <Text
-        position-x={SCALE * 0.3}
-        fontSize={0.06}
-        anchorX="left"
-        color="black"
-      >
-        {text}
-      </Text>
-    </group>
-  );
-}
-
-function ClickHere(
-  props: { link: string; text?: string; color?: string } & GroupProps
-) {
-  const { link, text = "Click Here", color = "red", ...restProps } = props;
-
-  return (
-    <group {...restProps}>
-      <Interactable
-        onClick={() => {
-          window.open(link, "_blank");
-        }}
-      >
-        <mesh>
-          <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
-          <meshBasicMaterial color="blue" opacity={0} transparent />
-        </mesh>
-      </Interactable>
-      <mesh>
-        <boxBufferGeometry args={[0.5, 0.15, 0.05]} />
-        <meshBasicMaterial color="white" />
-      </mesh>
-      <mesh position-z={-0.01}>
-        <boxBufferGeometry args={[0.55, 0.2, 0.04]} />
-        <meshBasicMaterial color={color} />
-      </mesh>
-      <Text color={color} position-z={0.04} fontSize={0.075}>
-        {text}
-      </Text>
-    </group>
-  );
-}
-
 export default function Drew() {
   const crazyMaterial = useMemo(() => new CrazyMaterial(), []);
   useFrame(({ clock }, delta) => {
@@ -100,7 +43,6 @@ export default function Drew() {
 
   return (
     <group>
-      {/*<LavaCeiling crazyMaterial={crazyMaterial} position-y={-0.05} />*/}
       <group
         position={[-3, 0, 4.14]}
         rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
@@ -128,15 +70,7 @@ export default function Drew() {
         name="back-wall-right"
         rotation-y={-Math.PI / 2}
         position={[2.49, 1.25, 10.6]}
-      >
-        {/*<Text>Back Wall Right</Text>*/}
-        {/*<Image src={`${CONTENT_FOLDER}/bugs+bunny.png`} framed size={1.75} />*/}
-        {/*<ClickHere*/}
-        {/*  position-y={-1.1}*/}
-        {/*  color="black"*/}
-        {/*  link="https://www.highrisetv.com/hrtv-blog/weekly-drops-episode-3"*/}
-        {/*/>*/}
-      </group>
+      ></group>
       <group
         name="back-wall"
         position={[2.49, 1.07, 4]}
@@ -248,7 +182,6 @@ export default function Drew() {
         position={[-1.39, 1.25, 8.6]}
         rotation-y={Math.PI / 2}
       >
-        {/*<Text>Right Middle Wall Back</Text>*/}
         <Image
           src={`${CONTENT_FOLDER}/nft+highrise.png`}
           framed
@@ -261,47 +194,6 @@ export default function Drew() {
         position={[-1.63, 1.25, -0.35]}
         rotation-y={-Math.PI / 2}
       >
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+bricks+1.jpg`}*/}
-        {/*  framed*/}
-        {/*  position={[-0.35, 0.5, 0]}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}*/}
-        {/*  framed*/}
-        {/*  position-x={0.475}*/}
-        {/*  position-y={0.5}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+bricks+3.jpg`}*/}
-        {/*  framed*/}
-        {/*  position-x={1.3}*/}
-        {/*  position-y={0.5}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+brick+4.jpg`}*/}
-        {/*  framed*/}
-        {/*  position-x={-0.35}*/}
-        {/*  position-y={-0.5}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+brick+5.JPG`}*/}
-        {/*  framed*/}
-        {/*  position-x={0.475}*/}
-        {/*  position-y={-0.5}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/bear+brick+2.jpg`}*/}
-        {/*  framed*/}
-        {/*  position-x={1.3}*/}
-        {/*  position-y={-0.5}*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
         <Image
           src={`${CONTENT_FOLDER}/spongebob.png`}
           framed
@@ -320,33 +212,6 @@ export default function Drew() {
         position={[-1.63, 1.25, 4.125]}
         rotation-y={-Math.PI / 2}
       >
-        <Text material={new MeshBasicMaterial({ visible: false })}>
-          Center Middle Wall Front
-        </Text>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/surf+pic+1.jpg`}*/}
-        {/*  position={[0.6, 0.35, 0]}*/}
-        {/*  framed*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/surf+pic+2.jpg`}*/}
-        {/*  position={[0.6, -0.65, 0]}*/}
-        {/*  framed*/}
-        {/*  size={0.8}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/surf+pic+3.jpg`}*/}
-        {/*  position={[-0.5, -0.75, 0]}*/}
-        {/*  framed*/}
-        {/*  size={1}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/surf+pic+4.jpg`}*/}
-        {/*  position={[-0.5, 0.25, 0]}*/}
-        {/*  framed*/}
-        {/*  size={1}*/}
-        {/*/>*/}
         <Image src={`${CONTENT_FOLDER}/richie+rich.png`} scale={2} framed />
       </group>
       <group
@@ -440,18 +305,6 @@ export default function Drew() {
             framed
           />
         </group>
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/main+wall+4.jpg`}*/}
-        {/*  size={1.25}*/}
-        {/*  position={[1.65, 1, 0]}*/}
-        {/*  framed*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  src={`${CONTENT_FOLDER}/main+wall+5.jpg`}*/}
-        {/*  size={1.075}*/}
-        {/*  position={[2.9, 1, 0]}*/}
-        {/*  framed*/}
-        {/*/>*/}
       </group>
     </group>
   );
