@@ -65,6 +65,7 @@ const LinkTree: NextPage = () => {
           signalPath: "/signal",
           socketServer: "wss://balloonski.us-west-1.elasticbeanstalk.com:8081",
           frequency: 25,
+          audio: true,
         }}
       >
         <Balloonski />
