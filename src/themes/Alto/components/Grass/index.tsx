@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useFrame, useLoader, useThree } from "@react-three/fiber";
+import { GroupProps, useFrame, useLoader, useThree } from "@react-three/fiber";
 import {
   ShaderMaterial,
   InstancedMesh,
@@ -14,8 +14,6 @@ import cache1 from "./cache/cache1";
 import { useLimiter } from "spacesvr";
 
 const COUNT = 10000;
-const MIN_RADIUS = 10;
-const MAX_RADIUS = 35;
 
 const useGrassMat = (): ShaderMaterial => {
   const grassTex = useLoader(
@@ -44,7 +42,13 @@ const useGrassMat = (): ShaderMaterial => {
   return mat;
 };
 
-const Grass = () => {
+type GrassProps = {
+  minRadius?: number;
+  maxRadius?: number;
+} & GroupProps;
+
+const Grass = (props: GrassProps) => {
+  const { minRadius = 10, maxRadius = 35, ...restProps } = props;
   const { scene } = useThree();
   const grassMat = useGrassMat();
   const mesh = useRef<InstancedMesh>();
@@ -70,7 +74,7 @@ const Grass = () => {
 
       if (generate) {
         // generate position
-        const radius = Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
+        const radius = Math.random() * (maxRadius - minRadius) + minRadius;
         let theta = Math.random() * Math.PI * 2;
 
         // between PI_2  +- 0.1 don't spawn
@@ -102,9 +106,9 @@ const Grass = () => {
         nx = n.x;
         nz = n.z;
 
-        const modX = Math.floor((x / MAX_RADIUS) * 100);
+        const modX = Math.floor((x / maxRadius) * 100);
         const modY = Math.floor((y / 10) * 100);
-        const modZ = Math.floor((z / MAX_RADIUS) * 100);
+        const modZ = Math.floor((z / maxRadius) * 100);
         const modNX = Math.floor(n.x * 10);
         const modNZ = Math.floor(n.z * 10);
 
@@ -114,11 +118,11 @@ const Grass = () => {
         cache.push(modNX);
         cache.push(modNZ);
       } else {
-        x = (parsedCache[i * 5] / 100) * 35;
-        y = (parsedCache[i * 5 + 1] / 100) * 10 + 0.1;
-        z = (parsedCache[i * 5 + 2] / 100) * 35;
-        nx = parsedCache[i * 5 + 3] / 10;
-        nz = parsedCache[i * 5 + 4] / 10;
+        x = (parsedCache[i * 5] / 100) * maxRadius;
+        y = (parsedCache[i * 5 + 1] / 100) * minRadius + 0.1;
+        z = (parsedCache[i * 5 + 2] / 100) * maxRadius;
+        nx = parsedCache[i * 5 + 3] / minRadius;
+        nz = parsedCache[i * 5 + 4] / minRadius;
       }
 
       // add randomness
@@ -141,7 +145,7 @@ const Grass = () => {
   }, [mesh, grassMat, counter]);
 
   return (
-    <group>
+    <group {...restProps}>
       <instancedMesh ref={mesh} args={[geo, grassMat, COUNT]} />
     </group>
   );

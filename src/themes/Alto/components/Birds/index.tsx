@@ -4,7 +4,7 @@ import { useContext, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { createBirdGeometry } from "./core/bird";
 import { initComputeRenderer } from "./core/physics";
-import { useFrame, useThree } from "@react-three/fiber";
+import { GroupProps, useFrame, useThree } from "@react-three/fiber";
 import { MathUtils } from "three";
 import { AltoSceneState } from "../../../../scenes/Alto";
 import { useDetectGPU } from "@react-three/drei";
@@ -24,7 +24,8 @@ const effectController = {
 const BOUNDS = 10;
 const SCALE = 0.2;
 
-const Birds = () => {
+const Birds = (props: { bounds?: number } & GroupProps) => {
+  const { bounds = 10, ...restProps } = props;
   const { aa } = useContext(AltoSceneState);
   const { gl, camera } = useThree();
 
@@ -39,8 +40,8 @@ const Birds = () => {
   const BIRDS = WIDTH * WIDTH;
 
   const gpuCompute = useMemo(
-    () => initComputeRenderer(gl, posVar, velVar, BOUNDS, WIDTH),
-    [BOUNDS, WIDTH, BIRDS]
+    () => initComputeRenderer(gl, posVar, velVar, bounds, WIDTH),
+    [bounds, WIDTH, BIRDS]
   );
   const birdMesh = useMemo(() => {
     const geometry = createBirdGeometry(BIRDS, WIDTH);
@@ -87,8 +88,8 @@ const Birds = () => {
     birdUniforms["delta"].value = delta * speed;
 
     // update predator position
-    const normX = MathUtils.clamp(camera.position.x / BOUNDS, -1, 1);
-    const normZ = MathUtils.clamp(camera.position.z / BOUNDS, -1, 1);
+    const normX = MathUtils.clamp(camera.position.x / bounds, -1, 1);
+    const normZ = MathUtils.clamp(camera.position.z / bounds, -1, 1);
     velUniforms["predator"].value.set(normX, -1, normZ);
 
     // behavior update
@@ -108,7 +109,7 @@ const Birds = () => {
   });
 
   return (
-    <group scale={[SCALE, SCALE, SCALE]} position-y={10}>
+    <group scale={[SCALE, SCALE, SCALE]} position-y={10} {...restProps}>
       <primitive object={birdMesh} />
     </group>
   );
