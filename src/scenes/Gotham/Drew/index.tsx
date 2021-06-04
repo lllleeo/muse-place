@@ -1,9 +1,11 @@
-import { Image, Video } from "spacesvr";
+import { Image, Interactable, Video } from "spacesvr";
 import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
 import CrazyMaterial from "./shaders/crazy2";
 import Palm from "./models/Palmtree";
 import * as THREE from "three";
 import { useMemo, Suspense } from "react";
+import Popup from "themes/components/Popup";
+import { Text } from "@react-three/drei";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/drew";
@@ -29,6 +31,40 @@ function PngImage(props: { src: string; size?: number } & GroupProps) {
         </mesh>
       </group>
     </Suspense>
+  );
+}
+
+function Plaque(
+  props: { link?: string; text?: string; color?: string } & GroupProps
+) {
+  const { link, text = "Click Here", color = "black", ...restProps } = props;
+
+  return (
+    <group {...restProps}>
+      {link && (
+        <Interactable
+          onClick={() => {
+            window.open(link, "_blank");
+          }}
+        >
+          <mesh>
+            <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
+            <meshBasicMaterial color="blue" visible={false} />
+          </mesh>
+        </Interactable>
+      )}
+      <mesh>
+        <boxBufferGeometry args={[1, 0.15, 0.05]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
+      <mesh position-z={-0.01}>
+        <boxBufferGeometry args={[1.05, 0.2, 0.04]} />
+        <meshBasicMaterial color={color} />
+      </mesh>
+      <Text color={color} position-z={0.04} fontSize={0.075}>
+        {text}
+      </Text>
+    </group>
   );
 }
 
@@ -118,6 +154,11 @@ export default function Drew() {
             size={2}
             position-x={-0.4}
             position-y={0.3}
+          />
+          <Plaque
+            text="The Crypto Saints by Glassy"
+            position={[0.25, -0.65, 0.25]}
+            rotation-x={-0.5}
           />
         </group>
       </group>
@@ -306,6 +347,24 @@ export default function Drew() {
           />
         </group>
       </group>
+      <Popup
+        dialogue={{
+          key: "1",
+          text: "want your own 3D website?",
+          decisions: [
+            {
+              name: "sure",
+              action: () => window.open("https://bit.ly/3wgMNGO", "_blank"),
+            },
+            {
+              name: "nah",
+              // i need a function here, can't be null
+              action: () => console.log(""),
+            },
+          ],
+        }}
+        timeout={15000}
+      />
     </group>
   );
 }

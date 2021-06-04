@@ -1,7 +1,7 @@
 import { Image, Video, Interactable } from "spacesvr";
 import { Text } from "@react-three/drei";
 import NftPlacard from "themes/components/NftPlacard";
-import Popup from "../../../themes/components/Popup";
+import Popup from "themes/components/Popup";
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/nft`;
 const THEME_COLOR = "green";
