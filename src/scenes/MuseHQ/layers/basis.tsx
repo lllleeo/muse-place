@@ -3,18 +3,24 @@ import * as culori from "culori";
 
 export type Decision = {
   name: string;
-  action: (setIndex: (n: number) => void) => void;
+  action?: () => void;
+  utility?: number;
+  nextKey?: string;
 };
 
 export type Interaction = {
   text: string;
-  input?: [string, (s: string) => void];
+  input?: {
+    value: string;
+    setValue: (s: string) => string | void;
+    type?: "text" | "password" | "email";
+  };
   decisions?: Decision[];
 };
 
 export type Dialogue = {
   key: string;
-  effect?: (setIndex: (n: number) => void) => void;
+  effect?: () => Promise<any>;
 } & Interaction;
 
 const MAGIC_NUM = 50000; // each char is roughly 100, so loop every ~50 chars
@@ -51,7 +57,7 @@ export class Idea {
 
     this.mediation = (hashStringToNum(decision.name) % 5000) / 5000;
     this.specificity = (1 - (len === 0 ? 1 : 1 / len)) * 0.6;
-    this.utility = 1 - 1 / decision.action.toString().length;
+    this.utility = decision.utility || 1 - 1 / decision.name.length;
   }
 
   setFromInteraction(interaction: Interaction) {
