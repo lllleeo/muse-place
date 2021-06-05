@@ -1,4 +1,5 @@
-import { Image } from "spacesvr";
+import { Image, Video } from "spacesvr";
+import Jesus from "./models/Jesus";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites";
@@ -112,6 +113,116 @@ export default function KKites() {
           src={`${CONTENT_FOLDER}/12.jpg`}
           position-x={-0.45}
           framed
+        />
+      </group>
+      <group
+        position={[2.49, 1.25, 10.27]}
+        rotation-y={-Math.PI / 2}
+        name="back-wall-right"
+      >
+        <Image
+          name="13"
+          src={`${CONTENT_FOLDER}/13.jpg`}
+          position-x={0.55}
+          framed
+        />
+      </group>
+      <group
+        position={[2.49, 1.25, 3.42]}
+        rotation-y={-Math.PI / 2}
+        name="back-wall-middle"
+      >
+        <Image
+          name="13"
+          src={`${CONTENT_FOLDER}/13.jpg`}
+          position-x={0.55}
+          framed
+        />
+      </group>
+      <group
+        position={[2.49, 1.25, -2.6]}
+        rotation-y={-Math.PI / 2}
+        name="back-wall-left"
+      >
+        <Image
+          name="14"
+          src={`${CONTENT_FOLDER}/14.jpg`}
+          position-x={0.55}
+          framed
+        />
+      </group>
+      <group
+        position={[-5.47, 1.25, -1.27]}
+        rotation-y={Math.PI / 2}
+        name="front-wall-right"
+      >
+        <Image
+          name="15"
+          src={`${CONTENT_FOLDER}/15.jpg`}
+          position-x={0.55}
+          framed
+        />
+      </group>
+      <group
+        position={[-5.47, 1.25, 11.7]}
+        rotation-y={Math.PI / 2}
+        name="front-wall-left"
+      >
+        <Image
+          name="16"
+          src={`${CONTENT_FOLDER}/16.jpg`}
+          position-x={0.55}
+          framed
+        />
+      </group>
+      <group name="outside-videos" position={[-1.82, 1, 0]}>
+        <Video
+          src={`${CONTENT_FOLDER}/brbchains.mp4`}
+          scale={7}
+          position-z={-9.5}
+          framed
+          muted
+        />
+        <Video
+          src={`${CONTENT_FOLDER}/brbchains.mp4`}
+          scale={7}
+          rotation-y={Math.PI}
+          position-z={18}
+          framed
+          muted
+        />
+      </group>
+      <group
+        position={[-1.46, 2.5, 3.91]}
+        rotation={[Math.PI / 2, 0, 0]}
+        name="ceiling-video"
+      >
+        <Video
+          src={`${CONTENT_FOLDER}/brbchains.mp4`}
+          scale={[11, 17, 11]}
+          muted
+        />
+      </group>
+      <group position-y={1} name="jesus-models">
+        <Jesus
+          position={[1.62, 0, -3.25]}
+          rotation-y={5.58}
+          name="model-back-left"
+        />
+        <Jesus
+          position={[1.62, 0, 11.71]}
+          rotation-y={-1.943}
+          name="model-back-right"
+        />
+        <Jesus
+          position={[-5, 0, 11.71]}
+          rotation-y={2.207}
+          name="model-front-left"
+        />
+        <Jesus
+          position={[-5, 0, -3.25]}
+          rotation-y={0.5}
+          name="model-front-right"
         />
       </group>
     </group>
