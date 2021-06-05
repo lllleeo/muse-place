@@ -23,66 +23,114 @@ export default function KKites() {
         rotation-y={Math.PI / 2}
         name="left-pane-back"
       >
-        <Video
-          src={`${CONTENT_FOLDER}/V1.mp4`}
-          position-z={-0.05}
-          size={1.2}
+        <Image
+          name="1"
+          src={`${CONTENT_FOLDER}/1.jpg`}
+          position-x={0.45}
           framed
-          muted
         />
+        <Image
+          name="2"
+          src={`${CONTENT_FOLDER}/2.jpg`}
+          position-x={-0.65}
+          framed
+        />
+        {/*<Video*/}
+        {/*  src={`${CONTENT_FOLDER}/V1.mp4`}*/}
+        {/*  position-z={-0.05}*/}
+        {/*  size={1.2}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
       </group>
       <group
         position={[-1.6, 1.26, 0]}
         rotation-y={-Math.PI / 2}
         name="left-pane-front"
       >
-        <Video
+        <Image
           name="3"
-          src={`${CONTENT_FOLDER}/V2.mp4`}
+          src={`${CONTENT_FOLDER}/3.jpg`}
           position-x={0.55}
           framed
-          muted
         />
-        <Video
+        <Image
           name="4"
-          src={`${CONTENT_FOLDER}/V3.mp4`}
+          src={`${CONTENT_FOLDER}/4.jpg`}
           position-x={-0.4}
           framed
-          muted
         />
+        {/*<Video*/}
+        {/*  name="3"*/}
+        {/*  src={`${CONTENT_FOLDER}/V2.mp4`}*/}
+        {/*  position-x={0.55}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
+        {/*<Video*/}
+        {/*  name="4"*/}
+        {/*  src={`${CONTENT_FOLDER}/V3.mp4`}*/}
+        {/*  position-x={-0.4}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
       </group>
       <group
         position={[-1.64, 1.26, 4.05]}
         rotation-y={Math.PI}
         name="middle-pane-left"
       >
-        <Video
+        <Image
           name="5"
-          src={`${CONTENT_FOLDER}/Final+4.mp4`}
-          size={1.2}
+          src={`${CONTENT_FOLDER}/5.jpg`}
+          position-x={-0.6}
           framed
-          muted
         />
+        <Image
+          name="6"
+          src={`${CONTENT_FOLDER}/6.jpg`}
+          position-x={0.45}
+          framed
+        />
+        {/*<Video*/}
+        {/*  name="5"*/}
+        {/*  src={`${CONTENT_FOLDER}/Final+4.mp4`}*/}
+        {/*  size={1.2}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
       </group>
       <group
         position={[-1.64, 1.26, 4.25]}
         rotation-y={2 * Math.PI}
         name="middle-pane-right"
       >
-        <Video
+        <Image
           name="7"
-          src={`${CONTENT_FOLDER}/Kk+Barbed+Chains.mp4`}
+          src={`${CONTENT_FOLDER}/7.jpg`}
           position-x={-0.45}
           framed
-          muted
         />
-        <Video
+        <Image
           name="8"
-          src={`${CONTENT_FOLDER}/Kk+Jesus+Piece.mp4`}
+          src={`${CONTENT_FOLDER}/8.jpg`}
           position-x={0.6}
           framed
-          muted
         />
+        {/*<Video*/}
+        {/*  name="7"*/}
+        {/*  src={`${CONTENT_FOLDER}/Kk+Barbed+Chains.mp4`}*/}
+        {/*  position-x={-0.45}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
+        {/*<Video*/}
+        {/*  name="8"*/}
+        {/*  src={`${CONTENT_FOLDER}/Kk+Jesus+Piece.mp4`}*/}
+        {/*  position-x={0.6}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
       </group>
       <group
         position={[-1.36, 1.26, 8.11]}
@@ -107,13 +155,25 @@ export default function KKites() {
         rotation-y={-Math.PI / 2}
         name="right-pane-front"
       >
-        <Video
+        <Image
           name="11"
-          src={`${CONTENT_FOLDER}/kkchainpieces.mp4`}
-          size={1.2}
-          muted
+          src={`${CONTENT_FOLDER}/11.jpg`}
+          position-x={0.55}
           framed
         />
+        <Image
+          name="12"
+          src={`${CONTENT_FOLDER}/12.jpg`}
+          position-x={-0.45}
+          framed
+        />
+        {/*<Video*/}
+        {/*  name="11"*/}
+        {/*  src={`${CONTENT_FOLDER}/kkchainpieces.mp4`}*/}
+        {/*  size={1.2}*/}
+        {/*  muted*/}
+        {/*  framed*/}
+        {/*/>*/}
       </group>
       <group
         position={[2.49, 1.25, 10.0]}
