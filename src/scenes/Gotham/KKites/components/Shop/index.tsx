@@ -4,6 +4,7 @@ import Kiosk from "./Kiosk";
 import { Suspense } from "react";
 import Cart from "../Cart";
 import { Image } from "spacesvr";
+import { Preload } from "@react-three/drei";
 
 const KIOSK_GAP = 0.75,
   IMG_GAP = 0.9;
@@ -55,6 +56,7 @@ export default function Shop() {
       </group>
       <group name="desk-register">
         <Suspense fallback={null}>
+          <Preload all />
           <Desk
             position={[2.04, -0.25, 4.25]}
             rotation-y={-Math.PI / 2}

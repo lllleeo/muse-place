@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { Preload } from "@react-three/drei";
+import { Suspense } from "react";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 const KKites = dynamic(import("scenes/Gotham/KKites"), { ssr: false });
@@ -24,12 +26,15 @@ const LinkTree: NextPage = () => {
       <Gotham
         artwork={[]}
         socials={ARTIST.socialLinks}
-        name={ARTIST.name}
+        name={""}
         floorplan={2}
         premium
         night
       >
-        <KKites />
+        <Suspense fallback={null}>
+          <Preload all />
+          <KKites />
+        </Suspense>
       </Gotham>
     </>
   );
