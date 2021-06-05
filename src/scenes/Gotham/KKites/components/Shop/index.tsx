@@ -1,7 +1,7 @@
 import Desk from "../../models/Desk";
 import Register from "../../models/Register";
 import Kiosk from "./Kiosk";
-import { Suspense, useContext } from "react";
+import { Suspense } from "react";
 import Cart from "../Cart";
 import { Image } from "spacesvr";
 import { Preload } from "@react-three/drei";
