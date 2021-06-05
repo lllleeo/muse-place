@@ -5,6 +5,29 @@ import { ShopState } from "../Balloonski/types/shop";
 import Shop from "./components/Shop";
 import { Text } from "@react-three/drei";
 
+const IMAGES = [
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l1-1622925766/l1.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l2-1622925770/l2.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l3-1622925771/l3.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l4-1622925772/l4.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l5-1622925774/l5.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l6-1622925775/l6.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l7-1622925777/l7.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l8-1622925778/l8.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l9-1622925780/l9.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l10-1622925768/l10.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r1-1622925781/r1.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r2-1622925784/r2.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r3-1622925785/r3.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r4-1622925787/r4.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r5-1622925788/r5.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r6-1622925789/r6.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r7-1622925791/r7.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r8-1622925792/r8.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r9-1622925795/r9.ktx2\n",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r10-1622925783/r10.ktx2\n",
+];
+
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites";
 export const ShopContext = createContext<ShopState>({} as ShopState);

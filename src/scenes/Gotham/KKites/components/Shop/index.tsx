@@ -1,11 +1,10 @@
 import Desk from "../../models/Desk";
 import Register from "../../models/Register";
 import Kiosk from "./Kiosk";
-import { Suspense, useContext } from "react";
+import { Suspense } from "react";
 import Cart from "../Cart";
 import { Image } from "spacesvr";
 import { Preload } from "@react-three/drei";
-import { ShopContext } from "../../index";
 
 const KIOSK_GAP = 0.75,
   IMG_GAP = 0.9;
@@ -13,8 +12,6 @@ const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites";
 
 export default function Shop() {
-  const { products } = useContext(ShopContext);
-  console.log(products);
   return (
     <group name="shop">
       <group
