@@ -11,9 +11,17 @@ type ProductProps = {
 } & GroupProps;
 
 const CF_URL = "https://d27rt3a60hh1lx.cloudfront.net/images";
+const CONTENT_FOLDER =
+  "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites";
+const IMGS_SRC = [
+  `${CONTENT_FOLDER}/Cuban+Link+Necklace.jpg`,
+  `${CONTENT_FOLDER}/Large+Jesus+Piece.jpg`,
+  `${CONTENT_FOLDER}/Odin+Link+Necklace.jpg`,
+  `${CONTENT_FOLDER}/Small+Jesus+Piece.jpg`,
+];
 
-export default function Product(props: ProductProps) {
-  const { item, ...rest } = props;
+export default function Product(props: { img?: number } & ProductProps) {
+  const { item, img, ...rest } = props;
   const { products, cart } = useContext(ShopContext);
 
   const product = products.find(
@@ -36,7 +44,12 @@ export default function Product(props: ProductProps) {
   return (
     <group name={`product-${item.id}`} {...rest} scale={1}>
       {!visual && images[0] && (
-        <Image src={images[0]} size={5} framed position-y={2} />
+        <Image
+          src={img ? IMGS_SRC[img] : images[0]}
+          size={5}
+          framed
+          position-y={2}
+        />
       )}
       <group name="visual" scale={10} position-y={2}>
         {visual}
