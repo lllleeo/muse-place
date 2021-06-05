@@ -26,6 +26,7 @@ const LinkTree: NextPage = () => {
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
         floorplan={2}
+        premium
         night
       >
         <KKites />
