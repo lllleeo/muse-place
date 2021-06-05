@@ -3,9 +3,10 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
+const KKites = dynamic(import("scenes/Gotham/KKites"), { ssr: false });
 
 const ARTIST = {
-  name: "Kristopher Kites",
+  name: "ifakemakeclothes.com",
   socialLinks: [
     "https://www.instagram.com/kristopher.kites/",
     "https://ifakemakeclothes.com/",
@@ -13,26 +14,6 @@ const ARTIST = {
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites`;
-const linkData = [
-  {
-    src: `${url}/1.jpg`,
-  },
-  {
-    src: `${url}/2.jpg`,
-  },
-  {
-    src: `${url}/3.jpg`,
-  },
-  {
-    src: `${url}/4.jpg`,
-  },
-  {
-    src: `${url}/5.jpg`,
-  },
-  {
-    src: `${url}/6.jpg`,
-  },
-];
 
 const LinkTree: NextPage = () => {
   return (
@@ -41,11 +22,14 @@ const LinkTree: NextPage = () => {
         <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Gotham
-        artwork={linkData}
+        artwork={[]}
         socials={ARTIST.socialLinks}
         name={ARTIST.name}
+        floorplan={2}
         night
-      />
+      >
+        <KKites />
+      </Gotham>
     </>
   );
 };
