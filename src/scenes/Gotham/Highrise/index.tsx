@@ -46,7 +46,7 @@ function ClickHere(
       >
         <mesh>
           <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
-          <meshBasicMaterial color="blue" opacity={0} transparent />
+          <meshBasicMaterial color="blue" visible={false} />
         </mesh>
       </Interactable>
       <mesh>
