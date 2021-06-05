@@ -1,5 +1,4 @@
 import { Image, Video } from "spacesvr";
-import Jesus from "./models/Jesus";
 import { useShopifyShop } from "../Balloonski/utils/shopify";
 import { createContext, Suspense } from "react";
 import { ShopState } from "../Balloonski/types/shop";
@@ -102,20 +101,6 @@ export default function KKites() {
           position-x={-0.55}
           framed
         />
-        {/*<Video*/}
-        {/*  name="9"*/}
-        {/*  src={`${CONTENT_FOLDER}/joinedVid1.mp4`}*/}
-        {/*  position-x={0.45}*/}
-        {/*  muted*/}
-        {/*  framed*/}
-        {/*/>*/}
-        {/*<Video*/}
-        {/*  name="10"*/}
-        {/*  src={`${CONTENT_FOLDER}/rainbowchain.mp4`}*/}
-        {/*  position-x={-0.55}*/}
-        {/*  muted*/}
-        {/*  framed*/}
-        {/*/>*/}
       </group>
       <group
         position={[-1.6, 1.26, 8.11]}
