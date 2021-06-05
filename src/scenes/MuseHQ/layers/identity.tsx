@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import { ReactNode } from "react";
 import { proxy } from "valtio";
 import fetch, { RequestInit } from "node-fetch";
+import { analytics } from "../utils/analytics";
 
 const TOKEN_ID = "muse-jwt";
 const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -33,8 +34,10 @@ export class Identity {
       headers: { "Content-Type": "application/json" },
     };
 
-    const response = await fetch(`${URL}auth/sign_in`, params);
+    const response = await fetch(`${URL}/auth/sign_in`, params);
     const json = await response.json();
+
+    analytics.capture("login", { email });
 
     if (response.status === 200) {
       localStorage.setItem(TOKEN_ID, json.token);
@@ -60,8 +63,10 @@ export class Identity {
       headers: { "Content-Type": "application/json" },
     };
 
-    const response = await fetch(`${URL}auth/sign_up`, params);
+    const response = await fetch(`${URL}/auth/sign_up`, params);
     const json = await response.json();
+
+    analytics.capture("signup", { name, email });
 
     return { success: response.status === 200, message: json.message };
   }
@@ -75,13 +80,14 @@ export class Identity {
       headers: { Authorization: `bearer ${this.token}` },
     };
 
-    const response = await fetch(`${URL}auth/user_info`, params);
+    const response = await fetch(`${URL}/auth/user_info`, params);
     const json = await response.json();
 
     if (response.status === 200) {
       this.name = json.name;
       this.email = json.email;
       this.groups = json.groups;
+      analytics.identify(json.email, { name: this.name });
     }
 
     return { success: response.status === 200, message: json.message };
