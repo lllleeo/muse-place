@@ -139,18 +139,18 @@ export default function KKites() {
             framed
           />
         </group>
-        <group
-          position={[2.49, 1.25, 3.42]}
-          rotation-y={-Math.PI / 2}
-          name="back-wall-middle"
-        >
-          <Image
-            name="13"
-            src={`${CONTENT_FOLDER}/13.jpg`}
-            position-x={0.55}
-            framed
-          />
-        </group>
+        {/*<group*/}
+        {/*  position={[2.49, 1.25, 3.42]}*/}
+        {/*  rotation-y={-Math.PI / 2}*/}
+        {/*  name="back-wall-middle"*/}
+        {/*>*/}
+        {/*  <Image*/}
+        {/*    name="13"*/}
+        {/*    src={`${CONTENT_FOLDER}/13.jpg`}*/}
+        {/*    position-x={0.55}*/}
+        {/*    framed*/}
+        {/*  />*/}
+        {/*</group>*/}
         <group
           position={[2.49, 1.25, -2.6]}
           rotation-y={-Math.PI / 2}
