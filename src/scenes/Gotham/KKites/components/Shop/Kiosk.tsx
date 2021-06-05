@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Floating, Image } from "spacesvr";
+import { Image } from "spacesvr";
 import Control from "./Control";
 import { Group, Vector3 } from "three";
 import { Product } from "../../types/shop";
@@ -60,11 +60,6 @@ const Kiosk = (props: Props) => {
   return (
     <group name="kiosk" {...props} ref={group}>
       <KioskContext.Provider value={{ productId, product, open }}>
-        {/*<group position-y={0.4}>*/}
-        {/*  <Floating height={0.05} speed={2}>*/}
-        {/*    {visual}*/}
-        {/*  </Floating>*/}
-        {/*</group>*/}
         <Control
           width={WIDTH}
           position-z={DEPTH / 2 - 0.05}
