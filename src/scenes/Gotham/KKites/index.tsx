@@ -354,21 +354,21 @@ export default function KKites() {
         </Text>
       </group>
       <group name="outside-videos" position={[-1.82, 1, 0]}>
-        <Video
-          src={`${CONTENT_FOLDER}/jpiece.mp4`}
-          scale={10}
-          position-z={-9.5}
-          framed
-          muted
-        />
-        <Video
-          src={`${CONTENT_FOLDER}/jpiece.mp4`}
-          scale={10}
-          rotation-y={Math.PI}
-          position-z={18}
-          framed
-          muted
-        />
+        {/*<Video*/}
+        {/*  src={`${CONTENT_FOLDER}/jpiece.mp4`}*/}
+        {/*  scale={10}*/}
+        {/*  position-z={-9.5}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
+        {/*<Video*/}
+        {/*  src={`${CONTENT_FOLDER}/jpiece.mp4`}*/}
+        {/*  scale={10}*/}
+        {/*  rotation-y={Math.PI}*/}
+        {/*  position-z={18}*/}
+        {/*  framed*/}
+        {/*  muted*/}
+        {/*/>*/}
       </group>
       <group
         position={[-1.46, 3.7, 3.91]}
