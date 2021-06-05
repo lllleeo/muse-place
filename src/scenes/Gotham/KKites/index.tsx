@@ -29,6 +29,7 @@ export default function KKites() {
           position-z={-0.05}
           size={1.2}
           framed
+          muted
         />
       </group>
       <group
@@ -41,12 +42,14 @@ export default function KKites() {
           src={`${CONTENT_FOLDER}/V2.mp4`}
           position-x={0.55}
           framed
+          muted
         />
         <Video
           name="4"
           src={`${CONTENT_FOLDER}/V3.mp4`}
           position-x={-0.4}
           framed
+          muted
         />
       </group>
       <group
@@ -59,6 +62,7 @@ export default function KKites() {
           src={`${CONTENT_FOLDER}/Final+4.mp4`}
           size={1.2}
           framed
+          muted
         />
       </group>
       <group
@@ -71,12 +75,14 @@ export default function KKites() {
           src={`${CONTENT_FOLDER}/Kk+Barbed+Chains.mp4`}
           position-x={-0.45}
           framed
+          muted
         />
         <Video
           name="8"
           src={`${CONTENT_FOLDER}/Kk+Jesus+Piece.mp4`}
           position-x={0.6}
           framed
+          muted
         />
       </group>
       <group
@@ -102,16 +108,11 @@ export default function KKites() {
         rotation-y={-Math.PI / 2}
         name="right-pane-front"
       >
-        <Image
+        <Video
           name="11"
-          src={`${CONTENT_FOLDER}/11.jpg`}
-          position-x={0.55}
-          framed
-        />
-        <Image
-          name="12"
-          src={`${CONTENT_FOLDER}/12.jpg`}
-          position-x={-0.45}
+          src={`${CONTENT_FOLDER}/kkchainpieces.mp4`}
+          size={1.2}
+          muted
           framed
         />
       </group>

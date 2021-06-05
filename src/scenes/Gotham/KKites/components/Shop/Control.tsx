@@ -47,7 +47,6 @@ const Control = (props: Props) => {
   const addToCart = () => {
     if (variant && variant.available) {
       cart.add(variant.id, visual);
-      console.log("added to cart");
     }
   };
 

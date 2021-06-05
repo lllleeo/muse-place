@@ -1,7 +1,7 @@
 import Desk from "../../models/Desk";
 import Register from "../../models/Register";
 import Kiosk from "./Kiosk";
-import { Suspense } from "react";
+import { Suspense, useContext } from "react";
 import Cart from "../Cart";
 import { Image } from "spacesvr";
 import { Preload } from "@react-three/drei";
@@ -49,10 +49,19 @@ export default function Shop() {
         rotation-y={-Math.PI / 2}
         name="productLabels"
       >
-        <Kiosk />
-        <Kiosk position-x={KIOSK_GAP} />
-        <Kiosk position-x={KIOSK_GAP * 2} />
-        <Kiosk position-x={KIOSK_GAP * 3} />
+        <Kiosk productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ5NjY0MzIyNzY1NTE=" />
+        <Kiosk
+          productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NzE1MTI5ODc3MTk="
+          position-x={KIOSK_GAP}
+        />
+        <Kiosk
+          productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NzE1MTg1MjU1MTE="
+          position-x={KIOSK_GAP * 2}
+        />
+        <Kiosk
+          productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NzE1MTMwNTMyNTU="
+          position-x={KIOSK_GAP * 3}
+        />
       </group>
       <group name="desk-register">
         <Suspense fallback={null}>
