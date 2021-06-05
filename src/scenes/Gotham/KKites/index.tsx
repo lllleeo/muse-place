@@ -4,28 +4,29 @@ import { createContext, Suspense } from "react";
 import { ShopState } from "../Balloonski/types/shop";
 import Shop from "./components/Shop";
 import { Text } from "@react-three/drei";
+import { KtxImage } from "./components/KtxImage";
 
 const IMAGES = [
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l1-1622925766/l1.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l2-1622925770/l2.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l3-1622925771/l3.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l4-1622925772/l4.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l5-1622925774/l5.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l6-1622925775/l6.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l7-1622925777/l7.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l8-1622925778/l8.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l9-1622925780/l9.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/l10-1622925768/l10.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r1-1622925781/r1.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r2-1622925784/r2.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r3-1622925785/r3.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r4-1622925787/r4.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r5-1622925788/r5.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r6-1622925789/r6.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r7-1622925791/r7.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r8-1622925792/r8.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r9-1622925795/r9.ktx2",
-  "https://d27rt3a60hh1lx.cloudfront.net/textures/r10-1622925783/r10.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l1-1622934939/l1.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l2-1622934943/l2.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l3-1622934946/l3.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l4-1622934948/l4.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l5-1622934950/l5.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l6-1622934952/l6.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l7-1622934954/l7.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l8-1622934956/l8.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l9-1622934958/l9.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/l10-1622934941/l10.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r1-1622934960/r1.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r2-1622934964/r2.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r3-1622934967/r3.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r4-1622934968/r4.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r5-1622934970/r5.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r6-1622934972/r6.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r7-1622934974/r7.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r8-1622934976/r8.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r9-1622934978/r9.ktx2",
+  "https://d27rt3a60hh1lx.cloudfront.net/textures/r10-1622934963/r10.ktx2",
 ];
 
 const CONTENT_FOLDER =
@@ -203,30 +204,34 @@ export default function KKites() {
         rotation-y={-Math.PI / 2}
         name="back-wall-right"
       >
-        <Image
+        <KtxImage
           name="r1"
-          src={`${CONTENT_FOLDER}/r1.jpg`}
+          // src={`${CONTENT_FOLDER}/r1.jpg`}
+          src={IMAGES[10]}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r2"
-          src={`${CONTENT_FOLDER}/r2.jpg`}
+          // src={`${CONTENT_FOLDER}/r2.jpg`}
+          src={IMAGES[11]}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r3"
-          src={`${CONTENT_FOLDER}/r3.jpg`}
+          // src={`${CONTENT_FOLDER}/r3.jpg`}
+          src={IMAGES[12]}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r4"
-          src={`${CONTENT_FOLDER}/r4.jpg`}
+          // src={`${CONTENT_FOLDER}/r4.jpg`}
+          src={IMAGES[13]}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
@@ -237,30 +242,34 @@ export default function KKites() {
         rotation-y={-Math.PI / 2}
         name="back-wall-left"
       >
-        <Image
+        <KtxImage
           name="l1"
-          src={`${CONTENT_FOLDER}/l1.jpg`}
+          // src={`${CONTENT_FOLDER}/l1.jpg`}
+          src={IMAGES[0]}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l2"
-          src={`${CONTENT_FOLDER}/l2.jpg`}
+          // src={`${CONTENT_FOLDER}/l2.jpg`}
+          src={IMAGES[1]}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l3"
-          src={`${CONTENT_FOLDER}/l3.jpg`}
+          // src={`${CONTENT_FOLDER}/l3.jpg`}
+          src={IMAGES[2]}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l4"
-          src={`${CONTENT_FOLDER}/l4.jpg`}
+          // src={`${CONTENT_FOLDER}/l4.jpg`}
+          src={IMAGES[3]}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
@@ -271,44 +280,50 @@ export default function KKites() {
         rotation-y={Math.PI / 2}
         name="front-wall-right"
       >
-        <Image
+        <KtxImage
           name="l5"
-          src={`${CONTENT_FOLDER}/l5.jpg`}
+          // src={`${CONTENT_FOLDER}/l5.jpg`}
+          src={IMAGES[4]}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l6"
-          src={`${CONTENT_FOLDER}/l6.jpg`}
+          // src={`${CONTENT_FOLDER}/l6.jpg`}
+          src={IMAGES[5]}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l7"
-          src={`${CONTENT_FOLDER}/l7.jpg`}
+          // src={`${CONTENT_FOLDER}/l7.jpg`}
+          src={IMAGES[6]}
           position={[2.45, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l8"
-          src={`${CONTENT_FOLDER}/l8.jpg`}
+          // src={`${CONTENT_FOLDER}/l8.jpg`}
+          src={IMAGES[7]}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l9"
-          src={`${CONTENT_FOLDER}/l9.jpg`}
+          // src={`${CONTENT_FOLDER}/l9.jpg`}
+          src={IMAGES[8]}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="l10"
-          src={`${CONTENT_FOLDER}/l10.jpg`}
+          // src={`${CONTENT_FOLDER}/l10.jpg`}
+          src={IMAGES[9]}
           position={[2.45, -0.75, 0]}
           size={1.15}
           framed
@@ -319,44 +334,50 @@ export default function KKites() {
         rotation-y={Math.PI / 2}
         name="front-wall-left"
       >
-        <Image
+        <KtxImage
           name="r5"
-          src={`${CONTENT_FOLDER}/r5.jpg`}
+          // src={`${CONTENT_FOLDER}/r5.jpg`}
+          src={IMAGES[14]}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r6"
-          src={`${CONTENT_FOLDER}/r6.jpg`}
+          // src={`${CONTENT_FOLDER}/r6.jpg`}
+          src={IMAGES[15]}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r7"
-          src={`${CONTENT_FOLDER}/r7.jpg`}
+          // src={`${CONTENT_FOLDER}/r7.jpg`}
+          src={IMAGES[16]}
           position={[2.45, 0.5, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r8"
-          src={`${CONTENT_FOLDER}/r8.jpg`}
+          // src={`${CONTENT_FOLDER}/r8.jpg`}
+          src={IMAGES[17]}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r9"
-          src={`${CONTENT_FOLDER}/r9.jpg`}
+          // src={`${CONTENT_FOLDER}/r9.jpg`}
+          src={IMAGES[18]}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
         />
-        <Image
+        <KtxImage
           name="r10"
-          src={`${CONTENT_FOLDER}/r10.jpg`}
+          // src={`${CONTENT_FOLDER}/r10.jpg`}
+          src={IMAGES[19]}
           position={[2.45, -0.75, 0]}
           size={1.15}
           framed

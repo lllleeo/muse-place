@@ -1,5 +1,5 @@
 function getImageSize(metadata, w) {
-  const regX = /([0-9]+x[0-9]+)/g;
+  const regX = /([0-9]{3,}x[0-9]{3,})/g;
   const matches = regX.exec(metadata);
 
   if (matches === null) {
@@ -24,8 +24,9 @@ function getImageSize(metadata, w) {
   }
 }
 
-// eslint-disable-next-line no-undef
 getImageSize(
+  // eslint-disable-next-line no-undef
   process.argv.slice(2, process.argv.length - 3).join(""),
+  // eslint-disable-next-line no-undef
   process.argv[process.argv.length - 1]
 );

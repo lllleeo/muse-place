@@ -78,7 +78,7 @@ const UnsuspensedImage = (props: ImageProps) => {
 
   return (
     <group {...props}>
-      <mesh rotation-x={isKtx ? Math.PI : 0}>
+      <mesh rotation-x={isKtx2 || isKtx ? Math.PI : 0}>
         <planeBufferGeometry args={[WIDTH, HEIGHT]} />
         <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
