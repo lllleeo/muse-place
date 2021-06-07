@@ -10,6 +10,7 @@ const ARTIST = {
   socials: [
     "https://www.instagram.com/femiainanewyork/",
     "https://femiainanewyork.com/",
+    "https://twitter.com/femiainanewyork",
   ],
 };
 
@@ -17,7 +18,6 @@ const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/femiainane
 const artwork: GothamProps["artwork"] = [
   {
     src: `${url}/1.png`,
-    audio: true,
   },
   {
     src: `${url}/2.png`,
@@ -26,7 +26,7 @@ const artwork: GothamProps["artwork"] = [
     src: `${url}/3.png`,
   },
   {
-    src: `${url}/4.jpg`,
+    src: `${url}/4.mp4`,
   },
   {
     src: `${url}/5.png`,
