@@ -3,13 +3,20 @@ import { StandardEnvironment, Audio } from "spacesvr";
 import { Preload } from "@react-three/drei";
 import Musehq from "./models/Musehq";
 import AmbientParticles from "./components/AmbientParticles";
-import { VisualIdea } from "./components/VisualIdea";
+import { VisualIdea } from "./layers/basis/visual/VisualIdea";
 import Builder00 from "./characters/Builder00";
 import Builder07 from "./characters/Builder07";
 import Builder0102 from "./characters/Builder0102";
 import { IdentityLayer } from "./layers/identity";
 import { Vector3 } from "three";
 import Onboarding from "./components/Onboarding";
+import {
+  Bloom,
+  ChromaticAberration,
+  EffectComposer,
+  Noise,
+  ToneMapping,
+} from "@react-three/postprocessing";
 
 export default function MuseHQ() {
   return (
@@ -21,7 +28,7 @@ export default function MuseHQ() {
       }}
       canvasProps={{
         camera: { far: 300 },
-        dpr: 1,
+        dpr: 1.5,
         gl: { antialias: false },
       }}
       dev={process.env.NODE_ENV === "development"}
@@ -55,14 +62,15 @@ export default function MuseHQ() {
         <Builder00 />
         <Builder07 />
         <Builder0102 />
-        {/*<EffectComposer autoClear multisampling={0}>*/}
-        {/*  <Bloom*/}
-        {/*    luminanceThreshold={0.25}*/}
-        {/*    luminanceSmoothing={0.9}*/}
-        {/*    intensity={0.9}*/}
-        {/*    height={300}*/}
-        {/*  />*/}
-        {/*</EffectComposer>*/}
+        <EffectComposer autoClear multisampling={0}>
+          {/*<Bloom*/}
+          {/*  luminanceThreshold={0.25}*/}
+          {/*  luminanceSmoothing={0.9}*/}
+          {/*  intensity={0.15}*/}
+          {/*  height={300}*/}
+          {/*/>*/}
+          <Noise opacity={0.165} />
+        </EffectComposer>
       </IdentityLayer>
     </StandardEnvironment>
   );

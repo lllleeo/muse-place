@@ -1,6 +1,6 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { ReactNode } from "react";
-import { proxy } from "valtio";
+import { proxy, useSnapshot, ref } from "valtio";
 import fetch, { RequestInit } from "node-fetch";
 import { analytics } from "../utils/analytics";
 
@@ -9,20 +9,16 @@ const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 type Response = { message?: string; success: boolean };
 
 export class Identity {
-  exists: boolean;
-  name: string | undefined;
-  email: string | undefined;
-  token: string | undefined;
-  groups: string[] | undefined;
-
-  constructor() {
-    this.exists = false;
-    this.name = undefined;
-    this.email = undefined;
-    this.groups = undefined;
-
-    this.token = localStorage.getItem(TOKEN_ID) || undefined;
-  }
+  uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+  exists = false;
+  name = undefined;
+  email = undefined;
+  token = localStorage.getItem(TOKEN_ID) || undefined;
+  groups = undefined;
 
   async login(email: string, password: string): Promise<Response> {
     const params: RequestInit = {
@@ -40,8 +36,7 @@ export class Identity {
     analytics.capture("login", { email });
 
     if (response.status === 200) {
-      localStorage.setItem(TOKEN_ID, json.token);
-      this.token = json.token;
+      this.setToken(json.token);
     }
 
     return { success: response.status === 200, message: json.message };
@@ -76,6 +71,8 @@ export class Identity {
       return { success: false, message: "not logged in" };
     }
 
+    console.log("attempting fetch!");
+
     const params: RequestInit = {
       headers: { Authorization: `bearer ${this.token}` },
     };
@@ -87,30 +84,60 @@ export class Identity {
       this.name = json.name;
       this.email = json.email;
       this.groups = json.groups;
+      console.log("set exists to true");
+      this.exists = true;
+      console.log(this);
       analytics.identify(json.email, { name: this.name });
+    } else {
+      console.log("set exists to FFF");
+      this.exists = false;
+      this.setToken(undefined);
+      console.log(this);
     }
 
     return { success: response.status === 200, message: json.message };
   }
+
+  async logout() {
+    this.setToken(undefined);
+    this.name = undefined;
+    this.email = undefined;
+    this.groups = undefined;
+    this.exists = false;
+    await new Promise((res) => setTimeout(res, 1500));
+  }
+
+  setToken(token: string | undefined) {
+    this.token = token;
+
+    if (token) {
+      localStorage.setItem(TOKEN_ID, token);
+    } else {
+      localStorage.removeItem(TOKEN_ID);
+    }
+  }
 }
 
-type IdentityState = { identity: Identity };
-
-export const IdentityContext = createContext<IdentityState>(
-  {} as IdentityState
-);
+const initIdentity = proxy(new Identity());
+export const IdentityContext = createContext<Identity>(initIdentity);
 
 export function useIdentity(): Identity {
-  return useContext(IdentityContext).identity;
+  return useContext(IdentityContext);
+}
+
+export function useIdentitySnapshot(): Identity {
+  return useSnapshot(useContext(IdentityContext));
 }
 
 export function IdentityLayer(props: { children: ReactNode | ReactNode[] }) {
   const { children } = props;
 
-  const identity = proxy<IdentityState>({ identity: new Identity() });
+  useEffect(() => {
+    initIdentity.fetch();
+  }, []);
 
   return (
-    <IdentityContext.Provider value={identity}>
+    <IdentityContext.Provider value={initIdentity}>
       {children}
     </IdentityContext.Provider>
   );

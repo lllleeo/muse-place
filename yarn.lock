@@ -749,10 +749,10 @@
     utility-types "^3.10.0"
     zustand "^3.3.3"
 
-"@react-three/flex@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@react-three/flex/-/flex-0.5.2.tgz#2117c08464219d8fa020d11e02a0b4682f97ce6a"
-  integrity sha512-xuqPGzZop7YSNRunPrNweVr/pwjjn2X2/7XJJj5ceIvyEqxhnNVw+R6zCNQNjskO4SYkix9JrvSNIncWsz57/Q==
+"@react-three/flex@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@react-three/flex/-/flex-0.6.0.tgz#5466f52093a21b762792772643b321ccd99afa6f"
+  integrity sha512-905uzXK19vzpzWY+r4kZM9rp7yYHhKyx2AtTN9e3vdF6/MwWQ/tBmQuS83dy52rN7DheC35XXrunA7p/9XyKCw==
   dependencies:
     yoga-layout-prebuilt "^1.9.6"
 
@@ -5239,6 +5239,11 @@ proxy-compare@1.1.6:
   resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.1.6.tgz#dd7737be611a9d7142fae10dbc6d0ceb74ad6da0"
   integrity sha512-V65euKrKgKjVyEh5+4nVlAf4dHJ6Q0cF77MCeZiJaOldAl9lndy/u270SJneHiz3UkVcSIhxfOKY7aFkrMyo5g==
 
+proxy-compare@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-2.0.0.tgz#36f41114a25fcf359037308d12529183a9dc182c"
+  integrity sha512-xhJF1+vPCnu93QYva3Weii5ho1AeX5dsR/P5O7pzy9QLxeOgMSQNC8zDo0bGg9vtn61Pu5Qn+5w/Y8OSU5k+8g==
+
 proxy-from-env@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
@@ -5526,13 +5531,6 @@ react-three-fiber@0.0.0-deprecated:
   version "0.0.0-deprecated"
   resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-0.0.0-deprecated.tgz#c737242487d824cf9520307308b7e4c4071a278f"
   integrity sha512-EblIqTAsIpkYeM8bZtC4lcpTE0A2zCEGipFB52RgcQq/q+0oryrk7Sxt+sqhIjUu6xMNEVywV8dr74lz5yWO6A==
-
-react-three-flex@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/react-three-flex/-/react-three-flex-0.5.2.tgz#d6670f4e3f1b6f332d654010bd37f49298912e11"
-  integrity sha512-XciDjhZBnd1s/1LQtawg3vLBEh/Wp2yRzTKjq9tnpw9x2oxqRa2yVpn7LCxR1DPu2s/pKFUuT/TGtGqB3wCJoA==
-  dependencies:
-    yoga-layout-prebuilt "^1.9.6"
 
 react-transition-group@^4.4.0:
   version "4.4.1"
@@ -6898,6 +6896,13 @@ valtio@^0.7.0:
   integrity sha512-5z8HYqcO4GSzz/9Tho+WuJMIkIuXEz0VI5gkF2nslgPeFr6emiUY854aTZX1gt41sxs0d83ZURM68fE/SjyAOA==
   dependencies:
     proxy-compare "1.1.6"
+
+valtio@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.0.6.tgz#b316deea5537d254a141e2e5af1692d9eae2f60f"
+  integrity sha512-ylCis9IkcE7b92XjMb3ebdJgLvJEFJ2NjfuD01QNr98pVOhRa5WsW4LSykFgbO4W7ftrZtO8jN4svZL0XlD77w==
+  dependencies:
+    proxy-compare "2.0.0"
 
 verror@1.10.0:
   version "1.10.0"

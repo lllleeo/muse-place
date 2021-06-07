@@ -1,17 +1,16 @@
 import { GroupProps, useFrame } from "@react-three/fiber";
 import Bubbles from "./components/Bubbles";
 import { createContext, useMemo, useState } from "react";
-import Dialogues from "./components/Dialogues";
+import DialogueSlides from "./components/DialogueSlides";
 import { MathUtils } from "three";
-import { Dialogue, Idea } from "../../layers/basis";
+import { Dialogue } from "../../index";
+import { Idea } from "../../../basis";
 
-export type DialogueLogic = Dialogue[];
-
-type VisualDialogueLogicProps = {
+type VisualDialogueProps = {
   source?: [number, number, number];
   numStops?: number;
   enabled?: boolean;
-  dialogueLogic: DialogueLogic;
+  dialogue: Dialogue;
 };
 
 type DialogueState = {
@@ -21,22 +20,22 @@ type DialogueState = {
   numStops: number;
   enabled: boolean;
   currentIdea: Idea;
-  dialogueLogic: DialogueLogic;
+  dialogue: Dialogue;
 };
 
 export const DialogueContext = createContext<DialogueState>(
   {} as DialogueState
 );
 
-export default function VisualDialogueLogic(
-  props: VisualDialogueLogicProps & GroupProps
+export default function VisualDialogue(
+  props: VisualDialogueProps & GroupProps
 ) {
   const {
     source = [0.9, -0.5, -0.2],
     numStops = 5,
     enabled = false,
     children,
-    dialogueLogic,
+    dialogue,
     ...rest
   } = props;
 
@@ -74,11 +73,11 @@ export default function VisualDialogueLogic(
           numStops,
           enabled,
           currentIdea,
-          dialogueLogic,
+          dialogue,
         }}
       >
         <Bubbles />
-        <Dialogues />
+        <DialogueSlides />
       </DialogueContext.Provider>
     </group>
   );

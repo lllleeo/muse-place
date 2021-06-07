@@ -1,10 +1,10 @@
 import { useContext, useMemo } from "react";
 import { Floating, Spinning } from "spacesvr";
-import { VisualIdea } from "../../VisualIdea";
+import { VisualIdea } from "../../../../basis/visual/VisualIdea";
 import { animated, useSpring } from "react-spring/three";
 import { DialogueContext } from "../index";
 import { useFrame } from "@react-three/fiber";
-import { Idea } from "../../../layers/basis";
+import { Idea } from "../../../../basis";
 
 type Bubble = {
   idea: Idea;

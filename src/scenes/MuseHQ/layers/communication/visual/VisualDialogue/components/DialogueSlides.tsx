@@ -4,11 +4,11 @@ import { useFrame } from "@react-three/fiber";
 import { useContext, useRef } from "react";
 import { animated, useSpring } from "react-spring/three";
 import { DialogueContext } from "../index";
-import FacePlayer from "../../../modifiers/FacePlayer";
-import VisualDialogue from "../../VisualDialogue";
+import FacePlayer from "../../../../../modifiers/FacePlayer";
+import VisualInteraction from "../../VisualInteraction";
 
-export default function Dialogues() {
-  const { enabled, currentIdea, key, setKey, dialogueLogic } = useContext(
+export default function DialogueSlides() {
+  const { enabled, currentIdea, key, setKey, dialogue } = useContext(
     DialogueContext
   );
 
@@ -41,8 +41,11 @@ export default function Dialogues() {
             <meshStandardMaterial ref={material} side={DoubleSide} />
           </RoundedBox>
           <group name="content" position-z={DEPTH / 2 + 0.003}>
-            {dialogueLogic.map((dialogue) => (
-              <VisualDialogue {...dialogue} enabled={dialogue.key === key} />
+            {dialogue.map((interaction) => (
+              <VisualInteraction
+                {...interaction}
+                enabled={interaction.key === key}
+              />
             ))}
           </group>
         </FacePlayer>

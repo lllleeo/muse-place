@@ -1,10 +1,9 @@
 import useStateMachine from "@cassiozen/usestatemachine";
 import { useIdentity } from "../../layers/identity";
-import { DialogueLogic } from "../../components/VisualDialogueLogic";
-import { useProxy } from "valtio";
+import { useSnapshot } from "valtio";
 import { useLoginLogic } from "../../logic/login";
 import { useSignupLogic } from "../../logic/signup";
-import { useEffect, useState } from "react";
+import { Dialogue } from "../../layers/communication";
 
 export const useBuilder00Logic = () =>
   useStateMachine()({
@@ -31,9 +30,9 @@ export const useBuilder00Logic = () =>
     },
   });
 
-export const useDialogs = (): DialogueLogic => {
+export const useDialogue = (): Dialogue => {
   const identity = useIdentity();
-  const identityRef = useProxy(identity);
+  const identityRef = useSnapshot(identity);
 
   const loginLogic = useLoginLogic("init", "done");
   const signupLogic = useSignupLogic("init", "done");

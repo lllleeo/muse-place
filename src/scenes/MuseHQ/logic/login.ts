@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useIdentity } from "../layers/identity";
-import { DialogueLogic } from "../components/VisualDialogueLogic";
+import { useIdentity, useIdentitySnapshot } from "../layers/identity";
+import { Dialogue } from "../layers/communication";
 
-export const useLoginLogic = (
-  prevKey: string,
-  nextKey: string
-): DialogueLogic => {
+export const useLoginLogic = (inKey: string, outKey: string): Dialogue => {
   const identity = useIdentity();
+  const idSnapshot = useIdentitySnapshot();
 
   const [error, setError] = useState<string>();
   const [email, setEmail] = useState("");
@@ -15,7 +13,7 @@ export const useLoginLogic = (
   return [
     {
       key: "login",
-      text: "what's your email?",
+      text: "let's log you in. what's your email?",
       input: {
         value: email,
         setValue: setEmail,
@@ -27,7 +25,7 @@ export const useLoginLogic = (
         },
         {
           name: "cancel",
-          nextKey: prevKey,
+          nextKey: inKey,
         },
       ],
     },
@@ -46,7 +44,7 @@ export const useLoginLogic = (
         },
         {
           name: "cancel",
-          nextKey: prevKey,
+          nextKey: inKey,
         },
       ],
     },
@@ -54,7 +52,7 @@ export const useLoginLogic = (
       key: "login-login",
       text: "logging in...",
       effect: async () => {
-        if (!identity.exists) {
+        if (!idSnapshot.exists) {
           setError(undefined);
           const result = await identity.login(email, password);
           if (result.success) {
@@ -73,7 +71,7 @@ export const useLoginLogic = (
         setError(undefined);
         const result = await identity.fetch();
         if (result.success) {
-          return nextKey;
+          return outKey;
         } else {
           setError(result.message);
           return "error";
@@ -90,7 +88,7 @@ export const useLoginLogic = (
         },
         {
           name: "nevermind",
-          nextKey: prevKey,
+          nextKey: inKey,
         },
       ],
     },

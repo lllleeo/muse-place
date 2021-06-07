@@ -5,7 +5,7 @@ import { Sphere } from "@react-three/drei";
 import { DoubleSide, Color, Mesh } from "three";
 // @ts-ignore
 import { useLimiter } from "spacesvr";
-import { Idea } from "../layers/basis";
+import { Idea } from "../index";
 
 type Props = {
   size?: number | [number, number, number];
