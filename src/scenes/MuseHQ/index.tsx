@@ -25,6 +25,7 @@ export default function MuseHQ() {
         speed: 1.65,
         pos: [-19.748, 0, -2.1],
         rot: -Math.PI / 2,
+        controls: { disableGyro: true },
       }}
       canvasProps={{
         camera: { far: 300 },

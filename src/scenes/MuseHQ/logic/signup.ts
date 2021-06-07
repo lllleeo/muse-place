@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { DialogueLogic } from "../layers/communication/visual/VisualDialogueLogic";
 import { useIdentity, useIdentitySnapshot } from "../layers/identity";
+import { Dialogue } from "../layers/communication";
 
-export const useSignupLogic = (
-  inKey: string,
-  outKey: string
-): DialogueLogic => {
+export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
   const identity = useIdentity();
   const idSnapshot = useIdentitySnapshot();
 
@@ -119,7 +116,13 @@ export const useSignupLogic = (
       effect: async () => {
         if (!idSnapshot.exists) {
           setError(undefined);
-          const result = await identity.signup(name, email, password);
+          const result = await identity.signup(
+            name,
+            email,
+            password,
+            siteName,
+            [`${generate}-${username}`]
+          );
           if (result.success) {
             return "signup-login";
           } else {

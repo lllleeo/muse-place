@@ -1,10 +1,7 @@
 import { useIdentity } from "../layers/identity";
-import { DialogueLogic } from "../layers/communication/visual/VisualDialogueLogic";
+import { Dialogue } from "../layers/communication";
 
-export const useLogoutLogic = (
-  inKey: string,
-  outKey: string
-): DialogueLogic => {
+export const useLogoutLogic = (inKey: string, outKey: string): Dialogue => {
   const identity = useIdentity();
 
   return [

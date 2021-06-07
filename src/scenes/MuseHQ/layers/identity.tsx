@@ -45,7 +45,9 @@ export class Identity {
   async signup(
     name: string,
     email: string,
-    password: string
+    password: string,
+    siteName: string,
+    groups?: string[]
   ): Promise<Response> {
     const params: RequestInit = {
       method: "POST",
@@ -53,7 +55,7 @@ export class Identity {
         name,
         email,
         password,
-        code: "muse-yc-21",
+        code: "",
       }),
       headers: { "Content-Type": "application/json" },
     };
