@@ -20,7 +20,12 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
     <group name={`annotatedlink-${link}`} {...restProps}>
       <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
       {/* @ts-ignore */}
-      <Text position-x={SCALE * 0.3} fontSize={0.06} anchorX="left" color="red">
+      <Text
+        position-x={SCALE * 0.3}
+        fontSize={0.06}
+        anchorX="left"
+        color="black"
+      >
         {text}
       </Text>
     </group>
@@ -41,7 +46,7 @@ function ClickHere(
       >
         <mesh>
           <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
-          <meshBasicMaterial color="blue" opacity={0} transparent />
+          <meshBasicMaterial color="blue" visible={false} />
         </mesh>
       </Interactable>
       <mesh>

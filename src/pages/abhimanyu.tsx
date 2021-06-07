@@ -7,7 +7,10 @@ const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
   name: "Abhimanyu Bhadauria",
-  socials: ["https://www.behance.net/mnayu", "https://dribbble.com/Mnayu"],
+  socials: [
+    "https://www.instagram.com/_draphy/",
+    "https://grants.art/gallery/85",
+  ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/abhimanyu`;
@@ -22,7 +25,7 @@ const artwork: GothamProps["artwork"] = [
     src: `${url}/3.png`,
   },
   {
-    src: `${url}/4.png`,
+    src: `${url}/4.mp4`,
     audio: true,
   },
   {

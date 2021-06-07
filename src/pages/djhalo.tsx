@@ -5,25 +5,24 @@ import dynamic from "next/dynamic";
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "Shur Records",
+  name: "DJ Halo",
   socialLinks: [
-    "https://www.instagram.com/shurrecords/",
-    "https://shurrecords.com",
-    "https://open.spotify.com/artist/4LEnorY6lMcW5JiwUOkeeo?si=gfyh-wwwQqmABcrTxmAX_Q",
-    "https://soundcloud.com/13106",
+    "https://soundcloud.com/deejayhalo",
+    "https://twitter.com/Annggellll",
+    "https://instagram.com/dj.halo",
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/shurrecords`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/djhalo`;
 const linkData = [
   {
     src: `${url}/1.jpg`,
   },
   {
-    src: `${url}/2.mp4`,
+    src: `${url}/2.jpg`,
   },
   {
-    src: `${url}/3.jpg`,
+    src: `${url}/3.mp4`,
   },
   {
     src: `${url}/4.jpg`,
