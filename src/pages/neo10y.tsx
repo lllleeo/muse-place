@@ -1,25 +1,22 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { GothamProps } from "themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "Domnic Scott",
-  socials: [
-    "https://www.instagram.com/dominic.scott/",
-    "https://open.spotify.com/track/6oa53wMlVD2tNuMdEaXJLF?si=R816oYHnSku5IDOrIBZwZQ",
-    "https://www.youtube.com/watch?v=oiOLkwr2aAU&feature=youtu.be",
-    "https://twitter.com/dominicscxtt",
+  name: "Neo 10Y",
+  socialLinks: [
+    "http://neo10y.space/nft",
+    "https://open.spotify.com/artist/3G1V2jfTZO61Hs3dX7ilrA?si=c-SezDDJRTeWktOa7--Pug&nd=1",
+    "https://www.youtube.com/c/neo10y",
   ],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/dominicscott`;
-const artwork: GothamProps["artwork"] = [
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/neo10y`;
+const linkData = [
   {
     src: `${url}/1.mp4`,
-    audio: true,
   },
   {
     src: `${url}/2.jpg`,
@@ -42,11 +39,11 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Domnic Scott</title>
+        <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Gotham
-        artwork={artwork}
-        socials={ARTIST.socials}
+        artwork={linkData}
+        socials={ARTIST.socialLinks}
         name={ARTIST.name}
         night
       />
