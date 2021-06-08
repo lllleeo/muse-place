@@ -3,8 +3,8 @@ import LookAtPlayer from "../../modifiers/LookAtPlayer";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Group, Vector3 } from "three";
-import { useLimiter, Audio } from "spacesvr";
-import { useBuilder00Logic, useDialogue } from "./logic";
+import { useLimiter } from "spacesvr";
+import { useBuilder00Logic, useDialogue } from "./dialogue";
 import VisualDialogue from "../../layers/communication/visual/VisualDialogue";
 
 export default function Builder00() {
