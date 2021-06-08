@@ -1,8 +1,8 @@
 import useStateMachine from "@cassiozen/usestatemachine";
 import { useIdentity } from "../../layers/identity";
 import { useSnapshot } from "valtio";
-import { useLoginLogic } from "../../logic/login";
-import { useSignupLogic } from "../../logic/signup";
+import { useLoginLogic } from "../../dialogue/login";
+import { useSignupLogic } from "../../dialogue/signup";
 import { Dialogue } from "../../layers/communication";
 
 export const useBuilder00Logic = () =>

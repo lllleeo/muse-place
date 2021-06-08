@@ -3,7 +3,7 @@ export type Decision = {
   action?: () => void;
   utility?: number;
   nextKey?: string;
-  onClick?: () => string | void;
+  onClick?: () => any;
 };
 
 export type Interaction = {

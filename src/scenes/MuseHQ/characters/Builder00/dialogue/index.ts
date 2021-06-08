@@ -1,10 +1,10 @@
 import useStateMachine from "@cassiozen/usestatemachine";
 import { useIdentitySnapshot } from "../../../layers/identity";
-import { useLoginLogic } from "../../../logic/login";
-import { useSignupLogic } from "../../../logic/signup";
+import { useLoginLogic } from "../../../dialogue/login";
+import { useSignupLogic } from "../../../dialogue/signup";
 import { useState } from "react";
 import { useGreeterLogic } from "./greeter";
-import { useLogoutLogic } from "../../../logic/logout";
+import { useLogoutLogic } from "../../../dialogue/logout";
 import { Dialogue } from "../../../layers/communication";
 
 export const useBuilder00Logic = () =>

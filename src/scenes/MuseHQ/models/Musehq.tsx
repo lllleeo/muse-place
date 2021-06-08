@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
   nodes: {
     wallsa: THREE.Mesh;
     wallsb: THREE.Mesh;
-    floor: THREE.Mesh;
+    floor9: THREE.Mesh;
     supports: THREE.Mesh;
     pedestal: THREE.Mesh;
     railing: THREE.Mesh;
@@ -38,7 +38,7 @@ type GLTFResult = GLTF & {
     kira: THREE.Mesh;
     ["highrise-hitbox"]: THREE.Mesh;
     highrise: THREE.Mesh;
-    collider: THREE.Mesh;
+    muralassets: THREE.Mesh;
   };
   materials: {
     ["wall.a2.mat"]: THREE.MeshStandardMaterial;
@@ -56,18 +56,19 @@ type GLTFResult = GLTF & {
     ["couch.mat"]: THREE.MeshStandardMaterial;
     ["banner.mat"]: THREE.MeshStandardMaterial;
     ["misc.mat"]: THREE.MeshStandardMaterial;
-    ["telescope.mat"]: THREE.MeshStandardMaterial;
+    ["fans.mat"]: THREE.MeshStandardMaterial;
     ["stilts.mat"]: THREE.MeshStandardMaterial;
     ["shelf_objects.mat"]: THREE.MeshStandardMaterial;
     lucid: THREE.MeshStandardMaterial;
     ["ghost.mat"]: THREE.MeshStandardMaterial;
     ["kira.mat"]: THREE.MeshStandardMaterial;
     ["highrise.mat"]: THREE.MeshStandardMaterial;
+    ["mural.assets"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1622084161/musehq_06.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1623116785/musehq_08.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -84,168 +85,143 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null} name="musehq">
       <group name="Scene" scale={SCALE}>
-        <group>
-          <mesh
-            name="wallsa"
-            geometry={nodes.wallsa.geometry}
-            material={materials["wall.a2.mat"]}
-          />
-          <mesh
-            name="wallsb"
-            geometry={nodes.wallsb.geometry}
-            material={materials["wall.b2.mat"]}
-          />
-          <mesh
-            name="floor"
-            geometry={nodes.floor.geometry}
-            material={materials["floor.mat"]}
-          />
-          <mesh
-            name="supports"
-            geometry={nodes.supports.geometry}
-            material={materials["supports2.mat"]}
-          />
-          <mesh
-            name="pedestal"
-            geometry={nodes.pedestal.geometry}
-            material={materials["pedestal.mat"]}
-          />
-          <mesh
-            name="railing"
-            geometry={nodes.railing.geometry}
-            material={materials["railing.mat"]}
-          />
-          <mesh
-            name="balcony"
-            geometry={nodes.balcony.geometry}
-            material={materials["balcony.mat"]}
-          />
-          <mesh
-            name="balconysupport"
-            geometry={nodes.balconysupport.geometry}
-            material={materials["balcony.support.mat"]}
-          />
-          <mesh
-            name="balconyrailing"
-            geometry={nodes.balconyrailing.geometry}
-            material={materials["balcony.railing.mat"]}
-          />
-          <mesh
-            name="windows"
-            geometry={nodes.windows.geometry}
-            material={materials["windows.mat"]}
-          />
-          <mesh
-            name="table"
-            geometry={nodes.table.geometry}
-            material={materials["table.mat"]}
-            position={[-4.2379, 10.6103, -3.2352]}
-          />
-          <mesh
-            name="doors"
-            geometry={nodes.doors.geometry}
-            material={materials["doors.mat"]}
-          />
-          <mesh
-            name="couch"
-            geometry={nodes.couch.geometry}
-            material={materials["couch.mat"]}
-          />
-          <mesh
-            name="banner"
-            geometry={nodes.banner.geometry}
-            material={materials["banner.mat"]}
-          />
-          <mesh
-            name="misc"
-            geometry={nodes.misc.geometry}
-            material={materials["misc.mat"]}
-          />
-          <mesh
-            name="fans"
-            geometry={nodes.fans.geometry}
-            material={materials["telescope.mat"]}
-            position={[-0.0369, 15.9555, 6.2338]}
-          />
-          <mesh
-            name="stilts"
-            geometry={nodes.stilts.geometry}
-            material={materials["stilts.mat"]}
-          />
-          <mesh
-            name="shelf-objects"
-            geometry={nodes["shelf-objects"].geometry}
-            material={materials["shelf_objects.mat"]}
-          />
-          <Trigger
-            onClick={() =>
-              window.open("https://muse.place/lucidmonday", "_blank")
-            }
-          >
-            <mesh
-              name="lucid"
-              geometry={nodes.lucid.geometry}
-              material={materials.lucid}
-            />
-            <mesh
-              visible={false}
-              name="lucid-hitbox"
-              geometry={nodes["lucid-hitbox"].geometry}
-              material={nodes["lucid-hitbox"].material}
-            />
-          </Trigger>
-          <Trigger
-            onClick={() =>
-              window.open("https://muse.place/balloonski", "_blank")
-            }
-          >
-            <mesh
-              name="balloonski"
-              geometry={nodes.balloonski.geometry}
-              material={materials["ghost.mat"]}
-            />
-            <mesh
-              visible={false}
-              name="balloonski-hitbox"
-              geometry={nodes["balloonski-hitbox"].geometry}
-              material={nodes["balloonski-hitbox"].material}
-            />
-          </Trigger>
-          <Trigger
-            onClick={() =>
-              window.open("https://muse.place/kirax23/alto", "_blank")
-            }
-          >
-            <mesh
-              name="kira"
-              geometry={nodes.kira.geometry}
-              material={materials["kira.mat"]}
-            />
-            <mesh
-              visible={false}
-              name="kira-hitbox"
-              geometry={nodes["kira-hitbox"].geometry}
-              material={nodes["kira-hitbox"].material}
-            />
-          </Trigger>
-          <Trigger
-            onClick={() => window.open("https://muse.place/highrise", "_blank")}
-          >
-            <mesh
-              name="highrise"
-              geometry={nodes.highrise.geometry}
-              material={materials["highrise.mat"]}
-              scale={[7.5, 7.5, 7.5]}
-            />
-            <mesh
-              visible={false}
-              name="highrise-hitbox"
-              geometry={nodes["highrise-hitbox"].geometry}
-              material={nodes["highrise-hitbox"].material}
-            />
-          </Trigger>
-          {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
-        </group>
+        <mesh
+          name="wallsa"
+          geometry={nodes.wallsa.geometry}
+          material={materials["wall.a2.mat"]}
+        />
+        <mesh
+          name="wallsb"
+          geometry={nodes.wallsb.geometry}
+          material={materials["wall.b2.mat"]}
+        />
+        <mesh
+          name="floor9"
+          geometry={nodes.floor9.geometry}
+          material={materials["floor.mat"]}
+        />
+        <mesh
+          name="supports"
+          geometry={nodes.supports.geometry}
+          material={materials["supports2.mat"]}
+        />
+        <mesh
+          name="pedestal"
+          geometry={nodes.pedestal.geometry}
+          material={materials["pedestal.mat"]}
+        />
+        <mesh
+          name="railing"
+          geometry={nodes.railing.geometry}
+          material={materials["railing.mat"]}
+        />
+        <mesh
+          name="balcony"
+          geometry={nodes.balcony.geometry}
+          material={materials["balcony.mat"]}
+        />
+        <mesh
+          name="balconysupport"
+          geometry={nodes.balconysupport.geometry}
+          material={materials["balcony.support.mat"]}
+        />
+        <mesh
+          name="balconyrailing"
+          geometry={nodes.balconyrailing.geometry}
+          material={materials["balcony.railing.mat"]}
+        />
+        <mesh
+          name="windows"
+          geometry={nodes.windows.geometry}
+          material={materials["windows.mat"]}
+        />
+        <mesh
+          name="table"
+          geometry={nodes.table.geometry}
+          material={materials["table.mat"]}
+        />
+        <mesh
+          name="doors"
+          geometry={nodes.doors.geometry}
+          material={materials["doors.mat"]}
+        />
+        <mesh
+          name="couch"
+          geometry={nodes.couch.geometry}
+          material={materials["couch.mat"]}
+        />
+        <mesh
+          name="banner"
+          geometry={nodes.banner.geometry}
+          material={materials["banner.mat"]}
+        />
+        <mesh
+          name="misc"
+          geometry={nodes.misc.geometry}
+          material={materials["misc.mat"]}
+        />
+        <mesh
+          name="fans"
+          geometry={nodes.fans.geometry}
+          material={materials["fans.mat"]}
+          position={[-0.0369, 15.9555, 6.2338]}
+        />
+        <mesh
+          name="stilts"
+          geometry={nodes.stilts.geometry}
+          material={materials["stilts.mat"]}
+        />
+        <mesh
+          name="shelf-objects"
+          geometry={nodes["shelf-objects"].geometry}
+          material={materials["shelf_objects.mat"]}
+        />
+        <mesh
+          name="lucid-hitbox"
+          geometry={nodes["lucid-hitbox"].geometry}
+          material={nodes["lucid-hitbox"].material}
+        />
+        <mesh
+          name="lucid"
+          geometry={nodes.lucid.geometry}
+          material={materials.lucid}
+        />
+        <mesh
+          name="balloonski-hitbox"
+          geometry={nodes["balloonski-hitbox"].geometry}
+          material={nodes["balloonski-hitbox"].material}
+        />
+        <mesh
+          name="balloonski"
+          geometry={nodes.balloonski.geometry}
+          material={materials["ghost.mat"]}
+        />
+        <mesh
+          name="kira-hitbox"
+          geometry={nodes["kira-hitbox"].geometry}
+          material={nodes["kira-hitbox"].material}
+        />
+        <mesh
+          name="kira"
+          geometry={nodes.kira.geometry}
+          material={materials["kira.mat"]}
+        />
+        <mesh
+          name="highrise-hitbox"
+          geometry={nodes["highrise-hitbox"].geometry}
+          material={nodes["highrise-hitbox"].material}
+        />
+        <mesh
+          name="highrise"
+          geometry={nodes.highrise.geometry}
+          material={materials["highrise.mat"]}
+          scale={[7.5, 7.5, 7.5]}
+        />
+        <mesh
+          name="muralassets"
+          geometry={nodes.muralassets.geometry}
+          material={materials["mural.assets"]}
+        />
       </group>
     </group>
   );
