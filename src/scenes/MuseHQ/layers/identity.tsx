@@ -73,8 +73,6 @@ export class Identity {
       return { success: false, message: "not logged in" };
     }
 
-    console.log("attempting fetch!");
-
     const params: RequestInit = {
       headers: { Authorization: `bearer ${this.token}` },
     };
@@ -86,15 +84,11 @@ export class Identity {
       this.name = json.name;
       this.email = json.email;
       this.groups = json.groups;
-      console.log("set exists to true");
       this.exists = true;
-      console.log(this);
       analytics.identify(json.email, { name: this.name });
     } else {
-      console.log("set exists to FFF");
       this.exists = false;
       this.setToken(undefined);
-      console.log(this);
     }
 
     return { success: response.status === 200, message: json.message };

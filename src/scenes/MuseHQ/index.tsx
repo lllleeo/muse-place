@@ -48,7 +48,7 @@ export default function MuseHQ() {
         <AmbientParticles position={[-4 - 7.09, 0, -3 - 3.19]} />
         <Suspense fallback={null}>
           <Preload all />
-          <Musehq position-y={-6} />
+          <Musehq />
         </Suspense>
         <group name="source" position={[-2.51, 1.76, -1.87]}>
           <VisualIdea name="saas-1" size={1.35} utility={0.9} />
@@ -63,15 +63,15 @@ export default function MuseHQ() {
         <Builder00 />
         <Builder07 />
         <Builder0102 />
-        <EffectComposer autoClear multisampling={0}>
-          {/*<Bloom*/}
-          {/*  luminanceThreshold={0.25}*/}
-          {/*  luminanceSmoothing={0.9}*/}
-          {/*  intensity={0.15}*/}
-          {/*  height={300}*/}
-          {/*/>*/}
-          <Noise opacity={0.165} />
-        </EffectComposer>
+        {/*<EffectComposer autoClear multisampling={0}>*/}
+        {/*  <Bloom*/}
+        {/*    luminanceThreshold={0.25}*/}
+        {/*    luminanceSmoothing={0.9}*/}
+        {/*    intensity={0.15}*/}
+        {/*    height={300}*/}
+        {/*  />*/}
+        {/*  <Noise opacity={0.165} />*/}
+        {/*</EffectComposer>*/}
       </IdentityLayer>
     </StandardEnvironment>
   );

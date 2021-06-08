@@ -123,8 +123,8 @@ export default function Model(props: ModelProps) {
       <group
         name="Armature"
         rotation-x={Math.PI / 2}
-        scale={0.007}
-        position-y={-0.12}
+        scale={0.00615}
+        position-y={0}
         frustumCulled={false}
       >
         {rig && <primitive object={rig} />}
