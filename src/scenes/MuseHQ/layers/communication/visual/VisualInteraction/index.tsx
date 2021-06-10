@@ -1,13 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring/three";
 import { Text } from "@react-three/drei";
-import { Box, Flex } from "@react-three/flex";
+import { Flex } from "@react-three/flex";
 import { DialogueContext } from "../VisualDialogue";
 import { Interaction } from "../../index";
 import TextInput from "../../../../components/input/TextInput";
-import FacePlayer from "../../../../modifiers/FacePlayer";
-import Button from "../../../../components/Button";
-import { Idea } from "../../../basis";
 import VisualDecision from "./components/VisualDecision";
 
 const FONT_FILE =

@@ -55,15 +55,15 @@ export default function MuseHQ() {
         <Builder00 />
         <Builder07 />
         <Builder0102 />
-        <EffectComposer autoClear multisampling={0}>
-          <Bloom
-            luminanceThreshold={0.25}
-            luminanceSmoothing={0.9}
-            intensity={0.15}
-            height={300}
-          />
-          <Noise opacity={0.165} />
-        </EffectComposer>
+        {/*<EffectComposer autoClear multisampling={0}>*/}
+        {/*  <Bloom*/}
+        {/*    luminanceThreshold={0.25}*/}
+        {/*    luminanceSmoothing={0.9}*/}
+        {/*    intensity={0.15}*/}
+        {/*    height={300}*/}
+        {/*  />*/}
+        {/*  <Noise opacity={0.165} />*/}
+        {/*</EffectComposer>*/}
       </IdentityLayer>
     </StandardEnvironment>
   );

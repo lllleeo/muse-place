@@ -1,10 +1,12 @@
-import { useContext, useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { Floating, Spinning } from "spacesvr";
 import { VisualIdea } from "../../../../basis/visual/VisualIdea";
 import { animated, useSpring } from "react-spring/three";
-import { DialogueContext } from "../index";
-import { useFrame } from "@react-three/fiber";
 import { Idea } from "../../../../basis";
+import { GroupProps, useFrame } from "@react-three/fiber";
+import { Group, Vector2, Vector3 } from "three";
+
+const AXIS = new Vector3(0, 1, 0);
 
 type Bubble = {
   idea: Idea;
@@ -21,11 +23,7 @@ type BubbleProps = {
 function Bubble(props: BubbleProps) {
   const { i, num, enabled, pos, size, idea } = props;
 
-  const { scale } = useSpring({
-    scale: enabled ? 1 : 0,
-  });
-
-  useFrame(() => {});
+  const { scale } = useSpring({ scale: enabled ? 1 : 0 });
 
   return (
     <group name={`bubble-${i}`} position={pos}>
@@ -40,10 +38,18 @@ function Bubble(props: BubbleProps) {
   );
 }
 
-export default function Bubbles() {
-  const { numStops, source, enabled, currentIdea } = useContext(
-    DialogueContext
-  );
+type BubblesProps = {
+  numStops: number;
+  idea: Idea;
+  enabled: boolean;
+  trailEnd: Vector3;
+} & GroupProps;
+
+export default function Bubbles(props: BubblesProps) {
+  const { numStops, idea, enabled, trailEnd, ...rest } = props;
+
+  const source = [0, 0, 0];
+  const group = useRef<Group>();
 
   const bubbles: Bubble[] = useMemo(() => {
     const arr: Bubble[] = [];
@@ -51,9 +57,9 @@ export default function Bubbles() {
       const perc = i / (numStops - 1);
       arr.push({
         idea: new Idea({
-          m: currentIdea.mediation,
-          u: currentIdea.utility * perc,
-          s: currentIdea.specificity * perc,
+          m: idea.mediation,
+          u: idea.utility * perc,
+          s: idea.specificity * perc,
         }),
         size: 0.01 + perc * 0.05,
         pos: [
@@ -66,8 +72,18 @@ export default function Bubbles() {
     return arr;
   }, [numStops, source]);
 
+  useFrame(() => {
+    if (!group.current) return;
+
+    for (let i = 0; i < numStops; i++) {
+      const perc = i / (numStops - 1);
+      const child = group.current.children[i];
+      child.position.copy(trailEnd).multiplyScalar(perc);
+    }
+  });
+
   return (
-    <group name="bubbles">
+    <group name="bubbles" {...rest} ref={group}>
       {bubbles.map((bubble, i) => (
         <Bubble
           key={i}

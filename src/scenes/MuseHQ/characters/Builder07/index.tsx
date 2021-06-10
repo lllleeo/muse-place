@@ -30,16 +30,18 @@ export default function Builder00() {
   const ANIM = LOOKING ? "idle" : "dance1";
 
   return (
-    <group name="builder-technician" position={[-5.9, 0, -3]}>
+    <group
+      name="builder-technician"
+      position={[-5.9, 0, -3]}
+      rotation-y={-Math.PI / 2}
+    >
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
-          <Builder animation={ANIM} rotation-y={-Math.PI / 2} />
+          <Builder animation={ANIM} />
         </group>
         <VisualDialogue
           enabled={TALKING}
-          position={[-0.7, 0.9, -1.2]}
-          source={[-0.5, -0.1, -0.955]}
-          rotation-y={Math.PI + 1.3}
+          position={[0.2, 1, 0.35]}
           dialogue={dialogue}
         />
       </LookAtPlayer>

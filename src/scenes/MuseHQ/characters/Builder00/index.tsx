@@ -29,17 +29,20 @@ export default function Builder00() {
   const TALKING = state.value === "welcome";
 
   return (
-    <group name="builder-mort" position={[-11.78, 0, -3.07]}>
+    <group
+      name="builder-mort"
+      position={[-11.78, 0, -3.07]}
+      rotation-y={-Math.PI / 2}
+    >
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
-          <Builder rotation-y={-Math.PI / 2} animation="idle" />
+          <Builder animation="idle" />
         </group>
         <group>
           <VisualDialogue
             enabled={TALKING}
-            position={[-0.15, 1.1, 0.28]}
-            source={[-0.25, -0.1, -0.05]}
-            rotation-y={Math.PI + 0.9}
+            position={[0.15, 1.1, 0.25]}
+            rotation-y={0}
             dialogue={dialogue}
           />
         </group>
