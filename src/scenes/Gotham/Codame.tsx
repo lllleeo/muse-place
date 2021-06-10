@@ -30,7 +30,12 @@ export default function Codame(props: CodameProps) {
   return (
     <StandardEnvironment
       canvasProps={{ camera: { far: 200 } }}
-      playerProps={{ pos: [-4.1, 1, 11], rot: -0.15, speed: 1.7 }}
+      playerProps={{
+        pos: [-4.1, 1, 11],
+        rot: -0.15,
+        speed: 1.7,
+        controls: { disableGyro: true },
+      }}
       simulationProps={simulationProps}
     >
       {!night && <Sky inclination={1} distance={night ? 0 : 1000000} />}

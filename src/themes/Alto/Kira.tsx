@@ -7,6 +7,8 @@ import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
 import { AltoContext } from "./index";
 import { Audio } from "spacesvr";
+import Onboarding from "../components/Onboarding";
+import { ChadAltoContext } from "./Chad";
 
 export type AltoProps = {
   socials: string[];
@@ -53,6 +55,7 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
+      <Onboarding />
       <Preload all />
       <Suspense fallback={null}>
         <Preload all />
