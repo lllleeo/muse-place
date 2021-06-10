@@ -41,10 +41,11 @@ const FILE_URL =
 
 type ModelProps = {
   animation?: ActionName;
+  duration?: number;
 } & GroupProps;
 
 export default function Model(props: ModelProps) {
-  const { animation = "idle", ...rest } = props;
+  const { animation = "idle", duration = 0.5, ...rest } = props;
 
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF(FILE_URL) as GLTFResult;
@@ -54,6 +55,7 @@ export default function Model(props: ModelProps) {
   const [rig, setRig] = useState<Bone>();
   const [mixer, setMixer] = useState<AnimationMixer | undefined>();
   const actions = useRef<GLTFActions>();
+  const previousAction = useRef(animation);
 
   // function to dispose of loaded dummy
   const disposeDummy = useCallback(() => {
@@ -63,6 +65,25 @@ export default function Model(props: ModelProps) {
       setRig(undefined);
     }
   }, [armature]);
+
+  const fadeToAction = (name: ActionName, duration = 0.2) => {
+    const acts = actions?.current;
+    if (!acts) return;
+    if (name === previousAction.current) return;
+
+    if (acts[previousAction.current].enabled) {
+      acts[previousAction.current].fadeOut(duration);
+    }
+
+    acts[name]
+      .reset()
+      .setEffectiveTimeScale(1)
+      .setEffectiveWeight(1)
+      .fadeIn(duration)
+      .play();
+
+    previousAction.current = name;
+  };
 
   useEffect(() => {
     if (!armature) {
@@ -97,15 +118,16 @@ export default function Model(props: ModelProps) {
       // store into state
       setArmature(newArmature);
       setMixer(newMixer);
+
+      return () => {
+        disposeDummy();
+      };
     }
   }, [armature]);
 
-  // trigger dummy disposal on props change
-  useEffect(() => () => disposeDummy(), [animation]);
-
   useEffect(() => {
     if (!armature || !actions.current) return;
-    actions.current[animation].play();
+    fadeToAction(animation, duration);
   }, [animation, armature, actions]);
 
   // update animation every frame
