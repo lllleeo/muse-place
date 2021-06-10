@@ -1,17 +1,16 @@
 import { useMemo } from "react";
 import { Vector3 } from "three";
-import { RADIUS, TABLE_HEIGHT } from "../assets/constants";
+import { RADIUS, TABLE_HEIGHT, TABLE_THETA } from "../assets/constants";
 
 const CYLINDER_HEIGHT = 0.05;
 const CYLINDER_RADIUS = 0.1;
 
 type WorldPedestalsProps = {
-  angle: number;
   num: number;
 };
 
 export default function WorldPedestals(props: WorldPedestalsProps) {
-  const { angle, num } = props;
+  const { num } = props;
 
   const pedestals: Vector3[] = useMemo(() => {
     let arr: Vector3[] = [];
@@ -19,13 +18,13 @@ export default function WorldPedestals(props: WorldPedestalsProps) {
       const pos = new Vector3().setFromSphericalCoords(
         RADIUS,
         Math.PI / 2,
-        -Math.PI / 2 + i * angle
+        -Math.PI / 2 + i * TABLE_THETA
       );
       pos.y = TABLE_HEIGHT - 0.275 + CYLINDER_HEIGHT / 2;
       arr.push(pos);
     }
     return arr;
-  }, []);
+  }, [num]);
 
   return (
     <group name="world-pedestals">

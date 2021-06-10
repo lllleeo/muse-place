@@ -1,39 +1,17 @@
-import { VisualIdea } from "../../layers/basis/visual/VisualIdea";
-import { Audio, Floating } from "spacesvr";
-import { Vector3 } from "three";
-import { useIdentity, useIdentitySnapshot } from "../../layers/identity";
-import { useEffect, useState } from "react";
+import { Audio, useLimiter } from "spacesvr";
+import { Vector2, Vector3 } from "three";
+import { useEffect, useMemo, useState } from "react";
 import { World } from "../../layers/basis";
 import EmergingWorld from "./components/EmergingWorld";
 import WorldPedestals from "./components/WorldPedestals";
+import { useIdentityWorlds } from "./utils/worlds";
+import { useFrame } from "@react-three/fiber";
+import { TABLE_THETA } from "./assets/constants";
+import { useActiveWorld } from "./utils/active";
 
 export default function WorldDirectory() {
-  const identity = useIdentity();
-  const idSnapshot = useIdentitySnapshot();
-
-  const [prevExists, setPrevExists] = useState(false);
-  const [worlds, setWorlds] = useState<World[]>();
-  const [error, setError] = useState<string>();
-
-  useEffect(() => {
-    const updateWorlds = async () => {
-      const response = await identity.fetchWorlds();
-      if (!response.success) {
-        setError(response.message);
-      } else {
-        setWorlds(response.body);
-      }
-    };
-
-    if (idSnapshot.exists && idSnapshot.exists !== prevExists) {
-      setPrevExists(true);
-      updateWorlds();
-    }
-  }, [prevExists, idSnapshot.exists]);
-
-  console.log("===========");
-  console.log(worlds);
-  console.log(error);
+  const { worlds, error } = useIdentityWorlds();
+  const { active, focus, setFocus } = useActiveWorld();
 
   return (
     <group name="world-directory" position={[-2.51, 0, -1.87]}>
@@ -54,9 +32,17 @@ export default function WorldDirectory() {
         volume={1.6}
         dCone={new Vector3(360, 360, 0)}
       />
-      <WorldPedestals angle={0.5} num={8} />
+      <WorldPedestals num={7} />
       {worlds &&
-        worlds.map((world, i) => <EmergingWorld world={world} index={i} />)}
+        worlds.map((world, i) => (
+          <EmergingWorld
+            world={world}
+            index={i}
+            active={i === active}
+            focus={i === focus}
+            setFocus={setFocus}
+          />
+        ))}
     </group>
   );
 }
