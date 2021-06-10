@@ -29,7 +29,7 @@ export default function DialogueSlides() {
   });
 
   return (
-    <group position-x={WIDTH / 2 + 0.1} position-y={0}>
+    <group position-x={WIDTH / 2 + 0.1}>
       <animated.group scale={scale}>
         <FacePlayer>
           <RoundedBox
@@ -40,7 +40,7 @@ export default function DialogueSlides() {
           >
             <meshStandardMaterial ref={material} side={DoubleSide} />
           </RoundedBox>
-          <group name="content" position-z={DEPTH / 2 + 0.003}>
+          <group name="interactions" position-z={DEPTH / 2 + 0.003}>
             {dialogue.map((interaction) => (
               <VisualInteraction
                 {...interaction}

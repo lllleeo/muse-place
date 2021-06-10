@@ -29,7 +29,7 @@ export default function Builder00() {
   const TALKING = state.value === "welcome";
 
   return (
-    <group name="builder-technician" position={[-4.49, 0.23, -3.57]}>
+    <group name="builder-technician" position={[-5.1, 0.23, -3]}>
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
           <Builder
@@ -41,9 +41,9 @@ export default function Builder00() {
         </group>
         <VisualDialogue
           enabled={TALKING}
-          position={[-0.15, 1.1, 0.28]}
-          source={[-0.25, -0.1, -0.05]}
-          rotation-y={Math.PI + 0.9}
+          position={[-0.7, 0.9, 0.1]}
+          source={[-0.05, -0.1, -0.55]}
+          rotation-y={Math.PI + 1.3}
           dialogue={dialogue}
         />
       </LookAtPlayer>

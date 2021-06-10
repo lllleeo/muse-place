@@ -17,7 +17,7 @@ type GLTFResult = GLTF & {
   nodes: {
     wallsa: THREE.Mesh;
     wallsb: THREE.Mesh;
-    floor9: THREE.Mesh;
+    floor: THREE.Mesh;
     supports: THREE.Mesh;
     pedestal: THREE.Mesh;
     railing: THREE.Mesh;
@@ -42,6 +42,7 @@ type GLTFResult = GLTF & {
     ["highrise-hitbox"]: THREE.Mesh;
     highrise: THREE.Mesh;
     muralassets: THREE.Mesh;
+    exhaust: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
@@ -63,11 +64,12 @@ type GLTFResult = GLTF & {
     ["misc.mat"]: THREE.MeshStandardMaterial;
     ["stilts.mat"]: THREE.MeshStandardMaterial;
     ["shelf_objects.mat"]: THREE.MeshStandardMaterial;
-    lucid: THREE.MeshStandardMaterial;
+    ["lucid.mat"]: THREE.MeshStandardMaterial;
     ["ghost.mat"]: THREE.MeshStandardMaterial;
     ["kira.mat"]: THREE.MeshStandardMaterial;
     ["highrise.mat"]: THREE.MeshStandardMaterial;
     ["mural.assets"]: THREE.MeshStandardMaterial;
+    ["exhaust.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
@@ -75,7 +77,7 @@ type ActionName = "animation_0";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1623141401/musehq_09.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1623208738/musehq_10.glb.gz";
 
 export const useTrimeshCollision = (geometry: BufferGeometry) => {
   const indices = (geometry.index as BufferAttribute).array;
@@ -138,8 +140,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["wall.b2.mat"]}
         />
         <mesh
-          name="floor9"
-          geometry={nodes.floor9.geometry}
+          name="floor"
+          geometry={nodes.floor.geometry}
           material={materials["floor.mat"]}
         />
         <mesh
@@ -219,19 +221,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["shelf_objects.mat"]}
         />
         <mesh
-          name="lucid-hitbox"
-          geometry={nodes["lucid-hitbox"].geometry}
-          material={nodes["lucid-hitbox"].material}
-        />
-        <mesh
           name="lucid"
           geometry={nodes.lucid.geometry}
-          material={materials.lucid}
-        />
-        <mesh
-          name="balloonski-hitbox"
-          geometry={nodes["balloonski-hitbox"].geometry}
-          material={nodes["balloonski-hitbox"].material}
+          material={materials["lucid.mat"]}
         />
         <mesh
           name="balloonski"
@@ -239,19 +231,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["ghost.mat"]}
         />
         <mesh
-          name="kira-hitbox"
-          geometry={nodes["kira-hitbox"].geometry}
-          material={nodes["kira-hitbox"].material}
-        />
-        <mesh
           name="kira"
           geometry={nodes.kira.geometry}
           material={materials["kira.mat"]}
-        />
-        <mesh
-          name="highrise-hitbox"
-          geometry={nodes["highrise-hitbox"].geometry}
-          material={nodes["highrise-hitbox"].material}
         />
         <mesh
           name="highrise"
@@ -264,6 +246,16 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           geometry={nodes.muralassets.geometry}
           material={materials["mural.assets"]}
         />
+        <mesh
+          name="exhaust"
+          geometry={nodes.exhaust.geometry}
+          material={materials["exhaust.mat"]}
+        />
+        {/*<mesh*/}
+        {/*  name="collider"*/}
+        {/*  geometry={nodes.collider.geometry}*/}
+        {/*  material={nodes.collider.material}*/}
+        {/*/>*/}
       </group>
     </group>
   );

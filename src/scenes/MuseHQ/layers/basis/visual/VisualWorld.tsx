@@ -21,7 +21,7 @@ type Props = {
  * @param props
  * @constructor
  */
-export function VisualIdea(props: Props) {
+export function VisualWorld(props: Props) {
   const {
     size = 1,
     idea,

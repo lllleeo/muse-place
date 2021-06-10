@@ -17,6 +17,7 @@ import {
   Noise,
   ToneMapping,
 } from "@react-three/postprocessing";
+import WorldDirectory from "./components/WorldDirectory";
 
 export default function MuseHQ() {
   return (
@@ -50,28 +51,19 @@ export default function MuseHQ() {
           <Preload all />
           <Musehq />
         </Suspense>
-        <group name="source" position={[-2.51, 1.76, -1.87]}>
-          <VisualIdea name="saas-1" size={1.35} utility={0.9} />
-          <Audio
-            url="https://d27rt3a60hh1lx.cloudfront.net/audio/nocopyright-lofi-muse.mp3"
-            rollOff={0.7}
-            volume={1.6}
-            dCone={new Vector3(360, 360, 0)}
-          />
-          {/*<Environment />*/}
-        </group>
+        <WorldDirectory />
         <Builder00 />
         <Builder07 />
         <Builder0102 />
-        {/*<EffectComposer autoClear multisampling={0}>*/}
-        {/*  <Bloom*/}
-        {/*    luminanceThreshold={0.25}*/}
-        {/*    luminanceSmoothing={0.9}*/}
-        {/*    intensity={0.15}*/}
-        {/*    height={300}*/}
-        {/*  />*/}
-        {/*  <Noise opacity={0.165} />*/}
-        {/*</EffectComposer>*/}
+        <EffectComposer autoClear multisampling={0}>
+          <Bloom
+            luminanceThreshold={0.25}
+            luminanceSmoothing={0.9}
+            intensity={0.15}
+            height={300}
+          />
+          <Noise opacity={0.165} />
+        </EffectComposer>
       </IdentityLayer>
     </StandardEnvironment>
   );

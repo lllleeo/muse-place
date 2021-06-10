@@ -67,4 +67,8 @@ export class Idea {
   }
 }
 
-export class World {}
+export class World {
+  userId: number;
+  name: string;
+  slug: string;
+}

@@ -3,10 +3,11 @@ import { ReactNode } from "react";
 import { proxy, useSnapshot, ref } from "valtio";
 import fetch, { RequestInit } from "node-fetch";
 import { analytics } from "../utils/analytics";
+import { World } from "./basis";
 
 const TOKEN_ID = "muse-jwt";
 const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-type Response = { message?: string; success: boolean };
+type Response<T = any> = { message?: string; success: boolean; body?: T };
 
 export class Identity {
   uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -101,6 +102,29 @@ export class Identity {
     this.groups = undefined;
     this.exists = false;
     await new Promise((res) => setTimeout(res, 1500));
+  }
+
+  async fetchWorlds(): Promise<Response<World[]>> {
+    if (!this.exists) {
+      return { success: false, message: "Not logged in" };
+    }
+
+    const params: RequestInit = {
+      headers: { Authorization: `bearer ${this.token}` },
+    };
+
+    const response = await fetch(
+      `${URL}/worlds/fetch_all?worlds_id=${this.email}`,
+      params
+    );
+
+    const json = await response.json();
+
+    return {
+      success: response.status === 200,
+      message: json.message,
+      body: json,
+    };
   }
 
   setToken(token: string | undefined) {
