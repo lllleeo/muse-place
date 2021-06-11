@@ -6,7 +6,6 @@ import { Idea } from "../../../basis";
 import {
   DoubleSide,
   Group,
-  Mesh,
   MeshStandardMaterial,
   Object3D,
   Vector3,
@@ -15,6 +14,7 @@ import { RoundedBox } from "@react-three/drei";
 import VisualInteraction from "../VisualInteraction";
 import { useSpring, animated } from "react-spring/three";
 import FacePlayer from "../../../../modifiers/FacePlayer";
+import { useLimiter } from "spacesvr";
 
 type DialogueState = {
   key: string;
@@ -53,63 +53,59 @@ export default function VisualDialogue(
 
   const [key, setKey] = useState("init");
   const mat = useRef<MeshStandardMaterial>();
-  const group = useRef<Group>();
-  const mesh = useRef<Mesh>();
   const curIdea = useMemo(() => new Idea(), []);
-  const trailEnd = useMemo(() => new Vector3(), []);
-  const dummy = useMemo(() => new Vector3(), []);
   const { scale } = useSpring({ scale: enabled ? 1 : 0 });
 
-  useFrame(() => {
-    if (!mat.current || !mesh.current || !group.current) return;
+  // anchor for bubbles to track to dialogue
+  const limiter = useLimiter(50);
+  const group = useRef<Group>();
+  const anchor = useRef<Group>();
+  const anchorPos = useMemo(() => new Vector3(), []);
+
+  useFrame(({ clock }) => {
+    if (
+      !mat.current ||
+      !anchor.current ||
+      !group.current ||
+      !limiter.isReady(clock)
+    )
+      return;
     mat.current.color.set(curIdea.getHex());
 
-    console.log("===================================");
-    trailEnd.set(0, 0, 0);
-    trailEnd.applyMatrix4(group.current.matrix);
-    let child: Object3D = group.current;
-    while (child.children && child.children[0]) {
-      console.log(trailEnd);
-      child = child.children[0];
-      trailEnd.applyMatrix4(child.matrix);
+    anchorPos.set(0, 0, 0);
+    anchorPos.applyMatrix4(anchor.current.matrix);
+    let child: Object3D = anchor.current;
+    while (child.parent && child !== group.current) {
+      child = child.parent;
+      anchorPos.applyMatrix4(child.matrix);
     }
-    trailEnd.y -= builderHeight;
+    anchorPos.y -= builderHeight;
   });
 
   return (
     <group name="dialogue">
       <DialogueContext.Provider value={{ key, setKey }}>
-        <group name="main-bubbles" position-y={builderHeight}>
-          <mesh>
-            <boxBufferGeometry args={[0.075, 0.075, 0.075]} />
-            <meshStandardMaterial color="red" />
-          </mesh>
-          <Bubbles
-            numStops={numStops}
-            enabled={enabled}
-            idea={curIdea}
-            trailEnd={trailEnd}
-          />
-        </group>
+        <Bubbles
+          position-y={builderHeight}
+          numStops={numStops}
+          enabled={enabled}
+          idea={curIdea}
+          anchorPos={anchorPos}
+        />
         <group name="main-dialogue" {...rest} ref={group}>
-          <group
-            position-x={((SIDE === "left" ? -1 : 1) * WIDTH) / 2}
-            rotation-y={0}
-          >
+          <group position-x={((SIDE === "left" ? -1 : 1) * WIDTH) / 2}>
             <FacePlayer>
               <animated.group scale={scale}>
-                <mesh
-                  ref={mesh}
+                <group
+                  name="anchor"
+                  ref={anchor}
                   position-x={((SIDE === "left" ? 1 : -1) * WIDTH) / 2}
-                >
-                  <boxBufferGeometry args={[0.0001, 0.1, 0.1]} />
-                  <meshStandardMaterial color="red" />
-                </mesh>
+                />
                 <RoundedBox
+                  name="base"
                   args={[WIDTH, HEIGHT, DEPTH]}
                   radius={RADIUS}
                   smoothness={4}
-                  name="base"
                 >
                   <meshStandardMaterial ref={mat} side={DoubleSide} />
                 </RoundedBox>

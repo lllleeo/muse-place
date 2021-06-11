@@ -41,7 +41,7 @@ export default function Builder00() {
         </group>
         <VisualDialogue
           enabled={TALKING}
-          position={[0.2, 1, 0.35]}
+          position={[-0.2, 1, 0.35]}
           dialogue={dialogue}
         />
       </LookAtPlayer>

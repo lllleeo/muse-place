@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { Floating, Spinning } from "spacesvr";
+import { Floating, Spinning, useLimiter } from "spacesvr";
 import { VisualIdea } from "../../../../basis/visual/VisualIdea";
 import { animated, useSpring } from "react-spring/three";
 import { Idea } from "../../../../basis";
@@ -42,14 +42,15 @@ type BubblesProps = {
   numStops: number;
   idea: Idea;
   enabled: boolean;
-  trailEnd: Vector3;
+  anchorPos: Vector3;
 } & GroupProps;
 
 export default function Bubbles(props: BubblesProps) {
-  const { numStops, idea, enabled, trailEnd, ...rest } = props;
+  const { numStops, idea, enabled, anchorPos, ...rest } = props;
 
   const source = [0, 0, 0];
   const group = useRef<Group>();
+  const limiter = useLimiter(50);
 
   const bubbles: Bubble[] = useMemo(() => {
     const arr: Bubble[] = [];
@@ -72,13 +73,13 @@ export default function Bubbles(props: BubblesProps) {
     return arr;
   }, [numStops, source]);
 
-  useFrame(() => {
-    if (!group.current) return;
+  useFrame(({ clock }) => {
+    if (!group.current || !limiter.isReady(clock)) return;
 
     for (let i = 0; i < numStops; i++) {
       const perc = i / (numStops - 1);
       const child = group.current.children[i];
-      child.position.copy(trailEnd).multiplyScalar(perc);
+      child.position.copy(anchorPos).multiplyScalar(perc);
     }
   });
 
