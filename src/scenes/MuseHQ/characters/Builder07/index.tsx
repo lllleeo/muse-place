@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Group, Vector3 } from "three";
 import { useLimiter } from "spacesvr";
-import { useBuilder00Logic, useDialogue } from "./logic";
+import { useBuilder07Logic, useDialogue } from "./dialogue";
 import VisualDialogue from "../../layers/communication/visual/VisualDialogue";
 
 export default function Builder00() {
@@ -13,7 +13,7 @@ export default function Builder00() {
   const dummy = useMemo(() => new Vector3(), []);
 
   const dialogue = useDialogue();
-  const [state, send] = useBuilder00Logic();
+  const [state, send] = useBuilder07Logic();
 
   useFrame(({ camera, clock }) => {
     if (!group.current || !limiter.isReady(clock)) return;

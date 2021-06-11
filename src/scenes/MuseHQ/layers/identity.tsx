@@ -10,16 +10,20 @@ const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 type Response<T = any> = { message?: string; success: boolean; body?: T };
 
 export class Identity {
+  private token: string | undefined =
+    localStorage.getItem(TOKEN_ID) || undefined;
+
   uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
+
   exists = false;
-  name = undefined;
-  email = undefined;
-  token = localStorage.getItem(TOKEN_ID) || undefined;
-  groups = undefined;
+  name: string | undefined = undefined;
+  email: string | undefined = undefined;
+  groups: string[] | undefined = undefined;
+  worlds: World[] | undefined = undefined;
 
   async login(email: string, password: string): Promise<Response> {
     const params: RequestInit = {
@@ -119,6 +123,7 @@ export class Identity {
     );
 
     const json = await response.json();
+    this.worlds = json;
 
     return {
       success: response.status === 200,

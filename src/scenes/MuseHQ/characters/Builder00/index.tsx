@@ -42,7 +42,6 @@ export default function Builder00() {
           <VisualDialogue
             enabled={TALKING}
             position={[0.15, 1.1, 0.25]}
-            rotation-y={0}
             dialogue={dialogue}
           />
         </group>

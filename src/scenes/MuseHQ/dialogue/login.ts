@@ -52,15 +52,13 @@ export const useLoginLogic = (inKey: string, outKey: string): Dialogue => {
       key: "login-login",
       text: "logging in...",
       effect: async () => {
-        if (!idSnapshot.exists) {
-          setError(undefined);
-          const result = await identity.login(email, password);
-          if (result.success) {
-            return "login-background";
-          } else {
-            setError(result.message);
-            return "login-error";
-          }
+        setError(undefined);
+        const result = await identity.login(email, password);
+        if (result.success) {
+          return "login-background";
+        } else {
+          setError(result.message);
+          return "login-error";
         }
       },
     },
