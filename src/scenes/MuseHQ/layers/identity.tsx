@@ -58,7 +58,7 @@ export class Identity {
         name,
         email,
         password,
-        generation_details: generationDetails,
+        data: generationDetails,
         code: code,
       }),
       headers: { "Content-Type": "application/json" },
