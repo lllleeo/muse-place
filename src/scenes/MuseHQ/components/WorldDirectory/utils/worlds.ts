@@ -34,6 +34,11 @@ export const useIdentityWorlds = () => {
       setPrevExists(true);
       updateWorlds();
     }
+
+    if (!idSnapshot.exists && idSnapshot.exists !== prevExists) {
+      setPrevExists(false);
+      setWorlds([]);
+    }
   }, [prevExists, idSnapshot.exists]);
 
   return { worlds, error };

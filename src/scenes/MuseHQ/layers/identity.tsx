@@ -49,8 +49,8 @@ export class Identity {
     name: string,
     email: string,
     password: string,
-    siteName: string,
-    code: string
+    generationDetails?: string,
+    code?: string
   ): Promise<Response> {
     const params: RequestInit = {
       method: "POST",
@@ -58,7 +58,7 @@ export class Identity {
         name,
         email,
         password,
-        world_name: siteName,
+        generation_details: generationDetails,
         code: code,
       }),
       headers: { "Content-Type": "application/json" },
@@ -104,6 +104,7 @@ export class Identity {
     this.email = undefined;
     this.groups = undefined;
     this.exists = false;
+    this.worlds = undefined;
     await new Promise((res) => setTimeout(res, 1500));
   }
 

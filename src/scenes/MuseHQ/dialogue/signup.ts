@@ -60,7 +60,7 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
     },
     {
       key: "signup-generate",
-      text: "how do you want to populate your site?",
+      text: "want your site faster? we can source content from a source below",
       decisions: [
         {
           name: "instagram",
@@ -77,12 +77,17 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
           nextKey: "signup-username",
           onClick: () => setGenerate("opensea"),
         },
+        {
+          name: "none",
+          nextKey: "signup-signup",
+          onClick: () => setGenerate("none"),
+        },
         { name: "go back", nextKey: "signup-password" },
       ],
     },
     {
       key: "signup-username",
-      text: `what's your username on ${generate}?`,
+      text: `what's your ${generate} username?`,
       input: {
         value: username,
         setValue: setUsername,
@@ -97,21 +102,22 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
       key: "signup-signup",
       text: "signing up...",
       effect: async () => {
-        if (!idSnapshot.exists) {
-          setError(undefined);
-          const result = await identity.signup(
-            name,
-            email,
-            password,
-            `${generate} - ${username}`,
-            [`cohort-kallichore`]
-          );
-          if (result.success) {
-            return "signup-login";
-          } else {
-            setError(result.message);
-            return "signup-error";
-          }
+        setError(undefined);
+        let generationDetails =
+          generate === "none" ? undefined : `${generate}-${username}`;
+
+        const result = await identity.signup(
+          name,
+          email,
+          password,
+          generationDetails,
+          "cohort-kallichore"
+        );
+        if (result.success) {
+          return "signup-login";
+        } else {
+          setError(result.message);
+          return "signup-error";
         }
       },
     },

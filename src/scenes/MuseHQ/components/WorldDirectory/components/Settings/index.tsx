@@ -30,7 +30,7 @@ export default function Settings(props: SettingsProps) {
       { name: "delete", action: () => console.log("delete please") },
     ];
 
-    if (world.root_idea) {
+    if (world.rootIdea) {
       configs.push({
         name: "visit",
         action: () =>
