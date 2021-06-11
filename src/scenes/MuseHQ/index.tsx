@@ -21,7 +21,7 @@ export default function MuseHQ() {
     <StandardEnvironment
       playerProps={{
         speed: 1.65,
-        pos: [-16.748, 0, -2.1],
+        pos: [-16.748, 2, -2.1],
         rot: -Math.PI / 2,
         controls: { disableGyro: true },
       }}
