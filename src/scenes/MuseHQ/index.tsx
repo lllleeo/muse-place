@@ -1,14 +1,11 @@
 import { Suspense } from "react";
-import { StandardEnvironment, Audio } from "spacesvr";
+import { StandardEnvironment } from "spacesvr";
 import { Preload } from "@react-three/drei";
 import Musehq from "./models/Musehq";
 import AmbientParticles from "./components/AmbientParticles";
-import { VisualIdea } from "./layers/basis/visual/VisualIdea";
 import Builder00 from "./characters/Builder00";
 import Builder07 from "./characters/Builder07";
-import Builder0102 from "./characters/Builder0102";
 import { IdentityLayer } from "./layers/identity";
-import { Vector3 } from "three";
 import Onboarding from "./components/Onboarding";
 import {
   Bloom,
@@ -24,7 +21,7 @@ export default function MuseHQ() {
     <StandardEnvironment
       playerProps={{
         speed: 1.65,
-        pos: [-19.748, 0, -2.1],
+        pos: [-16.748, 0, -2.1],
         rot: -Math.PI / 2,
         controls: { disableGyro: true },
       }}
@@ -54,7 +51,6 @@ export default function MuseHQ() {
         <WorldDirectory />
         <Builder00 />
         <Builder07 />
-        <Builder0102 />
         {/*<EffectComposer autoClear multisampling={0}>*/}
         {/*  <Bloom*/}
         {/*    luminanceThreshold={0.25}*/}

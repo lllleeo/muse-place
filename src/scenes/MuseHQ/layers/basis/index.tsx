@@ -71,4 +71,37 @@ export class World {
   userId: number;
   name: string;
   slug: string;
+  rootIdea: string;
+  rootIdeaVersion: string;
+
+  constructor(obj: any) {
+    if (obj.userId) this.userId = obj.userId;
+    if (obj.name) this.name = obj.name;
+    if (obj.slug) this.slug = obj.slug;
+    if (obj.rootIdea) this.rootIdea = obj.rootIdea;
+    if (obj.rootIdeaVersion) this.rootIdeaVersion = obj.rootIdeaVersion;
+  }
+
+  getIdeas(): Idea[] {
+    const ideas: Idea[] = [];
+
+    if (this.name) {
+      ideas.push(
+        new Idea({
+          mediation:
+            (hashStringToNum(this.name + this.slug + this.rootIdea) %
+              MAGIC_NUM) /
+            MAGIC_NUM,
+          specificity: 0.3,
+          utility: 0.8,
+        })
+      );
+    }
+
+    if (ideas.length === 0) {
+      ideas.push(new Idea());
+    }
+
+    return ideas;
+  }
 }

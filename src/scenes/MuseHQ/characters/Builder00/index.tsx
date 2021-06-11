@@ -31,7 +31,7 @@ export default function Builder00() {
   return (
     <group
       name="builder-mort"
-      position={[-11.78, 0, -3.07]}
+      position={[-10.8, 0, -3.07]}
       rotation-y={-Math.PI / 2}
     >
       <LookAtPlayer enabled={LOOKING}>

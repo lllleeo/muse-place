@@ -106,7 +106,7 @@ export class Identity {
     await new Promise((res) => setTimeout(res, 1500));
   }
 
-  async fetchWorlds(): Promise<Response<World[]>> {
+  async fetchWorlds(): Promise<Response> {
     if (!this.exists) {
       return { success: false, message: "Not logged in" };
     }

@@ -27,7 +27,6 @@ export default function Builder00() {
 
   const LOOKING = state.value === "seeyou" || state.value === "welcome";
   const TALKING = state.value === "welcome";
-  const ANIM = LOOKING ? "idle" : "dance1";
 
   return (
     <group
@@ -37,7 +36,7 @@ export default function Builder00() {
     >
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
-          <Builder animation={ANIM} />
+          <Builder animation="idle" />
         </group>
         <VisualDialogue
           enabled={TALKING}

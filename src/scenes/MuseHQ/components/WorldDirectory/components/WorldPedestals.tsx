@@ -31,7 +31,7 @@ export default function WorldPedestals(props: WorldPedestalsProps) {
       const obj = new Object3D();
       const theta = -Math.PI / 2 + i * TABLE_THETA;
       obj.position.setFromSphericalCoords(RADIUS + 0.1, Math.PI / 2, theta);
-      obj.position.y = TABLE_HEIGHT - 0.25;
+      obj.position.y = TABLE_HEIGHT;
       obj.rotation.y = theta + Math.PI / 2;
       obj.scale.set(SCALE, SCALE, SCALE);
       obj.updateMatrix();

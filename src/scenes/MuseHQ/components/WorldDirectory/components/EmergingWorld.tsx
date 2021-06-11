@@ -2,10 +2,15 @@ import { World } from "../../../layers/basis";
 import { useSpring, animated } from "react-spring/three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CatmullRomCurve3, Group, Vector3 } from "three";
-import { Interactable, useLimiter } from "spacesvr";
+import { Interactable, Spinning, useLimiter } from "spacesvr";
 import { useFrame } from "@react-three/fiber";
 import { VisualWorld } from "../../../layers/basis/visual/VisualWorld";
-import { RADIUS, TABLE_HEIGHT } from "../assets/constants";
+import {
+  RADIUS,
+  TABLE_HEIGHT,
+  TABLE_THETA,
+  SPHERE_HEIGHT,
+} from "../assets/constants";
 import { Shadow, Text } from "@react-three/drei";
 import FacePlayer from "../../../modifiers/FacePlayer";
 
@@ -31,17 +36,16 @@ export default function EmergingWorld(props: EmergingWorldProps) {
     const REST = new Vector3().setFromSphericalCoords(
       RADIUS,
       Math.PI / 2,
-      -Math.PI / 2 + index * 0.5
+      -Math.PI / 2 + index * TABLE_THETA
     );
-    REST.y = TABLE_HEIGHT;
+    REST.y = TABLE_HEIGHT + SPHERE_HEIGHT;
     const FOCUS = new Vector3(0, 1.6, 0);
     return new CatmullRomCurve3([START, REST, FOCUS]);
   }, [index]);
 
   const limiter = useLimiter(45);
 
-  const { float, textScale, hoverScale } = useSpring({
-    float: show && active ? 0.1 : 0,
+  const { textScale, hoverScale } = useSpring({
     textScale: show && active && !focus ? 1 : 0,
     hoverScale: hover && !focus ? 1.15 : 1,
   });
@@ -64,8 +68,10 @@ export default function EmergingWorld(props: EmergingWorldProps) {
   return (
     <group name={`emerging-world-${index}`} ref={group}>
       <animated.group scale={focusScale}>
-        <animated.group position-y={float} scale={hoverScale}>
-          <VisualWorld size={0.2} />
+        <animated.group scale={hoverScale}>
+          <Spinning ySpeed={0.02}>
+            <VisualWorld size={0.2} world={world} />
+          </Spinning>
           <Interactable
             onHover={() => setHover(true)}
             onUnHover={() => setHover(false)}
@@ -77,7 +83,7 @@ export default function EmergingWorld(props: EmergingWorldProps) {
           </Interactable>
         </animated.group>
       </animated.group>
-      <animated.group scale-y={textScale} position-y={-0.2}>
+      <animated.group scale-y={textScale} position-y={-0.1}>
         <FacePlayer>
           <Text
             font={FONT}
@@ -90,9 +96,6 @@ export default function EmergingWorld(props: EmergingWorldProps) {
           </Text>
         </FacePlayer>
       </animated.group>
-      <group>
-        <Shadow position-y={TABLE_HEIGHT - 0.1} rotation-x={-Math.PI / 2} />
-      </group>
     </group>
   );
 }

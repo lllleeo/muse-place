@@ -16,7 +16,17 @@ export const useIdentityWorlds = () => {
       if (!response.success) {
         setError(response.message);
       } else {
-        setWorlds(response.body);
+        const locWorlds = response.body.map(
+          (world: any) =>
+            new World({
+              name: world.name,
+              slug: world.slug,
+              userId: world.user_id,
+              rootIdea: world.root_idea,
+              rootIdeaVersion: world.root_idea_version,
+            })
+        );
+        setWorlds(locWorlds);
       }
     };
 

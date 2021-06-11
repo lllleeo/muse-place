@@ -19,20 +19,19 @@ type GLTFResult = GLTF & {
     wallsb: THREE.Mesh;
     floor: THREE.Mesh;
     supports: THREE.Mesh;
-    pedestal: THREE.Mesh;
-    railing: THREE.Mesh;
-    balcony: THREE.Mesh;
-    balconysupport: THREE.Mesh;
-    balconyrailing: THREE.Mesh;
-    windows: THREE.Mesh;
-    fans: THREE.Mesh;
     table: THREE.Mesh;
-    doors: THREE.Mesh;
+    railing: THREE.Mesh;
+    windows: THREE.Mesh;
+    pedestal: THREE.Mesh;
     couch: THREE.Mesh;
-    banner: THREE.Mesh;
-    misc: THREE.Mesh;
+    doors: THREE.Mesh;
+    exhaust: THREE.Mesh;
     stilts: THREE.Mesh;
-    ["shelf-objects"]: THREE.Mesh;
+    entry: THREE.Mesh;
+    balcony: THREE.Mesh;
+    balcony_support: THREE.Mesh;
+    balcony_railing: THREE.Mesh;
+    fans: THREE.Mesh;
     ["lucid-hitbox"]: THREE.Mesh;
     lucid: THREE.Mesh;
     ["balloonski-hitbox"]: THREE.Mesh;
@@ -42,34 +41,33 @@ type GLTFResult = GLTF & {
     ["highrise-hitbox"]: THREE.Mesh;
     highrise: THREE.Mesh;
     muralassets: THREE.Mesh;
-    exhaust: THREE.Mesh;
+    misc: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
-    ["wall.a2.mat"]: THREE.MeshStandardMaterial;
-    ["wall.b2.mat"]: THREE.MeshStandardMaterial;
+    ["walls.a.mat"]: THREE.MeshStandardMaterial;
+    ["walls.b.mat"]: THREE.MeshStandardMaterial;
     ["floor.mat"]: THREE.MeshStandardMaterial;
-    ["supports2.mat"]: THREE.MeshStandardMaterial;
-    ["pedestal.mat"]: THREE.MeshStandardMaterial;
+    ["supports.mat"]: THREE.MeshStandardMaterial;
+    ["table.mat"]: THREE.MeshStandardMaterial;
     ["railing.mat"]: THREE.MeshStandardMaterial;
+    ["windows.mat"]: THREE.MeshStandardMaterial;
+    ["pedestal.mat"]: THREE.MeshStandardMaterial;
+    ["couch.mat"]: THREE.MeshStandardMaterial;
+    ["doors.mat"]: THREE.MeshStandardMaterial;
+    ["exhaust.mat"]: THREE.MeshStandardMaterial;
+    ["stilts.mat"]: THREE.MeshStandardMaterial;
+    ["entry.mat"]: THREE.MeshStandardMaterial;
     ["balcony.mat"]: THREE.MeshStandardMaterial;
     ["balcony.support.mat"]: THREE.MeshStandardMaterial;
     ["balcony.railing.mat"]: THREE.MeshStandardMaterial;
-    ["windows.mat"]: THREE.MeshStandardMaterial;
     ["fans.mat"]: THREE.MeshStandardMaterial;
-    ["table.mat"]: THREE.MeshStandardMaterial;
-    ["doors.mat"]: THREE.MeshStandardMaterial;
-    ["couch.mat"]: THREE.MeshStandardMaterial;
-    ["banner.mat"]: THREE.MeshStandardMaterial;
-    ["misc.mat"]: THREE.MeshStandardMaterial;
-    ["stilts.mat"]: THREE.MeshStandardMaterial;
-    ["shelf_objects.mat"]: THREE.MeshStandardMaterial;
     ["lucid.mat"]: THREE.MeshStandardMaterial;
     ["ghost.mat"]: THREE.MeshStandardMaterial;
     ["kira.mat"]: THREE.MeshStandardMaterial;
     ["highrise.mat"]: THREE.MeshStandardMaterial;
-    ["mural.assets"]: THREE.MeshStandardMaterial;
-    ["exhaust.mat"]: THREE.MeshStandardMaterial;
+    ["mural.assets.mat"]: THREE.MeshStandardMaterial;
+    ["misc.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
@@ -77,7 +75,7 @@ type ActionName = "animation_0";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1623208738/musehq_10.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1623398813/musehq_12.glb.gz";
 
 export const useTrimeshCollision = (geometry: BufferGeometry) => {
   const indices = (geometry.index as BufferAttribute).array;
@@ -132,12 +130,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <mesh
           name="wallsa"
           geometry={nodes.wallsa.geometry}
-          material={materials["wall.a2.mat"]}
+          material={materials["walls.a.mat"]}
         />
         <mesh
           name="wallsb"
           geometry={nodes.wallsb.geometry}
-          material={materials["wall.b2.mat"]}
+          material={materials["walls.b.mat"]}
         />
         <mesh
           name="floor"
@@ -147,43 +145,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <mesh
           name="supports"
           geometry={nodes.supports.geometry}
-          material={materials["supports2.mat"]}
-        />
-        <mesh
-          name="pedestal"
-          geometry={nodes.pedestal.geometry}
-          material={materials["pedestal.mat"]}
-        />
-        <mesh
-          name="railing"
-          geometry={nodes.railing.geometry}
-          material={materials["railing.mat"]}
-        />
-        <mesh
-          name="balcony"
-          geometry={nodes.balcony.geometry}
-          material={materials["balcony.mat"]}
-        />
-        <mesh
-          name="balconysupport"
-          geometry={nodes.balconysupport.geometry}
-          material={materials["balcony.support.mat"]}
-        />
-        <mesh
-          name="balconyrailing"
-          geometry={nodes.balconyrailing.geometry}
-          material={materials["balcony.railing.mat"]}
-        />
-        <mesh
-          name="windows"
-          geometry={nodes.windows.geometry}
-          material={materials["windows.mat"]}
-        />
-        <mesh
-          name="fans"
-          geometry={nodes.fans.geometry}
-          material={materials["fans.mat"]}
-          position={[-0.0369, 6.1318, 6.2338]}
+          material={materials["supports.mat"]}
         />
         <mesh
           name="table"
@@ -191,9 +153,19 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["table.mat"]}
         />
         <mesh
-          name="doors"
-          geometry={nodes.doors.geometry}
-          material={materials["doors.mat"]}
+          name="railing"
+          geometry={nodes.railing.geometry}
+          material={materials["railing.mat"]}
+        />
+        <mesh
+          name="windows"
+          geometry={nodes.windows.geometry}
+          material={materials["windows.mat"]}
+        />
+        <mesh
+          name="pedestal"
+          geometry={nodes.pedestal.geometry}
+          material={materials["pedestal.mat"]}
         />
         <mesh
           name="couch"
@@ -201,14 +173,14 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["couch.mat"]}
         />
         <mesh
-          name="banner"
-          geometry={nodes.banner.geometry}
-          material={materials["banner.mat"]}
+          name="doors"
+          geometry={nodes.doors.geometry}
+          material={materials["doors.mat"]}
         />
         <mesh
-          name="misc"
-          geometry={nodes.misc.geometry}
-          material={materials["misc.mat"]}
+          name="exhaust"
+          geometry={nodes.exhaust.geometry}
+          material={materials["exhaust.mat"]}
         />
         <mesh
           name="stilts"
@@ -216,25 +188,58 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["stilts.mat"]}
         />
         <mesh
-          name="shelf-objects"
-          geometry={nodes["shelf-objects"].geometry}
-          material={materials["shelf_objects.mat"]}
+          name="entry"
+          geometry={nodes.entry.geometry}
+          material={materials["entry.mat"]}
         />
+        <mesh
+          name="balcony"
+          geometry={nodes.balcony.geometry}
+          material={materials["balcony.mat"]}
+        />
+        <mesh
+          name="balcony_support"
+          geometry={nodes.balcony_support.geometry}
+          material={materials["balcony.support.mat"]}
+        />
+        <mesh
+          name="balcony_railing"
+          geometry={nodes.balcony_railing.geometry}
+          material={materials["balcony.railing.mat"]}
+        />
+        <mesh
+          name="fans"
+          geometry={nodes.fans.geometry}
+          material={materials["fans.mat"]}
+          position={[1.8868, 6.1372, 6.2599]}
+        />
+        {/*<mesh name="lucid-hitbox" geometry={nodes['lucid-hitbox'].geometry} material={nodes['lucid-hitbox'].material} />*/}
         <mesh
           name="lucid"
           geometry={nodes.lucid.geometry}
           material={materials["lucid.mat"]}
         />
+        {/*<mesh*/}
+        {/*    name="balloonski-hitbox"*/}
+        {/*    geometry={nodes['balloonski-hitbox'].geometry}*/}
+        {/*    material={nodes['balloonski-hitbox'].material}*/}
+        {/*/>*/}
         <mesh
           name="balloonski"
           geometry={nodes.balloonski.geometry}
           material={materials["ghost.mat"]}
         />
+        {/*<mesh name="kira-hitbox" geometry={nodes['kira-hitbox'].geometry} material={nodes['kira-hitbox'].material} />*/}
         <mesh
           name="kira"
           geometry={nodes.kira.geometry}
           material={materials["kira.mat"]}
         />
+        {/*<mesh*/}
+        {/*    name="highrise-hitbox"*/}
+        {/*    geometry={nodes['highrise-hitbox'].geometry}*/}
+        {/*    material={nodes['highrise-hitbox'].material}*/}
+        {/*/>*/}
         <mesh
           name="highrise"
           geometry={nodes.highrise.geometry}
@@ -244,18 +249,14 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <mesh
           name="muralassets"
           geometry={nodes.muralassets.geometry}
-          material={materials["mural.assets"]}
+          material={materials["mural.assets.mat"]}
         />
         <mesh
-          name="exhaust"
-          geometry={nodes.exhaust.geometry}
-          material={materials["exhaust.mat"]}
+          name="misc"
+          geometry={nodes.misc.geometry}
+          material={materials["misc.mat"]}
         />
-        {/*<mesh*/}
-        {/*  name="collider"*/}
-        {/*  geometry={nodes.collider.geometry}*/}
-        {/*  material={nodes.collider.material}*/}
-        {/*/>*/}
+        {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
       </group>
     </group>
   );

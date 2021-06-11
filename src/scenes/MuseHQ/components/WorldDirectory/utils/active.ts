@@ -5,7 +5,7 @@ import { useLimiter } from "spacesvr";
 import { Vector2 } from "three";
 
 export const useActiveWorld = () => {
-  const limiter = useLimiter(20);
+  const limiter = useLimiter(10);
   const dummy2 = useMemo(() => new Vector2(), []);
 
   const [active, setActive] = useState(-1);
@@ -15,6 +15,7 @@ export const useActiveWorld = () => {
     if (!limiter.isReady(clock)) return;
 
     dummy2.set(camera.position.x, camera.position.z);
+    // builder table center
     dummy2.x -= -2.51;
     dummy2.y -= -1.87;
 
@@ -28,19 +29,17 @@ export const useActiveWorld = () => {
       return;
     }
 
+    // convert angle around the table to index of thing
     let angle = dummy2.angle();
+    angle -= TABLE_THETA / 2;
+    angle *= -1;
+    if (angle < 0) angle += Math.PI * 2;
     angle += Math.PI;
     if (angle > Math.PI * 2) angle -= Math.PI * 2;
-    if (angle < Math.PI) angle += Math.PI * 2;
-    angle += TABLE_THETA;
 
     let curr = Math.floor(angle / TABLE_THETA);
-    curr = 13 - curr;
     if (curr != active) {
       setActive(curr);
-      if (focus !== -1 && focus !== curr) {
-        setFocus(-1);
-      }
     }
   });
 
