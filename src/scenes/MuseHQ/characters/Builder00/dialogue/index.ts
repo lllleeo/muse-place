@@ -88,7 +88,7 @@ export const useDialogue = (): Dialogue => {
     {
       key: "educate",
       text:
-        "great, walk over to the trophy cases to explore other sites we've built! it's inside and to the left",
+        "great, feel free to walk around and get comfortable with muse hq. check out our builder table!",
       decisions: [{ name: "thank you kind sir", nextKey: "init" }],
     },
     {

@@ -11,7 +11,6 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [siteName, setSiteName] = useState("");
   const [generate, setGenerate] = useState("");
   const [username, setUsername] = useState("");
 
@@ -52,27 +51,11 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
           ? [
               {
                 name: "submit",
-                nextKey: "signup-sitename",
-              },
-            ]
-          : []),
-        { name: "go back", nextKey: "signup-password" },
-      ],
-    },
-    {
-      key: "signup-sitename",
-      text: "what do you want your world to be called?\nmuse.place/______",
-      input: { value: siteName, setValue: setSiteName },
-      decisions: [
-        ...(password !== "" && password === password2
-          ? [
-              {
-                name: "submit",
                 nextKey: "signup-generate",
               },
             ]
           : []),
-        { name: "cancel", nextKey: inKey },
+        { name: "go back", nextKey: "signup-password" },
       ],
     },
     {
@@ -94,7 +77,7 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
           nextKey: "signup-username",
           onClick: () => setGenerate("opensea"),
         },
-        { name: "go back", nextKey: "signup-sitename" },
+        { name: "go back", nextKey: "signup-password" },
       ],
     },
     {
@@ -120,8 +103,8 @@ export const useSignupLogic = (inKey: string, outKey: string): Dialogue => {
             name,
             email,
             password,
-            siteName,
-            [`${generate}-${username}`]
+            `${generate} - ${username}`,
+            [`cohort-kallichore`]
           );
           if (result.success) {
             return "signup-login";

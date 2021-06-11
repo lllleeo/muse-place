@@ -50,7 +50,7 @@ export class Identity {
     email: string,
     password: string,
     siteName: string,
-    groups?: string[]
+    code: string
   ): Promise<Response> {
     const params: RequestInit = {
       method: "POST",
@@ -58,7 +58,8 @@ export class Identity {
         name,
         email,
         password,
-        code: "",
+        world_name: siteName,
+        code: code,
       }),
       headers: { "Content-Type": "application/json" },
     };

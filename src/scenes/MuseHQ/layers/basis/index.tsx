@@ -69,7 +69,7 @@ export class Idea {
 
 export class World {
   userId: number;
-  name: string;
+  name: string = "World";
   slug: string;
   rootIdea: string;
   rootIdeaVersion: string;
@@ -84,19 +84,16 @@ export class World {
 
   getIdeas(): Idea[] {
     const ideas: Idea[] = [];
+    const NUM = 5000;
 
-    if (this.name) {
-      ideas.push(
-        new Idea({
-          mediation:
-            (hashStringToNum(this.name + this.slug + this.rootIdea) %
-              MAGIC_NUM) /
-            MAGIC_NUM,
-          specificity: 0.3,
-          utility: 0.8,
-        })
-      );
-    }
+    ideas.push(
+      new Idea({
+        mediation:
+          (hashStringToNum(this.name + this.slug + this.rootIdea) % NUM) / NUM,
+        specificity: 0.3,
+        utility: 0.8,
+      })
+    );
 
     if (ideas.length === 0) {
       ideas.push(new Idea());
