@@ -1,6 +1,4 @@
 import useStateMachine from "@cassiozen/usestatemachine";
-import { useIdentity } from "../../../layers/identity";
-import { useSnapshot } from "valtio";
 import { useLoginLogic } from "../../../dialogue/login";
 import { useSignupLogic } from "../../../dialogue/signup";
 import { Dialogue } from "../../../layers/communication";
@@ -34,8 +32,6 @@ export const useBuilder07Logic = () =>
   });
 
 export const useDialogue = (): Dialogue => {
-  const identity = useIdentity();
-
   const loginLogic = useLoginLogic("init", "init");
   const signupLogic = useSignupLogic("init", "init");
 

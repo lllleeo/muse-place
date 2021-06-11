@@ -10,15 +10,13 @@ const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 type Response<T = any> = { message?: string; success: boolean; body?: T };
 
 export class Identity {
-  private token: string | undefined =
-    localStorage.getItem(TOKEN_ID) || undefined;
-
   uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 
+  token: string | undefined = localStorage.getItem(TOKEN_ID) || undefined;
   exists = false;
   name: string | undefined = undefined;
   email: string | undefined = undefined;
