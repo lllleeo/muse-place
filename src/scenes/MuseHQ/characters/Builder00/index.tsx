@@ -3,16 +3,16 @@ import LookAtPlayer from "../../modifiers/LookAtPlayer";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Group, Vector3 } from "three";
-import { useLimiter, Audio } from "spacesvr";
-import { useBuilder00Logic, useDialogs } from "./logic";
-import VisualDialogueLogic from "../../components/VisualDialogueLogic";
+import { useLimiter } from "spacesvr";
+import { useBuilder00Logic, useDialogue } from "./dialogue";
+import VisualDialogue from "../../layers/communication/visual/VisualDialogue";
 
 export default function Builder00() {
   const limiter = useLimiter(20);
   const group = useRef<Group>();
   const dummy = useMemo(() => new Vector3(), []);
 
-  const dialogueLogic = useDialogs();
+  const dialogue = useDialogue();
   const [state, send] = useBuilder00Logic();
 
   useFrame(({ camera, clock }) => {
@@ -29,24 +29,23 @@ export default function Builder00() {
   const TALKING = state.value === "welcome";
 
   return (
-    <group name="builder-mort" position={[-11.78, 0, -3.07]}>
+    <group
+      name="builder-mort"
+      position={[-10.8, 0, -3.07]}
+      rotation-y={-Math.PI / 2}
+    >
       <LookAtPlayer enabled={LOOKING}>
         <group ref={group}>
-          <Builder rotation-y={-Math.PI / 2} animation="idle" />
+          <Builder animation="idle" />
         </group>
-        <VisualDialogueLogic
-          enabled={TALKING}
-          position={[-0.15, 1.1, 0.28]}
-          source={[-0.25, -0.1, -0.05]}
-          rotation-y={Math.PI + 0.9}
-          dialogueLogic={dialogueLogic}
-        />
+        <group>
+          <VisualDialogue
+            enabled={TALKING}
+            position={[0.15, 1.1, 0.25]}
+            dialogue={dialogue}
+          />
+        </group>
       </LookAtPlayer>
-      <Audio
-        url="https://d27rt3a60hh1lx.cloudfront.net/content/musehq/breathing-1.mp3"
-        volume={0.11}
-        rollOff={4.5}
-      />
     </group>
   );
 }
