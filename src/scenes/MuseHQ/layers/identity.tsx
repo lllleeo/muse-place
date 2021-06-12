@@ -117,13 +117,19 @@ export class Identity {
       headers: { Authorization: `bearer ${this.token}` },
     };
 
-    const response = await fetch(
-      `${URL}/worlds/fetch_all?worlds_id=${this.email}`,
-      params
-    );
+    const response = await fetch(`${URL}/worlds/fetch_all`, params);
 
     const json = await response.json();
-    this.worlds = json;
+    this.worlds = json.map(
+      (world: any) =>
+        new World({
+          name: world.name,
+          slug: world.slug,
+          userId: world.user_id,
+          rootIdea: world.root_idea,
+          rootIdeaVersion: world.root_idea_version,
+        })
+    );
 
     return {
       success: response.status === 200,

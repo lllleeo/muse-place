@@ -92,7 +92,11 @@ export default function EmergingWorld(props: EmergingWorldProps) {
             position-z={0.3}
             color="black"
           >
-            {world.name}
+            {`${world.name}${
+              world.rootIdea === undefined
+                ? "\n[under construction]"
+                : "[click to view]"
+            }`}
           </Text>
         </FacePlayer>
       </animated.group>

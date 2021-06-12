@@ -7,7 +7,8 @@ export const useGreeterLogic = (): Interaction => {
   const SIGNED_IN = identity.exists;
   const NUM_WORLDS = identity?.worlds?.length || 0;
   const HAS_WORLD_UNDER_CONSTRUCTION =
-    identity?.worlds?.find((world) => world.rootIdea === undefined) || false;
+    identity?.worlds?.filter((world) => world.rootIdea !== undefined).length ===
+    0;
 
   if (SIGNED_IN) {
     if (NUM_WORLDS === 0) {

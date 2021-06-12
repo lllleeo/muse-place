@@ -25,12 +25,18 @@ export default function Settings(props: SettingsProps) {
   const configs: Config[] = useMemo(() => {
     if (!world) return [];
 
-    let configs: Config[] = [
-      { name: "rename", action: () => console.log("please rename") },
-      { name: "delete", action: () => console.log("delete please") },
-    ];
+    let configs: Config[] = [];
 
-    if (world.rootIdea) {
+    // configs.push({
+    //   name: "rename",
+    //   action: () => console.log("please rename"),
+    // });
+    // configs.push({
+    //   name: "delete",
+    //   action: () => console.log("delete please"),
+    // });
+
+    if (world.rootIdea !== null && world.rootIdea !== undefined) {
       configs.push({
         name: "visit",
         action: () =>
