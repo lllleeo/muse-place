@@ -5,6 +5,7 @@ import { ScrollData } from "./types/scroll";
 import { Preload } from "@react-three/drei";
 import FBPixel from "../components/FacebookPixel";
 import GoogleAnalytics from "../components/GoogleAnalytics";
+import Onboarding from "../components/Onboarding";
 
 export type AltoProps = {
   socials: string[];
@@ -56,6 +57,7 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <ChadAltoContext.Provider value={{ ...defaultContext, ...props }}>
+      <Onboarding />
       <Preload all />
       <Suspense fallback={null}>
         <Preload all />

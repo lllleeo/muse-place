@@ -1,11 +1,11 @@
 import { Image, Video, Interactable } from "spacesvr";
-import SocialButton from "../../../themes/components/SocialButton";
+import SocialButton from "themes/components/SocialButton";
 import { GroupProps, useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import Nature from "./components/Nature";
 import { MeshStandardMaterial, Vector3 } from "three";
 import { useMemo } from "react";
-import CrazyMaterial from "../../../themes/Gotham/shaders/crazy";
+import CrazyMaterial from "themes/Gotham/shaders/crazy";
 import LavaCeiling from "./components/LavaCeiling";
 
 const CONTENT_FOLDER =
@@ -20,7 +20,12 @@ function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
     <group name={`annotatedlink-${link}`} {...restProps}>
       <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
       {/* @ts-ignore */}
-      <Text position-x={SCALE * 0.3} fontSize={0.06} anchorX="left" color="red">
+      <Text
+        position-x={SCALE * 0.3}
+        fontSize={0.06}
+        anchorX="left"
+        color="black"
+      >
         {text}
       </Text>
     </group>
@@ -41,7 +46,7 @@ function ClickHere(
       >
         <mesh>
           <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
-          <meshBasicMaterial color="blue" opacity={0} transparent />
+          <meshBasicMaterial color="blue" visible={false} />
         </mesh>
       </Interactable>
       <mesh>

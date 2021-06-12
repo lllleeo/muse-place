@@ -61,10 +61,20 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Jackie</title>
-        <title>Land</title>
+        <title>Jackie Land | Muse</title>
       </Head>
-      <Standard scrollData={scrollData} socials={ARTIST.socials} />
+      <Standard
+        scrollData={scrollData}
+        socials={ARTIST.socials}
+        content={{
+          name: "Jackie Land",
+          landing: {
+            title: "Jackie Land",
+            body:
+              "Welcome to Jackie Land, a world of whimsical adventure within Jackie's mind. Discover the hidden scrolls to unlock the land underneath.",
+          },
+        }}
+      ></Standard>
     </>
   );
 };

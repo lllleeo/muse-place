@@ -40,7 +40,12 @@ const AltoScene = (props: AltoSceneProps) => {
 
   return (
     <StandardEnvironment
-      playerProps={{ pos: [0, 3, 36], rot: 0, speed: 2.4 }}
+      playerProps={{
+        pos: [0, 3, 36],
+        rot: 0,
+        speed: 2.4,
+        controls: { disableGyro: true },
+      }}
       canvasProps={{ dpr: 1 }}
       simulationProps={simulationProps}
       disableGround
