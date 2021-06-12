@@ -5,7 +5,7 @@ import { Sphere } from "@react-three/drei";
 import { DoubleSide, Color, Mesh } from "three";
 // @ts-ignore
 import { useLimiter } from "spacesvr";
-import { Idea } from "../layers/basis";
+import { Idea } from "../index";
 
 type Props = {
   size?: number | [number, number, number];
@@ -21,7 +21,7 @@ type Props = {
  * @param props
  * @constructor
  */
-export const VisualIdea = (props: Props) => {
+export function VisualIdea(props: Props) {
   const {
     size = 1,
     idea,
@@ -241,4 +241,4 @@ export const VisualIdea = (props: Props) => {
       </group>
     </group>
   );
-};
+}
