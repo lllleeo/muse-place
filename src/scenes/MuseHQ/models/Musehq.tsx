@@ -6,8 +6,9 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { useTrimeshCollision } from "spacesvr";
+import { Interactable, useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
+import Trigger from "../modifiers/Trigger";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -42,7 +43,7 @@ type GLTFResult = GLTF & {
   materials: {
     ["wall.a2.mat"]: THREE.MeshStandardMaterial;
     ["wall.b2.mat"]: THREE.MeshStandardMaterial;
-    ["floor2.mat"]: THREE.MeshStandardMaterial;
+    ["floor.mat"]: THREE.MeshStandardMaterial;
     ["supports2.mat"]: THREE.MeshStandardMaterial;
     ["pedestal.mat"]: THREE.MeshStandardMaterial;
     ["railing.mat"]: THREE.MeshStandardMaterial;
@@ -66,13 +67,13 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1621038324/06.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Musehq-1622084161/musehq_06.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
-  const SCALE = 0.006;
+  const SCALE = 0.6;
 
   // useTrimeshCollision(
   //   (nodes.collider.geometry as BufferGeometry)
@@ -81,9 +82,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   // );
 
   return (
-    <group ref={group} {...props} dispose={null} name="musehq" scale={SCALE}>
-      <group name="Scene">
-        <group name="musehq_02glb">
+    <group ref={group} {...props} dispose={null} name="musehq">
+      <group name="Scene" scale={SCALE}>
+        <group>
           <mesh
             name="wallsa"
             geometry={nodes.wallsa.geometry}
@@ -97,7 +98,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           <mesh
             name="floor"
             geometry={nodes.floor.geometry}
-            material={materials["floor2.mat"]}
+            material={materials["floor.mat"]}
           />
           <mesh
             name="supports"
@@ -138,6 +139,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             name="table"
             geometry={nodes.table.geometry}
             material={materials["table.mat"]}
+            position={[-4.2379, 10.6103, -3.2352]}
           />
           <mesh
             name="doors"
@@ -163,7 +165,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             name="fans"
             geometry={nodes.fans.geometry}
             material={materials["telescope.mat"]}
-            position={[-3.6945, 1595.5533, 623.3818]}
+            position={[-0.0369, 15.9555, 6.2338]}
           />
           <mesh
             name="stilts"
@@ -175,47 +177,73 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes["shelf-objects"].geometry}
             material={materials["shelf_objects.mat"]}
           />
-          <mesh
-            name="lucid-hitbox"
-            geometry={nodes["lucid-hitbox"].geometry}
-            material={nodes["lucid-hitbox"].material}
-          />
-          <mesh
-            name="lucid"
-            geometry={nodes.lucid.geometry}
-            material={materials.lucid}
-          />
-          <mesh
-            name="balloonski-hitbox"
-            geometry={nodes["balloonski-hitbox"].geometry}
-            material={nodes["balloonski-hitbox"].material}
-          />
-          <mesh
-            name="balloonski"
-            geometry={nodes.balloonski.geometry}
-            material={materials["ghost.mat"]}
-          />
-          <mesh
-            name="kira-hitbox"
-            geometry={nodes["kira-hitbox"].geometry}
-            material={nodes["kira-hitbox"].material}
-          />
-          <mesh
-            name="kira"
-            geometry={nodes.kira.geometry}
-            material={materials["kira.mat"]}
-          />
-          <mesh
-            name="highrise-hitbox"
-            geometry={nodes["highrise-hitbox"].geometry}
-            material={nodes["highrise-hitbox"].material}
-          />
-          <mesh
-            name="highrise"
-            geometry={nodes.highrise.geometry}
-            material={materials["highrise.mat"]}
-            scale={[7.5, 7.5, 7.5]}
-          />
+          <Trigger
+            onClick={() =>
+              window.open("https://muse.place/lucidmonday", "_blank")
+            }
+          >
+            <mesh
+              name="lucid"
+              geometry={nodes.lucid.geometry}
+              material={materials.lucid}
+            />
+            <mesh
+              visible={false}
+              name="lucid-hitbox"
+              geometry={nodes["lucid-hitbox"].geometry}
+              material={nodes["lucid-hitbox"].material}
+            />
+          </Trigger>
+          <Trigger
+            onClick={() =>
+              window.open("https://muse.place/balloonski", "_blank")
+            }
+          >
+            <mesh
+              name="balloonski"
+              geometry={nodes.balloonski.geometry}
+              material={materials["ghost.mat"]}
+            />
+            <mesh
+              visible={false}
+              name="balloonski-hitbox"
+              geometry={nodes["balloonski-hitbox"].geometry}
+              material={nodes["balloonski-hitbox"].material}
+            />
+          </Trigger>
+          <Trigger
+            onClick={() =>
+              window.open("https://muse.place/kirax23/alto", "_blank")
+            }
+          >
+            <mesh
+              name="kira"
+              geometry={nodes.kira.geometry}
+              material={materials["kira.mat"]}
+            />
+            <mesh
+              visible={false}
+              name="kira-hitbox"
+              geometry={nodes["kira-hitbox"].geometry}
+              material={nodes["kira-hitbox"].material}
+            />
+          </Trigger>
+          <Trigger
+            onClick={() => window.open("https://muse.place/highrise", "_blank")}
+          >
+            <mesh
+              name="highrise"
+              geometry={nodes.highrise.geometry}
+              material={materials["highrise.mat"]}
+              scale={[7.5, 7.5, 7.5]}
+            />
+            <mesh
+              visible={false}
+              name="highrise-hitbox"
+              geometry={nodes["highrise-hitbox"].geometry}
+              material={nodes["highrise-hitbox"].material}
+            />
+          </Trigger>
           {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
         </group>
       </group>
