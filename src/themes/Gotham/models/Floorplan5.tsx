@@ -47,7 +47,7 @@ export default function Model(
       .translate(-1.505, 0, 3.96)
   );
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...restProps} dispose={null}>
       <group scale={1} position={[-1.505, 0, 3.96]} name="Scene">
         <group name="Gotham_05glb">
           {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}

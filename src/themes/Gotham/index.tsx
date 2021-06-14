@@ -2,6 +2,7 @@ import { Suspense, useMemo } from "react";
 import Structure from "./models/Structure";
 import StructureOpen from "./models/StructureOpen";
 import Floor2 from "./models/Floor2";
+import Floor3 from "./models/Floor3";
 import Floorplan5 from "./models/Floorplan5";
 import { Preload, Text } from "@react-three/drei";
 import Artwork from "../components/Artwork";
@@ -81,6 +82,8 @@ export default function Gotham(props: GothamProps) {
           <></>
         ) : floorplan === 2 ? (
           <Floor2 night={night} />
+        ) : floorplan === 3 ? (
+          <Floor3 night={night} />
         ) : floorplan === 5 ? (
           <Floorplan5 night={night} />
         ) : (
