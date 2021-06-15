@@ -87,7 +87,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" scale={0.8}>
+      <group name="Scene" scale={0.5}>
         <group
           name="Tuesday_25_after_call_model_"
           rotation={[Math.PI / 2, 0, 0]}
