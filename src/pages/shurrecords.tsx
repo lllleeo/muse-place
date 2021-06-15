@@ -1,23 +1,23 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { GothamProps } from "themes/Gotham";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
 
 const ARTIST = {
-  name: "13106 | Shur Records",
-  socials: [
+  name: "Shur Records",
+  socialLinks: [
     "https://www.instagram.com/shurrecords/",
+    "https://shurrecords.com",
     "https://open.spotify.com/artist/4LEnorY6lMcW5JiwUOkeeo?si=gfyh-wwwQqmABcrTxmAX_Q",
+    "https://soundcloud.com/13106",
   ],
 };
 
 const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/shurrecords`;
-const artwork: GothamProps["artwork"] = [
+const linkData = [
   {
     src: `${url}/1.jpg`,
-    audio: true,
   },
   {
     src: `${url}/2.mp4`,
@@ -40,11 +40,11 @@ const LinkTree: NextPage = () => {
   return (
     <>
       <Head>
-        <title>13106 | Shur Records</title>
+        <title>{ARTIST.name} | Muse Place</title>
       </Head>
       <Gotham
-        artwork={artwork}
-        socials={ARTIST.socials}
+        artwork={linkData}
+        socials={ARTIST.socialLinks}
         name={ARTIST.name}
         night
       />

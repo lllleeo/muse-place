@@ -35,6 +35,7 @@ export default function GothamScene(props: GothamSceneProps) {
         pos: [-4.26, 1, 9.56],
         rot: -0.4,
         speed: 2.05,
+        controls: { disableGyro: true },
         ...playerProps,
       }}
       signup={signup ? "https://bit.ly/3wgMNGO" : undefined}

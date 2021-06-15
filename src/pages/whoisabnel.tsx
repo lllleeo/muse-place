@@ -13,6 +13,7 @@ const ARTIST = {
   socials: [
     "https://www.instagram.com/whoisabnel/",
     "https://open.spotify.com/artist/5Hxu0qykbixWUDf2G5RgsW?si=TxBDOL-4Soar5dVnAFTrWw",
+    "https://define-gravity.com/",
   ],
 };
 

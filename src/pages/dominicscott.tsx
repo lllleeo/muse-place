@@ -10,6 +10,8 @@ const ARTIST = {
   socials: [
     "https://www.instagram.com/dominic.scott/",
     "https://open.spotify.com/track/6oa53wMlVD2tNuMdEaXJLF?si=R816oYHnSku5IDOrIBZwZQ",
+    "https://www.youtube.com/watch?v=oiOLkwr2aAU&feature=youtu.be",
+    "https://twitter.com/dominicscxtt",
   ],
 };
 

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "EXPORT=true next build && EXPORT=true next export",
     "start": "next start",
     "lint": "yarn prettier && yarn eslint",
@@ -31,7 +32,7 @@
     "@react-three/cannon": "^1.1.0",
     "@react-three/drei": "4.1.8",
     "@react-three/fiber": "6.0.14",
-    "@react-three/flex": "^0.5.2",
+    "@react-three/flex": "^0.6.0",
     "@react-three/postprocessing": "^2.0.3",
     "@react-three/xr": "3.0.1",
     "@types/node-fetch": "^2.5.10",
@@ -56,12 +57,12 @@
     "react-player": "^2.9.0",
     "react-share": "^4.3.1",
     "react-spring": "^9.1.2",
-    "react-three-flex": "^0.5.2",
     "shopify-buy": "^2.11.0",
     "simplex-noise": "^2.4.0",
     "spacesvr": "^1.6.11",
     "three": "^0.127.0",
-    "unique-names-generator": "^4.4.0"
+    "unique-names-generator": "^4.4.0",
+    "valtio": "^1.0.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.17",
