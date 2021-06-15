@@ -22,8 +22,8 @@ export default function Artbocks() {
         <Preload all />
         <Artbox />
         <Artbox2 />
+        <Artwork />
       </Suspense>
-      <Artwork />
       <HDRI
         size={2048}
         src="https://d27rt3a60hh1lx.cloudfront.net/images/snow_mountains_la_oil_paint.hdr"
