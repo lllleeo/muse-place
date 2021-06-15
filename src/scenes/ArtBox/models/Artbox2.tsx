@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
     model: THREE.Mesh;
     collider: THREE.Mesh;
   };
-  materials: {};
+  materials: any;
 };
 
 const FILE_URL =
