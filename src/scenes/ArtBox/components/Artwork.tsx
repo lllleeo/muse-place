@@ -1,8 +1,53 @@
 import { Image } from "spacesvr";
 import { Text } from "@react-three/drei";
+import { GroupProps } from "@react-three/fiber";
+import SocialButton from "../../../themes/components/SocialButton";
 
 const CONTENT_FOLDER =
   "https://spaces-gallery-assets.s3.us-west-1.amazonaws.com/content/muse.place/artbox";
+
+function AnnotatedLink(
+  props: {
+    link: string;
+    text?: string;
+    width?: number;
+    xOffset?: number;
+  } & GroupProps
+) {
+  const {
+    link,
+    text = link.replace("https://", ""),
+    width = 0.8,
+    xOffset = 0.225,
+    ...restProps
+  } = props;
+
+  const SCALE = 0.4;
+
+  return (
+    <group
+      scale={1.25}
+      rotation-x={-0.5}
+      name={`annotatedlink-${link}`}
+      {...restProps}
+    >
+      <mesh position={[xOffset, 0, -0.05]}>
+        <boxBufferGeometry args={[width, 0.25, 0.05]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
+      <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
+      {/* @ts-ignore */}
+      <Text
+        position-x={SCALE * 0.3}
+        fontSize={0.1}
+        anchorX="left"
+        color="black"
+      >
+        {text}
+      </Text>
+    </group>
+  );
+}
 
 export default function Artwork() {
   return (
@@ -199,7 +244,110 @@ export default function Artwork() {
         rotation-y={-Math.PI / 2}
         framed
       />
-      <Text>Text Test</Text>
+      <group position={[0.32, 1.3, 1.8]} name="bottomText">
+        <Text fontSize={0.2} position={[-0.4, 0.85, 0]} name="title">
+          Why A Cube?
+        </Text>
+        <Text maxWidth={2} fontSize={0.12} name="content">
+          A cube is pure geometry, the person does not need too much capacity to
+          understand its geometry, more over, this simplicity
+        </Text>
+        <Text fontSize={0.2} position={[0.7, -0.75, 0]} name="artist">
+          -FF
+        </Text>
+      </group>
+      <group position={[-3.42, 6, -1.74]} name="2ndText">
+        <Text fontSize={0.2} position={[-0.35, 0.9, 0]} name="title">
+          Fernando Frank
+        </Text>
+        <Text
+          maxWidth={2}
+          position={[-0.025, -0.1, 0]}
+          fontSize={0.12}
+          name="content"
+        >
+          The client specified that the environment could change depending on
+          the specifications of the artists, so there is no predominant
+          direction to look at, except for the art. That is why the art is
+          placed at the focal point of the viewer. Art needs a previous
+          ascension to be able to reach it because it is above us, like a
+          superior thought, so why not make it a continuous ascension? This is
+          the reason for the helix.
+        </Text>
+      </group>
+      <group position={[-2.27, 9.7, 2.24]} name="3rdText">
+        <Text fontSize={0.2} position={[-0.35, 0.85, 0]} name="title">
+          Fernando Frank
+        </Text>
+        <Text
+          maxWidth={2}
+          position={[-0.025, -0.1, 0]}
+          fontSize={0.12}
+          name="content"
+        >
+          This element already used before in Guggenheim is a resource that
+          allows us towards a higher thought. Another advantage of the helix is
+          that it allows us to have a directional path easy to follow for the
+          viewer/art buyer who can admire the view at the end and/or buy a work
+          at the top after having seen the whole gallery.
+        </Text>
+      </group>
+      <group position={[0.31, 10.93, 5.47]} name="4thText">
+        <Text fontSize={0.2} position={[-0.675, 0.85, 0]} name="title">
+          Femzor
+        </Text>
+        <Text
+          maxWidth={2}
+          position={[0, -0.1, 0]}
+          fontSize={0.12}
+          name="content"
+        >
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          Femzor is a 22 year old Brazilian multimedia artist, based in São
+          Paulo, mainly focused on digital art. This particular exposition of
+          illustrations is called the "rainbow collection" and resolves around
+          the heavy use of colors and virtual effects to represent the deepest
+          individual and collective emotions.
+        </Text>
+        <AnnotatedLink
+          link="https://twitter.com/femzor?s=20"
+          text="@femzor"
+          position={[1.14, -0.26, 3.03]}
+          name="femzorTwitter"
+        />
+      </group>
+      <group position={[-1.55, 14.24, 6.9]} name="5thText">
+        <Text fontSize={0.2} position={[-0.825, 0.9, 0]} name="title">
+          Djak
+        </Text>
+        <Text
+          maxWidth={2}
+          position={[0, -0.1, 0]}
+          fontSize={0.09}
+          name="content"
+        >
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          DIEANOTHERNIGHT is a sole proprietorship founded by João Victor in
+          order to solve visual problems such as branding, creative direction &
+          motion, etc. The main focus is to take a client's vision and turn it
+          into something vivid & clear. He started school in 2018 majoring in
+          digital design, and continued to work with brands, artists, personal
+          collectors & tight niche collectives throughout his schooling,
+          graduating in 2021. João started designing back in 2013 being present
+          in the gaming community and slowly breaking out into the underground
+          music scene in early 2016. Entering the underground art scene at a
+          young age, João has created a network of incredibly talented
+          international creatives who share similar aspirations.
+        </Text>
+        <AnnotatedLink
+          link="https://twitter.com/almightyDJAK?s=20"
+          text="@almightyDJAK"
+          position={[-1.11, -4.23, 1.28]}
+          width={1.1}
+          xOffset={0.385}
+          name="djakTwitter"
+        />
+      </group>
     </group>
   );
 }

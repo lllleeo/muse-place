@@ -11,7 +11,7 @@ export default function Artbocks() {
     <StandardEnvironment
       playerProps={{
         pos: [-10, 1, 10],
-        rot: Math.PI / 2,
+        rot: -Math.PI / 4,
         speed: 5,
         controls: { disableGyro: true },
       }}
