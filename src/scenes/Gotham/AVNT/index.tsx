@@ -279,13 +279,14 @@ export default function Avnt() {
         />
       </group>
       <group
-        position={[-1.46, 2.5, 3.91]}
+        position={[-1.46, 2.5, 6.1]}
         rotation={[Math.PI / 2, 0, 0]}
         name="ceiling-video"
       >
         <Video
           src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
-          scale={[11, 17, 11]}
+          scale={[11, 17, 7]}
+          size={2}
           muted
         />
       </group>
