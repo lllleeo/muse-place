@@ -199,7 +199,7 @@ export default function Artwork() {
         rotation-y={-Math.PI / 2}
         framed
       />
-      <Text></Text>
+      <Text>Text Test</Text>
     </group>
   );
 }
