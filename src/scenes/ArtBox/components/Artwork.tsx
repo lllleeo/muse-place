@@ -302,9 +302,9 @@ export default function Artwork() {
           fontSize={0.12}
           name="content"
         >
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
           Femzor is a 22 year old Brazilian multimedia artist, based in São
           Paulo, mainly focused on digital art. This particular exposition of
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           illustrations is called the "rainbow collection" and resolves around
           the heavy use of colors and virtual effects to represent the deepest
           individual and collective emotions.
@@ -326,9 +326,9 @@ export default function Artwork() {
           fontSize={0.09}
           name="content"
         >
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
           DIEANOTHERNIGHT is a sole proprietorship founded by João Victor in
           order to solve visual problems such as branding, creative direction &
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           motion, etc. The main focus is to take a client's vision and turn it
           into something vivid & clear. He started school in 2018 majoring in
           digital design, and continued to work with brands, artists, personal
