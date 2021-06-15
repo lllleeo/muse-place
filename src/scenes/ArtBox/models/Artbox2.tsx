@@ -11,7 +11,7 @@ import { BufferGeometry, MeshBasicMaterial } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    model: THREE.Mesh;
+    // model: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: any;

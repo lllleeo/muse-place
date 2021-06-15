@@ -15,7 +15,7 @@ export default function Artbocks() {
         speed: 5,
         controls: { disableGyro: true },
       }}
-      dev
+      // dev
     >
       {/*<Sky sunPosition={[0, 1, 0]} />*/}
       {/*<pointLight />*/}
