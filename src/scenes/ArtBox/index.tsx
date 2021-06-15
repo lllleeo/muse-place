@@ -5,6 +5,7 @@ import Artbox2 from "./models/Artbox2";
 import Tribox from "./models/Tribox";
 import Artwork from "./components/Artwork";
 import { Preload } from "@react-three/drei";
+import Popup from "themes/components/Popup";
 
 export default function Artbocks() {
   return (
@@ -40,6 +41,24 @@ export default function Artbocks() {
           </Suspense>
         </Spinning>
       </group>
+      <Popup
+        dialogue={{
+          key: "1",
+          text: "want your own 3D website?",
+          decisions: [
+            {
+              name: "sure",
+              action: () => window.open("https://bit.ly/3wgMNGO", "_blank"),
+            },
+            {
+              name: "nah",
+              // i need a function here, can't be null
+              action: () => console.log(""),
+            },
+          ],
+        }}
+        timeout={15000}
+      />
     </StandardEnvironment>
   );
 }
