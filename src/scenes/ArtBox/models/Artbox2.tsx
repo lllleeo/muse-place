@@ -30,19 +30,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="artbox_00glb">
-          <mesh
-            name="collider"
-            geometry={nodes.collider.geometry}
-            material={
-              new MeshBasicMaterial({
-                color: "blue",
-                wireframe: true,
-                // visible: false,
-              })
-            }
-          />
-        </group>
+        <group name="artbox_00glb"></group>
       </group>
     </group>
   );

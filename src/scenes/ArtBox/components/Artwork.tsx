@@ -1,7 +1,7 @@
 import { Image } from "spacesvr";
 import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
-import SocialButton from "../../../themes/components/SocialButton";
+import SocialButton from "themes/components/SocialButton";
 
 const CONTENT_FOLDER =
   "https://spaces-gallery-assets.s3.us-west-1.amazonaws.com/content/muse.place/artbox";
