@@ -17,8 +17,6 @@ export default function Artbocks() {
       }}
       // dev
     >
-      {/*<Sky sunPosition={[0, 1, 0]} />*/}
-      {/*<pointLight />*/}
       <ambientLight intensity={0.25} />
       <Suspense fallback={null}>
         <Preload all />

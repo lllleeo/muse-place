@@ -11,7 +11,6 @@ import { BufferGeometry, MeshBasicMaterial } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    // model: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: any;
@@ -32,7 +31,17 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="artbox_00glb">
-          {/*<mesh name="collider" geometry={nodes.collider.geometry} material={new MeshBasicMaterial({ color: "blue", wireframe: true })} />*/}
+          <mesh
+            name="collider"
+            geometry={nodes.collider.geometry}
+            material={
+              new MeshBasicMaterial({
+                color: "blue",
+                wireframe: true,
+                visible: false,
+              })
+            }
+          />
         </group>
       </group>
     </group>
