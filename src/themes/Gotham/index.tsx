@@ -1,6 +1,7 @@
 import { Suspense, useMemo } from "react";
 import Structure from "./models/Structure";
 import StructureOpen from "./models/StructureOpen";
+import Floor2 from "./models/Floor2";
 import { Preload, Text } from "@react-three/drei";
 import Artwork from "../components/Artwork";
 import { ArtworkProps } from "../components/Artwork";
@@ -25,6 +26,7 @@ export type GothamProps = {
   fbPixel?: string;
   googleAnalytics?: string;
   coupon?: string;
+  floorplan?: number;
 };
 
 const FONT =
@@ -42,6 +44,7 @@ export default function Gotham(props: GothamProps) {
     fbPixel,
     googleAnalytics,
     coupon,
+    floorplan,
   } = props;
 
   const material = useMemo(
@@ -66,7 +69,14 @@ export default function Gotham(props: GothamProps) {
       <ambientLight intensity={1} />
       <Suspense fallback={null}>
         <Preload all />
-        {open ? <StructureOpen night={night} /> : <Structure night={night} />}
+        {floorplan ? (
+          <></>
+        ) : open ? (
+          <StructureOpen night={night} />
+        ) : (
+          <Structure night={night} />
+        )}
+        {floorplan && floorplan === 2 && <Floor2 night={night} />}
       </Suspense>
       <group position={[-5.8, 1.5, 5]} rotation={[0, Math.PI / 2, 0]}>
         {/* @ts-ignore */}
