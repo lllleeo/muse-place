@@ -5,14 +5,14 @@ import { Preload } from "@react-three/drei";
 import { Suspense } from "react";
 
 const Gotham = dynamic(import("scenes/Gotham"), { ssr: false });
-const Avnt = dynamic(import("scenes/Gotham/Avnt"), { ssr: false });
+const Avnt = dynamic(import("scenes/Gotham/AVNT"), { ssr: false });
 
 const ARTIST = {
-  name: "avnt3d",
+  name: "AVNT 3D",
   socialLinks: ["https://www.instagram.com/avnt3d/", "https://avnt.space/#/"],
 };
 
-const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites`;
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/avnt`;
 
 const LinkTree: NextPage = () => {
   return (
