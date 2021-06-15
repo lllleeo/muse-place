@@ -38,7 +38,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               new MeshBasicMaterial({
                 color: "blue",
                 wireframe: true,
-                visible: false,
+                // visible: false,
               })
             }
           />
