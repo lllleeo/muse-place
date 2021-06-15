@@ -24,7 +24,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
   useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry).scale(0.705, 0.705, 0.705)
+    (nodes.collider.geometry as BufferGeometry).scale(0.5, 0.5, 0.5)
   );
 
   return (

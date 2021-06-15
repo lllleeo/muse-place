@@ -15,6 +15,7 @@ export default function Artbocks() {
         speed: 5,
         controls: { disableGyro: true },
       }}
+      signup="https://bit.ly/3wgMNGO"
       // dev
     >
       <ambientLight intensity={0.25} />
