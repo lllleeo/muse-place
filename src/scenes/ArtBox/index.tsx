@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { HDRI, Spinning, StandardEnvironment } from "spacesvr";
 import Artbox from "./models/Artbox";
-import Artbox2 from "./models/Artbox2";
+import Artbox1 from "./models/Artbox1";
 import Tribox from "./models/Tribox";
 import Artwork from "./components/Artwork";
 import { Preload } from "@react-three/drei";
@@ -22,7 +22,7 @@ export default function Artbocks() {
       <Suspense fallback={null}>
         <Preload all />
         <Artbox />
-        <Artbox2 />
+        <Artbox1 />
         <Artwork />
       </Suspense>
       <HDRI
