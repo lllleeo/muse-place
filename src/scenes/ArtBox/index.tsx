@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { HDRI, Spinning, StandardEnvironment } from "spacesvr";
 import Artbox from "./models/Artbox";
-import Artbox2 from "./models/Artbox2";
 import Artbox1 from "./models/Artbox1";
 import Tribox from "./models/Tribox";
 import Artwork from "./components/Artwork";

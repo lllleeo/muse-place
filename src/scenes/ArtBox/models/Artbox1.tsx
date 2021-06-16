@@ -6,7 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { BufferGeometry, MeshBasicMaterial } from "three";
+import { BufferGeometry } from "three";
 import { useTrimeshCollision } from "spacesvr";
 
 type GLTFResult = GLTF & {
@@ -31,13 +31,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="artbox_01glb">
-          <mesh
-            name="collider"
-            geometry={nodes.collider.geometry}
-            material={new MeshBasicMaterial({ color: "blue", wireframe: true })}
-          />
-        </group>
+        <group name="artbox_01glb"></group>
       </group>
     </group>
   );
