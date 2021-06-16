@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/floorplan5-1623705453/floorplan5.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/floor5-1623802181/floor5.glb.gz";
 
 export default function Model(
   props: { night?: boolean } & JSX.IntrinsicElements["group"]
@@ -49,7 +49,7 @@ export default function Model(
   return (
     <group ref={group} {...restProps} dispose={null}>
       <group scale={1} position={[-1.505, 0, 3.96]} name="Scene">
-        <group name="Gotham_05glb">
+        <group name="Gotham_05_(1)glb">
           {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
           <mesh
             name="frames"
