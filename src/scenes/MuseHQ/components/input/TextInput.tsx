@@ -114,7 +114,6 @@ export default function TextInput(props: TextProps) {
 
   const focusInput = () => {
     if (!inputRef.current) return;
-    console.log("hello");
     protectClick.current = true;
     inputRef.current.focus();
   };

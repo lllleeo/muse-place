@@ -12,6 +12,7 @@ import { Fog } from "spacesvr";
 import { Preload } from "@react-three/drei";
 import FBPixel from "../components/FacebookPixel";
 import GoogleAnalytics from "../components/GoogleAnalytics";
+import Onboarding from "../components/Onboarding";
 
 export type AltoProps = {
   socials: string[];
@@ -65,6 +66,7 @@ const Alto = (props: Partial<AltoProps>) => {
 
   return (
     <AltoContext.Provider value={{ ...defaultContext, ...props }}>
+      <Onboarding />
       <Fog color={new Color("#ffffff")} near={15} far={70} />
       <Preload all />
       <Suspense fallback={null}>

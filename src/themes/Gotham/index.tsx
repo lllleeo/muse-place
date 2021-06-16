@@ -16,6 +16,7 @@ import EmailCollection, {
 import Credits from "./components/Credits";
 import FBPixel from "../components/FacebookPixel";
 import GoogleAnalytics from "../components/GoogleAnalytics";
+import Onboarding from "../components/Onboarding";
 
 export type GothamProps = {
   name: string;
@@ -67,6 +68,7 @@ export default function Gotham(props: GothamProps) {
           {...emailCollection}
         />
       )}
+      <Onboarding />
       <Preload all />
       <ambientLight intensity={1} />
       <Suspense fallback={null}>
