@@ -292,7 +292,11 @@ export default function Artwork() {
           at the top after having seen the whole gallery.
         </Text>
       </group>
-      <group position={[0.31, 10.93, 5.47]} name="4thText">
+      <group
+        position={[1.5, 1.375, 0.53]}
+        rotation-y={Math.PI / 2}
+        name="4thText"
+      >
         <Text fontSize={0.2} position={[-0.675, 0.85, 0]} name="title">
           Femzor
         </Text>
@@ -312,11 +316,15 @@ export default function Artwork() {
         <AnnotatedLink
           link="https://twitter.com/femzor?s=20"
           text="@femzor"
-          position={[1.14, -0.26, 3.03]}
+          position={[-0.35, -1.11, 0.24]}
           name="femzorTwitter"
         />
       </group>
-      <group position={[-1.55, 14.24, 6.9]} name="5thText">
+      <group
+        position={[0.32, 1.375, -0.6]}
+        rotation-y={-Math.PI}
+        name="5thText"
+      >
         <Text fontSize={0.2} position={[-0.825, 0.9, 0]} name="title">
           Djak
         </Text>
@@ -342,7 +350,7 @@ export default function Artwork() {
         <AnnotatedLink
           link="https://twitter.com/almightyDJAK?s=20"
           text="@almightyDJAK"
-          position={[-1.11, -4.23, 1.28]}
+          position={[-0.5, -1.11, 0.33]}
           width={1.1}
           xOffset={0.385}
           name="djakTwitter"
