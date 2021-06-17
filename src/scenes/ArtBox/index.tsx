@@ -17,6 +17,7 @@ export default function Artbocks() {
         controls: { disableGyro: true },
       }}
       signup="https://bit.ly/3wgMNGO"
+      dev
     >
       <ambientLight intensity={0.25} />
       <Suspense fallback={null}>
