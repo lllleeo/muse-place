@@ -1,6 +1,5 @@
 import { Image, Video } from "spacesvr";
 import { Text } from "@react-three/drei";
-import { ShopContext } from "../KKites";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/avnt";
