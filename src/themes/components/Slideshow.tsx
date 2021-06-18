@@ -9,6 +9,8 @@ type SlideshowProps = {
   face?: boolean;
   links: string[];
   captions?: string[];
+  textColor?: string;
+  darkArrow?: boolean;
 } & GroupProps;
 
 function Media(props: { link: string; size: number } & GroupProps) {
@@ -32,7 +34,15 @@ function Media(props: { link: string; size: number } & GroupProps) {
 }
 
 export default function Slideshow(props: SlideshowProps) {
-  const { size = 1, face = false, links, captions, ...rest } = props;
+  const {
+    size = 1,
+    face = false,
+    links,
+    captions,
+    textColor = "white",
+    darkArrow = false,
+    ...rest
+  } = props;
 
   const [curr, setCurr] = useState(0);
 
@@ -53,7 +63,7 @@ export default function Slideshow(props: SlideshowProps) {
           {captions && (
             <>
               {/* @ts-ignore */}
-              <Text fontSize={0.1} position-y={0.15}>
+              <Text fontSize={0.1} position-y={0.15} color={textColor}>
                 {captions[curr]}
               </Text>
             </>
@@ -63,13 +73,19 @@ export default function Slideshow(props: SlideshowProps) {
               position-x={0.4}
               scale={[0.7, 0.7, 0.7]}
               rotation-z={Math.PI}
+              dark={darkArrow}
             />
           </Interactable>
           <Interactable onClick={prev}>
-            <Arrow position-x={-0.4} scale={[0.7, 0.7, 0.7]} rotation-z={0} />
+            <Arrow
+              position-x={-0.4}
+              scale={[0.7, 0.7, 0.7]}
+              rotation-z={0}
+              dark={darkArrow}
+            />
           </Interactable>
           {/* @ts-ignore */}
-          <Text fontSize={0.15}>
+          <Text fontSize={0.15} color={textColor}>
             {(curr + 1).toString()} / {links.length.toString()}
           </Text>
         </group>

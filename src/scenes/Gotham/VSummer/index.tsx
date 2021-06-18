@@ -6,64 +6,32 @@ const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer";
 
 const links = [
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
+  `${CONTENT_FOLDER}/vsz11.jpg`,
+  `${CONTENT_FOLDER}/vsz115.jpg`,
+  `${CONTENT_FOLDER}/vsz116.jpg`,
+  `${CONTENT_FOLDER}/vsz117.jpg`,
 ];
 
-const captions = [
-  "Highground - Coolground!",
-  "It just keeps getting better!",
-  "Juggernaut - Let them feel the cool of your Blade!",
-  "Supports return to the fight!",
-  "Teamwork makes the Dreamwork 1 - Jug.mp4",
-  "Teamwork makes the Dreamwork 2 - Jug",
-  "Teamwork makes the Dreamwork 3 - Invoker",
-];
+const captions = ["", "", "", ""];
 
 const links2 = [
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
+  `${CONTENT_FOLDER}/vsz1162.jpg`,
+  `${CONTENT_FOLDER}/vsz1164.jpg`,
+  `${CONTENT_FOLDER}/vsz1165.jpg`,
+  `${CONTENT_FOLDER}/vsz1166.jpg`,
+  `${CONTENT_FOLDER}/vsz1167.jpg`,
 ];
 
-const captions2 = [
-  "Highground - Coolground!",
-  "It just keeps getting better!",
-  "Juggernaut - Let them feel the cool of your Blade!",
-  "Supports return to the fight!",
-  "Teamwork makes the Dreamwork 1 - Jug.mp4",
-  "Teamwork makes the Dreamwork 2 - Jug",
-  "Teamwork makes the Dreamwork 3 - Invoker",
-];
+const captions2 = ["", "", "", "", ""];
 
 const links3 = [
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
-  `${CONTENT_FOLDER}/1.jpg`,
+  `${CONTENT_FOLDER}/vsz1110.jpg`,
+  `${CONTENT_FOLDER}/vsz1112.jpg`,
+  `${CONTENT_FOLDER}/vsz1126.jpg`,
+  `${CONTENT_FOLDER}/vsz1147.jpg`,
 ];
 
-const captions3 = [
-  "Highground - Coolground!",
-  "It just keeps getting better!",
-  "Juggernaut - Let them feel the cool of your Blade!",
-  "Supports return to the fight!",
-  "Teamwork makes the Dreamwork 1 - Jug.mp4",
-  "Teamwork makes the Dreamwork 2 - Jug",
-  "Teamwork makes the Dreamwork 3 - Invoker",
-];
+const captions3 = ["", "", "", ""];
 
 export default function VSummer() {
   return (
@@ -89,8 +57,10 @@ export default function VSummer() {
         <Slideshow
           links={links}
           captions={captions}
-          size={1.0}
-          position={[-1.05, 0.13, 0]}
+          size={1.5}
+          position={[-1.05, -0.02, 0]}
+          textColor="black"
+          darkArrow={true}
         />
       </group>
       <group
@@ -102,38 +72,22 @@ export default function VSummer() {
         <Slideshow
           links={links2}
           captions={captions2}
-          size={1.0}
-          position={[0.59, 0.13, 0.06]}
+          size={1.5}
+          position={[0.59, 0.1, 0.06]}
+          textColor="black"
+          darkArrow={true}
         />
       </group>
       <group
         name="middle-block-south"
-        position={[-1.73, 0.905, 4.575]}
+        position={[-1.73, 0.465, 4.225]}
         rotation-y={Math.PI / 2}
       >
         {/* @ts-ignore */}
-        <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
-          position={[0.23, 0.7, 0]}
-          size={0.7}
-          framed
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
-          position={[1.02, 0.7, 0]}
-          size={0.7}
-          framed
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
-          position={[0.23, -0.4, 0]}
-          size={0.7}
-          framed
-        />
-        <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
-          position={[1.02, -0.4, 0]}
-          size={0.7}
+        <Video
+          src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
+          position={[0.23, 0.6, 0]}
+          size={2.25}
           framed
         />
       </group>
@@ -144,7 +98,7 @@ export default function VSummer() {
       >
         {/* @ts-ignore */}
         <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
+          src={`${CONTENT_FOLDER}/2.jpg`}
           position={[0.2, 0.705, 0]}
           size={0.7}
           framed
@@ -156,7 +110,7 @@ export default function VSummer() {
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
+          src={`${CONTENT_FOLDER}/4.jpg`}
           framed
           size={1.5}
           position-x={0.6}
@@ -171,8 +125,10 @@ export default function VSummer() {
         <Slideshow
           links={links3}
           captions={captions3}
-          size={1.0}
+          size={1.5}
           position={[0.59, 0.13, 0.06]}
+          textColor="black"
+          darkArrow={true}
         />
       </group>
       <group
@@ -182,7 +138,7 @@ export default function VSummer() {
       >
         {/* @ts-ignore */}
         <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
+          src={`${CONTENT_FOLDER}/5.jpg`}
           position={[0.2, 0.705, 0]}
           size={0.7}
           framed
