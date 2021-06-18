@@ -140,13 +140,13 @@ export default function KKites() {
       >
         <Image
           name="9"
-          src={`${CONTENT_FOLDER}/9.jpg`}
+          src={`${CONTENT_FOLDER}/1.jpg`}
           position-x={0.45}
           framed
         />
         <Image
           name="10"
-          src={`${CONTENT_FOLDER}/10.jpg`}
+          src={`${CONTENT_FOLDER}/2.jpg`}
           position-x={-0.55}
           framed
         />
