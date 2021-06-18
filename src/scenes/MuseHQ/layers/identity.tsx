@@ -1,28 +1,27 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { ReactNode } from "react";
-import { proxy } from "valtio";
+import { proxy, useSnapshot, ref } from "valtio";
 import fetch, { RequestInit } from "node-fetch";
 import { analytics } from "../utils/analytics";
+import { World } from "./basis";
 
 const TOKEN_ID = "muse-jwt";
 const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-type Response = { message?: string; success: boolean };
+type Response<T = any> = { message?: string; success: boolean; body?: T };
 
 export class Identity {
-  exists: boolean;
-  name: string | undefined;
-  email: string | undefined;
-  token: string | undefined;
-  groups: string[] | undefined;
+  uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 
-  constructor() {
-    this.exists = false;
-    this.name = undefined;
-    this.email = undefined;
-    this.groups = undefined;
-
-    this.token = localStorage.getItem(TOKEN_ID) || undefined;
-  }
+  token: string | undefined = localStorage.getItem(TOKEN_ID) || undefined;
+  exists = false;
+  name: string | undefined = undefined;
+  email: string | undefined = undefined;
+  groups: string[] | undefined = undefined;
+  worlds: World[] | undefined = undefined;
 
   async login(email: string, password: string): Promise<Response> {
     const params: RequestInit = {
@@ -40,8 +39,7 @@ export class Identity {
     analytics.capture("login", { email });
 
     if (response.status === 200) {
-      localStorage.setItem(TOKEN_ID, json.token);
-      this.token = json.token;
+      this.setToken(json.token);
     }
 
     return { success: response.status === 200, message: json.message };
@@ -50,7 +48,9 @@ export class Identity {
   async signup(
     name: string,
     email: string,
-    password: string
+    password: string,
+    generationDetails?: string,
+    code?: string
   ): Promise<Response> {
     const params: RequestInit = {
       method: "POST",
@@ -58,7 +58,8 @@ export class Identity {
         name,
         email,
         password,
-        code: "muse-yc-21",
+        data: generationDetails,
+        code: code,
       }),
       headers: { "Content-Type": "application/json" },
     };
@@ -87,30 +88,87 @@ export class Identity {
       this.name = json.name;
       this.email = json.email;
       this.groups = json.groups;
+      this.exists = true;
       analytics.identify(json.email, { name: this.name });
+    } else {
+      this.exists = false;
+      this.setToken(undefined);
     }
 
     return { success: response.status === 200, message: json.message };
   }
+
+  async logout() {
+    this.setToken(undefined);
+    this.name = undefined;
+    this.email = undefined;
+    this.groups = undefined;
+    this.exists = false;
+    this.worlds = undefined;
+    await new Promise((res) => setTimeout(res, 1500));
+  }
+
+  async fetchWorlds(): Promise<Response> {
+    if (!this.exists) {
+      return { success: false, message: "Not logged in" };
+    }
+
+    const params: RequestInit = {
+      headers: { Authorization: `bearer ${this.token}` },
+    };
+
+    const response = await fetch(`${URL}/worlds/fetch_all`, params);
+
+    const json = await response.json();
+    this.worlds = json.map(
+      (world: any) =>
+        new World({
+          name: world.name,
+          slug: world.slug,
+          userId: world.user_id,
+          rootIdea: world.root_idea,
+          rootIdeaVersion: world.root_idea_version,
+        })
+    );
+
+    return {
+      success: response.status === 200,
+      message: json.message,
+      body: json,
+    };
+  }
+
+  setToken(token: string | undefined) {
+    this.token = token;
+
+    if (token) {
+      localStorage.setItem(TOKEN_ID, token);
+    } else {
+      localStorage.removeItem(TOKEN_ID);
+    }
+  }
 }
 
-type IdentityState = { identity: Identity };
-
-export const IdentityContext = createContext<IdentityState>(
-  {} as IdentityState
-);
+const initIdentity = proxy(new Identity());
+export const IdentityContext = createContext<Identity>(initIdentity);
 
 export function useIdentity(): Identity {
-  return useContext(IdentityContext).identity;
+  return useContext(IdentityContext);
+}
+
+export function useIdentitySnapshot(): Identity {
+  return useSnapshot(useContext(IdentityContext));
 }
 
 export function IdentityLayer(props: { children: ReactNode | ReactNode[] }) {
   const { children } = props;
 
-  const identity = proxy<IdentityState>({ identity: new Identity() });
+  useEffect(() => {
+    initIdentity.fetch();
+  }, []);
 
   return (
-    <IdentityContext.Provider value={identity}>
+    <IdentityContext.Provider value={initIdentity}>
       {children}
     </IdentityContext.Provider>
   );

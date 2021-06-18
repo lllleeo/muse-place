@@ -37,7 +37,7 @@ export default function Button(props: ButtonProps) {
     color: "black",
     font: FONT_URL,
     fontSize: 0.05,
-    outlineWidth: 0.0055,
+    outlineWidth: 0.004,
     outlineColor: "white",
     anchorY: "middle",
     ...textStyles,

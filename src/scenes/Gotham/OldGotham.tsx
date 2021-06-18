@@ -54,6 +54,7 @@ const GothamScene = (props: GothamSceneProps) => {
         pos: [-4, 1, 9.9],
         rot: (2 * Math.PI) / 1.2,
         speed: 1.7,
+        controls: { disableGyro: true },
         ...playerProps,
       }}
       {...restEnvProps}
