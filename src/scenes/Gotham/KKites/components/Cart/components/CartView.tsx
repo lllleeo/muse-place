@@ -34,7 +34,6 @@ export default function CartView() {
         {cart.items.map((item, i) => (
           <Product
             item={item}
-            img={i}
             position-x={(-(cart.items.length - 1) / 2 + i) * 6.5}
           />
         ))}
