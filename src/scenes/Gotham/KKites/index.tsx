@@ -336,18 +336,19 @@ export default function KKites() {
               framed
             />
           )}
-
+          {!isMobile && (
+            <Image
+              name="15"
+              src={`${CONTENT_FOLDER}/15.jpg`}
+              position={[1.3, -0.75, 0]}
+              size={1.15}
+              framed
+            />
+          )}
           <Image
             name="12"
             src={`${CONTENT_FOLDER}/12.jpg`}
             position={[1.3, 0.5, 0]}
-            size={1.15}
-            framed
-          />
-          <Image
-            name="15"
-            src={`${CONTENT_FOLDER}/15.jpg`}
-            position={[1.3, -0.75, 0]}
             size={1.15}
             framed
           />
@@ -359,13 +360,15 @@ export default function KKites() {
             size={1.15}
             framed
           />
-          <Image
-            name="7"
-            src={`${CONTENT_FOLDER}/7.jpg`}
-            position={[-1, -0.75, 0]}
-            size={1.15}
-            framed
-          />
+          {!isMobile && (
+            <Image
+              name="7"
+              src={`${CONTENT_FOLDER}/7.jpg`}
+              position={[-1, -0.75, 0]}
+              size={1.15}
+              framed
+            />
+          )}
           {!isMobile && (
             <Image
               name="9"
@@ -426,13 +429,15 @@ export default function KKites() {
               framed
             />
           )}
-          <Image
-            name="29"
-            src={`${CONTENT_FOLDER}/29.jpg`}
-            position={[1.3, 0.5, 0]}
-            size={1.15}
-            framed
-          />
+          {!isMobile && (
+            <Image
+              name="29"
+              src={`${CONTENT_FOLDER}/29.jpg`}
+              position={[1.3, 0.5, 0]}
+              size={1.15}
+              framed
+            />
+          )}
           <Image
             name="30"
             src={`${CONTENT_FOLDER}/30.jpg`}
@@ -447,13 +452,15 @@ export default function KKites() {
             size={1.15}
             framed
           />
-          <Image
-            name="24"
-            src={`${CONTENT_FOLDER}/24.jpg`}
-            position={[2.6, -0.75, 0]}
-            size={1.15}
-            framed
-          />
+          {!isMobile && (
+            <Image
+              name="24"
+              src={`${CONTENT_FOLDER}/24.jpg`}
+              position={[2.6, -0.75, 0]}
+              size={1.15}
+              framed
+            />
+          )}
           {!isMobile && (
             <Image
               name="32"
