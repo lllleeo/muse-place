@@ -280,70 +280,63 @@ export default function KKites() {
           {/*    size={1.15}*/}
           {/*    framed*/}
           {/*/>*/}
-          {!isMobile && (
-            <Image
-              name="8"
-              src={`${CONTENT_FOLDER}/8.jpg`}
-              position={[-2.15, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="6"
-              src={`${CONTENT_FOLDER}/6.jpg`}
-              position={[-2.15, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
 
-          {!isMobile && (
-            <Image
-              name="16"
-              src={`${CONTENT_FOLDER}/16.jpg`}
-              position={[2.45, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="13"
-              src={`${CONTENT_FOLDER}/13.jpg`}
-              position={[2.45, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="11"
-              src={`${CONTENT_FOLDER}/11.jpg`}
-              position={[0.15, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="14"
-              src={`${CONTENT_FOLDER}/14.jpg`}
-              position={[0.15, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="15"
-              src={`${CONTENT_FOLDER}/15.jpg`}
-              position={[1.3, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
+          <Image
+            name="8"
+            src={`${CONTENT_FOLDER}/8.jpg`}
+            position={[-2.15, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="6"
+            src={`${CONTENT_FOLDER}/6.jpg`}
+            position={[-2.15, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="16"
+            src={`${CONTENT_FOLDER}/16.jpg`}
+            position={[2.45, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="13"
+            src={`${CONTENT_FOLDER}/13.jpg`}
+            position={[2.45, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="11"
+            src={`${CONTENT_FOLDER}/11.jpg`}
+            position={[0.15, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="14"
+            src={`${CONTENT_FOLDER}/14.jpg`}
+            position={[0.15, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="15"
+            src={`${CONTENT_FOLDER}/15.jpg`}
+            position={[1.3, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
           <Image
             name="12"
             src={`${CONTENT_FOLDER}/12.jpg`}
@@ -359,84 +352,76 @@ export default function KKites() {
             size={1.15}
             framed
           />
-          {!isMobile && (
-            <Image
-              name="7"
-              src={`${CONTENT_FOLDER}/7.jpg`}
-              position={[-1, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="9"
-              src={`${CONTENT_FOLDER}/9.jpg`}
-              position={[3.6, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="10"
-              src={`${CONTENT_FOLDER}/10.jpg`}
-              position={[3.6, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
+
+          <Image
+            name="7"
+            src={`${CONTENT_FOLDER}/7.jpg`}
+            position={[-1, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="9"
+            src={`${CONTENT_FOLDER}/9.jpg`}
+            position={[3.6, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="10"
+            src={`${CONTENT_FOLDER}/10.jpg`}
+            position={[3.6, -0.75, 0]}
+            size={1.15}
+            framed
+          />
         </group>
         <group
           position={[-5.47, 1.25, 10.66]}
           rotation-y={Math.PI / 2}
           name="front-wall-left"
         >
-          {!isMobile && (
-            <Image
-              name="17"
-              src={`${CONTENT_FOLDER}/17.jpg`}
-              position={[-1, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="27"
-              src={`${CONTENT_FOLDER}/27.jpg`}
-              position={[-1, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="19"
-              src={`${CONTENT_FOLDER}/19.jpg`}
-              position={[0.15, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="22"
-              src={`${CONTENT_FOLDER}/22.jpg`}
-              position={[0.25, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="29"
-              src={`${CONTENT_FOLDER}/29.jpg`}
-              position={[1.3, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
+          <Image
+            name="17"
+            src={`${CONTENT_FOLDER}/17.jpg`}
+            position={[-1, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="27"
+            src={`${CONTENT_FOLDER}/27.jpg`}
+            position={[-1, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="19"
+            src={`${CONTENT_FOLDER}/19.jpg`}
+            position={[0.15, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="22"
+            src={`${CONTENT_FOLDER}/22.jpg`}
+            position={[0.25, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="29"
+            src={`${CONTENT_FOLDER}/29.jpg`}
+            position={[1.3, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
           <Image
             name="30"
             src={`${CONTENT_FOLDER}/30.jpg`}
@@ -451,69 +436,61 @@ export default function KKites() {
             size={1.15}
             framed
           />
-          {!isMobile && (
-            <Image
-              name="24"
-              src={`${CONTENT_FOLDER}/24.jpg`}
-              position={[2.6, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="32"
-              src={`${CONTENT_FOLDER}/32.jpg`}
-              position={[3.7, 0.5, 0]}
-              size={1.15}
-              framed
-            />
-          )}
-          {!isMobile && (
-            <Image
-              name="26"
-              src={`${CONTENT_FOLDER}/26.jpg`}
-              position={[3.78, -0.75, 0]}
-              size={1.15}
-              framed
-            />
-          )}
+
+          <Image
+            name="24"
+            src={`${CONTENT_FOLDER}/24.jpg`}
+            position={[2.6, -0.75, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="32"
+            src={`${CONTENT_FOLDER}/32.jpg`}
+            position={[3.7, 0.5, 0]}
+            size={1.15}
+            framed
+          />
+
+          <Image
+            name="26"
+            src={`${CONTENT_FOLDER}/26.jpg`}
+            position={[3.78, -0.75, 0]}
+            size={1.15}
+            framed
+          />
         </group>
       </group>
       {/* )} */}
       <group name="outside-videos" position={[-1.82, 1, 0]}>
-        {!isMobile && (
-          <Video
-            src={`${CONTENT_FOLDER}/jpiece.mp4`}
-            scale={20}
-            position-z={-9.5}
-            framed
-            muted
-          />
-        )}
-        {!isMobile && (
-          <Video
-            src={`${CONTENT_FOLDER}/jpiece.mp4`}
-            scale={20}
-            rotation-y={Math.PI}
-            position-z={18}
-            framed
-            muted
-          />
-        )}
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={20}
+          position-z={-9.5}
+          framed
+          muted
+        />
+
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={20}
+          rotation-y={Math.PI}
+          position-z={18}
+          framed
+          muted
+        />
       </group>
       <group
         position={[-1.46, 2.5, 3.91]}
         rotation={[Math.PI / 2, 0, 0]}
         name="ceiling-video"
       >
-        {!isMobile && (
-          <Video
-            src={`${CONTENT_FOLDER}/jpiece.mp4`}
-            scale={[11, 17, 11]}
-            muted
-          />
-        )}
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={[11, 17, 11]}
+          muted
+        />
       </group>
     </ShopContext.Provider>
   );
