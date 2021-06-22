@@ -1,5 +1,6 @@
 import { Image, Video } from "spacesvr";
 import { Text } from "@react-three/drei";
+import { ShopContext } from "../KKites";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/avnt";
@@ -286,6 +287,23 @@ export default function Avnt() {
           src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
           scale={[11, 17, 7]}
           size={2}
+          muted
+        />
+      </group>
+      <group name="outside-videos" position={[-1.82, 1, 0]}>
+        <Video
+          src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
+          scale={20}
+          position-z={-9.5}
+          framed
+          muted
+        />
+        <Video
+          src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
+          scale={20}
+          rotation-y={Math.PI}
+          position-z={18}
+          framed
           muted
         />
       </group>
