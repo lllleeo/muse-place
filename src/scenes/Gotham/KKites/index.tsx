@@ -355,20 +355,24 @@ export default function KKites() {
             size={1.15}
             framed
           />
-          <Image
-            name="9"
-            src={`${CONTENT_FOLDER}/9.jpg`}
-            position={[3.6, 0.5, 0]}
-            size={1.15}
-            framed
-          />
-          <Image
-            name="10"
-            src={`${CONTENT_FOLDER}/10.jpg`}
-            position={[3.6, -0.75, 0]}
-            size={1.15}
-            framed
-          />
+          {!isMobile && (
+            <Image
+              name="9"
+              src={`${CONTENT_FOLDER}/9.jpg`}
+              position={[3.6, 0.5, 0]}
+              size={1.15}
+              framed
+            />
+          )}
+          {!isMobile && (
+            <Image
+              name="10"
+              src={`${CONTENT_FOLDER}/10.jpg`}
+              position={[3.6, -0.75, 0]}
+              size={1.15}
+              framed
+            />
+          )}
         </group>
         <group
           position={[-5.47, 1.25, 10.66]}
