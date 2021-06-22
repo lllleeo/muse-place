@@ -444,34 +444,34 @@ export default function KKites() {
           </group>
         </group>
       )}
-      {/*<group name="outside-videos" position={[-1.82, 1, 0]}>*/}
-      {/*  <Video*/}
-      {/*    src={`${CONTENT_FOLDER}/jpiece.mp4`}*/}
-      {/*    scale={20}*/}
-      {/*    position-z={-9.5}*/}
-      {/*    framed*/}
-      {/*    muted*/}
-      {/*  />*/}
-      {/*  <Video*/}
-      {/*    src={`${CONTENT_FOLDER}/jpiece.mp4`}*/}
-      {/*    scale={20}*/}
-      {/*    rotation-y={Math.PI}*/}
-      {/*    position-z={18}*/}
-      {/*    framed*/}
-      {/*    muted*/}
-      {/*  />*/}
-      {/*</group>*/}
-      {/*<group*/}
-      {/*  position={[-1.46, 2.5, 3.91]}*/}
-      {/*  rotation={[Math.PI / 2, 0, 0]}*/}
-      {/*  name="ceiling-video"*/}
-      {/*>*/}
-      {/*  <Video*/}
-      {/*    src={`${CONTENT_FOLDER}/jpiece.mp4`}*/}
-      {/*    scale={[11, 17, 11]}*/}
-      {/*    muted*/}
-      {/*  />*/}
-      {/*</group>*/}
+      <group name="outside-videos" position={[-1.82, 1, 0]}>
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={20}
+          position-z={-9.5}
+          framed
+          muted
+        />
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={20}
+          rotation-y={Math.PI}
+          position-z={18}
+          framed
+          muted
+        />
+      </group>
+      <group
+        position={[-1.46, 2.5, 3.91]}
+        rotation={[Math.PI / 2, 0, 0]}
+        name="ceiling-video"
+      >
+        <Video
+          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          scale={[11, 17, 11]}
+          muted
+        />
+      </group>
     </ShopContext.Provider>
   );
 }
