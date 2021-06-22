@@ -5,14 +5,9 @@ import { Text } from "@react-three/drei";
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer";
 
-const links = [
-  `${CONTENT_FOLDER}/vsz11.jpg`,
-  `${CONTENT_FOLDER}/vsz115.jpg`,
-  `${CONTENT_FOLDER}/vsz116.jpg`,
-  `${CONTENT_FOLDER}/vsz117.jpg`,
-];
+const links = [`${CONTENT_FOLDER}/vsz11.jpg`, `${CONTENT_FOLDER}/vsz115.jpg`];
 
-const captions = ["", "", "", ""];
+const captions = ["", ""];
 
 const links2 = [
   `${CONTENT_FOLDER}/vsz1162.jpg`,
@@ -84,12 +79,13 @@ export default function VSummer() {
         rotation-y={Math.PI / 2}
       >
         {/* @ts-ignore */}
-        <Video
-          src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
+        <Image
+          src={`${CONTENT_FOLDER}/vsz1197.jpg`}
           position={[0.23, 0.6, 0]}
           size={2.25}
           framed
         />
+        {/* @ts-ignore */}
       </group>
       <group
         name="middle-block-west"
@@ -103,18 +99,25 @@ export default function VSummer() {
           size={0.7}
           framed
         />
+        <Image
+          src={`${CONTENT_FOLDER}/vsz1198_720.jpg`}
+          rotation-y={Math.PI}
+          position={[0.2, 0.705, -0.3]}
+          size={1.5}
+          framed
+        />
       </group>
       <group
         name="right-pane-front"
         position={[-1.38, 0.95, 8.15]}
         rotation-y={-Math.PI / 2}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/4.jpg`}
+        <Video
+          src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
           framed
-          size={1.5}
+          size={2.2}
           position-x={0.6}
-          position-y={0.1}
+          position-y={0.2}
         />
       </group>
       <group
@@ -141,6 +144,65 @@ export default function VSummer() {
           src={`${CONTENT_FOLDER}/5.jpg`}
           position={[0.2, 0.705, 0]}
           size={0.7}
+          framed
+        />
+        <Image
+          src={`${CONTENT_FOLDER}/vsz1138.jpg`}
+          rotation-y={Math.PI}
+          position={[0.2, 0.705, -0.3]}
+          size={1.6}
+          framed
+        />
+      </group>
+      <group
+        name="front-wall-upper-right"
+        position={[-5.61, 1.645, 0.83]}
+        rotation-z={-0.75}
+      >
+        <Image
+          src={`${CONTENT_FOLDER}/vsz0001.png`}
+          rotation-y={Math.PI / 2}
+          position={[0.2, 0.705, -0.3]}
+          size={2.3}
+          framed
+        />
+      </group>
+      <group
+        name="front-wall-upper-left"
+        position={[-5.61, 1.645, 0.83]}
+        rotation-z={-0.75}
+      >
+        <Image
+          src={`${CONTENT_FOLDER}/vsz0002.jpg`}
+          rotation-y={Math.PI / 2}
+          position={[0.2, 0.705, 7.24]}
+          size={2.3}
+          framed
+        />
+      </group>
+      <group
+        name="front-wall-bottom-left"
+        position={[-4.62, -0.225, 0.88]}
+        rotation-z={0.75}
+      >
+        <Image
+          src={`${CONTENT_FOLDER}/vsz0003.jpg`}
+          rotation-y={Math.PI / 2}
+          position={[0.2, 0.705, 7.24]}
+          size={1.7}
+          framed
+        />
+      </group>
+      <group
+        name="back-wall-upper"
+        position={[2.25, 1.395, 11.5]}
+        rotation={[-3.15, 0, -3.43]}
+      >
+        <Video
+          src={`${CONTENT_FOLDER}/compost.mp4`}
+          rotation-y={Math.PI / 2}
+          position={[0.2, 0.705, 7.24]}
+          size={1.7}
           framed
         />
       </group>
