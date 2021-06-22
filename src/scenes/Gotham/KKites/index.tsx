@@ -63,12 +63,11 @@ export default function KKites() {
           position-x={0.55}
           framed
         />
-        <Video
+        <Image
           name="r7"
           src={`${CONTENT_FOLDER}/r7.jpg`}
           position-x={-0.4}
           framed
-          muted
         />
       </group>
       <group
