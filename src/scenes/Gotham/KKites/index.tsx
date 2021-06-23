@@ -24,50 +24,26 @@ export default function KKites() {
         rotation-y={Math.PI / 2}
         name="left-pane-back"
       >
-        {/*<Video*/}
-        {/*  src={`${CONTENT_FOLDER}/V1.mp4`}*/}
-        {/*  position-z={-0.05}*/}
-        {/*  size={1.2}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        <Image
-          src={`${CONTENT_FOLDER}/r5.jpg`}
+        <Video
+          src={`${CONTENT_FOLDER}/kkchainpieces.mp4`}
           position-z={-0.05}
           size={1.2}
           framed
+          muted
         />
       </group>
       <group
-        position={[-1.6, 1.26, 0]}
+        position={[-1.6, 1.26, -0.51]}
         rotation-y={-Math.PI / 2}
         name="left-pane-front"
       >
-        {/*<Video*/}
-        {/*  name="3"*/}
-        {/*  src={`${CONTENT_FOLDER}/V2.mp4`}*/}
-        {/*  position-x={0.55}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        {/*<Video*/}
-        {/*  name="4"*/}
-        {/*  src={`${CONTENT_FOLDER}/V3.mp4`}*/}
-        {/*  position-x={-0.4}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        <Image
-          name="r6"
-          src={`${CONTENT_FOLDER}/r6.jpg`}
+        <Video
+          name="3"
+          src={`${CONTENT_FOLDER}/rainbowchain.mp4`}
           position-x={0.55}
+          size={1.2}
           framed
-        />
-        <Image
-          name="r7"
-          src={`${CONTENT_FOLDER}/r7.jpg`}
-          position-x={-0.4}
-          framed
+          muted
         />
       </group>
       <group
@@ -75,78 +51,54 @@ export default function KKites() {
         rotation-y={Math.PI}
         name="middle-pane-left"
       >
-        {/*<Video*/}
-        {/*  name="5"*/}
-        {/*  src={`${CONTENT_FOLDER}/Final+4.mp4`}*/}
-        {/*  size={1.2}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        <Image name="r8" src={`${CONTENT_FOLDER}/r8.jpg`} size={1.2} framed />
+        <Video
+          name="5"
+          src={`${CONTENT_FOLDER}/Kk Jesus Piece.mp4`}
+          size={1.2}
+          framed
+          muted
+        />
       </group>
       <group
-        position={[-1.64, 1.26, 4.25]}
+        position={[-1.1, 1.26, 4.25]}
         rotation-y={2 * Math.PI}
         name="middle-pane-right"
       >
-        {/*<Video*/}
-        {/*  name="7"*/}
-        {/*  src={`${CONTENT_FOLDER}/Kk+Barbed+Chains.mp4`}*/}
-        {/*  position-x={-0.45}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        {/*<Video*/}
-        {/*  name="8"*/}
-        {/*  src={`${CONTENT_FOLDER}/Kk+Jesus+Piece.mp4`}*/}
-        {/*  position-x={0.6}*/}
-        {/*  framed*/}
-        {/*  muted*/}
-        {/*/>*/}
-        <Image
-          name="r9"
-          src={`${CONTENT_FOLDER}/r9.jpg`}
+        <Video
+          name="7"
+          src={`${CONTENT_FOLDER}/Kk+Barbed+Chains.mp4`}
           position-x={-0.45}
+          size={1.2}
           framed
-        />
-        <Image
-          name="r10"
-          src={`${CONTENT_FOLDER}/r10.jpg`}
-          position-x={0.6}
-          framed
+          muted
         />
       </group>
       <group
-        position={[-1.36, 1.26, 8.11]}
+        position={[-1.36, 1.26, 8.61]}
         rotation-y={Math.PI / 2}
         name="right-pane-back"
       >
-        <Image
+        <Video
           name="9"
-          src={`${CONTENT_FOLDER}/1.jpg`}
+          src={`${CONTENT_FOLDER}/Final 4.mp4`}
           position-x={0.45}
+          size={1.2}
           framed
-        />
-        <Image
-          name="10"
-          src={`${CONTENT_FOLDER}/2.jpg`}
-          position-x={-0.55}
-          framed
+          muted
         />
       </group>
       <group
-        position={[-1.6, 1.26, 8.11]}
+        position={[-1.6, 1.25, 8.19]}
         rotation-y={-Math.PI / 2}
         name="right-pane-front"
       >
-        {/*<Video*/}
-        {/*  name="11"*/}
-        {/*  src={`${CONTENT_FOLDER}/kkchainpieces.mp4`}*/}
-        {/*  size={1.2}*/}
-        {/*  muted*/}
-        {/*  framed*/}
-        {/*/>*/}
-        <Image name="l5" src={`${CONTENT_FOLDER}/l5.jpg`} size={1.2} framed />
+        <Video
+          name="l5"
+          src={`${CONTENT_FOLDER}/joinedV1.mp4`}
+          size={1.6}
+          framed
+          muted
+        />
       </group>
       <group
         position={[-5.47, 1.2, 3.8]}
@@ -162,7 +114,6 @@ export default function KKites() {
           IFAKEMAKECLOTHES.COM
         </Text>
       </group>
-      {/*{!isMobile && (*/}
       <group>
         <group
           position={[2.49, 1.25, 10.0]}
@@ -237,50 +188,6 @@ export default function KKites() {
           rotation-y={Math.PI / 2}
           name="front-wall-right"
         >
-          {/*DON'T DELETE UNTIL AFTER CONFIRMING WITH KRIS KITES*/}
-          {/*<Image*/}
-          {/*    name="l5"*/}
-          {/*    src={`${CONTENT_FOLDER}/l5.jpg`}*/}
-          {/*    position={[0.15, 0.5, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-          {/*<Image*/}
-          {/*    name="l6"*/}
-          {/*    src={`${CONTENT_FOLDER}/l6.jpg`}*/}
-          {/*    position={[1.3, 0.5, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-          {/*<Image*/}
-          {/*    name="l7"*/}
-          {/*    src={`${CONTENT_FOLDER}/l7.jpg`}*/}
-          {/*    position={[2.45, 0.5, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-          {/*<Image*/}
-          {/*    name="l8"*/}
-          {/*    src={`${CONTENT_FOLDER}/l8.jpg`}*/}
-          {/*    position={[0.15, -0.75, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-          {/*<Image*/}
-          {/*    name="l9"*/}
-          {/*    src={`${CONTENT_FOLDER}/l9.jpg`}*/}
-          {/*    position={[1.3, -0.75, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-          {/*<Image*/}
-          {/*    name="l10"*/}
-          {/*    src={`${CONTENT_FOLDER}/l10.jpg`}*/}
-          {/*    position={[2.45, -0.75, 0]}*/}
-          {/*    size={1.15}*/}
-          {/*    framed*/}
-          {/*/>*/}
-
           <Image
             name="8"
             src={`${CONTENT_FOLDER}/8.jpg`}
