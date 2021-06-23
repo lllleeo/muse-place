@@ -94,8 +94,8 @@ export default function KKites() {
       >
         <Video
           name="l5"
-          src={`${CONTENT_FOLDER}/joinedV1.mp4`}
-          size={1.6}
+          src={`${CONTENT_FOLDER}/V3.mp4`}
+          size={1.35}
           framed
           muted
         />
@@ -372,16 +372,16 @@ export default function KKites() {
       {/* )} */}
       <group name="outside-videos" position={[-1.82, 1, 0]}>
         <Video
-          src={`${CONTENT_FOLDER}/jpiece.mp4`}
-          scale={20}
+          src={`${CONTENT_FOLDER}/kkjesuspieceblack.mp4`}
+          scale={15}
           position-z={-9.5}
           framed
           muted
         />
 
         <Video
-          src={`${CONTENT_FOLDER}/jpiece.mp4`}
-          scale={20}
+          src={`${CONTENT_FOLDER}/kkjesuspieceblack.mp4`}
+          scale={15}
           rotation-y={Math.PI}
           position-z={18}
           framed
@@ -394,7 +394,7 @@ export default function KKites() {
         name="ceiling-video"
       >
         <Video
-          src={`${CONTENT_FOLDER}/jpiece.mp4`}
+          src={`${CONTENT_FOLDER}/kkjesuspieceblack.mp4`}
           scale={[11, 17, 11]}
           muted
         />
