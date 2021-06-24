@@ -24,7 +24,7 @@ const LinkTree: NextPage = () => {
       <Gotham
         artwork={[]}
         socials={ARTIST.socialLinks}
-        name={ARTIST.name}
+        name={""}
         floorplan={5}
         night
       >

@@ -1,6 +1,7 @@
 import { Image, Video } from "spacesvr";
 import Slideshow from "themes/components/Slideshow";
 import { Text } from "@react-three/drei";
+import { ShopContext } from "../KKites";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer";
@@ -28,18 +29,32 @@ const links3 = [
 
 const captions3 = ["", "", "", ""];
 
+const links4 = [
+  `${CONTENT_FOLDER}/vsz0004.png`,
+  `${CONTENT_FOLDER}/vsz0005.jpg`,
+];
+
+const captions4 = ["", ""];
+
+const links5 = [
+  `${CONTENT_FOLDER}/vsz0002.jpg`,
+  `${CONTENT_FOLDER}/vsz0003.jpg`,
+];
+
+const captions5 = ["", ""];
+
 export default function VSummer() {
   return (
     <group>
       <group
         name="left-pane-front"
-        position={[-2.0, 1.5, -2.0]}
+        position={[-2.0, 0.98, -1.93]}
         rotation-y={-Math.PI / 2}
       >
         <Image
-          src={`${CONTENT_FOLDER}/1.jpg`}
+          src={`${CONTENT_FOLDER}/vsz1148.jpg`}
           framed
-          size={0.7}
+          size={2.2}
           position-x={1}
           position-y={0.1}
         />
@@ -94,9 +109,9 @@ export default function VSummer() {
       >
         {/* @ts-ignore */}
         <Image
-          src={`${CONTENT_FOLDER}/2.jpg`}
+          src={`${CONTENT_FOLDER}/vsz1178.jpg`}
           position={[0.2, 0.705, 0]}
-          size={0.7}
+          size={1.4}
           framed
         />
         <Image
@@ -141,9 +156,9 @@ export default function VSummer() {
       >
         {/* @ts-ignore */}
         <Image
-          src={`${CONTENT_FOLDER}/5.jpg`}
+          src={`${CONTENT_FOLDER}/vsz1179.jpg`}
           position={[0.2, 0.705, 0]}
-          size={0.7}
+          size={1.4}
           framed
         />
         <Image
@@ -156,41 +171,58 @@ export default function VSummer() {
       </group>
       <group
         name="front-wall-upper-right"
-        position={[-5.61, 1.645, 0.83]}
-        rotation-z={-0.75}
+        position={[-5.29, 0.995, -6.77]}
+        rotation-z={-0.29}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/vsz0001.png`}
+        <Video
+          src={`${CONTENT_FOLDER}/sewing.mp4`}
           rotation-y={Math.PI / 2}
-          position={[0.2, 0.705, -0.3]}
-          size={2.3}
+          position={[0.2, 0.705, 7.24]}
+          size={1.6}
           framed
         />
       </group>
       <group
-        name="front-wall-upper-left"
-        position={[-5.61, 1.645, 0.83]}
-        rotation-z={-0.75}
+        name="front-wall-bottom-right"
+        position={[-4.67, 0.625, -0.58]}
+        rotation={[3.162, 1.562, 3.112]}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/vsz0002.jpg`}
+        <Slideshow
+          links={links4}
+          captions={captions4}
+          size={1.0}
+          position={[-1.05, -0.32, -0.37]}
+          rotation={[-0.73, 0, 0]}
+          textColor="black"
+          darkArrow={true}
+        />
+      </group>
+      <group
+        name="front-wall-upper-left"
+        position={[-5.27, 1.085, 0.74]}
+        rotation-z={-0.29}
+      >
+        <Video
+          src={`${CONTENT_FOLDER}/introvid.mp4`}
           rotation-y={Math.PI / 2}
           position={[0.2, 0.705, 7.24]}
-          size={2.3}
+          size={1.6}
           framed
         />
       </group>
       <group
         name="front-wall-bottom-left"
-        position={[-4.62, -0.225, 0.88]}
-        rotation-z={0.75}
+        position={[-4.67, 0.625, 6.97]}
+        rotation={[3.162, 1.562, 3.112]}
       >
-        <Image
-          src={`${CONTENT_FOLDER}/vsz0003.jpg`}
-          rotation-y={Math.PI / 2}
-          position={[0.2, 0.705, 7.24]}
-          size={1.7}
-          framed
+        <Slideshow
+          links={links5}
+          captions={captions5}
+          size={1.2}
+          position={[-1.05, -0.32, -0.37]}
+          rotation={[-0.73, 0, 0]}
+          textColor="black"
+          darkArrow={true}
         />
       </group>
       <group
@@ -205,6 +237,34 @@ export default function VSummer() {
           size={1.7}
           framed
         />
+      </group>
+      <group
+        name="back-wall-lower"
+        position={[1.69, -0.28, 11.5]}
+        rotation={[-3.133, 0, -2.373]}
+      >
+        <Image
+          src={`${CONTENT_FOLDER}/compost.png`}
+          rotation-y={Math.PI / 2}
+          position={[0.2, 0.705, 7.24]}
+          size={1.7}
+          framed
+        />
+      </group>
+
+      <group
+        position={[-5.47, 1.25, 4.5]}
+        rotation-y={Math.PI / 2}
+        name="front-wall-middle"
+      >
+        <Text
+          fontSize={0.5}
+          color="white"
+          anchorX="left"
+          position={[-2.25, 0.0025, 0]}
+        >
+          VIOLET SUMMERZINE
+        </Text>
       </group>
     </group>
   );
