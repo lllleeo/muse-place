@@ -206,7 +206,7 @@ export default function KKites() {
 
           <Image
             name="16"
-            src={`${CONTENT_FOLDER}/16.jpg`}
+            src={`${CONTENT_FOLDER}/12.jpg`}
             position={[2.45, -0.75, 0]}
             size={1.15}
             framed
@@ -246,7 +246,7 @@ export default function KKites() {
 
           <Image
             name="12"
-            src={`${CONTENT_FOLDER}/12.jpg`}
+            src={`${CONTENT_FOLDER}/16.jpg`}
             position={[1.3, 0.5, 0]}
             size={1.15}
             framed
