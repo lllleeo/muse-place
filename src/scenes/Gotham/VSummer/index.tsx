@@ -1,7 +1,11 @@
-import { Image, Video } from "spacesvr";
+import { Image, Interactable, Video } from "spacesvr";
 import Slideshow from "themes/components/Slideshow";
 import { Text } from "@react-three/drei";
 import { ShopContext } from "../KKites";
+import { GroupProps } from "@react-three/fiber";
+
+const FONT =
+  "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer/Proxima_Nova_Bold.otf";
 
 const CONTENT_FOLDER =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer";
@@ -42,6 +46,43 @@ const links5 = [
 ];
 
 const captions5 = ["", ""];
+
+function ClickHere(
+  props: { link: string; text?: string; color?: string } & GroupProps
+) {
+  const {
+    link,
+    text = "Download the PDF",
+    color = "purple",
+    ...restProps
+  } = props;
+
+  return (
+    <group {...restProps}>
+      <Interactable
+        onClick={() => {
+          window.open(link, "_blank");
+        }}
+      >
+        <mesh>
+          <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
+          <meshBasicMaterial color="blue" visible={false} />
+        </mesh>
+      </Interactable>
+      <mesh>
+        <boxBufferGeometry args={[1.0, 0.15, 0.05]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
+      <mesh position-z={-0.01}>
+        <boxBufferGeometry args={[1.05, 0.2, 0.04]} />
+        <meshBasicMaterial color={color} />
+      </mesh>
+      <Text color={color} position-z={0.04} fontSize={0.075} font={FONT}>
+        {text}
+      </Text>
+    </group>
+  );
+}
 
 export default function VSummer() {
   return (
@@ -261,10 +302,25 @@ export default function VSummer() {
           fontSize={0.5}
           color="white"
           anchorX="left"
-          position={[-2.25, 0.0025, 0]}
+          position={[-1.8, 0.3, 0]}
+          font={FONT}
         >
-          VIOLET SUMMERZINE
+          VIOLET SUMMER
         </Text>
+        <Text
+          fontSize={0.2}
+          color="white"
+          anchorX="left"
+          position={[-1.2, -0.1, 0]}
+          font={FONT}
+        >
+          Urban Sustainability & Crypto
+        </Text>
+        <ClickHere
+          color="#552F8A"
+          link="https://indd.adobe.com/view/aee5fe4a-f9f1-454f-a7b0-1dd061cbe422"
+          position={[1, -0.6, 0]}
+        />
       </group>
     </group>
   );

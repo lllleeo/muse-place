@@ -25,7 +25,8 @@ const LinkTree: NextPage = () => {
         artwork={[]}
         socials={ARTIST.socialLinks}
         emailCollection={{
-          title: "Sign up for my Newsletter!",
+          title:
+            "Get notified on exclusive product drops and content, sign up here!",
           link: "https://eepurl.com/hq1FYb",
         }}
         name={""}
