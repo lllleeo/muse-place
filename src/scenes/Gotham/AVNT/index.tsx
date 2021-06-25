@@ -163,24 +163,56 @@ export default function Avnt() {
           size={1.15}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[-0.01, 0.03, 0.02]}
+        >
+          @credit
+        </Text>
         <Image
           src={`${CONTENT_FOLDER}/sideimage2.jpg`}
           position={[1.4, 0.5, 0]}
           size={1.15}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[1.26, 0.03, 0.02]}
+        >
+          @credit
+        </Text>
         <Image
           src={`${CONTENT_FOLDER}/sideimage3.jpg`}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[-0.01, -1.2, 0.02]}
+        >
+          @credit
+        </Text>
         <Image
           src={`${CONTENT_FOLDER}/sideimage4.jpg`}
           position={[1.4, -0.75, 0]}
           size={1.15}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[1.26, -1.2, 0.02]}
+        >
+          @credit
+        </Text>
       </group>
       <group
         position={[2.4, 2.25, 1.8]}
@@ -211,6 +243,38 @@ export default function Avnt() {
           size={1.2}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[0.25, -1.8, 0.02]}
+        >
+          @credit
+        </Text>
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[1.65, -1.8, 0.02]}
+        >
+          @credit
+        </Text>
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[3.05, -1.8, 0.02]}
+        >
+          @credit
+        </Text>
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[4.45, -1.8, 0.02]}
+        >
+          @credit
+        </Text>
       </group>
       <group
         position={[2.49, 1.25, -3.0]}
@@ -241,6 +305,41 @@ export default function Avnt() {
           size={1.15}
           framed
         />
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[-0.01, 0.03, 0.02]}
+        >
+          @credit
+        </Text>
+
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[1.26, 0.03, 0.02]}
+        >
+          @credit
+        </Text>
+
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[-0.01, -1.2, 0.02]}
+        >
+          @credit
+        </Text>
+
+        <Text
+          fontSize={0.075}
+          color="white"
+          anchorX="left"
+          position={[1.26, -1.2, 0.02]}
+        >
+          @credit
+        </Text>
       </group>
       <group
         position={[-5.47, 0.65, 2.0]}
@@ -250,15 +349,31 @@ export default function Avnt() {
         <Image
           src={`${CONTENT_FOLDER}/frontimage1.jpg`}
           position={[1.1, 0.5, 0]}
-          size={2.25}
+          size={1.75}
           framed
         />
         <Image
           src={`${CONTENT_FOLDER}/frontimage2.jpg`}
           position={[3.6, 0.5, 0]}
-          size={2.25}
+          size={1.75}
           framed
         />
+        <Text
+          fontSize={0.1}
+          color="white"
+          anchorX="left"
+          position={[1.0, -0.5, 0.02]}
+        >
+          @credit
+        </Text>
+        <Text
+          fontSize={0.1}
+          color="white"
+          anchorX="left"
+          position={[3.5, -0.5, 0.02]}
+        >
+          @credit
+        </Text>
       </group>
       <group
         position={[-5.47, 0.65, 11.6]}
@@ -268,15 +383,31 @@ export default function Avnt() {
         <Image
           src={`${CONTENT_FOLDER}/frontimage3.jpg`}
           position={[0.8, 0.5, 0]}
-          size={2.25}
+          size={1.75}
           framed
         />
         <Image
           src={`${CONTENT_FOLDER}/frontimage4.jpg`}
           position={[3.3, 0.5, 0]}
-          size={2.25}
+          size={1.75}
           framed
         />
+        <Text
+          fontSize={0.1}
+          color="white"
+          anchorX="left"
+          position={[0.6, -0.5, 0.02]}
+        >
+          @credit
+        </Text>
+        <Text
+          fontSize={0.1}
+          color="white"
+          anchorX="left"
+          position={[3.2, -0.5, 0.02]}
+        >
+          @credit
+        </Text>
       </group>
       <group
         position={[-1.46, 2.5, 6.1]}

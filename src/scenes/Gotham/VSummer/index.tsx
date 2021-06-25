@@ -3,6 +3,7 @@ import Slideshow from "themes/components/Slideshow";
 import { Text } from "@react-three/drei";
 import { ShopContext } from "../KKites";
 import { GroupProps } from "@react-three/fiber";
+import { Floating } from "spacesvr";
 
 const FONT =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer/Proxima_Nova_Bold.otf";
@@ -322,6 +323,21 @@ export default function VSummer() {
           position={[1, -0.6, 0]}
         />
       </group>
+      <Floating height={0.15} speed={3}>
+        <Interactable
+          onClick={() => {
+            window.open("#", "_blank");
+          }}
+        >
+          <Image
+            src={`${CONTENT_FOLDER}/compost.png`}
+            name="easter-egg"
+            position={[1.15, 1.01, -1.4]}
+            rotation-y={-0.67}
+            scale={[1, 1, 1]}
+          />
+        </Interactable>
+      </Floating>
     </group>
   );
 }
