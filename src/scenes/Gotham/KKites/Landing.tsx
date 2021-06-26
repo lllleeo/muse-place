@@ -24,7 +24,8 @@ const Middle = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-
+    background-color: white;
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
 
@@ -112,26 +113,25 @@ const global = css`
   }
 `;
 
-const CONTENT_FOLDER = `https://d27rt3a60hh1lx.cloudfront.net/content/kkites`;
+const CONTENT_FOLDER = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/kkites`;
 
 const Landing = () => {
   return (
     <Container>
       <Global styles={global} />
       <Middle>
-        <img src={`${CONTENT_FOLDER}/1.jpg`} />
+        <img src={`${CONTENT_FOLDER}/logo.png`} />
       </Middle>
       <TopSelection
-        onClick={() => window.open("https://ifakemakeclothes.com/", "_blank")}
+        onClick={() =>
+          window.open("https://shop.ifakemakeclothes.com/", "_blank")
+        }
       >
-        <img src={`${CONTENT_FOLDER}/l3.jpg`} />
+        <img src={`${CONTENT_FOLDER}/2D.jpg`} />
         <h1>Go to 2D Shop</h1>
       </TopSelection>
-      <BottomSelection onClick={() => (window.location.href = "/ifa/world")}>
-        {/*<video autoPlay muted playsInline loop>*/}
-        {/*  <source type="video/mp4" src={`${CONTENT_FOLDER}/kkjesuspieceblack.mp4`} />*/}
-        {/*</video>*/}
-        <img src={`${CONTENT_FOLDER}/l4.jpg`} />
+      <BottomSelection onClick={() => (window.location.href = "/world")}>
+        <img src={`${CONTENT_FOLDER}/3D.jpg`} />
         <h1>Go to 3D Shop</h1>
       </BottomSelection>
     </Container>

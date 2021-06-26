@@ -16,8 +16,6 @@ export default function KKites() {
     storefrontAccessToken: "f1d9e74c201bf95d868112be8b4c927d",
   });
 
-  console.log(shop);
-
   return (
     <ShopContext.Provider value={shop}>
       <Shop />
