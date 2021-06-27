@@ -2,17 +2,17 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const MuseHQ = dynamic(import("scenes/MuseHQ"), { ssr: false });
+const KKites = dynamic(import("scenes/Gotham/KKites/Landing"), { ssr: false });
 
-const LinkTree: NextPage = () => {
+const IFakeMake: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Muse</title>
+        <title>IFakeMakeClothes.com | Muse </title>
       </Head>
-      <MuseHQ />
+      <KKites />
     </>
   );
 };
 
-export default LinkTree;
+export default IFakeMake;
