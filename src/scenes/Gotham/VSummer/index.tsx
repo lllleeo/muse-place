@@ -319,22 +319,26 @@ export default function VSummer() {
         </Text>
         <ClickHere
           color="#552F8A"
-          link="https://indd.adobe.com/view/aee5fe4a-f9f1-454f-a7b0-1dd061cbe422"
+          link="https://indd.adobe.com/view/9fc73c45-c17b-4eeb-bf7f-830e128f2928"
           position={[1, -0.6, 0]}
         />
       </group>
-      <Floating height={0.15} speed={3}>
+      <Floating height={0.115} speed={3}>
         <Interactable
           onClick={() => {
-            window.open("#", "_blank");
+            window.open(
+              "https://indd.adobe.com/view/20b981c4-0f4b-475a-92ca-ec2a3a829d0d",
+              "_blank"
+            );
           }}
         >
-          <Image
-            src={`${CONTENT_FOLDER}/compost.png`}
+          <Video
+            src={`${CONTENT_FOLDER}/easteregg.mp4`}
             name="easter-egg"
             position={[1.15, 1.01, -1.4]}
             rotation-y={-0.67}
-            scale={[1, 1, 1]}
+            scale={[0.25, 0.25, 0.25]}
+            muted
           />
         </Interactable>
       </Floating>
