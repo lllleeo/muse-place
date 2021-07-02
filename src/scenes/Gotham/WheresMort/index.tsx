@@ -100,7 +100,9 @@ export default function WheresMort() {
           Mort @ Balloonski
         </Text>
         <Interactable
-          onClick={() => window.open("https:www.muse.place", "_blank")}
+          onClick={() =>
+            window.open("https://musevr.typeform.com/to/mVQuoRQ5", "_blank")
+          }
         >
           <Image
             src={`${CONTENT_FOLDER}/mort@spaces.jpg`}
