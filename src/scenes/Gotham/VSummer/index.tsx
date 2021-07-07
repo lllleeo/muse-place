@@ -4,6 +4,7 @@ import { Text } from "@react-three/drei";
 import { ShopContext } from "../KKites";
 import { GroupProps } from "@react-three/fiber";
 import { Floating } from "spacesvr";
+import { isMobile } from "react-device-detect";
 
 const FONT =
   "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/violetsummer/Proxima_Nova_Bold.otf";
@@ -169,13 +170,25 @@ export default function VSummer() {
         position={[-1.38, 0.95, 8.15]}
         rotation-y={-Math.PI / 2}
       >
-        <Video
-          src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
-          framed
-          size={2.2}
-          position-x={0.6}
-          position-y={0.2}
-        />
+        {!isMobile && (
+          <Video
+            src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
+            framed
+            size={2.2}
+            position-x={0.6}
+            position-y={0.2}
+          />
+        )}
+        {isMobile && (
+          <Video
+            src={`${CONTENT_FOLDER}/LaPrairie.mp4`}
+            framed
+            size={2.2}
+            position-x={0.6}
+            position-y={0.2}
+            muted
+          />
+        )}
       </group>
       <group
         name="right-pane-back"
@@ -216,13 +229,25 @@ export default function VSummer() {
         position={[-5.29, 0.995, -6.77]}
         rotation-z={-0.29}
       >
-        <Video
-          src={`${CONTENT_FOLDER}/sewing.mp4`}
-          rotation-y={Math.PI / 2}
-          position={[0.2, 0.705, 7.24]}
-          size={1.6}
-          framed
-        />
+        {!isMobile && (
+          <Video
+            src={`${CONTENT_FOLDER}/sewing.mp4`}
+            rotation-y={Math.PI / 2}
+            position={[0.2, 0.705, 7.24]}
+            size={1.6}
+            framed
+          />
+        )}
+        {isMobile && (
+          <Video
+            src={`${CONTENT_FOLDER}/sewing.mp4`}
+            rotation-y={Math.PI / 2}
+            position={[0.2, 0.705, 7.24]}
+            size={1.6}
+            framed
+            muted
+          />
+        )}
       </group>
       <group
         name="front-wall-bottom-right"
