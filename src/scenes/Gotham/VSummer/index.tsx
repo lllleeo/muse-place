@@ -52,12 +52,7 @@ const captions5 = ["", ""];
 function ClickHere(
   props: { link: string; text?: string; color?: string } & GroupProps
 ) {
-  const {
-    link,
-    text = "Download the PDF",
-    color = "purple",
-    ...restProps
-  } = props;
+  const { link, text, color = "purple", ...restProps } = props;
 
   return (
     <group {...restProps}>
@@ -67,16 +62,16 @@ function ClickHere(
         }}
       >
         <mesh>
-          <boxBufferGeometry args={[0.55, 0.2, 0.07]} />
+          <boxBufferGeometry args={[0.65, 0.2, 0.07]} />
           <meshBasicMaterial color="blue" visible={false} />
         </mesh>
       </Interactable>
       <mesh>
-        <boxBufferGeometry args={[1.0, 0.15, 0.05]} />
+        <boxBufferGeometry args={[1.05, 0.15, 0.05]} />
         <meshBasicMaterial color="white" />
       </mesh>
       <mesh position-z={-0.01}>
-        <boxBufferGeometry args={[1.05, 0.2, 0.04]} />
+        <boxBufferGeometry args={[1.15, 0.2, 0.04]} />
         <meshBasicMaterial color={color} />
       </mesh>
       <Text color={color} position-z={0.04} fontSize={0.075} font={FONT}>
@@ -344,8 +339,15 @@ export default function VSummer() {
         </Text>
         <ClickHere
           color="#552F8A"
+          text="Download the PDF"
           link="https://indd.adobe.com/view/9fc73c45-c17b-4eeb-bf7f-830e128f2928"
-          position={[1, -0.6, 0]}
+          position={[1.0, -0.4, 0]}
+        />
+        <ClickHere
+          color="#552F8A"
+          text="Sign Up for Exclusive Updates"
+          link="https://eepurl.com/hq1FYb"
+          position={[1.0, -0.7, 0]}
         />
       </group>
       <Floating height={0.115} speed={3}>

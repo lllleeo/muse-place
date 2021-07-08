@@ -24,11 +24,6 @@ const LinkTree: NextPage = () => {
       <Gotham
         artwork={[]}
         socials={ARTIST.socialLinks}
-        emailCollection={{
-          title:
-            "Get notified on exclusive product drops and content, sign up here!",
-          link: "https://eepurl.com/hq1FYb",
-        }}
         name={""}
         floorplan={5}
         night
