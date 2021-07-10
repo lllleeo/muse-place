@@ -28,10 +28,7 @@ const LinkTree: NextPage = () => {
         premium
         night
       >
-        <Suspense fallback={null}>
-          <Preload all />
-          <Avnt />
-        </Suspense>
+        <Avnt />
       </Gotham>
     </>
   );
