@@ -7,13 +7,6 @@ import Builder00 from "./characters/Builder00";
 import Builder07 from "./characters/Builder07";
 import { IdentityLayer } from "./layers/identity";
 import Onboarding from "./components/Onboarding";
-import {
-  Bloom,
-  ChromaticAberration,
-  EffectComposer,
-  Noise,
-  ToneMapping,
-} from "@react-three/postprocessing";
 import WorldDirectory from "./components/WorldDirectory";
 
 export default function MuseHQ() {
@@ -51,15 +44,6 @@ export default function MuseHQ() {
         <WorldDirectory />
         <Builder00 />
         <Builder07 />
-        {/*<EffectComposer autoClear multisampling={0}>*/}
-        {/*  <Bloom*/}
-        {/*    luminanceThreshold={0.25}*/}
-        {/*    luminanceSmoothing={0.9}*/}
-        {/*    intensity={0.15}*/}
-        {/*    height={300}*/}
-        {/*  />*/}
-        {/*  <Noise opacity={0.165} />*/}
-        {/*</EffectComposer>*/}
       </IdentityLayer>
     </StandardEnvironment>
   );
