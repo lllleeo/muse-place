@@ -38,14 +38,27 @@ const Control = (props: Props) => {
   const CART_WIDTH = HEIGHT * 0.5;
   const TEXT_WIDTH = WIDTH - CART_WIDTH - PADDING_X * 3;
 
-  const { cart, products } = useContext(ShopContext);
+  const { cart, products, variants } = useContext(ShopContext);
   const product = products.find((prod) => prod.id === productId);
 
-  const variant =
-    product && product.variants.length ? product.variants[0] : null;
+  //Little helper to get the variants and store them
+  const variantArray = [];
+  const variantAmount =
+    product && product.variants.length ? product.variants.length : null;
+  if (variantAmount !== null) {
+    for (let i = 0; i < variantAmount; i++) {
+      if (product) variantArray.push(product.variants[i].id);
+    }
+  }
+  console.log("Variants: ", variantArray);
+
+  // const variant =
+  //     product && product.variants.length ? product.variants[0] : null;
+
+  const variant = variants.items.find((prod) => prod.id === productId);
 
   const addToCart = () => {
-    if (variant && variant.available) {
+    if (variant) {
       cart.add(variant.id, visual);
     }
   };

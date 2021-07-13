@@ -36,14 +36,14 @@ const links3 = [
 const captions3 = ["", "", "", ""];
 
 const links4 = [
-  `${CONTENT_FOLDER}/vsz0004.png`,
+  `${CONTENT_FOLDER}/vsz0004.jpg`,
   `${CONTENT_FOLDER}/vsz0005.jpg`,
 ];
 
 const captions4 = ["", ""];
 
 const links5 = [
-  `${CONTENT_FOLDER}/vsz0002.jpg`,
+  `${CONTENT_FOLDER}/foundersletter.jpg`,
   `${CONTENT_FOLDER}/vsz0003.jpg`,
 ];
 
@@ -306,7 +306,7 @@ export default function VSummer() {
         rotation={[-3.133, 0, -2.373]}
       >
         <Image
-          src={`${CONTENT_FOLDER}/compost.png`}
+          src={`${CONTENT_FOLDER}/compost.jpg`}
           rotation-y={Math.PI / 2}
           position={[0.2, 0.705, 7.24]}
           size={1.7}
@@ -339,8 +339,8 @@ export default function VSummer() {
         </Text>
         <ClickHere
           color="#552F8A"
-          text="Download the PDF"
-          link="https://indd.adobe.com/view/9fc73c45-c17b-4eeb-bf7f-830e128f2928"
+          text="Access Zine NFT"
+          link="https://rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:637355?tab=owners"
           position={[1.0, -0.4, 0]}
         />
         <ClickHere

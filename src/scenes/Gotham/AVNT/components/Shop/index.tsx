@@ -3,6 +3,7 @@ import Register from "../../models/Register";
 import Kiosk from "./Kiosk";
 import { Suspense } from "react";
 import Cart from "../Cart";
+import Variants from "../Variants";
 import { Image } from "spacesvr";
 import { Preload } from "@react-three/drei";
 
@@ -19,12 +20,14 @@ export default function Shop() {
       rotation={[0.0, 1.57, 0.0]}
     >
       <Cart />
+      <Variants />
       <group
         position={[2.05, 0.65, 3.9]}
         rotation-y={-Math.PI / 2}
         name="productLabels"
       >
-        <Kiosk productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ5NjY0MzIyNzY1NTE=" />
+        <Kiosk productId="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY1NTc2NDg5NzgwMTc=" />
+        {/*<Kiosk productId ="Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zOTI5OTQ4OTk1NTkzNw==" productName={"Size 6:"} />*/}
       </group>
       <group name="desk-register">
         <Suspense fallback={null}>

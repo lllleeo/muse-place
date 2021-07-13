@@ -10,7 +10,7 @@ import {
 import { Image } from "spacesvr";
 import Control from "./Control";
 import { Group, Vector3 } from "three";
-import { Product } from "../../types/shop";
+import { Product, VariantItem, Variants } from "../../types/shop";
 import { ShopContext } from "../../index";
 
 type Props = {
@@ -22,6 +22,7 @@ type Props = {
 type KioskContext = {
   productId?: string;
   product?: Product;
+  variant?: VariantItem;
   open: boolean;
 };
 
@@ -37,6 +38,7 @@ const Kiosk = (props: Props) => {
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
   const { products } = useContext(ShopContext);
+  const { variants } = useContext(ShopContext);
 
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
@@ -47,6 +49,7 @@ const Kiosk = (props: Props) => {
   });
 
   const product = products.find((prod) => prod.id === productId);
+  // const variant = variants.items.find((vari) => vari.id === productId);
 
   const images = product?.images || [];
   const visual =
@@ -63,8 +66,10 @@ const Kiosk = (props: Props) => {
         <Control
           width={WIDTH}
           position-z={DEPTH / 2 - 0.05}
-          productName={productName}
-          productId={product?.id}
+          productName={"Size 6"}
+          productId={
+            "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zOTI5OTQ4OTk1NTkzNw=="
+          }
           visual={visual}
         />
       </KioskContext.Provider>

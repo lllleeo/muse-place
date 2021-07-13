@@ -12,9 +12,12 @@ export const ShopContext = createContext<ShopState>({} as ShopState);
 
 export default function Avnt() {
   const shop = useShopifyShop({
-    domain: "ifakemakeeclothes.myshopify.com",
-    storefrontAccessToken: "f1d9e74c201bf95d868112be8b4c927d",
+    domain: "avntspace.myshopify.com",
+    storefrontAccessToken: "ae59b92add8e2a21c04c534c2c9a51fd",
   });
+
+  console.log(shop);
+
   return (
     <ShopContext.Provider value={shop}>
       <Shop />
