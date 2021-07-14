@@ -96,7 +96,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group
       ref={group}
       dispose={null}
-      position={[2, 0.55, 4.75]}
+      position={[2, 0.55, 5.2]}
       rotation-y={-Math.PI - 0.3}
       scale={0.75}
       {...props}

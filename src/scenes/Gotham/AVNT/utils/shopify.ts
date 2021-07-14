@@ -1,14 +1,6 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import ShopifyBuy, { Cart as ShopifyCart, LineItemToAdd } from "shopify-buy";
-import {
-  Cart,
-  Item,
-  Product,
-  ShopState,
-  Variant,
-  Variants,
-  VariantItem,
-} from "../types/shop";
+import { Cart, Item, Product, ShopState } from "../types/shop";
 
 type ShopifyClient = {
   domain: string;
@@ -25,9 +17,6 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     [domain, storefrontAccessToken]
   );
   const [products, setProducts] = useState<Product[]>([]);
-  const [variantItem, setVariantItem] = useState<VariantItem[]>([]);
-  const [variantObject, setVariantObject] = useState<Variant[]>([]);
-  const [variantID, setVariantID] = useState<string>("");
   const [checkout, setCheckout] = useState<ShopifyCart>();
   const visuals = useMemo(() => new Map<string, ReactNode>(), []);
   const [open, setOpen] = useState(false);
@@ -38,31 +27,11 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
   };
 
   useEffect(() => {
+    // fetch products, cast to Product type
     client.product
       .fetchAll()
       .then((shopifyProducts: any) =>
         setProducts(shopifyToProduct(shopifyProducts))
-      );
-
-    // fetch products, cast to Product type and add variant items
-    client.product
-      .fetchAll()
-      .then((shopifyProducts: any) =>
-        setVariantItem(shopifyToVariantItems(shopifyProducts).variants)
-      );
-
-    // fetch products, cast to Product type and add variants
-    client.product
-      .fetchAll()
-      .then((shopifyProducts: any) =>
-        setVariantObject(shopifyToVariants(shopifyProducts).variants)
-      );
-
-    // fetch products, cast to Product type and add variant ids
-    client.product
-      .fetchAll()
-      .then((shopifyProducts: any) =>
-        setVariantID(shopifyToVariantIDs(shopifyProducts).variants)
       );
 
     // fetch cart id from local storage or create a new one
@@ -120,19 +89,9 @@ export const useShopifyShop = (props: ShopifyClient): ShopState => {
     open: () => setOpen(true),
   };
 
-  const variants: Variants = {
-    items: variantItem,
-    isOpen: open,
-    close: () => setOpen(false),
-    open: () => setOpen(true),
-    id: variantID,
-  };
-
-  //add more info to variants
   return {
     products,
     cart,
-    variants,
   };
 };
 
@@ -149,22 +108,4 @@ const shopifyToProduct = (shopifyProducts: any) =>
       available: variant.available,
       price: variant.price,
     })),
-  }));
-
-const shopifyToVariantItems = (shopifyProducts: any) =>
-  shopifyProducts.map((variants: any) => ({
-    id: variants.id,
-    quantity: variants.quantity,
-  }));
-
-const shopifyToVariants = (shopifyProducts: any) =>
-  shopifyProducts.map((variants: any) => ({
-    available: variants.available,
-    price: variants.price,
-    title: variants.title,
-  }));
-
-const shopifyToVariantIDs = (shopifyProducts: any) =>
-  shopifyProducts.map((variants: any) => ({
-    id: variants.id,
   }));

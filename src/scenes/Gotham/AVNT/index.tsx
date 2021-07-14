@@ -16,7 +16,7 @@ export default function Avnt() {
     storefrontAccessToken: "ae59b92add8e2a21c04c534c2c9a51fd",
   });
 
-  console.log(shop);
+  //console.log(shop);
 
   return (
     <ShopContext.Provider value={shop}>

@@ -10,35 +10,33 @@ import {
 import { Image } from "spacesvr";
 import Control from "./Control";
 import { Group, Vector3 } from "three";
-import { Product, VariantItem, Variants } from "../../types/shop";
+import { Product } from "../../types/shop";
 import { ShopContext } from "../../index";
 
 type Props = {
   children?: ReactNode;
   productId?: string;
   productName?: string;
+  variationNumber: number;
 } & GroupProps;
 
 type KioskContext = {
   productId?: string;
   product?: Product;
-  variant?: VariantItem;
   open: boolean;
 };
 
 const DEPTH = 0.75;
-const WIDTH = 0.6;
+const WIDTH = 0.25; //changed from 0.6 which is original
 
 export const KioskContext = createContext<KioskContext>({} as KioskContext);
 
 const Kiosk = (props: Props) => {
-  const { children, productId, productName } = props;
-
+  const { children, productId, productName, variationNumber } = props;
   const group = useRef<Group>();
   const [open, setOpen] = useState(false);
   const { current: pos } = useRef(new Vector3(100, 100, 100));
   const { products } = useContext(ShopContext);
-  const { variants } = useContext(ShopContext);
 
   useFrame(({ camera }) => {
     if (group.current && camera.position.distanceTo(pos) < 1.5) {
@@ -49,7 +47,6 @@ const Kiosk = (props: Props) => {
   });
 
   const product = products.find((prod) => prod.id === productId);
-  // const variant = variants.items.find((vari) => vari.id === productId);
 
   const images = product?.images || [];
   const visual =
@@ -66,11 +63,10 @@ const Kiosk = (props: Props) => {
         <Control
           width={WIDTH}
           position-z={DEPTH / 2 - 0.05}
-          productName={"Size 6"}
-          productId={
-            "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zOTI5OTQ4OTk1NTkzNw=="
-          }
+          productName={productName}
+          productId={product?.id}
           visual={visual}
+          variation={variationNumber}
         />
       </KioskContext.Provider>
     </group>

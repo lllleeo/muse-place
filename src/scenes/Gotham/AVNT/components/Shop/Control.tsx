@@ -29,33 +29,25 @@ type Props = {
   productName?: string;
   productId?: string;
   visual?: ReactNode;
+  variation: number;
 } & GroupProps;
 
 const Control = (props: Props) => {
-  const { width, productName, productId, visual, ...restProps } = props;
+  const {
+    width,
+    productName,
+    productId,
+    visual,
+    variation,
+    ...restProps
+  } = props;
 
   const WIDTH = width * 0.9;
   const CART_WIDTH = HEIGHT * 0.5;
   const TEXT_WIDTH = WIDTH - CART_WIDTH - PADDING_X * 3;
 
-  const { cart, products, variants } = useContext(ShopContext);
+  const { cart, products } = useContext(ShopContext);
   const product = products.find((prod) => prod.id === productId);
-
-  //Little helper to get the variants and store them
-  const variantArray = [];
-  const variantAmount =
-    product && product.variants.length ? product.variants.length : null;
-  if (variantAmount !== null) {
-    for (let i = 0; i < variantAmount; i++) {
-      if (product) variantArray.push(product.variants[i].id);
-    }
-  }
-  console.log("Variants: ", variantArray);
-
-  // const variant =
-  //     product && product.variants.length ? product.variants[0] : null;
-
-  const variant = variants.items.find((prod) => prod.id === productId);
 
   const addToCart = () => {
     if (variant) {
@@ -63,6 +55,8 @@ const Control = (props: Props) => {
     }
   };
 
+  const variant =
+    product && product.variants.length ? product.variants[variation] : null;
   return (
     <group {...restProps} name="control">
       <group rotation-x={-Math.PI * 0.13}>
