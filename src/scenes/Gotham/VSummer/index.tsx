@@ -1,7 +1,6 @@
 import { Image, Interactable, Video } from "spacesvr";
 import Slideshow from "themes/components/Slideshow";
 import { Text } from "@react-three/drei";
-import { ShopContext } from "../KKites";
 import { GroupProps } from "@react-three/fiber";
 import { Floating } from "spacesvr";
 import { isMobile } from "react-device-detect";
