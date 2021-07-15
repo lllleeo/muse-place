@@ -7,6 +7,9 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { useBox } from "@react-three/cannon";
+import { AudioAnalyser, Mesh } from "three";
+import { useFrame } from "@react-three/fiber";
+import { useLimiter } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -37,7 +40,10 @@ type GLTFResult = GLTF & {
 const FILE_URL =
   "https://d27rt3a60hh1lx.cloudfront.net/models/Vinyl-1626170688/vinyl_04.glb.gz";
 
-export default function Model(props: JSX.IntrinsicElements["group"]) {
+export default function Model(
+  props: { aa?: AudioAnalyser } & JSX.IntrinsicElements["group"]
+) {
+  const { aa } = props;
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
@@ -48,15 +54,37 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     mat.metalness = 0;
   }
 
+  // values taken from outer file
   useBox(() => ({
     mass: 0,
     position: [-0.02 + 0.59, 0.18, 0 - 3.36],
     args: [1.85 * 0.9, 1.85 * 0.39, 1.85 * 0.26],
   }));
 
+  const leftSpeaker = useRef<Mesh>();
+  const rightSpeaker = useRef<Mesh>();
+  const limiter = useLimiter(50);
+
+  useFrame(({ clock }) => {
+    if (
+      !limiter.isReady(clock) ||
+      !rightSpeaker.current ||
+      !leftSpeaker.current ||
+      !aa
+    )
+      return;
+
+    const data = aa.getFrequencyData();
+    const lScale = 0.9 + (data[3] / 255) * 0.4;
+    leftSpeaker.current?.scale.set(lScale, lScale, lScale);
+
+    const rScale = 0.9 + (data[32] / 255) * 0.4;
+    rightSpeaker.current?.scale.set(rScale, rScale, rScale);
+  });
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene" position={[0.59, 0, -3.36]} scale={1.85}>
+      <group name="Scene" scale={1.85}>
         {/*<mesh position={[-0.02, -0.18, 0]}>*/}
         {/*  <boxBufferGeometry args={[0.9, 0.39, 0.26]} />*/}
         {/*  <meshStandardMaterial color="red" />*/}
@@ -104,6 +132,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           />
         </mesh>
         <mesh
+          ref={leftSpeaker}
           name="Speaker_01"
           geometry={nodes.Speaker_01.geometry}
           material={nodes.Speaker_01.material}
@@ -114,9 +143,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           name="Speaker_02"
           geometry={nodes.Speaker_02.geometry}
           material={materials["M_Audio_01.008"]}
-          scale={[0.3181, 0.3181, 0.3181]}
+          scale={0.3181 * 1.4}
+          position={[0.06, -0.11, 0]}
         />
         <mesh
+          ref={rightSpeaker}
           name="Speaker_01_Duplicate"
           geometry={nodes.Speaker_01_Duplicate.geometry}
           material={nodes.Speaker_01_Duplicate.material}
