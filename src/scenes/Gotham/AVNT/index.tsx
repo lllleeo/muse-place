@@ -423,35 +423,35 @@ export default function Avnt() {
           {/*  @credit*/}
           {/*</Text>*/}
         </group>
-        <group
-          position={[-1.46, 2.5, 6.1]}
-          rotation={[Math.PI / 2, 0, 0]}
-          name="ceiling-video"
-        >
-          <Video
-            src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
-            scale={[11, 17, 7]}
-            size={2}
-            muted
-          />
-        </group>
-        <group name="outside-videos" position={[-1.82, 1, 0]}>
-          <Video
-            src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
-            scale={20}
-            position-z={-9.5}
-            framed
-            muted
-          />
-          <Video
-            src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}
-            scale={20}
-            rotation-y={Math.PI}
-            position-z={18}
-            framed
-            muted
-          />
-        </group>
+        {/*<group*/}
+        {/*  position={[-1.46, 2.5, 6.1]}*/}
+        {/*  rotation={[Math.PI / 2, 0, 0]}*/}
+        {/*  name="ceiling-video"*/}
+        {/*>*/}
+        {/*  <Video*/}
+        {/*    src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}*/}
+        {/*    scale={[11, 17, 7]}*/}
+        {/*    size={2}*/}
+        {/*    muted*/}
+        {/*  />*/}
+        {/*</group>*/}
+        {/*<group name="outside-videos" position={[-1.82, 1, 0]}>*/}
+        {/*  <Video*/}
+        {/*    src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}*/}
+        {/*    scale={20}*/}
+        {/*    position-z={-9.5}*/}
+        {/*    framed*/}
+        {/*    muted*/}
+        {/*  />*/}
+        {/*  <Video*/}
+        {/*    src={`${CONTENT_FOLDER}/Ceilingvideo2.mp4`}*/}
+        {/*    scale={20}*/}
+        {/*    rotation-y={Math.PI}*/}
+        {/*    position-z={18}*/}
+        {/*    framed*/}
+        {/*    muted*/}
+        {/*  />*/}
+        {/*</group>*/}
       </group>
     </ShopContext.Provider>
   );

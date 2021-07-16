@@ -49,14 +49,15 @@ const Control = (props: Props) => {
   const { cart, products } = useContext(ShopContext);
   const product = products.find((prod) => prod.id === productId);
 
+  const variant =
+    product && product.variants.length ? product.variants[variation] : null;
+
   const addToCart = () => {
-    if (variant) {
+    if (variant && variant.available) {
       cart.add(variant.id, visual);
     }
   };
 
-  const variant =
-    product && product.variants.length ? product.variants[variation] : null;
   return (
     <group {...restProps} name="control">
       <group rotation-x={-Math.PI * 0.13}>

@@ -33,6 +33,7 @@ export default function CartView() {
         </RoundedBox>
         {cart.items.map((item, i) => (
           <Product
+            key={i}
             item={item}
             position-x={(-(cart.items.length - 1) / 2 + i) * 6.5}
           />

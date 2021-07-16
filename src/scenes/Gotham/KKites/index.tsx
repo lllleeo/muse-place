@@ -182,28 +182,28 @@ export default function KKites() {
       >
         <Image
           name="r1"
-          src={`${CONTENT_FOLDER}/r1.jpg`}
+          src={`${CONTENT_FOLDER}/r1new.jpg`}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
         <Image
           name="r2"
-          src={`${CONTENT_FOLDER}/r2.jpg`}
+          src={`${CONTENT_FOLDER}/r2new.jpg`}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
         <Image
           name="r3"
-          src={`${CONTENT_FOLDER}/r3.jpg`}
+          src={`${CONTENT_FOLDER}/r3new.jpg`}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
         <Image
           name="r4"
-          src={`${CONTENT_FOLDER}/r4.jpg`}
+          src={`${CONTENT_FOLDER}/r4new.jpg`}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
@@ -216,28 +216,28 @@ export default function KKites() {
       >
         <Image
           name="l1"
-          src={`${CONTENT_FOLDER}/l1.jpg`}
+          src={`${CONTENT_FOLDER}/l1new.jpg`}
           position={[0.15, 0.5, 0]}
           size={1.15}
           framed
         />
         <Image
           name="l2"
-          src={`${CONTENT_FOLDER}/l2.jpg`}
+          src={`${CONTENT_FOLDER}/l2new.jpg`}
           position={[1.3, 0.5, 0]}
           size={1.15}
           framed
         />
         <Image
           name="l3"
-          src={`${CONTENT_FOLDER}/l3.jpg`}
+          src={`${CONTENT_FOLDER}/l3new.jpg`}
           position={[0.15, -0.75, 0]}
           size={1.15}
           framed
         />
         <Image
           name="l4"
-          src={`${CONTENT_FOLDER}/l4.jpg`}
+          src={`${CONTENT_FOLDER}/l4new.jpg`}
           position={[1.3, -0.75, 0]}
           size={1.15}
           framed
