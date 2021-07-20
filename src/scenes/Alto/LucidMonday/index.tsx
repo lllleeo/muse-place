@@ -1,8 +1,9 @@
 import { BackSide, ShaderMaterial } from "three";
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { frag, vert } from "./shaders/lucid";
 import { AltoSceneState } from "../index";
+import ChangeSkyOverTime from "../../../themes/components/ChangeSkyOverTime";
 
 const LucidMonday = () => {
   const { aa } = useContext(AltoSceneState);
@@ -37,13 +38,7 @@ const LucidMonday = () => {
     }
   });
 
-  return (
-    <group>
-      <mesh material={lsdMat}>
-        <sphereBufferGeometry args={[60, 10, 10]} />
-      </mesh>
-    </group>
-  );
+  return <ChangeSkyOverTime duration={5} />;
 };
 
 export default LucidMonday;
