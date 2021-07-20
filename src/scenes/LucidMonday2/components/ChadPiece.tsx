@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Color, Mesh } from "three";
-import ChadKnight from "scenes/LucidMonday2/models/ChadKnight";
-import { useFrame } from "react-three-fiber";
+import ChadKnight from "scenes/LucidMonday2/models/Monmon_01";
+import { useFrame } from "@react-three/fiber";
 import LokLok from "./LokLok";
 
 type ChadKnightProps = {
@@ -54,7 +54,7 @@ const ChadKnightPieces = (props: ChadKnightProps) => {
       <Suspense fallback={null}>
         <ChadKnight color={realColor} pieceScale={SCALE} rotate={rotate} />
       </Suspense>
-      {lok ? (
+      {/* {lok ? (
         <group scale={[SCALE, SCALE, SCALE]}>
           <LokLok color={realColor} />
         </group>
@@ -69,7 +69,7 @@ const ChadKnightPieces = (props: ChadKnightProps) => {
             emissiveIntensity={10}
           />
         </mesh>
-      )}
+      )} */}
     </group>
   );
 };

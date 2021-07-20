@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from "react";
 import { Interactable } from "spacesvr";
 import { PolyProps } from "../index";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import Info from "./Info";
 
 type ControlProps = {

@@ -4,14 +4,14 @@ import { Color } from "three";
 import { Vector3 } from "three";
 
 import { useAnalytics } from "services/analytics";
-import ChadGallery from "scenes/LucidMonday2/models/ChadGallery";
+import ChadGallery from "scenes/LucidMonday2/models/Lucidmonday_03";
 import ChadPiece from "./components/ChadPiece";
 import ChadLighting from "./components/ChadLighting";
 import ChadSceneSelector from "./components/ChadSceneSelector";
 import PlatformPlatform from "./components/PlatformPlatform";
-import ToggleEffect from "scenes/LucidMonday2/components/ToggleEffect";
+// import ToggleEffect from "scenes/LucidMonday2/components/ToggleEffect";
 import ChadEntrance from "./components/ChadEntrance";
-import Signs from "./components/Signs";
+// import Signs from "./components/Signs";
 import { StandardEnvironment, Audio } from "spacesvr";
 
 export const CHAD_COLOR = new Color(0x28fa92);
@@ -36,7 +36,7 @@ const Chad = () => {
     <StandardEnvironment
       disableGround
       canvasProps={{ camera: { far: 150 } }}
-      player={{ pos: new Vector3(-2, -3, 62), rot: Math.PI / 2 }}
+      playerProps={{ pos: [-3, 0, 60], rot: Math.PI }}
     >
       {time ? (
         <Sky distance={60000} />
@@ -63,8 +63,8 @@ const Chad = () => {
             <ChadGallery />
           </Suspense>
           <ChadEntrance />
-          <Signs />
-          <ToggleEffect
+          {/* <Signs /> */}
+          {/* <ToggleEffect
             position={[25, 4, 1.5]}
             effect={color}
             setEffect={setColor}
@@ -87,7 +87,7 @@ const Chad = () => {
             effect={rotate}
             setEffect={setRotate}
             color="red"
-          />
+          /> */}
         </>
       )}
       {sceneState === "piece" && <PlatformPlatform />}

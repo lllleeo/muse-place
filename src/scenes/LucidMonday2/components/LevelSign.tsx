@@ -1,4 +1,4 @@
-import { useLoader } from "react-three-fiber";
+import { useLoader } from "@react-three/fiber";
 import { TextureLoader, Vector2 } from "three";
 
 type LevelSignProps = {

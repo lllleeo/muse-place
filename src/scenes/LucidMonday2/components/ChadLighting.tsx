@@ -46,8 +46,8 @@ const ChadLighting = (props: LightingProps) => {
         <primitive object={light2.target} position={[0, 100, 0]} />
       </group>
       <pointLight
-        intensity={2}
-        position={[0, 0, 0]}
+        intensity={5}
+        position={[0, 0, 2]}
         color={0xffffff}
         distance={20}
       />

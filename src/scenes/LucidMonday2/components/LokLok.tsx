@@ -10,7 +10,7 @@ import {
   Vector3,
   Vector4,
 } from "three";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 import { lokfrag, lokvertex } from "./lokshaders";
 
 const UNIFORMS = {

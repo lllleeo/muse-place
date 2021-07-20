@@ -59,7 +59,7 @@
     "react-spring": "^9.1.2",
     "shopify-buy": "^2.11.0",
     "simplex-noise": "^2.4.0",
-    "spacesvr": "^1.6.11",
+    "spacesvr": "^1.6.14",
     "three": "^0.127.0",
     "unique-names-generator": "^4.4.0",
     "valtio": "^1.0.6"

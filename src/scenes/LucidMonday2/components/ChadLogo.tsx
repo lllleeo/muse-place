@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import { useFrame, useLoader } from "react-three-fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Mesh } from "three";
 
 const IMAGE_SRC =
-  "https://d27rt3a60hh1lx.cloudfront.net/content/chadknight/chadknight-profile.jpg";
+  "https://assets.bigcartel.com/account_images/3211436/mon.png?auto=format&fit=max&h=1200&w=1200";
 
 const ChadLogo = (props: JSX.IntrinsicElements["group"]) => {
   const texture = useLoader(THREE.TextureLoader, IMAGE_SRC);

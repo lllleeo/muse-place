@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Text } from "@react-three/drei";
-import { useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 
 type SignProps = {
   text: string;

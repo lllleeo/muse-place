@@ -6,57 +6,50 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { useTrimeshCollision } from "spacesvr";
+import { BufferGeometry } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
     floors: THREE.Mesh;
     additions: THREE.Mesh;
-    hallway: THREE.Mesh;
-    box: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
     BLACK: THREE.MeshStandardMaterial;
     WHITE: THREE.MeshStandardMaterial;
-    ["default"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILEURL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/lucid-1626714130/lucidmonday_00.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/lucidmonday_02-1626737387/lucidmonday_02.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILEURL) as GLTFResult;
+
+  useTrimeshCollision(
+    (nodes.collider.geometry as BufferGeometry)
+      .clone()
+      .scale(0.8, 0.8, 0.8)
+      .translate(0, -4, 0)
+  );
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <group scale={[80, 80, 80]}>
-        <group position={[0, -0.005, 0]}>
+      <group scale={0.8}>
+        <group position={[0, -5, 0]}>
           <mesh
             name="floors"
-            material={materials.BLACK}
             geometry={nodes.floors.geometry}
+            material={materials.BLACK}
           />
           <mesh
             name="additions"
-            material={materials.WHITE}
             geometry={nodes.additions.geometry}
-          />
-          <mesh
-            name="hallway"
-            material={materials.BLACK}
-            geometry={nodes.hallway.geometry}
-          />
-          <mesh
-            name="box"
             material={materials.WHITE}
-            geometry={nodes.box.geometry}
           />
-          <mesh
-            name="collider"
-            material={materials["default"]}
-            geometry={nodes.collider.geometry}
-          />
+          {/* <mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} /> */}
         </group>
       </group>
     </group>

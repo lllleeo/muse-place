@@ -1,6 +1,6 @@
-import { useFrame, useThree } from "react-three-fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
-import { useEnvironment } from "spacesvr";
+import { useEnvironment, usePlayer } from "spacesvr";
 import { Dispatch, SetStateAction } from "react";
 
 type SceneSelectorProps = {
@@ -11,7 +11,7 @@ type SceneSelectorProps = {
 const ChadSceneSelector = (props: SceneSelectorProps) => {
   const { sceneState, setSceneState } = props;
   const { camera } = useThree();
-  const { player } = useEnvironment();
+  const player = usePlayer();
 
   useFrame(() => {
     if (camera.position.y < -80 && sceneState === "gallery") {

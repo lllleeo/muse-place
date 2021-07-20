@@ -12,8 +12,8 @@ const RightWall = () => {
       position={[4.3, -0.35, -7.2]}
       scale={[0.7, 0.7, 0.7]}
     >
-      {/* <group position={[2.75, -0.25, 0]}>
-        <Image
+      <group position={[2.75, -0.25, 0]}>
+        {/* <Image
           
           src={
             "https://d27rt3a60hh1lx.cloudfront.net/content/chadknight/harris/chaptsikc.jpg"
@@ -33,8 +33,8 @@ const RightWall = () => {
           }
           color={FRAME_COLOR}
           position={[3.5, 0, 0]}
-        />
-      </group> */}
+        /> */}
+      </group>
       <group position={[2.5, -1.7, 0.6]} scale={[0.35, 0.35, 0.35]}>
         <Text
           position={[0, 0.2, 0]}
@@ -44,9 +44,9 @@ const RightWall = () => {
           textAlign="left"
           color="black"
         >
-          {"Music provided by Harris Cole"}
+          {"This might be cool for music"}
         </Text>
-        <Text
+        {/* <Text
           position={[2.3, -0.3, 0]}
           scale={[2.5, 2.5, 2.5]}
           anchorY="middle"
@@ -54,17 +54,17 @@ const RightWall = () => {
           anchorX="right"
           color="black"
         >
-          @_harris.cole
-        </Text>
+          @lucidmonday
+        </Text> */}
         <Text
-          position={[-2.3, -0.3, 0]}
+          position={[-2.8, -0.3, 0]}
           scale={[2.5, 2.5, 2.5]}
           anchorY="middle"
           maxWidth={3}
           anchorX="left"
           color="black"
         >
-          https://gone.fish
+          https://soundcloud.com/lucidmonday/sets/lm025
         </Text>
         <mesh position={[0, 0, -0.25 / 2 - 0.001]}>
           <boxBufferGeometry args={[7, 1.5, 0.25]} attach="geometry" />

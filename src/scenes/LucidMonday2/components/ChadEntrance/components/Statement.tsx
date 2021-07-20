@@ -11,28 +11,28 @@ const Statement = () => {
     >
       <group position={[-2.75, -1.75, 0]} scale={[2, 2, 2]}>
         <Text
-          position={[-0.15, 1, 0]}
+          position={[-0.58, 1, 0]}
           scale={[4.5 * 1.6, 6 * 1.6, 4.5 * 1.6]}
           anchorY="middle"
           maxWidth={3}
           textAlign="left"
           color="black"
         >
-          {"VIRTUAL GENESIS"}
+          {"LUCID MONDAY"}
         </Text>
         <Text
-          position={[0, -0.2, 0]}
+          position={[-0.1, 0.5, 0]}
           scale={[2, 2, 2]}
-          anchorY="middle"
+          anchorY="top"
           maxWidth={3}
           textAlign="left"
           color="black"
         >
           {
-            "Virtual Genesis is about God breathing life into a virtual universe.\
-                        It's a representation of the first code defined, digitally enabled,\
-                        virtual volumetric space. It represents the skin or peripheral\
-                        exoskeleton humans inhabit to enter the virtual world."
+            "You can put whatever tf you want here, like a quote from Julius,\
+            or how activity friday is the shit; really whatever you want. Free \
+            creative direction on copy/prose/scripture—u tell us, we'll write \
+            it. (hint: it's part of the contract ;)"
           }
         </Text>
         <group position={[0.4, -0.15, 0]}>
@@ -44,7 +44,7 @@ const Statement = () => {
             textAlign="left"
             color="black"
           >
-            @chadknight
+            @lucidmonday
           </Text>
           <Text
             position={[0.28, -1, 0]}
