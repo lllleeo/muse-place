@@ -9,9 +9,8 @@ import ChadPiece from "./components/ChadPiece";
 import ChadLighting from "./components/ChadLighting";
 import ChadSceneSelector from "./components/ChadSceneSelector";
 import PlatformPlatform from "./components/PlatformPlatform";
-// import ToggleEffect from "scenes/LucidMonday2/components/ToggleEffect";
 import ChadEntrance from "./components/ChadEntrance";
-// import Signs from "./components/Signs";
+
 import { StandardEnvironment, Audio } from "spacesvr";
 
 export const CHAD_COLOR = new Color(0x28fa92);
