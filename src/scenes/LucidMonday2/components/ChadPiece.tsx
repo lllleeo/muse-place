@@ -52,7 +52,7 @@ const ChadKnightPieces = (props: ChadKnightProps) => {
   return (
     <group>
       <Suspense fallback={null}>
-        <ChadKnight color={realColor} pieceScale={SCALE} rotate={rotate} />
+        <ChadKnight />
       </Suspense>
       {/* {lok ? (
         <group scale={[SCALE, SCALE, SCALE]}>
