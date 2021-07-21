@@ -10,6 +10,7 @@ import ChadLighting from "./components/ChadLighting";
 import ChadSceneSelector from "./components/ChadSceneSelector";
 import PlatformPlatform from "./components/PlatformPlatform";
 import ChadEntrance from "./components/ChadEntrance";
+import ChangeSkyOverTime from "./components/ChangeSkyOverTime";
 
 import { StandardEnvironment, Audio } from "spacesvr";
 
@@ -42,6 +43,7 @@ const Chad = () => {
       ) : (
         <Stars radius={30} depth={50} count={1000} factor={2} fade />
       )}
+      <ChangeSkyOverTime duration={10} />
       <ChadLighting time={time} />
       <ChadSceneSelector
         sceneState={sceneState}
