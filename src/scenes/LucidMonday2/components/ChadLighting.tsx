@@ -6,7 +6,7 @@ const LIGHT_DISTANCE = 42;
 const LIGHT_COLOR = 0xffffff;
 const LIGHT_ANGLE = Math.PI / 2.4;
 
-const AMBIENT_INTENSITY = 1.0;
+const AMBIENT_INTENSITY = 0.2;
 
 type LightingProps = {
   time: boolean;

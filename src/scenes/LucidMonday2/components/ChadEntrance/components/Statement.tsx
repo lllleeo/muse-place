@@ -1,6 +1,5 @@
 import { Text } from "@react-three/drei";
 import { Arrow } from "spacesvr";
-
 const Statement = () => {
   return (
     <group
@@ -30,9 +29,9 @@ const Statement = () => {
         >
           {
             "You can put whatever tf you want here, like a quote from Julius,\
-            or how activity friday is the shit; really whatever you want. Free \
-            creative direction on copy/prose/scripture—u tell us, we'll write \
-            it. (hint: it's part of the contract ;)"
+                        or how activity friday is the shit; really whatever you want. Free \
+                        creative direction on copy/prose/scripture—u tell us, we'll write \
+                        it. (hint: it's part of the contract ;)"
           }
         </Text>
         <group position={[0.4, -0.15, 0]}>
@@ -62,5 +61,4 @@ const Statement = () => {
     </group>
   );
 };
-
 export default Statement;

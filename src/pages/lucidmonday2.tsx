@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 
 const LucidMonday = dynamic(import("scenes/LucidMonday2"), { ssr: false });
 
+const url = `https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/lucidmonday`;
+
 const ChadPage: NextPage = () => {
   return (
     <>

@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Sky, Stars } from "@react-three/drei";
 import { Color } from "three";
 import { Vector3 } from "three";

@@ -4,7 +4,7 @@ import { CHAD_COLOR } from "../index";
 const ChadSceneSelector = () => {
   const [ref] = useBox(() => ({
     type: "Static",
-    position: [0, 0, 0],
+    position: [0, -2.75, 0],
     args: [2, 1, 2],
   }));
 

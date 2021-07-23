@@ -48,6 +48,7 @@ export default function ChangeSkyOverTime(props: ChangeSkyProps) {
         mieCoefficient={0.1}
         mieDirectionalG={1}
         sunPosition={[1, sunPosY, 1]}
+        distance={60000}
       />
     </group>
   );
