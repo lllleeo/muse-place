@@ -2,6 +2,10 @@ import { Text } from "@react-three/drei";
 import { Color } from "three";
 import SocialButton from "../../../../../themes/components/SocialButton";
 import { GroupProps } from "@react-three/fiber";
+import { Image } from "spacesvr";
+
+const CONTENT_FOLDER =
+  "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/lucidmonday";
 
 const FRAME_COLOR = new Color(0xffffff);
 
@@ -31,9 +35,56 @@ const RightWall = () => {
     <group
       name="right-wall"
       rotation={[0, -Math.PI / 2, 0]}
-      position={[4.3, -0.35, -7.2]}
+      position={[4.6, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}
     >
+      <Image
+        name="lm20"
+        src={`${CONTENT_FOLDER}/lm20.jpg`}
+        size={2.5}
+        framed
+        position={[-0.5, 1.5, 0]}
+      />
+      <Image
+        name="lm21"
+        src={`${CONTENT_FOLDER}/lm21.jpg`}
+        size={2.5}
+        framed
+        position={[2.5, 1.5, 0]}
+      />
+      <Image
+        name="lm22"
+        src={`${CONTENT_FOLDER}/lm22.jpg`}
+        size={2.5}
+        framed
+        position={[5.5, 1.5, 0]}
+      />
+
+      <Image
+        name="lm23"
+        src={`${CONTENT_FOLDER}/lm23.jpg`}
+        size={2.5}
+        framed
+        position={[-0.5, 1.5, 16.8]}
+        rotation-y={[Math.PI]}
+      />
+      <Image
+        name="lm24"
+        src={`${CONTENT_FOLDER}/lm24.jpg`}
+        size={2.5}
+        framed
+        position={[2.5, 1.5, 16.8]}
+        rotation-y={[Math.PI]}
+      />
+      <Image
+        name="lm25"
+        src={`${CONTENT_FOLDER}/lm25.jpg`}
+        size={2.5}
+        framed
+        position={[5.5, 1.5, 16.8]}
+        rotation-y={[Math.PI]}
+      />
+
       <group position={[1.0, -1, 0]}>
         <Text position={[1.5, 0.4, 0]} fontSize={0.2} anchorY="middle">
           Connect with us on Social Media!

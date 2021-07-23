@@ -10,9 +10,6 @@ const Credits = () => {
       position={[-5, 0.5, 6]}
       scale={[2, 2, 2]}
     >
-      {/* <Text scale={[6, 6, 6]} position={[-4, -0.7, 0]} textAlign="left">
-        LUCID MONDAY
-      </Text> */}
       <ChadLogo position={[8, 0.4, -0.2]} scale={[0.8, 0.8, 0.8]} />
       <ChadLogo position={[4, 0.4, -0.2]} scale={[0.8, 0.8, 0.8]} />
       <ChadLogo position={[0, 0.4, -0.2]} scale={[0.8, 0.8, 0.8]} />
