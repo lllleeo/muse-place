@@ -1,8 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Color, Mesh } from "three";
+import { Mesh } from "three";
 import ChadKnight from "scenes/LucidMonday2/models/Monmon_02";
 import { useFrame } from "@react-three/fiber";
-import LokLok from "./LokLok";
 
 type ChadKnightProps = {
   isGallery: boolean;
@@ -54,22 +53,6 @@ const ChadKnightPieces = (props: ChadKnightProps) => {
       <Suspense fallback={null}>
         <ChadKnight />
       </Suspense>
-      {/* {lok ? (
-        <group scale={[SCALE, SCALE, SCALE]}>
-          <LokLok color={realColor} />
-        </group>
-      ) : (
-        <mesh ref={sphere} position={[0, 0, 0]} scale={[SCALE, SCALE, SCALE]}>
-          <sphereBufferGeometry attach="geometry" args={[8, 5 * 14, 3 * 14]} />
-          <meshLambertMaterial
-            attach="material"
-            wireframe
-            color={realColor}
-            emissive={new Color(0x000000)}
-            emissiveIntensity={10}
-          />
-        </mesh>
-      )} */}
     </group>
   );
 };

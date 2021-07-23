@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import { Sky, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { Color } from "three";
 import { Vector3 } from "three";
 
@@ -38,12 +38,8 @@ const Chad = () => {
       canvasProps={{ camera: { far: 150 } }}
       playerProps={{ pos: [-3, 0, 60], rot: Math.PI }}
     >
-      {/* {time ? (
-      //   <Sky distance={60000} />
-      // ) : ( */}
       <Stars radius={30} depth={50} count={1000} factor={2} fade />
-      {/* )} */}
-      <ChangeSkyOverTime duration={10} />
+      <ChangeSkyOverTime duration={7} />
       <ChadLighting time={time} />
       <ChadSceneSelector
         sceneState={sceneState}
@@ -64,31 +60,6 @@ const Chad = () => {
             <ChadGallery />
           </Suspense>
           <ChadEntrance />
-          {/* <Signs /> */}
-          {/* <ToggleEffect
-            position={[25, 4, 1.5]}
-            effect={color}
-            setEffect={setColor}
-            color="blue"
-          />
-          <ToggleEffect
-            position={[-25, 4, 1.5]}
-            effect={lok}
-            setEffect={setLok}
-            color="purple"
-          />
-          <ToggleEffect
-            position={[-25, -4, 1.5]}
-            effect={time}
-            setEffect={setTime}
-            color="white"
-          />
-          <ToggleEffect
-            position={[25, -4, 1.5]}
-            effect={rotate}
-            setEffect={setRotate}
-            color="red"
-          /> */}
         </>
       )}
       {sceneState === "piece" && <PlatformPlatform />}
