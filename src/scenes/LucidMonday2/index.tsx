@@ -4,7 +4,7 @@ import { Color } from "three";
 import { Vector3 } from "three";
 
 import { useAnalytics } from "services/analytics";
-import ChadGallery from "scenes/LucidMonday2/models/Lucidmonday_03";
+import ChadGallery from "scenes/LucidMonday2/models/Lucidmonday_06";
 import ChadPiece from "./components/ChadPiece";
 import ChadLighting from "./components/ChadLighting";
 import ChadSceneSelector from "./components/ChadSceneSelector";
@@ -38,11 +38,11 @@ const Chad = () => {
       canvasProps={{ camera: { far: 150 } }}
       playerProps={{ pos: [-3, 0, 60], rot: Math.PI }}
     >
-      {time ? (
-        <Sky distance={60000} />
-      ) : (
-        <Stars radius={30} depth={50} count={1000} factor={2} fade />
-      )}
+      {/* {time ? (
+      //   <Sky distance={60000} />
+      // ) : ( */}
+      <Stars radius={30} depth={50} count={1000} factor={2} fade />
+      {/* )} */}
       <ChangeSkyOverTime duration={10} />
       <ChadLighting time={time} />
       <ChadSceneSelector

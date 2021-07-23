@@ -10,14 +10,19 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 type GLTFResult = GLTF & {
   nodes: {
     lucid: THREE.Mesh;
+    ears: THREE.Mesh;
+    mouth: THREE.Mesh;
+    rainbow: THREE.Mesh;
   };
   materials: {
     ["lucid.mat"]: THREE.MeshStandardMaterial;
+    ["ears.mat"]: THREE.MeshStandardMaterial;
+    ["mouth.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILEURL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/monmon_01-1626770328/monmon_01.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/monmon_02-1627007074/monmon_02.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -28,7 +33,22 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <mesh
           name="lucid"
           geometry={nodes.lucid.geometry}
-          material={materials["lucid.mat"]}
+          material={nodes.lucid.material}
+        />
+        <mesh
+          name="ears"
+          geometry={nodes.ears.geometry}
+          material={materials["ears.mat"]}
+        />
+        <mesh
+          name="mouth"
+          geometry={nodes.mouth.geometry}
+          material={materials["mouth.mat"]}
+        />
+        <mesh
+          name="rainbow"
+          geometry={nodes.rainbow.geometry}
+          material={nodes.rainbow.material}
         />
       </group>
     </group>

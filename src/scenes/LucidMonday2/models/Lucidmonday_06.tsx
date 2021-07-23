@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILEURL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/lucidmonday_03-1626769928/lucidmonday_03.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/lucidmonday_06-1627007557/lucidmonday_06.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();

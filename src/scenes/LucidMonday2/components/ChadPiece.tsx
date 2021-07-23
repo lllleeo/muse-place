@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Color, Mesh } from "three";
-import ChadKnight from "scenes/LucidMonday2/models/Monmon_01";
+import ChadKnight from "scenes/LucidMonday2/models/Monmon_02";
 import { useFrame } from "@react-three/fiber";
 import LokLok from "./LokLok";
 
