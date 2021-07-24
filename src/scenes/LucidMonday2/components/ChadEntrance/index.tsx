@@ -1,6 +1,7 @@
 import RightWall from "./components/RightWall";
 import Credits from "./components/Credits";
 import Statement from "./components/Statement";
+import ButtonTest from "../ButtonTest";
 
 const ChadEntrance = () => {
   return (
@@ -8,6 +9,7 @@ const ChadEntrance = () => {
       <Statement />
       <Credits />
       <RightWall />
+      <ButtonTest />
     </group>
   );
 };
