@@ -6,7 +6,7 @@ const LIGHT_DISTANCE = 42;
 const LIGHT_COLOR = 0xffffff;
 const LIGHT_ANGLE = Math.PI / 2.4;
 
-const AMBIENT_INTENSITY = 0.2;
+const AMBIENT_INTENSITY = 0.8;
 
 type LightingProps = {
   time: boolean;
@@ -37,20 +37,21 @@ const ChadLighting = (props: LightingProps) => {
     <>
       <ambientLight intensity={AMBIENT_INTENSITY} color={0xffffff} />
       {time ? <></> : <fog attach="fog" args={[0x000000, 1, 45]} />}
-      <group position={[0, 30, 0]}>
-        <primitive object={light1} {...topLight} />
-        <primitive object={light1.target} position={[0, -100, 0]} />
-      </group>
-      <group position={[0, -30, 0]}>
-        <primitive object={light2} {...bottomLight} />
-        <primitive object={light2.target} position={[0, 100, 0]} />
-      </group>
-      <pointLight
-        intensity={5}
-        position={[0, 0, 2]}
-        color={0xffffff}
-        distance={20}
-      />
+      {/* commenting out the point lights that are directed to the center Mon Mon */}
+      {/* <group position={[0, 30, 0]}>
+          <primitive object={light1} {...topLight} />
+          <primitive object={light1.target} position={[0, -100, 0]} />
+        </group>
+        <group position={[0, -30, 0]}>
+          <primitive object={light2} {...bottomLight} />
+          <primitive object={light2.target} position={[0, 100, 0]} />
+        </group>
+        <pointLight
+          intensity={5}
+          position={[0, 0, 2]}
+          color={0xffffff}
+          distance={20}
+        /> */}
     </>
   );
 };

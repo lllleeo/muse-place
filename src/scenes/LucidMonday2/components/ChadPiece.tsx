@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Mesh } from "three";
-import ChadKnight from "scenes/LucidMonday2/models/Monmon_02";
+import ChadKnight from "scenes/LucidMonday2/models/Monmon_06";
 import { useFrame } from "@react-three/fiber";
 
 type ChadKnightProps = {

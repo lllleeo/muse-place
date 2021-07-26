@@ -36,7 +36,7 @@ const Chad = () => {
     <StandardEnvironment
       disableGround
       canvasProps={{ camera: { far: 150 } }}
-      playerProps={{ pos: [-3, 0, 60], rot: Math.PI }}
+      playerProps={{ pos: [-3, 0, 60], rot: Math.PI, speed: 5 }}
     >
       <Stars radius={30} depth={50} count={1000} factor={2} fade />
       <ChangeSkyOverTime duration={7} />
