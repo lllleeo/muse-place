@@ -6,6 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { Spinning } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -27,23 +28,25 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILEURL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group scale={[12, 12, 12]}>
-        <group>
-          <mesh
-            name="lucid"
-            geometry={nodes.lucid.geometry}
-            material={materials["lucid.mat"]}
-          />
-          <mesh
-            name="ears"
-            geometry={nodes.ears.geometry}
-            material={materials["ears.mat"]}
-          />
-          <mesh name="rainbow" geometry={nodes.rainbow.geometry}>
-            <meshNormalMaterial />
-          </mesh>
+      <Spinning xSpeed={1} ySpeed={1} zSpeed={0.5}>
+        <group scale={[12, 12, 12]}>
+          <group>
+            <mesh
+              name="lucid"
+              geometry={nodes.lucid.geometry}
+              material={materials["lucid.mat"]}
+            />
+            <mesh
+              name="ears"
+              geometry={nodes.ears.geometry}
+              material={materials["ears.mat"]}
+            />
+            <mesh name="rainbow" geometry={nodes.rainbow.geometry}>
+              <meshNormalMaterial />
+            </mesh>
+          </group>
         </group>
-      </group>
+      </Spinning>
     </group>
   );
 }
