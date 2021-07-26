@@ -38,7 +38,7 @@ const RightWall = () => {
       position={[4.6, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}
     >
-      <Image
+      {/* <Image
         name="lm20"
         src={`${CONTENT_FOLDER}/lm20.jpg`}
         size={2.5}
@@ -83,7 +83,7 @@ const RightWall = () => {
         framed
         position={[5.5, 1.5, 16.8]}
         rotation-y={[Math.PI]}
-      />
+      /> */}
 
       <group position={[1.0, -1, 0]}>
         <Text position={[1.5, 0.4, 0]} fontSize={0.2} anchorY="middle">
