@@ -4,7 +4,7 @@ import { Color } from "three";
 import { Vector3 } from "three";
 
 import { useAnalytics } from "services/analytics";
-import ChadGallery from "scenes/LucidMonday2/models/Lucidmonday_11";
+import ChadGallery from "scenes/LucidMonday2/models/Lucidmonday_12";
 import ChadPiece from "./components/ChadPiece";
 import ChadLighting from "./components/ChadLighting";
 import ChadSceneSelector from "./components/ChadSceneSelector";
