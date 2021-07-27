@@ -11,6 +11,7 @@ import ChadSceneSelector from "./components/ChadSceneSelector";
 import PlatformPlatform from "./components/PlatformPlatform";
 import ChadEntrance from "./components/ChadEntrance";
 import ChangeSkyOverTime from "./components/ChangeSkyOverTime";
+import Grass from "../../themes/Alto/components/Grass";
 
 import { StandardEnvironment, Audio } from "spacesvr";
 
@@ -60,6 +61,7 @@ const Chad = () => {
             <ChadGallery />
           </Suspense>
           <ChadEntrance />
+          <Grass />
         </>
       )}
       {sceneState === "piece" && <PlatformPlatform />}
