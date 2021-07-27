@@ -8,7 +8,7 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { Interactable, Floating } from "spacesvr";
 import { useTrimeshCollision } from "spacesvr";
-import { BufferGeometry } from "three";
+import { BufferGeometry, MeshBasicMaterial } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -162,7 +162,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
               visible={false}
             />
           </Interactable>
-          {/* <mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} /> */}
+          <mesh
+            name="terrain"
+            geometry={nodes.collider.geometry}
+            material={new MeshBasicMaterial({ visible: false })}
+          />
         </group>
       </group>
     </group>

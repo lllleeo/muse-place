@@ -45,10 +45,20 @@ const useGrassMat = (): ShaderMaterial => {
 type GrassProps = {
   minRadius?: number;
   maxRadius?: number;
+  raycastY?: number;
+  targetY?: number;
+  altCache?: string;
 } & GroupProps;
 
 const Grass = (props: GrassProps) => {
-  const { minRadius = 10, maxRadius = 35, ...restProps } = props;
+  const {
+    minRadius = 10,
+    maxRadius = 35,
+    raycastY = 10,
+    targetY,
+    altCache,
+    ...restProps
+  } = props;
   const { scene } = useThree();
   const grassMat = useGrassMat();
   const mesh = useRef<InstancedMesh>();
@@ -61,7 +71,7 @@ const Grass = (props: GrassProps) => {
     const terrain = scene.getObjectByName("terrain");
     const generate = false; // set to true and refresh to get a new cached version generated
     const cache = [];
-    const parsedCache = JSON.parse(cache1);
+    const parsedCache = altCache ? JSON.parse(altCache) : JSON.parse(cache1);
 
     if (!terrain || !mesh.current) {
       setTimeout(() => setCounter(counter + 1), 200);
@@ -89,7 +99,7 @@ const Grass = (props: GrassProps) => {
         z = radius * Math.sin(theta);
 
         // raycast straight down (generation)
-        raycaster.ray.origin.set(x, 10, z);
+        raycaster.ray.origin.set(x, raycastY, z);
         raycaster.ray.lookAt(new Vector3(x, 0, z));
         const intersects = raycaster.intersectObject(terrain, false);
 
@@ -99,7 +109,10 @@ const Grass = (props: GrassProps) => {
 
         // get y and normal (generation)
         const p = intersects[0].point;
-        y = p.y - 0.2;
+        if (targetY && Math.abs(p.y - targetY) > 0.25) {
+          continue;
+        }
+        y = p.y - 0.1;
         const n = intersects[0].face?.normal.clone() || new Vector3();
         n.transformDirection(terrain.matrixWorld);
 

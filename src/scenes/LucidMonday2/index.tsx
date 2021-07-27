@@ -12,6 +12,7 @@ import PlatformPlatform from "./components/PlatformPlatform";
 import ChadEntrance from "./components/ChadEntrance";
 import ChangeSkyOverTime from "./components/ChangeSkyOverTime";
 import Grass from "../../themes/Alto/components/Grass";
+import cache2 from "../../themes/Alto/components/Grass/cache/cache2";
 
 import { StandardEnvironment, Audio } from "spacesvr";
 
@@ -37,7 +38,7 @@ const Chad = () => {
     <StandardEnvironment
       disableGround
       canvasProps={{ camera: { far: 150 } }}
-      playerProps={{ pos: [-3, 0, 60], rot: Math.PI, speed: 5 }}
+      playerProps={{ pos: [-3, 20, 32], rot: Math.PI, speed: 5 }}
     >
       <Stars radius={30} depth={50} count={1000} factor={2} fade />
       <ChangeSkyOverTime duration={7} />
@@ -59,9 +60,32 @@ const Chad = () => {
         <>
           <Suspense fallback={null}>
             <ChadGallery />
+            <ChadEntrance />
+            <Grass
+              position-y={1.85}
+              minRadius={5.25}
+              maxRadius={50}
+              raycastY={50}
+              targetY={4}
+              altCache={cache2}
+            />
+            <Grass
+              position-y={-2.05}
+              minRadius={5.25}
+              maxRadius={50}
+              raycastY={50}
+              targetY={4}
+              altCache={cache2}
+            />
+            <Grass
+              position-y={-6.25}
+              minRadius={5.25}
+              maxRadius={50}
+              raycastY={50}
+              targetY={4}
+              altCache={cache2}
+            />
           </Suspense>
-          <ChadEntrance />
-          <Grass />
         </>
       )}
       {sceneState === "piece" && <PlatformPlatform />}
