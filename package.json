@@ -37,6 +37,7 @@
     "@react-three/xr": "3.0.1",
     "@types/node-fetch": "^2.5.10",
     "@types/shopify-buy": "^2.10.5",
+    "aws-sdk": "^2.954.0",
     "babel-plugin-glsl": "^1.0.0",
     "component-material": "^1.0.6",
     "culori": "^0.18.2",

@@ -38,87 +38,50 @@ const RightWall = () => {
       position={[4.6, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}
     >
-      {/* <Image
-        name="lm20"
-        src={`${CONTENT_FOLDER}/lm20.jpg`}
-        size={2.5}
-        framed
-        position={[-0.5, 1.5, 0]}
+      <AnnotatedLink
+        link="https://instagram.com/lucidmonday"
+        text=""
+        position={[-0.5, -0.3, 0]}
+        scale={7.0}
       />
-      <Image
-        name="lm21"
-        src={`${CONTENT_FOLDER}/lm21.jpg`}
-        size={2.5}
-        framed
-        position={[2.5, 1.5, 0]}
+      <AnnotatedLink
+        link="https://twitter.com/lucid_monday"
+        text=""
+        position={[2.5, -0.3, 0]}
+        scale={7.0}
       />
-      <Image
-        name="lm22"
-        src={`${CONTENT_FOLDER}/lm22.jpg`}
-        size={2.5}
-        framed
-        position={[5.5, 1.5, 0]}
+      <AnnotatedLink
+        link="https://youtube.com/lucidmonday"
+        text=""
+        position={[5.5, -0.3, 0]}
+        scale={7.0}
       />
-
-      <Image
-        name="lm23"
-        src={`${CONTENT_FOLDER}/lm23.jpg`}
-        size={2.5}
-        framed
-        position={[-0.5, 1.5, 16.8]}
+      <AnnotatedLink
+        link="https://soundcloud.com/lucidmonday"
+        text=""
+        position={[-0.5, -0.3, 16.8]}
         rotation-y={[Math.PI]}
+        scale={7.0}
       />
-      <Image
-        name="lm24"
-        src={`${CONTENT_FOLDER}/lm24.jpg`}
-        size={2.5}
-        framed
-        position={[2.5, 1.5, 16.8]}
+      <AnnotatedLink
+        link="https://open.spotify.com/user/0m1ewbfl4sfauko9hvrg5qopu?si=tD6RjOJRTdSTGn96XGaLEg"
+        text=""
+        position={[2.5, -0.3, 16.8]}
         rotation-y={[Math.PI]}
+        scale={7.0}
       />
-      <Image
-        name="lm25"
-        src={`${CONTENT_FOLDER}/lm25.jpg`}
-        size={2.5}
-        framed
-        position={[5.5, 1.5, 16.8]}
+      <AnnotatedLink
+        link="https://discord.gg/gg5JQJC"
+        text=""
+        position={[5.5, -0.3, 16.8]}
         rotation-y={[Math.PI]}
-      /> */}
+        scale={7.0}
+      />
 
       <group position={[1.0, -1, 0]}>
-        <Text position={[1.5, 0.4, 0]} fontSize={0.2} anchorY="middle">
-          Connect with us on Social Media!
-        </Text>
-        <AnnotatedLink
-          link="https://instagram.com/lucidmonday"
-          text="@lucidmonday"
-          position={[0, 0, 0]}
-        />
-        <AnnotatedLink
-          link="https://twitter.com/lucid_monday"
-          text="@lucid_monday"
-          position={[0, -0.2, 0]}
-        />
-        <AnnotatedLink
-          link="https://youtube.com/lucidmonday"
-          text="LM on YouTube"
-          position={[1.0, 0, 0]}
-        />
-        <AnnotatedLink
-          link="https://soundcloud.com/lucidmonday"
-          text="LM on Soundcloud"
-          position={[1.0175, -0.2, 0]}
-        />
-        <AnnotatedLink
-          link="https://open.spotify.com/user/0m1ewbfl4sfauko9hvrg5qopu?si=tD6RjOJRTdSTGn96XGaLEg"
-          text="LM on Spotify"
-          position={[2.25, 0, 0]}
-        />
-        <AnnotatedLink
-          link="https://discord.gg/gg5JQJC"
-          text="Join us on Discord!"
-          position={[2.25, -0.2, 0]}
-        />
+        {/*<Text position={[1.5, 0.4, 0]} fontSize={0.2} anchorY="middle">*/}
+        {/*  Connect with us on Social Media!*/}
+        {/*</Text>*/}
       </group>
       <group position={[2.5, -1.7, 0.6]} scale={[0.35, 0.35, 0.35]}>
         <Text
