@@ -50,7 +50,7 @@ const Chad = () => {
       <ChadPiece isGallery={isGallery} effects={effects} />
       <group position={[0, 0, 23]}>
         <Audio
-          url="https://spaces-gallery-assets.s3-us-west-1.amazonaws.com/audio/harris+cole+mix.mp3"
+          url="https://spaces-gallery-assets.s3-us-west-1.amazonaws.com/audio/LM025-Compiled.mp3"
           position={new Vector3(0, 10, 1)}
           volume={10}
           rollOff={0.2}
