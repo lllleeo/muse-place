@@ -2,10 +2,6 @@ import { Text } from "@react-three/drei";
 import { Color } from "three";
 import SocialButton from "../../../../../themes/components/SocialButton";
 import { GroupProps } from "@react-three/fiber";
-import { Image } from "spacesvr";
-
-const CONTENT_FOLDER =
-  "https://d27rt3a60hh1lx.cloudfront.net/content/muse.place/lucidmonday";
 
 const FRAME_COLOR = new Color(0xffffff);
 
