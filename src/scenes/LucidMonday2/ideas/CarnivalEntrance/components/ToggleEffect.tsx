@@ -3,7 +3,6 @@ import { MeshStandardMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Interactable } from "spacesvr";
-import { useEnvironment } from "spacesvr";
 
 type EffectProps = {
   position: [number, number, number];

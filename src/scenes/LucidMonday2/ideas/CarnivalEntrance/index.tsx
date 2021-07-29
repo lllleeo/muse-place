@@ -1,9 +1,9 @@
 import RightWall from "./components/RightWall";
 import Credits from "./components/Credits";
 import Statement from "./components/Statement";
-import ButtonTest from "../ButtonTest";
+import ButtonTest from "./components/ButtonTest";
 
-const ChadEntrance = () => {
+export default function ChadEntrance() {
   return (
     <group position={[-2, -2, 65]}>
       <Statement />
@@ -12,6 +12,4 @@ const ChadEntrance = () => {
       <ButtonTest />
     </group>
   );
-};
-
-export default ChadEntrance;
+}

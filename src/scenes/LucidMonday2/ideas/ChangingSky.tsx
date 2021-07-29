@@ -1,13 +1,12 @@
-//usage: import ChangeSkyOverTime from "../../../themes/components/ChangeSkyOverTime"
 import React, { useEffect, useState } from "react";
-import { Sky, Text } from "@react-three/drei";
+import { Sky } from "@react-three/drei";
 
-type ChangeSkyProps = {
+type ChangingSkyProps = {
   duration: number;
 };
 
-export default function ChangeSkyOverTime(props: ChangeSkyProps) {
-  const { duration, ...rest } = props;
+export default function ChangingSky(props: ChangingSkyProps) {
+  const { duration } = props;
 
   // dayPeriodInMinutes: a day lasts dayPeriodInMinutes minutes (will be passed in)
   const dayPeriodInMinutes = duration;
@@ -40,6 +39,7 @@ export default function ChangeSkyOverTime(props: ChangeSkyProps) {
     }, refreshPeriod);
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
+
   return (
     <group>
       <Sky
