@@ -38,16 +38,17 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILEURL) as GLTFResult;
 
-  useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry)
-      .clone()
-      .scale(0.8, 0.8, 0.8)
-      .translate(0, -4, 0)
-  );
+  // useTrimeshCollision(
+  //   (nodes.collider.geometry as BufferGeometry)
+  //     .clone()
+  //     .scale(0.8, 0.8, 0.8)
+  //     .scale(0.5, 1, 0.5)
+  //     .translate(0, -4, 0)
+  // );
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group scale={0.8}>
+      <group scale={0.8} position-y={0.05}>
         <group position={[0, -5, 0]}>
           <mesh
             name="floors"

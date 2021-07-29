@@ -9,14 +9,17 @@ import Grass from "./ideas/Grass";
 import { StandardEnvironment, Audio } from "spacesvr";
 import CarnivalStructure from "./ideas/CarnivalStructure";
 import CentralModel from "./ideas/CentralModel";
+import CarnivalFoliage from "./ideas/CarnivalFoliage";
 
 export default function LucidMonday() {
   return (
     <StandardEnvironment
       disableGround
       canvasProps={{ camera: { far: 150 } }}
-      playerProps={{ pos: [-3, 20, 32], rot: Math.PI, speed: 5 }}
+      playerProps={{ pos: [-3, 10, 10], rot: Math.PI, speed: 4.25 }}
+      dev={process.env.NODE_ENV == "development"}
     >
+      <CarnivalFoliage />
       <ambientLight intensity={0.5} color={0xffffff} />
       <Stars radius={30} depth={50} count={1000} factor={2} fade />
       <ChangingSky duration={7} />
