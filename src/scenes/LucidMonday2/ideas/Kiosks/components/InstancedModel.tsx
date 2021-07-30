@@ -82,9 +82,13 @@ const InstancedModel = (props: InstancedModelProps) => {
     return spots;
   }, [generation, count]);
 
-  const instances = meshes.map((mesh) => (
+  const instances = meshes.map((mesh, i) => (
     <group key={mesh.uuid}>
       <InstancedObject mesh={mesh} placements={placements} />
+      {/*<mesh  position={[placements[i].position.x, 0.5, placements[i].position.z]}>*/}
+      {/*  <boxBufferGeometry args={[0.5, 1, 0.5]} />*/}
+      {/*  <meshBasicMaterial color="blue" />*/}
+      {/*</mesh>*/}
     </group>
   ));
 
@@ -98,7 +102,7 @@ const InstancedModel = (props: InstancedModelProps) => {
   return (
     <group {...props}>
       {instances}
-      {content}
+      {/*{content}*/}
     </group>
   );
 };
