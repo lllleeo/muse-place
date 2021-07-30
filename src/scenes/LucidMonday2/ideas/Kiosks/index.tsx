@@ -93,7 +93,6 @@ export default function Kiosks() {
   };
   return (
     <group name="weed plants">
-      <CreateKiosks shape={innerCirle} />
       <CreateKiosks
         shape={innerCirle}
         position-y={5}
