@@ -12,6 +12,7 @@ import { LucidWorld } from "./layers/LucidWorld";
 import Kiosks from "./ideas/Kiosks";
 import { Perf } from "r3f-perf";
 import Builder08 from "./ideas/Builders/Builder08";
+import Builder10 from "./ideas/Builders/Builder10";
 import CloudySky from "./ideas/CloudySky";
 import Kiosk2 from "./ideas/Kiosk2";
 
@@ -44,6 +45,7 @@ export default function LucidMonday() {
         <Kiosks />
         <Kiosk2 />
         <Builder08 position={[0, 20.05, -13]} />
+        <Builder10 />
         {/*<Perf />*/}
       </LucidWorld>
     </StandardEnvironment>
