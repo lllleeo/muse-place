@@ -58,13 +58,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["tables2.mat"]}
         />
         <mesh
-          name="kiosk"
-          geometry={nodes.kiosk.geometry}
-          material={materials["kiosk.mat"]}
-          scale={0.65}
-          position={[4, 0, 4]}
-        />
-        <mesh
           name="floors"
           geometry={nodes.floors.geometry}
           material={nodes.floors.material}

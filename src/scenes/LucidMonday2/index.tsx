@@ -10,8 +10,21 @@ import { StandardEnvironment, Audio } from "spacesvr";
 import CarnivalStructure from "./ideas/CarnivalStructure";
 import CentralModel from "./ideas/CentralModel";
 import CarnivalFoliage from "./ideas/CarnivalFoliage";
+import Kiosks from "./ideas/Kiosks";
+import { positions } from "./ideas/Kiosks/assets/constants";
 
 export default function LucidMonday() {
+  const position: number[] = [];
+
+  const weedShapeFunc = (t: number, r: number) => {
+    const x_gen = r * Math.cos(t);
+    const z_gen = r * Math.sin(t);
+    position.push(x_gen);
+    position.push(z_gen);
+    console.log(position.toString());
+    return new Vector3(x_gen, 0, z_gen);
+  };
+
   return (
     <StandardEnvironment
       disableGround
@@ -30,6 +43,9 @@ export default function LucidMonday() {
         volume={10}
         rollOff={0.2}
       />
+      <group name="weed plants">
+        <Kiosks shape={weedShapeFunc} />
+      </group>
       <CarnivalStructure />
       <CentralModel />
       <CarnivalEntrance />
