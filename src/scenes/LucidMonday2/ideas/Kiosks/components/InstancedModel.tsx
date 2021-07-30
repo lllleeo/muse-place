@@ -82,19 +82,25 @@ const InstancedModel = (props: InstancedModelProps) => {
     return spots;
   }, [generation, count]);
 
-  const instances = meshes.map((mesh, i) => (
+  const instances = meshes.map((mesh) => (
     <group key={mesh.uuid}>
       <InstancedObject mesh={mesh} placements={placements} />
-      <mesh
-        position={[placements[i].position.x, 0.5, placements[i].position.z]}
-      >
-        <boxBufferGeometry args={[0.5, 1, 0.5]} />
-        <meshBasicMaterial color="blue" />
-      </mesh>
     </group>
   ));
 
-  return <group {...props}>{instances}</group>;
+  const content = placements.map((placement, i) => (
+    <mesh key={i} position={[placement.position.x, 0.5, placement.position.z]}>
+      <boxBufferGeometry args={[0.5, 1, 0.5]} />
+      <meshBasicMaterial color="blue" />
+    </mesh>
+  ));
+
+  return (
+    <group {...props}>
+      {instances}
+      {content}
+    </group>
+  );
 };
 
 export default InstancedModel;
