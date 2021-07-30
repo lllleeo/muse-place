@@ -5,12 +5,14 @@ import { GroupProps } from "@react-three/fiber";
 
 const FRAME_COLOR = new Color(0xffffff);
 
-function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
-  const { link, ...restProps } = props;
+function AnnotatedLink(
+  props: { link: string; text?: string; smType?: string } & GroupProps
+) {
+  const { link, smType, ...restProps } = props;
 
   return (
     <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialMediaButton link={link} scale={2} />
+      <SocialMediaButton link={smType ? smType : link} scale={2} />
     </group>
   );
 }
@@ -25,35 +27,41 @@ const RightWall = () => {
     >
       <group name="bunch-1" position-z={1.5}>
         <AnnotatedLink
-          link="https://open.spotify.com/artist/7dhK4qWq1jEEFjXCD5z5xr?si=Kw66DJ-kQJ6z_tBosMMLTQ&dl_branch=1"
+          link="spoti.fi/3iiKz5D"
+          smType="open.spotify.com"
           position={[9.85, 1, -2.1]}
           rotation-y={0.3}
         />
         <AnnotatedLink
-          link="https://soundcloud.com/lucidmonday/"
+          link="bit.ly/3zLAsfa"
+          smType="soundcloud.com"
           position={[8.9, 1, -2]}
           rotation-y={-0.1}
         />
         <AnnotatedLink
-          link="https://www.instagram.com/lucidmonday/"
+          link="bit.ly/2VncRT9"
+          smType="instagram.com"
           position={[9.3, 1.85, -2]}
           rotation-y={0.1}
         />
       </group>
       <AnnotatedLink
-        link="https://discord.com/invite/xQspThf"
+        link="bit.ly/3fbzLUW"
+        smType="dicord.com"
         position={[14.3, 0.95, -5.24]}
         rotation-y={-0.9}
         rotation-x={-0.25}
         rotation-z={-0.175}
       />
       <AnnotatedLink
-        link="https://www.youtube.com/channel/UCyzAwg6jela6dNhe38Rwp7Q"
+        link="bit.ly/3lcKFxq"
+        smType="youtube.com"
         position={[14, 0.9, 0]}
         rotation-y={-0.4}
       />
       <AnnotatedLink
-        link="https://twitter.com/Lucid_Monday"
+        link="bit.ly/2V7ZmXI"
+        smType="twitter.com"
         position={[8, 0.9, 2]}
         rotation-y={0.9}
       />
