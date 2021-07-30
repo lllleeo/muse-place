@@ -1,37 +1,16 @@
 import { Text } from "@react-three/drei";
 import { Color } from "three";
-import SocialButton from "../../../../../themes/components/SocialButton";
+import SocialMediaButton from "./SocialMediaButton";
 import { GroupProps } from "@react-three/fiber";
 
 const FRAME_COLOR = new Color(0xffffff);
 
-function AnnotatedLink(
-  props: { link: string; text?: string; smType?: string } & GroupProps
-) {
-  const {
-    link,
-    text = link.replace("https://", ""),
-    smType,
-    ...restProps
-  } = props;
-
-  const SCALE = 0.4;
+function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
+  const { link, ...restProps } = props;
 
   return (
     <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialButton
-        link={smType ? smType : link}
-        scale={[SCALE, SCALE, SCALE]}
-      />
-      {/* @ts-ignore */}
-      <Text
-        position-x={SCALE * 0.3}
-        fontSize={0.1}
-        anchorX="left"
-        color="black"
-      >
-        {text}
-      </Text>
+      <SocialMediaButton link={link} scale={2} />
     </group>
   );
 }
@@ -39,132 +18,45 @@ function AnnotatedLink(
 const RightWall = () => {
   return (
     <group
-      name="right-wall"
+      name="socials"
       rotation={[0, -Math.PI / 2, 0]}
       position={[4.0, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}
     >
-      <AnnotatedLink
-        link="bit.ly/37au0Cs"
-        smType="facebook.com"
-        text=""
-        position={[5.7, 2, -6]}
-        rotation-y={[Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/3C6WbjY"
-        smType="twitch.com"
-        text=""
-        position={[5.7, 2, -3]}
-        rotation-y={[Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/2VncRT9"
-        smType="instagram.com"
-        text=""
-        position={[5.7, 2, 0]}
-        rotation-y={[Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/2V7ZmXI"
-        smType="twitter.com"
-        text=""
-        position={[5.7, 2, 3]}
-        rotation-y={[Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/375CquO"
-        smType="youtube.com"
-        text=""
-        position={[5.7, 2, 6]}
-        rotation-y={[Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/3i9RVbg"
-        text=""
-        position={[16.5, 2, -6]}
-        rotation-y={[-Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/3lcKFxq"
-        smType="youtube.com"
-        text=""
-        position={[16.5, 2, -3]}
-        rotation-y={[-Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/3zLAsfa"
-        smType="soundcloud.com"
-        text=""
-        position={[16.5, 2, 0]}
-        rotation-y={[-Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="spoti.fi/3iiKz5D"
-        smType="open.spotify.com"
-        text=""
-        position={[16.5, 2, 3]}
-        rotation-y={[-Math.PI / 2]}
-        scale={10.0}
-      />
-      <AnnotatedLink
-        link="bit.ly/3fbzLUW"
-        smType="discord.com"
-        text=""
-        position={[16.5, 2, 6]}
-        rotation-y={[-Math.PI / 2]}
-        scale={10.0}
-      />
-
-      <group position={[1.0, -1, 0]}>
-        {/*<Text position={[1.5, 0.4, 0]} fontSize={0.2} anchorY="middle">*/}
-        {/*  Connect with us on Social Media!*/}
-        {/*</Text>*/}
+      <group name="bunch-1" position-z={1.5}>
+        <AnnotatedLink
+          link="https://open.spotify.com/artist/7dhK4qWq1jEEFjXCD5z5xr?si=Kw66DJ-kQJ6z_tBosMMLTQ&dl_branch=1"
+          position={[9.85, 1, -2.1]}
+          rotation-y={0.3}
+        />
+        <AnnotatedLink
+          link="https://soundcloud.com/lucidmonday/"
+          position={[8.9, 1, -2]}
+          rotation-y={-0.1}
+        />
+        <AnnotatedLink
+          link="https://www.instagram.com/lucidmonday/"
+          position={[9.3, 1.85, -2]}
+          rotation-y={0.1}
+        />
       </group>
-      <group position={[2.5, -1.7, 0.6]} scale={[0.35, 0.35, 0.35]}>
-        <Text
-          position={[0, 0.2, 0]}
-          scale={[3.5, 3.5, 3.5]}
-          anchorY="middle"
-          maxWidth={3}
-          textAlign="left"
-          color="black"
-        >
-          {"This might be cool for music"}
-        </Text>
-        {/* <Text
-          position={[2.3, -0.3, 0]}
-          scale={[2.5, 2.5, 2.5]}
-          anchorY="middle"
-          maxWidth={3}
-          anchorX="right"
-          color="black"
-        >
-          @lucidmonday
-        </Text> */}
-        <Text
-          position={[-2.8, -0.3, 0]}
-          scale={[2.5, 2.5, 2.5]}
-          anchorY="middle"
-          maxWidth={3}
-          anchorX="left"
-          color="black"
-        >
-          https://soundcloud.com/lucidmonday/sets/lm025
-        </Text>
-        <mesh position={[0, 0, -0.25 / 2 - 0.001]}>
-          <boxBufferGeometry args={[7, 1.5, 0.25]} attach="geometry" />
-          <meshStandardMaterial color={FRAME_COLOR} attach="material" />
-        </mesh>
-      </group>
+      <AnnotatedLink
+        link="https://discord.com/invite/xQspThf"
+        position={[14.3, 0.95, -5.24]}
+        rotation-y={-0.9}
+        rotation-x={-0.25}
+        rotation-z={-0.175}
+      />
+      <AnnotatedLink
+        link="https://www.youtube.com/channel/UCyzAwg6jela6dNhe38Rwp7Q"
+        position={[14, 0.9, 0]}
+        rotation-y={-0.4}
+      />
+      <AnnotatedLink
+        link="https://twitter.com/Lucid_Monday"
+        position={[8, 0.9, 2]}
+        rotation-y={0.9}
+      />
     </group>
   );
 };

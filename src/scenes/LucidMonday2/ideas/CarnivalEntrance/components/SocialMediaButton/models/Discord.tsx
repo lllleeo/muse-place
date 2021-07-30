@@ -16,22 +16,30 @@ type GLTFResult = GLTF & {
   };
 };
 
+const FILE_URL =
+  "https://d27rt3a60hh1lx.cloudfront.net/models/DiscordButton-1627352451/discord_button.glb.gz";
+
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/discord_button.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group name="discord_buttonglb">
-          <mesh
-            name="discord"
-            geometry={nodes.discord.geometry}
-            material={materials["discord.mat"]}
-          />
-        </group>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={0.2}
+      position-z={0.05}
+      position-x={-0.05}
+    >
+      <group>
+        <mesh
+          name="discord"
+          geometry={nodes.discord.geometry}
+          material={materials["discord.mat"]}
+        />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/discord_button.glb");
+useGLTF.preload(FILE_URL);

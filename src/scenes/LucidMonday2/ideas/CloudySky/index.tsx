@@ -15,9 +15,6 @@ type GradientSky = {
 export default function CloudySky(props: GradientSky) {
   const { radius = 150, ...restProps } = props;
 
-  // @ts-ignore
-  const timestamp = useMemo(() => new Date() / 1000000000, []);
-
   const COLORS = [
     0.62, 0.988, 0.992, 0.757, 0.922, 0.992, 0.867, 0.847, 0.988, 0.961, 0.765,
     0.984,
@@ -80,7 +77,8 @@ export default function CloudySky(props: GradientSky) {
   useFrame(({ clock }) => {
     if (!mat || !limiter.isReady(clock)) return;
 
-    mat.uniforms.time.value = timestamp + clock.getElapsedTime();
+    // @ts-ignore
+    mat.uniforms.time.value = ((new Date() / 1000) % 10000) / 5;
   });
 
   if (isMobile) {

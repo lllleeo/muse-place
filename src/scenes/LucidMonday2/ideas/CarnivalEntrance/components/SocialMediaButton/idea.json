@@ -1,0 +1,23 @@
+{
+  "id": "a19d5361-9265-407d-b79e-82c0c6b1a81a",
+  "name": "Social Media Button",
+  "schema": [
+    {
+      "name": "link",
+      "type": "string"
+    },
+    {
+      "name": "position",
+      "type": "position"
+    },
+    {
+      "name": "scale",
+      "type": "scale"
+    },
+    {
+      "name": "rotation",
+      "type": "rotation"
+    }
+  ],
+  "npm_dependencies": {}
+}

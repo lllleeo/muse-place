@@ -16,7 +16,7 @@ export default function Builder(props: GroupProps) {
   const anim = proximity.idle ? "dance1" : "idle";
 
   return (
-    <group name="builder" {...props} rotation-y={-Math.PI / 2}>
+    <group name="builder" {...props}>
       <LookAtPlayer enabled={!proximity.idle}>
         <group ref={group}>
           <BuilderModel animation={anim} />
