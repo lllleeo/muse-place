@@ -8,6 +8,7 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
+import { useGrassMat } from "../utils/grassMat";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -29,6 +30,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
 
+  const grassMat = useGrassMat();
   useTrimeshCollision((nodes.collider.geometry as BufferGeometry).clone());
 
   return (
@@ -37,7 +39,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         <mesh
           name="floors"
           geometry={nodes.floors.geometry}
-          material={nodes.floors.material}
+          material={grassMat}
         />
         <mesh
           name="floors_cover"
