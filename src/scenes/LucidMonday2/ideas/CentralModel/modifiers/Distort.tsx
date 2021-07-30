@@ -14,13 +14,12 @@ const uniforms = `
 
 const vert = `
     #include <begin_vertex>
-    float y_factor =  audio[int(uv.t * bins)] / 255.;
-    float theta = sin( time + position.y + (y_factor * 3.14 * 2.0 / 4.0) ) / 3.0;
-    float c = cos( theta );
-    float s = sin( theta );
-    mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, c );
-    transformed = vec3( position ) * m;
-    vNormal = vNormal * m;
+    // float theta = sin( time + uv.t );
+    // float c = cos( theta );
+    // float s = sin( theta );
+    // mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, c );
+    // transformed = vec3( position ) * m;
+    // vNormal = vNormal * m;
 `;
 
 const frag = `

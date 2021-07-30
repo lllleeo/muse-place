@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { Group } from "three";
 import BuilderModel from "../lib/models/Builder2";
 import { GroupProps, useFrame } from "@react-three/fiber";
@@ -7,12 +7,10 @@ import { Floating } from "spacesvr";
 export default function Builder(props: GroupProps) {
   const group = useRef<Group>();
 
-  // @ts-ignore
-  const timestamp = useMemo(() => new Date() / 1000000000, []);
-
   useFrame(({ clock }) => {
     if (!group.current) return;
-    group.current.rotation.y = -(timestamp + clock.getElapsedTime() / 10);
+    // @ts-ignore
+    group.current.rotation.y = -((new Date() / 1000) % 10000) / 10;
   });
 
   return (
