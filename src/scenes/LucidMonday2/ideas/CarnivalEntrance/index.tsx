@@ -14,7 +14,7 @@ export default function ChadEntrance() {
       {/*<Statement />*/}
       {/*<Credits />*/}
       <RightWall />
-      <ButtonTest />
+      {/*<ButtonTest />*/}
     </group>
   );
 }
