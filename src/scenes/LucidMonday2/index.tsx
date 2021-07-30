@@ -10,6 +10,7 @@ import { StandardEnvironment, Audio } from "spacesvr";
 import CarnivalStructure from "./ideas/CarnivalStructure";
 import CentralModel from "./ideas/CentralModel";
 import CarnivalFoliage from "./ideas/CarnivalFoliage";
+import CarnivalGrass from "./ideas/CarnivalGrass";
 
 export default function LucidMonday() {
   return (
@@ -19,6 +20,7 @@ export default function LucidMonday() {
       playerProps={{ pos: [-3, 10, 10], rot: Math.PI, speed: 4.25 }}
       dev={process.env.NODE_ENV == "development"}
     >
+      <CarnivalGrass />
       <CarnivalFoliage />
       <ambientLight intensity={0.5} color={0xffffff} />
       <Stars radius={30} depth={50} count={1000} factor={2} fade />
