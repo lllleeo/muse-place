@@ -13,14 +13,9 @@ import CarnivalFoliage from "./ideas/CarnivalFoliage";
 import Kiosks from "./ideas/Kiosks";
 
 export default function LucidMonday() {
-  const position: number[] = [];
-
-  const weedShapeFunc = (t: number, r: number) => {
+  const innerCirle = (t: number, r: number) => {
     const x_gen = r * Math.cos(t);
     const z_gen = r * Math.sin(t);
-    position.push(x_gen);
-    position.push(z_gen);
-    console.log(position.toString());
     return new Vector3(x_gen, 0, z_gen);
   };
 
@@ -43,7 +38,19 @@ export default function LucidMonday() {
         rollOff={0.2}
       />
       <group name="weed plants">
-        <Kiosks shape={weedShapeFunc} />
+        <Kiosks shape={innerCirle} />
+        <Kiosks shape={innerCirle} position-y={5} rotation-y={Math.PI / 5} />
+        <Kiosks
+          shape={innerCirle}
+          position-y={10}
+          rotation-y={(6 * Math.PI) / 5}
+        />
+        <Kiosks
+          shape={innerCirle}
+          position-y={15}
+          rotation-y={(4 * Math.PI) / 5}
+        />
+        <Kiosks shape={innerCirle} position-y={20} rotation-y={8 * Math.PI} />
       </group>
       <CarnivalStructure />
       <CentralModel />

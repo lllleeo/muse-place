@@ -34,6 +34,7 @@ type InstancedModelProps = {
   model: string;
   count: number;
   variants: number;
+  places: number[];
   generation: GenerateFunc;
   transform?: Object3D;
   index?: number;
@@ -45,6 +46,7 @@ const InstancedModel = (props: InstancedModelProps) => {
     count,
     generation,
     index = 0,
+    places,
     transform = new Object3D(),
     variants,
   } = props;
@@ -66,19 +68,13 @@ const InstancedModel = (props: InstancedModelProps) => {
     for (let i = 0; i < count; i++) {
       const obj = transform.clone();
       obj.position.add(
-        positions.length > 0
-          ? new Vector3(
-              positions[2 * i + 2 * count * index],
-              0,
-              positions[2 * i + 1 + 2 * count * index]
-            )
-          : generation(
-              (Math.PI / 180) *
-                ((index * 360) / variants +
-                  (i * 360) / variants / count +
-                  Math.random()),
-              11
-            )
+        generation(
+          (Math.PI / 180) *
+            ((places[i] * 360) / variants +
+              (i * 360) / variants / count +
+              Math.random()),
+          11
+        )
       );
       obj.lookAt(obj.position.clone().multiplyScalar(2));
       spots.push(obj);
