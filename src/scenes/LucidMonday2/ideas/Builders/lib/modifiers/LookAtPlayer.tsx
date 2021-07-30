@@ -32,7 +32,7 @@ const LookAtPlayer = (props: Props) => {
         dummy2.set(camera.position.x, camera.position.z);
         dummy1.sub(dummy2);
 
-        rot = -dummy1.normalize().angle() - (Math.PI * 3) / 4;
+        rot = -dummy1.normalize().angle() - Math.PI / 2;
         if (rot < 0) {
           rot += Math.PI * 2;
         }

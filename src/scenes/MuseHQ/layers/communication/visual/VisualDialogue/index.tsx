@@ -50,12 +50,14 @@ export default function VisualDialogue(
   const RADIUS = Math.min(WIDTH, HEIGHT, DEPTH) * 0.5;
   // @ts-ignore
   const SIDE = props.position && props.position[0] < 0 ? "left" : "right";
+
+  const [key, setKey] = useState("init");
+
   const activeInteraction = dialogue.find((dial) => dial.key === key);
   const ENABLED =
     (enabled && activeInteraction?.text && activeInteraction.text !== "") ===
     true;
 
-  const [key, setKey] = useState("init");
   const mat = useRef<MeshStandardMaterial>();
   const curIdea = useMemo(() => new Idea(), []);
   const { scale } = useSpring({ scale: ENABLED ? 1 : 0 });

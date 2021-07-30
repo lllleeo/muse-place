@@ -28,7 +28,7 @@ export const useBuilder08Dialogue = (): Dialogue => {
     },
     {
       key: "lie",
-      text: "nah just playing. but we do got some hot beats",
+      text: "nah just playing. but we do have some fire beats",
       decisions: [{ name: "i'll check it out", nextKey: "idle" }],
     },
     {
