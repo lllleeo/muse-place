@@ -12,7 +12,7 @@ export default function Builder(props: GroupProps) {
 
   useFrame(({ clock }) => {
     if (!group.current) return;
-    group.current.rotation.y = timestamp + clock.getElapsedTime();
+    group.current.rotation.y = -(timestamp + clock.getElapsedTime() / 10);
   });
 
   return (
