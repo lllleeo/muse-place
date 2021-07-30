@@ -5,7 +5,7 @@ import { useMemo } from "react";
 type ImplicitFunc = (x: number, y: number, z: number) => Vector3;
 
 type FoliageProps = {
-  mesh: Mesh;
+  mesh: Mesh | Mesh[];
   count: number;
   position?: ImplicitFunc;
   rotation?: ImplicitFunc;
@@ -14,6 +14,8 @@ type FoliageProps = {
 
 export default function Foliage(props: FoliageProps) {
   const { mesh, count, position, rotation, scale } = props;
+
+  const meshArr = Array.isArray(mesh) ? mesh : [mesh];
 
   const transform: Object3D[] = useMemo(() => {
     const transes = [];
@@ -40,8 +42,10 @@ export default function Foliage(props: FoliageProps) {
   }, [position, rotation, scale, count]);
 
   return (
-    <group name={`foliage-${mesh.name}`}>
-      <InstancedObject key={mesh.uuid} mesh={mesh} transforms={transform} />
+    <group name={`foliage-${meshArr[0].name}`}>
+      {meshArr.map((mesh) => (
+        <InstancedObject key={mesh.uuid} mesh={mesh} transforms={transform} />
+      ))}
     </group>
   );
 }

@@ -22,7 +22,7 @@ export default function CarnivalFoliage() {
         rotation={randomYRot}
       />
       <Foliage
-        mesh={foliage.nodes.fern_c_2}
+        mesh={[foliage.nodes.fern_c_1, foliage.nodes.fern_c_2]}
         count={30}
         position={coverFloors}
         scale={slightRandomScale}
