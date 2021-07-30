@@ -11,6 +11,7 @@ import CarnivalFoliage from "./ideas/CarnivalFoliage";
 import CarnivalAudio from "./ideas/CarnivalAudio";
 import { LucidWorld } from "./layers/LucidWorld";
 import Kiosks from "./ideas/Kiosks";
+import KioskContent from "./ideas/KioskContent";
 
 export default function LucidMonday() {
   return (
@@ -31,6 +32,7 @@ export default function LucidMonday() {
         <CentralModel />
         <CarnivalEntrance />
         <Kiosks />
+        <KioskContent />
       </LucidWorld>
     </StandardEnvironment>
   );

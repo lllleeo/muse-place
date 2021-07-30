@@ -80,20 +80,20 @@ const InstancedModel = (props: InstancedModelProps) => {
         obj.lookAt(obj.position.clone().multiplyScalar(2));
         obj.scale.set(0.65, 0.65, 0.65);
         spots.push(obj);
+        const obj2 = transform.clone();
+        obj2.position.add(
+          generation(
+            (Math.PI / 180) *
+              ((places[Math.abs(i - places.length + 1)] * 360) / variants +
+                (i * 360) / variants / count +
+                Math.random()),
+            21
+          )
+        );
+        obj2.lookAt(new Vector3(0, 0, 0));
+        obj2.scale.set(0.65, 0.65, 0.65);
+        spots.push(obj2);
       }
-      const obj2 = transform.clone();
-      obj2.position.add(
-        generation(
-          (Math.PI / 180) *
-            ((places[Math.abs(i - places.length + 1)] * 360) / variants +
-              (i * 360) / variants / count +
-              Math.random()),
-          21
-        )
-      );
-      obj2.lookAt(new Vector3(0, 0, 0));
-      obj2.scale.set(0.65, 0.65, 0.65);
-      spots.push(obj2);
     }
     return spots;
   }, [generation, count]);

@@ -15,6 +15,7 @@ const KIOSKS_URL = [
   "https://d27rt3a60hh1lx.cloudfront.net/models/kiosk3-1627604751/kiosk3.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/bench1-1627612392/bench1.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/shelf1-1627612492/shelf1.glb.gz",
+  "https://d27rt3a60hh1lx.cloudfront.net/models/content4-1627641857/content4.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/wagon1-1627612573/wagon1.glb.gz",
 ];
 
@@ -39,7 +40,7 @@ function CreateKiosks(props: NatureProps) {
       model: KIOSKS_URL[0],
       clustering: shape,
       transform: pinkObj,
-      places: [0, 1, 4],
+      places: [0, -1, 4],
     },
     {
       model: KIOSKS_URL[1],
@@ -64,6 +65,12 @@ function CreateKiosks(props: NatureProps) {
       clustering: shape,
       transform: pinkObj,
       places: [2, 0, 3],
+    },
+    {
+      model: KIOSKS_URL[5],
+      clustering: shape,
+      transform: pinkObj,
+      places: [-1, 1, -1],
     },
   ];
 
@@ -101,17 +108,12 @@ export default function Kiosks() {
       <CreateKiosks
         shape={innerCirle}
         position-y={10}
-        rotation-y={(6 * Math.PI) / 5}
+        rotation-y={(8 * Math.PI) / 5}
       />
       <CreateKiosks
         shape={innerCirle}
         position-y={15}
         rotation-y={(4 * Math.PI) / 5}
-      />
-      <CreateKiosks
-        shape={innerCirle}
-        position-y={20}
-        rotation-y={8 * Math.PI}
       />
     </group>
   );
