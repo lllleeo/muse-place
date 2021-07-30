@@ -1,9 +1,10 @@
 import Foliage from "./components/Foliage";
 import { useAlienFoliage } from "./utils/alienFoliage";
 import {
-  allFloors,
-  allFloorsButTop,
+  allFloorsButBottom,
+  allFloorsButTopBottom,
   bigFuckersWithSlightVariation,
+  bottomFloorOnly,
   randomYRot,
   slightlyRandomButSmaller,
   slightlyRandomHeight,
@@ -18,89 +19,96 @@ export default function CarnivalFoliage() {
   return (
     <group name="foliage">
       <Foliage
+        mesh={[foliage.nodes.bulb_tree_a_1, foliage.nodes.bulb_tree_a_2]}
+        count={200}
+        position={bottomFloorOnly}
+        scale={slightRandomScale}
+        rotation={randomYRot}
+      />
+      <Foliage
         mesh={foliage.nodes.grass}
-        count={33000}
-        position={allFloors}
+        count={25000}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fern_a}
         count={20}
-        position={allFloors}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fern_b}
         count={300}
-        position={allFloors}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={[foliage.nodes.fern_c_1, foliage.nodes.fern_c_2]}
         count={30}
-        position={allFloors}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.rock_c}
         count={60}
-        position={allFloors}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.rock_a}
         count={20}
-        position={allFloors}
+        position={allFloorsButBottom}
         scale={slightRandomScale}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fungi_a}
         count={60}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fungi_b}
         count={30}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fungi_c}
         count={30}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.fungi_d}
         count={30}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
       />
       <Foliage
         mesh={foliage.nodes.root_a}
         count={8}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
         scale={smallerRoots}
       />
       <Foliage
         mesh={foliage.nodes.root_b}
         count={8}
-        position={allFloors}
+        position={allFloorsButBottom}
         rotation={randomYRot}
         scale={smallerRoots}
       />
       <Foliage
         mesh={foliage.nodes.tree_a}
         count={40}
-        position={allFloorsButTop}
+        position={allFloorsButTopBottom}
         rotation={randomYRot}
         scale={slightlyRandomButSmaller}
       />

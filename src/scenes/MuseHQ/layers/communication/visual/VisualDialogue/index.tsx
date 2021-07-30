@@ -52,9 +52,15 @@ export default function VisualDialogue(
   const SIDE = props.position && props.position[0] < 0 ? "left" : "right";
 
   const [key, setKey] = useState("init");
+
+  const activeInteraction = dialogue.find((dial) => dial.key === key);
+  const ENABLED =
+    (enabled && activeInteraction?.text && activeInteraction.text !== "") ===
+    true;
+
   const mat = useRef<MeshStandardMaterial>();
   const curIdea = useMemo(() => new Idea(), []);
-  const { scale } = useSpring({ scale: enabled ? 1 : 0 });
+  const { scale } = useSpring({ scale: ENABLED ? 1 : 0 });
 
   // anchor for bubbles to track to dialogue
   const limiter = useLimiter(50);
@@ -88,7 +94,7 @@ export default function VisualDialogue(
         <Bubbles
           position-y={builderHeight}
           numStops={numStops}
-          enabled={enabled}
+          enabled={ENABLED}
           idea={curIdea}
           anchorPos={anchorPos}
         />
@@ -113,6 +119,7 @@ export default function VisualDialogue(
                   {dialogue.map((interaction) => (
                     <VisualInteraction
                       {...interaction}
+                      key={interaction.key}
                       enabled={interaction.key === key}
                     />
                   ))}
