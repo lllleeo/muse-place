@@ -1,10 +1,10 @@
 import SocialButton from "themes/components/SocialButton";
-import Content from "../../Kiosks/models/Content4";
+import Content from "./models/Content4";
 import { useEffect, useRef } from "react";
 import { Vector3 } from "three";
 import { Floating } from "spacesvr";
 
-export default function Socials() {
+export default function Kiosk3() {
   const group1 = useRef<THREE.Group>();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Socials() {
 
   return (
     <group>
-      <group ref={group1} position={[3, 5, -11]}>
+      <group ref={group1} position={[0, 10, -12]}>
         <Content />
         <Floating height={0.02} speed={2}>
           <group position={[0, 0.85, 0.2]} scale={0.75}>

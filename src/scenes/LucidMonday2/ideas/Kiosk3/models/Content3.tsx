@@ -9,28 +9,31 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Hemp_plant_01: THREE.Mesh;
+    content_03: THREE.Mesh;
   };
   materials: {
-    ["Hemp_plant.002"]: THREE.MeshStandardMaterial;
+    ["content_03.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/WeedPlant-1620877818/weed_plant.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/content3-1627643654/content3.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  materials["content_03.mat"].emissive = new THREE.Color("white");
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <mesh
-          name="Hemp_plant_01"
-          geometry={nodes.Hemp_plant_01.geometry}
-          material={materials["Hemp_plant.002"]}
-          rotation-x={Math.PI / 2}
-        />
+        <group name="content_03glb">
+          <mesh
+            name="content_03"
+            geometry={nodes.content_03.geometry}
+            material={materials["content_03.mat"]}
+            scale={[213.1557, 213.1557, 213.1557]}
+          />
+        </group>
       </group>
     </group>
   );
