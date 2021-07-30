@@ -3,7 +3,6 @@ import { Stars } from "@react-three/drei";
 
 import InfiniteFalling from "./ideas/InfiniteFalling";
 import CarnivalEntrance from "./ideas/CarnivalEntrance";
-import ChangingSky from "./ideas/ChangingSky";
 import { StandardEnvironment } from "spacesvr";
 import CarnivalStructure from "./ideas/CarnivalStructure";
 import CentralModel from "./ideas/CentralModel";
@@ -12,6 +11,8 @@ import CarnivalAudio from "./ideas/CarnivalAudio";
 import { LucidWorld } from "./layers/LucidWorld";
 import Kiosks from "./ideas/Kiosks";
 import { Perf } from "r3f-perf";
+import Builder08 from "./ideas/Builders/Builder08";
+import CloudySky from "./ideas/CloudySky";
 
 export default function LucidMonday() {
   return (
@@ -21,17 +22,18 @@ export default function LucidMonday() {
       playerProps={{ pos: [-3, 10, 10], rot: Math.PI, speed: 4.25 }}
       dev={process.env.NODE_ENV == "development"}
       simulationProps={{
-        signalHost: "alto.us-west-1.elasticbeanstalk.com",
+        signalHost: "multiplayer-dev.us-west-1.elasticbeanstalk.com",
         signalPort: 443,
         signalPath: "/signal",
-        socketServer: "wss://alto.us-west-1.elasticbeanstalk.com:8081",
+        socketServer:
+          "wss://multiplayer-dev.us-west-1.elasticbeanstalk.com:8081",
         frequency: 25,
       }}
     >
       <LucidWorld>
-        <ambientLight intensity={0.5} color={0xffffff} />
-        <ChangingSky duration={7} />
-        <Stars radius={30} depth={50} count={1000} factor={2} fade />
+        <ambientLight intensity={1} color={0xffffff} />
+        <CloudySky />
+        <Stars radius={40} depth={50} count={1000} factor={3} fade />
         <CarnivalFoliage />
         <InfiniteFalling />
         <CarnivalAudio />
@@ -39,6 +41,7 @@ export default function LucidMonday() {
         <CentralModel />
         <CarnivalEntrance />
         <Kiosks />
+        <Builder08 position={[0, 20.05, -13]} />
         {/*<Perf />*/}
       </LucidWorld>
     </StandardEnvironment>
