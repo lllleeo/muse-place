@@ -8,7 +8,7 @@ const ButtonTest = () => {
   const [effect, setEffect] = useState(false);
   const color = new Color().setHSL(Math.random(), 1, 0.7);
   return (
-    <group position={[0, 0, -0.5]}>
+    <group position={[7, 2.2, 4.5]}>
       <ToggleEffect
         position={[-6.5, -2, -5]}
         effect={effect}

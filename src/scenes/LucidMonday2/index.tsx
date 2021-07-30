@@ -20,7 +20,7 @@ export default function LucidMonday() {
     <StandardEnvironment
       disableGround
       canvasProps={{ camera: { far: 300 } }}
-      playerProps={{ pos: [-3, 10, 10], rot: Math.PI, speed: 4.25 }}
+      playerProps={{ pos: [3, 85, 10], rot: Math.PI, speed: 4.25 }}
       dev={process.env.NODE_ENV == "development"}
       simulationProps={{
         signalHost: "multiplayer-dev.us-west-1.elasticbeanstalk.com",
