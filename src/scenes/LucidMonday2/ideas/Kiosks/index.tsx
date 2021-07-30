@@ -29,7 +29,7 @@ function CreateKiosks(props: NatureProps) {
   const { shape, ...restProps } = props;
 
   const pinkObj = new Object3D();
-  // pinkObj.scale.multiplyScalar(0.0175);
+  pinkObj.scale.multiplyScalar(0.65);
   pinkObj.position.y = 0;
   // pinkObj.rotation.x = Math.PI / 2;
   pinkObj.updateMatrix();
@@ -45,7 +45,7 @@ function CreateKiosks(props: NatureProps) {
       model: KIOSKS_URL[1],
       clustering: shape,
       transform: pinkObj,
-      places: [3, 4, 0],
+      places: [3, 4],
     },
     {
       model: KIOSKS_URL[2],
@@ -92,8 +92,7 @@ export default function Kiosks() {
     return new Vector3(x_gen, 0, z_gen);
   };
   return (
-    <group name="weed plants">
-      <CreateKiosks shape={innerCirle} />
+    <group name="filler-kiosks">
       <CreateKiosks
         shape={innerCirle}
         position-y={5}
