@@ -1,6 +1,7 @@
 import InstancedModel from "./components/InstancedModel";
 import { Object3D, Vector3 } from "three";
 import { GroupProps } from "@react-three/fiber";
+import React from "react";
 
 type ImplicitFunc = (t: number, r: number) => Vector3;
 
@@ -24,7 +25,7 @@ type Piece = {
   places: number[];
 };
 
-export default function Kiosks(props: NatureProps) {
+function CreateKiosks(props: NatureProps) {
   const { shape, ...restProps } = props;
 
   const pinkObj = new Object3D();
@@ -80,6 +81,39 @@ export default function Kiosks(props: NatureProps) {
           index={i}
         />
       ))}
+    </group>
+  );
+}
+
+export default function Kiosks() {
+  const innerCirle = (t: number, r: number) => {
+    const x_gen = r * Math.cos(t);
+    const z_gen = r * Math.sin(t);
+    return new Vector3(x_gen, 0, z_gen);
+  };
+  return (
+    <group name="weed plants">
+      <CreateKiosks shape={innerCirle} />
+      <CreateKiosks
+        shape={innerCirle}
+        position-y={5}
+        rotation-y={Math.PI / 5}
+      />
+      <CreateKiosks
+        shape={innerCirle}
+        position-y={10}
+        rotation-y={(6 * Math.PI) / 5}
+      />
+      <CreateKiosks
+        shape={innerCirle}
+        position-y={15}
+        rotation-y={(4 * Math.PI) / 5}
+      />
+      <CreateKiosks
+        shape={innerCirle}
+        position-y={20}
+        rotation-y={8 * Math.PI}
+      />
     </group>
   );
 }

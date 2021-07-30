@@ -13,12 +13,6 @@ import { LucidWorld } from "./layers/LucidWorld";
 import Kiosks from "./ideas/Kiosks";
 
 export default function LucidMonday() {
-  const innerCirle = (t: number, r: number) => {
-    const x_gen = r * Math.cos(t);
-    const z_gen = r * Math.sin(t);
-    return new Vector3(x_gen, 0, z_gen);
-  };
-
   return (
     <StandardEnvironment
       disableGround
@@ -36,21 +30,7 @@ export default function LucidMonday() {
         <CarnivalStructure />
         <CentralModel />
         <CarnivalEntrance />
-        <group name="weed plants">
-          <Kiosks shape={innerCirle} />
-          <Kiosks shape={innerCirle} position-y={5} rotation-y={Math.PI / 5} />
-          <Kiosks
-            shape={innerCirle}
-            position-y={10}
-            rotation-y={(6 * Math.PI) / 5}
-          />
-          <Kiosks
-            shape={innerCirle}
-            position-y={15}
-            rotation-y={(4 * Math.PI) / 5}
-          />
-          <Kiosks shape={innerCirle} position-y={20} rotation-y={8 * Math.PI} />
-        </group>
+        <Kiosks />
       </LucidWorld>
     </StandardEnvironment>
   );
