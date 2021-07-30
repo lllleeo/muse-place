@@ -11,6 +11,7 @@ import CarnivalFoliage from "./ideas/CarnivalFoliage";
 import CarnivalAudio from "./ideas/CarnivalAudio";
 import { LucidWorld } from "./layers/LucidWorld";
 import Kiosks from "./ideas/Kiosks";
+import { Perf } from "r3f-perf";
 
 export default function LucidMonday() {
   return (
@@ -19,6 +20,13 @@ export default function LucidMonday() {
       canvasProps={{ camera: { far: 300 } }}
       playerProps={{ pos: [-3, 10, 10], rot: Math.PI, speed: 4.25 }}
       dev={process.env.NODE_ENV == "development"}
+      simulationProps={{
+        signalHost: "alto.us-west-1.elasticbeanstalk.com",
+        signalPort: 443,
+        signalPath: "/signal",
+        socketServer: "wss://alto.us-west-1.elasticbeanstalk.com:8081",
+        frequency: 25,
+      }}
     >
       <LucidWorld>
         <ambientLight intensity={0.5} color={0xffffff} />
@@ -31,6 +39,7 @@ export default function LucidMonday() {
         <CentralModel />
         <CarnivalEntrance />
         <Kiosks />
+        {/*<Perf />*/}
       </LucidWorld>
     </StandardEnvironment>
   );
