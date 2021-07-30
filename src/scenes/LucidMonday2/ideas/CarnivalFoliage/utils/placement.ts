@@ -16,21 +16,41 @@ export const coverFirstFloor = (x: number, y: number, z: number): Vector3 => {
   return new Vector3().setFromSphericalCoords(r, Math.PI / 2, t);
 };
 
-export const allFloors = (x: number, y: number, z: number): Vector3 => {
-  const floor = intFromRange(5);
-  const [r, t] = stairProtectedRT(x, z, floor);
+export const allFloorsButBottom = (
+  x: number,
+  y: number,
+  z: number
+): Vector3 => {
+  const floor = intFromRange(4) + 1;
+  const [r, t] = stairProtectedRT(attenuateTowardsInnerEdge(x), z, floor);
   const v = new Vector3()
     .setFromSphericalCoords(r, Math.PI / 2, t)
     .setY(floor * FLOOR_HEIGHT + 0.01);
   return v;
 };
 
-export const allFloorsButTop = (x: number, y: number, z: number): Vector3 => {
-  const floor = intFromRange(4);
-  const [r, t] = stairProtectedRT(x, z, floor);
+export const allFloorsButTopBottom = (
+  x: number,
+  y: number,
+  z: number
+): Vector3 => {
+  const floor = intFromRange(3) + 1;
+  const [r, t] = stairProtectedRT(attenuateTowardsInnerEdge(x), z, floor);
   const v = new Vector3()
     .setFromSphericalCoords(r, Math.PI / 2, t)
     .setY(floor * FLOOR_HEIGHT + 0.01);
+  return v;
+};
+
+export const bottomFloorOnly = (x: number, y: number, z: number): Vector3 => {
+  const [r, t] = stairProtectedRT(x, z);
+  const v = new Vector3()
+    .setFromSphericalCoords(
+      x > 0.5 ? INNER_STAIR_RADIUS : OUTER_STAIR_RADIUS,
+      Math.PI / 2,
+      t
+    )
+    .setY(0.01);
   return v;
 };
 
@@ -123,3 +143,5 @@ const stairProtectedRT = (
 
   return [r, theta];
 };
+
+const attenuateTowardsInnerEdge = (r: number) => 1 - Math.pow(r, 3);

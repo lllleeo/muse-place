@@ -8,7 +8,7 @@ type InfiniteFallingProps = {
 };
 
 export default function InfiniteFalling(props: InfiniteFallingProps) {
-  const { low = -150, high = 150 } = props;
+  const { low = -80, high = 100 } = props;
 
   const { camera } = useThree();
   const player = usePlayer();

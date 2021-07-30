@@ -15,7 +15,6 @@ const KIOSKS_URL = [
   "https://d27rt3a60hh1lx.cloudfront.net/models/kiosk3-1627604751/kiosk3.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/bench1-1627612392/bench1.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/shelf1-1627612492/shelf1.glb.gz",
-  "https://d27rt3a60hh1lx.cloudfront.net/models/content4-1627641857/content4.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/wagon1-1627612573/wagon1.glb.gz",
 ];
 
@@ -30,7 +29,7 @@ function CreateKiosks(props: NatureProps) {
   const { shape, ...restProps } = props;
 
   const pinkObj = new Object3D();
-  // pinkObj.scale.multiplyScalar(0.0175);
+  pinkObj.scale.multiplyScalar(0.65);
   pinkObj.position.y = 0;
   // pinkObj.rotation.x = Math.PI / 2;
   pinkObj.updateMatrix();
@@ -66,12 +65,6 @@ function CreateKiosks(props: NatureProps) {
       transform: pinkObj,
       places: [2, 0, 3],
     },
-    {
-      model: KIOSKS_URL[5],
-      clustering: shape,
-      transform: pinkObj,
-      places: [-1, 1, -1],
-    },
   ];
 
   return (
@@ -99,7 +92,7 @@ export default function Kiosks() {
     return new Vector3(x_gen, 0, z_gen);
   };
   return (
-    <group name="weed plants">
+    <group name="filler-kiosks">
       <CreateKiosks
         shape={innerCirle}
         position-y={5}
@@ -108,12 +101,17 @@ export default function Kiosks() {
       <CreateKiosks
         shape={innerCirle}
         position-y={10}
-        rotation-y={(8 * Math.PI) / 5}
+        rotation-y={(6 * Math.PI) / 5}
       />
       <CreateKiosks
         shape={innerCirle}
         position-y={15}
         rotation-y={(4 * Math.PI) / 5}
+      />
+      <CreateKiosks
+        shape={innerCirle}
+        position-y={20}
+        rotation-y={8 * Math.PI}
       />
     </group>
   );
