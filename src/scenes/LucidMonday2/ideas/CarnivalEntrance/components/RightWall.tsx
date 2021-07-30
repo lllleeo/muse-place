@@ -5,14 +5,24 @@ import { GroupProps } from "@react-three/fiber";
 
 const FRAME_COLOR = new Color(0xffffff);
 
-function AnnotatedLink(props: { link: string; text?: string } & GroupProps) {
-  const { link, text = link.replace("https://", ""), ...restProps } = props;
+function AnnotatedLink(
+  props: { link: string; text?: string; smType?: string } & GroupProps
+) {
+  const {
+    link,
+    text = link.replace("https://", ""),
+    smType,
+    ...restProps
+  } = props;
 
   const SCALE = 0.4;
 
   return (
     <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialButton link={link} scale={[SCALE, SCALE, SCALE]} />
+      <SocialButton
+        link={smType ? smType : link}
+        scale={[SCALE, SCALE, SCALE]}
+      />
       {/* @ts-ignore */}
       <Text
         position-x={SCALE * 0.3}
@@ -35,43 +45,83 @@ const RightWall = () => {
       scale={[0.7, 0.7, 0.7]}
     >
       <AnnotatedLink
-        link="https://instagram.com/lucidmonday"
+        link="bit.ly/37au0Cs"
+        smType="facebook.com"
         text=""
-        position={[-0.5, -0.3, 0]}
-        scale={7.0}
+        position={[5.7, 2, -10]}
+        rotation-y={[Math.PI / 2]}
+        scale={10.0}
       />
       <AnnotatedLink
-        link="https://twitter.com/lucid_monday"
+        link="bit.ly/3C6WbjY"
+        smType="twitch.com"
         text=""
-        position={[2.5, -0.3, 0]}
-        scale={7.0}
+        position={[5.7, 2, -6]}
+        rotation-y={[Math.PI / 2]}
+        scale={10.0}
       />
       <AnnotatedLink
-        link="https://youtube.com/lucidmonday"
+        link="bit.ly/2VncRT9"
+        smType="instagram.com"
         text=""
-        position={[5.5, -0.3, 0]}
-        scale={7.0}
+        position={[5.7, 2, -2]}
+        rotation-y={[Math.PI / 2]}
+        scale={10.0}
       />
       <AnnotatedLink
-        link="https://soundcloud.com/lucidmonday"
+        link="bit.ly/2V7ZmXI"
+        smType="twitter.com"
         text=""
-        position={[-0.5, -0.3, 16.8]}
-        rotation-y={[Math.PI]}
-        scale={7.0}
+        position={[5.7, 2, 2]}
+        rotation-y={[Math.PI / 2]}
+        scale={10.0}
       />
       <AnnotatedLink
-        link="https://open.spotify.com/user/0m1ewbfl4sfauko9hvrg5qopu?si=tD6RjOJRTdSTGn96XGaLEg"
+        link="bit.ly/375CquO"
+        smType="youtube.com"
         text=""
-        position={[2.5, -0.3, 16.8]}
-        rotation-y={[Math.PI]}
-        scale={7.0}
+        position={[5.7, 2, 6]}
+        rotation-y={[Math.PI / 2]}
+        scale={10.0}
       />
       <AnnotatedLink
-        link="https://discord.gg/gg5JQJC"
+        link="bit.ly/3i9RVbg"
         text=""
-        position={[5.5, -0.3, 16.8]}
-        rotation-y={[Math.PI]}
-        scale={7.0}
+        position={[16.5, 2, -10]}
+        rotation-y={[-Math.PI / 2]}
+        scale={10.0}
+      />
+      <AnnotatedLink
+        link="bit.ly/3lcKFxq"
+        smType="youtube.com"
+        text=""
+        position={[16.5, 2, -6]}
+        rotation-y={[-Math.PI / 2]}
+        scale={10.0}
+      />
+      <AnnotatedLink
+        link="bit.ly/3zLAsfa"
+        smType="soundcloud.com"
+        text=""
+        position={[16.5, 2, -2]}
+        rotation-y={[-Math.PI / 2]}
+        scale={10.0}
+      />
+      <AnnotatedLink
+        link="spoti.fi/3iiKz5D"
+        smType="open.spotify.com"
+        text=""
+        position={[16.5, 2, 2]}
+        rotation-y={[-Math.PI / 2]}
+        scale={10.0}
+      />
+      <AnnotatedLink
+        link="bit.ly/3fbzLUW"
+        smType="discord.com"
+        text=""
+        position={[16.5, 2, 6]}
+        rotation-y={[-Math.PI / 2]}
+        scale={10.0}
       />
 
       <group position={[1.0, -1, 0]}>
