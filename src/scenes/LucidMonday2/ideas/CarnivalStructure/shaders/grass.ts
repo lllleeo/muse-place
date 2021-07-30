@@ -1,12 +1,16 @@
 export const vert = `
+    varying vec3 vPos;
+
     void main(void) {
         vec3 nPos = position;
         vUv = uv;
+        vPos = position;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(nPos, 1.0);
     }
 `;
 
 export const frag = `
+    varying vec3 vPos;
     uniform sampler2D tex;
     
     vec3 rgb2hsv(vec3 c)
@@ -38,9 +42,20 @@ export const frag = `
         vec4 color_a = texture2D(tex, uv_coord);
         vec3 color = color_a.rgb;
         
+        float energy = 0.;
+        if (vPos.y < 20.5) energy = floor4;
+        if (vPos.y < 15.5) energy = floor3;
+        if (vPos.y < 10.5) energy = floor2;
+        if (vPos.y < 5.5) energy = floor1;
+        if (vPos.y < 0.5) energy = floor0;
+        
         color = rgb2hsv(color);
         color.r += 0.2 + 0.1 * (sin(u_time + vUv.x) + 1.) / 2.;
         color.g += 0.2 + 0.1 * (sin(u_time + 300. + vUv.y) + 1.) / 2.;
+        color.g *= energy * 0.5 + 1.;
+        color.b -= 0.3;
+        color.b += energy * 0.2;
+        color.b *= 1. + energy;
         color = hsv2rgb(color);
         
         gl_FragColor.rgb = color;

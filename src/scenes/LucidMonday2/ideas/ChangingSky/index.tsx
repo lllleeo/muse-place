@@ -47,7 +47,7 @@ export default function ChangingSky(props: ChangingSkyProps) {
         rayleigh={rConstant}
         mieCoefficient={0.1}
         mieDirectionalG={1}
-        sunPosition={[1, sunPosY, 1]}
+        sunPosition={[1, 0, 1]}
         distance={60000}
       />
     </group>
