@@ -10,7 +10,7 @@ import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/entrance-1627632220/lucidmonday_entry_03.glb.gz";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/entrance-1627638225/lucidmonday_entry_04.glb.gz";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,6 +18,7 @@ type GLTFResult = GLTF & {
     balcony: THREE.Mesh;
     balconyrailing: THREE.Mesh;
     balconysupport: THREE.Mesh;
+    sign: THREE.Mesh;
     collider: THREE.Mesh;
   };
   materials: {
@@ -25,6 +26,7 @@ type GLTFResult = GLTF & {
     ["balcony.mat"]: THREE.MeshStandardMaterial;
     ["balcony.railing.mat"]: THREE.MeshStandardMaterial;
     ["balcony.support.mat"]: THREE.MeshStandardMaterial;
+    ["sign.mat"]: THREE.MeshStandardMaterial;
   };
 };
 
@@ -34,7 +36,6 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   useTrimeshCollision(
     (nodes.collider.geometry as BufferGeometry).clone().translate(3, 70, 10)
   );
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
@@ -59,10 +60,11 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials["balcony.support.mat"]}
         />
         <mesh
-          name="collider"
-          geometry={nodes.collider.geometry}
-          material={nodes.collider.material}
+          name="sign"
+          geometry={nodes.sign.geometry}
+          material={materials["sign.mat"]}
         />
+        {/*<mesh name="collider" geometry={nodes.collider.geometry} material={nodes.collider.material} />*/}
       </group>
     </group>
   );

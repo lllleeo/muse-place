@@ -41,14 +41,14 @@ const RightWall = () => {
     <group
       name="right-wall"
       rotation={[0, -Math.PI / 2, 0]}
-      position={[4.6, -0.35, -7.8]}
+      position={[4.0, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}
     >
       <AnnotatedLink
         link="bit.ly/37au0Cs"
         smType="facebook.com"
         text=""
-        position={[5.7, 2, -10]}
+        position={[5.7, 2, -6]}
         rotation-y={[Math.PI / 2]}
         scale={10.0}
       />
@@ -56,7 +56,7 @@ const RightWall = () => {
         link="bit.ly/3C6WbjY"
         smType="twitch.com"
         text=""
-        position={[5.7, 2, -6]}
+        position={[5.7, 2, -3]}
         rotation-y={[Math.PI / 2]}
         scale={10.0}
       />
@@ -64,7 +64,7 @@ const RightWall = () => {
         link="bit.ly/2VncRT9"
         smType="instagram.com"
         text=""
-        position={[5.7, 2, -2]}
+        position={[5.7, 2, 0]}
         rotation-y={[Math.PI / 2]}
         scale={10.0}
       />
@@ -72,7 +72,7 @@ const RightWall = () => {
         link="bit.ly/2V7ZmXI"
         smType="twitter.com"
         text=""
-        position={[5.7, 2, 2]}
+        position={[5.7, 2, 3]}
         rotation-y={[Math.PI / 2]}
         scale={10.0}
       />
@@ -87,7 +87,7 @@ const RightWall = () => {
       <AnnotatedLink
         link="bit.ly/3i9RVbg"
         text=""
-        position={[16.5, 2, -10]}
+        position={[16.5, 2, -6]}
         rotation-y={[-Math.PI / 2]}
         scale={10.0}
       />
@@ -95,7 +95,7 @@ const RightWall = () => {
         link="bit.ly/3lcKFxq"
         smType="youtube.com"
         text=""
-        position={[16.5, 2, -6]}
+        position={[16.5, 2, -3]}
         rotation-y={[-Math.PI / 2]}
         scale={10.0}
       />
@@ -103,7 +103,7 @@ const RightWall = () => {
         link="bit.ly/3zLAsfa"
         smType="soundcloud.com"
         text=""
-        position={[16.5, 2, -2]}
+        position={[16.5, 2, 0]}
         rotation-y={[-Math.PI / 2]}
         scale={10.0}
       />
@@ -111,7 +111,7 @@ const RightWall = () => {
         link="spoti.fi/3iiKz5D"
         smType="open.spotify.com"
         text=""
-        position={[16.5, 2, 2]}
+        position={[16.5, 2, 3]}
         rotation-y={[-Math.PI / 2]}
         scale={10.0}
       />
