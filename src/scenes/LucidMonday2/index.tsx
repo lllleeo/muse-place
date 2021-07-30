@@ -13,6 +13,7 @@ import Kiosks from "./ideas/Kiosks";
 import { Perf } from "r3f-perf";
 import Builder08 from "./ideas/Builders/Builder08";
 import CloudySky from "./ideas/CloudySky";
+import Kiosk1 from "./ideas/Kiosk1";
 import Kiosk2 from "./ideas/Kiosk2";
 import Kiosk3 from "./ideas/Kiosk3";
 import Kiosk4 from "./ideas/Kiosk4";
@@ -44,6 +45,7 @@ export default function LucidMonday() {
         <CentralModel />
         <CarnivalEntrance />
         <Kiosks />
+        <Kiosk1 />
         <Kiosk2 />
         <Kiosk3 />
         <Kiosk4 />
