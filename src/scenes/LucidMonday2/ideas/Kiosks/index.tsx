@@ -7,12 +7,13 @@ type NatureProps = {
   shape: ImplicitFunc;
 };
 
-const WEED_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/WeedPlant-1620877818/weed_plant.glb.gz";
 const KIOSKS_URL = [
   "https://d27rt3a60hh1lx.cloudfront.net/models/kiosk1-1627604590/kiosk1.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/kiosk2-1627604660/kiosk2.glb.gz",
   "https://d27rt3a60hh1lx.cloudfront.net/models/kiosk3-1627604751/kiosk3.glb.gz",
+  "https://d27rt3a60hh1lx.cloudfront.net/models/bench1-1627612392/bench1.glb.gz",
+  "https://d27rt3a60hh1lx.cloudfront.net/models/shelf1-1627612492/shelf1.glb.gz",
+  "https://d27rt3a60hh1lx.cloudfront.net/models/wagon1-1627612573/wagon1.glb.gz",
 ];
 
 type Piece = {
@@ -46,6 +47,16 @@ export default function Kiosks(props: NatureProps) {
       clustering: shape,
       transform: pinkObj,
     },
+    {
+      model: KIOSKS_URL[3],
+      clustering: shape,
+      transform: pinkObj,
+    },
+    {
+      model: KIOSKS_URL[4],
+      clustering: shape,
+      transform: pinkObj,
+    },
   ];
 
   return (
@@ -54,7 +65,8 @@ export default function Kiosks(props: NatureProps) {
         <InstancedModel
           key={piece.model}
           model={piece.model}
-          count={2}
+          count={3}
+          variants={pieces.length}
           generation={piece.clustering}
           transform={piece.transform}
           index={i}

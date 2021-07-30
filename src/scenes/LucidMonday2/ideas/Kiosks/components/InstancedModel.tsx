@@ -33,6 +33,7 @@ type GenerateFunc = (t: number, r: number) => Vector3;
 type InstancedModelProps = {
   model: string;
   count: number;
+  variants: number;
   generation: GenerateFunc;
   transform?: Object3D;
   index?: number;
@@ -45,6 +46,7 @@ const InstancedModel = (props: InstancedModelProps) => {
     generation,
     index = 0,
     transform = new Object3D(),
+    variants,
   } = props;
 
   const gltf = useGLTF(model);
@@ -70,17 +72,30 @@ const InstancedModel = (props: InstancedModelProps) => {
               0,
               positions[2 * i + 1 + 2 * count * index]
             )
-          : generation(Math.random() * 360, 11)
+          : generation(
+              (Math.PI / 180) *
+                ((index * 360) / variants +
+                  (i * 360) / variants / count +
+                  Math.random()),
+              11
+            )
       );
       obj.lookAt(obj.position.clone().multiplyScalar(2));
       spots.push(obj);
-      ``;
     }
     return spots;
   }, [generation, count]);
 
-  const instances = meshes.map((mesh) => (
-    <InstancedObject key={mesh.uuid} mesh={mesh} placements={placements} />
+  const instances = meshes.map((mesh, i) => (
+    <group key={mesh.uuid}>
+      <InstancedObject mesh={mesh} placements={placements} />
+      <mesh
+        position={[placements[i].position.x, 0.5, placements[i].position.z]}
+      >
+        <boxBufferGeometry args={[0.5, 1, 0.5]} />
+        <meshBasicMaterial color="blue" />
+      </mesh>
+    </group>
   ));
 
   return <group {...props}>{instances}</group>;

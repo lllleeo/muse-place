@@ -11,7 +11,6 @@ import CarnivalStructure from "./ideas/CarnivalStructure";
 import CentralModel from "./ideas/CentralModel";
 import CarnivalFoliage from "./ideas/CarnivalFoliage";
 import Kiosks from "./ideas/Kiosks";
-import { positions } from "./ideas/Kiosks/assets/constants";
 
 export default function LucidMonday() {
   const position: number[] = [];
