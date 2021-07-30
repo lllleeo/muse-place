@@ -45,7 +45,7 @@ function CreateKiosks(props: NatureProps) {
       model: KIOSKS_URL[1],
       clustering: shape,
       transform: pinkObj,
-      places: [3, 4],
+      places: [3, 4, 0],
     },
     {
       model: KIOSKS_URL[2],

@@ -14,6 +14,7 @@ import { Perf } from "r3f-perf";
 import Builder08 from "./ideas/Builders/Builder08";
 import CloudySky from "./ideas/CloudySky";
 import Kiosk2 from "./ideas/Kiosk2";
+import Kiosk4 from "./ideas/Kiosk4";
 
 export default function LucidMonday() {
   return (
@@ -43,6 +44,7 @@ export default function LucidMonday() {
         <CarnivalEntrance />
         <Kiosks />
         <Kiosk2 />
+        <Kiosk4 />
         <Builder08 position={[0, 20.05, -13]} />
         {/*<Perf />*/}
       </LucidWorld>
