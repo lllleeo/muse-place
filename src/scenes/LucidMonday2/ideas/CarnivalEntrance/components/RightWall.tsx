@@ -28,26 +28,26 @@ const RightWall = () => {
       <group name="bunch-1" position-z={1.5}>
         <AnnotatedLink
           link="spoti.fi/3iiKz5D"
-          smType="open.spotify.com"
+          smType="open.spotify.com/user/0m1ewbfl4sfauko9hvrg5qopu?si=tD6RjOJRTdSTGn96XGaLEg"
           position={[9.85, 1, -2.1]}
           rotation-y={0.3}
         />
         <AnnotatedLink
           link="bit.ly/3zLAsfa"
-          smType="soundcloud.com"
+          smType="soundcloud.com/lucidmonday"
           position={[8.9, 1, -2]}
           rotation-y={-0.1}
         />
         <AnnotatedLink
           link="bit.ly/2VncRT9"
-          smType="instagram.com"
+          smType="instagram.com/lucidmonday"
           position={[9.3, 1.85, -2]}
           rotation-y={0.1}
         />
       </group>
       <AnnotatedLink
         link="bit.ly/3fbzLUW"
-        smType="dicord.com"
+        smType="https://discord.gg/gg5JQJC"
         position={[14.3, 0.95, -5.24]}
         rotation-y={-0.9}
         rotation-x={-0.25}
@@ -55,13 +55,13 @@ const RightWall = () => {
       />
       <AnnotatedLink
         link="bit.ly/3lcKFxq"
-        smType="youtube.com"
+        smType="youtube.com/lucidmonday"
         position={[14, 0.9, 0]}
         rotation-y={-0.4}
       />
       <AnnotatedLink
         link="bit.ly/2V7ZmXI"
-        smType="twitter.com"
+        smType="twitter.com/lucid_monday"
         position={[8, 0.9, 2]}
         rotation-y={0.9}
       />
