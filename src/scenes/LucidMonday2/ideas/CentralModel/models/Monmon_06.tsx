@@ -29,7 +29,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null}>
       <Spinning xSpeed={1} ySpeed={1} zSpeed={0.5}>
-        <group scale={[12, 12, 12]}>
+        <group scale={12}>
           <group>
             <mesh
               name="lucid"

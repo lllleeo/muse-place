@@ -79,6 +79,17 @@ export const slightlyRandomButSmaller = (
     0.6 + range(z, 0.1)
   ).multiplyScalar(GLOBAL_SCALE);
 
+export const bigFuckersWithSlightVariation = (
+  x: number,
+  y: number,
+  z: number
+): Vector3 =>
+  new Vector3(
+    1.5 + range(x, 0.1),
+    1.5 + range(y, 0.6),
+    1.5 + range(z, 0.1)
+  ).multiplyScalar(GLOBAL_SCALE);
+
 // rotation ---------------------------------------------------------------------------------------
 export const randomYRot = (x: number, y: number, z: number): Vector3 =>
   new Vector3(0, y * Math.random() * 2, 0);

@@ -3,6 +3,7 @@ import { useAlienFoliage } from "./utils/alienFoliage";
 import {
   allFloors,
   allFloorsButTop,
+  bigFuckersWithSlightVariation,
   randomYRot,
   slightlyRandomButSmaller,
   slightlyRandomHeight,
@@ -108,7 +109,7 @@ export default function CarnivalFoliage() {
         count={25}
         position={topFloorOnly}
         rotation={randomYRot}
-        scale={slightlyRandomHeight}
+        scale={bigFuckersWithSlightVariation}
       />
     </group>
   );
