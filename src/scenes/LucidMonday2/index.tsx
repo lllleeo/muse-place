@@ -1,7 +1,7 @@
 import React from "react";
 import { Stars } from "@react-three/drei";
 
-import InfiniteFalling from "./ideas/InfiniteFalling";
+import Falling from "./ideas/Falling";
 import CarnivalEntrance from "./ideas/CarnivalEntrance";
 import { StandardEnvironment } from "spacesvr";
 import CarnivalStructure from "./ideas/CarnivalStructure";
@@ -39,7 +39,7 @@ export default function LucidMonday() {
         <CloudySky />
         <Stars radius={40} depth={50} count={1000} factor={3} fade />
         <CarnivalFoliage />
-        <InfiniteFalling />
+        <Falling />
         <CarnivalAudio />
         <CarnivalStructure />
         <CentralModel />
