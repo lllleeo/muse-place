@@ -11,6 +11,7 @@ import Soundcloud from "./models/Soundcloud";
 import Email from "./models/Email";
 import Nifty from "./models/Nifty";
 import Discord from "./models/Discord";
+import Twitch from "./models/Twitch";
 import { GroupProps } from "@react-three/fiber";
 
 type SocialProps = {
@@ -41,6 +42,8 @@ export default function SocialButton(props: SocialProps) {
     ? Nifty
     : lowerLink.includes("discord.com")
     ? Discord
+    : lowerLink.includes("twitch.tv")
+    ? Twitch
     : Web;
 
   const handleClick = () => window.open(link, "_blank");

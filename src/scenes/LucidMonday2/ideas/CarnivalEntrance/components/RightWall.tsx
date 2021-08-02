@@ -51,7 +51,7 @@ const RightWall = () => {
       />
       <AnnotatedLink
         link="https://bit.ly/3C6WbjY"
-        smType="twitch.com"
+        smType="twitch.tv"
         text=""
         position={[5.7, 2, -3]}
         rotation-y={[Math.PI / 2]}
@@ -67,7 +67,7 @@ const RightWall = () => {
       />
       <AnnotatedLink
         link="https://bit.ly/2V7ZmXI"
-        smType="twitter.com"
+        smType="twitter.tv"
         text=""
         position={[5.7, 2, 3]}
         rotation-y={[Math.PI / 2]}
