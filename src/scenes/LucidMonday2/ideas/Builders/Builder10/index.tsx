@@ -1,28 +1,33 @@
+import { useProximity } from "../lib/utils/proximity";
 import { useRef } from "react";
 import { Group } from "three";
-import BuilderModel from "../lib/models/Builder2";
-import { GroupProps, useFrame } from "@react-three/fiber";
-import { Floating } from "spacesvr";
+import LookAtPlayer from "../lib/modifiers/LookAtPlayer";
+import BuilderModel from "../lib/models/Builder";
+import VisualDialogue from "../../../../MuseHQ/layers/communication/visual/VisualDialogue";
+import { GroupProps } from "@react-three/fiber";
+import { useBuilder08Dialogue } from "./dialogue";
 
 export default function Builder(props: GroupProps) {
   const group = useRef<Group>();
 
-  useFrame(({ clock }) => {
-    if (!group.current) return;
-    // @ts-ignore
-    group.current.rotation.y = -((new Date() / 1000) % 10000) / 10;
-  });
+  const proximity = useProximity(group);
+  const dialogue = useBuilder08Dialogue();
+
+  const anim = proximity.idle ? "idle" : "idle";
 
   return (
     <group name="builder" {...props}>
-      <group ref={group}>
-        <group position-x={17}>
-          <group position-y={0.5}>
-            <Floating height={0.4} speed={2}>
-              <BuilderModel animation="swimmin" />
-            </Floating>
+      <group rotation-y={0}>
+        <LookAtPlayer enabled={!proximity.idle}>
+          <group ref={group}>
+            <BuilderModel animation={anim} rotation-y={Math.PI / 2} />
           </group>
-        </group>
+          <VisualDialogue
+            enabled={proximity.speaking}
+            position={[0.15, 1.1, 0.25]}
+            dialogue={dialogue}
+          />
+        </LookAtPlayer>
       </group>
     </group>
   );

@@ -15,17 +15,20 @@ import Discord from "./models/Discord";
 import Linkedin from "./models/Linkedin";
 import Opensea from "./models/Opensea";
 import Tiktok from "./models/Tiktok";
+import Twitch from "./models/Twitch";
 
 type SocialProps = {
   link: string;
+  smType?: string;
 } & GroupProps;
 
 export default function SocialMediaButton(props: SocialProps) {
-  const { link, ...restProps } = props;
+  const { link, smType, ...restProps } = props;
 
-  let lowerLink = link.toLowerCase();
-  if (!lowerLink.includes("://")) {
-    lowerLink = "https://" + lowerLink;
+  const lowerLink = smType ? smType.toLowerCase() : link.toLowerCase();
+  let finalLink = link;
+  if (!finalLink.includes("://")) {
+    finalLink = "https://" + finalLink;
   }
   const contains = (str: string) => lowerLink.includes(str);
 
@@ -37,6 +40,8 @@ export default function SocialMediaButton(props: SocialProps) {
     ? Email
     : contains("discord.com") || contains("discord.gg")
     ? Discord
+    : contains("twitch.tv") || contains("twitch.com")
+    ? Twitch
     : contains("linkedin.com") || contains("linked.in")
     ? Linkedin
     : contains("spotify.com")
@@ -56,8 +61,8 @@ export default function SocialMediaButton(props: SocialProps) {
     : Web;
 
   const handleClick = useCallback(
-    () => window.open(lowerLink, "_blank"),
-    [lowerLink]
+    () => window.open(finalLink, "_blank"),
+    [finalLink]
   );
 
   return (

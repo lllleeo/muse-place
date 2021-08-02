@@ -23,7 +23,7 @@ export default function Kiosk3() {
       <group ref={group1} position={[11, 15, -0]}>
         <Content />
         <Floating height={0.02} speed={2}>
-          <group position={[0, 0.75, 0.2]} scale={0.75}>
+          <group position={[0, 0.75, 0.1]} scale={0.75}>
             <SocialButton link="https://discord.com/invite/xQspThf" />
           </group>
         </Floating>

@@ -19,7 +19,7 @@ export default function Kiosk3() {
   }, [group1]);
 
   return (
-    <group>
+    <group name="kiosk4">
       <group ref={group1} position={[0, 10, -12]}>
         <Content />
         <Floating height={0.02} speed={2}>
@@ -45,6 +45,23 @@ export default function Kiosk3() {
             />
           </group>
         </Floating>
+      </group>
+      <group name="excessLinks">
+        <SocialButton
+          link="https://www.youtube.com/channel/UCyzAwg6jela6dNhe38Rwp7Q"
+          position={[11, 10.85, 0.06]}
+          rotation-y={1.609}
+        />
+        <SocialButton
+          link="https://www.instagram.com/lucidmonday"
+          position={[-8.95, 10.85, 6.45]}
+          rotation-y={-2.133}
+        />
+        <SocialButton
+          link="https://soundcloud.com/lucidmonday"
+          position={[-1.23, 10.85, 11.04]}
+          position-x={2}
+        />
       </group>
     </group>
   );
