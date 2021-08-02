@@ -19,10 +19,7 @@ function AnnotatedLink(
 
   return (
     <group name={`annotatedlink-${link}`} {...restProps}>
-      <SocialButton
-        link={smType ? smType : link}
-        scale={[SCALE, SCALE, SCALE]}
-      />
+      <SocialButton link={link} smType={smType} scale={[SCALE, SCALE, SCALE]} />
       {/* @ts-ignore */}
       <Text
         position-x={SCALE * 0.3}
@@ -45,7 +42,7 @@ const RightWall = () => {
       scale={[0.7, 0.7, 0.7]}
     >
       <AnnotatedLink
-        link="bit.ly/37au0Cs"
+        link="https://bit.ly/37au0Cs"
         smType="facebook.com"
         text=""
         position={[5.7, 2, -6]}
@@ -53,7 +50,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/3C6WbjY"
+        link="https://bit.ly/3C6WbjY"
         smType="twitch.com"
         text=""
         position={[5.7, 2, -3]}
@@ -61,7 +58,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/2VncRT9"
+        link="https://bit.ly/2VncRT9"
         smType="instagram.com"
         text=""
         position={[5.7, 2, 0]}
@@ -69,7 +66,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/2V7ZmXI"
+        link="https://bit.ly/2V7ZmXI"
         smType="twitter.com"
         text=""
         position={[5.7, 2, 3]}
@@ -77,7 +74,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/375CquO"
+        link="https://bit.ly/375CquO"
         smType="youtube.com"
         text=""
         position={[5.7, 2, 6]}
@@ -85,14 +82,14 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/3i9RVbg"
+        link="https://bit.ly/3i9RVbg"
         text=""
         position={[16.5, 2, -6]}
         rotation-y={[-Math.PI / 2]}
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/3lcKFxq"
+        link="https://bit.ly/3lcKFxq"
         smType="youtube.com"
         text=""
         position={[16.5, 2, -3]}
@@ -100,7 +97,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/3zLAsfa"
+        link="https://bit.ly/3zLAsfa"
         smType="soundcloud.com"
         text=""
         position={[16.5, 2, 0]}
@@ -108,7 +105,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="spoti.fi/3iiKz5D"
+        link="https://spoti.fi/3iiKz5D"
         smType="open.spotify.com"
         text=""
         position={[16.5, 2, 3]}
@@ -116,7 +113,7 @@ const RightWall = () => {
         scale={10.0}
       />
       <AnnotatedLink
-        link="bit.ly/3fbzLUW"
+        link="https://bit.ly/3fbzLUW"
         smType="discord.com"
         text=""
         position={[16.5, 2, 6]}
