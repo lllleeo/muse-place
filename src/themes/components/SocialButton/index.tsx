@@ -10,19 +10,16 @@ import Typeform from "./models/Typeform";
 import Soundcloud from "./models/Soundcloud";
 import Email from "./models/Email";
 import Nifty from "./models/Nifty";
-import Discord from "./models/Discord";
-import Twitch from "../../../scenes/LucidMonday2/ideas/CarnivalEntrance/components/SocialMediaButton/models/Twitch";
 import { GroupProps } from "@react-three/fiber";
 
 type SocialProps = {
   link: string;
-  smType?: string;
 } & GroupProps;
 
 export default function SocialButton(props: SocialProps) {
-  const { link, smType, ...restProps } = props;
+  const { link, ...restProps } = props;
 
-  const lowerLink = smType ? smType : link.toLowerCase();
+  const lowerLink = link.toLowerCase();
 
   const Model = lowerLink.includes("instagram.com")
     ? Instagram
@@ -40,10 +37,6 @@ export default function SocialButton(props: SocialProps) {
     ? Soundcloud
     : lowerLink.includes("niftygateway.com")
     ? Nifty
-    : lowerLink.includes("discord.com")
-    ? Discord
-    : lowerLink.includes("twitch.tv")
-    ? Twitch
     : Web;
 
   const handleClick = () => window.open(link, "_blank");
