@@ -1,6 +1,6 @@
 import { Text } from "@react-three/drei";
 import { Color } from "three";
-import SocialButton from "../../../../../themes/components/SocialButton";
+import SocialButton from "./SocialMediaButton";
 import { GroupProps } from "@react-three/fiber";
 
 const FRAME_COLOR = new Color(0xffffff);
@@ -36,7 +36,7 @@ function AnnotatedLink(
 const RightWall = () => {
   return (
     <group
-      name="right-wall"
+      name="socials"
       rotation={[0, -Math.PI / 2, 0]}
       position={[4.0, -0.35, -7.8]}
       scale={[0.7, 0.7, 0.7]}

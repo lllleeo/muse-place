@@ -66,7 +66,7 @@ export const topFloorOnly = (x: number, y: number, z: number): Vector3 => {
 export const slightRandomScale = (x: number, y: number, z: number): Vector3 =>
   new Vector3(
     1 + range(x, 0.25),
-    1 + range(y, 0.6),
+    1 + range(y, 0.4),
     1 + range(z, 0.25)
   ).multiplyScalar(GLOBAL_SCALE);
 

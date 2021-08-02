@@ -34,11 +34,14 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   useTrimeshCollision(
-    (nodes.collider.geometry as BufferGeometry).clone().translate(3, 70, 10)
+    (nodes.collider.geometry as BufferGeometry)
+      .clone()
+      .scale(0.65, 0.65, 0.65)
+      .translate(3, 70, 10)
   );
   return (
     <group ref={group} {...props} dispose={null}>
-      <group>
+      <group scale={0.65}>
         <mesh
           name="balloons"
           geometry={nodes.balloons.geometry}
